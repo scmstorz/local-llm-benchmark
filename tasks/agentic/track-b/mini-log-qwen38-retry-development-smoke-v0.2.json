@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "mini-log-qwen38-retry-development-smoke-v0.2",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-05",
+  "track": "B",
+  "harness_id": "mini-log-v0.2",
+  "protocol_id": "agentic-log-incident-v0.2",
+  "evidence_class": "excluded_development_smoke",
+  "purpose": "Determine whether the offline-qualified three-case Mini Log v0.2 path produces one complete and interpretable live report-v2 trajectory before a measured Capability Sweep is designed.",
+  "repository_commit": "c2d3593f5e28b16959d124fe224b52981280a748",
+  "runtime": {
+    "name": "ollama",
+    "version": "0.33.2",
+    "host": "http://127.0.0.1:11434"
+  },
+  "deployment": {
+    "name": "qwen3.8:27b-mlx",
+    "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "size_bytes": 18174721847,
+    "quantization": "nvfp4",
+    "template_sha256": "b507b9c2f6ca642bffcd06665ea7c91f235fd32daeefdf875a0f938db05fb315",
+    "selection_reason": "The same previously characterized active-default Qwen 3.8 deployment is used for both v0.2 machinery smokes. This is not comparative model evidence."
+  },
+  "case": {
+    "case_id": "agentic.ops.retry-queue-amplification",
+    "case_version": "1.0.0",
+    "case_path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/case.json",
+    "selection_reason": "A newly added report-v2 case exercises root cause, trigger, nonlinear amplification and full-recovery evidence rather than repeating the v0.1 checkout smoke."
+  },
+  "configuration": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 4000,
+    "maximum_active_wall_time_seconds": 300,
+    "provider_request_timeout_seconds": 180,
+    "maximum_agent_turns": null,
+    "maximum_total_output_tokens": null,
+    "maximum_protocol_errors": null,
+    "maximum_file_reads_emergency": 40,
+    "automatic_retries": 0
+  },
+  "execution_boundary": {
+    "model_call": "A separate command may contact only loopback Ollama and cannot execute a candidate action.",
+    "action_step": "A separate command may read one selected-case manifest file or persist the final report; no candidate command or code is executable.",
+    "final_verification": "A separate command applies the hidden deterministic verifier after terminal report submission.",
+    "other_case_fixtures_present": false,
+    "hidden_evaluation_feedback_to_model": false,
+    "external_network_available_to_agent": false
+  },
+  "success_gate_for_sweep_planning": {
+    "requires_verified_success": false,
+    "requires_complete_terminal_outcome": true,
+    "requires_no_adapter_or_orchestration_defect": true,
+    "requires_failure_if_any_to_be_machine_classified": true
+  },
+  "comparison_rules": {
+    "attempts": 1,
+    "automatic_retries": 0,
+    "result_excluded_from_measured_aggregates": true,
+    "no_model_or_harness_ranking_claim": true
+  },
+  "authorization": {
+    "source": "The user explicitly authorized both v0.2 smoke tests after stopping Behat and other workloads on 2026-09-05.",
+    "live_execution_allowed_after_resource_gate": true
+  },
+  "frozen_inputs": {
+    "qualification_path": "tasks/agentic/track-b/mini-log-v0.2-qualification.json",
+    "qualification_sha256": "9614a9eea0a80554c188bb6859063fa3261436a25838b865fa1fce9111302588",
+    "artifacts": [
+      {"path": "local_llm_benchmark/log_incident_mini_v02.py", "sha256": "b504aa384038cfd9db9f91858baac46a2a024f1b968edeb33a8b494b13259982"},
+      {"path": "tasks/agentic/track-b/mini-log-v0.2.json", "sha256": "606cb19cef2e0377e7145f1f23d17b07df9cd184fd6e0b4768927deb9d5b0457"},
+      {"path": "tasks/agentic/track-b/log-incident-v0.2.json", "sha256": "6ed0d31b0b3c272de745b3655f4bb280fccd046aaaa77e401dd6798f55cdc7d5"},
+      {"path": "tasks/agentic/track-b/mini-log-v0.2-qualification.json", "sha256": "9614a9eea0a80554c188bb6859063fa3261436a25838b865fa1fce9111302588"},
+      {"path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/case.json", "sha256": "cd1ae7b642c4dc208cb8d560f18156348a8f5c70c76bb1d9874005195a098065"},
+      {"path": "models/catalog.json", "sha256": "79e56238c9405d27dfba266e319a837571b6239cb9a6d1682729e58ebcf3d834"},
+      {"path": "models/lifecycle.json", "sha256": "18d896067eddf62ddf3c7ded8d34f22e32fef9994877239cf8e6abf877c30621"}
+    ]
+  }
+}

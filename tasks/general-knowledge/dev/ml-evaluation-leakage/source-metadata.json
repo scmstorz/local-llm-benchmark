@@ -1,0 +1,7 @@
+{
+  "schema_version":"1.0.0","source_id":"reference.general-knowledge.ml-evaluation-leakage.2026-08-29","title":"Frozen reference dossier: leakage and selection bias in ML evaluation","publisher":"Local LLM Benchmark Lab","page_type":"project_authored_reference_dossier","retrieved_at":"2026-08-29","source_language":"en",
+  "authoritative_sources":["https://scikit-learn.org/stable/common_pitfalls.html","https://www.jmlr.org/beta/papers/v11/cawley10a.html","https://scikit-learn.org/stable/auto_examples/model_selection/plot_nested_cross_validation_iris.html","https://scikit-learn.org/stable/modules/cross_validation.html"],
+  "artifacts":{"reference_source":{"path":"tasks/general-knowledge/dev/ml-evaluation-leakage/reference.md","sha256":"de4d1372c38c31804c505afb0b9a15962372be5159e96a295661c4f0eeedba2e","word_count_whitespace":503,"location_labels_added":true,"candidate_visible":false}},
+  "construction":{"method":"Project-authored synthesis of cited authoritative sources","semantic_policy":"Preserve source distinctions and conditions without copying source prose.","frozen_on":"2026-08-29"},
+  "copyright":{"dossier_license":"project_repository_license","source_publications_copied":false,"git_tracked":true}
+}

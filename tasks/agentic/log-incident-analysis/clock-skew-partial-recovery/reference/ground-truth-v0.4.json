@@ -1,0 +1,71 @@
+{
+  "schema_version": "3.0.0",
+  "case_id": "agentic.ops.clock-skew-partial-recovery",
+  "incident": {
+    "start_utc": "2026-09-05T08:14:11Z",
+    "last_observed_utc": "2026-09-05T08:23:00Z",
+    "primary_service": "payment-validation",
+    "affected_user_journey": "checkout_authorization",
+    "recovery_status": "partial"
+  },
+  "diagnosis": {
+    "root_cause_code": "host_clock_skew",
+    "required_trigger_codes": ["node_reentered_pool"]
+  },
+  "required_causal_chain_subsequence": [
+    "TIME-100",
+    "TIME-101",
+    "LB-200",
+    "LB-201",
+    "PAY3-300",
+    "EDGE-401",
+    "EDGE-403",
+    "LB-203",
+    "EDGE-404",
+    "REC-702"
+  ],
+  "required_evidence": {
+    "root_cause": ["TIME-101"],
+    "trigger": ["LB-200"],
+    "symptom": ["PAY3-300"],
+    "impact": ["EDGE-401", "REC-700"],
+    "recovery": ["LB-203", "EDGE-404", "REC-702"]
+  },
+  "accepted_rejected_hypothesis_evidence_groups": {
+    "payment_provider_outage": [
+      ["PROV-501", "PROV-502"]
+    ],
+    "database_replication_failure": [
+      ["DB-601", "DB-602"]
+    ]
+  },
+  "required_impact_codes": [
+    "checkout_authorization_failed",
+    "checkout_latency_increased",
+    "reconciliation_backlog_remaining"
+  ],
+  "forbidden_impact_codes": ["payments_lost", "all_payment_nodes_unavailable"],
+  "required_recommendation_codes": [
+    "remove_skewed_node",
+    "restore_time_synchronization",
+    "reject_unhealthy_clock_offset",
+    "alert_on_clock_offset",
+    "reconcile_pending_authorizations"
+  ],
+  "required_uncertainty_codes": [
+    "exact_failed_checkout_count_unknown",
+    "clock_configuration_change_owner_unknown",
+    "backlog_full_recovery_time_unknown",
+    "payment_data_loss_unknown"
+  ],
+  "forbidden_diagnosis_fragments": [
+    "provider caused the incident",
+    "database caused the incident",
+    "all payment nodes were skewed"
+  ],
+  "forbidden_impact_fragments": [
+    "full recovery was confirmed",
+    "all payments were lost",
+    "all payment nodes were unavailable"
+  ]
+}

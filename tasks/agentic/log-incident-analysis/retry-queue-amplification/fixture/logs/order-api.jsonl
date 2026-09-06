@@ -1,0 +1,5 @@
+{"event_id":"API-400","timestamp":"2026-09-05T08:09:45Z","level":"INFO","route":"/orders/status","status":200,"p95_ms":91}
+{"event_id":"API-401","timestamp":"2026-09-05T08:12:44Z","level":"WARN","route":"/orders/status","status":200,"p95_ms":2410,"message":"fulfillment state delayed"}
+{"event_id":"API-402","timestamp":"2026-09-05T08:13:12Z","level":"ERROR","route":"/orders/status","status":503,"upstream":"fulfillment-read-model","duration_ms":3002}
+{"event_id":"API-403","timestamp":"2026-09-05T08:20:31Z","level":"WARN","route":"/orders/status","status":200,"p95_ms":884,"message":"recovering while queue drains"}
+{"event_id":"API-404","timestamp":"2026-09-05T08:25:49Z","level":"INFO","route":"/orders/status","status":200,"p95_ms":96,"recovery_window":"confirmed"}

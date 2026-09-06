@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "log-incident-visible-evaluation-v0.5",
+  "status": "qualification_candidate",
+  "purpose": "Bind every essential semantic verifier check and the v0.4 audit repairs to a candidate-visible rule before model contact.",
+  "essential_checks": [
+    {
+      "check_id": "report_schema",
+      "visible_marker": "[REPORT-SCHEMA]",
+      "requirement": "Return every field required by report contract v2 with no additional fields."
+    },
+    {
+      "check_id": "incident_start_utc",
+      "visible_marker": "[INCIDENT-START]",
+      "requirement": "start_utc is the earliest supplied timestamp proving user-facing impact in the selected journey."
+    },
+    {
+      "check_id": "last_observed_utc",
+      "visible_marker": "[LAST-OBSERVATION]",
+      "requirement": "last_observed_utc is the timestamp of the final supplied evidence used to assess recovery."
+    },
+    {
+      "check_id": "recovery_status",
+      "visible_marker": "[RECOVERY-STATUS]",
+      "requirement": "Classify recovery as full, partial or not_observed from the final evidence."
+    },
+    {
+      "check_id": "affected_scope",
+      "visible_marker": "[AFFECTED-SCOPE]",
+      "requirement": "Select exact primary-service and affected-journey IDs from a candidate-visible case-specific codebook; optional component detail belongs in prose or evidence."
+    },
+    {
+      "check_id": "root_cause",
+      "visible_marker": "[ROOT-CAUSE]",
+      "requirement": "Classify the underlying defect separately from its trigger and downstream symptoms."
+    },
+    {
+      "check_id": "trigger",
+      "visible_marker": "[TRIGGER]",
+      "requirement": "Identify the event or condition that exposed the underlying defect."
+    },
+    {
+      "check_id": "citation_integrity",
+      "visible_marker": "[CITATIONS]",
+      "requirement": "Every event citation must use an exact supplied event ID and its exact source file."
+    },
+    {
+      "check_id": "causal_chain",
+      "visible_marker": "[CAUSAL-CHAIN]",
+      "requirement": "Order the evidence-supported chain from cause and trigger through propagation, impact and recovery."
+    },
+    {
+      "check_id": "critical_evidence",
+      "visible_marker": "[EVIDENCE-ROLES]",
+      "requirement": "Associate critical evidence with its most direct role; no event is secretly required under multiple roles."
+    },
+    {
+      "check_id": "distractor_rejection",
+      "visible_marker": "[DISTRACTOR-REJECTION]",
+      "requirement": "Reject required alternatives with one sufficient direct-evidence group. Only IDs in rejected_hypotheses[].evidence_ids count; IDs mentioned only in prose or elsewhere do not count."
+    },
+    {
+      "check_id": "bounded_impact",
+      "visible_marker": "[BOUNDED-IMPACT]",
+      "requirement": "Include every supported impact category and exclude unsupported escalation."
+    },
+    {
+      "check_id": "remediation",
+      "visible_marker": "[REMEDIATION]",
+      "requirement": "Recommend immediate, preventive and detection actions supported by the failure mechanism."
+    },
+    {
+      "check_id": "uncertainty",
+      "visible_marker": "[UNCERTAINTY]",
+      "requirement": "Represent material facts not established by the supplied evidence as controlled uncertainties."
+    },
+    {
+      "check_id": "controlled_code_integrity",
+      "visible_marker": "[CONTROLLED-CODE-INTEGRITY]",
+      "requirement": "Every machine-scored categorical field uses a value from its candidate-visible codebook. Free-text assertion polarity is not inferred lexically and remains subject to separate human or LLM calibration."
+    }
+  ],
+  "alignment_rule": "A case is not eligible for model contact unless its visible task contains every marker in this exact verifier order, every machine-scored controlled value appears in the task, and the v0.4 audit repairs have passing positive and negative controls.",
+  "primary_semantic_outcome": "semantic_verified_success",
+  "transport_outcome": "strict_transport_compliance",
+  "composite_score": false,
+  "supplemental_free_text_claim_review_required": true
+}

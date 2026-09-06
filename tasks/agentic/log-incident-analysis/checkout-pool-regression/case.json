@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "agentic.ops.checkout-pool-regression",
+  "case_version": "1.0.0",
+  "track": "B",
+  "task_family": "incident_investigation",
+  "status": "development_before_live_qualification",
+  "task_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/TASK.md",
+  "fixture": {
+    "root": "tasks/agentic/log-incident-analysis/checkout-pool-regression/fixture",
+    "manifest_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/fixture-manifest.json",
+    "manifest_version": "1.0.0"
+  },
+  "candidate_context": {
+    "files": [
+      "logs/auth.jsonl",
+      "logs/gateway-2026-09-05.log",
+      "logs/orders.jsonl",
+      "logs/payment-api.log",
+      "logs/payment-api.log.1",
+      "logs/postgres.log"
+    ],
+    "read_only": true,
+    "browsing_allowed": false,
+    "shared_state_allowed": false
+  },
+  "output_contract": {
+    "format": "structured_incident_report",
+    "version": "1.0.0",
+    "schema_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/report-schema-v1.json",
+    "maximum_serialized_bytes": 32768
+  },
+  "verification": {
+    "version": "1.0.0",
+    "ground_truth_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/reference/ground-truth.json",
+    "reference_report_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/reference/reference-report.json",
+    "implementation_path": "local_llm_benchmark/log_incident.py"
+  },
+  "evaluation": {
+    "benchmark_card_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/benchmark-card.json",
+    "benchmark_card_version": "1.0.0",
+    "primary_outcome": "verified_success",
+    "llm_judge_required": false
+  }
+}

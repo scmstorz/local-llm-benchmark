@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "source-packet.ai-transformation-value-gap.2026-08-30",
+  "title": "Source-separated evidence packet: AI transformation and the enterprise value gap",
+  "publisher": "Local LLM Benchmark Lab",
+  "page_type": "project_authored_source_separated_evidence_packet",
+  "retrieved_at": "2026-08-30",
+  "source_language": "en",
+  "sources": [
+    {
+      "source_number": 1,
+      "title": "The state of AI: How organizations are rewiring to capture value",
+      "publisher": "McKinsey & Company",
+      "publication_date": "2025-03-12",
+      "canonical_url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-how-organizations-are-rewiring-to-capture-value",
+      "evidence_type": "global_cross_sectional_self_report_survey"
+    },
+    {
+      "source_number": 2,
+      "title": "Generative AI at Work",
+      "authors": "Erik Brynjolfsson, Danielle Li and Lindsey R. Raymond",
+      "publisher": "NBER working paper; subsequently The Quarterly Journal of Economics",
+      "working_paper_revision": "2023-11",
+      "published_version_date": "2025-05",
+      "working_paper_url": "https://www.nber.org/papers/w31161",
+      "published_version_url": "https://doi.org/10.1093/qje/qjae044",
+      "evidence_type": "staggered_workplace_deployment_with_operational_data"
+    },
+    {
+      "source_number": 3,
+      "title": "Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of Artificial Intelligence on Knowledge Worker Productivity and Quality",
+      "authors": "Fabrizio Dell'Acqua et al.",
+      "publisher": "Organization Science",
+      "publication_date": "2026-03-11",
+      "doi": "10.1287/orsc.2025.21838",
+      "canonical_url": "https://doi.org/10.1287/orsc.2025.21838",
+      "evidence_type": "preregistered_randomized_experiment",
+      "license": "CC BY 4.0"
+    },
+    {
+      "source_number": 4,
+      "title": "The Cybernetic Teammate: A Field Experiment on Generative AI Reshaping Teamwork and Expertise",
+      "authors": "Fabrizio Dell'Acqua et al.",
+      "publisher": "NBER working paper; subsequently Organization Science",
+      "working_paper_date": "2025-04",
+      "working_paper_url": "https://www.nber.org/papers/w33641",
+      "published_version_url": "https://doi.org/10.1287/orsc.2025.20702",
+      "evidence_type": "preregistered_randomized_field_experiment"
+    },
+    {
+      "source_number": 5,
+      "title": "Shifting Work Patterns with Generative AI",
+      "authors": "Eleanor W. Dillon, Sonia Jaffe, Nicole Immorlica and Christopher T. Stanton",
+      "publisher": "NBER",
+      "working_paper_date": "2025-05",
+      "revision_date": "2025-11",
+      "canonical_url": "https://www.nber.org/papers/w33795",
+      "evidence_type": "multifirm_randomized_field_experiment_with_application_telemetry"
+    }
+  ],
+  "artifacts": {
+    "source_packet": {
+      "path": "tasks/source-grounded-writing/dev/ai-transformation-value-gap/source-packet.md",
+      "sha256": "e11f73ab6a5778176a9e81a5f1297f9c5336fdc3ba7bf425cb8a2f71ac317c53",
+      "word_count_whitespace": 2048,
+      "location_labels_added": true,
+      "candidate_visible": true,
+      "git_tracked": true
+    },
+    "personal_thoughts": {
+      "private_path": "data/private/source-grounded-writing/dev/ai-transformation-value-gap/personal-thoughts.md",
+      "sha256": "6ef00c93fa745c64ccf63a7ff2960f46462aaaba024cd32844782e959f9e14ef",
+      "word_count_whitespace": 183,
+      "thought_labels": ["T01", "T02", "T03"],
+      "authorship": "User-authored ideas, consolidated with user approval before candidate generation",
+      "candidate_visible": true,
+      "git_tracked": false,
+      "frozen_on": "2026-08-30"
+    },
+    "generative_ai_at_work_pdf": {
+      "private_path": "data/private/source-grounded-writing/dev/ai-transformation-value-gap/raw/generative-ai-at-work-w31161.pdf",
+      "sha256": "9af82b90f2a94f8757ace8c7b7ef0934b145a00f4156fc806f4fb8a33e1bddc2",
+      "page_count": 67,
+      "role": "Accuracy verification only"
+    },
+    "jagged_frontier_pdf": {
+      "private_path": "data/private/source-grounded-writing/dev/ai-transformation-value-gap/raw/jagged-technological-frontier-org-science-2026.pdf",
+      "sha256": "433c4d57cb9a4e60869594b1b8e701d71b57d092abb053ce88be42ae1aed00ce",
+      "page_count": 22,
+      "role": "Accuracy verification only"
+    },
+    "cybernetic_teammate_pdf": {
+      "private_path": "data/private/source-grounded-writing/dev/ai-transformation-value-gap/raw/cybernetic-teammate-w33641.pdf",
+      "sha256": "407c56ba1d08b782678ee4553dbbc437b6b310f96fd3be0e007a2a6b61a7f982",
+      "page_count": 54,
+      "role": "Accuracy verification only"
+    },
+    "shifting_work_patterns_pdf": {
+      "private_path": "data/private/source-grounded-writing/dev/ai-transformation-value-gap/raw/shifting-work-patterns-w33795-current.pdf",
+      "sha256": "60456dd1fbe3b214aa49ce877604c0d292353ad33c6695cb31182eb66d920cfe",
+      "page_count": 38,
+      "role": "Accuracy verification only"
+    }
+  },
+  "construction": {
+    "method": "Project-authored, source-by-source evidence cards based on the cited original publications",
+    "semantic_policy": "Paraphrase atomic methods, findings and limitations; preserve source-specific scope and uncertainty; add no cross-source thesis or transitions.",
+    "narrative_synthesis_supplied": false,
+    "source_boundaries_preserved": true,
+    "frozen_on": "2026-08-30"
+  },
+  "copyright": {
+    "source_publications_copied": false,
+    "packet_license": "project_repository_license",
+    "public_repository_policy": "Publish the project-authored evidence packet, citations and hashes; keep downloaded source PDFs local."
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "source-packet.agentic-software-development-reality-gap.2026-08-30",
+  "title": "Source-separated evidence packet: Agentic software development and the reality gap",
+  "publisher": "Local LLM Benchmark Lab",
+  "page_type": "project_authored_source_separated_evidence_packet",
+  "retrieved_at": "2026-08-30",
+  "source_language": "en",
+  "sources": [
+    {
+      "source_number": 1,
+      "title": "SWE-Lancer: Can Frontier LLMs Earn $1 Million from Real-World Freelance Software Engineering?",
+      "authors": "Samuel Miserendino, Michele Wang, Tejal Patwardhan and Johannes Heidecke",
+      "publisher": "Proceedings of the 42nd International Conference on Machine Learning, PMLR 267",
+      "publication_year": 2025,
+      "canonical_url": "https://proceedings.mlr.press/v267/miserendino25a.html",
+      "arxiv_url": "https://arxiv.org/abs/2502.12115",
+      "evidence_type": "execution_based_economic_software_agent_benchmark"
+    },
+    {
+      "source_number": 2,
+      "title": "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering",
+      "authors": "John Yang, Carlos E. Jimenez, Alexander Wettig, Kilian Lieret, Shunyu Yao, Karthik Narasimhan and Ofir Press",
+      "publisher": "Advances in Neural Information Processing Systems 37",
+      "publication_year": 2024,
+      "canonical_url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/5a7c947568c1b1328ccc5230172e1e7c-Abstract-Conference.html",
+      "doi": "10.52202/079017-1601",
+      "arxiv_url": "https://arxiv.org/abs/2405.15793",
+      "evidence_type": "agent_interface_design_and_ablation_study"
+    },
+    {
+      "source_number": 3,
+      "title": "Measuring AI Ability to Complete Long Software Tasks",
+      "authors": "Thomas Kwa, Ben West, Joel Becker et al.",
+      "publisher": "NeurIPS 2025; arXiv revision 4",
+      "initial_publication_date": "2025-03-18",
+      "revision_date": "2026-07-10",
+      "canonical_url": "https://metr.org/time-horizons/",
+      "arxiv_url": "https://arxiv.org/abs/2503.14499v4",
+      "evidence_type": "multi_model_task_completion_time_horizon_evaluation"
+    },
+    {
+      "source_number": 4,
+      "title": "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity",
+      "authors": "Joel Becker, Nate Rush, Beth Barnes and David Rein",
+      "publisher": "Model Evaluation and Threat Research",
+      "publication_date": "2025-07-10",
+      "canonical_url": "https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/",
+      "arxiv_url": "https://arxiv.org/abs/2507.09089v2",
+      "evidence_type": "randomized_controlled_real_repository_productivity_trial"
+    },
+    {
+      "source_number": 5,
+      "title": "DORA 2025 State of AI-assisted Software Development Report",
+      "authors": "Derek DeBellis, Kevin Storer, Nathen Harvey et al.",
+      "publisher": "DORA and Google",
+      "publication_year": 2025,
+      "report_version": "2025.2",
+      "canonical_url": "https://dora.dev/research/2025/dora-report/",
+      "research_url": "https://research.google/pubs/dora-2025-state-of-ai-assisted-software-development-report/",
+      "evidence_type": "global_cross_sectional_survey_interviews_and_observational_modeling",
+      "license": "CC BY 4.0"
+    }
+  ],
+  "artifacts": {
+    "source_packet": {
+      "path": "tasks/source-grounded-writing/dev/agentic-software-development-reality-gap/source-packet.md",
+      "sha256": "8df198d0afa5c910a6bfa0ab926714e8b2db89ae9c9d32473e960581659c687d",
+      "word_count_whitespace": 2070,
+      "location_labels_added": true,
+      "candidate_visible": true,
+      "git_tracked": true
+    },
+    "personal_thoughts": {
+      "private_path": "data/private/source-grounded-writing/dev/agentic-software-development-reality-gap/personal-thoughts.md",
+      "sha256": "c1b816c18349f23cd32d491acefea6752508536f918e34b11c9b23bbde5b50d4",
+      "word_count_whitespace": 173,
+      "thought_labels": ["T01", "T02", "T03"],
+      "authorship": "User-authored ideas, consolidated with user approval before candidate generation",
+      "candidate_visible": true,
+      "git_tracked": false,
+      "frozen_on": "2026-08-31"
+    },
+    "swe_lancer_pdf": {
+      "private_path": "data/private/source-grounded-writing/dev/agentic-software-development-reality-gap/raw/swe-lancer-v4.pdf",
+      "sha256": "5592089e626e52af27222a144f65ef8e2748e4f8a2ab3cba29df82366a48a5c8",
+      "page_count": 39,
+      "role": "Accuracy verification only"
+    },
+    "swe_agent_pdf": {
+      "private_path": "data/private/source-grounded-writing/dev/agentic-software-development-reality-gap/raw/swe-agent.pdf",
+      "sha256": "d171e0693060b910ceb2cddd0fd4bc7cae302005d42d0d8059bfdbe056c3adba",
+      "page_count": 118,
+      "role": "Accuracy verification only"
+    },
+    "metr_time_horizons_pdf": {
+      "private_path": "data/private/source-grounded-writing/dev/agentic-software-development-reality-gap/raw/metr-time-horizons-v4.pdf",
+      "sha256": "29216eb3af4daa417666757a462ab7c7b5f8c18c188ee5a56e258b04116211f7",
+      "page_count": 45,
+      "role": "Accuracy verification only"
+    },
+    "metr_developer_productivity_pdf": {
+      "private_path": "data/private/source-grounded-writing/dev/agentic-software-development-reality-gap/raw/metr-developer-productivity-v2.pdf",
+      "sha256": "3e18d9e097a3163dbae662e8b7c68ace0510be433891994b136ae7730beab25c",
+      "page_count": 51,
+      "role": "Accuracy verification only"
+    },
+    "dora_2025_pdf": {
+      "private_path": "data/private/source-grounded-writing/dev/agentic-software-development-reality-gap/raw/dora-2025-v2025.2.pdf",
+      "sha256": "b403c537496ba97e6cf3fff14d5b172f69fd483b173450bd4b7186c7d56f53f8",
+      "page_count": 142,
+      "role": "Accuracy verification only",
+      "download_source": "Thoughtworks-hosted copy of the DORA report; report identity and version verified against DORA's official errata page"
+    }
+  },
+  "construction": {
+    "method": "Project-authored, source-by-source evidence cards based on the cited original publications",
+    "semantic_policy": "Paraphrase atomic methods, findings and limitations; preserve source-specific scope and uncertainty; add no cross-source thesis or transitions.",
+    "narrative_synthesis_supplied": false,
+    "source_boundaries_preserved": true,
+    "frozen_on": "2026-08-30"
+  },
+  "copyright": {
+    "source_publications_copied": false,
+    "packet_license": "project_repository_license",
+    "public_repository_policy": "Publish the project-authored evidence packet, citations and hashes; keep downloaded source PDFs local."
+  }
+}

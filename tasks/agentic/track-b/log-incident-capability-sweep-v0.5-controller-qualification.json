@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "log-incident-capability-sweep-v0.5-controller-no-inference",
+  "qualified_on": "2026-09-06",
+  "status": "qualified_for_authorized_execution",
+  "plan_id": "must_be_frozen_after_this_implementation_commit",
+  "authorization_id": "must_be_created_after_plan_freeze",
+  "experimental_scope": "No live inference. A temporary five-model by two-harness by three-case plan exercised the v0.5 capability-sweep loader, active-default cohort enforcement, model-bound post-freeze authorization, first-cell preparation, explicit live boundary, mocked checkpoint lifecycle and public-safe multi-model report path.",
+  "qualification_evidence": {
+    "temporary_thirty_cell_product_validated": true,
+    "active_default_cohort_enforced": true,
+    "missing_active_default_model_rejected": true,
+    "temporary_authorization_plan_and_model_bound": true,
+    "repository_live_authorization_present": false,
+    "first_cell_prepared_without_inference": true,
+    "live_boundary_requires_explicit_confirmation": true,
+    "mocked_live_boundary_checkpointed": true,
+    "model_and_system_aggregates_reported": true,
+    "semantic_and_transport_outcomes_reported_separately": true,
+    "supplemental_free_text_review_requirement_reported": true,
+    "private_candidate_content_excluded_from_public_report": true,
+    "absolute_paths_excluded_from_public_report": true,
+    "focused_python_tests_passed": 7,
+    "repository_python_tests_passed": 426,
+    "active_node_tests_passed": 21,
+    "opt_in_live_transport_tests_skipped": 1,
+    "live_ollama_requests": 0,
+    "live_model_inference": false
+  },
+  "interruption_policy": {
+    "raw_attempts_append_only": true,
+    "terminal_attempts_never_repeated": true,
+    "lost_live_process_classified_as_infrastructure_or_control_failure": true,
+    "automatic_retries": 0
+  },
+  "artifacts": [
+    {
+      "path": "local_llm_benchmark/log_incident_sweep_v05.py",
+      "sha256": "e67ae79dc46d0ae0c9ad4c7638c57f904aab9773b3eaf095463705589dab90bb"
+    },
+    {
+      "path": "local_llm_benchmark/log_incident_report_v05.py",
+      "sha256": "5b6b64b5287dead03150aed2e7f0729e31cb321ca345048aae578651e64a0cc4"
+    },
+    {
+      "path": "tests/test_log_incident_sweep_v05.py",
+      "sha256": "d5c5afe1f79a12457828a136bd3fda9f1704c10baa76a2cfdf919414fa21b229"
+    },
+    {
+      "path": "reports/agentic/log-incident-v0.5-specification-audit.json",
+      "sha256": "ca151e8f8205a451144597ca4b3123728db56320d95c28fad9930d1cbbe95e2a"
+    },
+    {
+      "path": "tasks/agentic/track-b/log-incident-v0.5.json",
+      "sha256": "019a676d0e7f6988e62b859a7a4cbf5e4edc155654529aec6142778a5dc727a4"
+    },
+    {
+      "path": "tasks/agentic/track-b/mini-log-v0.5.json",
+      "sha256": "37f5ad45ad4d7f217b5434ef43aa25c4b7b44dcb5f56ef9a739b541948661a28"
+    },
+    {
+      "path": "tasks/agentic/track-b/pi-log-v0.5.json",
+      "sha256": "8862df54b6bd1ad9f1d940d880a9f225ba5f8c711a85114f628766e328c387aa"
+    }
+  ],
+  "next_gate": "Commit this qualified controller implementation. Then freeze the exact active-default deployment matrix and balanced order against that commit before creating any execution authorization."
+}

@@ -1,0 +1,755 @@
+{
+  "by_case": [
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "case_label": "PHP payment migration",
+      "configuration_count": 5,
+      "mini_verified_success_count": 4,
+      "outcome_agreement_count": 4,
+      "pi_verified_success_count": 5,
+      "relations": {
+        "both_success": 4,
+        "pi_only_success": 1
+      }
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "case_label": "JavaScript async cache",
+      "configuration_count": 5,
+      "mini_verified_success_count": 0,
+      "outcome_agreement_count": 4,
+      "pi_verified_success_count": 1,
+      "relations": {
+        "both_failure": 4,
+        "pi_only_success": 1
+      }
+    },
+    {
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "case_label": "Python pagination guard",
+      "configuration_count": 5,
+      "mini_verified_success_count": 2,
+      "outcome_agreement_count": 2,
+      "pi_verified_success_count": 3,
+      "relations": {
+        "both_failure": 1,
+        "both_success": 1,
+        "mini_only_success": 1,
+        "pi_only_success": 2
+      }
+    }
+  ],
+  "by_model": [
+    {
+      "configuration_count": 3,
+      "mini_verified_success_count": 2,
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "outcome_agreement_count": 2,
+      "pi_verified_success_count": 1,
+      "relations": {
+        "both_failure": 1,
+        "both_success": 1,
+        "mini_only_success": 1
+      }
+    },
+    {
+      "configuration_count": 3,
+      "mini_verified_success_count": 1,
+      "model": "qwen3.8:27b-mlx",
+      "outcome_agreement_count": 1,
+      "pi_verified_success_count": 3,
+      "relations": {
+        "both_success": 1,
+        "pi_only_success": 2
+      }
+    },
+    {
+      "configuration_count": 3,
+      "mini_verified_success_count": 1,
+      "model": "muse-glimmer:30b-mlx",
+      "outcome_agreement_count": 3,
+      "pi_verified_success_count": 1,
+      "relations": {
+        "both_failure": 2,
+        "both_success": 1
+      }
+    },
+    {
+      "configuration_count": 3,
+      "mini_verified_success_count": 1,
+      "model": "ornith-1.5:35b",
+      "outcome_agreement_count": 2,
+      "pi_verified_success_count": 2,
+      "relations": {
+        "both_failure": 1,
+        "both_success": 1,
+        "pi_only_success": 1
+      }
+    },
+    {
+      "configuration_count": 3,
+      "mini_verified_success_count": 1,
+      "model": "gemma4:31b-mlx",
+      "outcome_agreement_count": 2,
+      "pi_verified_success_count": 2,
+      "relations": {
+        "both_failure": 1,
+        "both_success": 1,
+        "pi_only_success": 1
+      }
+    }
+  ],
+  "caveats": [
+    "Every matched system configuration has n=1, so outcome flips may reflect stochasticity and are not reliability estimates.",
+    "Pi v0.3 and Mini v0.3 differ in prompts, protocol, tool implementations, context accumulation and error handling. This is a complete-system comparison, not an isolated causal estimate of harness quality.",
+    "Active duration includes model and tool time, excludes host standby gaps, and is not adjusted for success. Duration deltas must be interpreted together with verified outcomes.",
+    "Token and turn counts are system-level trajectory measurements whose semantics can differ across harnesses.",
+    "No composite score or universal ranking is calculated."
+  ],
+  "cells": [
+    {
+      "active_duration_delta_seconds_mini_minus_pi": -0.31,
+      "active_duration_ratio_mini_to_pi": 0.997,
+      "case_id": "coding.dev.php-payment-result-migration",
+      "case_label": "PHP payment migration",
+      "mini": {
+        "active_duration_seconds": 105.82,
+        "agent_turns": 28,
+        "failed_tool_calls": 4,
+        "failure_type": null,
+        "file_reads": 17,
+        "file_writes": 5,
+        "input_tokens": 206953,
+        "output_tokens": 3257,
+        "public_test_runs": 4,
+        "runtime_success": true,
+        "tool_calls": 27,
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "outcome_agreement": true,
+      "outcome_relation": "both_success",
+      "pi": {
+        "active_duration_seconds": 106.13,
+        "agent_turns": 15,
+        "failed_tool_calls": 4,
+        "failure_type": null,
+        "file_reads": 16,
+        "file_writes": 6,
+        "input_tokens": 130651,
+        "output_tokens": 5957,
+        "public_test_runs": 3,
+        "runtime_success": true,
+        "tool_calls": 26,
+        "verified_success": true,
+        "verifier_success": true
+      }
+    },
+    {
+      "active_duration_delta_seconds_mini_minus_pi": -106.36,
+      "active_duration_ratio_mini_to_pi": 0.278,
+      "case_id": "coding.dev.async-cache-coalescing",
+      "case_label": "JavaScript async cache",
+      "mini": {
+        "active_duration_seconds": 40.91,
+        "agent_turns": 7,
+        "failed_tool_calls": 0,
+        "failure_type": "hidden_tests_failed",
+        "file_reads": 4,
+        "file_writes": 1,
+        "input_tokens": 15273,
+        "output_tokens": 588,
+        "public_test_runs": 1,
+        "runtime_success": true,
+        "tool_calls": 6,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "model": "qwen3.8:27b-mlx",
+      "outcome_agreement": false,
+      "outcome_relation": "pi_only_success",
+      "pi": {
+        "active_duration_seconds": 147.27,
+        "agent_turns": 5,
+        "failed_tool_calls": 0,
+        "failure_type": null,
+        "file_reads": 5,
+        "file_writes": 1,
+        "input_tokens": 27433,
+        "output_tokens": 5649,
+        "public_test_runs": 1,
+        "runtime_success": true,
+        "tool_calls": 7,
+        "verified_success": true,
+        "verifier_success": true
+      }
+    },
+    {
+      "active_duration_delta_seconds_mini_minus_pi": -152.62,
+      "active_duration_ratio_mini_to_pi": 0.33,
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "case_label": "Python pagination guard",
+      "mini": {
+        "active_duration_seconds": 75.05,
+        "agent_turns": 12,
+        "failed_tool_calls": 2,
+        "failure_type": "hidden_tests_failed",
+        "file_reads": 7,
+        "file_writes": 1,
+        "input_tokens": 31593,
+        "output_tokens": 1288,
+        "public_test_runs": 1,
+        "runtime_success": true,
+        "tool_calls": 11,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "model": "muse-glimmer:30b-mlx",
+      "outcome_agreement": true,
+      "outcome_relation": "both_failure",
+      "pi": {
+        "active_duration_seconds": 227.67,
+        "agent_turns": 4,
+        "failed_tool_calls": 2,
+        "failure_type": "invalid_agent_end",
+        "file_reads": 5,
+        "file_writes": 0,
+        "input_tokens": 5212,
+        "output_tokens": 383,
+        "public_test_runs": 0,
+        "runtime_success": true,
+        "tool_calls": 7,
+        "verified_success": false,
+        "verifier_success": false
+      }
+    },
+    {
+      "active_duration_delta_seconds_mini_minus_pi": -42.05,
+      "active_duration_ratio_mini_to_pi": 0.519,
+      "case_id": "coding.dev.php-payment-result-migration",
+      "case_label": "PHP payment migration",
+      "mini": {
+        "active_duration_seconds": 45.3,
+        "agent_turns": 23,
+        "failed_tool_calls": 3,
+        "failure_type": null,
+        "file_reads": 14,
+        "file_writes": 4,
+        "input_tokens": 129322,
+        "output_tokens": 2000,
+        "public_test_runs": 4,
+        "runtime_success": true,
+        "tool_calls": 22,
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "model": "ornith-1.5:35b",
+      "outcome_agreement": true,
+      "outcome_relation": "both_success",
+      "pi": {
+        "active_duration_seconds": 87.35,
+        "agent_turns": 10,
+        "failed_tool_calls": 2,
+        "failure_type": null,
+        "file_reads": 13,
+        "file_writes": 2,
+        "input_tokens": 43717,
+        "output_tokens": 5907,
+        "public_test_runs": 1,
+        "runtime_success": true,
+        "tool_calls": 18,
+        "verified_success": true,
+        "verifier_success": true
+      }
+    },
+    {
+      "active_duration_delta_seconds_mini_minus_pi": -135.49,
+      "active_duration_ratio_mini_to_pi": 0.276,
+      "case_id": "coding.dev.async-cache-coalescing",
+      "case_label": "JavaScript async cache",
+      "mini": {
+        "active_duration_seconds": 51.64,
+        "agent_turns": 6,
+        "failed_tool_calls": 1,
+        "failure_type": "hidden_tests_failed",
+        "file_reads": 2,
+        "file_writes": 1,
+        "input_tokens": 12209,
+        "output_tokens": 660,
+        "public_test_runs": 2,
+        "runtime_success": true,
+        "tool_calls": 5,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "model": "gemma4:31b-mlx",
+      "outcome_agreement": true,
+      "outcome_relation": "both_failure",
+      "pi": {
+        "active_duration_seconds": 187.13,
+        "agent_turns": 7,
+        "failed_tool_calls": 0,
+        "failure_type": "hidden_tests_failed",
+        "file_reads": 2,
+        "file_writes": 1,
+        "input_tokens": 36440,
+        "output_tokens": 6035,
+        "public_test_runs": 2,
+        "runtime_success": true,
+        "tool_calls": 5,
+        "verified_success": false,
+        "verifier_success": false
+      }
+    },
+    {
+      "active_duration_delta_seconds_mini_minus_pi": -229.12,
+      "active_duration_ratio_mini_to_pi": 0.376,
+      "case_id": "coding.dev.async-cache-coalescing",
+      "case_label": "JavaScript async cache",
+      "mini": {
+        "active_duration_seconds": 137.95,
+        "agent_turns": 11,
+        "failed_tool_calls": 1,
+        "failure_type": "hidden_tests_failed",
+        "file_reads": 5,
+        "file_writes": 2,
+        "input_tokens": 37067,
+        "output_tokens": 2533,
+        "public_test_runs": 2,
+        "runtime_success": true,
+        "tool_calls": 10,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "model": "muse-glimmer:30b-mlx",
+      "outcome_agreement": true,
+      "outcome_relation": "both_failure",
+      "pi": {
+        "active_duration_seconds": 367.07,
+        "agent_turns": 3,
+        "failed_tool_calls": 0,
+        "failure_type": "invalid_agent_end",
+        "file_reads": 5,
+        "file_writes": 0,
+        "input_tokens": 4496,
+        "output_tokens": 8893,
+        "public_test_runs": 0,
+        "runtime_success": true,
+        "tool_calls": 5,
+        "verified_success": false,
+        "verifier_success": false
+      }
+    },
+    {
+      "active_duration_delta_seconds_mini_minus_pi": -758.43,
+      "active_duration_ratio_mini_to_pi": 0.028,
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "case_label": "Python pagination guard",
+      "mini": {
+        "active_duration_seconds": 21.91,
+        "agent_turns": 8,
+        "failed_tool_calls": 0,
+        "failure_type": "hidden_tests_failed",
+        "file_reads": 5,
+        "file_writes": 1,
+        "input_tokens": 18932,
+        "output_tokens": 772,
+        "public_test_runs": 1,
+        "runtime_success": true,
+        "tool_calls": 7,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "model": "ornith-1.5:35b",
+      "outcome_agreement": false,
+      "outcome_relation": "pi_only_success",
+      "pi": {
+        "active_duration_seconds": 780.34,
+        "agent_turns": 14,
+        "failed_tool_calls": 6,
+        "failure_type": null,
+        "file_reads": 9,
+        "file_writes": 2,
+        "input_tokens": 74749,
+        "output_tokens": 45372,
+        "public_test_runs": 3,
+        "runtime_success": true,
+        "tool_calls": 17,
+        "verified_success": true,
+        "verifier_success": true
+      }
+    },
+    {
+      "active_duration_delta_seconds_mini_minus_pi": 749.08,
+      "active_duration_ratio_mini_to_pi": 5.835,
+      "case_id": "coding.dev.php-payment-result-migration",
+      "case_label": "PHP payment migration",
+      "mini": {
+        "active_duration_seconds": 904.02,
+        "agent_turns": 44,
+        "failed_tool_calls": 38,
+        "failure_type": "maximum_active_wall_time_exceeded",
+        "file_reads": 5,
+        "file_writes": 0,
+        "input_tokens": 309136,
+        "output_tokens": 7100,
+        "public_test_runs": 0,
+        "runtime_success": false,
+        "tool_calls": 43,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "model": "gemma4:31b-mlx",
+      "outcome_agreement": false,
+      "outcome_relation": "pi_only_success",
+      "pi": {
+        "active_duration_seconds": 154.94,
+        "agent_turns": 11,
+        "failed_tool_calls": 0,
+        "failure_type": null,
+        "file_reads": 7,
+        "file_writes": 2,
+        "input_tokens": 37645,
+        "output_tokens": 4834,
+        "public_test_runs": 1,
+        "runtime_success": true,
+        "tool_calls": 10,
+        "verified_success": true,
+        "verifier_success": true
+      }
+    },
+    {
+      "active_duration_delta_seconds_mini_minus_pi": 748.18,
+      "active_duration_ratio_mini_to_pi": 4.883,
+      "case_id": "coding.dev.async-cache-coalescing",
+      "case_label": "JavaScript async cache",
+      "mini": {
+        "active_duration_seconds": 940.88,
+        "agent_turns": 69,
+        "failed_tool_calls": 15,
+        "failure_type": "maximum_active_wall_time_exceeded",
+        "file_reads": 36,
+        "file_writes": 17,
+        "input_tokens": 1866105,
+        "output_tokens": 12618,
+        "public_test_runs": 15,
+        "runtime_success": false,
+        "tool_calls": 68,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "outcome_agreement": true,
+      "outcome_relation": "both_failure",
+      "pi": {
+        "active_duration_seconds": 192.7,
+        "agent_turns": 7,
+        "failed_tool_calls": 1,
+        "failure_type": "hidden_tests_failed",
+        "file_reads": 5,
+        "file_writes": 1,
+        "input_tokens": 74854,
+        "output_tokens": 11950,
+        "public_test_runs": 1,
+        "runtime_success": true,
+        "tool_calls": 8,
+        "verified_success": false,
+        "verifier_success": false
+      }
+    },
+    {
+      "active_duration_delta_seconds_mini_minus_pi": -47.99,
+      "active_duration_ratio_mini_to_pi": 0.755,
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "case_label": "Python pagination guard",
+      "mini": {
+        "active_duration_seconds": 147.49,
+        "agent_turns": 8,
+        "failed_tool_calls": 0,
+        "failure_type": "hidden_tests_failed",
+        "file_reads": 5,
+        "file_writes": 1,
+        "input_tokens": 17177,
+        "output_tokens": 581,
+        "public_test_runs": 1,
+        "runtime_success": true,
+        "tool_calls": 7,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "model": "qwen3.8:27b-mlx",
+      "outcome_agreement": false,
+      "outcome_relation": "pi_only_success",
+      "pi": {
+        "active_duration_seconds": 195.48,
+        "agent_turns": 8,
+        "failed_tool_calls": 3,
+        "failure_type": null,
+        "file_reads": 7,
+        "file_writes": 1,
+        "input_tokens": 34568,
+        "output_tokens": 4232,
+        "public_test_runs": 1,
+        "runtime_success": true,
+        "tool_calls": 11,
+        "verified_success": true,
+        "verifier_success": true
+      }
+    },
+    {
+      "active_duration_delta_seconds_mini_minus_pi": 334.8,
+      "active_duration_ratio_mini_to_pi": 2.309,
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "case_label": "Python pagination guard",
+      "mini": {
+        "active_duration_seconds": 590.6,
+        "agent_turns": 8,
+        "failed_tool_calls": 2,
+        "failure_type": null,
+        "file_reads": 3,
+        "file_writes": 1,
+        "input_tokens": 19445,
+        "output_tokens": 1662,
+        "public_test_runs": 1,
+        "runtime_success": true,
+        "tool_calls": 7,
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "model": "gemma4:31b-mlx",
+      "outcome_agreement": true,
+      "outcome_relation": "both_success",
+      "pi": {
+        "active_duration_seconds": 255.8,
+        "agent_turns": 15,
+        "failed_tool_calls": 6,
+        "failure_type": null,
+        "file_reads": 6,
+        "file_writes": 2,
+        "input_tokens": 95496,
+        "output_tokens": 7690,
+        "public_test_runs": 6,
+        "runtime_success": true,
+        "tool_calls": 14,
+        "verified_success": true,
+        "verifier_success": true
+      }
+    },
+    {
+      "active_duration_delta_seconds_mini_minus_pi": -453.94,
+      "active_duration_ratio_mini_to_pi": 0.153,
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "case_label": "Python pagination guard",
+      "mini": {
+        "active_duration_seconds": 81.98,
+        "agent_turns": 13,
+        "failed_tool_calls": 1,
+        "failure_type": null,
+        "file_reads": 7,
+        "file_writes": 3,
+        "input_tokens": 47993,
+        "output_tokens": 1538,
+        "public_test_runs": 2,
+        "runtime_success": true,
+        "tool_calls": 12,
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "outcome_agreement": false,
+      "outcome_relation": "mini_only_success",
+      "pi": {
+        "active_duration_seconds": 535.92,
+        "agent_turns": 59,
+        "failed_tool_calls": 51,
+        "failure_type": "emergency_operation_safeguard_exceeded",
+        "file_reads": 10,
+        "file_writes": 3,
+        "input_tokens": 1398953,
+        "output_tokens": 32325,
+        "public_test_runs": 30,
+        "runtime_success": true,
+        "tool_calls": 63,
+        "verified_success": false,
+        "verifier_success": false
+      }
+    },
+    {
+      "active_duration_delta_seconds_mini_minus_pi": 36.7,
+      "active_duration_ratio_mini_to_pi": 1.383,
+      "case_id": "coding.dev.php-payment-result-migration",
+      "case_label": "PHP payment migration",
+      "mini": {
+        "active_duration_seconds": 132.52,
+        "agent_turns": 17,
+        "failed_tool_calls": 0,
+        "failure_type": null,
+        "file_reads": 13,
+        "file_writes": 2,
+        "input_tokens": 67240,
+        "output_tokens": 981,
+        "public_test_runs": 1,
+        "runtime_success": true,
+        "tool_calls": 16,
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "model": "qwen3.8:27b-mlx",
+      "outcome_agreement": true,
+      "outcome_relation": "both_success",
+      "pi": {
+        "active_duration_seconds": 95.82,
+        "agent_turns": 5,
+        "failed_tool_calls": 0,
+        "failure_type": null,
+        "file_reads": 12,
+        "file_writes": 2,
+        "input_tokens": 24380,
+        "output_tokens": 3049,
+        "public_test_runs": 1,
+        "runtime_success": true,
+        "tool_calls": 15,
+        "verified_success": true,
+        "verifier_success": true
+      }
+    },
+    {
+      "active_duration_delta_seconds_mini_minus_pi": -160.95,
+      "active_duration_ratio_mini_to_pi": 0.566,
+      "case_id": "coding.dev.php-payment-result-migration",
+      "case_label": "PHP payment migration",
+      "mini": {
+        "active_duration_seconds": 210.03,
+        "agent_turns": 24,
+        "failed_tool_calls": 0,
+        "failure_type": null,
+        "file_reads": 17,
+        "file_writes": 5,
+        "input_tokens": 131180,
+        "output_tokens": 2138,
+        "public_test_runs": 1,
+        "runtime_success": true,
+        "tool_calls": 23,
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "model": "muse-glimmer:30b-mlx",
+      "outcome_agreement": true,
+      "outcome_relation": "both_success",
+      "pi": {
+        "active_duration_seconds": 370.98,
+        "agent_turns": 10,
+        "failed_tool_calls": 2,
+        "failure_type": null,
+        "file_reads": 14,
+        "file_writes": 2,
+        "input_tokens": 75168,
+        "output_tokens": 9674,
+        "public_test_runs": 2,
+        "runtime_success": true,
+        "tool_calls": 20,
+        "verified_success": true,
+        "verifier_success": true
+      }
+    },
+    {
+      "active_duration_delta_seconds_mini_minus_pi": -753.29,
+      "active_duration_ratio_mini_to_pi": 0.163,
+      "case_id": "coding.dev.async-cache-coalescing",
+      "case_label": "JavaScript async cache",
+      "mini": {
+        "active_duration_seconds": 146.73,
+        "agent_turns": 35,
+        "failed_tool_calls": 31,
+        "failure_type": "emergency_operation_safeguard_exceeded",
+        "file_reads": 4,
+        "file_writes": 0,
+        "input_tokens": 363583,
+        "output_tokens": 418,
+        "public_test_runs": 30,
+        "runtime_success": true,
+        "tool_calls": 35,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "model": "ornith-1.5:35b",
+      "outcome_agreement": true,
+      "outcome_relation": "both_failure",
+      "pi": {
+        "active_duration_seconds": 900.02,
+        "agent_turns": 5,
+        "failed_tool_calls": 2,
+        "failure_type": "maximum_active_wall_time_exceeded",
+        "file_reads": 4,
+        "file_writes": 1,
+        "input_tokens": 11750,
+        "output_tokens": 24621,
+        "public_test_runs": 1,
+        "runtime_success": false,
+        "tool_calls": 7,
+        "verified_success": false,
+        "verifier_success": true
+      }
+    }
+  ],
+  "evidence_class": "paired_complete_system_comparison",
+  "findings": [
+    "Pi produced 9/15 verified outcomes; Mini produced 6/15.",
+    "The systems agreed on verified success or failure in 10/15 matched cells.",
+    "Pi alone succeeded in 4 cells; Mini alone succeeded in 1 cell.",
+    "Both systems succeeded in 5 cells and both failed in 5 cells."
+  ],
+  "generated_at": "2026-09-05T06:34:58.290480Z",
+  "method": {
+    "automatic_retries": 0,
+    "causal_harness_effect_claimed": false,
+    "comparison_unit": "matched model-task cell",
+    "primary_outcome": "verified_success",
+    "runs_per_system_configuration": 1,
+    "systems": [
+      "pi-v0.3",
+      "mini-v0.3"
+    ],
+    "track": "B"
+  },
+  "privacy": {
+    "absolute_local_paths_included": false,
+    "candidate_source_included": false,
+    "raw_model_text_included": false,
+    "source_reports_only": true
+  },
+  "report_id": "track-b-pi-vs-mini-system-comparison-v0.3",
+  "schema_version": "1.0.0",
+  "sources": {
+    "mini": {
+      "path": "reports/coding/track-b-mini-capability-sweep-v0.3.json",
+      "report_id": "track-b-mini-capability-sweep-v0.3",
+      "sha256": "38e79229401af6aaa2216d0a381f2de43355d0611ceeb10f1e63effb831dfa85",
+      "sweep_id": "mini-v03-sweep-20260904T213634Z-a652de35"
+    },
+    "pi": {
+      "path": "reports/coding/track-b-pi-capability-sweep-v0.3.json",
+      "report_id": "track-b-pi-capability-sweep-v0.3",
+      "sha256": "95ab40cdf0b041e8ecf3471bb17adb82825c7c7833dd241f6c046028183db6e2",
+      "sweep_id": "pi-v03-sweep-20260904T154510Z-eb3b2311"
+    }
+  },
+  "summary": {
+    "both_failure_count": 5,
+    "both_success_count": 5,
+    "configuration_count": 15,
+    "mini_only_success_count": 1,
+    "mini_verified_success_count": 6,
+    "outcome_agreement_count": 10,
+    "pi_only_success_count": 4,
+    "pi_verified_success_count": 9,
+    "relations": {
+      "both_failure": 5,
+      "both_success": 5,
+      "mini_only_success": 1,
+      "pi_only_success": 4
+    },
+    "scope": "all_configurations"
+  }
+}

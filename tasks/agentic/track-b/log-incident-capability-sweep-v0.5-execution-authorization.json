@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "authorization_id": "log-incident-capability-sweep-v0.5-execution-authorization",
+  "authorized_on": "2026-09-06",
+  "status": "authorized_pending_resource_gate",
+  "source": "The user replied 'go!' immediately after being asked to confirm that Behat and other Ollama-using applications were stopped and that the frozen 30-cell sweep may run.",
+  "plan_id": "log-incident-capability-sweep-v0.5",
+  "plan_sha256": "3d87c5cbddc37578159da1b1e76e84d2f765f13f2c7af2fa77ccd7f55d0b4dcf",
+  "live_execution_authorized": true,
+  "broad_capability_sweep_authorized": true,
+  "cell_count": 30,
+  "automatic_retries": 0,
+  "authorized_models": [
+    "qwen3.6:35b-a3b-mxfp8",
+    "qwen3.8:27b-mlx",
+    "muse-glimmer:30b-mlx",
+    "ornith-1.5:35b",
+    "gemma4:31b-mlx"
+  ],
+  "authorized_harnesses": [
+    "mini-log-v0.5",
+    "pi-log-v0.5"
+  ],
+  "authorized_case_count": 3,
+  "resource_gate_still_required": true,
+  "automatic_or_adaptive_additions_authorized": false,
+  "remote_push_authorized": false
+}

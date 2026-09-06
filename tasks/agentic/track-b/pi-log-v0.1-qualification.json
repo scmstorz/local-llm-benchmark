@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "pi-log-v0.1-no-inference-qualification",
+  "qualified_on": "2026-09-05",
+  "status": "qualified_for_excluded_live_smoke",
+  "harness_id": "pi-log-v0.1",
+  "case_id": "agentic.ops.checkout-pool-regression",
+  "experimental_scope": "No live model inference. Deterministic controller tests, pinned-Pi integration tests and real macOS Seatbelt acceptance qualify the read-only complete system before one separately frozen excluded smoke.",
+  "pinned_runtime": {
+    "package": "@earendil-works/pi-coding-agent",
+    "version": "0.84.4",
+    "npm_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+    "provider": "ollama",
+    "api": "openai-completions",
+    "base_url": "http://127.0.0.1:11434/v1"
+  },
+  "time_boundary": {
+    "maximum_active_wall_time_seconds": 300,
+    "provider_request_timeout_seconds": 180,
+    "agent_turns": "measurement_only",
+    "total_output_tokens": "measurement_only",
+    "split_command_idle_time": "excluded",
+    "final_verification_time": "reported_separately"
+  },
+  "emergency_safeguards": {
+    "maximum_file_reads": 40
+  },
+  "tool_surface": [
+    "read"
+  ],
+  "qualification_evidence": {
+    "reference_report_essential_checks_passed": 13,
+    "reference_report_essential_checks_total": 13,
+    "deliberate_near_miss_mutations_rejected": [
+      "wrong_timezone",
+      "wrong_root_cause",
+      "wrong_event_file",
+      "missing_recovery_evidence",
+      "unsupported_database_outage",
+      "missing_uncertainty",
+      "extra_top_level_field",
+      "wrong_nested_type",
+      "fixture_drift"
+    ],
+    "pi_log_python_tests_passed": 9,
+    "repository_python_tests_passed": 223,
+    "pi_log_policy_node_tests_passed": 4,
+    "pi_log_settings_node_tests_passed": 1,
+    "existing_pi_integration_tests_passed": 12,
+    "existing_pi_opt_in_live_transport_tests_skipped": 1,
+    "real_seatbelt_acceptance_checks_passed": 9,
+    "real_seatbelt_acceptance_checks_total": 9,
+    "seatbelt_backend": "pi-log-macos-seatbelt-v0.1",
+    "observed_seatbelt_profile_sha256": "7b22c260aaf55a0c1419bb8b92948f7dc3e498e0995864c9b01094a3ee3f0a36",
+    "seatbelt_validated_at": "2026-09-05T15:11:48.921012Z",
+    "candidate_workspace_read_allowed": true,
+    "candidate_workspace_write_denied": true,
+    "hidden_ground_truth_read_denied": true,
+    "symlink_escape_read_denied": true,
+    "unlisted_process_denied": true,
+    "external_network_denied": true,
+    "ollama_loopback_allowed_with_local_non_model_probe": true,
+    "strict_final_parser_repairs_output": false,
+    "candidate_code_or_commands_executed": false,
+    "candidate_writes_performed": false,
+    "live_ollama_requests": 0,
+    "live_model_inference": false
+  },
+  "control_layer_observation": {
+    "first_acceptance_attempt_inside_enclosing_codex_sandbox": "failed_all_checks_before_inference",
+    "classification": "nested_sandbox_environment_mismatch",
+    "benchmark_outcome": false,
+    "model_or_harness_failure": false,
+    "replacement_or_retry": false,
+    "resolution": "The identical acceptance command was repeated at the intended host execution boundary and passed all nine checks.",
+    "inference_requests_made_across_both_attempts": 0
+  },
+  "execution_boundary": {
+    "application_policy_allowlist": [
+      "read"
+    ],
+    "os_boundary": "deny_by_default_macos_seatbelt",
+    "allowed_processes": [
+      "resolved_node_binary_only"
+    ],
+    "shell_processes_allowed": false,
+    "candidate_workspace_writable": false,
+    "hidden_verifier_visible": false,
+    "network_allowlist": [
+      "localhost:11434"
+    ],
+    "final_verification_after_pi_exit": true
+  },
+  "comparison_boundary": {
+    "same_model_comparison_with_mini_log_v0.1": "complete_system_level",
+    "one_factor_causal_harness_claim_allowed": false,
+    "reason": "Pi uses its native read tool and final assistant JSON, while Mini uses controller-defined read_file and finish_report actions. Prompts, tool protocols, context handling and failure behavior therefore remain behaviorally different."
+  },
+  "artifacts": [
+    {"path": "local_llm_benchmark/log_incident.py", "sha256": "51ac739d8834422de4e02096eef60b8e18300b4265921d91ee9dba5314da7196"},
+    {"path": "local_llm_benchmark/log_incident_pi.py", "sha256": "ad9626be3351ea2ede1cf0fec158190ceae7f684ca071333abb9c30215c2a741"},
+    {"path": "local_llm_benchmark/macos_sandbox_log.py", "sha256": "c4fd42fa1b4bacd08feba49b871b5ae4336608a8d570d597c3c954af7b07a167"},
+    {"path": "local_llm_benchmark/macos_sandbox.py", "sha256": "6598fd2add777a40b9712b67736e02df53c0248511b30339f2f5d431c0d34ea9"},
+    {"path": "local_llm_benchmark/agentic.py", "sha256": "e2be075cc71772352dff156ae07824c44cdfd2a0fdebbace6ee1fccd48d50883"},
+    {"path": "local_llm_benchmark/runner.py", "sha256": "5446a65d92386dca99655593fc6dd8f85b9956e495bfa179e82549dc66575c54"},
+    {"path": "integrations/pi/log-readonly-policy-v0.1.mjs", "sha256": "3045f1a0548a18d86a18c0b39f0f16c02d95a0c3ac3a95d8aad322207e5b42ec"},
+    {"path": "integrations/pi/log-readonly-policy-v0.1.test.mjs", "sha256": "090319e65f2a315db34f400f3d883d90cca5dbf297c1340045c85fbc8f081caa"},
+    {"path": "integrations/pi/pi-log-v0.1-qualification.test.mjs", "sha256": "0cbe67bfdd5f9029dc775a96f744d80409c0fde450e9f49cd3872b4b88e4ba77"},
+    {"path": "integrations/pi/package.json", "sha256": "6f1f0e500198a5663a63b63c3d360e5193b718ea450d9dd0862987799933a57c"},
+    {"path": "integrations/pi/package-lock.json", "sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730"},
+    {"path": "capabilities/inventories/pi-log-v0.1.json", "sha256": "3dfe5ee5068ea64ef3b0d8320fa9b7a7e14c33beffe0f4e25ecfd3b7b517d47b"},
+    {"path": "capabilities/isolation-profiles/pi-log-v0.1.json", "sha256": "9b3c6e8d0b1ac8b8ffc1d1a41c5e5c6228b8234db17fd0b4c63f6340302a53a8"},
+    {"path": "tasks/agentic/track-b/pi-log-v0.1.json", "sha256": "2f14663ce4f0908ab42b64aa4b39a0a574a9f367ce4c0cbd9fe55957f2c3c0d8"},
+    {"path": "tasks/agentic/track-b/log-incident-v0.1.json", "sha256": "24db632a199177a341665db1f01f9575d480700cc69f9cf0e1c38a60829221cf"},
+    {"path": "tasks/agentic/track-b/prompts/pi-log-system-v0.1.txt", "sha256": "4a34003dc2d9d8c99c9a7547399810adf32e385a7cdd495b19c28355f21430d8"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/case.json", "sha256": "3fe7dfdc73497c42b9ba0e7ce005f498dc3bcc7fc5d885cedb6823e1720180d2"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/benchmark-card.json", "sha256": "cd1b9908b4d2db308728402754cb58ea5275e5b9237126d7fa424490a4981f19"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/fixture-manifest.json", "sha256": "d7b2e1d5dfbfac37703f78036f2e529dcb7af05f2e9ec29ea48dd4082c9b28d1"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/report-schema-v1.json", "sha256": "d1a2e4a63bd928b2ae0d5f3cc8f17608c7dcc48db41f23cb5a204ff7acb69eed"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/TASK.md", "sha256": "9d90df411440ce021379e2ffcb565e2f8d8cf630d4d955f91e2d9450a169e5c3"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/reference/ground-truth.json", "sha256": "508a5d47b44ec8de5e98ea7eca7c6bc4aef51bcc8998bb12ba9a0d3cb9d57836"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/reference/reference-report.json", "sha256": "b7d2b80ecf0bf79b0ba46f7f29f8cdee6b0c5c08e10cbe07ad2ea3b9fe2c7709"},
+    {"path": "tests/test_log_incident_pi.py", "sha256": "ada6b3311ea1f86639b6588685fc317ba5644abc35f933f2548d407328b9cd85"}
+  ],
+  "next_gate": "Freeze one excluded live smoke plan with exact model identity, repository commit and artifact hashes. Run it only after competing local workloads are stopped and the resource gate passes."
+}

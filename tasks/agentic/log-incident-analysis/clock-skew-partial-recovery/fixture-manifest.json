@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_version": "1.0.0",
+  "case_id": "agentic.ops.clock-skew-partial-recovery",
+  "files": [
+    {
+      "path": "logs/checkout-edge.jsonl",
+      "sha256": "264ff41e5f403eff3b43ab94bd0a5864612fb20f9afe5491b075041a0b32a3a5",
+      "size_bytes": 832,
+      "candidate_visible": true,
+      "read_only": true
+    },
+    {
+      "path": "logs/database.log",
+      "sha256": "594ab690d5919836a4696b6d278a3043cf46fdf40782d1d815b3beaf96729fb1",
+      "size_bytes": 407,
+      "candidate_visible": true,
+      "read_only": true
+    },
+    {
+      "path": "logs/load-balancer.log",
+      "sha256": "3a3ea0407cfd27d2062ee1e6a07702a1e7cdec480c2b04d2500fb15a118b56ab",
+      "size_bytes": 543,
+      "candidate_visible": true,
+      "read_only": true
+    },
+    {
+      "path": "logs/payment-node-03.log",
+      "sha256": "e06c344954ef4bf4e4529197d1ad072b41e038f8188810d776f83e0377092aad",
+      "size_bytes": 456,
+      "candidate_visible": true,
+      "read_only": true
+    },
+    {
+      "path": "logs/provider.jsonl",
+      "sha256": "38be17219b2e2494830b0e3f733ab118ddd49079bb922c4b817710ce9a7bf07a",
+      "size_bytes": 457,
+      "candidate_visible": true,
+      "read_only": true
+    },
+    {
+      "path": "logs/reconciliation.log",
+      "sha256": "01ac12f2064e3cf17695f1ac462e8085334c5dd1d073c0063360f2e814f4e7e0",
+      "size_bytes": 295,
+      "candidate_visible": true,
+      "read_only": true
+    },
+    {
+      "path": "logs/time-monitor.log",
+      "sha256": "c9cc98dfd219e202de2f9fe92bac0570574138791c82f3d4a8d4ee8fa9c16ea8",
+      "size_bytes": 358,
+      "candidate_visible": true,
+      "read_only": true
+    }
+  ]
+}

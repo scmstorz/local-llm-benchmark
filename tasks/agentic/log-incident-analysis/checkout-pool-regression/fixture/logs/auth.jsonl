@@ -1,0 +1,3 @@
+{"event_id":"AUTH-500","timestamp":"2026-09-05T08:17:02Z","level":"WARN","trace_id":"probe-19","route":"/admin","message":"expired access token rejected"}
+{"event_id":"AUTH-501","timestamp":"2026-09-05T08:18:09Z","level":"WARN","message":"JWKS refresh exceeded warning threshold","duration_ms":620,"result":"success"}
+{"event_id":"AUTH-502","timestamp":"2026-09-05T08:20:30Z","level":"INFO","message":"customer token validation healthy","success_rate":0.9998}

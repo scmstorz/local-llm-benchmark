@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "source.mit-sloan.will-ai-derail-global-climate-goals.2026-08-27",
+  "title": "Will AI derail global climate goals?",
+  "publisher": "MIT Sloan School of Management",
+  "author": "MIT Sloan Office of Communications",
+  "page_type": "institutional_press_release",
+  "canonical_url": "https://mitsloan.mit.edu/press/will-ai-derail-global-climate-goals",
+  "published_at": "2026-08-12",
+  "page_modified_at_fetch": "2026-08-27",
+  "retrieved_at": "2026-08-27T17:20:42Z",
+  "source_language": "en",
+  "artifacts": {
+    "raw_html": {
+      "private_path": "data/private/summarization/dev/mit-sloan-ai-climate/source.html",
+      "sha256": "f4cdd1741270a1245e6f779572b1588e38763aaac299f7c4498e5d2ad4360659"
+    },
+    "clean_source": {
+      "private_path": "data/private/summarization/dev/mit-sloan-ai-climate/source.md",
+      "sha256": "a9d4e9d170731ae62cc0baf33db3889fbef0f8e6c83c5aa37d8a733c10a84aeb",
+      "word_count_whitespace": 1255,
+      "location_labels_added": true
+    }
+  },
+  "extraction": {
+    "method": "curl download, Pandoc conversion and manual semantic cleanup",
+    "included": [
+      "title",
+      "subtitle",
+      "byline",
+      "publication date",
+      "publisher-provided key findings",
+      "article body"
+    ],
+    "excluded": [
+      "site navigation",
+      "sharing controls",
+      "featured-expert widget",
+      "duplicated pull quote",
+      "author biographies",
+      "institutional boilerplate"
+    ],
+    "semantic_policy": "Remove page chrome and duplicated display elements without rewriting article claims."
+  },
+  "copyright": {
+    "license_identified": false,
+    "redistribution_policy": "private_local_only",
+    "git_tracked": false,
+    "public_repository_policy": "Publish metadata, hash and annotations only; do not publish the full source text."
+  }
+}
+

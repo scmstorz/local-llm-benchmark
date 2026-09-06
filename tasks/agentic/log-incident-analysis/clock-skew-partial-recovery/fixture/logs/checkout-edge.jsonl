@@ -1,0 +1,5 @@
+{"event_id":"EDGE-400","timestamp":"2026-09-05T08:13:30Z","level":"INFO","route":"/checkout/authorize","status":200,"p95_ms":188}
+{"event_id":"EDGE-401","timestamp":"2026-09-05T08:14:11Z","level":"ERROR","trace_id":"pay-77","route":"/checkout/authorize","status":502,"upstream":"payment-validation","duration_ms":2012}
+{"event_id":"EDGE-402","timestamp":"2026-09-05T08:14:18Z","level":"INFO","trace_id":"pay-78","route":"/checkout/authorize","status":200,"backend":"payment-02","duration_ms":196}
+{"event_id":"EDGE-403","timestamp":"2026-09-05T08:15:02Z","level":"WARN","route":"/checkout/authorize","message":"intermittent upstream rejects","success_rate":0.742}
+{"event_id":"EDGE-404","timestamp":"2026-09-05T08:20:10Z","level":"INFO","route":"/checkout/authorize","status":200,"success_rate":0.997,"new_requests_recovered":true}

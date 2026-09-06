@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0.0",
+  "report_type": "posthoc_transport_normalization_diagnostic",
+  "case_id": "coding.dev.php-payment-result-migration",
+  "case_version": "1.0.0",
+  "source_run": {
+    "run_id": "coding-run-20260902T072710Z-423acd55",
+    "model": "ornith-1.5:35b",
+    "response_sha256": "69a58dd052cce4f273c9830725eedeaf97fe013fc8c25febf0d4c85d07649a30",
+    "original_output_status": "malformed",
+    "original_failure_code": "malformed_artifact",
+    "original_verified_success": false,
+    "original_candidate_tests_executed": false
+  },
+  "diagnostic_status": {
+    "defined_after_source_outcome_was_known": true,
+    "new_inference_attempts": 0,
+    "changes_original_outcome": false,
+    "eligible_for_formal_comparison": false,
+    "estimates_reliability": false
+  },
+  "transport_normalization": {
+    "source_format": "two_unlabelled_markdown_php_fences",
+    "source_php_block_count": 2,
+    "mapping_rule": "Map the unique CheckoutService class block to src/CheckoutService.php and the unique RetryPolicy class block to src/RetryPolicy.php.",
+    "removed_content": "Only the two Markdown opening and closing fence lines.",
+    "added_content": "Only the required path-bearing whole-file envelope markers.",
+    "candidate_code_modified": false,
+    "code_byte_identity_verified": true,
+    "files": [
+      {
+        "path": "src/CheckoutService.php",
+        "source_code_sha256": "74baf893a089d3f2f5ad4252b8fbd4ee699f37c6c35e1ad0fdb8bf9ca9584466",
+        "normalized_code_sha256": "74baf893a089d3f2f5ad4252b8fbd4ee699f37c6c35e1ad0fdb8bf9ca9584466",
+        "size_bytes": 1877
+      },
+      {
+        "path": "src/RetryPolicy.php",
+        "source_code_sha256": "d64d1396e1ad7380e8aa3cd50061db14aecf557a8c5eecf1dfef925792be8a08",
+        "normalized_code_sha256": "d64d1396e1ad7380e8aa3cd50061db14aecf557a8c5eecf1dfef925792be8a08",
+        "size_bytes": 675
+      }
+    ],
+    "normalized_artifact_sha256": "5bbeb3f9ad3ac0c4aaa2136abc1b003482c38d51dd6a101b07c990d821d62b5a"
+  },
+  "diagnostic_verification": {
+    "runtime": "PHP 8.4.17",
+    "artifact_install_passed": true,
+    "scope_integrity_passed": true,
+    "changed_paths": [
+      "src/CheckoutService.php",
+      "src/RetryPolicy.php"
+    ],
+    "public": {
+      "passed": 4,
+      "total": 4,
+      "suite_passed": true
+    },
+    "hidden": {
+      "passed": 8,
+      "total": 8,
+      "suite_passed": true
+    },
+    "failure_code": null,
+    "verified_success_under_normalized_transport": true
+  },
+  "interpretation": {
+    "formal_source_run": "Output-contract failure. This remains the immutable benchmark outcome.",
+    "counterfactual_diagnostic": "The exact candidate PHP code passes all twelve current deterministic checks when supplied through a valid transport envelope.",
+    "allowed_claim": "Ornith demonstrated verifier-confirmed code semantics but failed strict automated artifact delivery on this attempt.",
+    "disallowed_claim": "The original smoke was a verified success."
+  }
+}

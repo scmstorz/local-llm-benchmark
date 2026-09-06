@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "lifecycle_id": "local-model-lifecycle-v0.1",
+  "effective_on": "2026-09-04",
+  "scope": "Current model tags used for future experiment selection. Immutable deployment identities and completed cohorts remain in their original files.",
+  "selection_rule": "New regular sweeps select active_default entries unless a preregistered study explicitly opts into another lifecycle class.",
+  "historical_evidence_policy": "Retirement never deletes a deployment, raw run, score, report or frozen plan and does not uninstall the model from Ollama.",
+  "models": [
+    {
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "status": "active_default",
+      "include_in_default_sweeps": true,
+      "allowed_explicit_roles": [
+        "regular_candidate",
+        "speed_quality_reference"
+      ],
+      "reason": "Strong practical speed-quality trade-off across the current text suite and a verified Pi PHP outcome."
+    },
+    {
+      "model": "qwen3.8:27b-mlx",
+      "status": "active_default",
+      "include_in_default_sweeps": true,
+      "allowed_explicit_roles": [
+        "regular_candidate",
+        "quality_reference"
+      ],
+      "reason": "Top-tier text quality without a poor or invalid result in the joint suite and a verified Pi PHP outcome."
+    },
+    {
+      "model": "muse-glimmer:30b-mlx",
+      "status": "active_default",
+      "include_in_default_sweeps": true,
+      "allowed_explicit_roles": [
+        "regular_candidate",
+        "quality_reference"
+      ],
+      "reason": "Highest median and most excellent cases in the joint text suite; retains value as a quality-focused specialist."
+    },
+    {
+      "model": "ornith-1.5:35b",
+      "status": "active_default",
+      "include_in_default_sweeps": true,
+      "allowed_explicit_roles": [
+        "regular_candidate",
+        "writing_reference"
+      ],
+      "reason": "Strong and consistent late-challenger text results, leading source-grounded writing evidence and a verified Pi PHP outcome."
+    },
+    {
+      "model": "gemma4:31b-mlx",
+      "status": "active_default",
+      "include_in_default_sweeps": true,
+      "allowed_explicit_roles": [
+        "regular_candidate",
+        "generalist_reference"
+      ],
+      "reason": "Highest descriptive mean in the latest joint text batch, no poor or invalid case and a verified Pi PHP outcome."
+    },
+    {
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "status": "specialist_opt_in",
+      "include_in_default_sweeps": false,
+      "allowed_explicit_roles": [
+        "speed_specialist",
+        "format_reliability_study"
+      ],
+      "reason": "Exceptional observed throughput but five hard output failures and seven poor or invalid text outcomes make it unsuitable as an unchecked default."
+    },
+    {
+      "model": "granite4.2:30b",
+      "status": "diagnostic_only",
+      "include_in_default_sweeps": false,
+      "allowed_explicit_roles": [
+        "diagnostic_comparison"
+      ],
+      "reason": "Weak and frequently noncompliant text results plus confounded performance evidence do not support continued default-sweep cost."
+    },
+    {
+      "model": "gpt-oss:20b",
+      "status": "retired_from_active_cohort",
+      "include_in_default_sweeps": false,
+      "allowed_explicit_roles": [
+        "negative_control"
+      ],
+      "retired_on": "2026-09-04",
+      "reason": "The deployment averaged 59.27 across the current text suite, scored zero on both writing tasks, achieved no direct or Pi coding success and repeatedly produced empty, truncated or transport-invalid outcomes.",
+      "historical_results_retained": true
+    }
+  ]
+}

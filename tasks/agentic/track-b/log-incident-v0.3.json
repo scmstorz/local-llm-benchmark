@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_id": "agentic-log-incident-v0.3",
+  "track": "B",
+  "study_mode": "development_qualification",
+  "status": "qualification_candidate",
+  "task_representation_version": "0.3",
+  "report_contract_version": "2.0.0",
+  "response_normalization_path": "tasks/agentic/log-incident-analysis/response-normalization-v0.3.json",
+  "task_subset": [
+    {
+      "case_id": "agentic.ops.checkout-pool-regression",
+      "case_version": "3.0.0",
+      "case_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/case-v0.3.json"
+    },
+    {
+      "case_id": "agentic.ops.retry-queue-amplification",
+      "case_version": "3.0.0",
+      "case_path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/case-v0.3.json"
+    },
+    {
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "case_version": "3.0.0",
+      "case_path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/case-v0.3.json"
+    }
+  ],
+  "outcome_model": {
+    "primary": "semantic_verified_success",
+    "secondary": ["strict_transport_compliance"],
+    "runtime_success_separate": true,
+    "agent_termination_valid_separate": true,
+    "composite_score": false
+  },
+  "normal_capability_limits": {
+    "maximum_active_wall_time_seconds": 300,
+    "provider_request_timeout_seconds": 180,
+    "maximum_agent_turns": null,
+    "maximum_total_output_tokens": null,
+    "maximum_protocol_errors": null
+  },
+  "runaway_operation_safeguards": {
+    "maximum_file_reads": 40
+  },
+  "inference_defaults": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 4000,
+    "keep_alive": "5m",
+    "request_timeout_seconds": 180
+  },
+  "comparison_rules": {
+    "models_receive_identical_harness_condition": true,
+    "automatic_retries": 0,
+    "adaptive_repetitions": false,
+    "case_order_must_be_predeclared": true,
+    "capability_sweep_before_distribution_study": true,
+    "v02_and_v03_attempts_must_not_be_pooled": true,
+    "strict_transport_must_not_override_semantic_success": true
+  }
+}

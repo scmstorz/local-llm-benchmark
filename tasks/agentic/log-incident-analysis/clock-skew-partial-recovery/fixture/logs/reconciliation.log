@@ -1,0 +1,3 @@
+REC-700 2026-09-05T08:16:00Z WARN pending_authorizations count=913 source=upstream_rejects
+REC-701 2026-09-05T08:20:30Z INFO reconciliation_started pending=913 rate_per_minute=121
+REC-702 2026-09-05T08:23:00Z WARN reconciliation_progress pending=612 completed=301 failures=0 full_recovery=false

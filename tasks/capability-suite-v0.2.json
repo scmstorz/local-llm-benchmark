@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "suite_id": "personal-capability-suite-v0.2",
+  "suite_version": "0.2.0",
+  "purpose": "Run one deployment across every currently executable development case without changing the canonical comparison selection.",
+  "methodology": {
+    "cold_runs_per_case": 1,
+    "warm_runs_per_case": 1,
+    "quality_candidate": "warm",
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_predict": 2600,
+    "keep_alive": "10m",
+    "timeout_seconds": 600.0
+  },
+  "late_challenger_policy": {
+    "canonical_comparisons_unchanged": true,
+    "quality_comparison_requires_joint_rejudgment": true,
+    "unexecuted_frozen_block_cases": "A challenger may be executed early, but its result remains separate from the pre-registered four-model Hard Knowledge v0.2 block."
+  },
+  "cases": [
+    {"position": 1, "case_path": "tasks/summarization/dev/mit-sloan-ai-climate/case.json", "num_ctx": 8192, "canonical_baseline_available": true},
+    {"position": 2, "case_path": "tasks/summarization/dev/the-agent-company/case.json", "num_ctx": 16384, "canonical_baseline_available": true},
+    {"position": 3, "case_path": "tasks/summarization/dev/metr-long-software-tasks/case.json", "num_ctx": 16384, "canonical_baseline_available": true},
+    {"position": 4, "case_path": "tasks/general-knowledge/dev/confidence-intervals/case.json", "num_ctx": 8192, "canonical_baseline_available": true},
+    {"position": 5, "case_path": "tasks/general-knowledge/dev/confidence-intervals-transfer/case.json", "num_ctx": 8192, "canonical_baseline_available": true},
+    {"position": 6, "case_path": "tasks/general-knowledge/dev/mrna-vaccine-mechanism/case.json", "num_ctx": 8192, "canonical_baseline_available": true},
+    {"position": 7, "case_path": "tasks/general-knowledge/dev/interest-rates-and-inflation/case.json", "num_ctx": 8192, "canonical_baseline_available": true},
+    {"position": 8, "case_path": "tasks/general-knowledge/dev/medical-screening-bayes/case.json", "num_ctx": 8192, "canonical_baseline_available": true},
+    {"position": 9, "case_path": "tasks/general-knowledge/dev/antibiotic-resistance/case.json", "num_ctx": 8192, "canonical_baseline_available": true},
+    {"position": 10, "case_path": "tasks/general-knowledge/dev/renewable-electricity-matching/case.json", "num_ctx": 8192, "canonical_baseline_available": true},
+    {"position": 11, "case_path": "tasks/general-knowledge/dev/distributed-payment-reliability/case.json", "num_ctx": 8192, "canonical_baseline_available": true},
+    {"position": 12, "case_path": "tasks/general-knowledge/dev/ml-evaluation-leakage/case.json", "num_ctx": 8192, "canonical_baseline_available": false},
+    {"position": 13, "case_path": "tasks/general-knowledge/dev/rag-grounding-evaluation/case.json", "num_ctx": 8192, "canonical_baseline_available": false},
+    {"position": 14, "case_path": "tasks/source-grounded-writing/dev/ai-transformation-value-gap/case.json", "num_ctx": 8192, "canonical_baseline_available": false}
+  ]
+}

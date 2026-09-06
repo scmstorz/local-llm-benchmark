@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "pi-v0.3-no-inference-qualification-2026-09-04",
+  "status": "passed",
+  "completed_on": "2026-09-04",
+  "harness_id": "pi-v0.3",
+  "protocol_id": "coding-track-b-v0.3",
+  "package": {
+    "name": "@earendil-works/pi-coding-agent",
+    "version": "0.84.4",
+    "npm_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w=="
+  },
+  "budget_semantics": {
+    "maximum_active_wall_time_seconds": 900,
+    "provider_request_timeout_seconds": 300,
+    "agent_turns": "measurement_only",
+    "total_output_tokens": "measurement_only",
+    "extension_wall_clock_abort": false,
+    "emergency_operation_safeguards": {
+      "maximum_file_reads": 200,
+      "maximum_file_writes": 100,
+      "maximum_public_test_runs": 30,
+      "activation_terminates_trajectory": true
+    }
+  },
+  "settings_and_transport_evidence": {
+    "pinned_settings_manager_loaded_provider_timeout": true,
+    "pinned_settings_manager_loaded_http_idle_timeout": true,
+    "pinned_sdk_timeout_forwarding_check": true,
+    "stalled_loopback_provider_probe": {
+      "configured_timeout_milliseconds": 250,
+      "observed_process_duration_milliseconds": 466.79,
+      "provider_requests": 1,
+      "ollama_requests": 0,
+      "external_requests": 0,
+      "passed": true
+    }
+  },
+  "seatbelt_evidence": {
+    "backend": "pi-macos-seatbelt-v0.2",
+    "checks_per_case": 12,
+    "check_ids": [
+      "allowed_workspace_read",
+      "hidden_verifier_read_denied_in_child",
+      "home_secret_read_denied",
+      "symlink_escape_read_denied",
+      "allowed_exact_write",
+      "pi_style_node_write",
+      "repository_write_denied",
+      "unlisted_process_denied",
+      "pinned_pi_starts_offline",
+      "external_network_denied",
+      "ollama_loopback_allowed",
+      "selected_public_test_runtime_starts"
+    ],
+    "cases": [
+      {
+        "case_id": "coding.dev.php-payment-result-migration",
+        "language": "PHP",
+        "passed": true,
+        "profile_sha256": "fa15f051140dccc8d973614dc5b6ac60cbe33749dd32797f4ca936b5b0dcd383",
+        "hidden_verifier_sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2"
+      },
+      {
+        "case_id": "coding.dev.async-cache-coalescing",
+        "language": "JavaScript",
+        "passed": true,
+        "profile_sha256": "7eeb4432aec37b5f670808331a1efe092e064e9dae06f26626964df818372275",
+        "hidden_verifier_sha256": "1454a79a190b49ab3af52afc517e5a91d6812de7fd15d852a64d0fe6a71034ee"
+      },
+      {
+        "case_id": "coding.dev.pagination-cycle-guard",
+        "language": "Python",
+        "passed": true,
+        "profile_sha256": "59b2a1c6f62f434a869337dc9d473cea142376b86566aa1a0a8a9fd3e1cfa98a",
+        "hidden_verifier_sha256": "cd095a713d413ad3b1b4697250c23595370fc35f432293da4356245e53b8043e"
+      }
+    ]
+  },
+  "runtime_observations": {
+    "node": "v22.22.1",
+    "php": "8.4.17",
+    "python": "3.14.4"
+  },
+  "execution_boundary": {
+    "ollama_model_requests": 0,
+    "external_network_requests": 0,
+    "candidate_code_executed": false,
+    "hidden_verifier_content_exposed": false,
+    "ignored_raw_qualification_artifacts_retained_locally": true,
+    "private_paths_in_this_record": false
+  },
+  "validation": {
+    "python_repository_tests_passed": 139,
+    "default_node_tests_passed": 12,
+    "default_node_tests_skipped": 1,
+    "explicit_transport_tests_passed": 1
+  },
+  "frozen_artifact_hashes": [
+    {
+      "path": "tasks/coding/track-b/pi-v0.3.json",
+      "sha256": "5c59dbcc7daad21577ad4f590902cfd1ff0fae4102a156da8854252318317699"
+    },
+    {
+      "path": "tasks/coding/track-b/track-b-v0.3.json",
+      "sha256": "cac27f7bdfee3e8bb46f39a12633c9c259f95b6537193904043d36e962daa260"
+    },
+    {
+      "path": "integrations/pi/benchmark-policy-v0.3.mjs",
+      "sha256": "26d5920e298cf3831f0c70c1cd979dfab02d0ede6fbfc67f4de2d0c1c09ec42c"
+    },
+    {
+      "path": "integrations/pi/package-lock.json",
+      "sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730"
+    },
+    {
+      "path": "local_llm_benchmark/pi_v03_config.py",
+      "sha256": "70582592151a53fddf1cab81770ae0447cd1049b578bf881dd3c9b7b3623e32b"
+    },
+    {
+      "path": "local_llm_benchmark/pi_v03_adapter.py",
+      "sha256": "ed5263b65380fd9bfe7d51f9a6343aa7b42bac8c46d09ce310bcc9a756172d0e"
+    },
+    {
+      "path": "local_llm_benchmark/macos_sandbox_v03.py",
+      "sha256": "3b1837ca57dec6c9045d79cb6b34b4c86fadc0ed8dd360f0bd7dabe305f02405"
+    },
+    {
+      "path": "integrations/pi/pi-v0.3-qualification.test.mjs",
+      "sha256": "04e1aefc6dfe3493a5f8913521912e3dfcd47c0ba6aac36724c080333605dbb6"
+    },
+    {
+      "path": "integrations/pi/pi-v0.3-transport.test.mjs",
+      "sha256": "afecc59a86f3b1826210db21dd652a0aeea9ad3f99d6e132fb677aa4d62adb2c"
+    },
+    {
+      "path": "tests/test_pi_v03_adapter.py",
+      "sha256": "de497a37b60e3132e26986ab832c33c5068eed2e816830a687ea39a74b6da07c"
+    },
+    {
+      "path": "tasks/coding/dev/php-payment-result-migration/case.json",
+      "sha256": "8fd6a46683604eb6f80ad6f583a05f8d2730d6c840afcb6a9d297b395741179e"
+    },
+    {
+      "path": "tasks/coding/dev/async-cache-coalescing/case.json",
+      "sha256": "3ddbd8799d4d34fa6a548ddcda3704a10182be6f421ee3ea3a3a0aee3e8e0995"
+    },
+    {
+      "path": "tasks/coding/dev/pagination-cycle-guard/case-whole-file-v1.2.json",
+      "sha256": "99ac13269dff2e306341486bc90be11a513d1481ac30dd7d2e2cd48b645cd394"
+    }
+  ],
+  "next_gate": "Freeze a separate five-active-model by three-task execution plan with current Ollama deployment identities, runtime version, artifact hashes and execution order before any model inference."
+}

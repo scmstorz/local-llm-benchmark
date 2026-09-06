@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_version": "1.0.0",
+  "fixture_id": "coding.dev.async-cache-coalescing.fixture",
+  "files": [
+    {
+      "path": "package.json",
+      "sha256": "e216458848b7ccab346acb4b3a741fc778dd7122af977c30086f61471b246857",
+      "size_bytes": 214,
+      "candidate_visible": true,
+      "protected": true
+    },
+    {
+      "path": "src/async-cache.mjs",
+      "sha256": "00d5ea72293897799e47738fdbbf0b060bb84a08afa6440d8e8248c48bea1671",
+      "size_bytes": 972,
+      "candidate_visible": true,
+      "protected": false
+    },
+    {
+      "path": "src/index.mjs",
+      "sha256": "56d3a995070a524ef90c3b0bb9395be8c0f0517e836817f2d74fb4119a62496c",
+      "size_bytes": 54,
+      "candidate_visible": true,
+      "protected": false
+    },
+    {
+      "path": "tests/cache.test.mjs",
+      "sha256": "018465cbf881c869d3f44646329ff30216d84519d897f71fe7a882cdd787fb5f",
+      "size_bytes": 2349,
+      "candidate_visible": true,
+      "protected": true
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "mini-log-v0.1-no-inference-qualification",
+  "qualified_on": "2026-09-05",
+  "status": "qualified_for_excluded_live_smoke",
+  "harness_id": "mini-log-v0.1",
+  "case_id": "agentic.ops.checkout-pool-regression",
+  "experimental_scope": "No live model inference. Deterministic reference and mutation checks plus controller tests qualify the read-only adapter before one separately frozen excluded smoke.",
+  "time_boundary": {
+    "maximum_active_wall_time_seconds": 300,
+    "provider_request_timeout_seconds": 180,
+    "agent_turns": "measurement_only",
+    "total_output_tokens": "measurement_only",
+    "protocol_errors": "measurement_only",
+    "split_command_idle_time": "excluded",
+    "final_verification_time": "reported_separately"
+  },
+  "emergency_safeguards": {
+    "maximum_file_reads": 40
+  },
+  "tool_surface": [
+    "read_file",
+    "finish_report"
+  ],
+  "qualification_evidence": {
+    "reference_report_essential_checks_passed": 13,
+    "reference_report_essential_checks_total": 13,
+    "deliberate_near_miss_mutations_rejected": [
+      "wrong_timezone",
+      "wrong_root_cause",
+      "wrong_event_file",
+      "missing_recovery_evidence",
+      "unsupported_database_outage",
+      "missing_uncertainty",
+      "extra_top_level_field",
+      "wrong_nested_type",
+      "fixture_drift"
+    ],
+    "verifier_and_adapter_python_tests_passed": 17,
+    "repository_python_tests_passed": 208,
+    "strict_parser_rejects_unknown_actions_extra_fields_and_unsafe_paths": true,
+    "read_action_rejects_non_visible_paths": true,
+    "fresh_workspace_manifest_check_passed": true,
+    "symlink_rejection_checked_by_controller": true,
+    "hidden_reference_absent_from_candidate_request": true,
+    "model_and_action_commands_are_separate": true,
+    "final_verification_is_a_separate_command": true,
+    "candidate_code_or_commands_executed": false,
+    "candidate_writes_performed": false,
+    "external_model_endpoint_rejected_by_shared_track_b_validation": true,
+    "live_ollama_requests": 0,
+    "live_model_inference": false
+  },
+  "execution_boundary": {
+    "model_call_command_executes_candidate_code": false,
+    "action_command_executes_candidate_code": false,
+    "finalize_command_executes_candidate_code": false,
+    "candidate_files_are_read_only_by_action_policy": true,
+    "portable_standalone_os_sandbox": false,
+    "limitation": "The boundary is enforced by a two-action application protocol rather than an OS sandbox. This is sufficient for this fixture because the adapter exposes neither arbitrary commands nor candidate-authored code execution."
+  },
+  "comparison_boundary": {
+    "same_model_comparison_across_different_harnesses": "system_level",
+    "one_factor_causal_harness_claim_allowed": false,
+    "reason": "Different harnesses can differ in prompts, tool protocols, context accumulation and error recovery."
+  },
+  "artifacts": [
+    {"path": "local_llm_benchmark/log_incident.py", "sha256": "51ac739d8834422de4e02096eef60b8e18300b4265921d91ee9dba5314da7196"},
+    {"path": "local_llm_benchmark/log_incident_mini.py", "sha256": "dbcb82670cbd9ce121f01a5b9d2555f6e0be0f63e594fb669bc391988e7e2f2c"},
+    {"path": "local_llm_benchmark/agentic.py", "sha256": "e2be075cc71772352dff156ae07824c44cdfd2a0fdebbace6ee1fccd48d50883"},
+    {"path": "local_llm_benchmark/ollama.py", "sha256": "cda83848193dd1ceb3d608c4fe0ae1d6e886fdc1121c2225bd3d2d020cc13102"},
+    {"path": "local_llm_benchmark/runner.py", "sha256": "5446a65d92386dca99655593fc6dd8f85b9956e495bfa179e82549dc66575c54"},
+    {"path": "capabilities/inventories/mini-log-v0.1.json", "sha256": "15e5af789ced0cce4185f90934cc454fc1371f30b5cda80a53510f264f3d92ae"},
+    {"path": "capabilities/isolation-profiles/mini-log-v0.1.json", "sha256": "ddf772441cf8d2452fe96a653dadbefe523c3611d601991e90d73f64409a2237"},
+    {"path": "tasks/agentic/track-b/mini-log-v0.1.json", "sha256": "455a1a880b52a8d70b78a90d15fbcdcffe4084830305f35edcfdd4fb19c9618b"},
+    {"path": "tasks/agentic/track-b/log-incident-v0.1.json", "sha256": "24db632a199177a341665db1f01f9575d480700cc69f9cf0e1c38a60829221cf"},
+    {"path": "tasks/agentic/track-b/prompts/mini-log-system-v0.1.txt", "sha256": "e4fe448948d5016d82525ca6137096eba984fc6bb31440a8673618043faaf3d2"},
+    {"path": "tasks/agentic/track-b/schemas/mini-log-action-v0.1.json", "sha256": "3bf2ad4b441eaa7903f601315aa408a9d64f813c2f9b86aba8c7f4077f6bab26"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/case.json", "sha256": "3fe7dfdc73497c42b9ba0e7ce005f498dc3bcc7fc5d885cedb6823e1720180d2"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/benchmark-card.json", "sha256": "cd1b9908b4d2db308728402754cb58ea5275e5b9237126d7fa424490a4981f19"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/fixture-manifest.json", "sha256": "d7b2e1d5dfbfac37703f78036f2e529dcb7af05f2e9ec29ea48dd4082c9b28d1"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/report-schema-v1.json", "sha256": "d1a2e4a63bd928b2ae0d5f3cc8f17608c7dcc48db41f23cb5a204ff7acb69eed"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/TASK.md", "sha256": "9d90df411440ce021379e2ffcb565e2f8d8cf630d4d955f91e2d9450a169e5c3"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/reference/ground-truth.json", "sha256": "508a5d47b44ec8de5e98ea7eca7c6bc4aef51bcc8998bb12ba9a0d3cb9d57836"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/reference/reference-report.json", "sha256": "b7d2b80ecf0bf79b0ba46f7f29f8cdee6b0c5c08e10cbe07ad2ea3b9fe2c7709"},
+    {"path": "tests/test_log_incident.py", "sha256": "cfa8e8dab28957740bde5fc05e39d9f3f4d18890bb0abc387117b25efbc0f739"},
+    {"path": "tests/test_log_incident_mini.py", "sha256": "2661571424b30747add2d2983adfcf640677b6ee84e9c0bc39cd5b7de7be75f0"}
+  ],
+  "next_gate": "Freeze one excluded live smoke plan with exact model identity, repository commit and artifact hashes before contacting Ollama."
+}

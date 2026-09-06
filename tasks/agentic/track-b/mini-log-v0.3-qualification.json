@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "mini-log-v0.3-no-inference-qualification",
+  "qualified_on": "2026-09-06",
+  "status": "qualified_for_frozen_confirmation_design",
+  "harness_id": "mini-log-v0.3",
+  "protocol_id": "agentic-log-incident-v0.3",
+  "case_count": 3,
+  "experimental_scope": "No live inference. Selected-case preparation, read isolation, strict structured actions, separate semantic and transport outcomes, mocked transport and hidden verification were exercised offline.",
+  "qualification_evidence": {
+    "reference_report_essential_checks_passed": 45,
+    "reference_report_essential_checks_total": 45,
+    "selected_case_preparations_passed": 3,
+    "cross_case_read_rejected": true,
+    "prior_case_definition_rejected": true,
+    "definition_drift_rejected": true,
+    "mocked_model_boundary_passed": true,
+    "semantic_and_transport_outcomes_separate": true,
+    "focused_python_tests_passed": 7,
+    "repository_python_tests_passed": 320,
+    "active_node_tests_passed": 21,
+    "opt_in_live_transport_tests_skipped": 1,
+    "live_ollama_requests": 0,
+    "live_model_inference": false
+  },
+  "execution_boundary": {
+    "selected_case_only": true,
+    "candidate_files_read_only_by_action_policy": true,
+    "candidate_code_or_commands_executed": false,
+    "final_verification_separate": true,
+    "portable_standalone_os_sandbox": false
+  },
+  "comparison_boundary": {
+    "same_model_across_harnesses": "complete_system_comparison",
+    "v02_and_v03_results_poolable": false,
+    "strict_transport_is_primary": false
+  },
+  "artifacts": [
+    {"path": "local_llm_benchmark/log_incident_mini_v03.py", "sha256": "c781cc5895279a6a8ebe19d886018be0180515c543e046b9739c0239d2f430c3"},
+    {"path": "tests/test_log_incident_mini_v03.py", "sha256": "dd485817d86a054c08f3586ef6a3dcaafcb53e3527dc21c7df254bc26edea75a"},
+    {"path": "tasks/agentic/track-b/log-incident-v0.3.json", "sha256": "d1d67f822ef206989dd19ec7a62d31b548633cef5dbaf92b29f7e40ff1c37add"},
+    {"path": "tasks/agentic/track-b/mini-log-v0.3.json", "sha256": "b45f32adcd9c395c75646d26634be09d8b60fe0891dc31c52d4b9827d5bd7297"},
+    {"path": "tasks/agentic/track-b/prompts/mini-log-system-v0.3.txt", "sha256": "54e49b3c3372fb46ee2531a8d52066d57e51e6648b0bb9e61d0e7191cccd7ebf"},
+    {"path": "capabilities/inventories/mini-log-v0.3.json", "sha256": "7bdae50b93e2c12c02327c45b6fd2455baf93bbe9491261290a32b5ac0c046ab"},
+    {"path": "capabilities/isolation-profiles/mini-log-v0.3.json", "sha256": "226fd457412ef08f1e1825cb904bf8be4c53245440561c3c55cea6bed4416a27"}
+  ],
+  "next_gate": "Commit the complete v0.3 offline-qualified implementation, then freeze an excluded confirmation design before inference."
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_id": "php-payment-result-migration-fenced-files-v1",
+  "protocol_version": "1.0.0",
+  "status": "frozen_before_comparison_execution",
+  "case_id": "coding.dev.php-payment-result-migration",
+  "case_version": "1.0.0",
+  "study_mode": "capability_sweep_secondary_diagnostic",
+  "purpose": "Separate verifier-confirmed code semantics from strict whole-file harness compatibility without changing the primary benchmark outcome.",
+  "applicability": {
+    "strict_output_statuses": [
+      "malformed"
+    ],
+    "strict_failure_codes": [
+      "malformed_artifact"
+    ],
+    "source_must_contain_only_whitespace_and_php_fences": true,
+    "php_fence_language_tag_is_case_sensitive": true,
+    "minimum_files": 1,
+    "maximum_files": 2,
+    "empty_output_is_ineligible": true,
+    "valid_strict_artifact_is_ineligible_because_its_semantics_are_already_verified_normally": true
+  },
+  "class_path_mappings": [
+    {
+      "class_name": "CheckoutService",
+      "path": "src/CheckoutService.php"
+    },
+    {
+      "class_name": "RetryPolicy",
+      "path": "src/RetryPolicy.php"
+    }
+  ],
+  "normalization": {
+    "remove": "Only exact Markdown opening lines ```php and their closing ``` lines.",
+    "add": "Only the strict path-bearing whole-file opening and closing markers.",
+    "candidate_code_changes_allowed": false,
+    "per_file_sha256_identity_required_before_execution": true,
+    "path_inference_outside_frozen_class_mapping_allowed": false,
+    "controller_repair_allowed": false
+  },
+  "reporting": {
+    "primary_outcome_remains_strict_verified_success": true,
+    "diagnostic_outcome_name": "verified_success_under_normalized_transport",
+    "diagnostic_must_not_replace_primary_outcome": true,
+    "report_ineligible_and_failed_normalizations": true,
+    "partial_test_counts_are_diagnostic_only": true,
+    "new_inference_attempts": 0
+  },
+  "development_smoke_origin": {
+    "source_run_id": "coding-run-20260902T072710Z-423acd55",
+    "outcome_known_before_protocol_freeze": true,
+    "excluded_from_formal_comparison": true,
+    "reason": "The smoke motivated this secondary protocol. Its 12/12 post-hoc result remains separately labeled and cannot enter the formal comparison."
+  },
+  "interpretation_limit": "This diagnostic can show that exact candidate code passes the current verifier after a narrowly defined transport transformation. It cannot convert a malformed source response into an automated end-to-end success, estimate reliability or justify arbitrary response repair."
+}

@@ -1,0 +1,7 @@
+{
+  "schema_version":"1.0.0","source_id":"reference.general-knowledge.distributed-payment-reliability.2026-08-29","title":"Frozen reference dossier: reliable payment processing under retries","publisher":"Local LLM Benchmark Lab","page_type":"project_authored_reference_dossier","retrieved_at":"2026-08-29","source_language":"en",
+  "authoritative_sources":["https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/","https://docs.stripe.com/api/idempotent_requests","https://kafka.apache.org/design/","https://debezium.io/documentation/reference/stable/transformations/outbox-event-router.html"],
+  "artifacts":{"reference_source":{"path":"tasks/general-knowledge/dev/distributed-payment-reliability/reference.md","sha256":"9ad987253849f81ca92beeba26a2abd1c322ad2e8feb4afc2130901d72a96987","word_count_whitespace":510,"location_labels_added":true,"candidate_visible":false}},
+  "construction":{"method":"Project-authored synthesis of cited authoritative sources","semantic_policy":"Preserve source distinctions and conditions without copying source prose.","frozen_on":"2026-08-29"},
+  "copyright":{"dossier_license":"project_repository_license","source_publications_copied":false,"git_tracked":true}
+}

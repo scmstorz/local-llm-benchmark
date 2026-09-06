@@ -1,0 +1,4 @@
+{"event_id":"INV-200","timestamp":"2026-09-05T08:09:55Z","level":"INFO","message":"dependency health","p95_ms":122,"success_rate":0.999}
+{"event_id":"INV-201","timestamp":"2026-09-05T08:10:14Z","level":"WARN","message":"cache rebuild raised response latency","p95_ms":1760,"success_rate":0.962,"request_id":"ord-771"}
+{"event_id":"INV-202","timestamp":"2026-09-05T08:10:16Z","level":"WARN","message":"client disconnected before response","request_id":"ord-771","compute_result":"reservation_available"}
+{"event_id":"INV-203","timestamp":"2026-09-05T08:18:30Z","level":"INFO","message":"cache rebuild complete","p95_ms":138,"success_rate":0.998}

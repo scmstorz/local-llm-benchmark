@@ -1,0 +1,5 @@
+BRK-300 2026-09-05T08:10:00Z INFO health cluster=orders availability=up in_sync_replicas=3 queue_depth=74 redelivery_ratio=0.02
+BRK-301 2026-09-05T08:12:30Z WARN queue_growth queue=fulfillment depth=1486 redelivery_ratio=0.71 publishers=order-worker
+BRK-302 2026-09-05T08:14:20Z INFO health cluster=orders availability=up in_sync_replicas=3 publish_p95_ms=8 consumer_lag=1960
+BRK-303 2026-09-05T08:20:18Z INFO queue_draining queue=fulfillment depth=604 redelivery_ratio=0.11 consumer_lag=711
+BRK-304 2026-09-05T08:25:42Z INFO queue_normal queue=fulfillment depth=63 redelivery_ratio=0.02 consumer_lag=48

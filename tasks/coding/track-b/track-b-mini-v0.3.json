@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_id": "coding-track-b-mini-v0.3",
+  "status": "qualified_for_capability_sweep_planning",
+  "track": "B",
+  "study_mode": "capability_sweep",
+  "semantic_reference_path": "tasks/coding/track-b/track-b-v0.3.json",
+  "change_reason": "Mini v0.3 adopts the qualified Pi v0.3 time-first capability boundary without modifying the frozen Mini v0.2 or Pi v0.3 artifacts. The split Mini commands accumulate only active model and tool time; turns, tokens and protocol errors are measurements rather than normal success limits.",
+  "task_subset": [
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "case_path": "tasks/coding/dev/php-payment-result-migration/case.json"
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "case_path": "tasks/coding/dev/async-cache-coalescing/case.json"
+    },
+    {
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "case_path": "tasks/coding/dev/pagination-cycle-guard/case-whole-file-v1.2.json"
+    }
+  ],
+  "shared_permissions": {
+    "read_scope": "candidate_visible_fixture_files_only",
+    "write_scope": "artifact_contract_allowed_existing_files_only",
+    "public_test_feedback": true,
+    "hidden_test_feedback": false,
+    "browser": false,
+    "external_network": false,
+    "arbitrary_shell": false
+  },
+  "normal_capability_limits": {
+    "maximum_active_wall_time_seconds": 900,
+    "provider_request_timeout_seconds": 300,
+    "maximum_total_output_tokens": null,
+    "maximum_agent_turns": null,
+    "maximum_protocol_errors": null
+  },
+  "technical_response_limits": {
+    "num_ctx": 16384,
+    "num_predict_per_turn": 1600
+  },
+  "runaway_operation_safeguards": {
+    "maximum_file_reads": 200,
+    "maximum_file_writes": 100,
+    "maximum_public_test_runs": 30,
+    "semantics": "Emergency loop protection only. Activating a ceiling terminates the trajectory as an agent safeguard failure and is not replaced by the later verifier result."
+  },
+  "measurement_only": [
+    "agent_turns",
+    "model_requests",
+    "input_tokens",
+    "output_tokens",
+    "protocol_errors",
+    "tool_calls",
+    "failed_tool_calls",
+    "file_reads",
+    "file_writes",
+    "public_test_runs",
+    "model_wall_time_seconds",
+    "tool_wall_time_seconds"
+  ],
+  "time_semantics": {
+    "task_authority": "persisted_sum_of_monotonic_model_and_tool_intervals",
+    "provider_authority": "explicit_ollama_client_timeout",
+    "split_command_idle_time_excluded": true,
+    "final_verification_time_reported_separately": true,
+    "notebook_standby_between_commands_excluded": true
+  },
+  "inference_defaults": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 1600,
+    "keep_alive": "5m",
+    "request_timeout_seconds": 300
+  },
+  "termination": {
+    "successful_mini_termination": "valid_finish_action",
+    "terminal_failures": [
+      "maximum_active_wall_time_exceeded",
+      "provider_request_timeout",
+      "provider_stream_incomplete",
+      "runtime_failure",
+      "emergency_operation_safeguard_exceeded"
+    ],
+    "verification_after_every_termination": true,
+    "verified_success_requires": [
+      "runtime_success",
+      "valid_finish_action",
+      "workspace_scope_integrity",
+      "public_tests_pass",
+      "hidden_tests_pass"
+    ],
+    "failure_precedence": [
+      "infrastructure_or_runtime_failure",
+      "agent_termination_failure",
+      "task_or_verification_failure"
+    ]
+  },
+  "failure_taxonomy": {
+    "model_protocol": [
+      "empty_action",
+      "malformed_action",
+      "unknown_action"
+    ],
+    "tool": [
+      "tool_scope_violation",
+      "tool_failure",
+      "public_tests_failed"
+    ],
+    "agent": [
+      "maximum_active_wall_time_exceeded",
+      "emergency_operation_safeguard_exceeded"
+    ],
+    "runtime": [
+      "provider_request_timeout",
+      "provider_stream_incomplete",
+      "model_load_failure",
+      "runtime_failure"
+    ]
+  },
+  "comparison_rules": {
+    "initial_measured_runs_per_configuration": 1,
+    "automatic_retries": 0,
+    "performance_distribution_claims": false,
+    "pi_comparison_is_system_level_not_one_factor_causal": true
+  },
+  "qualification_requirements": [
+    "all five action variants pass parser and execution tests",
+    "malformed and extra-field actions remain unrepaired",
+    "a malformed action can be followed by a valid corrective action",
+    "turns, total tokens and protocol errors do not terminate a trajectory",
+    "active time and operation safeguards do terminate with causal precedence",
+    "runtime and provider failures remain separate from verifier failures",
+    "all three fixture and verifier identities are hash checked",
+    "one excluded Qwen 3.8 JavaScript smoke completes before sweep planning"
+  ]
+}

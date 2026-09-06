@@ -1,0 +1,307 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "summarization.dev.metr-long-software-tasks",
+  "case_version": "1.0.0",
+  "card_version": "1.0.0",
+  "source_of_truth": "The private extracted ten-page main-paper source identified by source-metadata.json, not external knowledge, appendices, later METR updates or a reference summary.",
+  "evaluation_principles": [
+    "Judge source fidelity before prose elegance.",
+    "Distinguish metric definition, experimental method, measured result, qualitative interpretation, conditional extrapolation and acknowledged limitation.",
+    "Treat time horizon as relative to a success threshold, domain, task distribution, human reference population and complete agent system.",
+    "Do not reward confident claims about AGI, jobs or future dates that go beyond the paper's conditional software-task extrapolation.",
+    "Do not penalize 169 versus 170 tasks or 11 versus 12 frontier models because the frozen main paper itself uses both counts."
+  ],
+  "key_facts": [
+    {
+      "id": "KF01",
+      "label": "Metric definition and purpose",
+      "claim_type": "paper_contribution",
+      "weight": 3,
+      "source_locations": ["P03", "P04", "P09"],
+      "expected": "The paper proposes the X%-task-completion time horizon: the human completion time associated with tasks an AI agent can complete with probability X, intended as an intuitive human-grounded capability measure across task difficulties and benchmarks.",
+      "precision_notes": "It is a modeled probability threshold over a task distribution, not the runtime of the agent and not the longest task it has ever completed."
+    },
+    {
+      "id": "KF02",
+      "label": "Task-suite composition",
+      "claim_type": "experimental_setup",
+      "weight": 3,
+      "source_locations": ["P04", "P06"],
+      "expected": "The main suite spans roughly 170 software and research tasks from 97 HCAST tasks, seven eight-hour RE-Bench tasks and 66 short SWAA atomic actions, covering human durations from seconds to about 30 hours.",
+      "precision_notes": "The paper also notes a GAIA task and adversarial coding tasks and contains a 169-versus-170 count inconsistency; exact reconciliation is not required."
+    },
+    {
+      "id": "KF03",
+      "label": "Human baselines",
+      "claim_type": "experimental_setup",
+      "weight": 2,
+      "source_locations": ["P07"],
+      "expected": "Task difficulty is grounded in more than 800 attempts totaling 2,529 hours by skilled software, ML and cybersecurity professionals; successful times are used for most tasks and researcher estimates for 21 HCAST tasks.",
+      "precision_notes": "The relevant duration depends on which human population and context serve as the reference."
+    },
+    {
+      "id": "KF04",
+      "label": "Agent evaluation setup",
+      "claim_type": "experimental_setup",
+      "weight": 2,
+      "source_locations": ["P04", "P08"],
+      "expected": "Agent systems consisting of a model and scaffold are evaluated across models released from 2019 to 2025, with approximately eight runs per agent-task pair; recent systems complete about half of the weighted task suite on average.",
+      "precision_notes": "The frozen main paper alternates between 11 and 12 frontier models and separately mentions near-frontier models; exact count is nonessential."
+    },
+    {
+      "id": "KF05",
+      "label": "Time-horizon computation",
+      "claim_type": "evaluation_method",
+      "weight": 3,
+      "source_locations": ["P09"],
+      "expected": "Continuous task scores are binarized using task-specific human-relevant thresholds, task duration is based on the geometric mean of successful human times, and a logistic model estimates the duration at which an agent has a specified probability of success.",
+      "precision_notes": "Binarization choices and the fitted curve are part of the measurement, not raw observations."
+    },
+    {
+      "id": "KF06",
+      "label": "Headline historical trend",
+      "claim_type": "measured_result",
+      "weight": 4,
+      "source_locations": ["P03", "P10"],
+      "expected": "On this task suite, 50% time horizon grows exponentially from 2019 to early 2025 with an estimated doubling every 207 days and a 95% bootstrap interval of 166 to 240 days; GPT-2 is around two seconds and o3 around 110 minutes.",
+      "precision_notes": "The authors are more confident in the trend slope than any single system's absolute horizon, and o3 lies above the long-run trend."
+    },
+    {
+      "id": "KF07",
+      "label": "Reliability changes the horizon",
+      "claim_type": "measured_result",
+      "weight": 2,
+      "source_locations": ["P04", "P11"],
+      "expected": "The 80% time horizon has a similar historical doubling time, about 204 versus 207 days, but its absolute horizons are four to six times shorter than at 50% success; very high reliability such as 95% cannot be measured confidently here.",
+      "precision_notes": "Occasional success on long tasks is not the same as dependable autonomous completion."
+    },
+    {
+      "id": "KF08",
+      "label": "Qualitative capability and failure pattern",
+      "claim_type": "qualitative_analysis",
+      "weight": 1,
+      "source_locations": ["P12"],
+      "expected": "A small transcript analysis suggests improvement in tool use, reasoning and recovery from mistakes, while agents still struggle in messier environments without clear feedback or where relevant information must be sought proactively.",
+      "precision_notes": "This is qualitative evidence from sampled failed runs, not a causal decomposition of the historical trend."
+    },
+    {
+      "id": "KF09",
+      "label": "External-validity checks",
+      "claim_type": "robustness_result_and_limitation",
+      "weight": 2,
+      "source_locations": ["P13", "P14"],
+      "expected": "Checks using SWE-bench Verified, messiness factors, internal pull requests and preliminary other-domain analyses find broadly similar improvement trends but also show poorer performance on messier tasks and large dependence on how human duration is defined; contractors took 5 to 18 times longer than maintainers on internal PRs.",
+      "precision_notes": "The roughly 70-day SWE-bench doubling estimate is affected by time annotations that likely understate easier contractor durations and is not a clean stronger confirmation."
+    },
+    {
+      "id": "KF10",
+      "label": "Conditional one-month extrapolation",
+      "claim_type": "conditional_extrapolation_and_limitation",
+      "weight": 3,
+      "source_locations": ["P15", "P16", "P17", "P18", "P19"],
+      "expected": "A naive continuation of the measured trend gives a central estimate around mid-2029 and a reported mid-2028 to mid-2030 80% interval for a 167-hour software-task horizon, but only if the trend continues and transfers to real work; task realism, external validity and future trend changes dominate the uncertainty.",
+      "precision_notes": "This is not a demonstrated AGI date, job-automation date or unconditional prediction; the paper explicitly distinguishes one-month software-task horizon from one-month AGI."
+    }
+  ],
+  "key_ideas": [
+    {
+      "id": "KI01",
+      "label": "Human time creates an interpretable common scale",
+      "weight": 4,
+      "source_locations": ["P03", "P04", "P09"],
+      "expected": "Mapping success probability to the time skilled humans need offers a common, intuitive scale that can compare systems across tasks of very different difficulty and reduce dependence on rapidly saturating benchmark scores."
+    },
+    {
+      "id": "KI02",
+      "label": "The measured object is an agent system",
+      "weight": 2,
+      "source_locations": ["P04", "P08"],
+      "expected": "Results belong to agents made from a model and scaffold under a particular evaluation setup, not to model names in isolation."
+    },
+    {
+      "id": "KI03",
+      "label": "Capability and reliability must be separated",
+      "weight": 3,
+      "source_locations": ["P10", "P11", "P12"],
+      "expected": "A system can sometimes complete long tasks while remaining unreliable on much shorter ones; the large gap between 50% and 80% horizons makes success probability central to interpreting autonomy."
+    },
+    {
+      "id": "KI04",
+      "label": "Time horizon is conditional on task and human reference",
+      "weight": 3,
+      "source_locations": ["P07", "P13", "P14", "P17", "P19"],
+      "expected": "The absolute horizon depends on domain, task distribution, structure or messiness and the skill and context of the comparison humans, so it cannot be transferred mechanically to all intellectual work."
+    },
+    {
+      "id": "KI05",
+      "label": "Forecast precision is narrower than forecast validity",
+      "weight": 3,
+      "source_locations": ["P15", "P16", "P17", "P18", "P19"],
+      "expected": "Bootstrap and sensitivity intervals quantify uncertainty within the chosen model, but they do not capture the dominant unknowns: whether the historical trend continues and whether benchmark performance generalizes to realistic work."
+    }
+  ],
+  "known_critical_errors": [
+    {
+      "id": "CE01",
+      "severity": "critical",
+      "description": "Defines a 50% time horizon as the longest task an agent can complete, the time the agent itself runs, or a duration the agent can handle reliably rather than the fitted human task duration at 50% success."
+    },
+    {
+      "id": "CE02",
+      "severity": "major",
+      "description": "Reports o3's approximately 110-minute horizon as inference runtime or as proof that it completes every two-hour task."
+    },
+    {
+      "id": "CE03",
+      "severity": "critical",
+      "description": "Claims that AI intelligence, model size or benchmark score itself doubled every seven months instead of the fitted task-completion time horizon on the studied suite."
+    },
+    {
+      "id": "CE04",
+      "severity": "critical",
+      "description": "Presents the mid-2028 to mid-2030 interval or mid-2029 center as a demonstrated or unconditional date for one-month AI capability."
+    },
+    {
+      "id": "CE05",
+      "severity": "critical",
+      "description": "Equates a one-month horizon on software and research tasks with one-month AGI, complete job automation or the proven ability to replace software engineers."
+    },
+    {
+      "id": "CE06",
+      "severity": "major",
+      "description": "Claims that the 80% horizon is as long as or longer than the 50% horizon, omitting the reported four-to-six-fold reduction."
+    },
+    {
+      "id": "CE07",
+      "severity": "major",
+      "description": "Describes the task suite as representative observation of ordinary deployed software work while ignoring automatic scoring, task structure and other external-validity limits."
+    },
+    {
+      "id": "CE08",
+      "severity": "major",
+      "description": "Treats results as intrinsic model capability while omitting that the evaluated entities are model-and-scaffold agent systems."
+    },
+    {
+      "id": "CE09",
+      "severity": "major",
+      "description": "Presents the approximately 70-day SWE-bench Verified trend as an unqualified replication while omitting the paper's warning about biased human-time annotations."
+    }
+  ],
+  "rubric": {
+    "maximum_score": 100,
+    "coverage_status_multipliers": {
+      "full": 1.0,
+      "partial": 0.5,
+      "missing": 0.0,
+      "contradicted": 0.0
+    },
+    "derived_coverage": {
+      "key_facts_max": 25,
+      "key_facts_formula": "sum(key_fact.weight * status_multiplier); key-fact weights sum to 25",
+      "key_ideas_max": 15,
+      "key_ideas_formula": "sum(key_idea.weight * status_multiplier); key-idea weights sum to 15"
+    },
+    "judged_dimensions": [
+      {
+        "id": "factual_accuracy",
+        "max": 25,
+        "anchors": {
+          "25": "No material factual error, contradiction or unsupported addition.",
+          "20": "Accurate overall with only a minor imprecision that does not alter meaning.",
+          "12": "At least one major error or several meaningful imprecisions.",
+          "5": "A critical error or pervasive unreliability substantially changes the paper's meaning.",
+          "0": "The output is unusable as a factual account of the source."
+        }
+      },
+      {
+        "id": "epistemic_precision",
+        "max": 10,
+        "anchors": {
+          "10": "Consistently preserves scope, attribution and the distinction between measurement, interpretation, extrapolation and limitation.",
+          "7": "Mostly precise with one limited scope, attribution or certainty problem.",
+          "4": "Repeatedly blurs fitted results, qualitative interpretations or conditional forecasts.",
+          "0": "Systematically presents narrow or conditional claims as broad established facts."
+        }
+      },
+      {
+        "id": "prioritization",
+        "max": 10,
+        "anchors": {
+          "10": "Leads with the metric and headline trend, then gives proportionate space to method, reliability, external validity and forecast conditions.",
+          "7": "The hierarchy is sound but modestly overweights a secondary detail or underweights a limitation.",
+          "4": "Important and secondary material receive similar emphasis or the central result arrives late.",
+          "0": "The emphasis materially misrepresents what the paper contributes or establishes."
+        }
+      },
+      {
+        "id": "structure_clarity",
+        "max": 10,
+        "anchors": {
+          "10": "Clear German, descriptive structure and an understandable explanation of the metric for a non-specialist reader.",
+          "7": "Generally clear with minor jargon, awkwardness, redundancy or weak headings.",
+          "4": "Noticeably hard to follow, poorly organized or insufficiently explained.",
+          "0": "Incoherent, largely unreadable or not meaningfully in German."
+        }
+      },
+      {
+        "id": "compression",
+        "max": 5,
+        "anchors": {
+          "5": "High information value per word; compresses the roughly 4,900-word source without losing the metric, headline trend, reliability distinction and decisive caveats.",
+          "3": "Some avoidable detail or repetition, but still functions as a useful summary.",
+          "1": "Substantially padded, repetitive or poorly selective.",
+          "0": "Not meaningfully compressed or exceeds the hard maximum."
+        }
+      }
+    ],
+    "hard_constraints": {
+      "empty_output": {
+        "result": "invalid",
+        "final_score": 0
+      },
+      "output_language_not_german": {
+        "result": "noncompliant",
+        "final_score_cap": 59
+      },
+      "word_count_above_1000": {
+        "result": "noncompliant",
+        "compression_score": 0,
+        "final_score_cap": 59
+      },
+      "generation_truncated_at_token_limit": {
+        "result": "noncompliant",
+        "final_score_cap": 59
+      },
+      "reasoning_markup_in_candidate_output": {
+        "result": "noncompliant",
+        "final_score_cap": 59
+      }
+    },
+    "critical_error_caps": {
+      "one_critical_error": {
+        "factual_accuracy_cap": 8,
+        "final_score_cap": 59
+      },
+      "two_or_more_critical_errors": {
+        "factual_accuracy_cap": 4,
+        "final_score_cap": 39
+      }
+    },
+    "verdict_thresholds": {
+      "excellent": 90,
+      "good": 75,
+      "usable": 60,
+      "poor": 1,
+      "invalid": 0
+    }
+  },
+  "nonessential_details": [
+    "The complete author list and affiliations",
+    "The related-work bibliography",
+    "Every example task and every individual model result",
+    "The exact logistic-regression formula or every robustness hyperparameter",
+    "The complete qualitative failure-count table",
+    "Appendix-only results and implementation details",
+    "Exact reconciliation of the paper's 169-versus-170 task count or 11-versus-12 frontier-model count"
+  ]
+}

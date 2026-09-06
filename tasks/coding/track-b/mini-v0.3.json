@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "harness_id": "mini-v0.3",
+  "harness_family": "project_mini_harness",
+  "status": "qualified_for_capability_sweep_planning",
+  "protocol_path": "tasks/coding/track-b/track-b-mini-v0.3.json",
+  "system_prompt_path": "tasks/coding/track-b/prompts/mini-system-v0.3.txt",
+  "action_protocol": "ollama_json_schema_action_per_turn",
+  "action_schema_path": "tasks/coding/track-b/schemas/mini-action-v0.3.json",
+  "actions": [
+    "read_file",
+    "write_file",
+    "replace_text",
+    "run_public_tests",
+    "finish"
+  ],
+  "context_policy": {
+    "initial_context": [
+      "task_text",
+      "candidate_visible_path_inventory",
+      "tool_contract",
+      "time_and_emergency_limits"
+    ],
+    "file_contents_loaded_on_demand": true,
+    "observations_appended_verbatim": true,
+    "automatic_compaction": false
+  },
+  "response_transport": {
+    "ollama_api": "/api/chat",
+    "format": "versioned_json_schema",
+    "post_generation_fence_repair": false,
+    "strict_parser_after_generation": true
+  },
+  "tool_policy": {
+    "read_file": "candidate_visible_existing_files_only",
+    "write_file": "allowed_existing_files_only",
+    "replace_text": "one_exact_occurrence_in_allowed_existing_file",
+    "run_public_tests": "frozen_public_test_command_only",
+    "finish": "no_side_effect"
+  },
+  "execution_boundary": {
+    "model_call_and_action_execution_are_separate_commands": true,
+    "model_call_never_executes_candidate_code": true,
+    "hidden_verification_is_a_separate_final_command": true,
+    "action_and_final_verification_require_a_surrounding_execution_sandbox": true
+  }
+}

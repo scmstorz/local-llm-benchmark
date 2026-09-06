@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_id": "coding-track-b-v0.3",
+  "status": "qualified_for_sweep_planning",
+  "track": "B",
+  "study_mode": "capability_sweep",
+  "supersedes_for_future_runs": "coding-track-b-v0.2",
+  "change_reason": "The first measured Pi sweep showed that a 12000-token trajectory ceiling can terminate a model while substantial active time remains. For capability screening, active wall time is the user-relevant primary resource boundary. Turns, total output tokens and ordinary tool effort are measurements rather than normal success limits.",
+  "task_subset": [
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "case_path": "tasks/coding/dev/php-payment-result-migration/case.json",
+      "selection_reason": "Tests whether tool-mediated file writes remove a Track A transport floor."
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "case_path": "tasks/coding/dev/async-cache-coalescing/case.json",
+      "selection_reason": "Tests iterative repair of a behavioral failure that no Track A deployment solved."
+    },
+    {
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "case_path": "tasks/coding/dev/pagination-cycle-guard/case-whole-file-v1.2.json",
+      "selection_reason": "Adds a Python standard-library bug fix with the corrected v1.2 hidden cycle verifier, exact fetch-boundary requirements and public unittest feedback."
+    }
+  ],
+  "harness_candidates": [
+    {
+      "harness_id": "pi-v0.3",
+      "config_path": "tasks/coding/track-b/pi-v0.3.json"
+    }
+  ],
+  "experimental_unit": [
+    "task",
+    "model",
+    "quantization",
+    "runtime",
+    "harness",
+    "context_configuration",
+    "reasoning_configuration",
+    "tool_configuration",
+    "run"
+  ],
+  "shared_permissions": {
+    "read_scope": "candidate_visible_fixture_files_only",
+    "write_scope": "artifact_contract_allowed_existing_files_only",
+    "public_test_feedback": true,
+    "hidden_test_feedback": false,
+    "browser": false,
+    "external_network": false,
+    "arbitrary_shell": false
+  },
+  "normal_capability_limits": {
+    "maximum_active_wall_time_seconds": 900,
+    "provider_request_timeout_seconds": 300,
+    "maximum_total_output_tokens": null,
+    "maximum_agent_turns": null
+  },
+  "technical_response_limits": {
+    "num_ctx": 16384,
+    "num_predict_per_turn": 1600,
+    "reason": "Context and per-response generation limits are required runtime configuration, not whole-trajectory capability budgets."
+  },
+  "runaway_operation_safeguards": {
+    "maximum_file_reads": 200,
+    "maximum_file_writes": 100,
+    "maximum_public_test_runs": 30,
+    "semantics": "Generous emergency ceilings. They protect the local machine and benchmark fixture from pathological loops and are not expected to bind during a normal 900-second run. Any activation is reported separately from a task-verification failure."
+  },
+  "measurement_only": [
+    "agent_turns",
+    "input_tokens",
+    "output_tokens",
+    "tool_calls",
+    "failed_tool_calls",
+    "file_reads",
+    "file_writes",
+    "public_test_runs"
+  ],
+  "time_semantics": {
+    "task_authority": "parent_process_monotonic_wait",
+    "provider_authority": "explicit_pi_provider_timeout",
+    "extension_wall_clock_abort": false,
+    "notebook_standby_must_not_consume_active_task_time": true
+  },
+  "inference_defaults": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 1600,
+    "keep_alive": "5m",
+    "request_timeout_seconds": 300
+  },
+  "termination": {
+    "successful_pi_termination": "normal_agent_end_event_and_zero_process_exit",
+    "terminal_failures": [
+      "maximum_active_wall_time_exceeded",
+      "provider_request_timeout",
+      "runtime_failure",
+      "emergency_operation_safeguard_exceeded"
+    ],
+    "verification_after_every_termination": true,
+    "verified_success_requires": [
+      "harness_specific_valid_agent_termination",
+      "workspace_scope_integrity",
+      "public_tests_pass",
+      "hidden_tests_pass"
+    ],
+    "verifier_success_and_agent_termination_are_reported_separately": true
+  },
+  "comparison_rules": {
+    "initial_measured_runs_per_configuration": 1,
+    "no_automatic_retries": true,
+    "performance_and_reliability_repetitions_deferred": true,
+    "time_is_the_primary_capability_budget": true,
+    "tokens_and_turns_are_not_success_thresholds": true
+  },
+  "freeze_requirements": [
+    "new versioned Pi adapter implementation complete",
+    "provider request timeout explicitly present in generated Pi settings",
+    "parent monotonic task timeout is the sole normal trajectory-time authority",
+    "Pi policy records output tokens without aborting on their total",
+    "operation safeguards and path restrictions pass executable tests",
+    "no-inference preparation and Seatbelt acceptance pass",
+    "fixture, verifier, prompt, policy and configuration hashes recorded",
+    "execution order preregistered",
+    "resource gate passes before inference"
+  ],
+  "qualification_evidence": {
+    "qualified_on": "2026-09-04",
+    "live_adapter_supports_v0_3": true,
+    "provider_timeout_loaded_by_pinned_settings_manager": true,
+    "provider_timeout_forwarded_by_pinned_sdk": true,
+    "stalled_local_provider_probe": {
+      "configured_timeout_milliseconds": 250,
+      "observed_process_duration_milliseconds": 466.79,
+      "provider_requests": 1,
+      "ollama_requests": 0,
+      "external_requests": 0,
+      "passed": true
+    },
+    "policy_extension_tests_pass": true,
+    "no_inference_preparation_cases": [
+      "coding.dev.php-payment-result-migration",
+      "coding.dev.async-cache-coalescing",
+      "coding.dev.pagination-cycle-guard"
+    ],
+    "seatbelt_acceptance_checks_per_case": 12,
+    "model_requests_made": 0,
+    "candidate_code_executed": false,
+    "measured_sweep_plan_frozen": false
+  }
+}

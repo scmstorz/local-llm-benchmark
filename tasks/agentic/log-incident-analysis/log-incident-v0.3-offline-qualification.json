@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "log-incident-v0.3-task-set-offline-qualification",
+  "qualified_on": "2026-09-06",
+  "status": "qualified_for_harness_adaptation_and_confirmation_design",
+  "case_ids": [
+    "agentic.ops.checkout-pool-regression",
+    "agentic.ops.retry-queue-amplification",
+    "agentic.ops.clock-skew-partial-recovery"
+  ],
+  "experimental_scope": "No model inference. The additive v0.3 representation aligns every essential verifier check with candidate-visible instructions and separates semantic success from final-output transport compliance.",
+  "resolved_v02_validity_issue": {
+    "incident_start_defined": "earliest supplied evidence that directly proves user-facing impact",
+    "last_observation_defined_separately": true,
+    "essential_checks_candidate_visible": 15,
+    "essential_checks_hidden_only": 0,
+    "historical_v02_outcomes_changed": false,
+    "v02_and_v03_poolable": false
+  },
+  "response_normalization": {
+    "normalization_id": "single-intact-json-object-v0.3",
+    "accepts_exactly_one_intact_object": true,
+    "repairs_internal_json": false,
+    "rejects_multiple_objects": true,
+    "strict_transport_compliance_scored_separately": true
+  },
+  "qualification_evidence": {
+    "reference_reports_passed": 3,
+    "reference_report_essential_checks_passed": 45,
+    "reference_report_essential_checks_total": 45,
+    "independent_incident_timestamps_tested": true,
+    "targeted_semantic_near_miss_classes": 12,
+    "schema_near_miss_rejected": true,
+    "response_parser_boundary_classes": 7,
+    "prior_representation_rejected": true,
+    "focused_python_tests_passed": 12,
+    "repository_python_tests_passed": 320,
+    "active_node_tests_passed": 21,
+    "opt_in_live_transport_tests_skipped": 1,
+    "live_ollama_requests": 0,
+    "live_model_inference": false
+  },
+  "artifacts": [
+    {"path": "local_llm_benchmark/log_incident_v03.py", "sha256": "1c9b530a245cac36c6e11e6eac383a11362ef64fc82035fa334f4f4fbafa5ed2"},
+    {"path": "tests/test_log_incident_v03.py", "sha256": "d25f83775d6663a443b60852481041850095fe5e17425f2f3bff39c42393c408"},
+    {"path": "tasks/agentic/log-incident-analysis/evaluation-contract-v0.3.json", "sha256": "c934ed82519e6ce1104eb26747a37ea3e68547464c7a9880964b064ac770a005"},
+    {"path": "tasks/agentic/log-incident-analysis/response-normalization-v0.3.json", "sha256": "b99c65d2c9665cc52ec7d3db12a7b2a431df254f7a4d5da7ff00113bb9257b3c"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/case-v0.3.json", "sha256": "65fe4bfa2cf7e0efdcc3ce37a84a0fdbed20c0ce821d92f133ec577b2efe5e45"},
+    {"path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/case-v0.3.json", "sha256": "93f07de27aca27859adec9d7e02b9cd1a97a8b09ad228296e64689e19519e67e"},
+    {"path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/case-v0.3.json", "sha256": "1a5cdb6bc2b56135b7ba0f4dacd44f084a7447b283bf9be7457ec16a2ec90935"}
+  ],
+  "next_gate": "Complete offline qualification of Mini and Pi v0.3, commit the implementation, then freeze a small confirmation matrix before any model contact."
+}

@@ -1,0 +1,7 @@
+{
+  "schema_version":"1.0.0","source_id":"reference.general-knowledge.renewable-electricity-matching.2026-08-29","title":"Frozen reference dossier: annual renewable procurement and hourly reliability","publisher":"Local LLM Benchmark Lab","page_type":"project_authored_reference_dossier","retrieved_at":"2026-08-29","source_language":"en",
+  "authoritative_sources":["https://www.iea.org/reports/electricity-2026/flexibility","https://www.iea.org/reports/advancing-decarbonisation-through-clean-electricity-procurement","https://www.iea.org/energy-system/buildings/data-centres-and-data-transmission-networks","https://www.iea.org/reports/renewables-2025/renewable-electricity","https://www.iea.org/reports/managing-seasonal-and-interannual-variability-of-renewables","https://www.iea.org/reports/the-value-of-demand-flexibility"],
+  "artifacts":{"reference_source":{"path":"tasks/general-knowledge/dev/renewable-electricity-matching/reference.md","sha256":"7c9d535cf7b0c7a3657b1c83d5239de5f420d0de609d18fca3ea50e4fc97f0e6","word_count_whitespace":504,"location_labels_added":true,"candidate_visible":false}},
+  "construction":{"method":"Project-authored synthesis of cited authoritative sources","semantic_policy":"Preserve source distinctions and conditions without copying source prose.","frozen_on":"2026-08-29"},
+  "copyright":{"dossier_license":"project_repository_license","source_publications_copied":false,"git_tracked":true}
+}

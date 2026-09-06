@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "comparisons": [
+    {
+      "comparison_id": "comparison-20260828T060458Z-73b47a56",
+      "performance_evidence": "controlled",
+      "note": "Canonical controlled rerun of the MIT Sloan case; replaces the initial run whose timing was affected by other Ollama clients."
+    },
+    {
+      "comparison_id": "comparison-20260828T170544Z-d6c92325",
+      "performance_evidence": "controlled",
+      "note": "Canonical TheAgentCompany paper comparison."
+    },
+    {
+      "comparison_id": "comparison-20260828T180540Z-0a1267f8",
+      "performance_evidence": "controlled",
+      "note": "Canonical METR long-software-tasks paper comparison."
+    },
+    {
+      "comparison_id": "comparison-20260828T195518Z-856dd260",
+      "performance_evidence": "controlled",
+      "note": "Canonical confidence-interval foundation comparison."
+    },
+    {
+      "comparison_id": "comparison-20260829T035945Z-41ceba9a",
+      "performance_evidence": "controlled",
+      "note": "Canonical confidence-interval transfer comparison."
+    },
+    {
+      "comparison_id": "comparison-20260829T054707Z-7bef0727",
+      "performance_evidence": "controlled",
+      "note": "Canonical mRNA-vaccine mechanism comparison."
+    },
+    {
+      "comparison_id": "comparison-20260829T062601Z-8cb212b9",
+      "performance_evidence": "controlled",
+      "note": "Canonical interest-rate and inflation mechanism comparison."
+    },
+    {
+      "comparison_id": "comparison-20260829T075406Z-f1f854c7",
+      "performance_evidence": "controlled",
+      "note": "Canonical medical-screening and base-rate reasoning comparison; the first Hard Knowledge v0.2 case."
+    },
+    {
+      "comparison_id": "comparison-20260829T084441Z-4dc3483d",
+      "performance_evidence": "controlled",
+      "note": "Canonical antibiotic-resistance and stewardship comparison; the second Hard Knowledge v0.2 case."
+    },
+    {
+      "comparison_id": "comparison-20260829T090820Z-76d94b40",
+      "performance_evidence": "controlled",
+      "note": "Canonical renewable-electricity matching and power-system flexibility comparison; the third Hard Knowledge v0.2 case."
+    },
+    {
+      "comparison_id": "comparison-20260829T093603Z-a1fc2009",
+      "performance_evidence": "controlled",
+      "note": "Canonical distributed-payment reliability and end-to-end idempotency comparison; the fourth Hard Knowledge v0.2 case."
+    },
+    {
+      "comparison_id": "comparison-20260829T105041Z-ff417428",
+      "performance_evidence": "controlled",
+      "note": "Canonical ML evaluation leakage and nested-validation comparison; the fifth Hard Knowledge v0.2 case. Quality scores come from the complete five-way joint late-challenger rejudgment."
+    },
+    {
+      "comparison_id": "comparison-20260829T115954Z-59c6a2df",
+      "performance_evidence": "controlled",
+      "note": "Canonical RAG grounding and pipeline-observability comparison; the sixth and final Hard Knowledge v0.2 case. Quality scores come from the complete five-way joint late-challenger rejudgment."
+    },
+    {
+      "comparison_id": "comparison-20260830T172156Z-450bbffe",
+      "performance_evidence": "controlled",
+      "note": "Canonical first source-grounded professional-writing comparison using five independently judged deployments. heading_pass is inapplicable because the frozen LinkedIn task requires paragraphs but no structural heading."
+    },
+    {
+      "comparison_id": "comparison-20260901T073315Z-42a44ad5",
+      "performance_evidence": "controlled",
+      "note": "Canonical second source-grounded professional-writing comparison using five independently judged deployments. heading_pass is inapplicable because the frozen LinkedIn task requires paragraphs but no structural heading."
+    }
+  ]
+}

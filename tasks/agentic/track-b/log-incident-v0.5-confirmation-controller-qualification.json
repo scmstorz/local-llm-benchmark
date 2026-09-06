@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "log-incident-v0.5-confirmation-controller-no-inference",
+  "qualified_on": "2026-09-06",
+  "status": "qualified_for_authorized_execution",
+  "plan_id": "log-incident-v0.5-specification-confirmation",
+  "authorization_id": "must_be_created_after_plan_freeze",
+  "experimental_scope": "No live inference. The v0.5 resumable controller, frozen-plan loader, temporary post-freeze authorization validation, mocked resource gate, checkpoint lifecycle and public-safe layered report path were exercised offline. No repository live-authorization artifact exists at freeze time.",
+  "qualification_evidence": {
+    "frozen_six_cell_matrix_validated": true,
+    "temporary_post_freeze_authorization_hash_bound": true,
+    "repository_live_authorization_present": false,
+    "first_cell_prepared_without_inference": true,
+    "live_boundary_requires_explicit_confirmation": true,
+    "mocked_live_boundary_checkpointed": true,
+    "semantic_and_transport_outcomes_reported_separately": true,
+    "supplemental_free_text_review_requirement_reported": true,
+    "private_candidate_content_excluded_from_public_report": true,
+    "absolute_paths_excluded_from_public_report": true,
+    "focused_python_tests_passed": 6,
+    "repository_python_tests_passed": 419,
+    "active_node_tests_passed": 21,
+    "opt_in_live_transport_tests_skipped": 1,
+    "live_ollama_requests": 0,
+    "live_model_inference": false
+  },
+  "interruption_policy": {
+    "raw_attempts_append_only": true,
+    "terminal_attempts_never_repeated": true,
+    "lost_live_process_classified_as_infrastructure_or_control_failure": true,
+    "automatic_retries": 0
+  },
+  "artifacts": [
+    {"path": "local_llm_benchmark/log_incident_confirmation_v05.py", "sha256": "31f4878ebc1e4a43716a8f0fffb1e02bc3c4eaf9d7772f10f4380a63f666bbe1"},
+    {"path": "local_llm_benchmark/log_incident_confirmation_report_v05.py", "sha256": "2b2d745538dc8a4c5561389098dc83d522b809c2ec426e3fe43c8714772ca4a9"},
+    {"path": "tests/test_log_incident_confirmation_v05.py", "sha256": "4e2f80cf6f413d4a148cf6f5173c74b1d05dcb305df287a8dfe0b81ab9314cef"},
+    {"path": "tasks/agentic/track-b/log-incident-v0.5-confirmation-plan.json", "sha256": "4c06f22e18d629e2fdddb794369f810ae7870d2f4953ae775e74011693afd8bb"}
+  ],
+  "next_gate": "Commit this frozen plan and qualified controller. Only then may a separate user-authorized artifact be created; every live cell still requires the real 30-second resource gate."
+}

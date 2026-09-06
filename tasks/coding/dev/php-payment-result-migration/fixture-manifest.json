@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_version": "1.0.0",
+  "fixture_id": "coding.dev.php-payment-result-migration.fixture",
+  "files": [
+    {
+      "path": "composer.json",
+      "sha256": "3924466e39571c75038598770cef084dc9731ee2564fc86abbe89a141d1a5ef5",
+      "size_bytes": 275,
+      "candidate_visible": true,
+      "protected": true
+    },
+    {
+      "path": "src/CheckoutOutcome.php",
+      "sha256": "09cdddf1fbbe00cadb0114f096a8daab4f8060c627b6a1ab936ca83452d167d0",
+      "size_bytes": 182,
+      "candidate_visible": true,
+      "protected": true
+    },
+    {
+      "path": "src/CheckoutService.php",
+      "sha256": "b7fa058041b0d5e0ee0424d85d275bb045b52dc0e47bf378b0dbcd613f34c81a",
+      "size_bytes": 1160,
+      "candidate_visible": true,
+      "protected": false
+    },
+    {
+      "path": "src/Order.php",
+      "sha256": "51c2fe8206d199e5cacc057b2e6c0e67c8820c971fd408020a71a8018e852ee3",
+      "size_bytes": 468,
+      "candidate_visible": true,
+      "protected": true
+    },
+    {
+      "path": "src/PaymentGateway.php",
+      "sha256": "747c92e68bd56afae13845c575bbecc9e3b13a5571f99a83eae61eaee75b532a",
+      "size_bytes": 160,
+      "candidate_visible": true,
+      "protected": true
+    },
+    {
+      "path": "src/PaymentRepository.php",
+      "sha256": "83acf92eee30a98c04fcadba2087e4f94bd0daa6a9e72f33715a25c4f9601213",
+      "size_bytes": 384,
+      "candidate_visible": true,
+      "protected": true
+    },
+    {
+      "path": "src/PaymentRequest.php",
+      "sha256": "e838ff1fa99628d333ad7a6ea4551be3f053734863e293f70bda47613ac84298",
+      "size_bytes": 563,
+      "candidate_visible": true,
+      "protected": true
+    },
+    {
+      "path": "src/PaymentResult.php",
+      "sha256": "c310f96e08ca9dfc1caaa6a2406347c1c1fc4837e6d20c5b6e159c3501902aa6",
+      "size_bytes": 1358,
+      "candidate_visible": true,
+      "protected": true
+    },
+    {
+      "path": "src/PaymentState.php",
+      "sha256": "74d3f8c07dcbd3cd6f2ae12b21e2ba8138de7f8b9218d5ee5746ddeb960c6ecc",
+      "size_bytes": 207,
+      "candidate_visible": true,
+      "protected": true
+    },
+    {
+      "path": "src/PaymentStatus.php",
+      "sha256": "35914965fd1c4ddbb0a61aab2a2dee12475c26983b0a5e42701b608bbcf32f09",
+      "size_bytes": 239,
+      "candidate_visible": true,
+      "protected": true
+    },
+    {
+      "path": "src/RetryPolicy.php",
+      "sha256": "baebf68a4d5b020b2f18a25b4aa6118767b407b7833f5d3f3b96201a3e1b60c8",
+      "size_bytes": 668,
+      "candidate_visible": true,
+      "protected": false
+    },
+    {
+      "path": "tests/bootstrap.php",
+      "sha256": "b05830374a6b7b7cb5596c1338a9f7dc3a1ea0e545c1beccfcd4fcfda6492894",
+      "size_bytes": 486,
+      "candidate_visible": true,
+      "protected": true
+    },
+    {
+      "path": "tests/run.php",
+      "sha256": "ec02405e6071ed40ed02a38bce661cab7708fdce5507a7af5e378990d5166092",
+      "size_bytes": 3469,
+      "candidate_visible": true,
+      "protected": true
+    },
+    {
+      "path": "tests/support.php",
+      "sha256": "916b2a83614a53eeddd4597f7bab40b7a034a7de8dc6abcf5b161c37d02f06ab",
+      "size_bytes": 3179,
+      "candidate_visible": true,
+      "protected": true
+    }
+  ]
+}

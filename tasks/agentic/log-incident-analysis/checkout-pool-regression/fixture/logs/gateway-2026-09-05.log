@@ -1,0 +1,7 @@
+GATE-100 2026-09-05T08:10:00Z INFO health route=/checkout status=200 p95_ms=184
+GATE-101 2026-09-05T08:16:55Z INFO traffic route=/checkout requests_per_second=72 previous_15m=31 campaign=autumn-sale
+GATE-102 2026-09-05T08:17:06Z ERROR response trace_id=chk-7f3 route=/checkout status=503 upstream=orders-api duration_ms=5021
+GATE-103 2026-09-05T08:18:44Z ERROR response trace_id=chk-80a route=/checkout status=503 upstream=orders-api duration_ms=5018
+GATE-104 2026-09-05T08:19:11Z WARN response trace_id=probe-19 route=/admin status=401 reason=expired_token
+GATE-105 2026-09-05T08:23:58Z WARN response trace_id=chk-a91 route=/checkout status=200 upstream=orders-api duration_ms=1412
+GATE-106 2026-09-05T08:25:12Z INFO health route=/checkout status=200 p95_ms=201 recovery_window=confirmed

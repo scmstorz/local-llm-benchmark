@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "agentic.ops.clock-skew-partial-recovery",
+  "case_version": "1.0.0",
+  "track": "B",
+  "task_family": "incident_investigation",
+  "status": "offline_qualified_before_live_smoke",
+  "task_path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/TASK.md",
+  "fixture": {
+    "root": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/fixture",
+    "manifest_path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/fixture-manifest.json",
+    "manifest_version": "1.0.0"
+  },
+  "candidate_context": {
+    "files": [
+      "logs/checkout-edge.jsonl",
+      "logs/database.log",
+      "logs/load-balancer.log",
+      "logs/payment-node-03.log",
+      "logs/provider.jsonl",
+      "logs/reconciliation.log",
+      "logs/time-monitor.log"
+    ],
+    "read_only": true,
+    "browsing_allowed": false,
+    "shared_state_allowed": false
+  },
+  "output_contract": {
+    "format": "structured_incident_report",
+    "version": "2.0.0",
+    "schema_path": "tasks/agentic/log-incident-analysis/report-schema-v2.json",
+    "maximum_serialized_bytes": 32768
+  },
+  "verification": {
+    "version": "2.0.0",
+    "ground_truth_path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/reference/ground-truth.json",
+    "reference_report_path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/reference/reference-report.json",
+    "implementation_path": "local_llm_benchmark/log_incident_v02.py"
+  },
+  "evaluation": {
+    "benchmark_card_path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/benchmark-card.json",
+    "benchmark_card_version": "1.0.0",
+    "primary_outcome": "verified_success",
+    "llm_judge_required": false
+  }
+}

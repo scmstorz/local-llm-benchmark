@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "mini-log-qwen38-development-smoke-v0.1",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-05",
+  "track": "B",
+  "harness_id": "mini-log-v0.1",
+  "evidence_class": "excluded_development_smoke",
+  "purpose": "Determine whether the qualified read-only Mini Log adapter produces one complete, interpretable live incident-investigation trajectory before any measured Capability Sweep is planned.",
+  "repository_commit": "4eb37bbeb7f1a8d35be79406601f268f837a910e",
+  "runtime": {
+    "name": "ollama",
+    "version": "0.33.2",
+    "host": "http://127.0.0.1:11434"
+  },
+  "deployment": {
+    "name": "qwen3.8:27b-mlx",
+    "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "size_bytes": 18174721847,
+    "quantization": "nvfp4",
+    "template_sha256": "b507b9c2f6ca642bffcd06665ea7c91f235fd32daeefdf875a0f938db05fb315",
+    "selection_reason": "Qwen 3.8 is an active-default deployment with prior success across the three Pi coding cases and native structured-output capability. The smoke validates machinery, not comparative model quality."
+  },
+  "case": {
+    "case_id": "agentic.ops.checkout-pool-regression",
+    "case_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/case.json"
+  },
+  "configuration": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 4000,
+    "maximum_active_wall_time_seconds": 300,
+    "provider_request_timeout_seconds": 180,
+    "maximum_agent_turns": null,
+    "maximum_total_output_tokens": null,
+    "maximum_protocol_errors": null,
+    "maximum_file_reads_emergency": 40,
+    "automatic_retries": 0
+  },
+  "execution_boundary": {
+    "model_call": "A separate command may contact only the loopback Ollama endpoint and cannot execute a candidate action.",
+    "action_step": "A separate controller command may read one declared regular fixture file or persist the final report; no candidate command or code is executable.",
+    "final_verification": "A separate command applies the hidden deterministic verifier after terminal report submission.",
+    "hidden_evaluation_feedback_to_model": false,
+    "external_network_available_to_agent": false,
+    "interrupted_provider_request_policy": "Preserve an ambiguous model_call_running record and do not splice or automatically retry the interrupted stream."
+  },
+  "resource_gate": {
+    "empty_state_observation_seconds": 30,
+    "must_check_processes": [
+      "Mnemosyn",
+      "News-App",
+      "Blog-Read-O-Matic",
+      "Behat or another concurrent workload"
+    ],
+    "loaded_models_must_be_empty": true,
+    "exact_model_digest_must_match": true,
+    "unload_measured_model_after_run": true
+  },
+  "success_gate_for_sweep_planning": {
+    "requires_verified_success": false,
+    "requires_complete_terminal_outcome": true,
+    "requires_no_adapter_or_orchestration_defect": true,
+    "requires_failure_if_any_to_be_machine_classified": true,
+    "interpretation": "A model or task failure is an interpretable qualification result. An adapter, persistence, isolation or verification defect blocks measured sweep planning."
+  },
+  "comparison_rules": {
+    "attempts": 1,
+    "automatic_retries": 0,
+    "result_excluded_from_measured_aggregates": true,
+    "no_model_or_harness_ranking_claim": true
+  },
+  "authorization": {
+    "source": "The user authorized implementation of the selected Agentic Log Incident Analysis item on 2026-09-05.",
+    "live_execution_allowed_after_resource_gate": true
+  },
+  "frozen_inputs": {
+    "qualification_path": "tasks/agentic/track-b/mini-log-v0.1-qualification.json",
+    "qualification_sha256": "c37d0485dc09fa095a79543e239218b4520ddf5343f64ce29708e1c79c368b4c",
+    "artifacts": [
+      {"path": "local_llm_benchmark/log_incident.py", "sha256": "51ac739d8834422de4e02096eef60b8e18300b4265921d91ee9dba5314da7196"},
+      {"path": "local_llm_benchmark/log_incident_mini.py", "sha256": "dbcb82670cbd9ce121f01a5b9d2555f6e0be0f63e594fb669bc391988e7e2f2c"},
+      {"path": "local_llm_benchmark/agentic.py", "sha256": "e2be075cc71772352dff156ae07824c44cdfd2a0fdebbace6ee1fccd48d50883"},
+      {"path": "local_llm_benchmark/ollama.py", "sha256": "cda83848193dd1ceb3d608c4fe0ae1d6e886fdc1121c2225bd3d2d020cc13102"},
+      {"path": "local_llm_benchmark/runner.py", "sha256": "5446a65d92386dca99655593fc6dd8f85b9956e495bfa179e82549dc66575c54"},
+      {"path": "capabilities/inventories/mini-log-v0.1.json", "sha256": "15e5af789ced0cce4185f90934cc454fc1371f30b5cda80a53510f264f3d92ae"},
+      {"path": "capabilities/isolation-profiles/mini-log-v0.1.json", "sha256": "ddf772441cf8d2452fe96a653dadbefe523c3611d601991e90d73f64409a2237"},
+      {"path": "tasks/agentic/track-b/mini-log-v0.1.json", "sha256": "455a1a880b52a8d70b78a90d15fbcdcffe4084830305f35edcfdd4fb19c9618b"},
+      {"path": "tasks/agentic/track-b/log-incident-v0.1.json", "sha256": "24db632a199177a341665db1f01f9575d480700cc69f9cf0e1c38a60829221cf"},
+      {"path": "tasks/agentic/track-b/prompts/mini-log-system-v0.1.txt", "sha256": "e4fe448948d5016d82525ca6137096eba984fc6bb31440a8673618043faaf3d2"},
+      {"path": "tasks/agentic/track-b/schemas/mini-log-action-v0.1.json", "sha256": "3bf2ad4b441eaa7903f601315aa408a9d64f813c2f9b86aba8c7f4077f6bab26"},
+      {"path": "tasks/agentic/track-b/mini-log-v0.1-qualification.json", "sha256": "c37d0485dc09fa095a79543e239218b4520ddf5343f64ce29708e1c79c368b4c"},
+      {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/case.json", "sha256": "3fe7dfdc73497c42b9ba0e7ce005f498dc3bcc7fc5d885cedb6823e1720180d2"},
+      {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/benchmark-card.json", "sha256": "cd1b9908b4d2db308728402754cb58ea5275e5b9237126d7fa424490a4981f19"},
+      {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/fixture-manifest.json", "sha256": "d7b2e1d5dfbfac37703f78036f2e529dcb7af05f2e9ec29ea48dd4082c9b28d1"},
+      {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/report-schema-v1.json", "sha256": "d1a2e4a63bd928b2ae0d5f3cc8f17608c7dcc48db41f23cb5a204ff7acb69eed"},
+      {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/TASK.md", "sha256": "9d90df411440ce021379e2ffcb565e2f8d8cf630d4d955f91e2d9450a169e5c3"},
+      {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/reference/ground-truth.json", "sha256": "508a5d47b44ec8de5e98ea7eca7c6bc4aef51bcc8998bb12ba9a0d3cb9d57836"},
+      {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/reference/reference-report.json", "sha256": "b7d2b80ecf0bf79b0ba46f7f29f8cdee6b0c5c08e10cbe07ad2ea3b9fe2c7709"},
+      {"path": "tests/test_log_incident.py", "sha256": "cfa8e8dab28957740bde5fc05e39d9f3f4d18890bb0abc387117b25efbc0f739"},
+      {"path": "tests/test_log_incident_mini.py", "sha256": "2661571424b30747add2d2983adfcf640677b6ee84e9c0bc39cd5b7de7be75f0"},
+      {"path": "tests/test_log_incident_mini_qualification.py", "sha256": "2e411016b4df0e17136bf9dddf1b8b6dcb3a22c9373ba0c8d592acbe49ee8821"},
+      {"path": "models/catalog.json", "sha256": "79e56238c9405d27dfba266e319a837571b6239cb9a6d1682729e58ebcf3d834"},
+      {"path": "models/lifecycle.json", "sha256": "18d896067eddf62ddf3c7ded8d34f22e32fef9994877239cf8e6abf877c30621"}
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "3.0.0",
+  "case_id": "agentic.ops.retry-queue-amplification",
+  "case_version": "3.0.0",
+  "track": "B",
+  "task_family": "incident_investigation",
+  "language": "English",
+  "status": "offline_qualification_candidate",
+  "experimental_question": "Can a local model identify a latent retry-policy regression and delayed queue amplification under an explicitly visible and fully aligned evaluation contract?",
+  "construct_validity": {
+    "intended_construct": "Source-grounded diagnosis of delayed nonlinear failure propagation across a worker and queue system.",
+    "v03_alignment_change": "Every essential semantic check is candidate-visible; incident start and final observation are separate checks.",
+    "known_blind_spots": [
+      "small synthetic fixture",
+      "controlled codebook constrains open-world diagnosis",
+      "queue mechanics are simplified",
+      "no high-volume search requirement",
+      "deterministic verification does not score prose quality"
+    ]
+  },
+  "outcomes": {
+    "primary": "semantic_verified_success",
+    "secondary": ["strict_transport_compliance"],
+    "composite_score": false
+  },
+  "candidate_access": {
+    "fixture_only": true,
+    "network": false,
+    "writes": false,
+    "shell": false,
+    "hidden_reference": false,
+    "cross_run_state": false
+  },
+  "reporting_limits": [
+    "v0.3 is a new representation of an existing incident, not an independent task.",
+    "Do not pool v0.2 and v0.3 attempts as repeated observations.",
+    "Normalized semantic success and strict transport compliance must remain separate.",
+    "Capability Sweep evidence does not estimate reliability or latency tails."
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "2.0.0",
+  "case_id": "agentic.ops.checkout-pool-regression",
+  "case_version": "2.0.0",
+  "track": "B",
+  "task_family": "incident_investigation",
+  "language": "English",
+  "status": "offline_qualified_before_live_smoke",
+  "experimental_question": "Can a local model reconstruct a cross-service configuration incident, cite exact evidence, reject plausible alternatives and classify the observed recovery state?",
+  "construct_validity": {
+    "intended_construct": "Source-grounded multi-file incident diagnosis under bounded selective file access.",
+    "observable_proxies": [
+      "correct UTC incident boundary and full-recovery state",
+      "separation of root cause, trigger, symptom and impact",
+      "valid cross-file event citations",
+      "ordered causal chain",
+      "rejection of evidenced distractor hypotheses",
+      "explicit uncertainty and actionable remediation"
+    ],
+    "validation_evidence": "The v2 reference must pass all essential checks and the existing causal near misses must remain invalid under the additive report contract.",
+    "known_blind_spots": [
+      "small synthetic fixture",
+      "controlled codebook reduces open-world ambiguity",
+      "no large-log retrieval requirement",
+      "deterministic checks do not fully judge prose quality",
+      "the v2 representation reuses the exact v1 evidence fixture"
+    ]
+  },
+  "primary_outcome": {
+    "name": "verified_success",
+    "type": "boolean",
+    "requires_all_essential_checks": true,
+    "composite_score": false
+  },
+  "criterion_groups": [
+    {"id": "structure", "essential": true, "description": "The report follows the strict v2 contract."},
+    {"id": "incident_boundary", "essential": true, "description": "UTC impact and final observation boundaries plus full recovery are correct."},
+    {"id": "causal_diagnosis", "essential": true, "description": "The configuration regression remains distinct from traffic and downstream effects."},
+    {"id": "evidence_grounding", "essential": true, "description": "Citations exist and critical causal/recovery evidence is present."},
+    {"id": "distractor_rejection", "essential": true, "description": "Database and authentication alternatives are rejected with evidence."},
+    {"id": "impact_and_uncertainty", "essential": true, "description": "Observed impact is bounded and absent facts remain unknown."},
+    {"id": "remediation", "essential": true, "description": "Immediate, preventive and detection actions cover the observed failure mode."}
+  ],
+  "candidate_access": {
+    "fixture_only": true,
+    "network": false,
+    "writes": false,
+    "shell": false,
+    "hidden_reference": false,
+    "cross_run_state": false
+  },
+  "reporting_limits": [
+    "This is an additive v2 representation, not a new independent incident.",
+    "Do not pool a v1 and v2 attempt as repeated observations of one condition.",
+    "Capability Sweep evidence does not estimate reliability or latency tails.",
+    "Different harnesses are complete-system comparisons."
+  ]
+}

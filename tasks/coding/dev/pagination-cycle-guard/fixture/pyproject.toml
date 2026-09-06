@@ -1,0 +1,6 @@
+[project]
+name = "paged-sync-fixture"
+version = "0.1.0"
+description = "Frozen benchmark fixture for cursor pagination behavior"
+requires-python = ">=3.11"
+dependencies = []

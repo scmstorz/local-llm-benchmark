@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "harness_id": "pi-v0.3",
+  "harness_family": "pinned_pi",
+  "status": "qualified_for_capability_sweep",
+  "protocol_path": "tasks/coding/track-b/track-b-v0.3.json",
+  "system_prompt_path": "tasks/coding/track-b/prompts/pi-system-v0.1.txt",
+  "supersedes_for_future_runs": "pi-v0.2",
+  "change_reason": "The first measured pi-v0.2 sweep exposed three methodological problems: the protocol's 300-second provider request timeout was recorded but not passed explicitly to Pi, the policy extension's wall-clock check counted notebook standby while the parent process used active monotonic time, and a 12000-token trajectory ceiling terminated models that still had active time available. Pi-v0.3 makes time the primary capability budget and treats tokens and turns as measurements.",
+  "implementation_status": "live_adapter_implemented_no_inference_qualified",
+  "qualification_note": "The versioned settings/policy builder and policy extension are integrated into a separate v0.3 live adapter without modifying the frozen pi-v0.2 adapter, configuration or protocol. Exact generated settings are loaded through the pinned Pi SettingsManager, timeout forwarding is verified against the pinned SDK wiring, and PHP, JavaScript and Python preparations pass the no-inference adapter and Seatbelt gates. No model request or candidate-code execution was used for qualification. A separate model-by-task execution plan must still be frozen before measured inference.",
+  "package": {
+    "name": "@earendil-works/pi-coding-agent",
+    "version": "0.84.4",
+    "npm_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+    "npm_shasum": "3a2f04bfc5e463b4cfa36b174a586d11a0bdf9ad",
+    "repository": "https://github.com/earendil-works/pi",
+    "node_requirement": ">=22.19.0"
+  },
+  "integration": {
+    "mode": "json",
+    "non_interactive": true,
+    "session_persistence": false,
+    "startup_network": false,
+    "provider": "ollama",
+    "api": "openai-completions",
+    "base_url": "http://127.0.0.1:11434/v1",
+    "provider_timeout_source": "protocol.normal_capability_limits.provider_request_timeout_seconds",
+    "provider_timeout_settings": [
+      "retry.provider.timeoutMs",
+      "httpIdleTimeoutMs"
+    ],
+    "discovered_extensions": false,
+    "explicit_extension": "integrations/pi/benchmark-policy-v0.3.mjs",
+    "skills": false,
+    "prompt_templates": false,
+    "themes": false,
+    "context_files": false,
+    "project_trust": false,
+    "tools": [
+      "read",
+      "write",
+      "edit",
+      "bash"
+    ]
+  },
+  "policy": {
+    "read": "candidate_visible_existing_files_only",
+    "write": "artifact_contract_allowed_existing_files_only",
+    "edit": "artifact_contract_allowed_existing_files_only",
+    "bash": "exact_frozen_public_test_command_only",
+    "hidden_tests_available_to_agent": false,
+    "agent_turns": "record_only_no_normal_limit",
+    "total_output_tokens": "record_only_no_normal_limit",
+    "tool_operation_limits": "generous_emergency_safeguards",
+    "wall_time_authority": "parent_monotonic_process_wait",
+    "wall_clock_policy_limit_disabled": true
+  },
+  "execution_boundary": {
+    "prepare_without_inference": true,
+    "live_execution_requires_os_sandbox": true,
+    "sandbox_backend": "pi-macos-seatbelt-v0.2",
+    "sandbox_acceptance_required_before_each_live_run": true,
+    "live_execution_and_hidden_verification_are_separate_commands": true,
+    "reason": "Pi combines model calls and public candidate-code execution in one process. A validated deny-by-default Seatbelt profile contains that process; the parent controller enforces active monotonic wall time, and hidden verification starts only after Pi exits."
+  }
+}

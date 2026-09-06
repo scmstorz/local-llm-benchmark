@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "reference.general-knowledge.confidence-intervals.2026-08-28",
+  "title": "Frozen reference dossier: 95% confidence intervals",
+  "publisher": "Local LLM Benchmark Lab",
+  "page_type": "project_authored_reference_dossier",
+  "retrieved_at": "2026-08-28",
+  "source_language": "en",
+  "authoritative_sources": [
+    "https://itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+    "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+    "https://www.itl.nist.gov/div898/handbook/pmd/section5/pmd512.htm"
+  ],
+  "artifacts": {
+    "reference_source": {
+      "path": "tasks/general-knowledge/dev/confidence-intervals/reference.md",
+      "sha256": "fcbe752596d0db9c0070c89dac4a112304be77e02bfea7579b56567b3ac49923",
+      "word_count_whitespace": 424,
+      "location_labels_added": true,
+      "candidate_visible": false
+    }
+  },
+  "construction": {
+    "method": "Project-authored synthesis of cited authoritative sources",
+    "semantic_policy": "Preserve source distinctions and conditions without copying source prose.",
+    "frozen_on": "2026-08-28"
+  },
+  "copyright": {
+    "dossier_license": "project_repository_license",
+    "source_publications_copied": false,
+    "git_tracked": true
+  }
+}

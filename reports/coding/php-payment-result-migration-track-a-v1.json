@@ -1,0 +1,276 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "php-payment-result-migration-track-a-v1",
+  "plan_id": "php-payment-result-migration-five-model-v1",
+  "plan_path": "tasks/coding/dev/php-payment-result-migration/comparison-plan.json",
+  "case_id": "coding.dev.php-payment-result-migration",
+  "case_version": "1.0.0",
+  "track": "A",
+  "study_mode": "capability_sweep",
+  "artifact_format": "whole_file_envelope",
+  "execution_started_at": "2026-09-02T08:32:31.130654Z",
+  "execution_completed_at": "2026-09-02T08:46:18.335695Z",
+  "report_generated_at": "2026-09-02T08:50:46Z",
+  "execution_order": [
+    "B",
+    "C",
+    "E",
+    "D",
+    "A"
+  ],
+  "outcome_layers": {
+    "primary": "Strict verified success from the unmodified source response.",
+    "preregistered_secondary": "Fence-only transport normalization under the frozen protocol; never changes the primary outcome.",
+    "posthoc_audit": "Result-specific, code-byte-identical transport counterfactuals defined after outputs were known; exploratory only."
+  },
+  "environment": {
+    "ollama_version": "0.32.15",
+    "php_version": "8.4.17",
+    "harness_git_commit": "9cffd0f5dad7538e630e927fdd50d9adafb253f6",
+    "plan_git_commit": "9c915abc5e6775bc54446a5f350b065df40efc2f",
+    "model_digests_matched_plan": true,
+    "news_app_worker_observed": false,
+    "mnemosyn_application_worker_observed": false,
+    "idle_mnemosyn_mcp_helpers_observed": 3,
+    "idle_behat_infrastructure_observed": true,
+    "behat_process_cpu_delta_seconds_over_30_seconds": 0.04,
+    "fseventsd_cpu_delta_seconds_over_30_seconds": 0.12,
+    "ollama_empty_for_preflight_seconds": 30,
+    "candidate_unloaded_after_every_attempt": true,
+    "ollama_empty_for_postflight_seconds": 30,
+    "unexpected_model_observed": false,
+    "generation_verification_boundary": "Every elevated Ollama generation ended with verification pending. Candidate code was inspected and executed only by separate workspace-sandbox commands."
+  },
+  "runs": [
+    {
+      "position": 1,
+      "alias": "B",
+      "model": "qwen3.8:27b-mlx",
+      "run_id": "coding-run-20260902T083231Z-a76a6eda",
+      "done_reason": "stop",
+      "response_sha256": "315b7f5f12637faefc58455a6b3d360b0840318ddc24e721a0752fbada4de842",
+      "output_tokens": 649,
+      "wall_time_seconds": 27.985318666964304,
+      "load_duration_seconds": 1.522225917,
+      "prompt_eval_duration_seconds": 16.692317458,
+      "eval_duration_seconds": 9.767124542,
+      "output_tokens_per_second": 66.44739679618186,
+      "strict": {
+        "output_status": "malformed",
+        "failure_code": "malformed_artifact",
+        "failure_reason": "One blank line appeared between two otherwise path-bearing envelopes.",
+        "candidate_tests_executed": false,
+        "verified_success": false
+      },
+      "preregistered_transport_diagnostic": {
+        "status": "not_eligible",
+        "reason": "The response contained no Markdown PHP fences."
+      },
+      "posthoc_transport_audit": {
+        "status": "complete",
+        "defined_after_output_was_known": true,
+        "normalization": "Removed exactly one blank line between the two path-bearing envelopes.",
+        "candidate_code_modified": false,
+        "code_byte_identity_verified": true,
+        "candidate_code_sha256_by_path": {
+          "src/CheckoutService.php": "aa8a3e33105f8bc78bd34dea159e3dc6c357ad711bcfefa89f67283c907dac9c",
+          "src/RetryPolicy.php": "d64d1396e1ad7380e8aa3cd50061db14aecf557a8c5eecf1dfef925792be8a08"
+        },
+        "normalized_artifact_sha256": "7be8838e52f13abee7dc45d3879e52d6973656031fe15103ca16636de5bd8130",
+        "public_tests_passed": 4,
+        "public_tests_total": 4,
+        "hidden_tests_passed": 8,
+        "hidden_tests_total": 8,
+        "verified_success_under_posthoc_transport": true
+      }
+    },
+    {
+      "position": 2,
+      "alias": "C",
+      "model": "gpt-oss:20b",
+      "run_id": "coding-run-20260902T083412Z-2c9af574",
+      "done_reason": "length",
+      "response_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "output_tokens": 3000,
+      "wall_time_seconds": 41.39242516696686,
+      "load_duration_seconds": 5.898697958,
+      "prompt_eval_duration_seconds": 2.363968,
+      "eval_duration_seconds": 33.100031,
+      "output_tokens_per_second": 90.63435620347303,
+      "strict": {
+        "output_status": "empty",
+        "failure_code": "empty_output",
+        "failure_reason": "The complete output budget was consumed in hidden reasoning and no visible candidate was emitted.",
+        "candidate_tests_executed": false,
+        "verified_success": false
+      },
+      "preregistered_transport_diagnostic": {
+        "status": "not_eligible",
+        "reason": "Empty outputs are outside the frozen diagnostic applicability."
+      },
+      "posthoc_transport_audit": {
+        "status": "unavailable",
+        "reason": "No visible candidate code exists."
+      }
+    },
+    {
+      "position": 3,
+      "alias": "E",
+      "model": "ornith-1.5:35b",
+      "run_id": "coding-run-20260902T083533Z-b77bf832",
+      "done_reason": "stop",
+      "response_sha256": "69a58dd052cce4f273c9830725eedeaf97fe013fc8c25febf0d4c85d07649a30",
+      "output_tokens": 597,
+      "wall_time_seconds": 20.066570958006196,
+      "load_duration_seconds": 10.186330125,
+      "prompt_eval_duration_seconds": 2.85835,
+      "eval_duration_seconds": 7.008049,
+      "output_tokens_per_second": 85.18776053078396,
+      "strict": {
+        "output_status": "malformed",
+        "failure_code": "malformed_artifact",
+        "failure_reason": "Two Markdown PHP fences were returned instead of path-bearing whole-file envelopes.",
+        "candidate_tests_executed": false,
+        "verified_success": false
+      },
+      "preregistered_transport_diagnostic": {
+        "status": "complete",
+        "protocol_id": "php-payment-result-migration-fenced-files-v1",
+        "candidate_code_modified": false,
+        "code_byte_identity_verified": true,
+        "candidate_code_sha256_by_path": {
+          "src/CheckoutService.php": "74baf893a089d3f2f5ad4252b8fbd4ee699f37c6c35e1ad0fdb8bf9ca9584466",
+          "src/RetryPolicy.php": "d64d1396e1ad7380e8aa3cd50061db14aecf557a8c5eecf1dfef925792be8a08"
+        },
+        "normalized_artifact_sha256": "5bbeb3f9ad3ac0c4aaa2136abc1b003482c38d51dd6a101b07c990d821d62b5a",
+        "public_tests_passed": 4,
+        "public_tests_total": 4,
+        "hidden_tests_passed": 8,
+        "hidden_tests_total": 8,
+        "verified_success_under_normalized_transport": true
+      },
+      "posthoc_transport_audit": {
+        "status": "not_needed",
+        "reason": "The preregistered secondary protocol already verified the exact candidate code."
+      },
+      "repeat_observation": "The response is byte-identical to the excluded development smoke but comes from a fresh post-freeze attempt."
+    },
+    {
+      "position": 4,
+      "alias": "D",
+      "model": "muse-glimmer:30b-mlx",
+      "run_id": "coding-run-20260902T084257Z-84ecb22f",
+      "done_reason": "stop",
+      "response_sha256": "dc296026b0f27a569505d76b9fe45e1778bdf0211e6ecf6d521143784e0e8845",
+      "output_tokens": 1998,
+      "wall_time_seconds": 67.81297479197383,
+      "load_duration_seconds": 4.823296209,
+      "prompt_eval_duration_seconds": 15.24088975,
+      "eval_duration_seconds": 47.7402925,
+      "output_tokens_per_second": 41.851440269244264,
+      "strict": {
+        "output_status": "malformed",
+        "failure_code": "malformed_artifact",
+        "failure_reason": "Both opening markers ended with two greater-than signs instead of three.",
+        "candidate_tests_executed": false,
+        "verified_success": false
+      },
+      "preregistered_transport_diagnostic": {
+        "status": "not_eligible",
+        "reason": "The response contained no Markdown PHP fences."
+      },
+      "posthoc_transport_audit": {
+        "status": "complete",
+        "defined_after_output_was_known": true,
+        "normalization": "Added exactly one missing greater-than sign to each of the two opening markers.",
+        "candidate_code_modified": false,
+        "code_byte_identity_verified": true,
+        "candidate_code_sha256_by_path": {
+          "src/CheckoutService.php": "06aab381e80a3215b913734ec0b5c9644a67f56a58c1d1fb3a50a58c215363ed",
+          "src/RetryPolicy.php": "d64d1396e1ad7380e8aa3cd50061db14aecf557a8c5eecf1dfef925792be8a08"
+        },
+        "normalized_artifact_sha256": "1ca43f690cab81c6abfd0b7ab4122c2cf5d2bf8344635a88b99498fbbdb88112",
+        "public_tests_passed": 4,
+        "public_tests_total": 4,
+        "hidden_tests_passed": 8,
+        "hidden_tests_total": 8,
+        "verified_success_under_posthoc_transport": true
+      }
+    },
+    {
+      "position": 5,
+      "alias": "A",
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "run_id": "coding-run-20260902T084517Z-0b1b6da7",
+      "done_reason": "stop",
+      "response_sha256": "ff3d47381c6acb34d73213f653bf66e805344aed97a4b49e38859306ed10a4c9",
+      "output_tokens": 650,
+      "wall_time_seconds": 29.759754041966517,
+      "load_duration_seconds": 12.6243545,
+      "prompt_eval_duration_seconds": 9.248461292,
+      "eval_duration_seconds": 7.865065209,
+      "output_tokens_per_second": 82.64394289524829,
+      "strict": {
+        "output_status": "malformed",
+        "failure_code": "malformed_artifact",
+        "failure_reason": "One blank line appeared between two otherwise path-bearing envelopes.",
+        "candidate_tests_executed": false,
+        "verified_success": false
+      },
+      "preregistered_transport_diagnostic": {
+        "status": "not_eligible",
+        "reason": "The response contained no Markdown PHP fences."
+      },
+      "posthoc_transport_audit": {
+        "status": "complete",
+        "defined_after_output_was_known": true,
+        "normalization": "Removed exactly one blank line between the two path-bearing envelopes.",
+        "candidate_code_modified": false,
+        "code_byte_identity_verified": true,
+        "candidate_code_sha256_by_path": {
+          "src/CheckoutService.php": "cc09db0450f7808c36cd40e564ea8c703cac14381f95ac656442af6b38ca8dd2",
+          "src/RetryPolicy.php": "d64d1396e1ad7380e8aa3cd50061db14aecf557a8c5eecf1dfef925792be8a08"
+        },
+        "normalized_artifact_sha256": "3feeacd59c95ae8ed9441710b87b11ae141d7b076841eb8b7933df22ea340bdc",
+        "public_tests_passed": 0,
+        "public_tests_total": 4,
+        "hidden_tests_passed": 2,
+        "hidden_tests_total": 8,
+        "failure_code": "public_tests_failed",
+        "failure_reason": "CheckoutService.php has a PHP parse error from return statements and statement blocks inside match arms.",
+        "verified_success_under_posthoc_transport": false
+      }
+    }
+  ],
+  "aggregate": {
+    "planned_attempts": 5,
+    "completed_inference_attempts": 5,
+    "visible_nonempty_outputs": 4,
+    "strict_valid_artifacts": 0,
+    "strict_candidate_test_suites_executed": 0,
+    "strict_verified_successes": 0,
+    "strict_observed_success_rate": 0.0,
+    "preregistered_transport_diagnostic_eligible": 1,
+    "preregistered_transport_diagnostic_successes": 1,
+    "posthoc_transport_audits_executed": 3,
+    "posthoc_transport_audit_successes": 2,
+    "exploratory_verifier_confirmed_code_semantic_successes": 3,
+    "exploratory_code_semantic_failures": 1,
+    "no_visible_code": 1,
+    "sum_of_attempt_wall_time_seconds": 187.0170436258777,
+    "fastest_exploratory_semantic_success": {
+      "model": "ornith-1.5:35b",
+      "wall_time_seconds": 20.066570958006196,
+      "evidence_layer": "preregistered_secondary"
+    }
+  },
+  "interpretation": {
+    "primary_result": "None of the five deployments produced a strict end-to-end verified artifact. Four visible responses violated the exact transport grammar and GPT-OSS emitted no visible response.",
+    "preregistered_secondary_result": "Only Ornith satisfied the frozen fence-only applicability rule; its exact code passed all twelve checks without changing the strict failure.",
+    "posthoc_result": "Exploratory byte-preserving transport audits found that Qwen 3.8 and Muse Glimmer also generated code that passes all twelve checks. Qwen 3.6 remained a semantic failure because its CheckoutService did not parse. GPT-OSS supplied no code.",
+    "capability_finding": "Under the current verifier, Qwen 3.8, Ornith and Muse Glimmer demonstrated the required PHP code semantics. Ornith was fastest among those three on exploratory cold wall time. This is not a reliability estimate.",
+    "harness_finding": "The strict whole-file grammar is too brittle to serve as the sole proxy for intrinsic coding capability on a two-file response. One blank line or marker character erased otherwise correct behavior from the primary path. The strict failures remain valid operational integration failures.",
+    "next_experiment": "Preserve this result unchanged. Before another Track A multi-file comparison, version a more whitespace-tolerant explicit-path contract or use structured output. Track B file-writing tools should separately test whether a real harness removes this transport bottleneck.",
+    "limits": "One task and one attempt per deployment do not estimate PHP capability in general, reliability, stochasticity or latency distributions. The three result-specific transport audits were defined after outputs were known and are exploratory, not formal secondary outcomes."
+  }
+}

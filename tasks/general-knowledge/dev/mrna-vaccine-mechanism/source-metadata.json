@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "reference.general-knowledge.mrna-vaccine-mechanism.2026-08-28",
+  "title": "Frozen reference dossier: mRNA vaccine mechanism and breakthrough infections",
+  "publisher": "Local LLM Benchmark Lab",
+  "page_type": "project_authored_reference_dossier",
+  "retrieved_at": "2026-08-28",
+  "source_language": "en",
+  "authoritative_sources": [
+    "https://www.cdc.gov/covid/vaccines/how-they-work.html",
+    "https://blogs.cdc.gov/genomics/2021/03/05/mrna-covid-19-vaccines/",
+    "https://www.who.int/en/emergencies/diseases/novel-coronavirus-2019/covid-19-vaccines/how-do-vaccines-work",
+    "https://www.cdc.gov/covid/vaccines/benefits.html",
+    "https://www.cdc.gov/mmwr/volumes/71/wr/mm7133e1.htm"
+  ],
+  "artifacts": {
+    "reference_source": {
+      "path": "tasks/general-knowledge/dev/mrna-vaccine-mechanism/reference.md",
+      "sha256": "e80622a3784ba6de08e66dfa76f6c625329f455c1436c0a80a0e0bcb0964a944",
+      "word_count_whitespace": 377,
+      "location_labels_added": true,
+      "candidate_visible": false
+    }
+  },
+  "construction": {
+    "method": "Project-authored synthesis of cited authoritative sources",
+    "semantic_policy": "Preserve source distinctions and conditions without copying source prose.",
+    "frozen_on": "2026-08-28"
+  },
+  "copyright": {
+    "dossier_license": "project_repository_license",
+    "source_publications_copied": false,
+    "git_tracked": true
+  }
+}

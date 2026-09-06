@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "harness_id": "pi-log-v0.4",
+  "harness_family": "pinned_pi",
+  "status": "qualification_candidate",
+  "protocol_path": "tasks/agentic/track-b/log-incident-v0.4.json",
+  "system_prompt_path": "tasks/agentic/track-b/prompts/pi-log-system-v0.4.txt",
+  "capability_inventory_path": "capabilities/inventories/pi-log-v0.4.json",
+  "isolation_profile_path": "capabilities/isolation-profiles/pi-log-v0.4.json",
+  "implementation_status": "adapter_implemented_pending_no_inference_qualification",
+  "package": {
+    "name": "@earendil-works/pi-coding-agent",
+    "version": "0.84.4",
+    "npm_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+    "npm_shasum": "3a2f04bfc5e463b4cfa36b174a586d11a0bdf9ad",
+    "repository": "https://github.com/earendil-works/pi",
+    "node_requirement": ">=22.19.0"
+  },
+  "integration": {
+    "mode": "json",
+    "non_interactive": true,
+    "session_persistence": false,
+    "startup_network": false,
+    "provider": "ollama",
+    "api": "openai-completions",
+    "base_url": "http://127.0.0.1:11434/v1",
+    "tools": ["read"],
+    "discovered_extensions": false,
+    "explicit_extension": "integrations/pi/log-readonly-policy-v0.2.mjs",
+    "skills": false,
+    "prompt_templates": false,
+    "themes": false,
+    "context_files": false,
+    "project_trust": false
+  },
+  "final_output_protocol": "single_intact_json_object_with_strict_transport_scored_separately",
+  "reused_policy_extension_reason": "The selected-case read-only capability boundary is unchanged; v0.4 requalifies the same frozen policy backend."
+}

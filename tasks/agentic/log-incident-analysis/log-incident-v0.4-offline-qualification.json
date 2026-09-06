@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "log-incident-v0.4-task-set-offline-qualification",
+  "qualified_on": "2026-09-06",
+  "status": "qualified_for_frozen_confirmation_design",
+  "case_ids": [
+    "agentic.ops.checkout-pool-regression",
+    "agentic.ops.retry-queue-amplification",
+    "agentic.ops.clock-skew-partial-recovery"
+  ],
+  "experimental_scope": "No model inference. The additive v0.4 representation preserves the validated temporal contract and repairs the three remaining alignment defects identified by the v0.3 human audit.",
+  "resolved_v03_alignment_findings": {
+    "descriptive_scope_labels_normalized": true,
+    "scope_normalization_adds_no_domain_synonyms": true,
+    "sufficient_counterevidence_groups_predeclared": true,
+    "exhaustive_reference_author_evidence_not_required": true,
+    "hidden_duplicate_or_single_reference_roles_removed": true,
+    "historical_v03_outcomes_changed": false,
+    "prior_representations_poolable": false
+  },
+  "preserved_v03_behavior": {
+    "incident_start_definition_unchanged": true,
+    "last_observation_and_recovery_separate": true,
+    "report_contract_version": "2.0.0",
+    "normalization_id": "single-intact-json-object-v0.4",
+    "normalizer_semantics_unchanged": true,
+    "strict_transport_compliance_separate": true,
+    "maximum_active_wall_time_seconds": 300
+  },
+  "qualification_evidence": {
+    "reference_reports_passed": 3,
+    "reference_report_essential_checks_passed": 45,
+    "reference_report_essential_checks_total": 45,
+    "descriptive_scope_positive_controls": 3,
+    "scope_extra_meaning_negative_control_rejected": true,
+    "alternative_counterevidence_positive_controls": 2,
+    "partial_counterevidence_negative_control_rejected": true,
+    "single_direct_role_clock_reference_passed": true,
+    "targeted_semantic_near_miss_classes": 12,
+    "schema_near_miss_rejected": true,
+    "response_parser_boundary_classes": 7,
+    "prior_representations_rejected": 2,
+    "historical_v03_reports_diagnosed_without_rescoring": 5,
+    "historical_diagnostic_remaining_failures": {
+      "position_1": [],
+      "position_2": ["causal_chain"],
+      "position_3": ["causal_chain"],
+      "position_4": ["report_schema"],
+      "position_5": ["causal_chain"]
+    },
+    "focused_python_tests_passed": 17,
+    "repository_python_tests_passed": 363,
+    "active_node_tests_passed": 21,
+    "opt_in_live_transport_tests_skipped": 1,
+    "live_ollama_requests": 0,
+    "live_model_inference": false
+  },
+  "artifacts": [
+    {"path": "local_llm_benchmark/log_incident_v04.py", "sha256": "357be8f82e0f236776f0d58080e5e0952dd73678bcacd5292a3ca44a53164575"},
+    {"path": "tests/test_log_incident_v04.py", "sha256": "b86e97115d7942c45ca1ce0727bcb48b6a0408808543ef04e5e5a8ba3e9dba02"},
+    {"path": "tasks/agentic/log-incident-analysis/evaluation-contract-v0.4.json", "sha256": "eed405e97275472396ff0c4f6657b2aaa2cb34616893026d1035d166757f6404"},
+    {"path": "tasks/agentic/log-incident-analysis/response-normalization-v0.4.json", "sha256": "df0e10f1b8a122213e985bf49fe8f58323e90fe971109537e0a1576d68750528"},
+    {"path": "tasks/agentic/log-incident-analysis/report-schema-v2.json", "sha256": "5e6cecff4e9283e71f34c4a24f0f244f851ec39651ef241f263f0704d78b9bab"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/case-v0.4.json", "sha256": "443609195786d430a59b8fd8cba5ecc7781f3e9e5f9bd54f67f31cad2bc1002c"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/TASK-v0.4.md", "sha256": "d587a7e4c6c7554245bda1d60c2405fcd2e1e98f00d6af43a69d9ccca07ee659"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/benchmark-card-v0.4.json", "sha256": "37f6557bc274f91f6c481391fae5c83bd4d27c00fe3b709cee4fb5bd919e62d7"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/reference/ground-truth-v0.4.json", "sha256": "dcc028f87f520cde71ca6864a4c76beb74c25adf91bd1fb092ca62f40880d9af"},
+    {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/reference/reference-report-v0.4.json", "sha256": "bf713c8cca7fb7cbee91478f1c03dbe28ec7a5d0e8e6bf3d884350d727f8b93e"},
+    {"path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/case-v0.4.json", "sha256": "bd32e3f12272f0b1a3a636ee2267cc501234bd7ae692a263d9d49d941564d92b"},
+    {"path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/TASK-v0.4.md", "sha256": "2cab896bd43e2f5cc56f39cd90366e87b41fae7345b46e7cfcabe3252ed1efd1"},
+    {"path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/benchmark-card-v0.4.json", "sha256": "aba43918a23b9a2c519e593bd62d68c4eeba6987254fafd48e5199f7bde13f09"},
+    {"path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/reference/ground-truth-v0.4.json", "sha256": "74a5292c06dadfab7571b309c55afc682b53f67f48c0f30142bf2d81d1f85352"},
+    {"path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/reference/reference-report-v0.4.json", "sha256": "50a4a317f2acba0a31fcfd927c29bf3ea1593041137e273a18d188ac748d2aad"},
+    {"path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/case-v0.4.json", "sha256": "169d30976a1b27a1bab96b7938ece65c784c2cb0995bc9e248805653ba1a2f08"},
+    {"path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/TASK-v0.4.md", "sha256": "3d651664b431e356a488a1d043199068d441b5f09fd623ee853a66971ba32873"},
+    {"path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/benchmark-card-v0.4.json", "sha256": "acbf99d57d35692ca550c895b68b3db25abec19e643216eb49a5010049768323"},
+    {"path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/reference/ground-truth-v0.4.json", "sha256": "c72367dfc8673f9e9fb7ea84bf0423f3cc23a69c20112f856104ea9d13259ae8"},
+    {"path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/reference/reference-report-v0.4.json", "sha256": "b032b1aae9c581c58962503030b5f7f0cfac3af8abec1d02cc15074174fbc1fc"}
+  ],
+  "next_gate": "Commit the complete v0.4 task and harness implementation, then freeze a new excluded confirmation matrix before any model contact."
+}

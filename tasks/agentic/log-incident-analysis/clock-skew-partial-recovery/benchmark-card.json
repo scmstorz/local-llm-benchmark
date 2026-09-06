@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "1.0.0",
+  "case_id": "agentic.ops.clock-skew-partial-recovery",
+  "case_version": "1.0.0",
+  "track": "B",
+  "task_family": "incident_investigation",
+  "language": "English",
+  "status": "offline_qualified_before_live_smoke",
+  "experimental_question": "Can a local model reconstruct a distributed incident despite a skewed host clock and avoid declaring full recovery while a verified backlog remains?",
+  "construct_validity": {
+    "intended_construct": "Source-grounded chronology repair and recovery-state judgment under conflicting distributed timestamps.",
+    "observable_proxies": [
+      "use of independent offset evidence rather than naïve timestamp sorting",
+      "separation of host clock skew from the node-reentry trigger",
+      "trace-linked propagation from signature rejection to checkout failure",
+      "rejection of provider and database alternatives",
+      "correct classification of recovery as partial",
+      "explicit uncertainty about counts, ownership and backlog completion"
+    ],
+    "validation_evidence": "The independent reference passes every essential check; targeted chronology, cause, citation, recovery, distractor, uncertainty and unsupported-claim mutations fail deterministically.",
+    "known_blind_spots": [
+      "small synthetic fixture",
+      "clock offset is explicitly observable rather than inferred statistically",
+      "controlled codebook constrains open-world diagnosis",
+      "no very large or compressed logs",
+      "deterministic verification does not score prose quality",
+      "one distributed-clock pattern cannot establish general operations competence"
+    ]
+  },
+  "primary_outcome": {
+    "name": "verified_success",
+    "type": "boolean",
+    "requires_all_essential_checks": true,
+    "composite_score": false
+  },
+  "criterion_groups": [
+    {"id": "structure", "essential": true, "description": "The report follows the strict v2 contract."},
+    {"id": "chronology", "essential": true, "description": "UTC boundaries and causal order use independent offset and receive-time evidence."},
+    {"id": "causal_diagnosis", "essential": true, "description": "Clock skew is separated from node reentry, intermittent routing and downstream effects."},
+    {"id": "evidence_grounding", "essential": true, "description": "Exact citations cover root cause, propagation, impact and partial recovery."},
+    {"id": "distractor_rejection", "essential": true, "description": "Provider and database hypotheses are rejected with supplied counter-evidence."},
+    {"id": "impact_and_uncertainty", "essential": true, "description": "The report preserves the remaining reconciliation backlog and unknown completion time."},
+    {"id": "remediation", "essential": true, "description": "Actions address immediate isolation, time-health admission and remaining reconciliation."}
+  ],
+  "candidate_access": {
+    "fixture_only": true,
+    "network": false,
+    "writes": false,
+    "shell": false,
+    "hidden_reference": false,
+    "cross_run_state": false
+  },
+  "reporting_limits": [
+    "Offline fixture qualification is not model evidence.",
+    "One excluded smoke per system is required before a measured multi-case sweep.",
+    "Do not infer reliability or latency tails from a Capability Sweep.",
+    "Compare harnesses only as complete deployed systems."
+  ]
+}

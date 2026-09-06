@@ -1,0 +1,6 @@
+PAY-303 2026-09-05T10:17:04+02:00 ERROR db_pool_acquire_timeout trace_id=chk-7f3 active=4 idle=0 waiting=29 timeout_ms=4800 db_host=postgres-primary
+PAY-304 2026-09-05T10:18:42+02:00 ERROR db_pool_acquire_timeout trace_id=chk-80a active=4 idle=0 waiting=34 timeout_ms=4800 db_host=postgres-primary
+PAY-305 2026-09-05T10:19:36+02:00 INFO db_ping result=ok latency_ms=3 db_host=postgres-primary
+PAY-306 2026-09-05T10:22:10+02:00 WARN saturation active=4 idle=0 waiting=41 db_pool_max=4
+PAY-307 2026-09-05T10:23:40+02:00 INFO config_rollback from_release=2026.09.05-2 to_release=2026.09.05-1 db_pool_max=40
+PAY-308 2026-09-05T10:24:02+02:00 INFO pool_recovered active=11 idle=29 waiting=0 db_pool_max=40

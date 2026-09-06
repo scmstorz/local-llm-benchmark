@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "agentic.ops.checkout-pool-regression",
+  "case_version": "5.0.0",
+  "representation_version": "0.5",
+  "track": "B",
+  "task_family": "incident_investigation",
+  "status": "offline_qualification_candidate",
+  "task_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/TASK-v0.5.md",
+  "fixture": {
+    "root": "tasks/agentic/log-incident-analysis/checkout-pool-regression/fixture",
+    "manifest_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/fixture-manifest.json",
+    "manifest_version": "1.0.0"
+  },
+  "candidate_context": {
+    "files": [
+      "logs/auth.jsonl",
+      "logs/gateway-2026-09-05.log",
+      "logs/orders.jsonl",
+      "logs/payment-api.log",
+      "logs/payment-api.log.1",
+      "logs/postgres.log"
+    ],
+    "read_only": true,
+    "browsing_allowed": false,
+    "shared_state_allowed": false
+  },
+  "output_contract": {
+    "format": "structured_incident_report",
+    "version": "2.0.0",
+    "schema_path": "tasks/agentic/log-incident-analysis/report-schema-v2.json",
+    "response_normalization_path": "tasks/agentic/log-incident-analysis/response-normalization-v0.5.json",
+    "maximum_serialized_bytes": 32768,
+    "semantic_verification_after_normalization": true,
+    "strict_transport_compliance_scored_separately": true
+  },
+  "candidate_visible_contract": {
+    "version": "0.5",
+    "criteria_path": "tasks/agentic/log-incident-analysis/evaluation-contract-v0.5.json",
+    "all_essential_checks_mapped": true
+  },
+  "verification": {
+    "version": "5.0.0",
+    "ground_truth_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/reference/ground-truth-v0.5.json",
+    "reference_report_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/reference/reference-report-v0.5.json",
+    "implementation_path": "local_llm_benchmark/log_incident_v05.py"
+  },
+  "evaluation": {
+    "benchmark_card_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/benchmark-card-v0.5.json",
+    "benchmark_card_version": "5.0.0",
+    "primary_outcome": "semantic_verified_success",
+    "secondary_outcomes": ["strict_transport_compliance"],
+    "llm_judge_required": false,
+    "supplemental_human_or_llm_free_text_claim_review_required": true
+  }
+}

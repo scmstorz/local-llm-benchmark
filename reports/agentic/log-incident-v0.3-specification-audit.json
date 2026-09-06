@@ -1,0 +1,167 @@
+{
+  "schema_version": "1.0.0",
+  "audit_id": "log-incident-v0.3-specification-audit",
+  "audited_on": "2026-09-06",
+  "status": "completed_with_blocking_alignment_findings",
+  "evidence_class": "excluded_specification_confirmation",
+  "source": {
+    "report_path": "reports/agentic/log-incident-v0.3-specification-confirmation.json",
+    "report_sha256": "ce6e6163b4774ebc6581797afc61ac1d5e335e094a469d2a69656a782c5cbeb8",
+    "sweep_id": "log-incident-v03-confirmation-20260906T135939Z-a3460c75",
+    "sweep_record_sha256": "3177e07a1916af143de6273b0423f071cb33bf7d3d9bb8764f13fe7ab00a3cb8",
+    "execution_git_commit": "c39ba5bae7f8637342f50d401e53ad395d46f2bf"
+  },
+  "scope": {
+    "model": "qwen3.8:27b-mlx",
+    "harnesses": [
+      "mini-log-v0.3",
+      "pi-log-v0.3"
+    ],
+    "case_count": 3,
+    "planned_cell_count": 6,
+    "runs_per_system_case": 1,
+    "automatic_retries": 0
+  },
+  "official_outcomes": {
+    "runtime_success": "5/6",
+    "valid_agent_termination": "5/6",
+    "semantic_verified_success": "0/6",
+    "strict_transport_compliance": "4/6",
+    "response_normalization_applied": "1/6",
+    "candidate_reports_produced": "5/6",
+    "schema_valid_reports": "4/6",
+    "essential_checks_passed": "50/62"
+  },
+  "required_post_run_audits": {
+    "terminal_or_classified_outcomes": {
+      "passed": true,
+      "result": "All six cells reached a preserved terminal classification; position 6 is an explicit 300-second runtime timeout, not a missing record."
+    },
+    "failure_traceability": {
+      "passed": false,
+      "result": "Every nominal semantic miss has a visible check ID, but seven failed-check instances rely on hidden exact-value or exact-evidence requirements that the visible criterion does not impose."
+    },
+    "temporal_separation": {
+      "passed": true,
+      "result": "All four schema-valid reports passed incident_start_utc, last_observed_utc and recovery_status independently. The fifth produced report contained the same correct three values but stopped at the schema gate."
+    },
+    "normalization_policy": {
+      "passed": true,
+      "result": "One completed Pi response contained exactly one intact JSON object with surrounding text and was normalized as predeclared. Four reports were already strict JSON; the timed-out response contained no complete final object."
+    },
+    "human_calibration": {
+      "passed": false,
+      "result": "Manual comparison of every produced report with its visible task, fixture evidence and frozen truth found three classes of verifier false negative."
+    }
+  },
+  "human_calibration_findings": [
+    {
+      "finding_id": "affected-scope-hidden-serialization",
+      "classification": "benchmark_false_negative",
+      "affected_positions": [
+        2,
+        3,
+        5
+      ],
+      "failed_check_id": "affected_scope",
+      "observation": "The reports identify the correct service and journey in ordinary language, but the verifier requires an exact underscore-delimited hidden string for the journey.",
+      "alignment_problem": "The candidate-visible task does not define primary_service or affected_user_journey as controlled codes."
+    },
+    {
+      "finding_id": "distractor-counterevidence-overconstraint",
+      "classification": "benchmark_false_negative",
+      "affected_positions": [
+        1,
+        2,
+        5
+      ],
+      "additional_position_after_schema_diagnostic": 4,
+      "failed_check_id": "distractor_rejection",
+      "observation": "Each report rejects the required alternatives and attaches direct supporting counter-evidence, but the verifier demands one exact hidden superset of event IDs.",
+      "alignment_problem": "The visible criterion requires sufficient direct counter-evidence, not every event selected by the reference author."
+    },
+    {
+      "finding_id": "critical-evidence-role-overconstraint",
+      "classification": "benchmark_false_negative",
+      "affected_positions": [
+        3
+      ],
+      "failed_check_id": "critical_evidence",
+      "observation": "The report classifies the skewed-node rejection as a symptom and a user-facing intermittent-reject signal as impact. Both follow the visible guidance, while hidden truth additionally requires the first event as root-cause evidence and the second as a symptom.",
+      "alignment_problem": "The visible contract neither requires duplicate citations of one event under multiple roles nor makes its impact guidance subordinate to one hidden reference-author role choice."
+    }
+  ],
+  "candidate_attributable_findings": [
+    {
+      "finding_id": "causal-chain-omissions-or-misordering",
+      "classification": "task_failure",
+      "affected_positions": [
+        2,
+        3,
+        5
+      ],
+      "failed_check_id": "causal_chain",
+      "observation": "The retry reports omit a required immediate-retry waypoint; the clock-skew report places the skewed-host rejection after its user-facing edge error instead of reconstructing corrected causal order."
+    },
+    {
+      "finding_id": "uncertainty-item-field-name",
+      "classification": "output_schema_failure",
+      "affected_positions": [
+        4
+      ],
+      "failed_check_id": "report_schema",
+      "observation": "The Pi report uses rationale instead of the required reason field in uncertainty items. No official downstream semantic checks were performed."
+    },
+    {
+      "finding_id": "pi-final-response-timeout",
+      "classification": "infrastructure_or_runtime_failure",
+      "affected_positions": [
+        6
+      ],
+      "failure_type": "maximum_active_wall_time_exceeded",
+      "observation": "Pi reached the predeclared 300-second active-time limit during its fourth turn while emitting the final report; no complete final object or valid agent termination was observed."
+    },
+    {
+      "finding_id": "pi-surrounding-text",
+      "classification": "transport_noncompliance_recovered_as_designed",
+      "affected_positions": [
+        2
+      ],
+      "observation": "The one intact report object was recovered without internal repair. Semantic failure remained independent of transport compliance."
+    }
+  ],
+  "counterfactual_diagnostics": {
+    "official_results_changed": false,
+    "purpose": "Identify benchmark defects, not rescore frozen outcomes.",
+    "schema_only_repair_position_4": {
+      "mutation": "Rename uncertainties[].rationale to uncertainties[].reason in memory.",
+      "result": "14/15 checks; only the overconstrained distractor_rejection check remains."
+    },
+    "visible_contract_aligned_interpretation": {
+      "position_1_would_have_no_remaining_semantic_miss": true,
+      "positions_2_3_5_retain_causal_chain_failures": true,
+      "position_4_retains_its_actual_schema_failure": true,
+      "position_6_retains_its_timeout": true
+    }
+  },
+  "decision": {
+    "v0_3_official_evidence_preserved": true,
+    "broad_v0_3_model_sweep_authorized": false,
+    "reliability_or_harness_ranking_supported": false,
+    "next_representation": "additive_v0.4",
+    "required_repairs": [
+      "Expose canonical scope values or verify semantically equivalent service and journey strings.",
+      "Represent sufficient alternative counter-evidence as accepted evidence groups instead of one mandatory exhaustive event set.",
+      "Remove hidden duplicate-role and single-reference-role requirements or state multi-role evidence semantics explicitly.",
+      "Retain the now validated temporal definitions, strict schema gate, frozen response normalizer and 300-second user-facing timeout.",
+      "Requalify references and targeted near misses offline, then freeze another small confirmation before any broad model sweep."
+    ]
+  },
+  "interpretation_limits": [
+    "Each system-case cell has n=1.",
+    "The study cannot estimate reliability, quality stochasticity or latency tails.",
+    "Mini and Pi are complete deployed systems, not an isolated one-factor harness experiment.",
+    "Timing is descriptive and was observed under documented Spotlight and Docker background load.",
+    "The human calibration does not overwrite or rescore the frozen official 0/6 result."
+  ]
+}

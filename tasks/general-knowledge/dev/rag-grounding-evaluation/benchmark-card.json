@@ -1,0 +1,35 @@
+{
+  "schema_version":"1.0.0","card_version":"1.0.0","case_id":"general_knowledge.dev.rag-grounding-evaluation","case_version":"1.0.0","source_of_truth":"The frozen judge-only reference dossier; candidates answer from internal knowledge.",
+  "evaluation_principles":["Require stage-specific diagnosis rather than treating RAG as one component.","Keep correctness, evidence support and citation coverage distinct.","Reward evaluation designs that can localize failures and trade-offs."],
+  "key_facts":[
+    {"id":"KF01","label":"RAG does not guarantee grounding","claim_type":"boundary","weight":4,"source_locations":["S01","S05"],"expected":"Explains that retrieval conditions generation but neither forces evidence use nor eliminates hallucination."},
+    {"id":"KF02","label":"Retrieval-stage failures","claim_type":"failure_mode","weight":3,"source_locations":["S02"],"expected":"Covers corpus, chunking, indexing, query and ranking failures separately from generation."},
+    {"id":"KF03","label":"Generator-stage failures","claim_type":"failure_mode","weight":3,"source_locations":["S03","S05"],"expected":"Covers ignored, miscombined, contradicted or supplemented evidence even when the answer passage is present."},
+    {"id":"KF04","label":"More context can hurt","claim_type":"qualification","weight":3,"source_locations":["S03"],"expected":"Explains distractors, position effects and the precision-recall or latency trade-off of increasing top-k."},
+    {"id":"KF05","label":"Correctness versus grounding","claim_type":"distinction","weight":4,"source_locations":["S04"],"expected":"Distinguishes a true answer from a claim supported by the supplied evidence."},
+    {"id":"KF06","label":"Citation precision and completeness","claim_type":"evaluation","weight":3,"source_locations":["S04"],"expected":"Checks whether citations entail attached claims and whether all material claims needing support are covered."},
+    {"id":"KF07","label":"Stage-specific metrics","claim_type":"evaluation","weight":3,"source_locations":["S02","S06"],"expected":"Separately measures retrieval recall or ranking and end-to-end answer, grounding, abstention and latency."},
+    {"id":"KF08","label":"Adversarial and absent-evidence cases","claim_type":"evaluation","weight":2,"source_locations":["S06","S07"],"expected":"Includes unanswerable, contradictory or distractor-rich tests and evaluates abstention rather than assuming it works."}
+  ],
+  "key_ideas":[
+    {"id":"KI01","label":"Pipeline observability","weight":4,"source_locations":["S01","S02","S03"],"expected":"Localizes failure to corpus, retrieval, context construction or generation."},
+    {"id":"KI02","label":"Claim-level evidence contract","weight":4,"source_locations":["S04","S05"],"expected":"Evaluates material claims against their cited evidence rather than trusting fluency or link presence."},
+    {"id":"KI03","label":"Factorial evaluation","weight":4,"source_locations":["S06"],"expected":"Varies answerability, evidence presence, rank, position and distractors to reveal causal weaknesses."},
+    {"id":"KI04","label":"Mitigation follows failure stage","weight":3,"source_locations":["S07"],"expected":"Maps corpus, retrieval, context and generation interventions to measured failure modes and costs."}
+  ],
+  "known_critical_errors":[
+    {"id":"CE01","severity":"critical","description":"Claims RAG or source links guarantee that generated claims are factual and supported."},
+    {"id":"CE02","severity":"major","description":"Claims increasing top-k or context size can only improve answers."},
+    {"id":"CE03","severity":"major","description":"Treats factual correctness and support by retrieved evidence as the same property."},
+    {"id":"CE04","severity":"major","description":"Evaluates only final answer fluency or exact match and calls the RAG system grounded."},
+    {"id":"CE05","severity":"major","description":"Assumes any displayed citation supports the attached claim without entailment or coverage checking."}
+  ],
+  "nonessential_details":["A specific vector database", "One mandatory embedding model", "A production architecture diagram"],
+  "rubric":{"maximum_score":100,"coverage_status_multipliers":{"full":1.0,"partial":0.5,"missing":0.0,"contradicted":0.0},"derived_coverage":{"key_facts_max":25,"key_facts_formula":"sum(key_fact.weight * status_multiplier)","key_ideas_max":15,"key_ideas_formula":"sum(key_idea.weight * status_multiplier)"},"judged_dimensions":[
+    {"id":"factual_accuracy","max":25,"anchors":{"25":"No material RAG, retrieval or evaluation error.","20":"Accurate overall with one minor imprecision.","12":"At least one major error or several meaningful imprecisions.","0":"Fundamentally unreliable."}},
+    {"id":"explanatory_quality","max":10,"anchors":{"10":"Connects failure stages to discriminating tests, metrics and mitigations.","7":"Sound explanation with one underdeveloped connection.","4":"Lists metrics or techniques without a coherent diagnostic design.","0":"Does not explain the system."}},
+    {"id":"epistemic_precision","max":10,"anchors":{"10":"Consistently distinguishes truth, support, completeness and uncertainty.","7":"Mostly calibrated with one limited overstatement.","4":"Repeatedly conflates evidence properties.","0":"Systematically false certainty."}},
+    {"id":"structure_clarity","max":10,"anchors":{"10":"Clear German, descriptive structure and useful to an AI practitioner.","7":"Generally clear with minor awkwardness.","4":"Noticeably hard to follow.","0":"Incoherent or not meaningfully German."}},
+    {"id":"compression","max":5,"anchors":{"5":"High information density without material repetition.","3":"Some avoidable repetition.","1":"Substantially padded.","0":"Exceeds the hard maximum or is not focused."}}
+  ],"hard_constraints":{"empty_output":{"result":"invalid","final_score":0},"output_language_not_german":{"result":"noncompliant","final_score_cap":59},"word_count_above_800":{"result":"noncompliant","compression_score":0,"final_score_cap":59},"generation_truncated_at_token_limit":{"result":"noncompliant","final_score_cap":59},"reasoning_markup_in_candidate_output":{"result":"noncompliant","final_score_cap":59}},"critical_error_caps":{"one_critical_error":{"factual_accuracy_cap":8,"final_score_cap":59},"two_or_more_critical_errors":{"factual_accuracy_cap":4,"final_score_cap":39}},"verdict_thresholds":{"excellent":90,"good":75,"usable":60,"poor":1,"invalid":0}}
+}

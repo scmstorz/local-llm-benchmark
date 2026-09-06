@@ -1,0 +1,250 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "1.0.0",
+  "case_id": "source_grounded_writing.dev.agentic-software-development-reality-gap",
+  "case_version": "1.0.0",
+  "title": "Agentic software development and the reality gap",
+  "evaluation_goal": "Assess whether a model can turn five source-separated evidence cards and three user-authored thoughts into a useful, accurate and original German LinkedIn post about the conditions under which coding agents create production value.",
+  "evidence_requirements": [
+    {
+      "id": "E01",
+      "weight": 3,
+      "requirement": "Use SWE-Lancer to establish both the realism and the bounded nature of an execution-based autonomous-agent benchmark, including strong verifiers and the historical scope of its results.",
+      "source_locations": ["S01", "S02", "S03", "S05"]
+    },
+    {
+      "id": "E02",
+      "weight": 2,
+      "requirement": "Explain how reasoning effort, repeated attempts and fallback can change measured success or economics while preserving the study's verification-time and cost assumptions.",
+      "source_locations": ["S04"]
+    },
+    {
+      "id": "E03",
+      "weight": 3,
+      "requirement": "Use SWE-agent to show that the surrounding interface or harness materially changes verified outcomes with the model held fixed, and that more tools or context are not automatically better.",
+      "source_locations": ["S06", "S07", "S08"]
+    },
+    {
+      "id": "E04",
+      "weight": 2,
+      "requirement": "Capture trajectory-level evidence about failed edits, steps or cost and preserve the conclusion that performance belongs to a model-system-task configuration rather than the model alone.",
+      "source_locations": ["S09", "S10"]
+    },
+    {
+      "id": "E05",
+      "weight": 3,
+      "requirement": "Explain METR's task-completion horizon as a fitted success probability over human task duration and distinguish a 50-percent capability result from dependable high-reliability autonomy.",
+      "source_locations": ["S11", "S12", "S13"]
+    },
+    {
+      "id": "E06",
+      "weight": 2,
+      "requirement": "Preserve the time-horizon study's dependence on task structure, feedback, scaffold and external-validity limits rather than extrapolating directly to production work.",
+      "source_locations": ["S14", "S15"]
+    },
+    {
+      "id": "E07",
+      "weight": 3,
+      "requirement": "Use the randomized experienced-developer study to report its measured slowdown and the gap between perceived and observed productivity in the specific setting tested.",
+      "source_locations": ["S16", "S17"]
+    },
+    {
+      "id": "E08",
+      "weight": 3,
+      "requirement": "Relate plausible workflow or repository-context mechanisms to the distinction between autonomous benchmarks and human-AI development, while retaining the study's small-sample, expert-population and tool-period limits.",
+      "source_locations": ["S18", "S19", "S20"]
+    },
+    {
+      "id": "E09",
+      "weight": 2,
+      "requirement": "Use DORA to distinguish high adoption and perceived individual gains from observational associations that also include delivery instability, without treating self-report as causal telemetry.",
+      "source_locations": ["S21", "S22", "S23"]
+    },
+    {
+      "id": "E10",
+      "weight": 2,
+      "requirement": "Connect organizational capabilities and the systems view to context-dependent adoption, while preserving that DORA recommends local experiments rather than claiming a guaranteed recipe.",
+      "source_locations": ["S24", "S25"]
+    }
+  ],
+  "synthesis_expectations": [
+    "Build one argument about the conditions under which coding agents create verified production value rather than presenting five mini-summaries.",
+    "Reconcile apparently conflicting evidence by distinguishing autonomous benchmark success, human-assistance productivity, system design, reliability and organizational outcomes.",
+    "Use evidence selectively; full coverage does not require naming every publication or reproducing every number.",
+    "Integrate all three user thoughts as genuine components of the argument, not as an appended list or falsely attributed research findings.",
+    "End with a useful implication for how software organizations should deploy, supervise and evaluate coding agents."
+  ],
+  "known_material_errors": [
+    {
+      "id": "KE01",
+      "severity": "critical",
+      "description": "Treats SWE-Lancer's historical scores as a current leaderboard or as proof that autonomous agents can reliably complete production software work in general."
+    },
+    {
+      "id": "KE02",
+      "severity": "major",
+      "description": "Claims that repeated attempts or model-first escalation necessarily reduce total cost while omitting the calculation's verification-time, historical-price or API-cost assumptions."
+    },
+    {
+      "id": "KE03",
+      "severity": "critical",
+      "description": "Interprets METR's 50-percent task-completion horizon as reliable production autonomy at that duration or as evidence about all software work."
+    },
+    {
+      "id": "KE04",
+      "severity": "critical",
+      "description": "Generalizes the 19-percent slowdown to most developers, repositories, AI tools or future systems."
+    },
+    {
+      "id": "KE05",
+      "severity": "major",
+      "description": "Presents DORA's self-reported or adjusted observational associations as randomized causal evidence or direct productivity telemetry."
+    },
+    {
+      "id": "KE06",
+      "severity": "critical",
+      "description": "Claims that model choice alone determines software-agent performance or that harness, feedback, tools, context and verification are immaterial."
+    },
+    {
+      "id": "KE07",
+      "severity": "major",
+      "description": "Attributes one of the user's personal thoughts to a publication or presents it as a measured research finding."
+    },
+    {
+      "id": "KE08",
+      "severity": "major",
+      "description": "Presents the autonomous-benchmark result and the experienced-developer slowdown as logically contradictory instead of distinguishing their tasks, actors, tools and success definitions."
+    },
+    {
+      "id": "KE09",
+      "severity": "critical",
+      "description": "Claims that research establishes all coding-agent output as production-ready or supports delegating all software work without task-dependent supervision and verification."
+    },
+    {
+      "id": "KE10",
+      "severity": "major",
+      "description": "Claims that automated verification eliminates the need for human oversight or that DORA identifies a universally sufficient organizational recipe."
+    }
+  ],
+  "score_construction": {
+    "maximum": 100,
+    "evidence_coverage": {
+      "maximum": 25,
+      "status_multipliers": {
+        "full": 1.0,
+        "partial": 0.5,
+        "missing": 0.0,
+        "contradicted": 0.0
+      },
+      "calculation": "Sum each evidence requirement weight multiplied by its status multiplier; weights sum to 25."
+    },
+    "personal_thought_integration": {
+      "maximum": 15,
+      "items": ["T01", "T02", "T03"],
+      "weight_per_item": 5,
+      "status_multipliers": {
+        "full": 1.0,
+        "partial": 0.5,
+        "missing": 0.0,
+        "contradicted": 0.0
+      },
+      "calculation": "Award five points per faithfully and substantively integrated personal thought, multiplied by status."
+    },
+    "judged_dimensions": [
+      {
+        "id": "factual_epistemic_accuracy",
+        "max": 20,
+        "anchors": {
+          "20": "All material claims are supported, attributed at the right level and calibrated to each study's design, historical setting and limits.",
+          "15": "Accurate overall with one limited imprecision or minor unsupported flourish.",
+          "8": "At least one major scope, causal, numeric or attribution error, or several meaningful imprecisions.",
+          "0": "Critical errors or pervasive unsupported claims make the post unreliable."
+        }
+      },
+      {
+        "id": "cross_source_synthesis",
+        "max": 15,
+        "anchors": {
+          "15": "Evidence across benchmark, agent-system, field and organizational levels is related to explain the apparent reality gap; tensions and boundaries do real explanatory work.",
+          "11": "A coherent argument uses multiple sources but leaves one important relationship implicit or slightly list-like.",
+          "6": "Mostly a sequence of source summaries with weak cross-source reasoning.",
+          "0": "No meaningful synthesis or a conclusion disconnected from the supplied evidence."
+        }
+      },
+      {
+        "id": "argument_reader_value",
+        "max": 10,
+        "anchors": {
+          "10": "Clear thesis, strong progression and a useful implication for deploying, supervising or evaluating coding agents.",
+          "7": "Sound and useful, but predictable, weakly prioritized or missing a sharp implication.",
+          "4": "The thesis is vague, the progression is uneven or the takeaway is generic.",
+          "0": "No discernible argument or reader value."
+        }
+      },
+      {
+        "id": "linkedin_style",
+        "max": 10,
+        "anchors": {
+          "10": "Natural, credible German professional voice with an effective opening, readable paragraphs and no hype or template-like filler.",
+          "7": "Generally suitable with minor stiffness, jargon, repetition or performative LinkedIn phrasing.",
+          "4": "Noticeably generic, inflated, awkward or formatted like a report rather than a post.",
+          "0": "Unusable for the requested audience and format."
+        }
+      },
+      {
+        "id": "compression_format",
+        "max": 5,
+        "anchors": {
+          "5": "High information value per word, within 400–550 words, short readable paragraphs and all format constraints satisfied.",
+          "3": "Within the hard limit but somewhat overlong, compressed, repetitive or outside the target range.",
+          "1": "Substantial padding, poor selection or distracting formatting.",
+          "0": "Over 600 words, not meaningfully a LinkedIn post or materially violates the required form."
+        }
+      }
+    ],
+    "hard_constraints": {
+      "empty_output": {
+        "result": "invalid",
+        "final_score": 0
+      },
+      "output_language_not_german": {
+        "result": "noncompliant",
+        "final_score_cap": 59
+      },
+      "word_count_above_600": {
+        "result": "noncompliant",
+        "compression_format_score": 0,
+        "final_score_cap": 59
+      },
+      "generation_truncated_at_token_limit": {
+        "result": "noncompliant",
+        "final_score_cap": 59
+      },
+      "reasoning_markup_in_candidate_output": {
+        "result": "noncompliant",
+        "final_score_cap": 59
+      },
+      "technical_location_labels_in_output": {
+        "result": "noncompliant",
+        "final_score_cap": 79
+      }
+    },
+    "critical_error_caps": {
+      "one_critical_error": {
+        "factual_epistemic_accuracy_cap": 7,
+        "final_score_cap": 59
+      },
+      "two_or_more_critical_errors": {
+        "factual_epistemic_accuracy_cap": 3,
+        "final_score_cap": 39
+      }
+    },
+    "verdict_thresholds": {
+      "excellent": 90,
+      "good": 75,
+      "usable": 60,
+      "poor": 1,
+      "invalid": 0
+    }
+  }
+}

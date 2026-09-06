@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "harness_id": "mini-log-v0.3",
+  "harness_family": "project_mini_harness",
+  "status": "qualification_candidate",
+  "protocol_path": "tasks/agentic/track-b/log-incident-v0.3.json",
+  "system_prompt_path": "tasks/agentic/track-b/prompts/mini-log-system-v0.3.txt",
+  "action_schema_path": "tasks/agentic/track-b/schemas/mini-log-action-v0.2.json",
+  "capability_inventory_path": "capabilities/inventories/mini-log-v0.3.json",
+  "isolation_profile_path": "capabilities/isolation-profiles/mini-log-v0.3.json",
+  "action_protocol": "ollama_json_schema_action_per_turn",
+  "actions": ["read_file", "finish_report"],
+  "implementation_status": "adapter_implemented_pending_no_inference_qualification",
+  "reused_action_schema_reason": "The structured report shape remains report contract v2; v0.3 changes visible semantics and outcome accounting, not the action wire format."
+}

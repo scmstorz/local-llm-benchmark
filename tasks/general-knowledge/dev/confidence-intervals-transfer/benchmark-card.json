@@ -1,0 +1,221 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "1.0.0",
+  "case_id": "general_knowledge.dev.confidence-intervals-transfer",
+  "case_version": "1.0.0",
+  "source_of_truth": "The frozen scenario and judge-only reference dossier; candidates receive the complete scenario but not the reference analysis.",
+  "evaluation_principles": [
+    "Reward integrated judgment rather than isolated definitions.",
+    "Preserve the distinction between sampling precision, systematic bias and causal identification.",
+    "Treat statistical significance and practical relevance as separate questions.",
+    "Do not require one study to be declared the universal winner."
+  ],
+  "key_facts": [
+    {
+      "id": "KF01",
+      "label": "Study A is more precise",
+      "claim_type": "comparison",
+      "weight": 3,
+      "source_locations": ["S01", "S02", "S07"],
+      "expected": "Study A has the much narrower interval and is more precise about its adjusted observational association, largely because of its much larger sample."
+    },
+    {
+      "id": "KF02",
+      "label": "Study A significance versus relevance",
+      "claim_type": "interpretation",
+      "weight": 3,
+      "source_locations": ["S01", "S03", "S04", "S07"],
+      "expected": "Study A excludes zero and is statistically significant at the matching two-sided 5% level, while its entire interval lies below the predeclared +0.50 practical threshold."
+    },
+    {
+      "id": "KF03",
+      "label": "Study A cannot prove a causal effect",
+      "claim_type": "causal_qualification",
+      "weight": 4,
+      "source_locations": ["S01", "S02", "S06", "S07"],
+      "expected": "Self-selection and unmeasured motivation can confound Study A; adjustment for observed variables and a narrow interval do not establish a small causal effect."
+    },
+    {
+      "id": "KF04",
+      "label": "Study B has stronger causal design",
+      "claim_type": "causal_qualification",
+      "weight": 4,
+      "source_locations": ["S01", "S06", "S07"],
+      "expected": "Random assignment makes Study B the stronger basis for a causal effect under the stated conditions, although the small sample leaves substantial random uncertainty."
+    },
+    {
+      "id": "KF05",
+      "label": "Study B non-significance is not proof of zero",
+      "claim_type": "misconception",
+      "weight": 3,
+      "source_locations": ["S01", "S03", "S07"],
+      "expected": "Study B includes zero and is not statistically significant at 5%, but this is a failure to reject zero rather than evidence that the effect is exactly zero."
+    },
+    {
+      "id": "KF06",
+      "label": "Study B remains decision-relevant but inconclusive",
+      "claim_type": "interpretation",
+      "weight": 3,
+      "source_locations": ["S01", "S04", "S07"],
+      "expected": "Its +0.80 point estimate exceeds the practical threshold, but the interval spans zero and values on both sides of +0.50, so meaningful benefit is neither established nor ruled out."
+    },
+    {
+      "id": "KF07",
+      "label": "Significant versus non-significant is not a direct contrast",
+      "claim_type": "comparison",
+      "weight": 3,
+      "source_locations": ["S05", "S08"],
+      "expected": "The different significance labels do not prove that the study effects differ; a direct contrast or joint model and comparable estimands are needed."
+    },
+    {
+      "id": "KF08",
+      "label": "Decision and next evidence",
+      "claim_type": "recommendation",
+      "weight": 2,
+      "source_locations": ["S02", "S06", "S08"],
+      "expected": "A larger well-conducted randomized study designed around the +0.50 threshold is more useful than merely adding self-selected observational users; current action also depends on costs, risks and reversibility."
+    }
+  ],
+  "key_ideas": [
+    {
+      "id": "KI01",
+      "label": "Precision is not validity",
+      "weight": 4,
+      "source_locations": ["S02", "S06", "S07"],
+      "expected": "Explains why a narrow estimate of a potentially biased association can be less causally trustworthy than a wide randomized estimate."
+    },
+    {
+      "id": "KI02",
+      "label": "Statistical and practical significance answer different questions",
+      "weight": 4,
+      "source_locations": ["S03", "S04", "S07"],
+      "expected": "Uses zero and +0.50 as distinct reference values and evaluates each study against both."
+    },
+    {
+      "id": "KI03",
+      "label": "Non-significance represents uncertainty, not equivalence",
+      "weight": 3,
+      "source_locations": ["S03", "S05", "S07"],
+      "expected": "Makes intuitive that Study B's wide interval leaves both negligible and meaningful effects compatible with the evidence."
+    },
+    {
+      "id": "KI04",
+      "label": "Synthesis supports a conditional decision",
+      "weight": 4,
+      "source_locations": ["S05", "S06", "S08"],
+      "expected": "Rejects the false contradiction, integrates both designs and uncertainties, and gives a proportionate next-evidence or decision recommendation."
+    }
+  ],
+  "known_critical_errors": [
+    {
+      "id": "CE01",
+      "severity": "critical",
+      "description": "Claims that Study A proves a causal effect because its sample is large, its interval is narrow or it is statistically significant."
+    },
+    {
+      "id": "CE02",
+      "severity": "critical",
+      "description": "Claims that increasing an observational sample size eliminates self-selection or unmeasured-confounding bias."
+    },
+    {
+      "id": "CE03",
+      "severity": "major",
+      "description": "Claims that Study B proves no effect because its interval includes zero or its result is not statistically significant."
+    },
+    {
+      "id": "CE04",
+      "severity": "major",
+      "description": "Treats one significant and one non-significant result as proof that the two effects differ."
+    },
+    {
+      "id": "CE05",
+      "severity": "major",
+      "description": "Equates statistical significance with practical relevance or ignores the predeclared +0.50 threshold."
+    },
+    {
+      "id": "CE06",
+      "severity": "major",
+      "description": "Declares either study conclusive without preserving its central design or uncertainty limitation."
+    }
+  ],
+  "nonessential_details": [
+    "A full algebraic reconstruction of standard errors",
+    "A numerical test of the difference between studies",
+    "Generic history of null-hypothesis significance testing",
+    "A final purchase decision without information about costs or risks"
+  ],
+  "rubric": {
+    "maximum_score": 100,
+    "coverage_status_multipliers": {"full": 1.0, "partial": 0.5, "missing": 0.0, "contradicted": 0.0},
+    "derived_coverage": {
+      "key_facts_max": 25,
+      "key_facts_formula": "sum(key_fact.weight * status_multiplier)",
+      "key_ideas_max": 15,
+      "key_ideas_formula": "sum(key_idea.weight * status_multiplier)"
+    },
+    "judged_dimensions": [
+      {
+        "id": "factual_accuracy",
+        "max": 25,
+        "anchors": {
+          "25": "No material statistical, design or numerical error.",
+          "20": "Accurate overall with one minor imprecision.",
+          "12": "At least one major error or several meaningful imprecisions.",
+          "0": "Fundamentally unreliable."
+        }
+      },
+      {
+        "id": "explanatory_quality",
+        "max": 10,
+        "anchors": {
+          "10": "Integrates precision, bias, causal design, significance and relevance into one coherent comparison.",
+          "7": "Sound analysis with one underdeveloped connection.",
+          "4": "Lists conclusions without explaining why the studies differ.",
+          "0": "Does not analyze the scenario."
+        }
+      },
+      {
+        "id": "epistemic_precision",
+        "max": 10,
+        "anchors": {
+          "10": "Consistently distinguishes evidence, uncertainty, compatibility, causality and conditional recommendation.",
+          "7": "Mostly calibrated with one limited overstatement.",
+          "4": "Repeatedly turns uncertain or associational evidence into conclusions.",
+          "0": "Systematically false certainty."
+        }
+      },
+      {
+        "id": "structure_clarity",
+        "max": 10,
+        "anchors": {
+          "10": "Clear German, decision-oriented structure and understandable without statistics training.",
+          "7": "Generally clear with minor awkwardness or weak hierarchy.",
+          "4": "Noticeably hard to follow.",
+          "0": "Incoherent or not meaningfully German."
+        }
+      },
+      {
+        "id": "compression",
+        "max": 5,
+        "anchors": {
+          "5": "High information density with no material repetition or irrelevant theory.",
+          "3": "Some avoidable repetition or digression.",
+          "1": "Substantially padded or unfocused.",
+          "0": "Exceeds the hard maximum or does not function as a focused analysis."
+        }
+      }
+    ],
+    "hard_constraints": {
+      "empty_output": {"result": "invalid", "final_score": 0},
+      "output_language_not_german": {"result": "noncompliant", "final_score_cap": 59},
+      "word_count_above_800": {"result": "noncompliant", "compression_score": 0, "final_score_cap": 59},
+      "generation_truncated_at_token_limit": {"result": "noncompliant", "final_score_cap": 59},
+      "reasoning_markup_in_candidate_output": {"result": "noncompliant", "final_score_cap": 59}
+    },
+    "critical_error_caps": {
+      "one_critical_error": {"factual_accuracy_cap": 8, "final_score_cap": 59},
+      "two_or_more_critical_errors": {"factual_accuracy_cap": 4, "final_score_cap": 39}
+    },
+    "verdict_thresholds": {"excellent": 90, "good": 75, "usable": 60, "poor": 1, "invalid": 0}
+  }
+}

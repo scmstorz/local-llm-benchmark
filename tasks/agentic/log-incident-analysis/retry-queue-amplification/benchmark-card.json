@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "1.0.0",
+  "case_id": "agentic.ops.retry-queue-amplification",
+  "case_version": "1.0.0",
+  "track": "B",
+  "task_family": "incident_investigation",
+  "language": "English",
+  "status": "offline_qualified_before_live_smoke",
+  "experimental_question": "Can a local model identify a latent retry-policy regression when a later dependency slowdown triggers delayed queue amplification, while rejecting a loud unrelated error?",
+  "construct_validity": {
+    "intended_construct": "Source-grounded diagnosis of delayed, nonlinear failure propagation across a worker and queue system.",
+    "observable_proxies": [
+      "separation of retry-policy root cause from dependency-slowdown trigger",
+      "ordered reconstruction from immediate retries through queue amplification to user impact",
+      "use of exact cross-file event citations",
+      "rejection of broker-outage and test-tenant TLS explanations",
+      "recognition that full recovery follows both rollback and queue drain",
+      "bounded impact, uncertainty and mechanism-specific remediation"
+    ],
+    "validation_evidence": "The independent reference passes every essential check; targeted mutations of cause, trigger, amplification evidence, distractor rejection, recovery state and unsupported claims fail deterministically.",
+    "known_blind_spots": [
+      "small synthetic fixture",
+      "controlled codebook constrains open-world diagnosis",
+      "queue mechanics are simplified",
+      "no high-volume search requirement",
+      "deterministic verification does not score prose quality",
+      "one retry pattern cannot establish general incident-response competence"
+    ]
+  },
+  "primary_outcome": {
+    "name": "verified_success",
+    "type": "boolean",
+    "requires_all_essential_checks": true,
+    "composite_score": false
+  },
+  "criterion_groups": [
+    {"id": "structure", "essential": true, "description": "The report follows the strict v2 contract."},
+    {"id": "incident_boundary", "essential": true, "description": "Impact onset, observation boundary and full recovery are evidenced in UTC."},
+    {"id": "causal_diagnosis", "essential": true, "description": "The latent retry regression, exposing slowdown, amplification and effects remain distinct."},
+    {"id": "evidence_grounding", "essential": true, "description": "Citations exist in declared files and cover the full causal and recovery chain."},
+    {"id": "distractor_rejection", "essential": true, "description": "Broker and notification explanations are rejected using supplied counter-evidence."},
+    {"id": "impact_and_uncertainty", "essential": true, "description": "Observed delay is reported without invented loss or counts."},
+    {"id": "remediation", "essential": true, "description": "Actions reduce retry amplification and improve detection under dependency degradation."}
+  ],
+  "candidate_access": {
+    "fixture_only": true,
+    "network": false,
+    "writes": false,
+    "shell": false,
+    "hidden_reference": false,
+    "cross_run_state": false
+  },
+  "reporting_limits": [
+    "Offline fixture qualification is not model evidence.",
+    "One excluded smoke per system is required before a measured multi-case sweep.",
+    "Do not infer reliability or latency tails from a Capability Sweep.",
+    "Compare harnesses only as complete deployed systems."
+  ]
+}

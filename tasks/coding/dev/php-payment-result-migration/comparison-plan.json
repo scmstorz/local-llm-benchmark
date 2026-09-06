@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "php-payment-result-migration-five-model-v1",
+  "case_id": "coding.dev.php-payment-result-migration",
+  "case_version": "1.0.0",
+  "case_path": "tasks/coding/dev/php-payment-result-migration/case.json",
+  "track": "A",
+  "study_mode": "capability_sweep",
+  "status": "frozen_before_comparison_execution",
+  "frozen_at": "2026-09-02T08:27:32Z",
+  "model_metadata_verified_at": "2026-09-02T08:27:32Z",
+  "model_metadata_verification": "Ollama /api/tags returned all five exact installed deployment digests without loading a model or starting inference; every digest must be rechecked at the resource gate.",
+  "frozen_inputs": {
+    "case_file_sha256": "8fd6a46683604eb6f80ad6f583a05f8d2730d6c840afcb6a9d297b395741179e",
+    "benchmark_card_file_sha256": "4d5b73c801053104a1a3f01589d538255f20c630a6aaf583790bde3cda1a2c4b",
+    "task_file_sha256": "277a815f4ac6ab2dbb03e27f3d6c99928c26f52f32d6787c3ce6c123aa7196aa",
+    "system_prompt_file_sha256": "c764c132a9af9c5d0134c9f9ecdda8cde56fb6e4a4e8e1f5f030150dd6e8834c",
+    "fixture_manifest_file_sha256": "3ebec29219f27d5528ab307c786fa55a528b68d3d68cfa27770619e3bce8e2b1",
+    "fixture_manifest_sha256": "390245902d8137e4c9de2e04898650b617ee978910c93b15d243282222c82c73",
+    "hidden_test_file_sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2",
+    "coding_runner_file_sha256": "e1efac7437e9154c1dfe9d31fb48313a83de363ceff5357d765a751292e28d2c",
+    "cli_file_sha256": "c2a77aa97c737ae9b6bace846d9646dad89a4658df4dcefb9637066406df0738",
+    "transport_diagnostic_protocol_sha256": "14b5977a55bd82185a322f55134135c1170ce2b46c3654a14825ac6997713ef4",
+    "harness_git_commit": "9cffd0f5dad7538e630e927fdd50d9adafb253f6"
+  },
+  "development_smoke": {
+    "run_id": "coding-run-20260902T072710Z-423acd55",
+    "model_alias": "E",
+    "strict_verified_success": false,
+    "strict_failure_code": "malformed_artifact",
+    "candidate_tests_executed": false,
+    "posthoc_code_byte_identity_verified": true,
+    "posthoc_public_tests_passed": 4,
+    "posthoc_public_tests_total": 4,
+    "posthoc_hidden_tests_passed": 8,
+    "posthoc_hidden_tests_total": 8,
+    "excluded_from_comparison": true,
+    "reason": "Both the strict failure and post-hoc semantic result were known before this plan was frozen. Ornith receives one fresh post-freeze attempt under the same rules as every deployment."
+  },
+  "models": {
+    "A": {
+      "name": "qwen3.6:35b-a3b-mxfp8",
+      "digest": "d82a30588f1c7bc2afa5226f3d67c8987bf505104f8f0512a0f8643ac4525d16"
+    },
+    "B": {
+      "name": "qwen3.8:27b-mlx",
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e"
+    },
+    "C": {
+      "name": "gpt-oss:20b",
+      "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7"
+    },
+    "D": {
+      "name": "muse-glimmer:30b-mlx",
+      "digest": "ef32a55b4976faa955cbab0462d09bd081351ef5b87d73d8fcd299bf17c111d7"
+    },
+    "E": {
+      "name": "ornith-1.5:35b",
+      "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc"
+    }
+  },
+  "execution_order": [
+    "B",
+    "C",
+    "E",
+    "D",
+    "A"
+  ],
+  "order_method": "Counterbalance the four distinct earlier five-model designs DBCEA, AEDBC, CABED and EDACB. A fifth order cannot give every alias an unused position because A and D both have only position 4 unused. Maximize the number of aliases receiving a previously unused position, then maximize the minimum absolute displacement from the latest EDACB design, then maximize total displacement and apply a lexicographic tie-break. BCEDA gives B, C, D and E new positions, moves every alias by at least two positions from EDACB and has total displacement 12.",
+  "methodology": {
+    "measured_attempts_per_model": 1,
+    "warmup_attempts_per_model": 0,
+    "model_state_at_request": "cold_after_explicit_unload",
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict": 3000,
+    "keep_alive": "5m",
+    "timeout_seconds": 600,
+    "automatic_retries": 0,
+    "adaptive_repeats": "none_in_capability_sweep",
+    "artifact_repair": "forbidden",
+    "test_feedback_to_candidate": false,
+    "generation_verification_boundary": "Generate with deferred verification when local Ollama access requires elevation; execute candidate code only in the later workspace-sandbox command."
+  },
+  "environment_gate": {
+    "required": true,
+    "known_ollama_consumers": [
+      "Mnemosyn",
+      "News-App"
+    ],
+    "resource_intensive_external_workloads_must_be_idle": true,
+    "model_digests_must_match_plan": true,
+    "loaded_models_must_be_empty_before_start": true,
+    "empty_state_observation_seconds": 30,
+    "unload_candidate_after_each_attempt": true,
+    "unexpected_models_invalidate_performance_evidence": true
+  },
+  "failure_policy": {
+    "preserve_every_attempt": true,
+    "malformed_artifact_is_primary_task_failure": true,
+    "runtime_failure_is_not_removed_from_results": true,
+    "failed_attempts_are_not_replaced": true,
+    "public_or_hidden_test_failure_is_verified_success_false": true,
+    "pending_verification_is_neither_success_nor_failure": true,
+    "transport_diagnostic_never_changes_primary_outcome": true
+  },
+  "evaluation": {
+    "primary_outcome": "strict_verified_success",
+    "primary_contract": "The unmodified source response must satisfy the whole-file envelope and all deterministic checks.",
+    "secondary_outcome": "verified_success_under_normalized_transport",
+    "secondary_protocol_path": "tasks/coding/dev/php-payment-result-migration/transport-diagnostic-v1.json",
+    "secondary_applicability": "Only strict malformed_artifact responses that satisfy the frozen fence-only extraction protocol. Empty outputs, ambiguous mappings, prose-bearing responses and arbitrary repair are ineligible.",
+    "valid_strict_artifact_semantics": "Use the primary verifier result directly; transport normalization is not applicable.",
+    "quality_scale_maximum": null,
+    "llm_judge_required": false,
+    "deterministic_verifier_required": true,
+    "partial_test_credit_is_primary": false,
+    "report_public_and_hidden_test_counts_as_diagnostics": true,
+    "report_quality_performance_and_reliability_separately": true,
+    "cross_case_aggregation": "Keep strict delivery success and code-semantic diagnostics separate at task level. Do not create a universal composite coding score."
+  },
+  "performance_interpretation": "Wall time and Ollama timing fields are exploratory cold-attempt diagnostics. One attempt per model does not estimate steady-state latency, latency tails or reliability distributions.",
+  "execution_authorization": {
+    "plan_freeze_normally_does_not_authorize_generation": true,
+    "explicit_user_authorization_received_before_freeze": true,
+    "authorization_scope": "Freeze this plan and execute it in one continuous workflow after tests, commit and a passing resource gate; no additional confirmation is required.",
+    "resource_gate_can_pause_execution": true
+  },
+  "interpretation_limit": "This is one PHP development task and one post-freeze attempt per deployment. It can compare strict automated delivery and verifier-confirmed semantics on this case but cannot establish general PHP superiority, reliability, stochasticity or a least-cost sufficient configuration."
+}

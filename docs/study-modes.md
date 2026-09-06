@@ -1,0 +1,298 @@
+# Benchmark Study Modes
+
+This project deliberately separates several study modes. They answer different
+questions, need different repetition counts and must not be collapsed into one
+undifferentiated benchmark score.
+
+## Current decision
+
+The active study mode is **Capability Sweep**. Hard Knowledge v0.2 will be
+completed under its already frozen protocol. The project will add a **Quality
+Stochasticity Study** and a **Performance and Reliability Study** later.
+
+This staging is a compute-budget decision, not a claim that variation and
+reliability are unimportant. Running enough repetitions for defensible latency
+tails on every model-task combination would make the current capability phase
+unnecessarily slow.
+
+A separate **Multi-Model Deliberation Study** is also planned. It will test a
+different system hypothesis and must not be mixed into single-model capability
+scores.
+
+## 1. Capability Sweep
+
+### Question
+
+How capable is each deployment across a broad set of personally relevant
+tasks, and which recurring strengths, weaknesses and failure modes appear?
+
+### Design
+
+- many distinct cases across task classes
+- few generations per model and case
+- one predeclared quality candidate per model and case
+- one cold and one immediate warm run for the initial performance screen
+- two additional warm runs only when close or unstable measurements could
+  change a case-level decision
+- blinded, source-grounded rubric judgment with randomized pairwise checks for
+  close scores
+- separate reporting of quality, compliance and latency
+
+### Claims it supports
+
+- quality differences across tasks
+- cross-task robustness and recurring error patterns
+- workflow-level invalid or capped outcomes
+- provisional quality-latency trade-offs
+
+### Claims it does not support
+
+- stable P90, P95 or P99 latency estimates
+- precise runtime failure probabilities
+- the within-task quality distribution of a deployment
+- publication-grade tail-latency comparisons
+
+The current Hard Knowledge v0.2 block remains unchanged and belongs to this
+mode.
+
+## 2. Quality Stochasticity Study — later
+
+### Question
+
+When the same deployment answers the same task repeatedly, how much does
+result quality vary, and how often does it produce a usable result?
+
+This is distinct from the Capability Sweep. Running many tasks once measures
+cross-task robustness; running one task many times measures within-task
+stochasticity.
+
+### Initial design
+
+- select a small number of representative, discriminative frozen cases
+- start with approximately five judged generations per model and case
+- use identical prompts, inference settings and evaluation rubrics within each
+  repeated condition
+- predeclare which generation attempts are quality candidates
+- judge outputs blinded and preserve every individual dimension score
+- reuse existing cold and warm responses only when they match the frozen
+  generation condition; do not silently replace a known weak candidate
+- increase repetitions only when the initial study exposes decision-relevant
+  variation
+
+### Report
+
+- measured generations `n`
+- mean, median, standard deviation, minimum, maximum and raw quality scores
+- deterministic compliance rate
+- verified task-success and task-failure counts
+- rubric-dimension distributions
+- recurring factual, reasoning, formatting and calibration errors
+- response identity or byte-level repeatability where informative
+
+Five quality samples are exploratory. They can reveal material instability but
+cannot establish rare-event rates or precise distribution tails.
+
+## 3. Performance and Reliability Study — later
+
+### Question
+
+How fast is a deployment normally, how bad can its observed tail become, and
+how often does an attempt fail technically or produce an unusable task result?
+
+### Two workload types
+
+Performance must be measured with two explicitly different workload types:
+
+1. **Real-workload latency** allows the natural response length and measures
+   experienced end-to-end waiting time.
+2. **Controlled runtime performance** fixes or tightly controls input and
+   output token counts to isolate prefill and decode behavior.
+
+End-to-end latency from naturally different response lengths must not be
+presented as pure runtime speed. Output-token count and throughput remain
+visible beside wall time.
+
+### Initial design
+
+- use one or a few representative workloads rather than every capability case
+- record model load and cold start separately
+- discard declared warm-up runs from the steady-state distribution
+- start with at least 20 measured warm runs per selected configuration when
+  P90 is a decision-relevant exploratory statistic
+- consider 50 measured runs for P95 and at least 100 for exploratory P99
+- preserve the exact sample count and every individual attempt
+- keep system-idle checks and unrelated Ollama activity monitoring
+- never pool unlike tasks into one runtime distribution without labeling the
+  workload mixture explicitly
+
+Percentile thresholds are pragmatic, not guarantees of precision:
+
+| Measured runs | Permitted interpretation |
+| ---: | --- |
+| fewer than 10 | Raw values, median and range; no tail claim |
+| at least 20 | Exploratory P90 |
+| at least 50 | P95 becomes more informative |
+| at least 100 | Exploratory P99 |
+
+When practical, uncertainty intervals or order-statistic sensitivity should
+accompany tail estimates. A percentile label must never imply more precision
+than its sample size supports.
+
+### Performance report
+
+For each metric supported by the harness, retain and summarize:
+
+- measured runs `n`
+- mean and standard deviation
+- minimum and maximum
+- median or P50
+- P90, P95 or P99 only when the sample size and report language permit it
+- every raw value
+
+Candidate metrics include:
+
+- end-to-end latency
+- true time to first token when measured by the streaming client
+- model-load duration
+- prompt or prefill duration and throughput
+- generation duration and output tokens per second
+- memory usage when repeated measurement is reliable
+- for agentic studies: task duration, steps, tool calls, retries, tokens and
+  time to verified success
+
+## Failure and outcome model
+
+Failures must remain in the dataset. Performance among successful runs and
+the probability of success are separate results.
+
+At minimum, store two status dimensions:
+
+```text
+execution_status:
+  completed
+  infrastructure_failed
+
+task_status:
+  passed
+  failed
+  unscored
+```
+
+An infrastructure or runtime failure means that execution could not complete
+normally. A task failure means that execution completed but the result did not
+meet predeclared success or validity criteria.
+
+Failure codes may include:
+
+```text
+timeout
+runtime_crash
+out_of_memory
+model_load_failure
+malformed_output
+empty_output
+tool_failure
+agent_max_steps_exceeded
+verification_failed
+other
+```
+
+Some codes require context. For example, malformed output is normally a task
+failure after technically successful generation, while a tool failure may be
+infrastructure-related or part of the agent's task trajectory. The two status
+dimensions, failure stage and stored error detail must preserve that
+distinction.
+
+Reliability reporting includes:
+
+- total attempts
+- successful and failed execution counts
+- infrastructure failure rate
+- verified task-success and task-failure counts
+- task failure rate
+- failure-code taxonomy and individual failed attempts
+
+Failed attempts must not disappear from latency accounting. Conditional
+latency among successful runs should be reported alongside reliability, while
+failure durations remain available separately.
+
+## 4. Multi-Model Deliberation Study — later
+
+### Question
+
+Can two complementary local deployments produce a better verified result than
+either deployment alone when inference time is not a binding constraint?
+
+The initial pairing of interest is `qwen3.8:27b-mlx` with
+`muse-glimmer:30b-mlx`. This is a harness or system-capability experiment, not
+evidence about either model in isolation.
+
+### Initial protocol
+
+1. Each deployment produces an independent answer from the original task and
+   source context. Neither sees the other answer during this stage.
+2. Each deployment receives the other answer under an opaque label and writes
+   a structured critique against the frozen task rubric or a predeclared
+   failure-boundary checklist.
+3. A predeclared deployment produces a final synthesis from the original task,
+   both drafts and both critiques. A symmetric alternative may let both revise
+   and then use blinded evaluation to select the stronger revision.
+4. The final outputs are judged with the same deterministic checks, grounded
+   rubric and pairwise policy as the single-model baselines.
+
+Independent drafts reduce anchoring. Structured critique is preferred over an
+open-ended debate, which can amplify verbosity, deference or a persuasive
+mistake. Shared misconceptions remain a known limit: two models cannot reliably
+correct a fact neither model knows, so reference-grounded evaluation or a
+deterministic verifier remains essential.
+
+### Resource protocol
+
+Run the two deployments sequentially through one Ollama server. Explicitly
+unload one model before loading the other, persist the complete stage
+trajectory and accept the additional model-load time. Concurrent execution or
+two Ollama instances are not required and may exceed unified-memory capacity.
+
+Record at least:
+
+- participating deployments and their fixed roles
+- stage prompts and prompt versions
+- independent drafts, critiques and final synthesis
+- model-load and inference duration for every stage
+- input and output tokens per stage
+- total time and compute time per verified final outcome
+- whether the synthesis repairs, preserves or introduces each material error
+
+Compare at minimum `Qwen alone`, `Glimmer alone`, `Qwen -> Glimmer critique ->
+Qwen revision` and the full independent-draft/cross-critique/synthesis
+protocol. Do not assume deliberation is beneficial; measure quality gain,
+regressions and added compute separately.
+
+## Reporting and model selection
+
+The four logical distributions are:
+
+1. **Performance:** How long does a successful run take?
+2. **Reliability:** How often does execution complete and yield a usable
+   result?
+3. **Quality:** How good is the result, and how much does it vary?
+4. **Trajectory:** For agentic tasks, how much work is required to succeed?
+
+A rubric total for one response remains useful. A universal model score that
+silently mixes quality, speed and reliability does not. Primary reports should
+use separate metrics, constraint filters and Pareto views.
+
+An optional operational metric is compute time per verified successful result:
+
+```text
+sum(duration of all attempts) / number of verified successful outcomes
+```
+
+It includes the cost of failed attempts but supplements rather than replaces
+the underlying distributions and failure counts. Longer-term model selection
+optimizes a combination of time, reliability, quality and resource cost per
+verified successful outcome, with weights determined by the actual workflow.
+
+Useful distribution views include raw-value tables, empirical cumulative
+distribution functions, box plots and histograms. Visualizations are added
+only when the sample size makes them informative.

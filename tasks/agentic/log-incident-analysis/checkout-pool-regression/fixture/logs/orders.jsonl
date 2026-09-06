@@ -1,0 +1,5 @@
+{"event_id":"ORD-200","timestamp":"2026-09-05T08:16:58Z","level":"INFO","trace_id":"chk-7f3","message":"checkout accepted","payment_dependency":"payment-api"}
+{"event_id":"ORD-201","timestamp":"2026-09-05T08:17:05Z","level":"ERROR","trace_id":"chk-7f3","message":"payment dependency timed out","dependency":"payment-api","timeout_ms":5000}
+{"event_id":"ORD-202","timestamp":"2026-09-05T08:18:43Z","level":"ERROR","trace_id":"chk-80a","message":"payment dependency timed out","dependency":"payment-api","timeout_ms":5000}
+{"event_id":"ORD-203","timestamp":"2026-09-05T08:21:07Z","level":"WARN","trace_id":"chk-93b","message":"inventory reservation retry succeeded","dependency":"inventory-api","attempt":2}
+{"event_id":"ORD-204","timestamp":"2026-09-05T08:24:05Z","level":"INFO","trace_id":"chk-a91","message":"payment dependency recovered","dependency":"payment-api","duration_ms":380}

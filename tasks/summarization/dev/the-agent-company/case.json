@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "summarization.dev.the-agent-company",
+  "case_version": "1.0.0",
+  "suite": "summarization",
+  "split": "development",
+  "difficulty": "hard",
+  "task_type": "cross_lingual_research_paper_summarization",
+  "title": "TheAgentCompany: Benchmarking LLM Agents on Consequential Real World Tasks",
+  "purpose": "Help the user understand an important agent-evaluation paper without reading the full paper.",
+  "input": {
+    "source_id": "source.arxiv.the-agent-company.2412.14161v3.main-text",
+    "source_language": "en",
+    "private_source_path": "data/private/summarization/dev/the-agent-company/source.md",
+    "source_metadata_path": "tasks/summarization/dev/the-agent-company/source-metadata.json",
+    "contains_location_labels": true,
+    "retains_publisher_key_findings": false,
+    "minimum_num_ctx": 16384
+  },
+  "prompt": {
+    "version": "1.0.0",
+    "system_path": "tasks/summarization/dev/the-agent-company/prompt/system.txt",
+    "user_template_path": "tasks/summarization/dev/the-agent-company/prompt/user.md",
+    "source_placeholder": "{{SOURCE_TEXT}}"
+  },
+  "output": {
+    "language": "de",
+    "audience": "An informed non-specialist reader following current developments",
+    "format": "Well-structured prose with descriptive headings and optional sparing bullet points",
+    "target_words": 700,
+    "minimum_words": null,
+    "maximum_words": 1000,
+    "external_information_allowed": false,
+    "source_location_labels_allowed": false
+  },
+  "evaluation": {
+    "benchmark_card_path": "tasks/summarization/dev/the-agent-company/benchmark-card.json",
+    "benchmark_card_version": "1.0.0",
+    "judge_instructions_path": "tasks/summarization/dev/the-agent-company/judge-instructions.md",
+    "judge_instructions_version": "1.0.0",
+    "judge_result_schema_path": "tasks/summarization/dev/the-agent-company/judge-result.schema.json",
+    "judge_result_schema_version": "1.2.0",
+    "judge_kind": "interactive_codex",
+    "paid_judge_api": false
+  },
+  "suitability": {
+    "strengths": [
+      "Direct relevance to agentic work and software-development workflows",
+      "Peer-reviewed venue and a methodologically rich benchmark paper",
+      "Requires compression across design, results, interpretation and limitations",
+      "Contains quantitative results and distinctions between task, model and agent-system performance"
+    ],
+    "limitations": [
+      "English-to-German output combines comprehension, translation and summarization",
+      "Only the main paper is included; detailed appendix evidence is deliberately out of scope",
+      "The reported model baselines are historical results from the frozen 2025 paper version"
+    ]
+  }
+}
+

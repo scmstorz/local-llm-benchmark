@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "summarization.dev.mit-sloan-ai-climate",
+  "case_version": "1.1.0",
+  "suite": "summarization",
+  "split": "development",
+  "difficulty": "easy_medium",
+  "task_type": "cross_lingual_article_summarization",
+  "title": "Will AI derail global climate goals?",
+  "purpose": "Help the user stay informed about current developments without reading the full article.",
+  "input": {
+    "source_id": "source.mit-sloan.will-ai-derail-global-climate-goals.2026-08-27",
+    "source_language": "en",
+    "private_source_path": "data/private/summarization/dev/mit-sloan-ai-climate/source.md",
+    "source_metadata_path": "tasks/summarization/dev/mit-sloan-ai-climate/source-metadata.json",
+    "contains_location_labels": true,
+    "retains_publisher_key_findings": true
+  },
+  "prompt": {
+    "version": "1.0.0",
+    "system_path": "tasks/summarization/dev/mit-sloan-ai-climate/prompt/system.txt",
+    "user_template_path": "tasks/summarization/dev/mit-sloan-ai-climate/prompt/user.md",
+    "source_placeholder": "{{SOURCE_TEXT}}"
+  },
+  "output": {
+    "language": "de",
+    "audience": "An informed non-specialist reader following current developments",
+    "format": "Well-structured prose with descriptive headings and optional sparing bullet points",
+    "target_words": 500,
+    "minimum_words": null,
+    "maximum_words": 1000,
+    "external_information_allowed": false,
+    "source_location_labels_allowed": false
+  },
+  "evaluation": {
+    "benchmark_card_path": "tasks/summarization/dev/mit-sloan-ai-climate/benchmark-card.json",
+    "benchmark_card_version": "1.1.0",
+    "judge_instructions_path": "tasks/summarization/dev/mit-sloan-ai-climate/judge-instructions.md",
+    "judge_instructions_version": "1.1.0",
+    "judge_result_schema_path": "tasks/summarization/dev/mit-sloan-ai-climate/judge-result.schema.json",
+    "judge_result_schema_version": "1.2.0",
+    "judge_kind": "interactive_codex",
+    "paid_judge_api": false
+  },
+  "suitability": {
+    "strengths": [
+      "Clear central thesis and several numeric claims",
+      "Distinct observations, model results, scenarios and recommendations",
+      "Enough conceptual structure to test more than sentence extraction"
+    ],
+    "limitations": [
+      "Publisher-provided key findings make the task easier",
+      "The source is an institutional press release about a forthcoming book chapter, not an independent review",
+      "English-to-German output combines comprehension, translation and summarization"
+    ]
+  }
+}

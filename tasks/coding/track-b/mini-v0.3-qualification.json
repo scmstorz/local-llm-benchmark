@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "mini-v0.3-time-first-qualification",
+  "qualified_on": "2026-09-04",
+  "status": "qualified_for_excluded_live_smoke",
+  "harness_id": "mini-v0.3",
+  "experimental_scope": "No live model inference. Mocked model streams, deterministic fixture execution and real prepare-only CLI checks qualify the adapter before one separately frozen excluded smoke.",
+  "time_boundary": {
+    "maximum_active_wall_time_seconds": 900,
+    "provider_request_timeout_seconds": 300,
+    "agent_turns": "measurement_only",
+    "total_output_tokens": "measurement_only",
+    "protocol_errors": "measurement_only",
+    "split_command_idle_time": "excluded",
+    "final_verification_time": "reported_separately"
+  },
+  "emergency_safeguards": {
+    "maximum_file_reads": 200,
+    "maximum_file_writes": 100,
+    "maximum_public_test_runs": 30
+  },
+  "tool_surface": [
+    "read_file",
+    "write_file",
+    "replace_text",
+    "run_public_tests",
+    "finish"
+  ],
+  "qualification_evidence": {
+    "adapter_specific_python_tests_passed": 14,
+    "sweep_controller_python_tests_passed": 2,
+    "repository_python_tests_passed": 165,
+    "all_action_schema_variants_checked": true,
+    "strict_parser_rejects_fences_prose_extra_fields_and_unknown_actions": true,
+    "malformed_action_recovery_checked": true,
+    "high_turn_token_and_protocol_counts_remain_nonterminal": true,
+    "active_time_termination_checked": true,
+    "emergency_safeguard_precedence_checked": true,
+    "provider_timeout_precedence_checked": true,
+    "incomplete_stream_classification_checked": true,
+    "model_request_checkpoint_before_provider_contact_checked": true,
+    "interrupted_model_attempt_preservation_and_fresh_restart_checked": true,
+    "model_and_action_commands_are_separate": true,
+    "hidden_verification_is_a_separate_command": true,
+    "prepare_only_cli_cases": [
+      "coding.dev.php-payment-result-migration",
+      "coding.dev.async-cache-coalescing",
+      "coding.dev.pagination-cycle-guard"
+    ],
+    "prepare_only_cli_checks_passed": 3,
+    "live_ollama_requests": 0,
+    "live_model_inference": false,
+    "deterministic_candidate_fixture_execution_in_unit_tests": true
+  },
+  "execution_boundary": {
+    "model_call_command_executes_candidate_code": false,
+    "action_command_may_execute_frozen_public_tests": true,
+    "finalize_command_executes_public_and_hidden_tests": true,
+    "action_and_finalize_commands_require_surrounding_sandbox": true,
+    "portable_standalone_os_sandbox": false,
+    "limitation": "Unlike Pi v0.3, Mini v0.3 does not yet ship its own standalone Seatbelt wrapper. Measured action and finalize commands must run inside the surrounding Codex workspace sandbox or another explicit execution sandbox."
+  },
+  "comparison_boundary": {
+    "same_model_comparison_across_pi_and_mini": "system_level",
+    "one_factor_causal_harness_claim_allowed": false,
+    "reason": "Pi and Mini differ in prompts, action protocol, tool implementations, context accumulation and error handling."
+  },
+  "artifacts": [
+    {
+      "path": "local_llm_benchmark/mini_v03_adapter.py",
+      "sha256": "8579a6d9332fb268a40020b0acc3513e6e3afa782ca89569a168150124691ce1"
+    },
+    {
+      "path": "local_llm_benchmark/mini_v03_sweep.py",
+      "sha256": "a6505e0a0bca1f882873a37fe5f66cce086f777a42f92e94e3d19399e55ac290"
+    },
+    {
+      "path": "local_llm_benchmark/agentic.py",
+      "sha256": "e2be075cc71772352dff156ae07824c44cdfd2a0fdebbace6ee1fccd48d50883"
+    },
+    {
+      "path": "local_llm_benchmark/coding.py",
+      "sha256": "0996db95185a53756e24fd56eff311a58f4d4409619f7492f2c7709e8a19cb70"
+    },
+    {
+      "path": "local_llm_benchmark/ollama.py",
+      "sha256": "cda83848193dd1ceb3d608c4fe0ae1d6e886fdc1121c2225bd3d2d020cc13102"
+    },
+    {
+      "path": "local_llm_benchmark/runner.py",
+      "sha256": "5446a65d92386dca99655593fc6dd8f85b9956e495bfa179e82549dc66575c54"
+    },
+    {
+      "path": "tasks/coding/track-b/mini-v0.3.json",
+      "sha256": "a0473568ea70b8c07dfe3b3042281323aeb59ab8de4d8ea7e18f9127f18b3518"
+    },
+    {
+      "path": "tasks/coding/track-b/track-b-mini-v0.3.json",
+      "sha256": "b3568186c63525c0f5ae29a983a66c192c01d1425447352f7a78adc44797294b"
+    },
+    {
+      "path": "tasks/coding/track-b/track-b-v0.3.json",
+      "sha256": "cac27f7bdfee3e8bb46f39a12633c9c259f95b6537193904043d36e962daa260"
+    },
+    {
+      "path": "tasks/coding/track-b/prompts/mini-system-v0.3.txt",
+      "sha256": "75314f0664a6d127039d7b8c2804f242d4bf164ec52f0183289513107872e1c4"
+    },
+    {
+      "path": "tasks/coding/track-b/schemas/mini-action-v0.3.json",
+      "sha256": "155ec85fd1f47d3f9b06924bfdfcaa838b1472d21c7aa83a83fd02e1c6e35539"
+    },
+    {
+      "path": "tests/test_mini_v03_adapter.py",
+      "sha256": "773da96b861e7e98e264f7db993936f38828ba3811b5dc8d27dea1d98ec827d9"
+    },
+    {
+      "path": "tests/test_mini_v03_sweep.py",
+      "sha256": "c72df95ee0ae83a767706d18baf8a92199bc95b55bf6bde78d086aa698d20d7b"
+    }
+  ],
+  "next_gate": "Freeze one revised excluded qwen3.8:27b-mlx JavaScript smoke with exact deployment identity, repository commit and artifact hashes before live inference."
+}

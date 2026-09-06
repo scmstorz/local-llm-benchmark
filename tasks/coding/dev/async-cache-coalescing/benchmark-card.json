@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "1.0.0",
+  "case_id": "coding.dev.async-cache-coalescing",
+  "case_version": "1.0.0",
+  "track": "A",
+  "title": "Async TTL cache request coalescing and invalidation",
+  "evaluation_goal": "Measure whether a model can implement correct asynchronous single-flight caching across TTL, rejection and invalidation races in a dependency-free JavaScript module.",
+  "task_family": "feature_implementation",
+  "pre_run_task_features": {
+    "change_scope": "localized_module",
+    "expected_files_changed": "one_or_two",
+    "locality": "single_component_with_public_reexport",
+    "context_requirement": "small_repository_snapshot",
+    "specification_clarity": "explicit_concurrency_and_invalidation_contract",
+    "reasoning_requirement": "asynchronous_state_machine_and_race_reasoning",
+    "dependency_depth": "low",
+    "tool_requirement": "none_in_track_a",
+    "feedback_strength": "public_and_hidden_deterministic_tests",
+    "language_framework": "javascript_es_modules_node_standard_library",
+    "autonomy_requirement": "single_turn_complete_file_replacement",
+    "risk": "medium_stale_data_and_duplicate_upstream_work",
+    "reversibility": "high_in_disposable_fixture"
+  },
+  "candidate_visible_requirements": [
+    "Cache fulfilled values per key with an exact TTL boundary measured from fulfillment.",
+    "Coalesce concurrent same-key misses while keeping different keys independent.",
+    "Cache undefined but never cache rejection or synchronous loader failure.",
+    "Prevent invalidated in-flight results from repopulating the cache without cancelling their existing callers.",
+    "Apply clear to settled entries and every in-flight key.",
+    "Preserve validation and the public API without adding dependencies."
+  ],
+  "artifact_contract": {
+    "format": "whole_file_envelope",
+    "transport_normalization": "The marker-delimiting newline is replaced by exactly one canonical final newline in each installed file.",
+    "controller_repairs_code": false,
+    "existing_files_only": true
+  },
+  "verification_runtime": {
+    "name": "Node.js",
+    "minimum_major_version": 22,
+    "package_dependencies": 0,
+    "version_is_recorded_by": "verification.runtime_version_command"
+  },
+  "verification_layers": [
+    {
+      "id": "output_contract",
+      "required": true,
+      "success": "The response contains only one or two complete-file envelopes with unique normalized paths."
+    },
+    {
+      "id": "scope_integrity",
+      "required": true,
+      "success": "Every submitted path is an existing allowed source module; tests and package metadata remain byte-identical."
+    },
+    {
+      "id": "artifact_installation",
+      "required": true,
+      "success": "The controller installs exact candidate file content plus the declared canonical final newline into a disposable baseline copy."
+    },
+    {
+      "id": "public_tests",
+      "required": true,
+      "success": "All four candidate-visible Node tests pass."
+    },
+    {
+      "id": "hidden_acceptance_tests",
+      "required": true,
+      "success": "All eight candidate-hidden checks for validation, values, keys, fulfillment-time TTL, failure cleanup and invalidation races pass."
+    }
+  ],
+  "primary_outcome": {
+    "name": "verified_success",
+    "type": "boolean",
+    "quality_scale_maximum": null,
+    "note": "No universal composite score is assigned. Diagnostic test counts are not interpreted as fractional semantic quality."
+  },
+  "failure_taxonomy": [
+    "empty_output",
+    "malformed_artifact",
+    "artifact_scope_violation",
+    "artifact_install_failure",
+    "protected_file_modified",
+    "verification_runtime_failure",
+    "public_tests_failed",
+    "hidden_tests_failed",
+    "verification_timeout",
+    "runtime_failure",
+    "other"
+  ],
+  "risk_and_threshold": {
+    "risk": "medium",
+    "verifier_strength": "strong_for_declared_observable_behavior_with_known_non_exhaustiveness",
+    "single_run_decision": "exploratory_verified_outcome_only",
+    "reliability_claim_allowed": false
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "log-incident-v0.2-task-set-offline-qualification",
+  "qualified_on": "2026-09-05",
+  "status": "qualified_for_harness_adaptation_and_excluded_smokes",
+  "case_ids": [
+    "agentic.ops.retry-queue-amplification",
+    "agentic.ops.clock-skew-partial-recovery"
+  ],
+  "experimental_scope": "No live model inference. Immutable fixture integrity, independent reference reports and targeted near-miss checks qualify two additional task constructs for later harness adaptation and excluded smokes.",
+  "report_contract": {
+    "version": "2.0.0",
+    "strict_top_level_shape": true,
+    "recovery_states": ["full", "partial", "not_observed"],
+    "stable_event_and_file_citations_required": true,
+    "maximum_serialized_bytes": 32768
+  },
+  "qualification_evidence": {
+    "reference_reports": {
+      "agentic.ops.retry-queue-amplification": {
+        "essential_checks_passed": 14,
+        "essential_checks_total": 14
+      },
+      "agentic.ops.clock-skew-partial-recovery": {
+        "essential_checks_passed": 14,
+        "essential_checks_total": 14
+      }
+    },
+    "deliberate_near_misses_rejected": [
+      "retry_trigger_as_root_cause",
+      "retry_missing_amplification_in_causal_chain",
+      "retry_missing_amplification_evidence",
+      "retry_missing_broker_distractor_rejection",
+      "retry_missing_test_tenant_distractor_rejection",
+      "retry_wrong_recovery_state",
+      "retry_unsupported_order_loss",
+      "clock_naive_timestamp_chronology",
+      "clock_provider_as_root_cause",
+      "clock_wrong_event_file",
+      "clock_missing_offset_evidence",
+      "clock_false_full_recovery_state",
+      "clock_false_full_recovery_claim",
+      "clock_missing_remaining_backlog",
+      "clock_missing_backlog_completion_uncertainty",
+      "extra_top_level_field",
+      "wrong_nested_type",
+      "fixture_drift"
+    ],
+    "focused_python_tests_passed": 19,
+    "candidate_code_or_commands_executed": false,
+    "candidate_writes_performed": false,
+    "live_ollama_requests": 0,
+    "live_model_inference": false
+  },
+  "construct_separation": {
+    "retry_case": "Delayed nonlinear amplification after a latent retry-policy regression is exposed by downstream slowdown.",
+    "clock_case": "Causal chronology must override a skewed node's apparent timestamps, and mitigation must not be mislabeled as full recovery.",
+    "reason_for_multiple_cases": "Breadth reduces the risk of interpreting success on one synthetic incident template as general log-analysis capability."
+  },
+  "artifacts": [
+    {"path": "local_llm_benchmark/log_incident_v02.py", "sha256": "fd64ed6a54a912a35db696d78182fc65eb774aa56abf15f1dd4f46cb188dad97"},
+    {"path": "tests/test_log_incident_v02.py", "sha256": "c8b289be4a48a1333d3895eecccee8f4278c3b1360950ba06ca718d467508434"},
+    {"path": "tasks/agentic/log-incident-analysis/report-schema-v2.json", "sha256": "5e6cecff4e9283e71f34c4a24f0f244f851ec39651ef241f263f0704d78b9bab"},
+    {"path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/case.json", "sha256": "cd1ae7b642c4dc208cb8d560f18156348a8f5c70c76bb1d9874005195a098065"},
+    {"path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/benchmark-card.json", "sha256": "43de87e9476c19298f5b31e0f968b62ca9371a9e4138d406f6cca33474e7cff1"},
+    {"path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/fixture-manifest.json", "sha256": "8853bfa6a9c159b177726b1b9269b4350bb34b7d0572dbb83890e7f0529f0554"},
+    {"path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/TASK.md", "sha256": "03aa47b6b871c0bfd5b946cd91b10f9e74ab5451ea7f68edca43c6724163a923"},
+    {"path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/reference/ground-truth.json", "sha256": "8ed1ac903fdfa013512e11f460ab943b332886f9114bed939c34b66611fa58a3"},
+    {"path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/reference/reference-report.json", "sha256": "50a4a317f2acba0a31fcfd927c29bf3ea1593041137e273a18d188ac748d2aad"},
+    {"path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/case.json", "sha256": "d4906a7b62acdb677464cb9db71d451a31b0157cc0d636821703ffe94b599b6b"},
+    {"path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/benchmark-card.json", "sha256": "e2f430797e331cb650559278cce9c5482dce94b616d4051c75c12ceeba349d9f"},
+    {"path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/fixture-manifest.json", "sha256": "7c7b8837826f29366970ccdc85760fec4d74fbd0e2616d463f1de2688f68e9e2"},
+    {"path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/TASK.md", "sha256": "64bebac7b2f70ef95a9928435fd45c560952df7fc5688f1201d8a62dc4f8eac0"},
+    {"path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/reference/ground-truth.json", "sha256": "1335a6b66e9bb672c8635e87fe51917da4b58c98ba6afc0b53bb0bdc26fcba3b"},
+    {"path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/reference/reference-report.json", "sha256": "d76a966ebbb5273bc6d9cea18b9f8b9a4efff3df0149a4d6d170ce87891b7c9b"}
+  ],
+  "frozen_v0_1_boundary": {
+    "modified": false,
+    "compatibility_strategy": "Add a separate v0.2 contract and verifier; do not rewrite artifacts already bound into v0.1 harness qualifications or smoke plans."
+  },
+  "next_gate": "Adapt Mini and Pi in new versioned harness definitions, run no-inference policy qualification, then freeze one excluded smoke per complete system before any measured multi-case Capability Sweep."
+}

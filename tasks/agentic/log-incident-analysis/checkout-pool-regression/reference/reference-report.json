@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "incident": {
+    "start_utc": "2026-09-05T08:17:06Z",
+    "end_utc": "2026-09-05T08:25:12Z",
+    "primary_service": "payment-api",
+    "affected_user_journey": "checkout"
+  },
+  "diagnosis": {
+    "root_cause_code": "configuration_regression",
+    "trigger_codes": ["traffic_increase"],
+    "summary": "A deployment reduced the payment database pool from 40 to 4. Increased checkout traffic exhausted that application-side pool, payment calls timed out and orders propagated 503 responses. Database health remained normal. Rolling back restored pool capacity and checkout health."
+  },
+  "causal_chain": [
+    {"event_id": "PAY-301", "file": "logs/payment-api.log.1"},
+    {"event_id": "GATE-101", "file": "logs/gateway-2026-09-05.log"},
+    {"event_id": "PAY-303", "file": "logs/payment-api.log"},
+    {"event_id": "ORD-201", "file": "logs/orders.jsonl"},
+    {"event_id": "GATE-102", "file": "logs/gateway-2026-09-05.log"},
+    {"event_id": "PAY-307", "file": "logs/payment-api.log"},
+    {"event_id": "PAY-308", "file": "logs/payment-api.log"},
+    {"event_id": "GATE-106", "file": "logs/gateway-2026-09-05.log"}
+  ],
+  "evidence": [
+    {"event_id": "PAY-301", "file": "logs/payment-api.log.1", "supports": "root_cause"},
+    {"event_id": "GATE-101", "file": "logs/gateway-2026-09-05.log", "supports": "trigger"},
+    {"event_id": "PAY-303", "file": "logs/payment-api.log", "supports": "symptom"},
+    {"event_id": "ORD-201", "file": "logs/orders.jsonl", "supports": "symptom"},
+    {"event_id": "GATE-102", "file": "logs/gateway-2026-09-05.log", "supports": "impact"},
+    {"event_id": "PAY-307", "file": "logs/payment-api.log", "supports": "recovery"},
+    {"event_id": "PAY-308", "file": "logs/payment-api.log", "supports": "recovery"},
+    {"event_id": "GATE-106", "file": "logs/gateway-2026-09-05.log", "supports": "recovery"}
+  ],
+  "rejected_hypotheses": [
+    {"code": "database_outage", "evidence_ids": ["DB-400", "PAY-305"], "reason": "The database accepted connections with low utilization and the payment service's direct ping remained healthy."},
+    {"code": "authentication_failure", "evidence_ids": ["AUTH-500", "AUTH-502"], "reason": "The expired token belonged to an unrelated admin probe and customer token validation remained healthy."}
+  ],
+  "impact": {
+    "codes": ["checkout_requests_failed", "checkout_latency_increased"],
+    "summary": "Checkout requests experienced multi-second latency and some returned HTTP 503. The exact affected request count is not present in the supplied logs."
+  },
+  "recommended_actions": [
+    {"code": "restore_safe_pool_limit", "rationale": "Keep the previously healthy capacity while a corrected release is prepared."},
+    {"code": "validate_capacity_configuration", "rationale": "Reject deployment settings that reduce connection capacity below the tested concurrency requirement."},
+    {"code": "alert_on_pool_saturation", "rationale": "Alert on pool waiters and acquisition timeouts before gateway errors rise."},
+    {"code": "canary_load_test", "rationale": "Exercise checkout concurrency against deployment candidates before full rollout."}
+  ],
+  "uncertainties": [
+    {"code": "exact_affected_request_count_unknown", "reason": "The supplied excerpt contains examples but no aggregate request count."},
+    {"code": "configuration_change_owner_unknown", "reason": "The deployment environment is named, but no approving person or team is recorded."}
+  ]
+}

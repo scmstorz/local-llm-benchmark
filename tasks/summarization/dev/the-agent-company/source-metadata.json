@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "source.arxiv.the-agent-company.2412.14161v3.main-text",
+  "title": "TheAgentCompany: Benchmarking LLM Agents on Consequential Real World Tasks",
+  "authors": "Frank F. Xu et al.",
+  "publisher": "arXiv",
+  "page_type": "research_paper_preprint_version",
+  "arxiv_id": "2412.14161",
+  "arxiv_version": "v3",
+  "version_date": "2025-09-10",
+  "canonical_url": "https://arxiv.org/abs/2412.14161v3",
+  "pdf_url": "https://arxiv.org/pdf/2412.14161v3",
+  "published_venue": "NeurIPS 2025 Datasets and Benchmarks Track",
+  "proceedings_url": "https://papers.nips.cc/paper_files/paper/2025/hash/0d744742f6fac4d1134c019b7cef3c8a-Abstract-Datasets_and_Benchmarks_Track.html",
+  "doi": "10.52202/085713-0315",
+  "retrieved_at": "2026-08-28T15:38:15Z",
+  "source_language": "en",
+  "artifacts": {
+    "pdf": {
+      "private_path": "data/private/summarization/dev/the-agent-company/source.pdf",
+      "sha256": "9574c7c5d4f1592dd1a0c9615cb3c2f8bd130f18b2c2cde4d0bbace4e80ef620",
+      "page_count": 24
+    },
+    "proceedings_verification_pdf": {
+      "private_path": "data/private/summarization/dev/the-agent-company/proceedings-verification.pdf",
+      "sha256": "e408852690935a9bc3bb5e37c3e1efc46613448392ae66f3395ab0be97e34dd4",
+      "page_count": 31,
+      "role": "Visual and semantic verification only; not the executable source version"
+    },
+    "ar5iv_html": {
+      "private_path": "data/private/summarization/dev/the-agent-company/source.html",
+      "sha256": "53d23370f327de49c96d3e5047729cbd12c205e0263129964029b9e800192584"
+    },
+    "clean_source": {
+      "private_path": "data/private/summarization/dev/the-agent-company/source.md",
+      "sha256": "d672538bd903cc4235ea6f753b109523bb552acf46bea6a6e131f22ad197a757",
+      "word_count_whitespace": 6033,
+      "location_labels_added": true
+    }
+  },
+  "scope": {
+    "included": [
+      "title and authors",
+      "abstract",
+      "Sections 1 through 8",
+      "Figure 1 caption",
+      "Table 1 transcribed as Markdown"
+    ],
+    "excluded": [
+      "acknowledgments",
+      "references",
+      "appendices A through J",
+      "figure image data"
+    ],
+    "reason": "Keep this development case focused on main-paper summarization; reserve the complete paper for a later long-context experiment."
+  },
+  "extraction": {
+    "method": "ar5iv HTML-to-text conversion with manual semantic cleanup, verified against rendered arXiv v3 pages 1 through 10 and the final NeurIPS proceedings paper",
+    "semantic_policy": "Remove conversion artifacts, links and footnote markers; preserve the main-paper wording and all material claims; transcribe the principal result table without changing values."
+  },
+  "copyright": {
+    "redistribution_license_verified": false,
+    "redistribution_policy": "private_local_only",
+    "git_tracked": false,
+    "public_repository_policy": "Publish metadata, hash and annotations only; do not publish the full source artifacts."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "local-llm-benchmark-pi-adapter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pinned Pi dependency for Track B benchmark harnesses",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "test": "node --test benchmark-policy.test.mjs benchmark-policy-v0.3.test.mjs pi-v0.3-qualification.test.mjs pi-v0.3-transport.test.mjs log-readonly-policy-v0.1.test.mjs pi-log-v0.1-qualification.test.mjs",
+    "test:transport-v0.3": "PI_V03_TRANSPORT_QUALIFICATION=1 node --test pi-v0.3-transport.test.mjs"
+  },
+  "dependencies": {
+    "@earendil-works/pi-coding-agent": "0.84.4"
+  }
+}

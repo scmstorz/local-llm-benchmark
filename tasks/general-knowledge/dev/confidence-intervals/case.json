@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "general_knowledge.dev.confidence-intervals",
+  "case_version": "1.0.0",
+  "suite": "general_knowledge",
+  "split": "development",
+  "difficulty": "medium",
+  "task_type": "general_knowledge_explanation",
+  "title": "Interpreting a 95% confidence interval",
+  "purpose": "Test conceptual statistical knowledge, calibrated language and correction of common misconceptions.",
+  "input": {
+    "source_id": "reference.general-knowledge.confidence-intervals.2026-08-28",
+    "reference_source_path": "tasks/general-knowledge/dev/confidence-intervals/reference.md",
+    "source_metadata_path": "tasks/general-knowledge/dev/confidence-intervals/source-metadata.json",
+    "source_artifact_key": "reference_source",
+    "reference_visible_to_candidate": false,
+    "candidate_browsing_allowed": false,
+    "candidate_tools_allowed": false,
+    "contains_location_labels": true
+  },
+  "prompt": {
+    "version": "1.0.0",
+    "system_path": "tasks/general-knowledge/prompt/system.txt",
+    "user_template_path": "tasks/general-knowledge/dev/confidence-intervals/prompt/user.md",
+    "source_delivery": "judge_only"
+  },
+  "output": {
+    "language": "de",
+    "audience": "An informed non-specialist without formal statistics training",
+    "format": "Well-structured explanatory prose with descriptive headings",
+    "target_words": 550,
+    "minimum_words": null,
+    "maximum_words": 800,
+    "external_information_allowed": true,
+    "source_location_labels_allowed": false
+  },
+  "evaluation": {
+    "benchmark_card_path": "tasks/general-knowledge/dev/confidence-intervals/benchmark-card.json",
+    "benchmark_card_version": "1.0.0",
+    "judge_instructions_path": "tasks/general-knowledge/judge-instructions.md",
+    "judge_instructions_version": "1.0.0",
+    "judge_result_schema_path": "tasks/general-knowledge/judge-result.schema.json",
+    "judge_result_schema_version": "1.0.0",
+    "judge_kind": "interactive_codex",
+    "paid_judge_api": false
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_id": "coding-track-b-v0.2",
+  "status": "frozen_for_capability_sweep",
+  "frozen_on": "2026-09-03",
+  "track": "B",
+  "study_mode": "capability_sweep",
+  "supersedes_for_future_runs": "coding-track-b-v0.1",
+  "change_reason": "The first Pi development smoke reached a passing public test within every time, token, tool and verifier constraint but required a thirteenth turn to terminate. Turn semantics also differ across harnesses, so turns are now measured rather than used as a normal capability limit.",
+  "task_subset": [
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "case_path": "tasks/coding/dev/php-payment-result-migration/case.json",
+      "selection_reason": "Tests whether tool-mediated file writes remove a Track A transport floor."
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "case_path": "tasks/coding/dev/async-cache-coalescing/case.json",
+      "selection_reason": "Tests iterative repair of a behavioral failure that no Track A deployment solved."
+    }
+  ],
+  "deferred_cases": [
+    {
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "required_case_path": "tasks/coding/dev/pagination-cycle-guard/case-whole-file-v1.2.json",
+      "reason": "Add after both harness families are stable; never reuse the incomplete v1.1 verifier."
+    }
+  ],
+  "harness_families": [
+    {
+      "harness_id": "mini-v0.2",
+      "config_path": "tasks/coding/track-b/mini-v0.2.json"
+    },
+    {
+      "harness_id": "pi-v0.2",
+      "config_path": "tasks/coding/track-b/pi-v0.2.json"
+    }
+  ],
+  "experimental_unit": [
+    "task",
+    "model",
+    "quantization",
+    "runtime",
+    "harness",
+    "context_configuration",
+    "reasoning_configuration",
+    "tool_configuration",
+    "run"
+  ],
+  "shared_permissions": {
+    "read_scope": "candidate_visible_fixture_files_only",
+    "write_scope": "artifact_contract_allowed_existing_files_only",
+    "public_test_feedback": true,
+    "hidden_test_feedback": false,
+    "browser": false,
+    "external_network": false,
+    "arbitrary_shell": false
+  },
+  "network_boundary": {
+    "ollama": "http_loopback_origin_only",
+    "external_network": false
+  },
+  "budgets": {
+    "maximum_protocol_errors": 3,
+    "maximum_file_reads": 24,
+    "maximum_file_writes": 8,
+    "maximum_public_test_runs": 3,
+    "maximum_total_output_tokens": 12000,
+    "maximum_wall_time_seconds": 900
+  },
+  "turn_semantics": {
+    "normal_turn_limit": null,
+    "agent_turns_are_measurement_only": true,
+    "cross_harness_turn_counts_are_not_equivalent": true,
+    "runaway_controls": [
+      "maximum_wall_time_seconds",
+      "maximum_total_output_tokens",
+      "tool_specific_operation_limits",
+      "maximum_protocol_errors_for_mini"
+    ]
+  },
+  "time_budget_semantics": "Active harness execution time. Deliberate pauses between split mini-harness CLI steps are excluded; Pi runs in one continuous process.",
+  "termination": {
+    "successful_agent_termination_by_harness": {
+      "mini-v0.2": "finish_action",
+      "pi-v0.2": "normal_agent_end_event_and_zero_process_exit"
+    },
+    "terminal_failures": [
+      "maximum_protocol_errors_exceeded",
+      "maximum_total_output_tokens_exceeded",
+      "maximum_wall_time_exceeded",
+      "runtime_failure"
+    ],
+    "verification_after_every_termination": true,
+    "verified_success_requires": [
+      "harness_specific_valid_agent_termination",
+      "workspace_scope_integrity",
+      "public_tests_pass",
+      "hidden_tests_pass"
+    ],
+    "verifier_success_and_agent_termination_are_reported_separately": true
+  },
+  "inference_defaults": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 1600,
+    "keep_alive": "5m",
+    "request_timeout_seconds": 300
+  },
+  "measurement": {
+    "raw_trajectory_persisted": true,
+    "tool_inputs_with_code_persisted_only_in_ignored_run_artifacts": true,
+    "tracked_reports_are_sanitized": true,
+    "required_trajectory_metrics": [
+      "agent_turns",
+      "tool_calls",
+      "failed_tool_calls",
+      "protocol_errors",
+      "file_reads",
+      "file_writes",
+      "public_test_runs",
+      "input_tokens",
+      "output_tokens",
+      "wall_time_seconds",
+      "termination_reason",
+      "time_to_first_successful_public_verification"
+    ]
+  },
+  "comparison_rules": {
+    "harness_results_reported_separately": true,
+    "development_smokes_excluded": true,
+    "initial_measured_runs_per_configuration": 1,
+    "no_retries_or_adaptive_repetitions": true,
+    "performance_and_reliability_repetitions_deferred": true,
+    "turn_count_is_not_a_success_threshold": true
+  },
+  "freeze_requirements": [
+    "mini-harness implementation and tests complete",
+    "Pi package, CLI arguments and policy extension pinned",
+    "both harnesses pass no-inference dry runs",
+    "fixture, verifier, prompt, schema and configuration hashes recorded",
+    "execution order preregistered",
+    "resource gate passes before inference"
+  ],
+  "freeze_evidence": {
+    "mini_and_pi_implementations_complete": true,
+    "repository_tests_passed_before_freeze": true,
+    "mini_no_inference_dry_run_passed": true,
+    "pi_no_inference_dry_run_passed": true,
+    "pi_seatbelt_acceptance_checks": 11,
+    "development_smokes_remain_excluded": true
+  }
+}

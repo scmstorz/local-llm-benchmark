@@ -1,0 +1,5 @@
+LB-200 2026-09-05T08:13:50Z INFO backend_add backend=payment-03 pool=payment-validation health=passing weight=25
+LB-201 2026-09-05T08:14:08Z INFO route trace_id=pay-77 backend=payment-03 received_at=2026-09-05T08:14:08Z
+LB-202 2026-09-05T08:14:16Z INFO route trace_id=pay-78 backend=payment-02 received_at=2026-09-05T08:14:16Z
+LB-203 2026-09-05T08:19:30Z WARN backend_remove backend=payment-03 reason=clock_offset_health_check_failed
+LB-204 2026-09-05T08:20:04Z INFO pool_health pool=payment-validation healthy_backends=3 unhealthy_backends=1

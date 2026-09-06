@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "1.0.0",
+  "case_id": "general_knowledge.dev.medical-screening-bayes",
+  "case_version": "1.0.0",
+  "source_of_truth": "The frozen judge-only reference dossier; candidates answer from internal knowledge.",
+  "evaluation_principles": ["Require a correct natural-frequency calculation.", "Separate diagnostic accuracy from evidence that a screening program improves outcomes.", "Reward clear distinctions among false positives, overdiagnosis and screening biases."],
+  "key_facts": [
+    {"id": "KF01", "label": "Correct 10,000-person table", "claim_type": "calculation", "weight": 4, "source_locations": ["S02"], "expected": "Calculates 100 diseased, 90 true positives, 10 false negatives, 9,900 non-diseased, 495 false positives and 9,405 true negatives."},
+    {"id": "KF02", "label": "Positive predictive value", "claim_type": "calculation", "weight": 4, "source_locations": ["S02"], "expected": "Calculates 90 true positives among 585 positives, or about 15.4% PPV."},
+    {"id": "KF03", "label": "Base-rate explanation", "claim_type": "mechanism", "weight": 3, "source_locations": ["S01", "S03"], "expected": "Explains why prevalence changes predictive value even when sensitivity and specificity are fixed."},
+    {"id": "KF04", "label": "Result is not diagnosis", "claim_type": "qualification", "weight": 3, "source_locations": ["S02", "S07"], "expected": "Treats the positive screen as updated evidence requiring clinical interpretation or confirmation, not a diagnosis."},
+    {"id": "KF05", "label": "False-result harms", "claim_type": "tradeoff", "weight": 3, "source_locations": ["S04"], "expected": "Covers harms of both false positives and false negatives."},
+    {"id": "KF06", "label": "Lead-time and length bias", "claim_type": "methodology", "weight": 3, "source_locations": ["S05"], "expected": "Correctly distinguishes earlier diagnostic timing from longer life and preferential detection of slower disease."},
+    {"id": "KF07", "label": "Overdiagnosis and overtreatment", "claim_type": "methodology", "weight": 3, "source_locations": ["S06"], "expected": "Defines overdiagnosis as a real condition that would not become clinically consequential and links it to possible overtreatment."},
+    {"id": "KF08", "label": "Better endpoints and design", "claim_type": "methodology", "weight": 2, "source_locations": ["S07"], "expected": "Prefers randomized comparisons of mortality, morbidity, quality of life and harms with sufficient follow-up."}
+  ],
+  "key_ideas": [
+    {"id": "KI01", "label": "Conditional probabilities differ", "weight": 4, "source_locations": ["S01", "S02", "S03"], "expected": "Makes clear that P(positive given disease) is not P(disease given positive)."},
+    {"id": "KI02", "label": "Screening is a pathway", "weight": 4, "source_locations": ["S04", "S07"], "expected": "Evaluates population, test, follow-up, treatment, benefits and harms as one pathway."},
+    {"id": "KI03", "label": "Detection metrics can mislead", "weight": 4, "source_locations": ["S05", "S06"], "expected": "Explains why case counts and post-diagnosis survival can improve without extending lives."},
+    {"id": "KI04", "label": "Evidence limits decision", "weight": 3, "source_locations": ["S07"], "expected": "Does not infer a personal or policy recommendation from the hypothetical calculation alone."}
+  ],
+  "known_critical_errors": [
+    {"id": "CE01", "severity": "critical", "description": "States that the positive predictive value is 90% or 95%."},
+    {"id": "CE02", "severity": "critical", "description": "Produces a materially wrong natural-frequency table or PPV."},
+    {"id": "CE03", "severity": "major", "description": "Defines overdiagnosis as a false-positive test."},
+    {"id": "CE04", "severity": "major", "description": "Claims that longer survival measured from diagnosis proves longer life."},
+    {"id": "CE05", "severity": "major", "description": "Gives an individual diagnosis or treatment recommendation from the hypothetical screen."}
+  ],
+  "nonessential_details": ["Named diseases not specified in the scenario", "Formal Bayes notation", "Country-specific screening recommendations"],
+  "rubric": {
+    "maximum_score": 100,
+    "coverage_status_multipliers": {"full": 1.0, "partial": 0.5, "missing": 0.0, "contradicted": 0.0},
+    "derived_coverage": {"key_facts_max": 25, "key_facts_formula": "sum(key_fact.weight * status_multiplier)", "key_ideas_max": 15, "key_ideas_formula": "sum(key_idea.weight * status_multiplier)"},
+    "judged_dimensions": [
+      {"id": "factual_accuracy", "max": 25, "anchors": {"25": "Calculation and screening concepts are accurate.", "20": "Accurate overall with one minor imprecision.", "12": "At least one major error or several meaningful imprecisions.", "0": "Fundamentally unreliable."}},
+      {"id": "explanatory_quality", "max": 10, "anchors": {"10": "Connects the numbers, base rate and outcome biases coherently.", "7": "Sound explanation with one underdeveloped connection.", "4": "Mostly lists concepts without integrating them.", "0": "Does not explain the reasoning."}},
+      {"id": "epistemic_precision", "max": 10, "anchors": {"10": "Carefully separates screening evidence, diagnosis and program benefit.", "7": "Mostly calibrated with one limited overstatement.", "4": "Repeatedly overstates what the scenario proves.", "0": "Gives unsafe false certainty."}},
+      {"id": "structure_clarity", "max": 10, "anchors": {"10": "Clear German, helpful headings and intelligible without specialist training.", "7": "Generally clear with minor awkwardness.", "4": "Noticeably hard to follow.", "0": "Incoherent or not meaningfully German."}},
+      {"id": "compression", "max": 5, "anchors": {"5": "High information density without material repetition.", "3": "Some avoidable repetition.", "1": "Substantially padded.", "0": "Exceeds the hard maximum or is not focused."}}
+    ],
+    "hard_constraints": {"empty_output": {"result": "invalid", "final_score": 0}, "output_language_not_german": {"result": "noncompliant", "final_score_cap": 59}, "word_count_above_800": {"result": "noncompliant", "compression_score": 0, "final_score_cap": 59}, "generation_truncated_at_token_limit": {"result": "noncompliant", "final_score_cap": 59}, "reasoning_markup_in_candidate_output": {"result": "noncompliant", "final_score_cap": 59}},
+    "critical_error_caps": {"one_critical_error": {"factual_accuracy_cap": 8, "final_score_cap": 59}, "two_or_more_critical_errors": {"factual_accuracy_cap": 4, "final_score_cap": 39}},
+    "verdict_thresholds": {"excellent": 90, "good": 75, "usable": 60, "poor": 1, "invalid": 0}
+  }
+}

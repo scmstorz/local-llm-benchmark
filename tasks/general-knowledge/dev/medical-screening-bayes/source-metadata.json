@@ -1,0 +1,7 @@
+{
+  "schema_version":"1.0.0","source_id":"reference.general-knowledge.medical-screening-bayes.2026-08-29","title":"Frozen reference dossier: interpreting a medical screening result","publisher":"Local LLM Benchmark Lab","page_type":"project_authored_reference_dossier","retrieved_at":"2026-08-29","source_language":"en",
+  "authoritative_sources":["https://www.fda.gov/regulatory-information/search-fda-guidance-documents/statistical-guidance-reporting-results-studies-evaluating-diagnostic-tests-guidance-industry-and-fda","https://www.cancer.gov/about-cancer/screening/hp-screening-overview-pdq","https://www.cancer.gov/types/lung/research/nlst-qa","https://www.cancer.gov/about-cancer/screening/research/what-screening-statistics-mean"],
+  "artifacts":{"reference_source":{"path":"tasks/general-knowledge/dev/medical-screening-bayes/reference.md","sha256":"dd75d73fdf1af7265fcc3ce00876fbe1b20306c14b169ee165395e2c23edbe48","word_count_whitespace":495,"location_labels_added":true,"candidate_visible":false}},
+  "construction":{"method":"Project-authored synthesis of cited authoritative sources","semantic_policy":"Preserve source distinctions and conditions without copying source prose.","frozen_on":"2026-08-29"},
+  "copyright":{"dossier_license":"project_repository_license","source_publications_copied":false,"git_tracked":true}
+}

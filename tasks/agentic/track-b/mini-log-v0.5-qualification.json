@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "mini-log-v0.5-no-inference-qualification",
+  "qualified_on": "2026-09-06",
+  "status": "qualified_for_frozen_confirmation_design",
+  "harness_id": "mini-log-v0.5",
+  "protocol_id": "agentic-log-incident-v0.5",
+  "case_count": 3,
+  "experimental_scope": "No live inference. The versioned Mini adapter binds the v0.5 task repair while preserving selected-case preparation, read isolation, structured actions and separate semantic and transport outcomes.",
+  "qualification_evidence": {
+    "reference_report_essential_checks_passed": 45,
+    "reference_report_essential_checks_total": 45,
+    "selected_case_preparations_passed": 3,
+    "cross_case_read_rejected": true,
+    "prior_case_definition_rejected": true,
+    "definition_drift_rejected": true,
+    "mocked_model_boundary_passed": true,
+    "semantic_and_transport_outcomes_separate": true,
+    "supplemental_free_text_claim_review_required": true,
+    "focused_python_tests_passed": 7,
+    "repository_python_tests_passed": 409,
+    "active_node_tests_passed": 21,
+    "opt_in_live_transport_tests_skipped": 1,
+    "live_ollama_requests": 0,
+    "live_model_inference": false
+  },
+  "execution_boundary": {
+    "selected_case_only": true,
+    "candidate_files_read_only_by_action_policy": true,
+    "candidate_code_or_commands_executed": false,
+    "final_verification_separate": true,
+    "portable_standalone_os_sandbox": false
+  },
+  "comparison_boundary": {
+    "same_model_across_harnesses": "complete_system_comparison",
+    "prior_representation_results_poolable": false,
+    "strict_transport_is_primary": false,
+    "supplemental_free_text_claim_review_required": true
+  },
+  "artifacts": [
+    {"path": "tasks/agentic/log-incident-analysis/log-incident-v0.5-offline-qualification.json", "sha256": "44010a4215f1c14f3a8b078e20cf5620a0c5eb96e46b02a3e6e3ac8c82315ca0"},
+    {"path": "local_llm_benchmark/log_incident_mini_v05.py", "sha256": "1e7456fa846ce8e918cbb294062e34e0fdd1b912285bf01a493b712eb023c246"},
+    {"path": "tests/test_log_incident_mini_v05.py", "sha256": "534b770c5f6e59997b1a591bb6274ce0a13c179a7e00ba739aaeb511f7ff90b7"},
+    {"path": "tasks/agentic/track-b/log-incident-v0.5.json", "sha256": "019a676d0e7f6988e62b859a7a4cbf5e4edc155654529aec6142778a5dc727a4"},
+    {"path": "tasks/agentic/track-b/mini-log-v0.5.json", "sha256": "37f5ad45ad4d7f217b5434ef43aa25c4b7b44dcb5f56ef9a739b541948661a28"},
+    {"path": "tasks/agentic/track-b/prompts/mini-log-system-v0.5.txt", "sha256": "54e49b3c3372fb46ee2531a8d52066d57e51e6648b0bb9e61d0e7191cccd7ebf"},
+    {"path": "capabilities/inventories/mini-log-v0.5.json", "sha256": "46d4a63d6bfabf68ee631c29e5bb5e5b1a73b997007fdd323bc498e4bc179ffb"},
+    {"path": "capabilities/isolation-profiles/mini-log-v0.5.json", "sha256": "4b77f9ccdabdca628e8cba47ee318f6930bd65fde8fcfa42c928dc94ed53040d"}
+  ],
+  "next_gate": "Commit the complete v0.5 implementation, then freeze an excluded small confirmation before inference."
+}

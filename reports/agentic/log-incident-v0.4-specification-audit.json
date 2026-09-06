@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0.0",
+  "audit_id": "log-incident-v0.4-specification-audit",
+  "audited_on": "2026-09-06",
+  "status": "completed_with_blocking_alignment_findings",
+  "evidence_class": "excluded_specification_confirmation",
+  "source": {
+    "report_path": "reports/agentic/log-incident-v0.4-specification-confirmation.json",
+    "report_sha256": "736004443504735c9ba0903596d1d6ade1702de0803ca2156fca5f7b25bb35e9",
+    "sweep_id": "log-incident-v04-confirmation-20260906T151352Z-078381b1",
+    "sweep_record_sha256": "e1883b3d315afe37801f664636ee50c8654c439109e44d8d7ab5164d87294d26",
+    "execution_git_commit": "bc89bd62ddcbdd4a533bc74ea3010d5033d8e78d"
+  },
+  "scope": {
+    "model": "qwen3.8:27b-mlx",
+    "harnesses": ["mini-log-v0.4", "pi-log-v0.4"],
+    "case_count": 3,
+    "planned_cell_count": 6,
+    "runs_per_system_case": 1,
+    "automatic_retries": 0
+  },
+  "official_outcomes": {
+    "runtime_success": "6/6",
+    "valid_agent_termination": "6/6",
+    "semantic_verified_success": "1/6",
+    "strict_transport_compliance": "4/6",
+    "response_normalization_applied": "2/6",
+    "candidate_reports_produced": "6/6",
+    "schema_valid_reports": "6/6",
+    "essential_checks_passed": "83/90",
+    "active_wall_time_seconds": {
+      "raw": [87.29, 138.15, 78.06, 297.7, 82.15, 128.8],
+      "minimum": 78.06,
+      "median": 108.05,
+      "maximum": 297.7,
+      "total": 812.15
+    }
+  },
+  "required_post_run_audits": {
+    "terminal_or_classified_outcomes": {
+      "passed": true,
+      "result": "All six cells completed technically with valid agent termination; no timeout or infrastructure failure occurred."
+    },
+    "failure_traceability": {
+      "passed": false,
+      "result": "Seven failed-check instances are visible, but two are clear verifier false negatives and two distractor-rejection instances expose a representation ambiguity."
+    },
+    "temporal_separation": {
+      "passed": true,
+      "result": "All six reports independently passed incident_start_utc, last_observed_utc and recovery_status."
+    },
+    "normalization_policy": {
+      "passed": true,
+      "result": "Two Pi responses contained one intact report object with surrounding text and were normalized exactly as predeclared; four responses were strict JSON."
+    },
+    "human_calibration": {
+      "passed": false,
+      "result": "Manual comparison found two new verifier false negatives, one blocking representation ambiguity and three genuine causal-chain failures."
+    }
+  },
+  "human_calibration_findings": [
+    {
+      "finding_id": "rejected-hypothesis-evidence-location-ambiguity",
+      "classification": "blocking_specification_ambiguity",
+      "affected_positions": [1, 4],
+      "failed_check_id": "distractor_rejection",
+      "observation": "Both reports list healthy customer-token evidence in evidence_ids and cite the unrelated admin-token event by exact ID in the same entry's reason. The verifier ignores reason and requires both IDs in evidence_ids.",
+      "alignment_problem": "The visible instruction requires direct evidence within the rejected-hypothesis entry but does not explicitly state that exact citations in reason are semantically invisible."
+    },
+    {
+      "finding_id": "unsupported-claim-negation-blind-substring",
+      "classification": "benchmark_false_negative",
+      "affected_positions": [5],
+      "failed_check_id": "unsupported_claims",
+      "observation": "The report correctly negates order loss, checkout outage and production-notification failure, but raw substring matching treats those negated phrases as positive prohibited claims.",
+      "alignment_problem": "Lexical containment cannot determine whether a free-text claim is asserted or explicitly denied."
+    },
+    {
+      "finding_id": "affected-scope-compatible-specialization",
+      "classification": "benchmark_false_negative",
+      "affected_positions": [6],
+      "failed_check_id": "affected_scope",
+      "observation": "The report identifies payment-validation and adds the correct failing payment-node-03 component in parentheses. Exact normalized token-set equality rejects the compatible added detail.",
+      "alignment_problem": "A descriptive service label may contain correct component detail, while unrestricted subset acceptance could also admit genuinely broader or different scope."
+    }
+  ],
+  "candidate_attributable_findings": [
+    {
+      "finding_id": "causal-chain-omissions-or-misordering",
+      "classification": "task_failure",
+      "affected_positions": [2, 5, 6],
+      "failed_check_id": "causal_chain",
+      "observation": "Positions 2 and 5 omit the immediate zero-delay retry waypoint; position 2 also omits intermediate queue draining. Position 6 orders the edge error before the causally prior skewed-node rejection and omits the intermittent-rejection event."
+    },
+    {
+      "finding_id": "pi-surrounding-text",
+      "classification": "transport_noncompliance_recovered_as_designed",
+      "affected_positions": [2, 4],
+      "observation": "Each response contained one intact report object and was normalized without internal repair. Semantic evaluation remained independent of strict transport compliance."
+    }
+  ],
+  "validated_repairs": {
+    "v0_3_scope_separator_equivalence": true,
+    "v0_3_alternative_counterevidence_groups": true,
+    "v0_3_single_direct_evidence_roles": true,
+    "temporal_contract": true,
+    "response_normalization": true
+  },
+  "counterfactual_diagnostics": {
+    "official_results_changed": false,
+    "purpose": "Identify specification and verifier defects, not rescore frozen outcomes.",
+    "visible_contract_aligned_interpretation": {
+      "positions_1_3_4_would_have_no_remaining_semantic_miss": true,
+      "positions_2_5_6_retain_causal_chain_failures": true
+    }
+  },
+  "decision": {
+    "v0_4_official_evidence_preserved": true,
+    "broad_v0_4_model_sweep_authorized": false,
+    "reliability_or_harness_ranking_supported": false,
+    "next_representation": "additive_v0.5",
+    "required_repairs": [
+      "Make it explicit whether only rejected_hypotheses[].evidence_ids count as attached evidence, or validate exact event citations across the complete entry.",
+      "Remove negation-blind substring matching from free-text unsupported-claim verification.",
+      "Use visible canonical scope identifiers or separate canonical service identity from optional component detail.",
+      "Retain the validated temporal, evidence-role, normalization, read-only isolation and timeout contracts.",
+      "Qualify focused positive and negative controls offline before another small confirmation."
+    ]
+  },
+  "interpretation_limits": [
+    "Each system-case cell has n=1.",
+    "The study cannot estimate reliability, quality stochasticity or latency tails.",
+    "Mini and Pi are complete deployed systems, not an isolated one-factor harness experiment.",
+    "The human calibration does not overwrite or rescore the frozen official 1/6 result."
+  ]
+}

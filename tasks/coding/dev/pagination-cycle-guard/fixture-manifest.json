@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_version": "1.0.0",
+  "fixture_id": "coding.dev.pagination-cycle-guard.fixture",
+  "files": [
+    {
+      "path": "pyproject.toml",
+      "sha256": "7e77f1e9348c071b390db3a0557851756be21914971a91ee8ed09d12592e3aa2",
+      "size_bytes": 173,
+      "candidate_visible": true,
+      "protected": true
+    },
+    {
+      "path": "src/paged_sync/__init__.py",
+      "sha256": "f46c13491380ad34954ffaab5c1b1120efed090c79ee0dda8cbbc31fc2fcc48f",
+      "size_bytes": 331,
+      "candidate_visible": true,
+      "protected": false
+    },
+    {
+      "path": "src/paged_sync/errors.py",
+      "sha256": "fd75f6b0facfdf119627a06aeb4189f01c6ed5cbfdb8c56983d302ec506555d0",
+      "size_bytes": 686,
+      "candidate_visible": true,
+      "protected": false
+    },
+    {
+      "path": "src/paged_sync/models.py",
+      "sha256": "c4dd22862aec53b8432568ab901db69b48ae8b56a7e537cdd847f0ba929b8e32",
+      "size_bytes": 673,
+      "candidate_visible": true,
+      "protected": false
+    },
+    {
+      "path": "src/paged_sync/sync.py",
+      "sha256": "e9b2fa90c4277d74eaa71a56c6f04da385c277fd7237de65eb4cc61a8238c00b",
+      "size_bytes": 931,
+      "candidate_visible": true,
+      "protected": false
+    },
+    {
+      "path": "tests/test_sync.py",
+      "sha256": "5c067fd4baa12b910ced754bf497b4a63ea98c38a2c4ae10a0d7b34540c39438",
+      "size_bytes": 2307,
+      "candidate_visible": true,
+      "protected": true
+    }
+  ]
+}

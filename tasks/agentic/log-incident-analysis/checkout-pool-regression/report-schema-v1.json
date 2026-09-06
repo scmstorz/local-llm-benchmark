@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Checkout pool regression incident report v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "incident",
+    "diagnosis",
+    "causal_chain",
+    "evidence",
+    "rejected_hypotheses",
+    "impact",
+    "recommended_actions",
+    "uncertainties"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "incident": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["start_utc", "end_utc", "primary_service", "affected_user_journey"],
+      "properties": {
+        "start_utc": {"type": "string"},
+        "end_utc": {"type": "string"},
+        "primary_service": {"type": "string"},
+        "affected_user_journey": {"type": "string"}
+      }
+    },
+    "diagnosis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["root_cause_code", "trigger_codes", "summary"],
+      "properties": {
+        "root_cause_code": {"type": "string"},
+        "trigger_codes": {"type": "array", "items": {"type": "string"}},
+        "summary": {"type": "string"}
+      }
+    },
+    "causal_chain": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/event_reference"}
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["event_id", "file", "supports"],
+        "properties": {
+          "event_id": {"type": "string"},
+          "file": {"type": "string"},
+          "supports": {
+            "enum": ["root_cause", "trigger", "symptom", "impact", "recovery", "rejected_hypothesis"]
+          }
+        }
+      }
+    },
+    "rejected_hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "evidence_ids", "reason"],
+        "properties": {
+          "code": {"type": "string"},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}},
+          "reason": {"type": "string"}
+        }
+      }
+    },
+    "impact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["codes", "summary"],
+      "properties": {
+        "codes": {"type": "array", "items": {"type": "string"}},
+        "summary": {"type": "string"}
+      }
+    },
+    "recommended_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "rationale"],
+        "properties": {
+          "code": {"type": "string"},
+          "rationale": {"type": "string"}
+        }
+      }
+    },
+    "uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "reason"],
+        "properties": {
+          "code": {"type": "string"},
+          "reason": {"type": "string"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "event_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["event_id", "file"],
+      "properties": {
+        "event_id": {"type": "string"},
+        "file": {"type": "string"}
+      }
+    }
+  }
+}

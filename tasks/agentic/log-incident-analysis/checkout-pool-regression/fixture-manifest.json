@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_version": "1.0.0",
+  "case_id": "agentic.ops.checkout-pool-regression",
+  "files": [
+    {
+      "path": "logs/auth.jsonl",
+      "sha256": "fbd93517089fa57babc07b628f5ee1dd38641e0103601cde559cfa64d2be7860",
+      "size_bytes": 460,
+      "candidate_visible": true,
+      "read_only": true
+    },
+    {
+      "path": "logs/gateway-2026-09-05.log",
+      "sha256": "a9e782bccb211056e9688c364c92f4f57022901ca4060193b9d95c58736cc3d7",
+      "size_bytes": 789,
+      "candidate_visible": true,
+      "read_only": true
+    },
+    {
+      "path": "logs/orders.jsonl",
+      "sha256": "14fc13c6f40bb301009c8bd443f433878ded49ed96f2f6475b294f124b8383b8",
+      "size_bytes": 886,
+      "candidate_visible": true,
+      "read_only": true
+    },
+    {
+      "path": "logs/payment-api.log",
+      "sha256": "e8cc3eb6021763fc81db523f58f72161ad27bd7beb0215a081313d78a155c90f",
+      "size_bytes": 701,
+      "candidate_visible": true,
+      "read_only": true
+    },
+    {
+      "path": "logs/payment-api.log.1",
+      "sha256": "c612d81f65a5a9450832eeecc1bf76ddb57060063f25b6d3570d33c00fb2a29a",
+      "size_bytes": 308,
+      "candidate_visible": true,
+      "read_only": true
+    },
+    {
+      "path": "logs/postgres.log",
+      "sha256": "348f0fd318a110b90ce470d24c71eba0afe60e4e6ffe930e52121a24b06ab486",
+      "size_bytes": 482,
+      "candidate_visible": true,
+      "read_only": true
+    }
+  ]
+}

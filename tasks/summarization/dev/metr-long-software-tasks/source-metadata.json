@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "source.neurips.metr-long-software-tasks.2025.main-text",
+  "title": "Measuring AI Ability to Complete Long Software Tasks",
+  "authors": "Thomas Kwa, Ben West et al.",
+  "publisher": "NeurIPS Proceedings",
+  "page_type": "peer_reviewed_research_paper",
+  "published_venue": "NeurIPS 2025 Main Conference Track",
+  "proceedings_volume": "Advances in Neural Information Processing Systems 38",
+  "canonical_url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/85069585133c4c168c865e65d72e9775-Abstract-Conference.html",
+  "pdf_url": "https://proceedings.neurips.cc/paper_files/paper/2025/file/85069585133c4c168c865e65d72e9775-Paper-Conference.pdf",
+  "arxiv_id": "2503.14499",
+  "retrieved_at": "2026-08-28T16:33:51Z",
+  "source_language": "en",
+  "artifacts": {
+    "pdf": {
+      "private_path": "data/private/summarization/dev/metr-long-software-tasks/source.pdf",
+      "sha256": "460e6d25522be8a6d83a13bbedf8f691cc4cfadc12a3e57adb783647515d1c60",
+      "page_count": 54
+    },
+    "clean_source": {
+      "private_path": "data/private/summarization/dev/metr-long-software-tasks/source.md",
+      "sha256": "e7dd5cfd91283dd787f8d8ea2f9833d33c3a3e34f993d3cc93d51254dcd77ba8",
+      "word_count_whitespace": 4882,
+      "location_labels_added": true
+    }
+  },
+  "scope": {
+    "included": [
+      "title, authors and affiliation",
+      "abstract",
+      "Sections 1 through 6",
+      "main-paper figure and table captions and their text-extracted contents",
+      "material main-paper footnotes"
+    ],
+    "excluded": [
+      "acknowledgments and disclosure of funding",
+      "references",
+      "appendices A through K",
+      "NeurIPS paper checklist",
+      "figure image pixels"
+    ],
+    "reason": "Keep the case focused on scientific summarization of the complete main argument; reserve the 44 pages of references, appendices and checklist for a separate long-context experiment."
+  },
+  "extraction": {
+    "method": "Poppler pdftotext raw extraction of published PDF pages 1 through 10 with stable location labels and light removal of page furniture, author footnote symbols and acknowledgments",
+    "visual_verification": "Rendered and inspected all ten main-paper pages; verified the source boundary, figures, tables, headline values and limitations against the published PDF",
+    "semantic_policy": "Preserve the published main-paper wording, captions, tables, formulas and material footnotes; retain the paper's own minor count inconsistencies rather than silently correcting them."
+  },
+  "copyright": {
+    "redistribution_license_verified": false,
+    "redistribution_policy": "private_local_only",
+    "git_tracked": false,
+    "public_repository_policy": "Publish metadata, hash and annotations only; do not publish the full PDF or extracted source."
+  }
+}

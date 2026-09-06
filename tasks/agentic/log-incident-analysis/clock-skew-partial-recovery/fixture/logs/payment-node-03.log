@@ -1,0 +1,3 @@
+PAY3-300 2026-09-05T08:21:50Z ERROR signed_intent_rejected trace_id=pay-77 reason=request_expired signed_at=2026-09-05T08:14:07Z calculated_age_seconds=463 host=payment-03
+PAY3-301 2026-09-05T08:22:31Z ERROR signed_intent_rejected trace_id=pay-81 reason=request_expired signed_at=2026-09-05T08:14:48Z calculated_age_seconds=463 host=payment-03
+PAY3-302 2026-09-05T08:27:12Z WARN shutdown host=payment-03 reason=removed_from_pool local_clock_untrusted=true

@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "1.1.0",
+  "case_id": "coding.dev.pagination-cycle-guard",
+  "case_version": "1.1.0",
+  "track": "A",
+  "title": "Cursor pagination cycle guard — whole-file contract",
+  "evaluation_goal": "Measure whether a model can produce complete replacement source files that make a cursor-paginated collector terminate safely, deduplicate records and respect an exact fetch budget without requiring Git diff serialization.",
+  "task_family": "bug_fixing",
+  "pre_run_task_features": {
+    "change_scope": "localized_package",
+    "expected_files_changed": "one_or_two",
+    "locality": "single_component_with_public_api_boundary",
+    "context_requirement": "small_repository_snapshot",
+    "specification_clarity": "explicit_behavioral_contract",
+    "reasoning_requirement": "state_machine_and_boundary_reasoning",
+    "dependency_depth": "low",
+    "tool_requirement": "none_in_track_a",
+    "feedback_strength": "public_and_hidden_deterministic_tests",
+    "language_framework": "python_standard_library",
+    "autonomy_requirement": "single_turn_complete_file_replacement",
+    "risk": "medium_data_correctness_and_termination",
+    "reversibility": "high_in_disposable_fixture"
+  },
+  "candidate_visible_requirements": [
+    "Preserve first-seen record ordering while deduplicating by identifier.",
+    "Continue across empty pages that provide a continuation cursor.",
+    "Detect a repeated fetched cursor before refetching it.",
+    "Enforce max_pages as an exact fetch-call budget.",
+    "Validate max_pages before the first source call.",
+    "Preserve the public API and replace only allowed existing source files."
+  ],
+  "artifact_contract": {
+    "format": "whole_file_envelope",
+    "transport_normalization": "The marker-delimiting newline is replaced by exactly one canonical final newline in each installed file.",
+    "controller_repairs_code": false,
+    "comparison_to_v1": "This version removes Git hunk serialization from the task. It must be reported separately from the immutable unified-diff v1 result."
+  },
+  "verification_layers": [
+    {
+      "id": "output_contract",
+      "required": true,
+      "success": "The visible response contains only one to three complete-file envelopes with unique normalized paths."
+    },
+    {
+      "id": "scope_integrity",
+      "required": true,
+      "success": "Every submitted path is an existing allowed source file; protected files remain byte-identical."
+    },
+    {
+      "id": "artifact_installation",
+      "required": true,
+      "success": "The controller installs exact candidate file content plus the declared canonical final newline into a disposable baseline copy."
+    },
+    {
+      "id": "public_tests",
+      "required": true,
+      "success": "All candidate-visible unittest cases pass."
+    },
+    {
+      "id": "hidden_acceptance_tests",
+      "required": true,
+      "success": "All candidate-hidden boundary and anti-gaming tests pass."
+    }
+  ],
+  "primary_outcome": {
+    "name": "verified_success",
+    "type": "boolean",
+    "quality_scale_maximum": null,
+    "note": "No universal composite score is assigned. Diagnostic test counts are not interpreted as fractional semantic quality."
+  },
+  "failure_taxonomy": [
+    "empty_output",
+    "malformed_artifact",
+    "artifact_scope_violation",
+    "artifact_install_failure",
+    "protected_file_modified",
+    "public_tests_failed",
+    "hidden_tests_failed",
+    "verification_timeout",
+    "runtime_failure",
+    "other"
+  ],
+  "risk_and_threshold": {
+    "risk": "medium",
+    "verifier_strength": "strong_for_declared_behavior",
+    "single_run_decision": "exploratory_verified_outcome_only",
+    "reliability_claim_allowed": false
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "track-b-async-cache-qwen38-development-smokes-v0.2",
+  "status": "frozen_before_execution",
+  "frozen_at": "2026-09-02T18:28:00Z",
+  "track": "B",
+  "study_mode": "capability_sweep",
+  "evidence_class": "excluded_development_smoke",
+  "purpose": "Validate Track B v0.2 with one model that came close but failed the JavaScript verifier in Track A. The smoke tests Mini's schema-constrained transport, both harnesses' turn-as-measurement semantics and iterative public-test feedback before any measured Track B model comparison is frozen.",
+  "case": {
+    "case_id": "coding.dev.async-cache-coalescing",
+    "case_version": "1.0.0",
+    "case_path": "tasks/coding/dev/async-cache-coalescing/case.json",
+    "task_family": "feature_implementation",
+    "language": "JavaScript"
+  },
+  "deployment": {
+    "name": "qwen3.8:27b-mlx",
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "digest_source": "Same-day local Ollama /api/tags response checked before plan creation; the exact digest must be rechecked at the final resource gate.",
+    "runtime": "ollama",
+    "provider_endpoint": "http://127.0.0.1:11434",
+    "reason_for_selection": "Qwen 3.8 passed 10/12 checks in the frozen Track A JavaScript comparison, making it a discriminative test of whether repository tools and public-test feedback move a genuine behavioral boundary."
+  },
+  "frozen_inputs": {
+    "harness_git_commit": "e1daccdaf3121d0bb6283d0615f8ec582e23f2fa",
+    "case_file_sha256": "3ddbd8799d4d34fa6a548ddcda3704a10182be6f421ee3ea3a3a0aee3e8e0995",
+    "fixture_manifest_file_sha256": "e579c70324d365d743a64fc3655a10df85e84bfcac97e91f2833e091c0920536",
+    "task_file_sha256": "9c8ff7589cbc9f5d37f7c366b604fcb855111fd62a2ec59d4117e095e3fdbd8f",
+    "benchmark_card_file_sha256": "dee8ff7c4a080127fbd8257d0ab9bea51025fe51f3ca71530f91206042210475",
+    "public_test_file_sha256": "018465cbf881c869d3f44646329ff30216d84519d897f71fe7a882cdd787fb5f",
+    "hidden_test_file_sha256": "1454a79a190b49ab3af52afc517e5a91d6812de7fd15d852a64d0fe6a71034ee",
+    "fixture_package_file_sha256": "e216458848b7ccab346acb4b3a741fc778dd7122af977c30086f61471b246857",
+    "protocol_file_sha256": "691a7b41fb0804571ef69e2d8859b511901305dc4d3d65499252960f610b742c",
+    "mini_harness_file_sha256": "559703113d660e3ba74ed211cb9540d066ee469adaf827a338677b02348860d5",
+    "pi_harness_file_sha256": "d651b10151b77809e101a7dabce57960848d220fcd7309066727d7018f41ecbf",
+    "mini_system_prompt_file_sha256": "cf3cc1305553ef1b969c9be254dd2b46c8b789885408faeadfe9c4018fed11ab",
+    "pi_system_prompt_file_sha256": "06909f8d8394ee349303107cff7b7ac3dd48071e36690985c13464150d978de1",
+    "mini_action_schema_file_sha256": "c8e3e5a176219f84cfa4eb1a71600b3113fe11e084b9ed0933863812e4098e24",
+    "mini_runner_file_sha256": "443bbd7cc1c997f8081100b8ef82f606fecfb94038330ccbdcf0c167a683f10d",
+    "pi_adapter_file_sha256": "bf535a54eb55f85da8f4d5b3064a97ee2a54121eba3d0b25e0855cc4be141580",
+    "macos_sandbox_file_sha256": "44ef4691354913219e78171ebb00f1a0756827fb25e517891ce3fca478915a46",
+    "cli_file_sha256": "b1570b1cdd434a81979dd66cb06b1633138bfc3fa8dd3f77d2841325cb65c95a",
+    "pi_policy_extension_file_sha256": "a0c8fc7686498ef1038c7e0ed8f6fbfdb451aaedf3d43fa67a193b591b23c1e8",
+    "pi_package_lock_file_sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730"
+  },
+  "shared_inference": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 1600,
+    "maximum_total_output_tokens": 12000,
+    "maximum_wall_time_seconds": 900,
+    "normal_agent_turn_limit": null,
+    "agent_turns_are_measurement_only": true,
+    "keep_alive": "5m"
+  },
+  "execution_order": [
+    "mini-v0.2",
+    "pi-v0.2"
+  ],
+  "order_rationale": "The transparent project harness runs first and pinned Pi second, matching the earlier development-smoke order. Both start after explicit model unload. This excluded pair does not support latency or harness-ranking claims.",
+  "attempts": [
+    {
+      "position": 1,
+      "harness_id": "mini-v0.2",
+      "attempts": 1,
+      "model_state_at_first_request": "cold_after_explicit_unload",
+      "execution_boundary": "Each Ollama call is a separate process from action parsing, workspace mutation and candidate test execution.",
+      "response_transport": "Ollama /api/chat with the frozen mini-action-v0.2 JSON Schema in format; no post-generation repair.",
+      "final_verification": "Separate controller step inside the surrounding Codex execution sandbox."
+    },
+    {
+      "position": 2,
+      "harness_id": "pi-v0.2",
+      "attempts": 1,
+      "model_state_at_first_request": "cold_after_explicit_unload",
+      "execution_boundary": "One continuous pinned Pi process under a run-specific accepted pi-macos-seatbelt-v0.1 profile; final hidden verification occurs only after Pi exits.",
+      "sandbox_acceptance_checks_required": 11,
+      "final_verification": "Separate controller command inside the surrounding Codex execution sandbox."
+    }
+  ],
+  "resource_gate": {
+    "required_before_each_harness": true,
+    "known_ollama_consumers": [
+      "Mnemosyn",
+      "News-App",
+      "Blog-Read-O-Matic"
+    ],
+    "resource_intensive_external_workloads_must_be_idle": true,
+    "deployment_digest_must_match": true,
+    "loaded_models_must_be_empty_before_start": true,
+    "empty_state_observation_seconds": 30,
+    "unload_model_after_each_harness": true,
+    "unexpected_model_activity_blocks_or_invalidates_timing_evidence": true
+  },
+  "failure_policy": {
+    "preserve_every_attempt": true,
+    "automatic_retries": 0,
+    "adaptive_repetitions": false,
+    "manual_action_or_code_repair": false,
+    "failed_smoke_is_not_replaced": true,
+    "runtime_failure_agent_failure_and_verifier_failure_are_separate": true,
+    "final_verification_runs_after_every_termination": true
+  },
+  "reporting": {
+    "primary_outcome": "verified_success",
+    "report_harnesses_separately": true,
+    "quality_performance_reliability_and_trajectory_remain_separate": true,
+    "agent_turns_reported_as_trajectory_not_success_threshold": true,
+    "exclude_from_future_measured_track_b_aggregates": true,
+    "no_harness_winner_claim": true,
+    "no_reliability_or_tail_claim": true
+  },
+  "execution_authorization": {
+    "explicit_user_authorization_received": true,
+    "authorization_scope": "Implement and no-inference test Track B v0.2, then run one excluded Qwen 3.8 JavaScript smoke under mini-v0.2 and pi-v0.2 after the resource gate.",
+    "resource_gate_can_pause_execution": true
+  }
+}

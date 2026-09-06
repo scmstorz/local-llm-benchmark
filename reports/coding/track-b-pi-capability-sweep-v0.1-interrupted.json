@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "track-b-pi-capability-sweep-v0.1-interrupted",
+  "report_type": "interrupted_capability_sweep_record",
+  "track": "B",
+  "study_mode": "capability_sweep",
+  "evidence_class": "measured_partial_cohort_not_poolable",
+  "source": {
+    "sweep_id": "pi-sweep-20260903T165020Z-1192bbcf",
+    "sweep_sha256": "462e20efe5dd89cdf250b7e49d8eb8b45a9127824e39cb153faee94360893f29",
+    "plan_id": "track-b-pi-eight-model-two-case-capability-sweep-v0.1",
+    "plan_sha256": "bc991c4f6bb870aa594f82ce9c7311d33d404e16d77fdb1e43187faa585e57b6"
+  },
+  "configuration": {
+    "ollama_version": "0.32.15",
+    "harness_id": "pi-v0.2",
+    "pi_package": "@earendil-works/pi-coding-agent@0.84.4",
+    "planned_attempts": 16,
+    "completed_attempts": 8,
+    "completed_cases": [
+      "coding.dev.php-payment-result-migration"
+    ],
+    "unstarted_or_nonterminal_attempts": 8
+  },
+  "status": "interrupted_by_computer_crash_and_runtime_upgrade",
+  "summary": {
+    "verified_successes": 5,
+    "completed_attempts": 8,
+    "conclusive_bounded_failures": 1,
+    "conclusive_task_failures": 1,
+    "inconclusive_negatives": 1
+  },
+  "observations": [
+    {
+      "position": 1,
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "verified_success": false,
+      "diagnostic_outcome": "maximum_total_output_tokens_exceeded",
+      "evidence_status": "conclusive_bounded_failure",
+      "checks": "4/4 + 8/8",
+      "active_wall_time_seconds": 197.51256262499373,
+      "agent_turns": 69,
+      "tool_calls": 79
+    },
+    {
+      "position": 2,
+      "model": "qwen3.8:27b-mlx",
+      "verified_success": true,
+      "diagnostic_outcome": "verified_success",
+      "evidence_status": "conclusive_success",
+      "checks": "4/4 + 8/8",
+      "active_wall_time_seconds": 81.6331254169927,
+      "agent_turns": 6,
+      "tool_calls": 17
+    },
+    {
+      "position": 3,
+      "model": "gpt-oss:20b",
+      "verified_success": false,
+      "diagnostic_outcome": "provider_stream_incomplete",
+      "evidence_status": "inconclusive_negative",
+      "checks": "2/4 + 3/8",
+      "active_wall_time_seconds": 69.7421972079901,
+      "agent_turns": 13,
+      "tool_calls": 12
+    },
+    {
+      "position": 4,
+      "model": "muse-glimmer:30b-mlx",
+      "verified_success": true,
+      "diagnostic_outcome": "verified_success",
+      "evidence_status": "conclusive_success",
+      "checks": "4/4 + 8/8",
+      "active_wall_time_seconds": 337.77461566601414,
+      "agent_turns": 13,
+      "tool_calls": 22
+    },
+    {
+      "position": 5,
+      "model": "ornith-1.5:35b",
+      "verified_success": false,
+      "diagnostic_outcome": "hidden_tests_failed",
+      "evidence_status": "conclusive_task_failure",
+      "checks": "4/4 + 7/8",
+      "active_wall_time_seconds": 177.13272450002842,
+      "agent_turns": 17,
+      "tool_calls": 25
+    },
+    {
+      "position": 6,
+      "model": "granite4.2:30b",
+      "verified_success": true,
+      "diagnostic_outcome": "verified_success",
+      "evidence_status": "conclusive_success",
+      "checks": "4/4 + 8/8",
+      "active_wall_time_seconds": 225.96965341700707,
+      "agent_turns": 5,
+      "tool_calls": 11
+    },
+    {
+      "position": 7,
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "verified_success": true,
+      "diagnostic_outcome": "verified_success",
+      "evidence_status": "conclusive_success",
+      "checks": "4/4 + 8/8",
+      "active_wall_time_seconds": 108.90325362497242,
+      "agent_turns": 14,
+      "tool_calls": 28
+    },
+    {
+      "position": 8,
+      "model": "gemma4:31b-mlx",
+      "verified_success": true,
+      "diagnostic_outcome": "verified_success",
+      "evidence_status": "conclusive_success",
+      "checks": "4/4 + 8/8",
+      "active_wall_time_seconds": 190.80258362495806,
+      "agent_turns": 14,
+      "tool_calls": 13
+    }
+  ],
+  "interpretation": "This partial cohort is retained as historical evidence but is not pooled with the complete v0.2 cohort because Ollama changed from 0.32.15 to 0.33.2 after the crash. The nonterminal JavaScript attempt and all unstarted units are excluded."
+}

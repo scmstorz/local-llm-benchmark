@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "track-b-async-cache-development-smokes-v0.2",
+  "report_type": "excluded_harness_development_smoke",
+  "generated_at": "2026-09-02T18:45:48Z",
+  "track": "B",
+  "study_mode": "capability_sweep",
+  "evidence_class": "excluded_development_smoke",
+  "frozen_plan": {
+    "path": "tasks/coding/track-b/async-cache-qwen38-development-smokes-v0.2.json",
+    "sha256": "97c26f627f0fbbe9c332a46943662aefef697875a7265ce82e66c33d60050395",
+    "plan_commit": "a51d36de2758112a6f82e51e2b8c2714c223b849",
+    "harness_implementation_commit": "e1daccdaf3121d0bb6283d0615f8ec582e23f2fa",
+    "execution_order": [
+      "mini-v0.2",
+      "pi-v0.2"
+    ],
+    "automatic_retries": 0,
+    "manual_repair": false
+  },
+  "case": {
+    "case_id": "coding.dev.async-cache-coalescing",
+    "case_version": "1.0.0",
+    "task_family": "feature_implementation",
+    "language": "JavaScript",
+    "verifier_version": "1.0.0",
+    "public_checks": 4,
+    "hidden_checks": 8
+  },
+  "deployment": {
+    "name": "qwen3.8:27b-mlx",
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "runtime": "ollama",
+    "ollama_version": "0.32.15",
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "context_tokens": 16384,
+    "maximum_output_tokens_per_turn": 1600,
+    "maximum_total_output_tokens": 12000,
+    "maximum_active_wall_time_seconds": 900,
+    "maximum_agent_turns": null
+  },
+  "resource_gate": {
+    "cold_after_explicit_unload_before_each_harness": true,
+    "empty_ollama_observation_seconds_before_mini": 30,
+    "empty_ollama_observation_seconds_between_harnesses": 30,
+    "postflight_empty_observation_seconds": 30,
+    "unexpected_model_observed": false,
+    "known_ollama_app_confounder_observed": false
+  },
+  "outcome_matrix": [
+    {
+      "harness_id": "mini-v0.2",
+      "run_id": "agentic-run-20260902T183410Z-50bb6c87",
+      "runtime_success": true,
+      "agent_termination_valid": false,
+      "verifier_success": false,
+      "overall_verified_success": false,
+      "failure_category": "agent_failure",
+      "failure_type": "maximum_protocol_errors_exceeded"
+    },
+    {
+      "harness_id": "pi-v0.2",
+      "run_id": "pi-agentic-run-20260902T184008Z-3b9f1e8c",
+      "runtime_success": true,
+      "agent_termination_valid": true,
+      "verifier_success": true,
+      "overall_verified_success": true,
+      "failure_category": null,
+      "failure_type": null
+    }
+  ],
+  "observations": [
+    {
+      "harness_id": "mini-v0.2",
+      "harness_family": "project_mini_harness",
+      "run_id": "agentic-run-20260902T183410Z-50bb6c87",
+      "run_record_sha256": "88107b76e3ff2c65cc4e8c04acb507dde74dc5b2fde88286f09cdb0b42da06d8",
+      "final_verification_sha256": "4fca9031960dbfe20179938db93f21a792e61689d1902c2aa4b05c1ba764d7a7",
+      "action_schema_sha256": "c8e3e5a176219f84cfa4eb1a71600b3113fe11e084b9ed0933863812e4098e24",
+      "termination_reason": "maximum_protocol_errors_exceeded",
+      "trajectory": {
+        "active_wall_time_seconds": 51.835154,
+        "agent_turns": 8,
+        "protocol_errors": 3,
+        "tool_calls": 5,
+        "failed_tool_calls": 0,
+        "file_reads": 3,
+        "file_writes": 1,
+        "public_test_runs": 1,
+        "input_tokens": 22488,
+        "output_tokens": 1848,
+        "time_to_first_successful_public_verification_seconds": 49.278248
+      },
+      "protocol_failure_taxonomy": {
+        "leading_prose_before_json": 3
+      },
+      "artifact_integrity_passed": true,
+      "changed_paths": [
+        "src/async-cache.mjs"
+      ],
+      "public_checks_passed": 4,
+      "public_checks_total": 4,
+      "hidden_checks_passed": 6,
+      "hidden_checks_total": 8,
+      "hidden_failures": [
+        "invalidate prevents an in-flight result from repopulating",
+        "clear invalidates all in-flight keys without cancelling callers"
+      ],
+      "interpretation": "The schema was present in every Ollama request, but Qwen added explanatory prose before an otherwise plausible JSON action on three turns. The strict parser correctly rejected those responses. One valid write and one valid public-test action produced a public-green but hidden-red implementation before the third protocol error terminated the trajectory."
+    },
+    {
+      "harness_id": "pi-v0.2",
+      "harness_family": "pinned_pi",
+      "pi_package": "@earendil-works/pi-coding-agent@0.84.4",
+      "run_id": "pi-agentic-run-20260902T184008Z-3b9f1e8c",
+      "run_record_sha256": "cb97fa883d05d76aa8421a00a398c8ca70c128f93a03a5a324cc6c33146b1630",
+      "final_verification_sha256": "bd172229df6393de01ccc997cccd7c3f29f23a9bd85ef28c250bab6187576a1b",
+      "sandbox_acceptance_sha256": "5c34924e72a0bfa4cac1f48d8318606aa75e8f14698360f8a6ddf2537899334c",
+      "sandbox_backend": "pi-macos-seatbelt-v0.1",
+      "sandbox_acceptance_checks_passed": 11,
+      "sandbox_acceptance_checks_total": 11,
+      "termination_reason": "agent_end",
+      "trajectory": {
+        "active_wall_time_seconds": 195.278531,
+        "agent_turns": 6,
+        "protocol_errors": 0,
+        "tool_calls": 8,
+        "failed_tool_calls": 1,
+        "file_reads": 4,
+        "file_writes": 1,
+        "public_test_runs": 2,
+        "input_tokens": 42012,
+        "output_tokens": 7751,
+        "time_to_first_successful_public_verification_seconds": 154.364,
+        "retry_events": 0
+      },
+      "failed_tool_call_taxonomy": {
+        "failed_public_test_runs": 1
+      },
+      "artifact_integrity_passed": true,
+      "changed_paths": [
+        "src/async-cache.mjs"
+      ],
+      "public_checks_passed": 4,
+      "public_checks_total": 4,
+      "hidden_checks_passed": 8,
+      "hidden_checks_total": 8,
+      "interpretation": "Pi completed a normal six-turn trajectory, used one failed public test as feedback, passed the second public test and terminated validly. The isolated final verifier then passed all twelve deterministic checks."
+    }
+  ],
+  "findings": [
+    "Removing the normal turn limit eliminated the artificial v0.1 termination boundary. Pi completed normally in six turns; Mini failed for other recorded reasons.",
+    "For this deployment, placing the JSON Schema in Ollama's format field was insufficient to guarantee a prose-free response on every turn. Strict validation exposed three protocol-fit failures rather than repairing them.",
+    "The same model, task and deployment reached different verified outcomes under different harnesses. This is system-level evidence that harness design can change the observed capability boundary.",
+    "Public tests were not sufficient for the Mini candidate: 4/4 public checks passed while two concurrency and invalidation requirements still failed hidden verification.",
+    "Pi used iterative feedback successfully: its first public test failed, its second passed, and final hidden verification confirmed the repair."
+  ],
+  "claims_not_supported": [
+    "No general harness winner can be declared from one excluded smoke per harness on one task and one model.",
+    "The wall times are descriptive trajectory observations, not comparable performance estimates or latency distributions.",
+    "The observations do not estimate reliability, quality stochasticity or tail latency.",
+    "The result does not establish that schema-constrained Mini is generally inferior; it identifies a concrete protocol-fit problem for this frozen deployment and schema."
+  ],
+  "next_step": {
+    "decision": "Diagnose and version the Mini transport boundary before freezing a measured Track B sweep; retain Pi v0.2 as a viable measured-harness candidate.",
+    "rerun_current_smokes": false,
+    "reason": "The current attempts are immutable diagnostic evidence. Any Mini transport change creates a new harness version rather than repairing this run."
+  }
+}

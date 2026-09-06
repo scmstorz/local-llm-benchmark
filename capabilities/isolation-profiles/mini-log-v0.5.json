@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "isolation_profile_id": "mini-log-v0.5",
+  "status": "qualification_candidate",
+  "workspace": {
+    "fresh_selected_case_copy_per_run": true,
+    "candidate_files_read_only_by_action_policy": true,
+    "symlink_targets_rejected": true,
+    "host_paths_unavailable_to_actions": true,
+    "other_case_fixtures_absent": true,
+    "shared_writable_state": false
+  },
+  "network": {
+    "action_process_has_network_tools": false,
+    "model_process_endpoint": "local_ollama_loopback_only",
+    "external_egress": false
+  },
+  "evaluation": {
+    "ground_truth_outside_workspace": true,
+    "verifier_source_outside_workspace": true,
+    "candidate_code_executed": false,
+    "final_verification_separate_from_model_request": true
+  },
+  "contamination_check": {
+    "fixture_manifest_verified_before_run": true,
+    "fresh_workspace_inventory_verified": true,
+    "earlier_run_artifacts_visible": false,
+    "default_status_on_mismatch": "blocked_before_inference"
+  },
+  "limitation": "This is an application-level read-only boundary, not an OS sandbox for arbitrary candidate code. No candidate-authored code or command can be executed."
+}

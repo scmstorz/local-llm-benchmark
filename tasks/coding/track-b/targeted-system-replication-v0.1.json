@@ -1,0 +1,268 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "track-b-targeted-system-replication-v0.1",
+  "status": "frozen_before_execution",
+  "created_on": "2026-09-05",
+  "track": "B",
+  "study_mode": "targeted_outcome_replication",
+  "evidence_class": "post_hoc_targeted_replication",
+  "purpose": "Test whether the two strongest observed Pi-versus-Mini outcome disagreements recur in two fresh attempts per system cell, without turning an outcome-selected n=3 sample into a reliability estimate.",
+  "selection_timing": {
+    "post_hoc": true,
+    "trigger_report_path": "reports/coding/track-b-pi-vs-mini-system-comparison-v0.3.json",
+    "trigger_report_sha256": "1b696303c6fb63d01357320ab824521f4c962234bc9c5a6c15729f8b965831a4",
+    "selection_rule": "Choose the Qwen 3.8 cell with the largest per-model system outcome gap and the sole cell that succeeded only under Mini. Freeze both before any replication request.",
+    "not_a_confirmatory_random_sample": true
+  },
+  "runtime": {
+    "name": "ollama",
+    "version": "0.33.2"
+  },
+  "harnesses": [
+    {
+      "harness_id": "pi-v0.3",
+      "harness_path": "tasks/coding/track-b/pi-v0.3.json",
+      "package": "@earendil-works/pi-coding-agent@0.84.4"
+    },
+    {
+      "harness_id": "mini-v0.3",
+      "harness_path": "tasks/coding/track-b/mini-v0.3.json",
+      "package": "project-owned"
+    }
+  ],
+  "baseline_reports": [
+    {
+      "harness_id": "pi-v0.3",
+      "path": "reports/coding/track-b-pi-capability-sweep-v0.3.json",
+      "sha256": "95ab40cdf0b041e8ecf3471bb17adb82825c7c7833dd241f6c046028183db6e2"
+    },
+    {
+      "harness_id": "mini-v0.3",
+      "path": "reports/coding/track-b-mini-capability-sweep-v0.3.json",
+      "sha256": "38e79229401af6aaa2216d0a381f2de43355d0611ceeb10f1e63effb831dfa85"
+    }
+  ],
+  "deployments": [
+    {
+      "name": "qwen3.8:27b-mlx",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "size_bytes": 18174721847,
+      "quantization": "nvfp4"
+    },
+    {
+      "name": "qwen3.6:35b-a3b-mxfp8",
+      "deployment_id": "qwen3-6-35b-a3b-mxfp8-d82a30588f1c-ollama-0-33-2",
+      "digest": "d82a30588f1c7bc2afa5226f3d67c8987bf505104f8f0512a0f8643ac4525d16",
+      "size_bytes": 37667341338,
+      "quantization": "mxfp8"
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "case_path": "tasks/coding/dev/async-cache-coalescing/case.json",
+      "case_version": "1.0.0",
+      "task_family": "feature_implementation",
+      "language": "JavaScript",
+      "verifier_checks": 12
+    },
+    {
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "case_path": "tasks/coding/dev/pagination-cycle-guard/case-whole-file-v1.2.json",
+      "case_version": "1.2.0",
+      "task_family": "bug_fixing",
+      "language": "Python",
+      "verifier_checks": 7
+    }
+  ],
+  "selected_cells": [
+    {
+      "model": "qwen3.8:27b-mlx",
+      "case_id": "coding.dev.async-cache-coalescing",
+      "baseline_pi_verified_success": true,
+      "baseline_mini_verified_success": false,
+      "selection_reason": "Qwen 3.8 had the largest observed per-model system gap: Pi covered 3/3 cases and Mini 1/3; this JavaScript cell is one of its two Pi-only successes and the harder shared task."
+    },
+    {
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "baseline_pi_verified_success": false,
+      "baseline_mini_verified_success": true,
+      "selection_reason": "This is the only Mini-only success in the 15-cell paired report and therefore the necessary counterexample to a one-directional Pi advantage."
+    }
+  ],
+  "replication": {
+    "baseline_index": 1,
+    "fresh_replication_indices": [2, 3],
+    "fresh_runs_per_system_cell": 2,
+    "fresh_run_count": 8,
+    "descriptive_observations_per_system_cell_after_completion": 3,
+    "baseline_remains_separately_identified": true,
+    "baseline_and_fresh_runs_may_be_descriptively_tabulated_together_only_if_runtime_model_harness_task_and_inference_identities_match": true,
+    "automatic_retries": 0
+  },
+  "execution_order": [
+    {
+      "position": 1,
+      "harness_id": "pi-v0.3",
+      "model": "qwen3.8:27b-mlx",
+      "case_id": "coding.dev.async-cache-coalescing",
+      "replication_index": 2
+    },
+    {
+      "position": 2,
+      "harness_id": "mini-v0.3",
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "replication_index": 2
+    },
+    {
+      "position": 3,
+      "harness_id": "mini-v0.3",
+      "model": "qwen3.8:27b-mlx",
+      "case_id": "coding.dev.async-cache-coalescing",
+      "replication_index": 2
+    },
+    {
+      "position": 4,
+      "harness_id": "pi-v0.3",
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "replication_index": 2
+    },
+    {
+      "position": 5,
+      "harness_id": "mini-v0.3",
+      "model": "qwen3.8:27b-mlx",
+      "case_id": "coding.dev.async-cache-coalescing",
+      "replication_index": 3
+    },
+    {
+      "position": 6,
+      "harness_id": "pi-v0.3",
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "replication_index": 3
+    },
+    {
+      "position": 7,
+      "harness_id": "pi-v0.3",
+      "model": "qwen3.8:27b-mlx",
+      "case_id": "coding.dev.async-cache-coalescing",
+      "replication_index": 3
+    },
+    {
+      "position": 8,
+      "harness_id": "mini-v0.3",
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "replication_index": 3
+    }
+  ],
+  "order_rationale": "The two models alternate on every position. Model position sums are 16 and 20 because odd and even slots cannot have equal sums, while harness position sums are exactly 18 each. Each model-harness cell appears once in each four-run half, no observed replication outcome can change the remaining schedule, and the order does not group all Pi or Mini runs.",
+  "configuration": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 1600,
+    "maximum_active_wall_time_seconds": 900,
+    "provider_request_timeout_seconds": 300,
+    "maximum_total_output_tokens": null,
+    "maximum_agent_turns": null,
+    "maximum_protocol_errors": null
+  },
+  "comparison_rules": {
+    "automatic_retries": 0,
+    "adaptive_repetitions": false,
+    "terminal_failures_are_observations_and_are_not_retried": true,
+    "primary_outcome": "verified_success",
+    "runtime_agent_termination_verifier_and_verified_outcomes_separate": true,
+    "fresh_runs_reported_separately_from_baseline": true,
+    "descriptive_three_observation_patterns_allowed": true,
+    "reliability_probability_claims": false,
+    "tail_performance_claims": false,
+    "no_p90_p95_or_p99": true,
+    "no_significance_test": true,
+    "no_composite_score": true,
+    "complete_system_comparison_not_one_factor_harness_ablation": true
+  },
+  "resource_gate": {
+    "known_ollama_consumers": [
+      "Mnemosyn",
+      "News-App",
+      "Blog-Read-O-Matic",
+      "Behat test processes"
+    ],
+    "loaded_models_must_be_empty_before_each_fresh_run": true,
+    "empty_state_observation_seconds": 30,
+    "deployment_digest_rechecked_before_each_live_run": true,
+    "unload_model_after_each_run": true,
+    "unexpected_model_activity_pauses_the_study": true
+  },
+  "interruption_policy": {
+    "raw_attempts_are_append_only": true,
+    "complete_outcomes_are_never_repeated_within_this_plan": true,
+    "prepared_or_verification_pending_runs_are_resumed_in_place": true,
+    "running_pi_or_model_call_after_process_loss_is_preserved_and_restarted_fresh": true,
+    "runtime_model_or_artifact_drift_blocks_resume": true
+  },
+  "reporting": {
+    "report_each_of_twelve_baseline_plus_fresh_observations": true,
+    "report_per_system_cell_success_count_out_of_three": true,
+    "report_raw_duration_median_and_range_only": true,
+    "interpret_all_three_matching_as_observed_consistency_not_proven_reliability": true,
+    "interpret_mixed_outcomes_as_observed_stochasticity_or_system_instability": true,
+    "do_not_generalize_beyond_the_two_outcome_selected_cells": true,
+    "raw_code_model_text_test_output_and_trajectories_remain_ignored": true
+  },
+  "frozen_inputs": {
+    "implementation_git_commit": "e7d5d885278d518e61fdc5ceca9a0590e344fb40",
+    "artifacts": [
+      {"path": "models/catalog.json", "sha256": "79e56238c9405d27dfba266e319a837571b6239cb9a6d1682729e58ebcf3d834"},
+      {"path": "models/lifecycle.json", "sha256": "18d896067eddf62ddf3c7ded8d34f22e32fef9994877239cf8e6abf877c30621"},
+      {"path": "tasks/coding/track-b/pi-v0.3.json", "sha256": "5c59dbcc7daad21577ad4f590902cfd1ff0fae4102a156da8854252318317699"},
+      {"path": "tasks/coding/track-b/track-b-v0.3.json", "sha256": "cac27f7bdfee3e8bb46f39a12633c9c259f95b6537193904043d36e962daa260"},
+      {"path": "tasks/coding/track-b/prompts/pi-system-v0.1.txt", "sha256": "06909f8d8394ee349303107cff7b7ac3dd48071e36690985c13464150d978de1"},
+      {"path": "integrations/pi/package-lock.json", "sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730"},
+      {"path": "integrations/pi/benchmark-policy-v0.3.mjs", "sha256": "26d5920e298cf3831f0c70c1cd979dfab02d0ede6fbfc67f4de2d0c1c09ec42c"},
+      {"path": "local_llm_benchmark/pi_v03_adapter.py", "sha256": "ed5263b65380fd9bfe7d51f9a6343aa7b42bac8c46d09ce310bcc9a756172d0e"},
+      {"path": "local_llm_benchmark/pi_v03_sweep.py", "sha256": "1729a631cbb86a63a0cdaa8e342b61695fae84e058b5ae93b83106659ea975a6"},
+      {"path": "local_llm_benchmark/macos_sandbox_v03.py", "sha256": "3b1837ca57dec6c9045d79cb6b34b4c86fadc0ed8dd360f0bd7dabe305f02405"},
+      {"path": "tasks/coding/track-b/mini-v0.3.json", "sha256": "a0473568ea70b8c07dfe3b3042281323aeb59ab8de4d8ea7e18f9127f18b3518"},
+      {"path": "tasks/coding/track-b/track-b-mini-v0.3.json", "sha256": "b3568186c63525c0f5ae29a983a66c192c01d1425447352f7a78adc44797294b"},
+      {"path": "tasks/coding/track-b/prompts/mini-system-v0.3.txt", "sha256": "75314f0664a6d127039d7b8c2804f242d4bf164ec52f0183289513107872e1c4"},
+      {"path": "tasks/coding/track-b/schemas/mini-action-v0.3.json", "sha256": "155ec85fd1f47d3f9b06924bfdfcaa838b1472d21c7aa83a83fd02e1c6e35539"},
+      {"path": "local_llm_benchmark/mini_v03_adapter.py", "sha256": "8579a6d9332fb268a40020b0acc3513e6e3afa782ca89569a168150124691ce1"},
+      {"path": "local_llm_benchmark/mini_v03_sweep.py", "sha256": "a6505e0a0bca1f882873a37fe5f66cce086f777a42f92e94e3d19399e55ac290"},
+      {"path": "local_llm_benchmark/track_b_replication.py", "sha256": "e153eca5704ad2508b3c7b7b7491a61845920ef42de4e72cfc52ff74ee914c22"},
+      {"path": "local_llm_benchmark/agentic.py", "sha256": "e2be075cc71772352dff156ae07824c44cdfd2a0fdebbace6ee1fccd48d50883"},
+      {"path": "local_llm_benchmark/coding.py", "sha256": "0996db95185a53756e24fd56eff311a58f4d4409619f7492f2c7709e8a19cb70"},
+      {"path": "local_llm_benchmark/ollama.py", "sha256": "cda83848193dd1ceb3d608c4fe0ae1d6e886fdc1121c2225bd3d2d020cc13102"},
+      {"path": "local_llm_benchmark/runner.py", "sha256": "5446a65d92386dca99655593fc6dd8f85b9956e495bfa179e82549dc66575c54"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/case.json", "sha256": "3ddbd8799d4d34fa6a548ddcda3704a10182be6f421ee3ea3a3a0aee3e8e0995"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/fixture-manifest.json", "sha256": "e579c70324d365d743a64fc3655a10df85e84bfcac97e91f2833e091c0920536"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/TASK.md", "sha256": "9c8ff7589cbc9f5d37f7c366b604fcb855111fd62a2ec59d4117e095e3fdbd8f"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/benchmark-card.json", "sha256": "dee8ff7c4a080127fbd8257d0ab9bea51025fe51f3ca71530f91206042210475"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/fixture/tests/cache.test.mjs", "sha256": "018465cbf881c869d3f44646329ff30216d84519d897f71fe7a882cdd787fb5f"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/verifier/hidden_tests.mjs", "sha256": "1454a79a190b49ab3af52afc517e5a91d6812de7fd15d852a64d0fe6a71034ee"},
+      {"path": "tasks/coding/dev/pagination-cycle-guard/case-whole-file-v1.2.json", "sha256": "99ac13269dff2e306341486bc90be11a513d1481ac30dd7d2e2cd48b645cd394"},
+      {"path": "tasks/coding/dev/pagination-cycle-guard/fixture-manifest.json", "sha256": "27f570101c0021e4460594197da7cd43349c3c0eea5c41a86f8d26d88b5fafc6"},
+      {"path": "tasks/coding/dev/pagination-cycle-guard/TASK.md", "sha256": "010425aa1e61955d0fbd08fdfd14b4a3ce7fb691252747f1695cc797a1233bef"},
+      {"path": "tasks/coding/dev/pagination-cycle-guard/benchmark-card.json", "sha256": "70274d7d3a6e1298258a3b2a0394edea189f96db7e6ccc18c8beb99734bf660d"},
+      {"path": "tasks/coding/dev/pagination-cycle-guard/fixture/tests/test_sync.py", "sha256": "5c067fd4baa12b910ced754bf497b4a63ea98c38a2c4ae10a0d7b34540c39438"},
+      {"path": "tasks/coding/dev/pagination-cycle-guard/verifier/hidden_tests_v1_2.py", "sha256": "cd095a713d413ad3b1b4697250c23595370fc35f432293da4356245e53b8043e"},
+      {"path": "reports/coding/track-b-pi-capability-sweep-v0.3.json", "sha256": "95ab40cdf0b041e8ecf3471bb17adb82825c7c7833dd241f6c046028183db6e2"},
+      {"path": "reports/coding/track-b-mini-capability-sweep-v0.3.json", "sha256": "38e79229401af6aaa2216d0a381f2de43355d0611ceeb10f1e63effb831dfa85"},
+      {"path": "reports/coding/track-b-pi-vs-mini-system-comparison-v0.3.json", "sha256": "1b696303c6fb63d01357320ab824521f4c962234bc9c5a6c15729f8b965831a4"}
+    ]
+  },
+  "execution_authorization": {
+    "explicit_user_authorization_received": true,
+    "authorization_received_on": "2026-09-05",
+    "scope": "Freeze and execute two fresh Pi and two fresh Mini attempts for each of the two selected disagreement cells, then report them together with the separately identified baseline observations.",
+    "resource_gate_can_pause_execution_without_additional_confirmation": true,
+    "no_remote_push_authorized": true
+  }
+}

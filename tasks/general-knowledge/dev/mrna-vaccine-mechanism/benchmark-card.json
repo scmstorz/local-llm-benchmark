@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "1.0.0",
+  "case_id": "general_knowledge.dev.mrna-vaccine-mechanism",
+  "case_version": "1.0.0",
+  "source_of_truth": "The frozen judge-only reference dossier; candidates answer from internal knowledge.",
+  "evaluation_principles": ["Reward a correct causal chain from mRNA delivery to immune memory.", "Require precise correction of DNA and breakthrough-infection misconceptions.", "Do not judge individual medical advice because the prompt explicitly excludes it."],
+  "key_facts": [
+    {"id": "KF01", "label": "Temporary instructions", "claim_type": "mechanism", "weight": 4, "source_locations": ["S01"], "expected": "Vaccine mRNA provides temporary instructions that ribosomes translate into a harmless antigen or antigen fragment."},
+    {"id": "KF02", "label": "Immune response and memory", "claim_type": "mechanism", "weight": 4, "source_locations": ["S01"], "expected": "The immune system recognizes the antigen and develops adaptive responses including antibodies and memory."},
+    {"id": "KF03", "label": "No live virus", "claim_type": "misconception", "weight": 3, "source_locations": ["S02"], "expected": "An mRNA vaccine contains no live SARS-CoV-2 and cannot itself cause COVID-19."},
+    {"id": "KF04", "label": "No DNA alteration", "claim_type": "misconception", "weight": 4, "source_locations": ["S02"], "expected": "The mRNA acts in the cytoplasm, does not enter the nucleus or interact with chromosomal DNA, and does not integrate into it."},
+    {"id": "KF05", "label": "mRNA breakdown", "claim_type": "mechanism", "weight": 2, "source_locations": ["S02"], "expected": "Cells break down the vaccine mRNA after the instructions have been used."},
+    {"id": "KF06", "label": "Protection is probabilistic", "claim_type": "qualification", "weight": 3, "source_locations": ["S03", "S05"], "expected": "Vaccination reduces probabilities and does not guarantee that infection is impossible."},
+    {"id": "KF07", "label": "Different protection endpoints", "claim_type": "comparison", "weight": 3, "source_locations": ["S04"], "expected": "Distinguishes infection, symptoms and severe outcomes, with potentially different effectiveness and waning."},
+    {"id": "KF08", "label": "Breakthrough interpretation", "claim_type": "inference", "weight": 2, "source_locations": ["S03", "S04", "S05"], "expected": "Explains why a breakthrough infection is compatible with reduced risk or severity and does not alone demonstrate no effect."}
+  ],
+  "key_ideas": [
+    {"id": "KI01", "label": "Information is not genetic rewriting", "weight": 4, "source_locations": ["S01", "S02"], "expected": "Uses the temporary-instruction idea to make clear why antigen production is not permanent modification of DNA."},
+    {"id": "KI02", "label": "Training rather than force field", "weight": 4, "source_locations": ["S01", "S03"], "expected": "Explains that vaccination prepares a faster immune response rather than physically preventing every viral entry."},
+    {"id": "KI03", "label": "Outcome-specific effectiveness", "weight": 4, "source_locations": ["S04"], "expected": "Shows that effectiveness must be tied to a defined endpoint, especially infection versus severe disease."},
+    {"id": "KI04", "label": "Risk reduction, not individual guarantee", "weight": 3, "source_locations": ["S03", "S05"], "expected": "Communicates probabilistic benefit without overpromising or treating one outcome as proof of population-level ineffectiveness."}
+  ],
+  "known_critical_errors": [
+    {"id": "CE01", "severity": "critical", "description": "Claims that vaccine mRNA enters the nucleus, integrates into or otherwise rewrites the recipient's DNA."},
+    {"id": "CE02", "severity": "critical", "description": "Claims that an mRNA vaccine contains live SARS-CoV-2 or can cause COVID-19 infection."},
+    {"id": "CE03", "severity": "major", "description": "Claims that vaccination guarantees infection cannot occur."},
+    {"id": "CE04", "severity": "major", "description": "Treats any breakthrough infection as proof that vaccination had no effect."},
+    {"id": "CE05", "severity": "major", "description": "Collapses protection from infection and protection from severe disease into one all-or-nothing outcome."}
+  ],
+  "nonessential_details": ["Detailed lipid nanoparticle chemistry", "Brand-specific dosing schedules", "Individual treatment or vaccination advice"],
+  "rubric": {
+    "maximum_score": 100,
+    "coverage_status_multipliers": {"full": 1.0, "partial": 0.5, "missing": 0.0, "contradicted": 0.0},
+    "derived_coverage": {"key_facts_max": 25, "key_facts_formula": "sum(key_fact.weight * status_multiplier)", "key_ideas_max": 15, "key_ideas_formula": "sum(key_idea.weight * status_multiplier)"},
+    "judged_dimensions": [
+      {"id": "factual_accuracy", "max": 25, "anchors": {"25": "No material factual or mechanistic error.", "20": "Accurate overall with one minor imprecision.", "12": "At least one major error or several meaningful imprecisions.", "0": "Fundamentally unreliable."}},
+      {"id": "explanatory_quality", "max": 10, "anchors": {"10": "Connects cellular mechanism, immune response and clinical outcomes coherently.", "7": "Sound explanation with one underdeveloped connection.", "4": "Mostly lists facts without a clear causal chain.", "0": "Does not explain the mechanism."}},
+      {"id": "epistemic_precision", "max": 10, "anchors": {"10": "Consistently uses calibrated risk language and distinguishes endpoints.", "7": "Mostly precise with one limited ambiguity.", "4": "Repeatedly blurs probability or endpoints.", "0": "Systematically false certainty."}},
+      {"id": "structure_clarity", "max": 10, "anchors": {"10": "Clear German, descriptive structure and understandable without medical training.", "7": "Generally clear with minor awkwardness.", "4": "Noticeably hard to follow.", "0": "Incoherent or not meaningfully German."}},
+      {"id": "compression", "max": 5, "anchors": {"5": "High information density without material repetition.", "3": "Some avoidable repetition.", "1": "Substantially padded.", "0": "Exceeds the hard maximum or is not focused."}}
+    ],
+    "hard_constraints": {"empty_output": {"result": "invalid", "final_score": 0}, "output_language_not_german": {"result": "noncompliant", "final_score_cap": 59}, "word_count_above_800": {"result": "noncompliant", "compression_score": 0, "final_score_cap": 59}, "generation_truncated_at_token_limit": {"result": "noncompliant", "final_score_cap": 59}, "reasoning_markup_in_candidate_output": {"result": "noncompliant", "final_score_cap": 59}},
+    "critical_error_caps": {"one_critical_error": {"factual_accuracy_cap": 8, "final_score_cap": 59}, "two_or_more_critical_errors": {"factual_accuracy_cap": 4, "final_score_cap": 39}},
+    "verdict_thresholds": {"excellent": 90, "good": 75, "usable": 60, "poor": 1, "invalid": 0}
+  }
+}

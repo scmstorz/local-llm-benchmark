@@ -1,0 +1,60 @@
+{
+  "schema_version": "2.0.0",
+  "incident": {
+    "start_utc": "2026-09-05T08:14:11Z",
+    "last_observed_utc": "2026-09-05T08:23:00Z",
+    "primary_service": "payment-validation",
+    "affected_user_journey": "checkout_authorization",
+    "recovery_status": "partial"
+  },
+  "diagnosis": {
+    "root_cause_code": "host_clock_skew",
+    "trigger_codes": ["node_reentered_pool"],
+    "summary": "Payment node 03 rejoined the validation pool with its clock 462 seconds ahead after an image disabled synchronization. It calculated fresh signed intents as 463 seconds old and rejected them before they reached the provider. Trace-linked edge receive times establish that these apparently later node events preceded intermittent checkout failures. Removing node 03 restored new authorizations, while reconciliation remained incomplete at the final observation."
+  },
+  "causal_chain": [
+    {"event_id": "TIME-100", "file": "logs/time-monitor.log"},
+    {"event_id": "TIME-101", "file": "logs/time-monitor.log"},
+    {"event_id": "LB-200", "file": "logs/load-balancer.log"},
+    {"event_id": "LB-201", "file": "logs/load-balancer.log"},
+    {"event_id": "PAY3-300", "file": "logs/payment-node-03.log"},
+    {"event_id": "EDGE-401", "file": "logs/checkout-edge.jsonl"},
+    {"event_id": "EDGE-403", "file": "logs/checkout-edge.jsonl"},
+    {"event_id": "LB-203", "file": "logs/load-balancer.log"},
+    {"event_id": "EDGE-404", "file": "logs/checkout-edge.jsonl"},
+    {"event_id": "REC-702", "file": "logs/reconciliation.log"}
+  ],
+  "evidence": [
+    {"event_id": "TIME-101", "file": "logs/time-monitor.log", "supports": "root_cause"},
+    {"event_id": "PAY3-300", "file": "logs/payment-node-03.log", "supports": "root_cause"},
+    {"event_id": "LB-200", "file": "logs/load-balancer.log", "supports": "trigger"},
+    {"event_id": "PAY3-300", "file": "logs/payment-node-03.log", "supports": "symptom"},
+    {"event_id": "EDGE-403", "file": "logs/checkout-edge.jsonl", "supports": "symptom"},
+    {"event_id": "EDGE-401", "file": "logs/checkout-edge.jsonl", "supports": "impact"},
+    {"event_id": "REC-700", "file": "logs/reconciliation.log", "supports": "impact"},
+    {"event_id": "LB-203", "file": "logs/load-balancer.log", "supports": "recovery"},
+    {"event_id": "EDGE-404", "file": "logs/checkout-edge.jsonl", "supports": "recovery"},
+    {"event_id": "REC-702", "file": "logs/reconciliation.log", "supports": "recovery"}
+  ],
+  "rejected_hypotheses": [
+    {"code": "payment_provider_outage", "evidence_ids": ["PROV-501", "PROV-502"], "reason": "The rejected trace never reached the provider, whose authorization availability remained normal; the rate limit concerned a separate internal export."},
+    {"code": "database_replication_failure", "evidence_ids": ["DB-601", "DB-602"], "reason": "Replica lag had recovered before impact and the primary continued accepting writes with low commit latency."}
+  ],
+  "impact": {
+    "codes": ["checkout_authorization_failed", "checkout_latency_increased", "reconciliation_backlog_remaining"],
+    "summary": "Requests routed to node 03 intermittently failed or waited for upstream rejection. New authorizations recovered after isolation, but 612 pending items remained at the last observation. The excerpts neither quantify all failed checkouts nor establish payment loss."
+  },
+  "recommended_actions": [
+    {"code": "remove_skewed_node", "rationale": "Keep node 03 out of rotation until its clock is trustworthy."},
+    {"code": "restore_time_synchronization", "rationale": "Re-enable and verify the time service in the payment-node image."},
+    {"code": "reject_unhealthy_clock_offset", "rationale": "Prevent nodes with excessive offset from joining a signature-validation pool."},
+    {"code": "alert_on_clock_offset", "rationale": "Detect unsafe drift before it affects age-sensitive requests."},
+    {"code": "reconcile_pending_authorizations", "rationale": "Continue verified processing of the remaining backlog and monitor failures."}
+  ],
+  "uncertainties": [
+    {"code": "exact_failed_checkout_count_unknown", "reason": "The fixture provides samples and a success rate, not complete request volume."},
+    {"code": "clock_configuration_change_owner_unknown", "reason": "The image change is identified without an owner or approval trail."},
+    {"code": "backlog_full_recovery_time_unknown", "reason": "The final record still contains 612 pending items."},
+    {"code": "payment_data_loss_unknown", "reason": "No loss is evidenced, but the supplied reconciliation excerpt has not completed."}
+  ]
+}

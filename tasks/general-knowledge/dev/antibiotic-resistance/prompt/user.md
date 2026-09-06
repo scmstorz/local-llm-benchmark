@@ -1,0 +1,5 @@
+Ein Bekannter sagt: „Antibiotikaresistenz entsteht, weil sich mein Körper an das Medikament gewöhnt. Wenn ich selten Antibiotika nehme, kann ich bei einer Erkältung vorsichtshalber ein paar übrig gebliebene Tabletten nehmen. Und wenn neue Antibiotika entwickelt werden, ist das Problem ohnehin gelöst.“
+
+Erkläre für einen gebildeten Nichtfachmann, was an dieser Vorstellung falsch ist. Beschreibe, was tatsächlich resistent wird, wie Mutation, horizontaler Gentransfer und natürliche Selektion zusammenwirken und wie sich resistente Erreger beziehungsweise Resistenzgene verbreiten können.
+
+Leite daraus ab, was verantwortungsvoller Antibiotikaeinsatz auf Ebene eines einzelnen Patienten und auf Ebene des Gesundheitssystems bedeutet. Gehe auch darauf ein, warum sowohl unnötige Einnahme als auch das Vorenthalten einer notwendigen Behandlung problematisch sind, welche Rolle Diagnostik und Infektionsprävention spielen und warum neue Wirkstoffe allein keine dauerhafte Lösung sind. Gib keine individuelle Therapieanweisung. Strukturiere die Antwort mit aussagekräftigen Zwischenüberschriften. Ziele auf etwa 400 bis 700 Wörter und überschreite niemals 800 Wörter.

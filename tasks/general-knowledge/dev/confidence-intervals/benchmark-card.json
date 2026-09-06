@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "1.0.0",
+  "case_id": "general_knowledge.dev.confidence-intervals",
+  "case_version": "1.0.0",
+  "source_of_truth": "The frozen judge-only reference dossier; candidates answer from internal knowledge.",
+  "evaluation_principles": [
+    "Reward conceptual correctness rather than memorized terminology.",
+    "Treat the strict frequentist interpretation as central.",
+    "Do not give bonus credit for unsupported advanced digressions."
+  ],
+  "key_facts": [
+    {"id": "KF01", "label": "Repeated-sampling coverage", "claim_type": "definition", "weight": 4, "source_locations": ["S01"], "expected": "Across repeated samples under the same valid procedure, approximately 95% of the constructed intervals contain the fixed parameter."},
+    {"id": "KF02", "label": "Realized interval", "claim_type": "interpretation", "weight": 4, "source_locations": ["S01", "S05"], "expected": "A realized interval either contains the fixed parameter or does not; strict frequentist language does not assign it a 95% posterior probability."},
+    {"id": "KF03", "label": "Conditional validity", "claim_type": "qualification", "weight": 3, "source_locations": ["S03"], "expected": "Nominal coverage depends on the sampling design, model and assumptions."},
+    {"id": "KF04", "label": "Width drivers", "claim_type": "mechanism", "weight": 4, "source_locations": ["S02"], "expected": "Sample size, variability and selected confidence level affect interval width in the correct directions."},
+    {"id": "KF05", "label": "Precision is not absence of bias", "claim_type": "qualification", "weight": 3, "source_locations": ["S02", "S03"], "expected": "A narrow interval measures sampling precision under the method and does not rule out bias or bad data."},
+    {"id": "KF06", "label": "Not a range for 95% of data", "claim_type": "misconception", "weight": 3, "source_locations": ["S04", "S05"], "expected": "A mean confidence interval does not say that 95% of observations or future values lie inside it."},
+    {"id": "KF07", "label": "Prediction interval distinction", "claim_type": "comparison", "weight": 2, "source_locations": ["S04"], "expected": "A prediction interval concerns a future individual observation and is normally wider because it includes individual variation."},
+    {"id": "KF08", "label": "Correct numeric example", "claim_type": "application", "weight": 2, "source_locations": ["S05"], "expected": "The answer gives a coherent numerical interval example and phrases its frequentist meaning correctly."}
+  ],
+  "key_ideas": [
+    {"id": "KI01", "label": "Confidence belongs to the procedure", "weight": 4, "source_locations": ["S01", "S05"], "expected": "Makes intuitive that 95% describes long-run behavior of the interval-producing method."},
+    {"id": "KI02", "label": "Precision versus validity", "weight": 4, "source_locations": ["S02", "S03"], "expected": "Explains why more precision cannot cure systematic error or invalid assumptions."},
+    {"id": "KI03", "label": "Different intervals answer different questions", "weight": 4, "source_locations": ["S04"], "expected": "Clearly separates uncertainty about a mean from uncertainty about an individual future value."},
+    {"id": "KI04", "label": "Accessible mental model", "weight": 3, "source_locations": ["S01", "S05"], "expected": "Uses an accessible repeated-study or repeated-sampling explanation without distorting the definition."}
+  ],
+  "known_critical_errors": [
+    {"id": "CE01", "severity": "critical", "description": "States without qualification that there is a 95% frequentist probability that the fixed parameter lies in the realized interval."},
+    {"id": "CE02", "severity": "major", "description": "Claims that 95% of observations or future measurements lie inside the confidence interval."},
+    {"id": "CE03", "severity": "major", "description": "Treats a narrow interval as evidence that sampling bias, measurement error or model misspecification is absent."},
+    {"id": "CE04", "severity": "major", "description": "Confuses a confidence interval for a mean with a prediction interval for an individual observation."}
+  ],
+  "nonessential_details": ["Derivation of the t distribution", "Bayesian credible intervals beyond a concise contrast", "Software-specific commands"],
+  "rubric": {
+    "maximum_score": 100,
+    "coverage_status_multipliers": {"full": 1.0, "partial": 0.5, "missing": 0.0, "contradicted": 0.0},
+    "derived_coverage": {"key_facts_max": 25, "key_facts_formula": "sum(key_fact.weight * status_multiplier)", "key_ideas_max": 15, "key_ideas_formula": "sum(key_idea.weight * status_multiplier)"},
+    "judged_dimensions": [
+      {"id": "factual_accuracy", "max": 25, "anchors": {"25": "No material factual or conceptual error.", "20": "Accurate overall with one minor imprecision.", "12": "At least one major error or several meaningful imprecisions.", "0": "Fundamentally unreliable."}},
+      {"id": "explanatory_quality", "max": 10, "anchors": {"10": "Builds an intuitive and causally coherent explanation with a correct example.", "7": "Sound explanation with one underdeveloped connection.", "4": "Lists facts but leaves important conceptual links unclear.", "0": "Does not explain the concept."}},
+      {"id": "epistemic_precision", "max": 10, "anchors": {"10": "Consistently preserves assumptions, scope and frequentist meaning.", "7": "Mostly calibrated with one limited ambiguity.", "4": "Repeatedly blurs probability, coverage or conditions.", "0": "Systematically false certainty."}},
+      {"id": "structure_clarity", "max": 10, "anchors": {"10": "Clear German, descriptive structure and understandable without specialist training.", "7": "Generally clear with minor awkwardness.", "4": "Noticeably hard to follow.", "0": "Incoherent or not meaningfully German."}},
+      {"id": "compression", "max": 5, "anchors": {"5": "High information density without material repetition.", "3": "Some avoidable repetition.", "1": "Substantially padded.", "0": "Exceeds the hard maximum or is not a focused answer."}}
+    ],
+    "hard_constraints": {
+      "empty_output": {"result": "invalid", "final_score": 0},
+      "output_language_not_german": {"result": "noncompliant", "final_score_cap": 59},
+      "word_count_above_800": {"result": "noncompliant", "compression_score": 0, "final_score_cap": 59},
+      "generation_truncated_at_token_limit": {"result": "noncompliant", "final_score_cap": 59},
+      "reasoning_markup_in_candidate_output": {"result": "noncompliant", "final_score_cap": 59}
+    },
+    "critical_error_caps": {"one_critical_error": {"factual_accuracy_cap": 8, "final_score_cap": 59}, "two_or_more_critical_errors": {"factual_accuracy_cap": 4, "final_score_cap": 39}},
+    "verdict_thresholds": {"excellent": 90, "good": 75, "usable": 60, "poor": 1, "invalid": 0}
+  }
+}

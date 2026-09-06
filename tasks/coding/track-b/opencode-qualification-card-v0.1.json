@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "0.1.0",
+  "qualification_id": "coding-track-b-opencode-v0.1",
+  "status": "planned_not_installed_not_qualified",
+  "created_on": "2026-09-02",
+  "track": "B",
+  "study_mode": "harness_qualification",
+  "purpose": "Determine whether one exactly pinned OpenCode CLI deployment can become a third measured Track B harness without weakening the shared task, verifier, isolation or measurement boundary.",
+  "decision": {
+    "eligible_for_measured_track_b": false,
+    "reason": "Documentation and package metadata establish plausibility, not benchmark equivalence. The exact binary, configuration schema, event stream, hidden model-call behavior and sandbox boundary still require executable qualification.",
+    "does_not_modify_track_b_v0_2": true,
+    "does_not_authorize_inference": true
+  },
+  "candidate_harness": {
+    "family": "opencode",
+    "provisional_harness_id": "opencode-v0.1",
+    "interface": "noninteractive_cli_json_events",
+    "provider": "ollama",
+    "model_selection": "exact_explicit_model_per_run",
+    "normal_turn_limit": null,
+    "turns_are_measurement_only": true,
+    "sessions": "disabled_or_run_local_ephemeral_only",
+    "server_reuse": "forbidden_for_initial_qualification"
+  },
+  "package_lock_candidate": {
+    "registry": "npm",
+    "package": "opencode-ai",
+    "version": "1.18.26",
+    "integrity": "sha512-XFPIj/yJZN8eBi4+uTjsnYAd/QezCM+/OUa3JbtL7tKQF4fGHR4onZx2d6oUGqbVs4CNONQ8QFKejeW+qVJIEA==",
+    "tarball": "https://registry.npmjs.org/opencode-ai/-/opencode-ai-1.18.26.tgz",
+    "license": "MIT",
+    "metadata_checked_on": "2026-09-02",
+    "state": "selected_for_qualification_not_installed_by_project",
+    "lock_rule": "The accepted package, transitive dependency lock, executable hash and reported CLI version must be frozen before any model smoke."
+  },
+  "official_source_evidence": [
+    {
+      "claim": "OpenCode documents direct Ollama provider configuration and local model selection.",
+      "url": "https://opencode.ai/v2/docs/models"
+    },
+    {
+      "claim": "The CLI documents noninteractive opencode run and a JSON output format.",
+      "url": "https://dev.opencode.ai/docs/cli/"
+    },
+    {
+      "claim": "Agent configuration exposes granular permissions for tools and external directories.",
+      "url": "https://opencode.ai/v2/docs/permissions"
+    },
+    {
+      "claim": "OpenCode includes hidden built-in agents used for tasks such as compaction, titles and summaries.",
+      "url": "https://opencode.ai/v2/docs/agents"
+    },
+    {
+      "claim": "Automatic compaction is enabled by default and includes a model-generated summary.",
+      "url": "https://opencode.ai/v2/docs/compaction"
+    },
+    {
+      "claim": "The CLI documents environment controls for default plugins, LSP downloads, auto-compaction, Claude Code compatibility and model-list fetching.",
+      "url": "https://dev.opencode.ai/docs/cli/"
+    }
+  ],
+  "known_documentation_risk": {
+    "description": "The official documentation exposes concurrent URL and configuration surfaces. The qualification must treat the pinned package's own help output and observed behavior as authoritative for this package version.",
+    "required_action": "Freeze opencode --version, relevant --help output, resolved configuration, executable hash and a minimal no-inference invocation before implementing the adapter."
+  },
+  "target_experimental_boundary": {
+    "shared_protocol": "tasks/coding/track-b/track-b-v0.2.json",
+    "task_subset": [
+      "coding.dev.php-payment-result-migration",
+      "coding.dev.async-cache-coalescing"
+    ],
+    "unchanged_properties": [
+      "candidate-visible fixture",
+      "allowed write paths",
+      "public-test feedback",
+      "hidden verifier",
+      "wall-time budget",
+      "total output-token budget",
+      "no normal turn limit",
+      "final verified-success definition"
+    ],
+    "harness_results_reported_separately": true
+  },
+  "required_isolation": {
+    "working_directory": "run-local copied fixture only",
+    "state_and_cache": "run-local temporary directories only",
+    "global_config_and_instructions": "must not be read",
+    "sessions": "must not persist outside the ignored run directory",
+    "default_plugins": "disabled",
+    "custom_plugins": "none",
+    "mcp_servers": "none",
+    "skills": "none",
+    "subagents_and_task_tool": "disabled",
+    "browser_and_web": "disabled",
+    "lsp_downloads": "disabled",
+    "automatic_updates": "disabled_or_proven_absent",
+    "remote_model_metadata_fetch": "disabled",
+    "external_network": "denied",
+    "allowed_network": "the one declared Ollama loopback origin only",
+    "sandbox_backend": "a separately versioned executable boundary that passes the same adversarial intent as the Pi Seatbelt checks"
+  },
+  "provisional_environment_controls_to_verify": [
+    "OPENCODE_DISABLE_DEFAULT_PLUGINS",
+    "OPENCODE_DISABLE_LSP_DOWNLOAD",
+    "OPENCODE_DISABLE_AUTOCOMPACT",
+    "OPENCODE_DISABLE_CLAUDE_CODE",
+    "OPENCODE_DISABLE_MODELS_FETCH"
+  ],
+  "required_tool_policy": {
+    "read": "candidate-visible fixture files only",
+    "edit_and_write": "artifact-contract allowed existing files only",
+    "glob_grep_list": "candidate-visible fixture only",
+    "bash": "the one frozen public-test command only",
+    "task": "deny",
+    "external_directory": "deny",
+    "lsp": "deny_for_initial_qualification",
+    "all_unlisted_tools": "deny"
+  },
+  "hidden_model_call_policy": {
+    "requirement": "Every model request caused by the harness must be absent or included in raw trajectory and token accounting.",
+    "specifically_audit": [
+      "title generation",
+      "session summary generation",
+      "automatic compaction",
+      "subagent calls",
+      "retry or provider fallback calls"
+    ],
+    "unobserved_or_unattributed_call": "qualification_failure"
+  },
+  "event_and_outcome_requirements": {
+    "raw_json_events_persisted": true,
+    "stdout_and_stderr_persisted": true,
+    "resolved_config_persisted_without_secrets": true,
+    "all_model_requests_counted": true,
+    "tool_calls_and_results_counted": true,
+    "process_exit_recorded": true,
+    "valid_agent_termination_distinct_from_runtime_exit": true,
+    "final_verifier_runs_after_harness_exit": true,
+    "runtime_success_verifier_success_and_verified_success_separate": true
+  },
+  "qualification_sequence": [
+    {
+      "position": 1,
+      "stage": "package_and_cli_lock",
+      "inference": false,
+      "acceptance": "Exact package, transitive lock, binary hash, version and relevant help output are frozen."
+    },
+    {
+      "position": 2,
+      "stage": "isolated_configuration_probe",
+      "inference": false,
+      "acceptance": "A project-owned configuration selects only Ollama and the intended tools without reading user-global state."
+    },
+    {
+      "position": 3,
+      "stage": "event_and_model_call_probe",
+      "inference": false,
+      "acceptance": "The adapter can attribute CLI events and prove the intended request boundary before a real model is used."
+    },
+    {
+      "position": 4,
+      "stage": "executable_sandbox_acceptance",
+      "inference": false,
+      "acceptance": "Read, write, symlink, child-process, executable, home-secret, repository-write and network probes all enforce the declared boundary."
+    },
+    {
+      "position": 5,
+      "stage": "one_excluded_smoke",
+      "inference": true,
+      "prerequisites": [
+        "stages 1 through 4 passed",
+        "qualification artifacts committed",
+        "Ollama resource gate passed",
+        "user explicitly starts the smoke"
+      ],
+      "acceptance": "One preregistered model-task attempt yields attributable events, bounded tools, a valid termination record and separate final verification."
+    }
+  ],
+  "qualification_failures": [
+    "cannot isolate user-global state or instructions",
+    "cannot prevent undeclared plugins, skills, MCP servers or subagents",
+    "cannot restrict tool paths and the public-test command",
+    "cannot deny external network while allowing only local Ollama",
+    "cannot disable or account for hidden model calls",
+    "cannot persist a complete attributable event stream",
+    "cannot distinguish process exit, agent termination and verifier outcome",
+    "pinned package behavior conflicts with the shared Track B protocol"
+  ],
+  "planned_smoke": {
+    "status": "not_authorized_not_frozen",
+    "model_selection_rule": "Choose only after no-inference qualification; prefer a deployment already observed under Mini and Pi so the smoke isolates harness behavior.",
+    "attempts": 1,
+    "retries": 0,
+    "excluded_from_measured_results": true
+  }
+}

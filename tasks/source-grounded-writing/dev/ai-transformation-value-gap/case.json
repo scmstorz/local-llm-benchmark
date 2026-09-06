@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "source_grounded_writing.dev.ai-transformation-value-gap",
+  "case_version": "1.0.0",
+  "suite": "source_grounded_writing",
+  "split": "development",
+  "difficulty": "hard",
+  "task_type": "cross_lingual_source_grounded_professional_writing",
+  "title": "AI transformation and the enterprise value gap",
+  "purpose": "Test whether a local model can synthesize five source-separated evidence cards and three personal thoughts into an accurate, useful German LinkedIn post.",
+  "input": {
+    "source_id": "source-packet.ai-transformation-value-gap.2026-08-30",
+    "source_metadata_path": "tasks/source-grounded-writing/dev/ai-transformation-value-gap/source-metadata.json",
+    "candidate_artifacts": [
+      {
+        "id": "source_packet",
+        "path": "tasks/source-grounded-writing/dev/ai-transformation-value-gap/source-packet.md",
+        "metadata_artifact_key": "source_packet",
+        "placeholder": "{{SOURCE_PACKET}}",
+        "judge_bundle_name": "source-packet.md"
+      },
+      {
+        "id": "personal_thoughts",
+        "path": "data/private/source-grounded-writing/dev/ai-transformation-value-gap/personal-thoughts.md",
+        "metadata_artifact_key": "personal_thoughts",
+        "placeholder": "{{PERSONAL_THOUGHTS}}",
+        "judge_bundle_name": "personal-thoughts.md"
+      }
+    ],
+    "source_languages": ["en", "de"],
+    "candidate_browsing_allowed": false,
+    "candidate_tools_allowed": false,
+    "contains_location_labels": true,
+    "minimum_num_ctx": 8192
+  },
+  "prompt": {
+    "version": "1.0.0",
+    "system_path": "tasks/source-grounded-writing/dev/ai-transformation-value-gap/prompt/system.txt",
+    "user_template_path": "tasks/source-grounded-writing/dev/ai-transformation-value-gap/prompt/user.md",
+    "source_delivery": "candidate"
+  },
+  "output": {
+    "language": "de",
+    "audience": "Executives, knowledge workers and technically interested professional readers",
+    "format": "One evidence-grounded LinkedIn post with short paragraphs",
+    "target_words": 475,
+    "minimum_words": 400,
+    "maximum_words": 600,
+    "external_information_allowed": false,
+    "source_location_labels_allowed": false
+  },
+  "evaluation": {
+    "benchmark_card_path": "tasks/source-grounded-writing/dev/ai-transformation-value-gap/benchmark-card.json",
+    "benchmark_card_version": "1.0.0",
+    "judge_instructions_path": "tasks/source-grounded-writing/dev/ai-transformation-value-gap/judge-instructions.md",
+    "judge_instructions_version": "1.0.0",
+    "judge_result_schema_path": "tasks/source-grounded-writing/dev/ai-transformation-value-gap/judge-result.schema.json",
+    "judge_result_schema_version": "1.0.0",
+    "judge_kind": "interactive_codex",
+    "paid_judge_api": false
+  },
+  "suitability": {
+    "strengths": [
+      "Directly represents the user's source-grounded professional-writing workflow",
+      "Requires synthesis across five sources and multiple levels of analysis",
+      "Separates empirical evidence from user-authored perspective",
+      "Combines factual grounding, argument construction, selection and audience-aware writing"
+    ],
+    "limitations": [
+      "English evidence and German output combine synthesis with cross-lingual writing",
+      "The project selects and paraphrases evidence before candidate generation, so this case does not evaluate online research or source selection",
+      "LinkedIn suitability remains partly subjective and therefore requires a rubric-grounded judge",
+      "One post cannot establish a stable distribution of writing quality"
+    ]
+  }
+}

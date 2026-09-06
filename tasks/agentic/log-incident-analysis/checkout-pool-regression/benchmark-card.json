@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "1.0.0",
+  "case_id": "agentic.ops.checkout-pool-regression",
+  "case_version": "1.0.0",
+  "track": "B",
+  "task_family": "incident_investigation",
+  "language": "English",
+  "status": "development_before_live_qualification",
+  "experimental_question": "Can a local model in a read-only agent harness reconstruct a cross-service incident, cite exact log evidence and avoid plausible distractors?",
+  "construct_validity": {
+    "intended_construct": "Source-grounded multi-file incident diagnosis under bounded selective file access.",
+    "observable_proxies": [
+      "correct UTC incident boundary",
+      "correct separation of root cause, trigger, symptom and impact",
+      "valid cross-file event citations",
+      "ordered causal chain",
+      "rejection of evidenced distractor hypotheses",
+      "explicit uncertainty and actionable remediation"
+    ],
+    "validation_evidence": "An independently authored reference report must pass all essential checks; deliberate timezone, cause, citation, distractor and omission mutations must fail before live qualification.",
+    "known_blind_spots": [
+      "small synthetic fixture",
+      "controlled codebook reduces open-world diagnosis ambiguity",
+      "no large-log retrieval or shell-search requirement",
+      "deterministic checks do not fully judge prose quality",
+      "one incident pattern cannot establish general operations competence"
+    ]
+  },
+  "primary_outcome": {
+    "name": "verified_success",
+    "type": "boolean",
+    "requires_all_essential_checks": true,
+    "composite_score": false
+  },
+  "criterion_groups": [
+    {"id": "structure", "essential": true, "description": "The report follows the complete versioned schema."},
+    {"id": "incident_boundary", "essential": true, "description": "The user-visible impact and confirmed recovery window are normalized correctly to UTC."},
+    {"id": "causal_diagnosis", "essential": true, "description": "The deployment configuration regression is distinguished from the traffic trigger and downstream failures."},
+    {"id": "evidence_grounding", "essential": true, "description": "Every citation exists in the declared file and critical causal/recovery evidence is present."},
+    {"id": "distractor_rejection", "essential": true, "description": "Database and authentication warnings are rejected using supplied counter-evidence."},
+    {"id": "impact_and_uncertainty", "essential": true, "description": "Observed impact is bounded and absent facts are not fabricated."},
+    {"id": "remediation", "essential": true, "description": "Immediate recovery, prevention and detection actions cover the observed failure mode."}
+  ],
+  "candidate_access": {
+    "fixture_only": true,
+    "network": false,
+    "writes": false,
+    "shell": false,
+    "hidden_reference": false,
+    "cross_run_state": false
+  },
+  "reporting_limits": [
+    "Capability Sweep evidence only until repeated runs are explicitly frozen.",
+    "Do not infer general incident-response skill from this single synthetic case.",
+    "Compare models only within an identical harness condition; different harnesses are complete-system comparisons."
+  ]
+}

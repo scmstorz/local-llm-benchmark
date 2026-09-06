@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "1.0.0",
+  "case_id": "general_knowledge.dev.interest-rates-and-inflation",
+  "case_version": "1.0.0",
+  "source_of_truth": "The frozen judge-only reference dossier; candidates answer from internal knowledge.",
+  "evaluation_principles": ["Reward a complete transmission chain rather than slogans.", "Require lags, uncertainty, costs and the demand-versus-supply distinction.", "Do not reward a partisan judgment about a current policy decision."],
+  "key_facts": [
+    {"id": "KF01", "label": "Policy-rate pass-through", "claim_type": "mechanism", "weight": 4, "source_locations": ["S01"], "expected": "The central bank policy rate influences broader market, bank borrowing and saving rates rather than directly setting all rates or prices."},
+    {"id": "KF02", "label": "Demand channel", "claim_type": "mechanism", "weight": 4, "source_locations": ["S02", "S07"], "expected": "Higher financing costs and returns to saving tend to reduce consumption, housing and investment, slowing aggregate demand."},
+    {"id": "KF03", "label": "Demand to inflation", "claim_type": "mechanism", "weight": 3, "source_locations": ["S02", "S07"], "expected": "Weaker demand and labor or capacity pressure can slow wage and price increases over time."},
+    {"id": "KF04", "label": "Expectations channel", "claim_type": "mechanism", "weight": 3, "source_locations": ["S03"], "expected": "Expected credible policy affects longer rates and can influence wage- and price-setting."},
+    {"id": "KF05", "label": "Exchange-rate channel", "claim_type": "mechanism", "weight": 2, "source_locations": ["S03"], "expected": "A possible appreciation can lower import prices, but the exchange-rate response is neither isolated nor guaranteed."},
+    {"id": "KF06", "label": "Long and variable lags", "claim_type": "qualification", "weight": 3, "source_locations": ["S04"], "expected": "Real activity and inflation respond with substantial, variable and uncertain delays, often on the order of one to two years for important effects."},
+    {"id": "KF07", "label": "Economic costs", "claim_type": "tradeoff", "weight": 3, "source_locations": ["S05"], "expected": "Disinflation can reduce output and employment relative to baseline and creates heterogeneous borrower-saver effects."},
+    {"id": "KF08", "label": "Supply-shock limits", "claim_type": "qualification", "weight": 3, "source_locations": ["S06"], "expected": "Rates cannot repair physical supply constraints but can limit generalized second-round inflation; an excessive response to a temporary shock has costs."}
+  ],
+  "key_ideas": [
+    {"id": "KI01", "label": "Transmission chain, not price switch", "weight": 4, "source_locations": ["S01", "S02", "S04", "S07"], "expected": "Explains policy as an indirect, uncertain chain from financial conditions through behavior and demand to inflation."},
+    {"id": "KI02", "label": "Demand versus supply", "weight": 4, "source_locations": ["S02", "S06"], "expected": "Distinguishes restraining demand and second-round effects from fixing the source of a supply shock."},
+    {"id": "KI03", "label": "Lags create a trade-off", "weight": 4, "source_locations": ["S04", "S05", "S06"], "expected": "Connects delayed effects and uncertain shock persistence to the risk of doing too little or too much."},
+    {"id": "KI04", "label": "Heterogeneous effects", "weight": 3, "source_locations": ["S01", "S05"], "expected": "Shows that transmission and costs differ across borrowers, savers, firms and contracts."}
+  ],
+  "known_critical_errors": [
+    {"id": "CE01", "severity": "critical", "description": "Claims that a central bank directly lowers the general price level by changing the policy rate."},
+    {"id": "CE02", "severity": "major", "description": "Claims that rate increases reduce inflation immediately or with a fixed guaranteed delay."},
+    {"id": "CE03", "severity": "major", "description": "Claims that higher rates directly resolve shortages or create missing energy and goods supply."},
+    {"id": "CE04", "severity": "major", "description": "Presents disinflation as costless for output, employment or borrowers."},
+    {"id": "CE05", "severity": "major", "description": "Treats currency appreciation or cheaper imports as an automatic consequence of every rate increase."}
+  ],
+  "nonessential_details": ["Current central-bank decisions", "Investment recommendations", "Formal macroeconomic equations"],
+  "rubric": {
+    "maximum_score": 100,
+    "coverage_status_multipliers": {"full": 1.0, "partial": 0.5, "missing": 0.0, "contradicted": 0.0},
+    "derived_coverage": {"key_facts_max": 25, "key_facts_formula": "sum(key_fact.weight * status_multiplier)", "key_ideas_max": 15, "key_ideas_formula": "sum(key_idea.weight * status_multiplier)"},
+    "judged_dimensions": [
+      {"id": "factual_accuracy", "max": 25, "anchors": {"25": "No material factual or economic error.", "20": "Accurate overall with one minor imprecision.", "12": "At least one major error or several meaningful imprecisions.", "0": "Fundamentally unreliable."}},
+      {"id": "explanatory_quality", "max": 10, "anchors": {"10": "Builds a coherent causal chain and integrates channels, lags and limits.", "7": "Sound explanation with one underdeveloped connection.", "4": "Lists channels without explaining how they connect.", "0": "Does not explain the mechanism."}},
+      {"id": "epistemic_precision", "max": 10, "anchors": {"10": "Consistently preserves tendencies, contingencies, uncertainty and time horizons.", "7": "Mostly calibrated with one limited overstatement.", "4": "Repeatedly makes contingent effects sound automatic.", "0": "Systematically false certainty."}},
+      {"id": "structure_clarity", "max": 10, "anchors": {"10": "Clear German, descriptive structure and understandable without economics training.", "7": "Generally clear with minor awkwardness.", "4": "Noticeably hard to follow.", "0": "Incoherent or not meaningfully German."}},
+      {"id": "compression", "max": 5, "anchors": {"5": "High information density without material repetition.", "3": "Some avoidable repetition.", "1": "Substantially padded.", "0": "Exceeds the hard maximum or is not focused."}}
+    ],
+    "hard_constraints": {"empty_output": {"result": "invalid", "final_score": 0}, "output_language_not_german": {"result": "noncompliant", "final_score_cap": 59}, "word_count_above_800": {"result": "noncompliant", "compression_score": 0, "final_score_cap": 59}, "generation_truncated_at_token_limit": {"result": "noncompliant", "final_score_cap": 59}, "reasoning_markup_in_candidate_output": {"result": "noncompliant", "final_score_cap": 59}},
+    "critical_error_caps": {"one_critical_error": {"factual_accuracy_cap": 8, "final_score_cap": 59}, "two_or_more_critical_errors": {"factual_accuracy_cap": 4, "final_score_cap": 39}},
+    "verdict_thresholds": {"excellent": 90, "good": 75, "usable": 60, "poor": 1, "invalid": 0}
+  }
+}

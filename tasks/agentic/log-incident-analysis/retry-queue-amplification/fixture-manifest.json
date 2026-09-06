@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_version": "1.0.0",
+  "case_id": "agentic.ops.retry-queue-amplification",
+  "files": [
+    {
+      "path": "logs/broker.log",
+      "sha256": "c448ea41c87bbafe299ecd68e7b4f4a77d498fa493b785b570d3c107fc54848b",
+      "size_bytes": 604,
+      "candidate_visible": true,
+      "read_only": true
+    },
+    {
+      "path": "logs/inventory.jsonl",
+      "sha256": "da39c8f6ee765922b576e07604304cc57bbae4c292f9978ce741adca6016cc42",
+      "size_bytes": 645,
+      "candidate_visible": true,
+      "read_only": true
+    },
+    {
+      "path": "logs/notification-errors.log",
+      "sha256": "013d1b9ceed4cbe671f32aec6e3a1a061365637a3b4bfb41d2683b394d80dfd7",
+      "size_bytes": 402,
+      "candidate_visible": true,
+      "read_only": true
+    },
+    {
+      "path": "logs/order-api.jsonl",
+      "sha256": "c051993dc85f595dd2d660d5f12103267b8c0c7daa23af50c392240e10c6b74b",
+      "size_bytes": 772,
+      "candidate_visible": true,
+      "read_only": true
+    },
+    {
+      "path": "logs/order-worker.log",
+      "sha256": "a6baba506c754e5a7de7386734c4da06316c712784309e21f6c6f3ad1ead4cd0",
+      "size_bytes": 722,
+      "candidate_visible": true,
+      "read_only": true
+    },
+    {
+      "path": "logs/order-worker.log.1",
+      "sha256": "6e9e1f714fededfe84c352ef44ec8b47bc212b419af9c5366f53bbab8303a2e1",
+      "size_bytes": 365,
+      "candidate_visible": true,
+      "read_only": true
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "log-incident-v0.5-specification-confirmation",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-06",
+  "track": "B",
+  "study_mode": "specification_confirmation",
+  "protocol_id": "agentic-log-incident-v0.5",
+  "evidence_class": "excluded_specification_confirmation",
+  "purpose": "Confirm that the additive v0.5 contract makes scope identity and rejected-hypothesis evidence attachment unambiguous, removes negation-blind deterministic prose scoring and keeps genuine causal-chain, schema, runtime and supplemental free-text failures distinguishable before any multi-model sweep is considered.",
+  "not_designed_to_estimate": [
+    "model reliability",
+    "quality stochasticity",
+    "latency distributions or tails",
+    "general model ranking",
+    "one-factor causal harness effects"
+  ],
+  "runtime": {
+    "name": "ollama",
+    "expected_version": "0.33.2",
+    "host": "http://127.0.0.1:11434",
+    "must_be_reverified_before_execution": true
+  },
+  "deployment": {
+    "name": "qwen3.8:27b-mlx",
+    "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "size_bytes": 18174721847,
+    "quantization": "nvfp4",
+    "selection_rationale": "Qwen 3.8 produced the strongest partial semantic evidence in v0.2, making it the most informative low-cost probe of the specification repair rather than a new model ranking sample."
+  },
+  "harnesses": [
+    {
+      "harness_id": "mini-log-v0.5",
+      "harness_family": "project_mini_harness",
+      "harness_path": "tasks/agentic/track-b/mini-log-v0.5.json",
+      "qualification_path": "tasks/agentic/track-b/mini-log-v0.5-qualification.json"
+    },
+    {
+      "harness_id": "pi-log-v0.5",
+      "harness_family": "pinned_pi",
+      "package_version": "0.84.4",
+      "harness_path": "tasks/agentic/track-b/pi-log-v0.5.json",
+      "qualification_path": "tasks/agentic/track-b/pi-log-v0.5-qualification.json"
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "agentic.ops.checkout-pool-regression",
+      "case_version": "5.0.0",
+      "case_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/case-v0.5.json"
+    },
+    {
+      "case_id": "agentic.ops.retry-queue-amplification",
+      "case_version": "5.0.0",
+      "case_path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/case-v0.5.json"
+    },
+    {
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "case_version": "5.0.0",
+      "case_path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/case-v0.5.json"
+    }
+  ],
+  "execution_order": [
+    {"position": 1, "harness_id": "mini-log-v0.5", "case_id": "agentic.ops.checkout-pool-regression"},
+    {"position": 2, "harness_id": "pi-log-v0.5", "case_id": "agentic.ops.retry-queue-amplification"},
+    {"position": 3, "harness_id": "mini-log-v0.5", "case_id": "agentic.ops.clock-skew-partial-recovery"},
+    {"position": 4, "harness_id": "pi-log-v0.5", "case_id": "agentic.ops.checkout-pool-regression"},
+    {"position": 5, "harness_id": "mini-log-v0.5", "case_id": "agentic.ops.retry-queue-amplification"},
+    {"position": 6, "harness_id": "pi-log-v0.5", "case_id": "agentic.ops.clock-skew-partial-recovery"}
+  ],
+  "execution_rules": {
+    "runs_per_system_case": 1,
+    "automatic_retries": 0,
+    "adaptive_repetitions": false,
+    "raw_attempts_preserved": true,
+    "terminal_attempts_not_repeated": true,
+    "pi_real_seatbelt_acceptance_required": true,
+    "hidden_verification_after_terminal_output": true
+  },
+  "outcome_model": {
+    "primary": "semantic_verified_success",
+    "secondary": "strict_transport_compliance",
+    "runtime_success_separate": true,
+    "agent_termination_valid_separate": true,
+    "supplemental_free_text_claim_review_required": true,
+    "deterministic_success_is_not_final_quality_acceptance": true,
+    "check_counts_diagnostic_not_normalized_points": true,
+    "composite_score": false
+  },
+  "confirmation_interpretation": {
+    "quantitative_success_threshold": null,
+    "reason": "Six single attempts cannot validate reliability or capability. The gate is an audit of specification clarity, machinery interpretability and failure attribution.",
+    "required_post_run_audits": [
+      "all six cells have preserved terminal or explicitly classified infrastructure outcomes",
+      "every semantic failure is traceable to a candidate-visible criterion",
+      "exact visible scope IDs are evaluated separately from optional prose detail",
+      "only rejected_hypotheses evidence_ids satisfy attached counter-evidence",
+      "normalization behavior matches the frozen single-object policy",
+      "human calibration checks for any remaining task-to-verifier ambiguity",
+      "human review evaluates all free-text claims for source grounding and polarity",
+      "deterministic structured success and supplemental free-text acceptance remain separate"
+    ],
+    "next_decision": "Only after the audit choose among revising v0.5, running a broader Capability Sweep, or beginning targeted repetition."
+  },
+  "shared_inference": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 4000,
+    "maximum_active_wall_time_seconds": 300,
+    "provider_request_timeout_seconds": 180,
+    "maximum_total_output_tokens": null,
+    "maximum_agent_turns": null,
+    "maximum_protocol_errors": null,
+    "maximum_file_reads_emergency_safeguard": 40
+  },
+  "resource_gate": {
+    "loaded_models_must_be_empty_before_each_cell": true,
+    "empty_state_observation_seconds": 30,
+    "deployment_digest_rechecked_before_each_cell": true,
+    "exact_ollama_version_required": true,
+    "model_unloaded_after_each_cell": true,
+    "unexpected_model_activity_pauses_execution": true,
+    "known_competing_applications_must_be_stopped": true,
+    "behat_must_not_be_running": true
+  },
+  "authorization": {
+    "live_execution_authorized": false,
+    "reason": "The v0.5 implementation is committed, but this frozen plan must precede a separate user clean-window authorization artifact.",
+    "fresh_clean_window_confirmation_required": true,
+    "no_remote_push_authorized": true
+  },
+  "frozen_inputs": {
+    "implementation_git_commit": "69c67ef6ee3fe9c0e9eedb5737ad1c09fb48fd6f",
+    "deployment_identity_source_path": "tasks/agentic/track-b/log-incident-capability-sweep-v0.2.json",
+    "deployment_identity_source_sha256": "8dc873ae6d1282867c1a43ea607c88f4f99ec7fb0cc74c7a98a89200277f02f1",
+    "artifacts": [
+      {"path": "tasks/agentic/track-b/log-incident-v0.5.json", "sha256": "019a676d0e7f6988e62b859a7a4cbf5e4edc155654529aec6142778a5dc727a4"},
+      {"path": "tasks/agentic/track-b/mini-log-v0.5.json", "sha256": "37f5ad45ad4d7f217b5434ef43aa25c4b7b44dcb5f56ef9a739b541948661a28"},
+      {"path": "tasks/agentic/track-b/pi-log-v0.5.json", "sha256": "8862df54b6bd1ad9f1d940d880a9f225ba5f8c711a85114f628766e328c387aa"},
+      {"path": "tasks/agentic/track-b/mini-log-v0.5-qualification.json", "sha256": "4baa665c9eb0842f29739d3c16d99e8088cd6d9e7710f4a71d9d4827ce06d7fe"},
+      {"path": "tasks/agentic/track-b/pi-log-v0.5-qualification.json", "sha256": "9454ec924703c88a5f2d6348ebc908b42ee4fae92350c89a604f1940e2cf7a10"},
+      {"path": "tasks/agentic/log-incident-analysis/log-incident-v0.5-offline-qualification.json", "sha256": "44010a4215f1c14f3a8b078e20cf5620a0c5eb96e46b02a3e6e3ac8c82315ca0"},
+      {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/case-v0.5.json", "sha256": "df20ccc55b0db7b4a463d945ee4d7bc4f5df2977db6b07ac7164c21ed728dacd"},
+      {"path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/case-v0.5.json", "sha256": "d5ae40c4a63f3c9b027ddf75c42b41d117b1dd8dbe92f2b27ccd984ee54d751b"},
+      {"path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/case-v0.5.json", "sha256": "44b03ed13f71dd483dba85cb566a7969bb6a3293f2408e84efd1d56dfdc716b5"},
+      {"path": "local_llm_benchmark/log_incident_v05.py", "sha256": "84e6bdcd6c4ae080a9b1b03c5eff965b45a4f864d0b820086c47cd187061374b"},
+      {"path": "local_llm_benchmark/log_incident_mini_v05.py", "sha256": "1e7456fa846ce8e918cbb294062e34e0fdd1b912285bf01a493b712eb023c246"},
+      {"path": "local_llm_benchmark/log_incident_pi_v05.py", "sha256": "3321664532b4a4f4909c2aa0d72ffee2ce640e6683c9e85cc807002fdda78e22"}
+    ]
+  }
+}

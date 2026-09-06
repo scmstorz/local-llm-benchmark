@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "summarization.dev.metr-long-software-tasks",
+  "case_version": "1.0.0",
+  "suite": "summarization",
+  "split": "development",
+  "difficulty": "hard",
+  "task_type": "cross_lingual_research_paper_summarization",
+  "title": "Measuring AI Ability to Complete Long Software Tasks",
+  "purpose": "Help the user understand an important empirical paper about measuring and forecasting agent capabilities without reading the full paper.",
+  "input": {
+    "source_id": "source.neurips.metr-long-software-tasks.2025.main-text",
+    "source_language": "en",
+    "private_source_path": "data/private/summarization/dev/metr-long-software-tasks/source.md",
+    "source_metadata_path": "tasks/summarization/dev/metr-long-software-tasks/source-metadata.json",
+    "contains_location_labels": true,
+    "retains_publisher_key_findings": false,
+    "minimum_num_ctx": 16384
+  },
+  "prompt": {
+    "version": "1.0.0",
+    "system_path": "tasks/summarization/dev/metr-long-software-tasks/prompt/system.txt",
+    "user_template_path": "tasks/summarization/dev/metr-long-software-tasks/prompt/user.md",
+    "source_placeholder": "{{SOURCE_TEXT}}"
+  },
+  "output": {
+    "language": "de",
+    "audience": "An informed non-specialist reader following current developments",
+    "format": "Well-structured prose with descriptive headings and optional sparing bullet points",
+    "target_words": 700,
+    "minimum_words": null,
+    "maximum_words": 1000,
+    "external_information_allowed": false,
+    "source_location_labels_allowed": false
+  },
+  "evaluation": {
+    "benchmark_card_path": "tasks/summarization/dev/metr-long-software-tasks/benchmark-card.json",
+    "benchmark_card_version": "1.0.0",
+    "judge_instructions_path": "tasks/summarization/dev/metr-long-software-tasks/judge-instructions.md",
+    "judge_instructions_version": "1.0.0",
+    "judge_result_schema_path": "tasks/summarization/dev/metr-long-software-tasks/judge-result.schema.json",
+    "judge_result_schema_version": "1.2.0",
+    "judge_kind": "interactive_codex",
+    "paid_judge_api": false
+  },
+  "suitability": {
+    "strengths": [
+      "NeurIPS 2025 Main Conference paper with direct relevance to agentic software work",
+      "Different evidence shape from TheAgentCompany: human baselines, statistical modeling, robustness checks and forecasting",
+      "Requires careful separation of observed results, qualitative interpretation and conditional extrapolation",
+      "Contains quantitative results whose meaning depends on success probability, task distribution and reference humans"
+    ],
+    "limitations": [
+      "English-to-German output combines comprehension, translation and summarization",
+      "Only the ten-page main paper is included; appendices remain outside the executable input",
+      "The main paper itself uses both 169 and 170 for closely related task counts and both 11 and 12 for frontier-model counts",
+      "The reported model results and forecasts belong to the frozen 2025 publication"
+    ]
+  }
+}

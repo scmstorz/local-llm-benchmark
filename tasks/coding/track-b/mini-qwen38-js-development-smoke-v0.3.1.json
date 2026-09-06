@@ -1,0 +1,185 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "mini-qwen38-js-development-smoke-v0.3.1",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-04",
+  "track": "B",
+  "harness_id": "mini-v0.3",
+  "evidence_class": "excluded_development_smoke",
+  "purpose": "Determine whether the interruption-safe time-first Mini v0.3 adapter produces one complete, interpretable live trajectory on the discriminating JavaScript case before any measured cohort is planned.",
+  "supersedes_unexecuted_plan": "tasks/coding/track-b/mini-qwen38-js-development-smoke-v0.3.json",
+  "repository_commit": "f26fa8febe802379ba5cee6833690d5e5b1e7be3",
+  "runtime": {
+    "name": "ollama",
+    "version": "0.33.2",
+    "host": "http://127.0.0.1:11434"
+  },
+  "deployment": {
+    "name": "qwen3.8:27b-mlx",
+    "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "size_bytes": 18174721847,
+    "quantization": "nvfp4"
+  },
+  "case": {
+    "case_id": "coding.dev.async-cache-coalescing",
+    "case_path": "tasks/coding/dev/async-cache-coalescing/case.json",
+    "language": "javascript",
+    "selection_reason": "Qwen 3.8 failed the direct Track A case, passed it under Pi v0.3 and previously produced an incomplete Mini v0.2 result with protocol errors. This makes the case sensitive to the deployed agent system."
+  },
+  "configuration": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 1600,
+    "maximum_active_wall_time_seconds": 900,
+    "provider_request_timeout_seconds": 300,
+    "maximum_agent_turns": null,
+    "maximum_total_output_tokens": null,
+    "maximum_protocol_errors": null,
+    "maximum_file_reads_emergency": 200,
+    "maximum_file_writes_emergency": 100,
+    "maximum_public_test_runs_emergency": 30,
+    "automatic_retries": 0
+  },
+  "execution_boundary": {
+    "model_call": "Run separately with Ollama loopback access and no candidate-code execution.",
+    "action_step": "Run inside the surrounding Codex workspace sandbox; only the frozen public-test action may execute candidate code.",
+    "final_verification": "Run separately inside the surrounding Codex workspace sandbox after trajectory termination.",
+    "hidden_test_feedback_to_model": false,
+    "external_network_available_to_agent": false,
+    "interrupted_provider_request_policy": "Preserve the ambiguous run and start a fresh run identity; never splice or automatically retry the interrupted stream."
+  },
+  "resource_gate": {
+    "empty_state_observation_seconds": 30,
+    "must_check_processes": [
+      "Mnemosyn",
+      "News-App",
+      "Blog-Read-O-Matic"
+    ],
+    "loaded_models_must_be_empty": true,
+    "unload_measured_model_after_run": true
+  },
+  "success_gate_for_sweep_planning": {
+    "requires_verified_success": false,
+    "requires_complete_terminal_outcome": true,
+    "requires_no_adapter_or_orchestration_defect": true,
+    "requires_failure_if_any_to_be_machine_classified": true,
+    "interpretation": "A model or task failure is an interpretable qualification result. An adapter, persistence or execution-boundary failure blocks the measured sweep."
+  },
+  "comparison_rules": {
+    "attempts": 1,
+    "automatic_retries": 0,
+    "result_excluded_from_measured_aggregates": true,
+    "no_harness_ranking_claim": true
+  },
+  "authorization": {
+    "source": "User explicitly authorized the updated Mini v0.3 plan, qualification, excluded smoke and conditional five-by-three sweep on 2026-09-04.",
+    "live_execution_allowed_after_resource_gate": true
+  },
+  "frozen_inputs": {
+    "artifacts": [
+      {
+        "path": "local_llm_benchmark/mini_v03_adapter.py",
+        "sha256": "8579a6d9332fb268a40020b0acc3513e6e3afa782ca89569a168150124691ce1"
+      },
+      {
+        "path": "local_llm_benchmark/mini_v03_sweep.py",
+        "sha256": "a6505e0a0bca1f882873a37fe5f66cce086f777a42f92e94e3d19399e55ac290"
+      },
+      {
+        "path": "local_llm_benchmark/agentic.py",
+        "sha256": "e2be075cc71772352dff156ae07824c44cdfd2a0fdebbace6ee1fccd48d50883"
+      },
+      {
+        "path": "local_llm_benchmark/coding.py",
+        "sha256": "0996db95185a53756e24fd56eff311a58f4d4409619f7492f2c7709e8a19cb70"
+      },
+      {
+        "path": "local_llm_benchmark/ollama.py",
+        "sha256": "cda83848193dd1ceb3d608c4fe0ae1d6e886fdc1121c2225bd3d2d020cc13102"
+      },
+      {
+        "path": "local_llm_benchmark/runner.py",
+        "sha256": "5446a65d92386dca99655593fc6dd8f85b9956e495bfa179e82549dc66575c54"
+      },
+      {
+        "path": "tasks/coding/track-b/mini-v0.3.json",
+        "sha256": "a0473568ea70b8c07dfe3b3042281323aeb59ab8de4d8ea7e18f9127f18b3518"
+      },
+      {
+        "path": "tasks/coding/track-b/mini-v0.3-qualification.json",
+        "sha256": "65e9baba2e8266ce8a953131fdfc036f6d30a05672480716ad6c8c064592caad"
+      },
+      {
+        "path": "tasks/coding/track-b/track-b-mini-v0.3.json",
+        "sha256": "b3568186c63525c0f5ae29a983a66c192c01d1425447352f7a78adc44797294b"
+      },
+      {
+        "path": "tasks/coding/track-b/track-b-v0.3.json",
+        "sha256": "cac27f7bdfee3e8bb46f39a12633c9c259f95b6537193904043d36e962daa260"
+      },
+      {
+        "path": "tasks/coding/track-b/prompts/mini-system-v0.3.txt",
+        "sha256": "75314f0664a6d127039d7b8c2804f242d4bf164ec52f0183289513107872e1c4"
+      },
+      {
+        "path": "tasks/coding/track-b/schemas/mini-action-v0.3.json",
+        "sha256": "155ec85fd1f47d3f9b06924bfdfcaa838b1472d21c7aa83a83fd02e1c6e35539"
+      },
+      {
+        "path": "models/catalog.json",
+        "sha256": "79e56238c9405d27dfba266e319a837571b6239cb9a6d1682729e58ebcf3d834"
+      },
+      {
+        "path": "models/lifecycle.json",
+        "sha256": "18d896067eddf62ddf3c7ded8d34f22e32fef9994877239cf8e6abf877c30621"
+      },
+      {
+        "path": "tests/test_mini_v03_adapter.py",
+        "sha256": "773da96b861e7e98e264f7db993936f38828ba3811b5dc8d27dea1d98ec827d9"
+      },
+      {
+        "path": "tests/test_mini_v03_sweep.py",
+        "sha256": "c72df95ee0ae83a767706d18baf8a92199bc95b55bf6bde78d086aa698d20d7b"
+      },
+      {
+        "path": "tasks/coding/dev/async-cache-coalescing/case.json",
+        "sha256": "3ddbd8799d4d34fa6a548ddcda3704a10182be6f421ee3ea3a3a0aee3e8e0995"
+      },
+      {
+        "path": "tasks/coding/dev/async-cache-coalescing/fixture-manifest.json",
+        "sha256": "e579c70324d365d743a64fc3655a10df85e84bfcac97e91f2833e091c0920536"
+      },
+      {
+        "path": "tasks/coding/dev/async-cache-coalescing/TASK.md",
+        "sha256": "9c8ff7589cbc9f5d37f7c366b604fcb855111fd62a2ec59d4117e095e3fdbd8f"
+      },
+      {
+        "path": "tasks/coding/dev/async-cache-coalescing/benchmark-card.json",
+        "sha256": "dee8ff7c4a080127fbd8257d0ab9bea51025fe51f3ca71530f91206042210475"
+      },
+      {
+        "path": "tasks/coding/dev/async-cache-coalescing/fixture/package.json",
+        "sha256": "e216458848b7ccab346acb4b3a741fc778dd7122af977c30086f61471b246857"
+      },
+      {
+        "path": "tasks/coding/dev/async-cache-coalescing/fixture/src/async-cache.mjs",
+        "sha256": "00d5ea72293897799e47738fdbbf0b060bb84a08afa6440d8e8248c48bea1671"
+      },
+      {
+        "path": "tasks/coding/dev/async-cache-coalescing/fixture/src/index.mjs",
+        "sha256": "56d3a995070a524ef90c3b0bb9395be8c0f0517e836817f2d74fb4119a62496c"
+      },
+      {
+        "path": "tasks/coding/dev/async-cache-coalescing/fixture/tests/cache.test.mjs",
+        "sha256": "018465cbf881c869d3f44646329ff30216d84519d897f71fe7a882cdd787fb5f"
+      },
+      {
+        "path": "tasks/coding/dev/async-cache-coalescing/verifier/hidden_tests.mjs",
+        "sha256": "1454a79a190b49ab3af52afc517e5a91d6812de7fd15d852a64d0fe6a71034ee"
+      }
+    ]
+  }
+}

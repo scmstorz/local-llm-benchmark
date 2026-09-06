@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "log-incident-qualification-smokes-v0.1",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-05",
+  "track": "B",
+  "evidence_class": "excluded_qualification_smoke_pair",
+  "purpose": "Qualify the complete Mini and Pi read-only log-investigation systems before designing a measured non-coding Capability Sweep.",
+  "runtime": {
+    "name": "ollama",
+    "version": "0.33.2",
+    "host": "http://127.0.0.1:11434"
+  },
+  "deployment": {
+    "name": "qwen3.8:27b-mlx",
+    "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "size_bytes": 18174721847,
+    "quantization": "nvfp4",
+    "template_sha256": "b507b9c2f6ca642bffcd06665ea7c91f235fd32daeefdf875a0f938db05fb315"
+  },
+  "case": {
+    "case_id": "agentic.ops.checkout-pool-regression",
+    "case_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/case.json"
+  },
+  "execution_order": [
+    {
+      "position": 1,
+      "harness_id": "mini-log-v0.1",
+      "smoke_plan_path": "tasks/agentic/track-b/mini-log-qwen38-development-smoke-v0.1.json",
+      "smoke_plan_sha256": "a20b722ef11a586f1244b376750991342745325ce88a7b4d4e633505b1dbbb8d"
+    },
+    {
+      "position": 2,
+      "harness_id": "pi-log-v0.1",
+      "smoke_plan_path": "tasks/agentic/track-b/pi-log-qwen38-development-smoke-v0.1.json",
+      "smoke_plan_sha256": "a96935dbd10971c127ff40972ff092627e21a826419e958367d84705f30911b7"
+    }
+  ],
+  "resource_gate": {
+    "empty_state_observation_seconds": 30,
+    "loaded_models_must_be_empty_before_each_system": true,
+    "manual_exclusive_window_confirmation_required": true,
+    "manual_exclusive_window_reason": "A separate development agent may restart Behat after an instantaneous process check. Live execution therefore also requires confirmation that this external scheduler is quiescent for the whole smoke.",
+    "exact_ollama_version_required": true,
+    "exact_model_digest_required": true,
+    "process_snapshots_before_each_system": 2,
+    "blocking_process_rules": [
+      {
+        "rule_id": "behat_test_runner",
+        "pattern": "(?i)(?:^|[\\s/])(?:vendor/bin/)?behat(?:[\\s]|$)",
+        "description": "An active Behat command is a competing test workload. Persistent router paths ending in behat/router.php do not match this rule."
+      },
+      {
+        "rule_id": "behat_environment_worker",
+        "pattern": "(?i)(?:--env=behat_test|var/behat-env)",
+        "description": "A worker attached to the Behat test environment is treated as an active competing workload; router-only infrastructure does not match."
+      },
+      {
+        "rule_id": "other_test_runner",
+        "pattern": "(?i)(?:^|[\\s/])(?:pytest|phpunit|jest|vitest|mocha|playwright|cypress)(?:[\\s]|$)",
+        "description": "A common active test runner is a competing workload."
+      },
+      {
+        "rule_id": "package_test_script",
+        "pattern": "(?i)(?:^|[\\s/])(?:npm|pnpm|yarn)(?:[\\s]+run)?[\\s]+test(?:[\\s]|$)",
+        "description": "An active package-manager test command is a competing workload."
+      },
+      {
+        "rule_id": "mnemosyn_application",
+        "pattern": "(?i)^(?!.*mnemosyn_mcp\\.py).*mnemosyn",
+        "description": "The user-facing Mnemosyn application can load models. Its separately named idle MCP helper is excluded."
+      },
+      {
+        "rule_id": "news_or_blog_application",
+        "pattern": "(?i)(?:news-app|blog-read-o-matic)",
+        "description": "Known local applications can load embedding or generation models."
+      }
+    ],
+    "blocked_gate_creates_model_run": false,
+    "blocked_gate_makes_inference_request": false,
+    "model_unloaded_after_each_system": true,
+    "postflight_loaded_models_must_be_empty": true
+  },
+  "state_machine": {
+    "local_commands": [
+      "start",
+      "advance",
+      "cleanup",
+      "report",
+      "status"
+    ],
+    "only_live_command": "live",
+    "automatic_retries": 0,
+    "interrupted_live_boundary": "preserve_as_inconclusive_and_stop_without_retry",
+    "hidden_verification_after_terminal_model_output": true,
+    "raw_runs_preserved": true
+  },
+  "comparison_rules": {
+    "one_attempt_per_complete_system": true,
+    "automatic_retries": 0,
+    "adaptive_repetitions": false,
+    "measured_capability_evidence": false,
+    "exclude_from_future_measured_aggregates": true,
+    "same_model_and_case": true,
+    "complete_system_comparison_only": true,
+    "one_factor_causal_harness_claim_allowed": false,
+    "performance_ranking_allowed": false
+  },
+  "success_gate_for_sweep_planning": {
+    "both_units_must_have_terminal_outcomes": true,
+    "verified_success_required": false,
+    "adapter_or_orchestration_defect_allowed": false,
+    "unclassified_failure_allowed": false,
+    "interpretation": "The smokes qualify end-to-end machinery. A verified task failure may still qualify the path if it is complete, preserved and correctly classified."
+  },
+  "reporting": {
+    "report_id": "log-incident-qualification-smokes-v0.1",
+    "json_path": "reports/agentic/log-incident-qualification-smokes-v0.1.json",
+    "markdown_path": "reports/agentic/log-incident-qualification-smokes-v0.1.md",
+    "candidate_outputs_public": false,
+    "absolute_paths_public": false,
+    "raw_evidence_public": false,
+    "generate_after_terminal_pair_with": "python3 -m local_llm_benchmark.log_incident_smokes report --study-dir STUDY_DIR"
+  },
+  "authorization": {
+    "source": "The user authorized offline preparation of the paired smokes on 2026-09-05.",
+    "live_execution_allowed_only_after_resource_gate": true,
+    "live_execution_deferred_while_behat_is_active": true,
+    "external_agent_may_restart_behat": true
+  },
+  "frozen_inputs": {
+    "harness_qualification_commit": "a748fb2b993d0fed600399790b6eebff33173a4b",
+    "artifacts": [
+      {"path": "local_llm_benchmark/log_incident_smokes.py", "sha256": "c3313223eaaef7e1345edb6c392b229eb7420440b650f18bb26e484f16e6bb27"},
+      {"path": "local_llm_benchmark/log_incident_mini.py", "sha256": "dbcb82670cbd9ce121f01a5b9d2555f6e0be0f63e594fb669bc391988e7e2f2c"},
+      {"path": "local_llm_benchmark/log_incident_pi.py", "sha256": "ad9626be3351ea2ede1cf0fec158190ceae7f684ca071333abb9c30215c2a741"},
+      {"path": "local_llm_benchmark/macos_sandbox_log.py", "sha256": "c4fd42fa1b4bacd08feba49b871b5ae4336608a8d570d597c3c954af7b07a167"},
+      {"path": "tasks/agentic/track-b/mini-log-qwen38-development-smoke-v0.1.json", "sha256": "a20b722ef11a586f1244b376750991342745325ce88a7b4d4e633505b1dbbb8d"},
+      {"path": "tasks/agentic/track-b/pi-log-qwen38-development-smoke-v0.1.json", "sha256": "a96935dbd10971c127ff40972ff092627e21a826419e958367d84705f30911b7"},
+      {"path": "tasks/agentic/track-b/mini-log-v0.1-qualification.json", "sha256": "c37d0485dc09fa095a79543e239218b4520ddf5343f64ce29708e1c79c368b4c"},
+      {"path": "tasks/agentic/track-b/pi-log-v0.1-qualification.json", "sha256": "731b10ba7fa1eb2f627ec6815ab0fb77f22edf02df85df2d9ae0ce0813d6dc30"},
+      {"path": "tasks/agentic/track-b/log-incident-v0.1.json", "sha256": "24db632a199177a341665db1f01f9575d480700cc69f9cf0e1c38a60829221cf"},
+      {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/case.json", "sha256": "3fe7dfdc73497c42b9ba0e7ce005f498dc3bcc7fc5d885cedb6823e1720180d2"},
+      {"path": "tests/test_log_incident_smokes.py", "sha256": "7bb0357a85792aee9895ebc569906d1da1abb79c2448b29ac65314e2414e43e0"}
+    ]
+  }
+}

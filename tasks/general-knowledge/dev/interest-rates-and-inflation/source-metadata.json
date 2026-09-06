@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "reference.general-knowledge.interest-rates-and-inflation.2026-08-28",
+  "title": "Frozen reference dossier: interest rates and inflation",
+  "publisher": "Local LLM Benchmark Lab",
+  "page_type": "project_authored_reference_dossier",
+  "retrieved_at": "2026-08-28",
+  "source_language": "en",
+  "authoritative_sources": [
+    "https://www.federalreserve.gov/faqs/money_12856.htm",
+    "https://www.bankofengland.co.uk/quarterly-bulletin/2024/2024/about-a-rate-of-general-interest-how-monetary-policy-transmits",
+    "https://www.federalreserve.gov/newsevents/speech/kugler20250422a.htm",
+    "https://www.federalreserve.gov/newsevents/speech/mishkin20071020a.htm"
+  ],
+  "artifacts": {
+    "reference_source": {
+      "path": "tasks/general-knowledge/dev/interest-rates-and-inflation/reference.md",
+      "sha256": "4f57155ae2d8a7102843af272786ae2771280edc4c1cc9a5dbe3664729ea88d9",
+      "word_count_whitespace": 518,
+      "location_labels_added": true,
+      "candidate_visible": false
+    }
+  },
+  "construction": {
+    "method": "Project-authored synthesis of cited authoritative sources",
+    "semantic_policy": "Preserve source distinctions and conditions without copying source prose.",
+    "frozen_on": "2026-08-28"
+  },
+  "copyright": {
+    "dossier_license": "project_repository_license",
+    "source_publications_copied": false,
+    "git_tracked": true
+  }
+}

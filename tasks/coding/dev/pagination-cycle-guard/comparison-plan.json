@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "pagination-cycle-guard-five-model-v1",
+  "case_id": "coding.dev.pagination-cycle-guard",
+  "case_path": "tasks/coding/dev/pagination-cycle-guard/case.json",
+  "track": "A",
+  "study_mode": "capability_sweep",
+  "status": "frozen_before_comparison_execution",
+  "frozen_at": "2026-09-01T17:07:03Z",
+  "model_metadata_verified_at": "2026-09-01T17:07:03Z",
+  "model_metadata_verification": "Ollama /api/tags metadata query only; no model load or inference",
+  "frozen_inputs": {
+    "case_file_sha256": "8a42e637b048da00437fa3603c701ff652c8246e1907d8c7b12b9322caa1500f",
+    "benchmark_card_file_sha256": "70274d7d3a6e1298258a3b2a0394edea189f96db7e6ccc18c8beb99734bf660d",
+    "task_file_sha256": "010425aa1e61955d0fbd08fdfd14b4a3ce7fb691252747f1695cc797a1233bef",
+    "system_prompt_file_sha256": "97defd0b54a6919917abd88ba1f3c4aa6f570a1852c319c09d98966a7435adbf",
+    "fixture_manifest_sha256": "6c8da4a1bb22d0e8710676c1e7c1cc5318a9a6c6bc10c63514dcbd7b931b722b",
+    "hidden_test_file_sha256": "cc9fa704a3688e00e1c47a28d3d3d959f3f00deee8a49fb374440a63adfd573d",
+    "coding_runner_file_sha256": "20c6b949a5decdda7e93b44ce0bafd94d5b79d8204f8c146be1974d0c6c225e8"
+  },
+  "development_smoke": {
+    "run_id": "coding-run-20260901T170025Z-3ef66116",
+    "model_alias": "E",
+    "verified_success": false,
+    "failure_code": "patch_apply_failure",
+    "excluded_from_comparison": true,
+    "reason": "The smoke outcome was observed before this comparison plan was frozen. Every deployment, including Ornith, receives a fresh post-freeze attempt."
+  },
+  "models": {
+    "A": {
+      "name": "qwen3.6:35b-a3b-mxfp8",
+      "digest": "d82a30588f1c7bc2afa5226f3d67c8987bf505104f8f0512a0f8643ac4525d16"
+    },
+    "B": {
+      "name": "qwen3.8:27b-mlx",
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e"
+    },
+    "C": {
+      "name": "gpt-oss:20b",
+      "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7"
+    },
+    "D": {
+      "name": "muse-glimmer:30b-mlx",
+      "digest": "ef32a55b4976faa955cbab0462d09bd081351ef5b87d73d8fcd299bf17c111d7"
+    },
+    "E": {
+      "name": "ornith-1.5:35b",
+      "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc"
+    }
+  },
+  "execution_order": [
+    "C",
+    "A",
+    "B",
+    "E",
+    "D"
+  ],
+  "order_method": "Counterbalance the DBCEA and AEDBC orders from the two prior five-model writing comparisons. Among all permutations, minimize squared deviation from equal cumulative position totals, then minimize repeated alias positions, then choose the lexicographically first tie. The authoritative result is CABED.",
+  "methodology": {
+    "measured_attempts_per_model": 1,
+    "warmup_attempts_per_model": 0,
+    "model_state_at_request": "cold_after_explicit_unload",
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict": 3000,
+    "keep_alive": "5m",
+    "timeout_seconds": 600,
+    "automatic_retries": 0,
+    "adaptive_repeats": "none_in_capability_sweep",
+    "patch_repair": "forbidden",
+    "test_feedback_to_candidate": false
+  },
+  "environment_gate": {
+    "required": true,
+    "known_ollama_consumers": [
+      "Mnemosyn",
+      "News-App"
+    ],
+    "resource_intensive_external_workloads_must_be_idle": true,
+    "loaded_models_must_be_empty_before_start": true,
+    "empty_state_observation_seconds": 30,
+    "unload_candidate_after_each_attempt": true,
+    "unexpected_models_invalidate_performance_evidence": true
+  },
+  "failure_policy": {
+    "preserve_every_attempt": true,
+    "malformed_or_unappliable_patch_is_task_failure": true,
+    "runtime_failure_is_not_removed_from_results": true,
+    "failed_attempts_are_not_replaced": true,
+    "public_or_hidden_test_failure_is_verified_success_false": true
+  },
+  "evaluation": {
+    "primary_outcome": "verified_success",
+    "quality_scale_maximum": null,
+    "llm_judge_required": false,
+    "deterministic_verifier_required": true,
+    "partial_test_credit_is_primary": false,
+    "report_quality_performance_and_reliability_separately": true
+  },
+  "performance_interpretation": "Wall time and Ollama timing fields are retained as exploratory cold-attempt diagnostics. One attempt per model does not estimate steady-state latency, latency tails or reliability distributions.",
+  "execution_authorization": {
+    "plan_freeze_does_not_authorize_generation": true,
+    "explicit_subsequent_user_request_required": true
+  },
+  "interpretation_limit": "This is one development task and one post-freeze attempt per deployment. It can reveal verified capability differences on this case but cannot establish general coding superiority or a minimum sufficient model."
+}

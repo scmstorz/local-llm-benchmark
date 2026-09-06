@@ -1,0 +1,30 @@
+.DS_Store
+.env
+.venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Copyrighted or private benchmark inputs stay local. Version only metadata,
+# hashes, annotations, prompts and evaluation contracts.
+data/private/
+
+# Generated benchmark artifacts can become large. Keep only curated summaries.
+results/runs/
+results/raw/
+results/comparisons/
+results/sweeps/
+results/challenger-evaluations/
+results/coding-runs/
+results/agentic-runs/
+results/agentic-dry-runs/
+results/agentic-sweeps/
+results/agentic-confirmations/
+results/agentic-studies/

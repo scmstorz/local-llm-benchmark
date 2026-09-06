@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "pagination-cycle-guard-track-a-whole-file-v1.1",
+  "plan_id": "pagination-cycle-guard-five-model-whole-file-v1.1",
+  "plan_path": "tasks/coding/dev/pagination-cycle-guard/comparison-plan-whole-file-v1.1.json",
+  "case_id": "coding.dev.pagination-cycle-guard",
+  "case_version": "1.1.0",
+  "track": "A",
+  "study_mode": "capability_sweep",
+  "artifact_format": "whole_file_envelope",
+  "execution_started_at": "2026-09-01T19:48:35.658903Z",
+  "execution_completed_at": "2026-09-01T19:54:28.992695Z",
+  "report_generated_at": "2026-09-01T19:57:27Z",
+  "execution_order": [
+    "C",
+    "A",
+    "B",
+    "E",
+    "D"
+  ],
+  "environment": {
+    "ollama_version": "0.32.15",
+    "harness_git_commit": "ddfd3335fe4932ade742a048ef2f16b981ee5fd0",
+    "model_digests_matched_plan": true,
+    "news_app_worker_observed": false,
+    "mnemosyn_application_worker_observed": false,
+    "idle_mnemosyn_mcp_helpers_observed": 3,
+    "idle_behat_infrastructure_observed": true,
+    "behat_process_cpu_delta_seconds_over_30_seconds": 0.07,
+    "ollama_empty_for_preflight_seconds": 30,
+    "candidate_unloaded_after_every_attempt": true,
+    "ollama_empty_for_postflight_seconds": 30,
+    "unexpected_model_observed": false,
+    "generation_verification_boundary": "Every elevated Ollama generation ended with verification pending. Candidate code was inspected and then executed only by the separate workspace-sandbox completion command."
+  },
+  "runs": [
+    {
+      "position": 1,
+      "alias": "C",
+      "model": "gpt-oss:20b",
+      "run_id": "coding-run-20260901T194835Z-a0d353d1",
+      "done_reason": "length",
+      "response_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "output_status": "empty",
+      "artifact_paths": [],
+      "public_tests_pass": null,
+      "hidden_tests_pass": null,
+      "frozen_verifier_success": false,
+      "failure_code": "empty_output",
+      "posthoc_requirement_audit": {
+        "applicable": false,
+        "pass": null,
+        "reason": "No visible candidate artifact existed."
+      },
+      "wall_time_seconds": 39.84973258397076,
+      "load_duration_seconds": 6.144277125,
+      "prompt_eval_duration_seconds": 1.034704,
+      "eval_duration_seconds": 32.655886,
+      "prompt_tokens": 1700,
+      "output_tokens": 3000,
+      "output_tokens_per_second": 91.86705269610506,
+      "diagnostic": "The deployment exhausted the full generation budget in hidden reasoning and exposed no candidate file."
+    },
+    {
+      "position": 2,
+      "alias": "A",
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "run_id": "coding-run-20260901T194946Z-f38cc56a",
+      "done_reason": "stop",
+      "response_sha256": "2f52d5a68dc2032742f1b73414d88152511fd4e15c5b7347a827549c267d91a9",
+      "artifact_sha256": "e1cbdbfe56f3b8550e7e2c0c8d63b26e956237209202664e097e9950e954b8ff",
+      "output_status": "valid",
+      "artifact_paths": [
+        "src/paged_sync/sync.py"
+      ],
+      "public_tests_pass": true,
+      "hidden_tests_pass": false,
+      "frozen_verifier_success": false,
+      "failure_code": "hidden_tests_failed",
+      "posthoc_requirement_audit": {
+        "applicable": true,
+        "pass": true,
+        "scenario": "A cycle returning to a non-empty start_cursor raises before that cursor is refetched."
+      },
+      "wall_time_seconds": 38.97852645802777,
+      "load_duration_seconds": 17.123898375,
+      "prompt_eval_duration_seconds": 16.53829025,
+      "eval_duration_seconds": 4.96913075,
+      "prompt_tokens": 1782,
+      "output_tokens": 412,
+      "output_tokens_per_second": 82.91188554456934,
+      "diagnostic": "All public tests passed, but the hidden exact-budget test failed because PageLimitExceeded was not raised after the final permitted fetch."
+    },
+    {
+      "position": 3,
+      "alias": "B",
+      "model": "qwen3.8:27b-mlx",
+      "run_id": "coding-run-20260901T195110Z-f85acf4e",
+      "done_reason": "stop",
+      "response_sha256": "5a656f13a449c625154501d4b400b59918c0515ea4e200bb96e7074c3114adc0",
+      "artifact_sha256": "fb460fe6de4a2f9b7e96929d162863fc61f82953b87b234c69a22a0154b8df0c",
+      "output_status": "valid",
+      "artifact_paths": [
+        "src/paged_sync/sync.py"
+      ],
+      "public_tests_pass": true,
+      "hidden_tests_pass": true,
+      "frozen_verifier_success": true,
+      "failure_code": null,
+      "posthoc_requirement_audit": {
+        "applicable": true,
+        "pass": false,
+        "scenario": "A cycle returning to a non-empty start_cursor must raise before that cursor is refetched.",
+        "expected_calls": [
+          "resume",
+          "next"
+        ],
+        "observed_calls": [
+          "resume",
+          "next",
+          "resume"
+        ],
+        "observed_exception_cursor": "next",
+        "interpretation": "The frozen verifier produced a false positive for an explicit candidate-visible requirement."
+      },
+      "wall_time_seconds": 16.63179458299419,
+      "load_duration_seconds": 3.321923083,
+      "prompt_eval_duration_seconds": 7.027873333,
+      "eval_duration_seconds": 6.279072625,
+      "prompt_tokens": 1782,
+      "output_tokens": 401,
+      "output_tokens_per_second": 63.8629338994148,
+      "diagnostic": "The candidate passed all ten frozen tests but omitted the supplied start cursor from its initial seen-cursor set; a direct post-hoc counterexample refetched it."
+    },
+    {
+      "position": 4,
+      "alias": "E",
+      "model": "ornith-1.5:35b",
+      "run_id": "coding-run-20260901T195224Z-4ab8fb1b",
+      "done_reason": "stop",
+      "response_sha256": "1181f681ca776d65d773aceead41381c4061f912901fec28a486435fecf55255",
+      "artifact_sha256": "b34e80a46c156f6ca616beac874e1a5ed8fca9f6db0a7cf8ca61f4ec65d14555",
+      "output_status": "valid",
+      "artifact_paths": [
+        "src/paged_sync/sync.py"
+      ],
+      "public_tests_pass": true,
+      "hidden_tests_pass": true,
+      "frozen_verifier_success": true,
+      "failure_code": null,
+      "posthoc_requirement_audit": {
+        "applicable": true,
+        "pass": true,
+        "scenario": "A cycle returning to a non-empty start_cursor raises before that cursor is refetched."
+      },
+      "wall_time_seconds": 15.063422915991396,
+      "load_duration_seconds": 9.400590916,
+      "prompt_eval_duration_seconds": 1.303408,
+      "eval_duration_seconds": 4.350717,
+      "prompt_tokens": 1782,
+      "output_tokens": 385,
+      "output_tokens_per_second": 88.49116134191215,
+      "diagnostic": "The response was byte-identical to the excluded successful v1.1 smoke and passed the frozen verifier plus the post-hoc requirement audit."
+    },
+    {
+      "position": 5,
+      "alias": "D",
+      "model": "muse-glimmer:30b-mlx",
+      "run_id": "coding-run-20260901T195321Z-4441eae1",
+      "done_reason": "stop",
+      "response_sha256": "75505a81622344666f27446463615fb119bc1fec2434b5710218cb3472e258bd",
+      "artifact_sha256": "357198b9bb16c8876c99f4810dce4f8ba9446cf02f49208a959074d54b45c3f0",
+      "output_status": "valid",
+      "artifact_paths": [
+        "src/paged_sync/sync.py"
+      ],
+      "public_tests_pass": true,
+      "hidden_tests_pass": true,
+      "frozen_verifier_success": true,
+      "failure_code": null,
+      "posthoc_requirement_audit": {
+        "applicable": true,
+        "pass": true,
+        "scenario": "A cycle returning to a non-empty start_cursor raises before that cursor is refetched."
+      },
+      "wall_time_seconds": 54.25126716698287,
+      "load_duration_seconds": 5.029653083,
+      "prompt_eval_duration_seconds": 6.361807875,
+      "eval_duration_seconds": 42.850293625,
+      "prompt_tokens": 1654,
+      "output_tokens": 1666,
+      "output_tokens_per_second": 38.879546884318465,
+      "diagnostic": "The candidate passed the frozen verifier and the post-hoc requirement audit, but used more than four times Ornith's output tokens."
+    }
+  ],
+  "aggregate": {
+    "planned_attempts": 5,
+    "completed_inference_attempts": 5,
+    "visible_nonempty_outputs": 4,
+    "valid_whole_file_artifacts": 4,
+    "public_test_suites_executed": 4,
+    "public_test_suites_passed": 4,
+    "hidden_test_suites_executed": 4,
+    "hidden_test_suites_passed": 3,
+    "frozen_verifier_successes": 3,
+    "frozen_verifier_success_rate_observed": 0.6,
+    "posthoc_counterexamples_found": 1,
+    "posthoc_audited_successes": 2,
+    "posthoc_audited_success_rate_observed": 0.4,
+    "sum_of_attempt_wall_time_seconds": 164.774743707967,
+    "fastest_frozen_verifier_success": {
+      "model": "ornith-1.5:35b",
+      "wall_time_seconds": 15.063422915991396
+    },
+    "fastest_success_without_known_counterexample": {
+      "model": "ornith-1.5:35b",
+      "wall_time_seconds": 15.063422915991396
+    }
+  },
+  "interpretation": {
+    "preregistered_result": "Three of five deployments passed the frozen v1.1 verifier: Qwen 3.8, Ornith and Muse Glimmer.",
+    "posthoc_audit_result": "A deterministic counterexample derived directly from candidate-visible requirement 4 invalidated Qwen 3.8 as a fully verified task solution. Ornith and Muse Glimmer remain successful under the expanded audit; this two-of-five figure is post-hoc and not a replacement preregistered score.",
+    "artifact_contract_finding": "The whole-file contract removed the v1 transport floor: four visible candidates were installable and reached tests, compared with zero applicable patches in v1.",
+    "verifier_finding": "Passing a frozen deterministic suite is only as strong as its behavioral coverage. The discovered start-cursor cycle gap is a concrete silent-failure example and requires a new verifier version rather than mutation of v1.1.",
+    "model_finding": "Ornith was the fastest result with no known counterexample and reproduced its excluded smoke byte for byte. Muse Glimmer was also correct but substantially slower and more verbose. Qwen 3.6 reached the hidden suite but missed the exact page budget. GPT-OSS again emitted no visible artifact.",
+    "next_experiment": "Preserve this report, add the explicit start-cursor cycle to a separately versioned verifier, validate red-to-green controls, then decide whether fresh model attempts are needed before Track B.",
+    "limits": "One task and one fresh attempt per deployment do not estimate general coding capability, reliability or latency distributions. The additional audit was designed after candidate inspection and is reported separately from the frozen outcome."
+  }
+}

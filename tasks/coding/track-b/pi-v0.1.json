@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "harness_id": "pi-v0.1",
+  "harness_family": "pinned_pi",
+  "status": "implementation_draft",
+  "protocol_path": "tasks/coding/track-b/track-b-v0.1.json",
+  "system_prompt_path": "tasks/coding/track-b/prompts/pi-system-v0.1.txt",
+  "package": {
+    "name": "@earendil-works/pi-coding-agent",
+    "version": "0.84.4",
+    "npm_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+    "npm_shasum": "3a2f04bfc5e463b4cfa36b174a586d11a0bdf9ad",
+    "repository": "https://github.com/earendil-works/pi",
+    "node_requirement": ">=22.19.0"
+  },
+  "integration": {
+    "mode": "json",
+    "non_interactive": true,
+    "session_persistence": false,
+    "startup_network": false,
+    "provider": "ollama",
+    "api": "openai-completions",
+    "base_url": "http://127.0.0.1:11434/v1",
+    "discovered_extensions": false,
+    "explicit_extension": "integrations/pi/benchmark-policy.mjs",
+    "skills": false,
+    "prompt_templates": false,
+    "themes": false,
+    "context_files": false,
+    "project_trust": false,
+    "tools": [
+      "read",
+      "write",
+      "edit",
+      "bash"
+    ]
+  },
+  "policy": {
+    "read": "candidate_visible_existing_files_only",
+    "write": "artifact_contract_allowed_existing_files_only",
+    "edit": "artifact_contract_allowed_existing_files_only",
+    "bash": "exact_frozen_public_test_command_only",
+    "hidden_tests_available_to_agent": false
+  },
+  "execution_boundary": {
+    "prepare_without_inference": true,
+    "live_execution_requires_os_sandbox": true,
+    "sandbox_backend": "pi-macos-seatbelt-v0.1",
+    "sandbox_acceptance_required_before_each_live_run": true,
+    "live_execution_and_hidden_verification_are_separate_commands": true,
+    "reason": "Pi combines model calls and public candidate-code execution in one process, unlike the split mini-harness state machine. A validated deny-by-default Seatbelt profile contains that process; hidden verification starts only after Pi has exited."
+  }
+}

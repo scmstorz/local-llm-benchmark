@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "track-b-php-ornith-development-smokes-v0.1",
+  "status": "frozen_before_execution",
+  "frozen_at": "2026-09-02T12:57:40Z",
+  "track": "B",
+  "study_mode": "capability_sweep",
+  "evidence_class": "excluded_development_smoke",
+  "purpose": "Validate that both Track B harness families can complete one real local-model trajectory and reach the unchanged deterministic PHP verifier before the shared protocol is frozen for measured comparisons.",
+  "case": {
+    "case_id": "coding.dev.php-payment-result-migration",
+    "case_version": "1.0.0",
+    "case_path": "tasks/coding/dev/php-payment-result-migration/case.json",
+    "task_family": "api_migration"
+  },
+  "deployment": {
+    "name": "ornith-1.5:35b",
+    "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc",
+    "digest_source": "Same-day Ollama /api/tags verification frozen in the Track A PHP comparison plan; exact digest must be rechecked at the final resource gate.",
+    "runtime": "ollama",
+    "provider_endpoint": "http://127.0.0.1:11434",
+    "reason_for_selection": "Ornith produced verifier-complete PHP code in the Track A transport diagnostic, making it a useful known-semantic-capability smoke while harness behavior remains the variable of interest."
+  },
+  "frozen_inputs": {
+    "harness_git_commit": "6bae95055c6de59492f65072e88ac79a4aa5f9ab",
+    "case_file_sha256": "8fd6a46683604eb6f80ad6f583a05f8d2730d6c840afcb6a9d297b395741179e",
+    "fixture_manifest_file_sha256": "3ebec29219f27d5528ab307c786fa55a528b68d3d68cfa27770619e3bce8e2b1",
+    "task_file_sha256": "277a815f4ac6ab2dbb03e27f3d6c99928c26f52f32d6787c3ce6c123aa7196aa",
+    "benchmark_card_file_sha256": "4d5b73c801053104a1a3f01589d538255f20c630a6aaf583790bde3cda1a2c4b",
+    "hidden_test_file_sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2",
+    "protocol_file_sha256": "10654032edffc519a0bfbbea6d38ec39468d56fbd0722c1e02d98cc86aa6dfb7",
+    "mini_harness_file_sha256": "0a07a512d22bd62ea53b2839ddf77384469d9bb22229b02f3dc9bd75cdeb3799",
+    "pi_harness_file_sha256": "37205eccabebe6336a17ff141de9f6590957ef2df277fe4b23c76d7e847edcc8",
+    "mini_system_prompt_file_sha256": "9c8a6f04e7dcbb33de78e173071702cf434b2efb0e0b7ef3cfef8f0e1618ddce",
+    "pi_system_prompt_file_sha256": "06909f8d8394ee349303107cff7b7ac3dd48071e36690985c13464150d978de1",
+    "mini_runner_file_sha256": "4188960f5f8afe272aaa5fbd14b68a2c2479b3f1ff0ceebc9f3065a3dc9608ec",
+    "pi_adapter_file_sha256": "05f4f5f13542d881e462822ddef7c3336bbb376b9448936fd33667b161a12ef0",
+    "macos_sandbox_file_sha256": "44ef4691354913219e78171ebb00f1a0756827fb25e517891ce3fca478915a46",
+    "cli_file_sha256": "b1570b1cdd434a81979dd66cb06b1633138bfc3fa8dd3f77d2841325cb65c95a",
+    "pi_policy_extension_file_sha256": "05ba30482ae7fa4d741164e47f0936d688492c40527345f7b65e062e27c92eb2",
+    "pi_package_lock_file_sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730"
+  },
+  "shared_inference": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 1600,
+    "maximum_total_output_tokens": 12000,
+    "keep_alive": "5m"
+  },
+  "execution_order": [
+    "mini-v0.1",
+    "pi-v0.1"
+  ],
+  "order_rationale": "The transparent project baseline runs first and the external harness second. The order was fixed before outcomes; both start after explicit model unload, and these development smokes do not support comparative latency claims.",
+  "attempts": [
+    {
+      "position": 1,
+      "harness_id": "mini-v0.1",
+      "attempts": 1,
+      "model_state_at_first_request": "cold_after_explicit_unload",
+      "execution_boundary": "Each Ollama call is a separate process from action parsing, workspace mutation and candidate test execution.",
+      "final_verification": "Separate controller step inside the surrounding Codex execution sandbox."
+    },
+    {
+      "position": 2,
+      "harness_id": "pi-v0.1",
+      "attempts": 1,
+      "model_state_at_first_request": "cold_after_explicit_unload",
+      "execution_boundary": "One continuous pinned Pi process under a run-specific accepted pi-macos-seatbelt-v0.1 profile; final hidden verification occurs only after Pi exits.",
+      "sandbox_acceptance_checks_required": 11,
+      "final_verification": "Separate controller command inside the surrounding Codex execution sandbox."
+    }
+  ],
+  "resource_gate": {
+    "required_before_each_harness": true,
+    "known_ollama_consumers": [
+      "Mnemosyn",
+      "News-App"
+    ],
+    "resource_intensive_external_workloads_must_be_idle": true,
+    "deployment_digest_must_match": true,
+    "loaded_models_must_be_empty_before_start": true,
+    "empty_state_observation_seconds": 30,
+    "unload_model_after_each_harness": true,
+    "unexpected_model_activity_blocks_or_invalidates_timing_evidence": true
+  },
+  "failure_policy": {
+    "preserve_every_attempt": true,
+    "automatic_retries": 0,
+    "adaptive_repetitions": false,
+    "manual_action_or_code_repair": false,
+    "failed_smoke_is_not_replaced": true,
+    "runtime_failure_agent_failure_and_verifier_failure_are_separate": true,
+    "final_verification_runs_after_every_termination": true
+  },
+  "reporting": {
+    "primary_outcome": "verified_success",
+    "report_harnesses_separately": true,
+    "quality_performance_reliability_and_trajectory_remain_separate": true,
+    "exclude_from_future_measured_track_b_aggregates": true,
+    "no_harness_winner_claim": true,
+    "no_reliability_or_tail_claim": true
+  },
+  "execution_authorization": {
+    "explicit_user_authorization_received": true,
+    "authorization_scope": "Implement the selected Pi sandbox, freeze and execute the excluded PHP development smoke once under mini-v0.1 and once under pi-v0.1 after the resource gate, then document the result.",
+    "resource_gate_can_pause_execution": true
+  }
+}

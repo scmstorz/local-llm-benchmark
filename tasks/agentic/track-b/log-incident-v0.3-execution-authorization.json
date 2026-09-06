@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "authorization_id": "log-incident-v0.3-execution-authorization",
+  "status": "authorized_pending_resource_gate",
+  "authorized_on": "2026-09-06",
+  "authorization_source": "The user explicitly stated that Behat and all other competing applications are stopped and authorized real runs.",
+  "plan_id": "log-incident-v0.3-specification-confirmation",
+  "plan_path": "tasks/agentic/track-b/log-incident-v0.3-confirmation-plan.json",
+  "plan_sha256": "e44a7e8ba45fff262f1d697ba47ab56537b55456d01a1b52636729bc8be81c45",
+  "live_execution_authorized": true,
+  "cell_count": 6,
+  "automatic_retries": 0,
+  "resource_gate_still_required": true,
+  "scope": {
+    "model": "qwen3.8:27b-mlx",
+    "harnesses": ["mini-log-v0.3", "pi-log-v0.3"],
+    "case_count": 3,
+    "only_frozen_execution_order": true,
+    "broader_sweep_authorized": false
+  },
+  "interruption_policy": "Preserve an interrupted live attempt as an infrastructure or control failure; never create an unplanned replacement attempt.",
+  "remote_push_authorized": false
+}

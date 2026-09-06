@@ -1,0 +1,3 @@
+{"event_id":"PROV-500","timestamp":"2026-09-05T08:12:58Z","level":"WARN","operation":"nightly-settlement-export","status":429,"tenant":"internal-finance","retry_after_seconds":10}
+{"event_id":"PROV-501","timestamp":"2026-09-05T08:14:12Z","level":"INFO","operation":"authorize","trace_id":"pay-77","provider_received":false}
+{"event_id":"PROV-502","timestamp":"2026-09-05T08:15:10Z","level":"INFO","operation":"authorize","availability":0.9999,"p95_ms":144}

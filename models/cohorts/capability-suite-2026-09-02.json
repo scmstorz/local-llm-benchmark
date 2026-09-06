@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "cohort_id": "capability-suite-new-deployments-2026-09-02",
+  "status": "complete",
+  "created_on": "2026-09-02",
+  "purpose": "Run three newly installed local deployments through the complete current text Capability Suite and evaluate them jointly against the selected canonical evidence.",
+  "suite": {
+    "path": "tasks/capability-suite-v0.3.json",
+    "suite_id": "personal-capability-suite-v0.3",
+    "suite_version": "0.3.0",
+    "sha256": "7ebdfd4a48a4361d10018d03676f6b19fbb5bfae43c03b4ea0c9c2a7d7ac0a80",
+    "case_count": 15,
+    "requests_per_deployment": 30,
+    "total_planned_requests": 90,
+    "request_derivation": "15 cases x one cold request x one immediate warm request x three deployments"
+  },
+  "execution_order": [
+    {
+      "position": 1,
+      "deployment_id": "granite4-2-30b-be22829aa92a-ollama-0-32-15",
+      "requested_name": "granite4.2:30b",
+      "digest": "be22829aa92aad40153c3b2cfd628269ac9281967e74c44d96750568a5af8ed4",
+      "status": "complete",
+      "sweep_id": "sweep-20260902T202515Z-0239c5cf",
+      "complete_cases": 15,
+      "runtime_failures": 0,
+      "quality_mean": 69.23,
+      "hard_output_constraint_failures": 6,
+      "execution_caveat": "Host standby interrupted elapsed execution and Ollama returned inconsistent duration telemetry in multiple later cases; performance evidence is diagnostic only."
+    },
+    {
+      "position": 2,
+      "deployment_id": "nemotron-3-5-lightning-30b-mlx-8b1474be6e54-ollama-0-32-15",
+      "requested_name": "nemotron-3.5-lightning:30b-mlx",
+      "digest": "8b1474be6e54dc19eb7aa08bebfb9bda147c4b9ef9796a726131ad29ad15645a",
+      "status": "complete",
+      "sweep_id": "sweep-20260903T071312Z-18ca6634",
+      "complete_cases": 15,
+      "runtime_failures": 0,
+      "quality_mean": 70.0,
+      "hard_output_constraint_failures": 5
+    },
+    {
+      "position": 3,
+      "deployment_id": "gemma4-31b-mlx-a22a363052da-ollama-0-32-15",
+      "requested_name": "gemma4:31b-mlx",
+      "digest": "a22a363052da770302019d5afab29bd967f9318e4377bddd297421189ea09d7d",
+      "status": "complete",
+      "sweep_id": "sweep-20260903T072332Z-b3b47142",
+      "complete_cases": 15,
+      "runtime_failures": 0,
+      "quality_mean": 89.13,
+      "hard_output_constraint_failures": 0
+    }
+  ],
+  "resource_gate": {
+    "required_before_each_deployment": true,
+    "conditions": [
+      "known competing Ollama clients are stopped",
+      "Ollama reports no loaded model for the observation window",
+      "the requested tag resolves to the preregistered digest",
+      "no retry or adaptive repair is introduced after seeing an answer"
+    ]
+  },
+  "resume_policy": {
+    "completed_cases_repeated": false,
+    "terminal_failures_retried": false,
+    "unfinished_case": "Preserve the partial attempt and start one fresh cold/warm pair under unchanged identities.",
+    "drift_rejected": [
+      "suite manifest",
+      "methodology",
+      "model digest",
+      "Ollama version",
+      "case order or path"
+    ]
+  },
+  "evaluation": {
+    "quality_candidate": "warm run from each completed case",
+    "selection_path": "reports/comparison-selection.json",
+    "joint_newcomer_batch": true,
+    "bundle_command_accepts_repeated_sweep_dir": true,
+    "expected_candidates_for_first_thirteen_cases": 7,
+    "expected_candidates_for_source_grounded_writing_cases": 8,
+    "reason_for_variable_count": "The first thirteen canonical comparisons contain four incumbents; the two writing comparisons already contain Ornith as a fifth incumbent.",
+    "blinding": "Fresh opaque candidate IDs are assigned independently for every case. Model mappings remain in the ignored private map until judgment is complete.",
+    "scores_are_not_merged_into_historical_batches": true,
+    "batch_id": "challenger-evaluation-20260903T074940Z-ae83d012",
+    "scalar_candidate_count": 107,
+    "required_pairwise_count": 83,
+    "independent_judgments_sha256": "4f2b52a5ad7155d73fe6a2ece17bec012e6b1266f50a1f17172556053015e04a",
+    "blind_judgments_sha256": "3614a407e4c37a81b1eb3526e96608e612bb85e57a3af244104ab90d06a534f0",
+    "report": "reports/challenger-sweeps/september-2026-model-cohort-quality.md"
+  },
+  "track_b_eligibility": {
+    "automatic_from_track_a_registration": false,
+    "granite4.2:30b": "Ollama advertises completion but not native tools; native-tool harness use requires an explicit fallback design or compatibility qualification.",
+    "nemotron-3.5-lightning:30b-mlx": "Ollama advertises completion, thinking and tools; every Track B harness still requires an executable qualification.",
+    "gemma4:31b-mlx": "Ollama advertises completion, thinking and tools; every Track B harness still requires an executable qualification."
+  },
+  "authorization": {
+    "registration_completed_without_inference": true,
+    "suite_execution_was_separately_authorized_by_user": true,
+    "suite_execution_complete": true,
+    "future_runs_require_explicit_user_start": true
+  }
+}

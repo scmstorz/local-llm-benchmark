@@ -1,0 +1,251 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "log-incident-capability-sweep-v0.2",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-06",
+  "track": "B",
+  "study_mode": "capability_sweep",
+  "protocol_id": "agentic-log-incident-v0.2",
+  "evidence_class": "measured_capability_sweep",
+  "purpose": "Measure five active-default local deployments once under both qualified complete-system conditions across three distinct log-incident constructs without making reliability, stochasticity, tail-performance or one-factor harness claims.",
+  "runtime": {
+    "name": "ollama",
+    "version": "0.33.2",
+    "host": "http://127.0.0.1:11434"
+  },
+  "model_selection": {
+    "source": "models/lifecycle.json",
+    "source_sha256": "18d896067eddf62ddf3c7ded8d34f22e32fef9994877239cf8e6abf877c30621",
+    "rule": "include_in_default_sweeps equals true",
+    "selected_count": 5,
+    "excluded_by_rule": [
+      "nemotron-3.5-lightning:30b-mlx",
+      "granite4.2:30b",
+      "gpt-oss:20b"
+    ]
+  },
+  "qualification_gate": {
+    "controller_qualification_path": "tasks/agentic/track-b/log-incident-sweep-controller-v0.2-qualification.json",
+    "controller_qualification_sha256": "406f894210c6d52c5fcc07ce3f146a840536c9a0f5e898bdc78f42b3d383e8f7",
+    "smoke_report_path": "reports/agentic/log-incident-qualification-smokes-v0.2.json",
+    "smoke_report_sha256": "68365595ecc732c18afa20c707c561d84c5122938c51f9c784dbd49feb0ff4b7",
+    "machinery_gate": "passed_with_documented_protocol_deviation",
+    "verified_success_required": false,
+    "excluded_smoke_reused_as_measured": false
+  },
+  "harnesses": [
+    {
+      "harness_id": "mini-log-v0.2",
+      "harness_family": "project_mini_harness",
+      "harness_path": "tasks/agentic/track-b/mini-log-v0.2.json",
+      "qualification_path": "tasks/agentic/track-b/mini-log-v0.2-qualification.json",
+      "qualification_sha256": "9614a9eea0a80554c188bb6859063fa3261436a25838b865fa1fce9111302588"
+    },
+    {
+      "harness_id": "pi-log-v0.2",
+      "harness_family": "pi_coding_agent",
+      "package": {
+        "name": "@earendil-works/pi-coding-agent",
+        "version": "0.84.4"
+      },
+      "harness_path": "tasks/agentic/track-b/pi-log-v0.2.json",
+      "qualification_path": "tasks/agentic/track-b/pi-log-v0.2-qualification.json",
+      "qualification_sha256": "309003c732de430e89c8e17211397ff403bcf559b0cbe93e6a07bbf882011d48"
+    }
+  ],
+  "deployments": [
+    {
+      "name": "qwen3.6:35b-a3b-mxfp8",
+      "deployment_id": "qwen3-6-35b-a3b-mxfp8-d82a30588f1c-ollama-0-33-2",
+      "digest": "d82a30588f1c7bc2afa5226f3d67c8987bf505104f8f0512a0f8643ac4525d16",
+      "size_bytes": 37667341338,
+      "quantization": "mxfp8"
+    },
+    {
+      "name": "qwen3.8:27b-mlx",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "size_bytes": 18174721847,
+      "quantization": "nvfp4"
+    },
+    {
+      "name": "muse-glimmer:30b-mlx",
+      "deployment_id": "muse-glimmer-30b-mlx-ef32a55b4976-ollama-0-33-2",
+      "digest": "ef32a55b4976faa955cbab0462d09bd081351ef5b87d73d8fcd299bf17c111d7",
+      "size_bytes": 21232871036,
+      "quantization": "unspecified_by_runtime"
+    },
+    {
+      "name": "ornith-1.5:35b",
+      "deployment_id": "ornith-1-5-35b-9f3b89b25219-ollama-0-33-2",
+      "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc",
+      "size_bytes": 22616285024,
+      "quantization": "Q4_K_M"
+    },
+    {
+      "name": "gemma4:31b-mlx",
+      "deployment_id": "gemma4-31b-mlx-a22a363052da-ollama-0-33-2",
+      "digest": "a22a363052da770302019d5afab29bd967f9318e4377bddd297421189ea09d7d",
+      "size_bytes": 19424434885,
+      "quantization": "unspecified_by_runtime"
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "agentic.ops.checkout-pool-regression",
+      "case_version": "2.0.0",
+      "case_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/case-v2.json",
+      "primary_construct": "configuration regression exposed by load"
+    },
+    {
+      "case_id": "agentic.ops.retry-queue-amplification",
+      "case_version": "1.0.0",
+      "case_path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/case.json",
+      "primary_construct": "delayed nonlinear retry amplification"
+    },
+    {
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "case_version": "1.0.0",
+      "case_path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/case.json",
+      "primary_construct": "distributed chronology repair with partial recovery"
+    }
+  ],
+  "execution_order": [
+    {"position": 1, "harness_id": "mini-log-v0.2", "model": "qwen3.6:35b-a3b-mxfp8", "case_id": "agentic.ops.checkout-pool-regression"},
+    {"position": 2, "harness_id": "pi-log-v0.2", "model": "qwen3.8:27b-mlx", "case_id": "agentic.ops.retry-queue-amplification"},
+    {"position": 3, "harness_id": "mini-log-v0.2", "model": "muse-glimmer:30b-mlx", "case_id": "agentic.ops.clock-skew-partial-recovery"},
+    {"position": 4, "harness_id": "pi-log-v0.2", "model": "ornith-1.5:35b", "case_id": "agentic.ops.checkout-pool-regression"},
+    {"position": 5, "harness_id": "mini-log-v0.2", "model": "gemma4:31b-mlx", "case_id": "agentic.ops.retry-queue-amplification"},
+    {"position": 6, "harness_id": "pi-log-v0.2", "model": "muse-glimmer:30b-mlx", "case_id": "agentic.ops.retry-queue-amplification"},
+    {"position": 7, "harness_id": "mini-log-v0.2", "model": "ornith-1.5:35b", "case_id": "agentic.ops.clock-skew-partial-recovery"},
+    {"position": 8, "harness_id": "pi-log-v0.2", "model": "gemma4:31b-mlx", "case_id": "agentic.ops.checkout-pool-regression"},
+    {"position": 9, "harness_id": "mini-log-v0.2", "model": "qwen3.6:35b-a3b-mxfp8", "case_id": "agentic.ops.retry-queue-amplification"},
+    {"position": 10, "harness_id": "pi-log-v0.2", "model": "qwen3.8:27b-mlx", "case_id": "agentic.ops.clock-skew-partial-recovery"},
+    {"position": 11, "harness_id": "mini-log-v0.2", "model": "gemma4:31b-mlx", "case_id": "agentic.ops.clock-skew-partial-recovery"},
+    {"position": 12, "harness_id": "pi-log-v0.2", "model": "qwen3.6:35b-a3b-mxfp8", "case_id": "agentic.ops.clock-skew-partial-recovery"},
+    {"position": 13, "harness_id": "mini-log-v0.2", "model": "qwen3.8:27b-mlx", "case_id": "agentic.ops.checkout-pool-regression"},
+    {"position": 14, "harness_id": "pi-log-v0.2", "model": "muse-glimmer:30b-mlx", "case_id": "agentic.ops.checkout-pool-regression"},
+    {"position": 15, "harness_id": "mini-log-v0.2", "model": "ornith-1.5:35b", "case_id": "agentic.ops.retry-queue-amplification"},
+    {"position": 16, "harness_id": "pi-log-v0.2", "model": "qwen3.8:27b-mlx", "case_id": "agentic.ops.checkout-pool-regression"},
+    {"position": 17, "harness_id": "pi-log-v0.2", "model": "gemma4:31b-mlx", "case_id": "agentic.ops.retry-queue-amplification"},
+    {"position": 18, "harness_id": "mini-log-v0.2", "model": "qwen3.6:35b-a3b-mxfp8", "case_id": "agentic.ops.clock-skew-partial-recovery"},
+    {"position": 19, "harness_id": "pi-log-v0.2", "model": "ornith-1.5:35b", "case_id": "agentic.ops.retry-queue-amplification"},
+    {"position": 20, "harness_id": "mini-log-v0.2", "model": "muse-glimmer:30b-mlx", "case_id": "agentic.ops.checkout-pool-regression"},
+    {"position": 21, "harness_id": "pi-log-v0.2", "model": "ornith-1.5:35b", "case_id": "agentic.ops.clock-skew-partial-recovery"},
+    {"position": 22, "harness_id": "mini-log-v0.2", "model": "qwen3.8:27b-mlx", "case_id": "agentic.ops.clock-skew-partial-recovery"},
+    {"position": 23, "harness_id": "pi-log-v0.2", "model": "muse-glimmer:30b-mlx", "case_id": "agentic.ops.clock-skew-partial-recovery"},
+    {"position": 24, "harness_id": "mini-log-v0.2", "model": "gemma4:31b-mlx", "case_id": "agentic.ops.checkout-pool-regression"},
+    {"position": 25, "harness_id": "pi-log-v0.2", "model": "qwen3.6:35b-a3b-mxfp8", "case_id": "agentic.ops.retry-queue-amplification"},
+    {"position": 26, "harness_id": "mini-log-v0.2", "model": "ornith-1.5:35b", "case_id": "agentic.ops.checkout-pool-regression"},
+    {"position": 27, "harness_id": "pi-log-v0.2", "model": "gemma4:31b-mlx", "case_id": "agentic.ops.clock-skew-partial-recovery"},
+    {"position": 28, "harness_id": "mini-log-v0.2", "model": "muse-glimmer:30b-mlx", "case_id": "agentic.ops.retry-queue-amplification"},
+    {"position": 29, "harness_id": "pi-log-v0.2", "model": "qwen3.6:35b-a3b-mxfp8", "case_id": "agentic.ops.checkout-pool-regression"},
+    {"position": 30, "harness_id": "mini-log-v0.2", "model": "qwen3.8:27b-mlx", "case_id": "agentic.ops.retry-queue-amplification"}
+  ],
+  "order_rationale": "The first 15 positions reuse the established five-model by three-case rotation with alternating complete systems. The second 15 contain every opposite system cell in a separately optimized order. Every model-system-case cell occurs exactly once, no model runs consecutively, model position sums range from 92 to 94, case position sums from 154 to 156, and harness position sums are 232 and 233. The order was frozen without model outputs.",
+  "shared_inference": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 4000,
+    "maximum_active_wall_time_seconds": 300,
+    "provider_request_timeout_seconds": 180,
+    "maximum_total_output_tokens": null,
+    "maximum_agent_turns": null,
+    "maximum_protocol_errors": null,
+    "maximum_file_reads_emergency_safeguard": 40
+  },
+  "comparison_rules": {
+    "runs_per_configuration": 1,
+    "automatic_retries": 0,
+    "adaptive_repetitions": false,
+    "development_smokes_reused": false,
+    "performance_distribution_claims": false,
+    "reliability_probability_claims": false,
+    "quality_stochasticity_claims": false,
+    "trajectory_metrics_are_descriptive": true,
+    "turns_tokens_and_protocol_errors_are_measurement_only": true,
+    "terminal_failures_are_not_retried_within_this_plan": true,
+    "one_factor_causal_harness_claim_allowed": false,
+    "comparison_unit": "complete_system"
+  },
+  "resource_gate": {
+    "loaded_models_must_be_empty_before_each_unit": true,
+    "empty_state_observation_seconds": 30,
+    "deployment_digest_rechecked_before_each_unit": true,
+    "exact_ollama_version_required": true,
+    "model_unloaded_after_each_unit": true,
+    "unexpected_model_activity_pauses_the_sweep": true,
+    "blocking_process_rules": [
+      {
+        "rule_id": "behat_test_runner",
+        "pattern": "(?i)(?:^|[\\s/])(?:vendor/bin/)?behat(?:[\\s]|$)"
+      },
+      {
+        "rule_id": "behat_environment_worker",
+        "pattern": "(?i)(?:--env=behat_test|var/behat-env)"
+      },
+      {
+        "rule_id": "other_test_runner",
+        "pattern": "(?i)(?:^|[\\s/])(?:pytest|phpunit|jest|vitest|mocha|playwright|cypress)(?:[\\s]|$)"
+      },
+      {
+        "rule_id": "package_test_script",
+        "pattern": "(?i)(?:^|[\\s/])(?:npm|pnpm|yarn)(?:[\\s]+run)?[\\s]+test(?:[\\s]|$)"
+      },
+      {
+        "rule_id": "mnemosyn_application",
+        "pattern": "(?i)^(?!.*mnemosyn_mcp\\.py).*mnemosyn"
+      },
+      {
+        "rule_id": "news_or_blog_application",
+        "pattern": "(?i)(?:news-app|blog-read-o-matic)"
+      }
+    ]
+  },
+  "interruption_policy": {
+    "raw_attempts_are_append_only": true,
+    "complete_outcomes_are_never_repeated": true,
+    "prepared_action_pending_and_verification_pending_runs_resume_in_place": true,
+    "live_process_loss": "preserve cell as infrastructure_or_control_failure and do not retry",
+    "runtime_model_or_artifact_drift_blocks_resume": true
+  },
+  "reporting": {
+    "primary_outcome": "verified_success",
+    "json_path": "reports/agentic/log-incident-capability-sweep-v0.2.json",
+    "markdown_path": "reports/agentic/log-incident-capability-sweep-v0.2.md",
+    "runtime_agent_termination_verifier_and_verified_outcomes_separate": true,
+    "raw_candidate_reports_public": false,
+    "raw_log_contents_public": false,
+    "hidden_ground_truth_public": false,
+    "absolute_paths_public": false,
+    "no_composite_score": true,
+    "no_tail_percentiles": true
+  },
+  "authorization": {
+    "source": "The user explicitly confirmed on 2026-09-06 that News-App, Mnemosyn and other competing applications were stopped and authorized execution.",
+    "exclusive_window_confirmed": true,
+    "resource_gate_can_pause_without_additional_confirmation": true,
+    "no_remote_push_authorized": true
+  },
+  "frozen_inputs": {
+    "implementation_git_commit": "fc82b8f67b8444d9fa2325e4d840907fe7ff0f3c",
+    "artifacts": [
+      {"path": "models/catalog.json", "sha256": "79e56238c9405d27dfba266e319a837571b6239cb9a6d1682729e58ebcf3d834"},
+      {"path": "models/lifecycle.json", "sha256": "18d896067eddf62ddf3c7ded8d34f22e32fef9994877239cf8e6abf877c30621"},
+      {"path": "tasks/agentic/track-b/log-incident-sweep-controller-v0.2-qualification.json", "sha256": "406f894210c6d52c5fcc07ce3f146a840536c9a0f5e898bdc78f42b3d383e8f7"},
+      {"path": "tasks/agentic/track-b/log-incident-v0.2.json", "sha256": "6ed0d31b0b3c272de745b3655f4bb280fccd046aaaa77e401dd6798f55cdc7d5"},
+      {"path": "tasks/agentic/track-b/mini-log-v0.2.json", "sha256": "606cb19cef2e0377e7145f1f23d17b07df9cd184fd6e0b4768927deb9d5b0457"},
+      {"path": "tasks/agentic/track-b/pi-log-v0.2.json", "sha256": "f1d6a582d92b70d1e9af399f832ed35666ba9709c9a02cfb2c806d065eaa2aef"},
+      {"path": "tasks/agentic/track-b/mini-log-v0.2-qualification.json", "sha256": "9614a9eea0a80554c188bb6859063fa3261436a25838b865fa1fce9111302588"},
+      {"path": "tasks/agentic/track-b/pi-log-v0.2-qualification.json", "sha256": "309003c732de430e89c8e17211397ff403bcf559b0cbe93e6a07bbf882011d48"},
+      {"path": "reports/agentic/log-incident-qualification-smokes-v0.2.json", "sha256": "68365595ecc732c18afa20c707c561d84c5122938c51f9c784dbd49feb0ff4b7"},
+      {"path": "local_llm_benchmark/log_incident_sweep.py", "sha256": "a7d9d4e7086ffed1a372c907ad84d5bd5989b21c1534c0fdd9373319cbeb94d0"},
+      {"path": "local_llm_benchmark/log_incident_report.py", "sha256": "82cfa085f7f69d4e01e7632e68c6dd38db33564b218c47c0d26cd473c9670357"},
+      {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/case-v2.json", "sha256": "54f4202eab9e1f3d108d442c96a2b89f8745724d5f0a1b6745d86268fe985e0a"},
+      {"path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/case.json", "sha256": "cd1ae7b642c4dc208cb8d560f18156348a8f5c70c76bb1d9874005195a098065"},
+      {"path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/case.json", "sha256": "d4906a7b62acdb677464cb9db71d451a31b0157cc0d636821703ffe94b599b6b"}
+    ]
+  }
+}

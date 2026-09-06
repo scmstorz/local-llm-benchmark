@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "log-incident-v0.4-specification-confirmation",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-06",
+  "track": "B",
+  "study_mode": "specification_confirmation",
+  "protocol_id": "agentic-log-incident-v0.4",
+  "evidence_class": "excluded_specification_confirmation",
+  "purpose": "Confirm that the additive v0.4 alignment repairs remove the three known verifier false-negative classes without masking genuine causal-chain, schema or runtime failures before any multi-model sweep is considered.",
+  "not_designed_to_estimate": [
+    "model reliability",
+    "quality stochasticity",
+    "latency distributions or tails",
+    "general model ranking",
+    "one-factor causal harness effects"
+  ],
+  "runtime": {
+    "name": "ollama",
+    "expected_version": "0.33.2",
+    "host": "http://127.0.0.1:11434",
+    "must_be_reverified_before_execution": true
+  },
+  "deployment": {
+    "name": "qwen3.8:27b-mlx",
+    "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "size_bytes": 18174721847,
+    "quantization": "nvfp4",
+    "selection_rationale": "Qwen 3.8 produced the strongest partial semantic evidence in v0.2, making it the most informative low-cost probe of the specification repair rather than a new model ranking sample."
+  },
+  "harnesses": [
+    {
+      "harness_id": "mini-log-v0.4",
+      "harness_family": "project_mini_harness",
+      "harness_path": "tasks/agentic/track-b/mini-log-v0.4.json",
+      "qualification_path": "tasks/agentic/track-b/mini-log-v0.4-qualification.json"
+    },
+    {
+      "harness_id": "pi-log-v0.4",
+      "harness_family": "pinned_pi",
+      "package_version": "0.84.4",
+      "harness_path": "tasks/agentic/track-b/pi-log-v0.4.json",
+      "qualification_path": "tasks/agentic/track-b/pi-log-v0.4-qualification.json"
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "agentic.ops.checkout-pool-regression",
+      "case_version": "4.0.0",
+      "case_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/case-v0.4.json"
+    },
+    {
+      "case_id": "agentic.ops.retry-queue-amplification",
+      "case_version": "4.0.0",
+      "case_path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/case-v0.4.json"
+    },
+    {
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "case_version": "4.0.0",
+      "case_path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/case-v0.4.json"
+    }
+  ],
+  "execution_order": [
+    {"position": 1, "harness_id": "mini-log-v0.4", "case_id": "agentic.ops.checkout-pool-regression"},
+    {"position": 2, "harness_id": "pi-log-v0.4", "case_id": "agentic.ops.retry-queue-amplification"},
+    {"position": 3, "harness_id": "mini-log-v0.4", "case_id": "agentic.ops.clock-skew-partial-recovery"},
+    {"position": 4, "harness_id": "pi-log-v0.4", "case_id": "agentic.ops.checkout-pool-regression"},
+    {"position": 5, "harness_id": "mini-log-v0.4", "case_id": "agentic.ops.retry-queue-amplification"},
+    {"position": 6, "harness_id": "pi-log-v0.4", "case_id": "agentic.ops.clock-skew-partial-recovery"}
+  ],
+  "execution_rules": {
+    "runs_per_system_case": 1,
+    "automatic_retries": 0,
+    "adaptive_repetitions": false,
+    "raw_attempts_preserved": true,
+    "terminal_attempts_not_repeated": true,
+    "pi_real_seatbelt_acceptance_required": true,
+    "hidden_verification_after_terminal_output": true
+  },
+  "outcome_model": {
+    "primary": "semantic_verified_success",
+    "secondary": "strict_transport_compliance",
+    "runtime_success_separate": true,
+    "agent_termination_valid_separate": true,
+    "check_counts_diagnostic_not_normalized_points": true,
+    "composite_score": false
+  },
+  "confirmation_interpretation": {
+    "quantitative_success_threshold": null,
+    "reason": "Six single attempts cannot validate reliability or capability. The gate is an audit of specification clarity, machinery interpretability and failure attribution.",
+    "required_post_run_audits": [
+      "all six cells have preserved terminal or explicitly classified infrastructure outcomes",
+      "every semantic failure is traceable to a candidate-visible criterion",
+      "incident-start failures are distinguishable from last-observation and recovery failures",
+      "normalization behavior matches the frozen single-object policy",
+      "human calibration checks for any remaining task-to-verifier ambiguity"
+    ],
+    "next_decision": "Only after the audit choose among revising v0.4, running a broader Capability Sweep, or beginning targeted repetition."
+  },
+  "shared_inference": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 4000,
+    "maximum_active_wall_time_seconds": 300,
+    "provider_request_timeout_seconds": 180,
+    "maximum_total_output_tokens": null,
+    "maximum_agent_turns": null,
+    "maximum_protocol_errors": null,
+    "maximum_file_reads_emergency_safeguard": 40
+  },
+  "resource_gate": {
+    "loaded_models_must_be_empty_before_each_cell": true,
+    "empty_state_observation_seconds": 30,
+    "deployment_digest_rechecked_before_each_cell": true,
+    "exact_ollama_version_required": true,
+    "model_unloaded_after_each_cell": true,
+    "unexpected_model_activity_pauses_execution": true,
+    "known_competing_applications_must_be_stopped": true,
+    "behat_must_not_be_running": true
+  },
+  "authorization": {
+    "live_execution_authorized": false,
+    "reason": "The offline-qualified v0.4 repair must be committed before a separately authorized clean-window confirmation.",
+    "fresh_clean_window_confirmation_required": true,
+    "no_remote_push_authorized": true
+  },
+  "frozen_inputs": {
+    "implementation_git_commit": "e0ea63b1c828e0be195634562bded9796c525925",
+    "deployment_identity_source_path": "tasks/agentic/track-b/log-incident-capability-sweep-v0.2.json",
+    "deployment_identity_source_sha256": "8dc873ae6d1282867c1a43ea607c88f4f99ec7fb0cc74c7a98a89200277f02f1",
+    "artifacts": [
+      {"path": "tasks/agentic/track-b/log-incident-v0.4.json", "sha256": "3317477bd922d41213b224157fcfba0a379cbce2bdef06eafb7c949138df4e71"},
+      {"path": "tasks/agentic/track-b/mini-log-v0.4.json", "sha256": "9736e340c6a2f74a62f30a60039ba07a38de6d97a73f368bd65a6cac398ae292"},
+      {"path": "tasks/agentic/track-b/pi-log-v0.4.json", "sha256": "85312ae2f67a5f35080d9ddbaaa3e42a18b8c25b9ca43fcbacdfba411bd13f9c"},
+      {"path": "tasks/agentic/track-b/mini-log-v0.4-qualification.json", "sha256": "72b58272284b65a21aaed10584b562d69b29d5535396b159881f485ea3912abe"},
+      {"path": "tasks/agentic/track-b/pi-log-v0.4-qualification.json", "sha256": "a3aae6526cdaa8ea2b42f4f40aad4760a822c6e9b03c57e64369a568148d4054"},
+      {"path": "tasks/agentic/log-incident-analysis/log-incident-v0.4-offline-qualification.json", "sha256": "71b8d7bc615d71284588c419d382c61c912c83a636b8fb79e413836af217cd39"},
+      {"path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/case-v0.4.json", "sha256": "443609195786d430a59b8fd8cba5ecc7781f3e9e5f9bd54f67f31cad2bc1002c"},
+      {"path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/case-v0.4.json", "sha256": "bd32e3f12272f0b1a3a636ee2267cc501234bd7ae692a263d9d49d941564d92b"},
+      {"path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/case-v0.4.json", "sha256": "169d30976a1b27a1bab96b7938ece65c784c2cb0995bc9e248805653ba1a2f08"},
+      {"path": "local_llm_benchmark/log_incident_v04.py", "sha256": "357be8f82e0f236776f0d58080e5e0952dd73678bcacd5292a3ca44a53164575"},
+      {"path": "local_llm_benchmark/log_incident_mini_v04.py", "sha256": "3f28cdf99c79528894fae7ef5873ce1871992a9197f689a4dafab908e6f32da0"},
+      {"path": "local_llm_benchmark/log_incident_pi_v04.py", "sha256": "d05567d79a9e6ce7ab4649c4cee160ada4b70fd4a85ca4ce4d42511a7c2d9908"}
+    ]
+  }
+}

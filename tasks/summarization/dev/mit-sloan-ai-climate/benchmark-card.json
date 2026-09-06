@@ -1,0 +1,300 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "summarization.dev.mit-sloan-ai-climate",
+  "case_version": "1.1.0",
+  "card_version": "1.1.0",
+  "source_of_truth": "The private cleaned source identified by source-metadata.json, not external knowledge or a reference summary.",
+  "evaluation_principles": [
+    "Judge source fidelity before prose elegance.",
+    "Distinguish omissions, contradictions, unsupported additions and imprecise attribution.",
+    "Do not penalize the candidate for omitting examples or biography that are not needed to understand the article.",
+    "Do not reward extra knowledge, even when it is factually correct outside the source.",
+    "Treat the article as reporting the researchers' framework and En-ROADS outputs, not as establishing universal scientific consensus."
+  ],
+  "key_facts": [
+    {
+      "id": "KF01",
+      "label": "Direct footprint baseline",
+      "claim_type": "reported_observation",
+      "weight": 3,
+      "source_locations": ["K01"],
+      "expected": "The article reports that AI and data centers used about 1.5% of global electricity in 2024 and produced roughly 0.5% of energy-related CO2 emissions.",
+      "precision_notes": "Do not attribute both percentages to AI alone; preserve approximate wording."
+    },
+    {
+      "id": "KF02",
+      "label": "Direct warming estimate",
+      "claim_type": "model_result",
+      "weight": 3,
+      "source_locations": ["K01", "P04"],
+      "expected": "En-ROADS puts AI's direct contribution to warming at roughly 0.1°C by 2100.",
+      "precision_notes": "This is a model estimate, not an observed temperature change and not the 0.3°C difference in the growth scenario."
+    },
+    {
+      "id": "KF03",
+      "label": "Direct efficiency rebound",
+      "claim_type": "authors_analysis",
+      "weight": 2,
+      "source_locations": ["P04"],
+      "expected": "Efficiency makes AI cheaper and can increase demand, eroding savings; in the cited model, even a fourfold energy-intensity reduction barely changes warming without new climate policy.",
+      "precision_notes": "Do not generalize this into a claim that efficiency is always useless."
+    },
+    {
+      "id": "KF04",
+      "label": "Indirect rebound is the main concern",
+      "claim_type": "central_thesis",
+      "weight": 3,
+      "source_locations": ["K02", "P05", "P07"],
+      "expected": "The article's main concern is that AI-driven productivity and economic growth can raise total energy use and emissions unless economy-wide emissions fall rapidly.",
+      "precision_notes": "A summary that presents data-center electricity as the article's main concern reverses the thesis."
+    },
+    {
+      "id": "KF05",
+      "label": "Twenty-five-percent growth scenario",
+      "claim_type": "conditional_scenario_model_result",
+      "weight": 3,
+      "source_locations": ["K02", "P05"],
+      "expected": "Under a hypothetical scenario in which AI eventually raises gross world product by 25%, En-ROADS increases expected 2100 warming from 3.3°C to 3.6°C above preindustrial levels.",
+      "precision_notes": "The 25% value is a scenario assumption, not the researchers' certain forecast; the 0.3°C difference is not AI's direct operational footprint."
+    },
+    {
+      "id": "KF06",
+      "label": "Consequences of additional warming",
+      "claim_type": "authors_analysis",
+      "weight": 1,
+      "source_locations": ["K02", "P05", "P07"],
+      "expected": "The additional warming would worsen physical and economic harms such as sea-level rise, wildfires, extreme weather, crop losses and feedback damage to the economy.",
+      "precision_notes": "Examples may be summarized rather than exhaustively listed."
+    },
+    {
+      "id": "KF07",
+      "label": "Innovation focus, delay and irreversibility",
+      "claim_type": "authors_analysis",
+      "weight": 3,
+      "source_locations": ["K03", "P08", "P09"],
+      "expected": "AI-enabled climate innovation may help eventually, but is currently limited in focus and arrives only after deployment delays; later benefits do not undo interim irreversible or lasting damage.",
+      "precision_notes": "Do not turn this into a categorical claim that AI can never support climate solutions."
+    },
+    {
+      "id": "KF08",
+      "label": "Accounting versus physical emissions",
+      "claim_type": "reported_example_and_authors_analysis",
+      "weight": 2,
+      "source_locations": ["P10"],
+      "expected": "The article argues that corporate accounting can hide physical emissions, illustrated by existing nuclear output diverted to a data center and replacement electricity generated elsewhere on a fossil-heavy grid.",
+      "precision_notes": "The point is marginal displacement, not that the nuclear plant itself emitted the replacement CO2."
+    },
+    {
+      "id": "KF09",
+      "label": "Policy recommendations",
+      "claim_type": "authors_recommendation",
+      "weight": 3,
+      "source_locations": ["K04", "P11", "P12"],
+      "expected": "Sterman and Turliuk call for economy-wide policy including meaningful carbon pricing, disclosure of AI impacts, efficiency, renewable energy and measures against greenwashing.",
+      "precision_notes": "Attribute these prescriptions to the researchers rather than presenting them as measures already enacted."
+    },
+    {
+      "id": "KF10",
+      "label": "Conditional below-two-degree conclusion",
+      "claim_type": "conditional_model_conclusion",
+      "weight": 2,
+      "source_locations": ["K04", "P12"],
+      "expected": "The researchers say staying below 2°C remains possible, though harder, if strong economy-wide emissions policies are enacted.",
+      "precision_notes": "This is conditional, neither a guarantee nor a claim that the target is impossible."
+    }
+  ],
+  "key_ideas": [
+    {
+      "id": "KI01",
+      "label": "Deployment footprint versus economy-wide system effect",
+      "weight": 4,
+      "source_locations": ["K01", "K02", "P04", "P05", "P07"],
+      "expected": "The article shifts attention from AI's direct operational footprint to the potentially larger system-level effect of AI-driven economic expansion."
+    },
+    {
+      "id": "KI02",
+      "label": "Rebound operates at two levels",
+      "weight": 4,
+      "source_locations": ["P04", "P05", "P06", "P07"],
+      "expected": "Cheaper AI can increase AI use directly, while productivity-led growth can increase consumption and emissions across the economy indirectly."
+    },
+    {
+      "id": "KI03",
+      "label": "Benefits and harms occur on different timelines",
+      "weight": 3,
+      "source_locations": ["K03", "P08", "P09"],
+      "expected": "Near-term emissions and damage occur before speculative innovations diffuse, and later reductions cannot reverse every accumulated loss."
+    },
+    {
+      "id": "KI04",
+      "label": "Physical causality outranks accounting labels",
+      "weight": 2,
+      "source_locations": ["P10"],
+      "expected": "A carbon-free contractual label does not eliminate system emissions when existing clean electricity is merely reallocated and fossil generation fills the gap."
+    },
+    {
+      "id": "KI05",
+      "label": "Technology and policy are complements",
+      "weight": 2,
+      "source_locations": ["K04", "P03", "P11", "P12"],
+      "expected": "AI and efficiency can contribute, but their climate value depends on policy that lowers emissions across the whole economy."
+    }
+  ],
+  "known_critical_errors": [
+    {
+      "id": "CE01",
+      "severity": "critical",
+      "description": "Reverses the central thesis by presenting direct data-center electricity use as the article's largest climate threat."
+    },
+    {
+      "id": "CE02",
+      "severity": "major",
+      "description": "States that AI will certainly increase gross world product by 25% instead of identifying a hypothetical scenario."
+    },
+    {
+      "id": "CE03",
+      "severity": "critical",
+      "description": "Confuses the roughly 0.1°C direct estimate with the 0.3°C difference between 3.3°C and 3.6°C in the economic-growth scenario."
+    },
+    {
+      "id": "CE04",
+      "severity": "major",
+      "description": "Attributes the reported 1.5% electricity or 0.5% emissions figures to AI alone rather than AI and data centers as phrased by the source."
+    },
+    {
+      "id": "CE05",
+      "severity": "major",
+      "description": "Claims that efficiency is inherently useless rather than describing rebound and the absence of supporting climate policy."
+    },
+    {
+      "id": "CE06",
+      "severity": "major",
+      "description": "Claims that AI-enabled climate innovation can never help, ignoring the article's timing and focus qualification."
+    },
+    {
+      "id": "CE07",
+      "severity": "major",
+      "description": "Misstates the nuclear example by assigning replacement emissions to the nuclear plant or treating reallocated existing output as physically additional carbon-free supply."
+    },
+    {
+      "id": "CE08",
+      "severity": "major",
+      "description": "Presents researchers' scenarios, conclusions or policy recommendations as directly observed and universally established facts."
+    }
+  ],
+  "rubric": {
+    "maximum_score": 100,
+    "coverage_status_multipliers": {
+      "full": 1.0,
+      "partial": 0.5,
+      "missing": 0.0,
+      "contradicted": 0.0
+    },
+    "derived_coverage": {
+      "key_facts_max": 25,
+      "key_facts_formula": "sum(key_fact.weight * status_multiplier); key-fact weights sum to 25",
+      "key_ideas_max": 15,
+      "key_ideas_formula": "sum(key_idea.weight * status_multiplier); key-idea weights sum to 15"
+    },
+    "judged_dimensions": [
+      {
+        "id": "factual_accuracy",
+        "max": 25,
+        "anchors": {
+          "25": "No material factual error, contradiction or unsupported addition.",
+          "20": "Accurate overall with only a minor imprecision that does not alter meaning.",
+          "12": "At least one major error or several meaningful imprecisions.",
+          "5": "A critical error or pervasive unreliability substantially changes the article's meaning.",
+          "0": "The output is unusable as a factual account of the source."
+        }
+      },
+      {
+        "id": "epistemic_precision",
+        "max": 10,
+        "anchors": {
+          "10": "Consistently preserves attribution, uncertainty, conditions and the distinction between observation, model result and scenario.",
+          "7": "Mostly precise with one limited attribution or certainty problem.",
+          "4": "Repeatedly blurs scenarios, estimates or researcher claims.",
+          "0": "Systematically presents conditional or attributed claims as established fact."
+        }
+      },
+      {
+        "id": "prioritization",
+        "max": 10,
+        "anchors": {
+          "10": "Leads with the central thesis and allocates space according to importance.",
+          "7": "The hierarchy is sound but gives modestly too much or too little space to a secondary point.",
+          "4": "Important and secondary material receive similar emphasis or the main thesis arrives late.",
+          "0": "The emphasis materially misrepresents what the article is about."
+        }
+      },
+      {
+        "id": "structure_clarity",
+        "max": 10,
+        "anchors": {
+          "10": "Clear German, descriptive structure and coherent progression; understandable without the source.",
+          "7": "Generally clear with minor awkwardness, redundancy or weak headings.",
+          "4": "Noticeably hard to follow, poorly organized or linguistically awkward.",
+          "0": "Incoherent, largely unreadable or not meaningfully in German."
+        }
+      },
+      {
+        "id": "compression",
+        "max": 5,
+        "anchors": {
+          "5": "Concise relative to information retained; no significant padding or repetition.",
+          "3": "Some avoidable repetition or detail, but still functions as a summary.",
+          "1": "Substantially padded, repetitive or close to retelling the source.",
+          "0": "Not meaningfully compressed or exceeds the hard maximum."
+        }
+      }
+    ],
+    "hard_constraints": {
+      "empty_output": {
+        "result": "invalid",
+        "final_score": 0
+      },
+      "output_language_not_german": {
+        "result": "noncompliant",
+        "final_score_cap": 59
+      },
+      "word_count_above_1000": {
+        "result": "noncompliant",
+        "compression_score": 0,
+        "final_score_cap": 59
+      },
+      "generation_truncated_at_token_limit": {
+        "result": "noncompliant",
+        "final_score_cap": 59
+      },
+      "reasoning_markup_in_candidate_output": {
+        "result": "noncompliant",
+        "final_score_cap": 59
+      }
+    },
+    "critical_error_caps": {
+      "one_critical_error": {
+        "factual_accuracy_cap": 8,
+        "final_score_cap": 59
+      },
+      "two_or_more_critical_errors": {
+        "factual_accuracy_cap": 4,
+        "final_score_cap": 39
+      }
+    },
+    "verdict_thresholds": {
+      "excellent": 90,
+      "good": 75,
+      "usable": 60,
+      "poor": 1,
+      "invalid": 0
+    }
+  },
+  "nonessential_details": [
+    "The electric-vehicle and Disney World anecdote",
+    "Professional biographies of John Sterman and Jennifer Turliuk",
+    "The exact title of the forthcoming book chapter",
+    "The invitation to use En-ROADS",
+    "The list of cyberattacks, disinformation and deepfakes unless used briefly to explain lack of climate focus"
+  ]
+}

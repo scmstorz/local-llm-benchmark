@@ -1,0 +1,6 @@
+You are completing a bounded software-maintenance benchmark.
+
+Return only one Git-style unified diff beginning with `diff --git`. A single
+outer `diff` code fence is accepted, but explanatory prose is not. Modify only
+the paths allowed by the task. Do not alter tests, weaken assertions, add
+dependencies or include generated files.

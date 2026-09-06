@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "4.0.0",
+  "case_id": "agentic.ops.clock-skew-partial-recovery",
+  "case_version": "4.0.0",
+  "track": "B",
+  "task_family": "incident_investigation",
+  "language": "English",
+  "status": "offline_qualification_candidate",
+  "experimental_question": "Can a local model repair a skewed chronology and distinguish partial from full recovery under an explicitly visible and fully aligned evaluation contract?",
+  "construct_validity": {
+    "intended_construct": "Source-grounded chronology repair and recovery-state judgment under conflicting distributed timestamps.",
+    "v04_alignment_change": "Preserve the v0.3 temporal repair while making scope comparison semantic, counter-evidence non-exhaustive and evidence roles non-duplicative.",
+    "known_blind_spots": [
+      "small synthetic fixture",
+      "clock offset is explicitly observable rather than inferred statistically",
+      "controlled codebook constrains open-world diagnosis",
+      "no very large or compressed logs",
+      "deterministic verification does not score prose quality"
+    ]
+  },
+  "outcomes": {
+    "primary": "semantic_verified_success",
+    "secondary": ["strict_transport_compliance"],
+    "composite_score": false
+  },
+  "candidate_access": {
+    "fixture_only": true,
+    "network": false,
+    "writes": false,
+    "shell": false,
+    "hidden_reference": false,
+    "cross_run_state": false
+  },
+  "reporting_limits": [
+    "v0.4 is a new representation of an existing incident, not an independent task.",
+    "Do not pool v0.2, v0.3 and v0.4 attempts as repeated observations.",
+    "Normalized semantic success and strict transport compliance must remain separate.",
+    "Capability Sweep evidence does not estimate reliability or latency tails."
+  ]
+}

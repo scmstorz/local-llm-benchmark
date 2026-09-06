@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Coding Track B mini-harness action v0.3",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "path"],
+      "properties": {
+        "action": {"const": "read_file"},
+        "path": {"type": "string", "minLength": 1}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "path", "content"],
+      "properties": {
+        "action": {"const": "write_file"},
+        "path": {"type": "string", "minLength": 1},
+        "content": {"type": "string"}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "path", "old", "new"],
+      "properties": {
+        "action": {"const": "replace_text"},
+        "path": {"type": "string", "minLength": 1},
+        "old": {"type": "string", "minLength": 1},
+        "new": {"type": "string"}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action"],
+      "properties": {
+        "action": {"const": "run_public_tests"}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "summary"],
+      "properties": {
+        "action": {"const": "finish"},
+        "summary": {"type": "string"}
+      }
+    }
+  ]
+}

@@ -1,0 +1,491 @@
+{
+  "by_case": [
+    {
+      "active_wall_time_seconds": {
+        "maximum": 297.7,
+        "median": 192.5,
+        "minimum": 87.29,
+        "raw": [
+          87.29,
+          297.7
+        ],
+        "total": 384.99
+      },
+      "case_id": "agentic.ops.checkout-pool-regression",
+      "case_label": "Checkout pool regression",
+      "essential_checks_observed": 30,
+      "essential_checks_passed": 28,
+      "failures": {
+        "deterministic_checks_failed": 2
+      },
+      "response_normalization_applied_count": 1,
+      "run_count": 2,
+      "runtime_success_count": 2,
+      "semantic_verified_success_count": 0,
+      "semantic_verifier_success_count": 0,
+      "strict_transport_compliance_count": 1,
+      "total_input_tokens": 63677,
+      "total_output_tokens": 13868,
+      "valid_agent_termination_count": 2
+    },
+    {
+      "active_wall_time_seconds": {
+        "maximum": 138.15,
+        "median": 110.15,
+        "minimum": 82.15,
+        "raw": [
+          138.15,
+          82.15
+        ],
+        "total": 220.3
+      },
+      "case_id": "agentic.ops.retry-queue-amplification",
+      "case_label": "Retry queue amplification",
+      "essential_checks_observed": 30,
+      "essential_checks_passed": 27,
+      "failures": {
+        "deterministic_checks_failed": 2
+      },
+      "response_normalization_applied_count": 1,
+      "run_count": 2,
+      "runtime_success_count": 2,
+      "semantic_verified_success_count": 0,
+      "semantic_verifier_success_count": 0,
+      "strict_transport_compliance_count": 1,
+      "total_input_tokens": 39521,
+      "total_output_tokens": 7529,
+      "valid_agent_termination_count": 2
+    },
+    {
+      "active_wall_time_seconds": {
+        "maximum": 128.8,
+        "median": 103.43,
+        "minimum": 78.06,
+        "raw": [
+          78.06,
+          128.8
+        ],
+        "total": 206.86
+      },
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "case_label": "Clock skew partial recovery",
+      "essential_checks_observed": 30,
+      "essential_checks_passed": 28,
+      "failures": {
+        "deterministic_checks_failed": 1
+      },
+      "response_normalization_applied_count": 0,
+      "run_count": 2,
+      "runtime_success_count": 2,
+      "semantic_verified_success_count": 1,
+      "semantic_verifier_success_count": 1,
+      "strict_transport_compliance_count": 2,
+      "total_input_tokens": 50446,
+      "total_output_tokens": 6496,
+      "valid_agent_termination_count": 2
+    }
+  ],
+  "by_harness": [
+    {
+      "active_wall_time_seconds": {
+        "maximum": 87.29,
+        "median": 82.15,
+        "minimum": 78.06,
+        "raw": [
+          87.29,
+          78.06,
+          82.15
+        ],
+        "total": 247.5
+      },
+      "essential_checks_observed": 45,
+      "essential_checks_passed": 42,
+      "failures": {
+        "deterministic_checks_failed": 2
+      },
+      "harness_id": "mini-log-v0.4",
+      "harness_label": "Mini",
+      "response_normalization_applied_count": 0,
+      "run_count": 3,
+      "runtime_success_count": 3,
+      "semantic_verified_success_count": 1,
+      "semantic_verifier_success_count": 1,
+      "strict_transport_compliance_count": 3,
+      "total_input_tokens": 59690,
+      "total_output_tokens": 4767,
+      "valid_agent_termination_count": 3
+    },
+    {
+      "active_wall_time_seconds": {
+        "maximum": 297.7,
+        "median": 138.15,
+        "minimum": 128.8,
+        "raw": [
+          138.15,
+          297.7,
+          128.8
+        ],
+        "total": 564.65
+      },
+      "essential_checks_observed": 45,
+      "essential_checks_passed": 41,
+      "failures": {
+        "deterministic_checks_failed": 3
+      },
+      "harness_id": "pi-log-v0.4",
+      "harness_label": "Pi 0.84.4",
+      "response_normalization_applied_count": 2,
+      "run_count": 3,
+      "runtime_success_count": 3,
+      "semantic_verified_success_count": 0,
+      "semantic_verifier_success_count": 0,
+      "strict_transport_compliance_count": 1,
+      "total_input_tokens": 93954,
+      "total_output_tokens": 23126,
+      "valid_agent_termination_count": 3
+    }
+  ],
+  "by_system_model": [
+    {
+      "active_wall_time_seconds": {
+        "maximum": 87.29,
+        "median": 82.15,
+        "minimum": 78.06,
+        "raw": [
+          87.29,
+          78.06,
+          82.15
+        ],
+        "total": 247.5
+      },
+      "essential_checks_observed": 45,
+      "essential_checks_passed": 42,
+      "failures": {
+        "deterministic_checks_failed": 2
+      },
+      "harness_id": "mini-log-v0.4",
+      "harness_label": "Mini",
+      "model": "qwen3.8:27b-mlx",
+      "response_normalization_applied_count": 0,
+      "run_count": 3,
+      "runtime_success_count": 3,
+      "semantic_verified_success_count": 1,
+      "semantic_verifier_success_count": 1,
+      "strict_transport_compliance_count": 3,
+      "total_input_tokens": 59690,
+      "total_output_tokens": 4767,
+      "valid_agent_termination_count": 3
+    },
+    {
+      "active_wall_time_seconds": {
+        "maximum": 297.7,
+        "median": 138.15,
+        "minimum": 128.8,
+        "raw": [
+          138.15,
+          297.7,
+          128.8
+        ],
+        "total": 564.65
+      },
+      "essential_checks_observed": 45,
+      "essential_checks_passed": 41,
+      "failures": {
+        "deterministic_checks_failed": 3
+      },
+      "harness_id": "pi-log-v0.4",
+      "harness_label": "Pi 0.84.4",
+      "model": "qwen3.8:27b-mlx",
+      "response_normalization_applied_count": 2,
+      "run_count": 3,
+      "runtime_success_count": 3,
+      "semantic_verified_success_count": 0,
+      "semantic_verifier_success_count": 0,
+      "strict_transport_compliance_count": 1,
+      "total_input_tokens": 93954,
+      "total_output_tokens": 23126,
+      "valid_agent_termination_count": 3
+    }
+  ],
+  "caveats": [
+    "Each system-case configuration has n=1; this is specification-confirmation evidence, not a reliability, capability-ranking or quality-stochasticity estimate.",
+    "Duration summaries combine heterogeneous cases and are descriptive ranges and medians, not tail percentiles.",
+    "Mini and Pi are complete-system conditions with different prompts, tool protocols and context handling; no one-factor causal harness claim is allowed.",
+    "Historical v0.2 attempts are not pooled with this corrected representation.",
+    "A deterministically normalized report may be a semantic success while strict transport compliance remains false.",
+    "No composite quality-speed score or universal model ranking is calculated."
+  ],
+  "evidence_class": "excluded_specification_confirmation",
+  "generated_at": "2026-09-06T15:42:20.488727Z",
+  "method": {
+    "automatic_retries": 0,
+    "cases": 3,
+    "comparison_unit": "complete_system",
+    "harnesses": [
+      "mini-log-v0.4",
+      "pi-log-v0.4"
+    ],
+    "models": 1,
+    "primary_outcome": "semantic_verified_success",
+    "runs_per_configuration": 1,
+    "secondary_outcome": "strict_transport_compliance",
+    "task_family": "agentic_log_incident_analysis",
+    "track": "B"
+  },
+  "privacy": {
+    "absolute_paths_included": false,
+    "candidate_reports_included": false,
+    "hidden_ground_truth_included": false,
+    "raw_log_contents_included": false,
+    "raw_run_records_public": false
+  },
+  "report_id": "log-incident-v0.4-specification-confirmation",
+  "schema_version": "1.0.0",
+  "source": {
+    "completed_at": "2026-09-06T15:42:11.784915Z",
+    "execution_git_commit": "bc89bd62ddcbdd4a533bc74ea3010d5033d8e78d",
+    "ollama_version": "0.33.2",
+    "plan_id": "log-incident-v0.4-specification-confirmation",
+    "plan_path": "tasks/agentic/track-b/log-incident-v0.4-confirmation-plan.json",
+    "plan_sha256": "8b9d5399c86b744c06ceec66ef6b3c3323b3c19d754d951da3a9de76621013c0",
+    "started_at": "2026-09-06T15:13:52.461204Z",
+    "sweep_id": "log-incident-v04-confirmation-20260906T151352Z-078381b1",
+    "sweep_record_sha256": "e1883b3d315afe37801f664636ee50c8654c439109e44d8d7ab5164d87294d26"
+  },
+  "summary": {
+    "active_wall_time_seconds": {
+      "maximum": 297.7,
+      "median": 108.05,
+      "minimum": 78.06,
+      "raw": [
+        87.29,
+        138.15,
+        78.06,
+        297.7,
+        82.15,
+        128.8
+      ],
+      "total": 812.15
+    },
+    "essential_checks_observed": 90,
+    "essential_checks_passed": 83,
+    "failures": {
+      "deterministic_checks_failed": 5
+    },
+    "response_normalization_applied_count": 2,
+    "run_count": 6,
+    "runtime_success_count": 6,
+    "semantic_verified_success_count": 1,
+    "semantic_verifier_success_count": 1,
+    "strict_transport_compliance_count": 4,
+    "total_input_tokens": 153644,
+    "total_output_tokens": 27893,
+    "valid_agent_termination_count": 6
+  },
+  "units": [
+    {
+      "active_wall_time_seconds": 87.29,
+      "agent_termination_valid": true,
+      "agent_turns": 7,
+      "case_id": "agentic.ops.checkout-pool-regression",
+      "case_label": "Checkout pool regression",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "essential_checks_passed": 14,
+      "essential_checks_total": 15,
+      "failed_check_ids": [
+        "distractor_rejection"
+      ],
+      "failed_tool_calls": 0,
+      "failure_category": "task_or_verification_failure",
+      "failure_type": "deterministic_checks_failed",
+      "file_reads": 6,
+      "harness_id": "mini-log-v0.4",
+      "harness_label": "Mini",
+      "input_tokens": 18947,
+      "model": "qwen3.8:27b-mlx",
+      "model_requests": 7,
+      "output_tokens": 1849,
+      "position": 1,
+      "private_run_record_sha256": "c87e22deb6aa70288d1354abeb6c5b5bbaaa97ff1724658becc8dc8c3129862a",
+      "protocol_errors": 0,
+      "repeated_file_reads": 0,
+      "response_normalization_applied": false,
+      "run_id": "mini-log-v04-run-20260906T151352Z-8ce966bf",
+      "runtime_success": true,
+      "semantic_verified_success": false,
+      "semantic_verifier_success": false,
+      "strict_transport_compliance": true,
+      "tool_calls": 7
+    },
+    {
+      "active_wall_time_seconds": 138.15,
+      "agent_termination_valid": true,
+      "agent_turns": 4,
+      "case_id": "agentic.ops.retry-queue-amplification",
+      "case_label": "Retry queue amplification",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "essential_checks_passed": 14,
+      "essential_checks_total": 15,
+      "failed_check_ids": [
+        "causal_chain"
+      ],
+      "failed_tool_calls": 0,
+      "failure_category": "task_or_verification_failure",
+      "failure_type": "deterministic_checks_failed",
+      "file_reads": 7,
+      "harness_id": "pi-log-v0.4",
+      "harness_label": "Pi 0.84.4",
+      "input_tokens": 20715,
+      "model": "qwen3.8:27b-mlx",
+      "model_requests": null,
+      "output_tokens": 5987,
+      "position": 2,
+      "private_run_record_sha256": "88701b10af98c640fbbfb0b66f4ed3b46461379244854025fe14699b4707b6ec",
+      "protocol_errors": 0,
+      "repeated_file_reads": 1,
+      "response_normalization_applied": true,
+      "run_id": "pi-log-v04-run-20260906T152722Z-777d2ec6",
+      "runtime_success": true,
+      "semantic_verified_success": false,
+      "semantic_verifier_success": false,
+      "strict_transport_compliance": false,
+      "tool_calls": 7
+    },
+    {
+      "active_wall_time_seconds": 78.06,
+      "agent_termination_valid": true,
+      "agent_turns": 8,
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "case_label": "Clock skew partial recovery",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "essential_checks_passed": 15,
+      "essential_checks_total": 15,
+      "failed_check_ids": [],
+      "failed_tool_calls": 0,
+      "failure_category": null,
+      "failure_type": null,
+      "file_reads": 7,
+      "harness_id": "mini-log-v0.4",
+      "harness_label": "Mini",
+      "input_tokens": 21937,
+      "model": "qwen3.8:27b-mlx",
+      "model_requests": 8,
+      "output_tokens": 1376,
+      "position": 3,
+      "private_run_record_sha256": "25e5f0d938aecae7038a6a022684ffaec13e3b6a901e51db2973d05173293b3e",
+      "protocol_errors": 0,
+      "repeated_file_reads": 0,
+      "response_normalization_applied": false,
+      "run_id": "mini-log-v04-run-20260906T153012Z-71670544",
+      "runtime_success": true,
+      "semantic_verified_success": true,
+      "semantic_verifier_success": true,
+      "strict_transport_compliance": true,
+      "tool_calls": 8
+    },
+    {
+      "active_wall_time_seconds": 297.7,
+      "agent_termination_valid": true,
+      "agent_turns": 5,
+      "case_id": "agentic.ops.checkout-pool-regression",
+      "case_label": "Checkout pool regression",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "essential_checks_passed": 14,
+      "essential_checks_total": 15,
+      "failed_check_ids": [
+        "distractor_rejection"
+      ],
+      "failed_tool_calls": 0,
+      "failure_category": "task_or_verification_failure",
+      "failure_type": "deterministic_checks_failed",
+      "file_reads": 11,
+      "harness_id": "pi-log-v0.4",
+      "harness_label": "Pi 0.84.4",
+      "input_tokens": 44730,
+      "model": "qwen3.8:27b-mlx",
+      "model_requests": null,
+      "output_tokens": 12019,
+      "position": 4,
+      "private_run_record_sha256": "5b0381686db69d53fa418e3fb71e87953b317a2dfb9f08a59a3a967ed05c4fed",
+      "protocol_errors": 0,
+      "repeated_file_reads": 5,
+      "response_normalization_applied": true,
+      "run_id": "pi-log-v04-run-20260906T153205Z-09719143",
+      "runtime_success": true,
+      "semantic_verified_success": false,
+      "semantic_verifier_success": false,
+      "strict_transport_compliance": false,
+      "tool_calls": 11
+    },
+    {
+      "active_wall_time_seconds": 82.15,
+      "agent_termination_valid": true,
+      "agent_turns": 7,
+      "case_id": "agentic.ops.retry-queue-amplification",
+      "case_label": "Retry queue amplification",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "essential_checks_passed": 13,
+      "essential_checks_total": 15,
+      "failed_check_ids": [
+        "causal_chain",
+        "unsupported_claims"
+      ],
+      "failed_tool_calls": 0,
+      "failure_category": "task_or_verification_failure",
+      "failure_type": "deterministic_checks_failed",
+      "file_reads": 6,
+      "harness_id": "mini-log-v0.4",
+      "harness_label": "Mini",
+      "input_tokens": 18806,
+      "model": "qwen3.8:27b-mlx",
+      "model_requests": 7,
+      "output_tokens": 1542,
+      "position": 5,
+      "private_run_record_sha256": "6c5cb2f2d576c204f29ce37d6671b815a12e5c8ea7296f743d7ed200697e0c11",
+      "protocol_errors": 0,
+      "repeated_file_reads": 0,
+      "response_normalization_applied": false,
+      "run_id": "mini-log-v04-run-20260906T153734Z-ba1f59df",
+      "runtime_success": true,
+      "semantic_verified_success": false,
+      "semantic_verifier_success": false,
+      "strict_transport_compliance": true,
+      "tool_calls": 7
+    },
+    {
+      "active_wall_time_seconds": 128.8,
+      "agent_termination_valid": true,
+      "agent_turns": 5,
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "case_label": "Clock skew partial recovery",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "essential_checks_passed": 13,
+      "essential_checks_total": 15,
+      "failed_check_ids": [
+        "affected_scope",
+        "causal_chain"
+      ],
+      "failed_tool_calls": 0,
+      "failure_category": "task_or_verification_failure",
+      "failure_type": "deterministic_checks_failed",
+      "file_reads": 9,
+      "harness_id": "pi-log-v0.4",
+      "harness_label": "Pi 0.84.4",
+      "input_tokens": 28509,
+      "model": "qwen3.8:27b-mlx",
+      "model_requests": null,
+      "output_tokens": 5120,
+      "position": 6,
+      "private_run_record_sha256": "5c458775fd635c123297844c8c3963085eed438081d29e7993f339723300147a",
+      "protocol_errors": 0,
+      "repeated_file_reads": 2,
+      "response_normalization_applied": false,
+      "run_id": "pi-log-v04-run-20260906T153930Z-9ee5d2c8",
+      "runtime_success": true,
+      "semantic_verified_success": false,
+      "semantic_verifier_success": false,
+      "strict_transport_compliance": true,
+      "tool_calls": 9
+    }
+  ]
+}

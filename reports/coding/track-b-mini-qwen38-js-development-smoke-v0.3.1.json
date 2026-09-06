@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "track-b-mini-qwen38-js-development-smoke-v0.3.1",
+  "evidence_class": "excluded_development_smoke",
+  "status": "complete",
+  "executed_on": "2026-09-04",
+  "source": {
+    "plan_id": "mini-qwen38-js-development-smoke-v0.3.1",
+    "plan_path": "tasks/coding/track-b/mini-qwen38-js-development-smoke-v0.3.1.json",
+    "plan_sha256": "60292448cc18283c45847394a8c8316d601791d932afcc12b44a25eceab6d2a4",
+    "run_id": "mini-v03-agentic-run-20260904T212846Z-038354d8",
+    "raw_run_sha256": "0b99da77ca231144b650304102fd8bcf21b9573e041f8d482e36b50cebec4f47",
+    "execution_git_commit": "4fb087fa3ed49234c5433e2919df612c1b91ed24"
+  },
+  "deployment": {
+    "model": "qwen3.8:27b-mlx",
+    "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "ollama_version": "0.33.2"
+  },
+  "case": {
+    "case_id": "coding.dev.async-cache-coalescing",
+    "language": "javascript"
+  },
+  "resource_gate": {
+    "known_apps_absent": true,
+    "resident_embedding_model_unloaded_before_observation": true,
+    "observation_started_at": "2026-09-04T21:28:08Z",
+    "observation_completed_at": "2026-09-04T21:28:38Z",
+    "observation_seconds": 30,
+    "running_models_before": [],
+    "running_models_after": [],
+    "measured_model_unloaded_after_run": true,
+    "postflight_running_models": []
+  },
+  "outcome": {
+    "runtime_success": true,
+    "agent_termination_valid": true,
+    "trajectory_termination_reason": "finish_action",
+    "verifier_success": false,
+    "verified_success": false,
+    "failure_category": "task_or_verification_failure",
+    "failure_type": "hidden_tests_failed",
+    "public_tests_passed": true,
+    "public_test_count": 4,
+    "hidden_tests_passed": false,
+    "hidden_checks_passed": 6,
+    "hidden_check_count": 8
+  },
+  "trajectory": {
+    "active_wall_time_seconds": 50.80052316799993,
+    "model_wall_time_seconds": 50.71553508500074,
+    "tool_wall_time_seconds": 0.08498808299918892,
+    "final_verification_wall_time_seconds": 0.1072728749968519,
+    "time_to_first_successful_public_verification_seconds": 45.24233508400357,
+    "agent_turns": 6,
+    "model_requests": 6,
+    "tool_calls": 5,
+    "failed_tool_calls": 0,
+    "protocol_errors": 0,
+    "file_reads": 3,
+    "file_writes": 1,
+    "public_test_runs": 1,
+    "input_tokens": 13450,
+    "output_tokens": 832
+  },
+  "technical_gate": {
+    "passed": true,
+    "complete_terminal_outcome": true,
+    "adapter_or_orchestration_defect_observed": false,
+    "failure_machine_classified": true,
+    "measured_sweep_may_be_planned": true,
+    "interpretation": "The model produced a valid, complete trajectory and a task-level hidden-verifier failure. Verified success was not required for this excluded machinery gate."
+  },
+  "behavioral_observation": "The candidate passed every visible test but missed both hidden in-flight invalidation behaviors: invalidating one key and clearing all keys while loader promises were unresolved.",
+  "comparison_boundary": "This single excluded smoke is not part of measured aggregates and is not evidence of reliability or a harness ranking.",
+  "privacy": {
+    "raw_model_text_included": false,
+    "candidate_source_included": false,
+    "test_stdout_or_stderr_included": false,
+    "absolute_local_paths_included": false
+  }
+}

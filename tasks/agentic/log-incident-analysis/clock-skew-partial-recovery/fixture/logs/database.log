@@ -1,0 +1,4 @@
+DB-600 2026-09-05T08:11:40Z WARN replica_lag replica=payments-read-2 lag_seconds=24 action=traffic_removed
+DB-601 2026-09-05T08:12:20Z INFO replica_lag replica=payments-read-2 lag_seconds=1 action=healthy
+DB-602 2026-09-05T08:14:20Z INFO primary_health accepting_writes=true commit_p95_ms=5 connections=31
+DB-603 2026-09-05T08:20:20Z INFO primary_health accepting_writes=true commit_p95_ms=6 connections=29

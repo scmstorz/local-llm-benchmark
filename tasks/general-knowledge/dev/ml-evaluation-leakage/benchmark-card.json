@@ -1,0 +1,35 @@
+{
+  "schema_version":"1.0.0","card_version":"1.0.0","case_id":"general_knowledge.dev.ml-evaluation-leakage","case_version":"1.0.0","source_of_truth":"The frozen judge-only reference dossier; candidates answer from internal knowledge.",
+  "evaluation_principles":["Treat preprocessing and model selection as parts of training.","Require split logic to match patients and time.","Reward a precise account of what nested cross-validation does and does not estimate."],
+  "key_facts":[
+    {"id":"KF01","label":"Full-data preprocessing leaks","claim_type":"failure_mode","weight":4,"source_locations":["S01","S02"],"expected":"Identifies imputation, scaling and especially target-based feature selection before splitting as leakage."},
+    {"id":"KF02","label":"Fold-local pipeline","claim_type":"control","weight":3,"source_locations":["S02"],"expected":"Fits every learned transformation only on each training fold and applies it unchanged to validation data."},
+    {"id":"KF03","label":"Winner's selection bias","claim_type":"failure_mode","weight":4,"source_locations":["S03"],"expected":"Explains why selecting and reporting the maximum among 200 tried configurations optimizes noise in the evaluation."},
+    {"id":"KF04","label":"Nested CV roles","claim_type":"methodology","weight":4,"source_locations":["S04"],"expected":"Places tuning in inner folds and evaluates the full selection procedure on untouched outer folds."},
+    {"id":"KF05","label":"Final test contamination","claim_type":"failure_mode","weight":3,"source_locations":["S05"],"expected":"Explains why repeated peeking and adapting converts the test set into development data."},
+    {"id":"KF06","label":"Patient-group split","claim_type":"methodology","weight":3,"source_locations":["S06"],"expected":"Keeps all rows for a patient in one side of a split when generalizing to new patients."},
+    {"id":"KF07","label":"Temporal split","claim_type":"methodology","weight":2,"source_locations":["S06"],"expected":"Uses past-to-future validation when deployment predicts later cases and avoids future information entering training."},
+    {"id":"KF08","label":"Uncertainty and remaining limits","claim_type":"qualification","weight":2,"source_locations":["S07"],"expected":"Reports variation or uncertainty and notes shift, representativeness, metric and sample-size limits."}
+  ],
+  "key_ideas":[
+    {"id":"KI01","label":"Evaluation protocol is the object","weight":4,"source_locations":["S03","S04"],"expected":"Evaluates the whole data-to-selection procedure, not just one already-selected estimator."},
+    {"id":"KI02","label":"Three distinct feedback leaks","weight":4,"source_locations":["S01","S03","S05"],"expected":"Separates preprocessing leakage, selection bias and repeated test feedback."},
+    {"id":"KI03","label":"Deployment-aligned independence","weight":4,"source_locations":["S05","S06","S07"],"expected":"Defines independence at the patient and time unit relevant to the future claim."},
+    {"id":"KI04","label":"Honest estimate then final fit","weight":3,"source_locations":["S04","S05"],"expected":"Uses outer results for honest assessment, then freezes the procedure and fits on development data before one final test."}
+  ],
+  "known_critical_errors":[
+    {"id":"CE01","severity":"critical","description":"Claims full-data target-based feature selection before cross-validation is valid."},
+    {"id":"CE02","severity":"major","description":"Treats the highest score among many tried configurations as an unbiased estimate."},
+    {"id":"CE03","severity":"major","description":"Says nested cross-validation means preprocessing can occur once on all data."},
+    {"id":"CE04","severity":"major","description":"Allows rows from the same patient on both sides without discussing the target deployment unit."},
+    {"id":"CE05","severity":"major","description":"Calls a repeatedly inspected and acted-upon test set untouched."}
+  ],
+  "nonessential_details":["Specific model algorithms", "A single mandatory fold count", "Formal variance estimators"],
+  "rubric":{"maximum_score":100,"coverage_status_multipliers":{"full":1.0,"partial":0.5,"missing":0.0,"contradicted":0.0},"derived_coverage":{"key_facts_max":25,"key_facts_formula":"sum(key_fact.weight * status_multiplier)","key_ideas_max":15,"key_ideas_formula":"sum(key_idea.weight * status_multiplier)"},"judged_dimensions":[
+    {"id":"factual_accuracy","max":25,"anchors":{"25":"No material evaluation or statistical error.","20":"Accurate overall with one minor imprecision.","12":"At least one major error or several meaningful imprecisions.","0":"Fundamentally unreliable."}},
+    {"id":"explanatory_quality","max":10,"anchors":{"10":"Diagnoses each feedback path and builds a coherent replacement protocol.","7":"Sound explanation with one underdeveloped connection.","4":"Lists techniques without explaining their roles.","0":"Does not explain the bias."}},
+    {"id":"epistemic_precision","max":10,"anchors":{"10":"Precisely states estimands, independence assumptions and remaining limits.","7":"Mostly calibrated with one limited overstatement.","4":"Repeatedly presents CV as a universal guarantee.","0":"Systematically false certainty."}},
+    {"id":"structure_clarity","max":10,"anchors":{"10":"Clear German, descriptive structure and actionable for a practitioner.","7":"Generally clear with minor awkwardness.","4":"Noticeably hard to follow.","0":"Incoherent or not meaningfully German."}},
+    {"id":"compression","max":5,"anchors":{"5":"High information density without material repetition.","3":"Some avoidable repetition.","1":"Substantially padded.","0":"Exceeds the hard maximum or is not focused."}}
+  ],"hard_constraints":{"empty_output":{"result":"invalid","final_score":0},"output_language_not_german":{"result":"noncompliant","final_score_cap":59},"word_count_above_800":{"result":"noncompliant","compression_score":0,"final_score_cap":59},"generation_truncated_at_token_limit":{"result":"noncompliant","final_score_cap":59},"reasoning_markup_in_candidate_output":{"result":"noncompliant","final_score_cap":59}},"critical_error_caps":{"one_critical_error":{"factual_accuracy_cap":8,"final_score_cap":59},"two_or_more_critical_errors":{"factual_accuracy_cap":4,"final_score_cap":39}},"verdict_thresholds":{"excellent":90,"good":75,"usable":60,"poor":1,"invalid":0}}
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "pi-log-v0.5-no-inference-qualification",
+  "qualified_on": "2026-09-06",
+  "status": "qualified_for_frozen_confirmation_design",
+  "harness_id": "pi-log-v0.5",
+  "protocol_id": "agentic-log-incident-v0.5",
+  "case_count": 3,
+  "experimental_scope": "No live inference. The versioned pinned-Pi adapter binds the v0.5 task repair while preserving the read-only policy, Seatbelt boundary, deterministic response normalization and separate outcomes.",
+  "package": {
+    "name": "@earendil-works/pi-coding-agent",
+    "version": "0.84.4",
+    "exact_lockfile": true
+  },
+  "qualification_evidence": {
+    "reference_report_essential_checks_passed": 45,
+    "reference_report_essential_checks_total": 45,
+    "selected_case_preparations_passed": 3,
+    "prior_case_definition_rejected": true,
+    "mocked_pi_execution_passed": true,
+    "fenced_single_object_recovered": true,
+    "recovered_object_strict_transport_compliance": false,
+    "supplemental_free_text_claim_review_required": true,
+    "mocked_seatbelt_checks_passed_per_case": 9,
+    "focused_python_tests_passed": 7,
+    "repository_python_tests_passed": 409,
+    "active_node_tests_passed": 21,
+    "opt_in_live_transport_tests_skipped": 1,
+    "live_ollama_requests": 0,
+    "live_model_inference": false
+  },
+  "execution_boundary": {
+    "policy_extension_allowlist": ["read"],
+    "candidate_workspace_writable": false,
+    "shell_processes_allowed": false,
+    "network_allowlist": ["localhost:11434"],
+    "external_network": false,
+    "selected_case_only": true,
+    "per_run_real_seatbelt_acceptance_required": true
+  },
+  "seatbelt_backend": {
+    "implementation_reused_unchanged": true,
+    "policy_id": "pi-log-readonly-v0.2",
+    "reason": "The capability boundary is unchanged; only task and verifier semantics are versioned in v0.5."
+  },
+  "comparison_boundary": {
+    "same_model_across_harnesses": "complete_system_comparison",
+    "prior_representation_results_poolable": false,
+    "strict_transport_is_primary": false,
+    "supplemental_free_text_claim_review_required": true
+  },
+  "artifacts": [
+    {"path": "tasks/agentic/log-incident-analysis/log-incident-v0.5-offline-qualification.json", "sha256": "44010a4215f1c14f3a8b078e20cf5620a0c5eb96e46b02a3e6e3ac8c82315ca0"},
+    {"path": "local_llm_benchmark/log_incident_pi_v05.py", "sha256": "3321664532b4a4f4909c2aa0d72ffee2ce640e6683c9e85cc807002fdda78e22"},
+    {"path": "tests/test_log_incident_pi_v05.py", "sha256": "756bf603639de0bcfdd5761fa031348958f2ea11845d475506e11b45400ac575"},
+    {"path": "tasks/agentic/track-b/log-incident-v0.5.json", "sha256": "019a676d0e7f6988e62b859a7a4cbf5e4edc155654529aec6142778a5dc727a4"},
+    {"path": "tasks/agentic/track-b/pi-log-v0.5.json", "sha256": "8862df54b6bd1ad9f1d940d880a9f225ba5f8c711a85114f628766e328c387aa"},
+    {"path": "tasks/agentic/track-b/prompts/pi-log-system-v0.5.txt", "sha256": "4fa9658b0d5a5448034b0b205cc1f0b3ca2a3931d7bfd60ee88a65c855267960"},
+    {"path": "capabilities/inventories/pi-log-v0.5.json", "sha256": "a13368e9119198fb83c6b4e2990bc7ea588f10a7aa8d0f31351b1e5cf70ee412"},
+    {"path": "capabilities/isolation-profiles/pi-log-v0.5.json", "sha256": "3b27f7f9410461ea392d63e70a1459ecc62f1db5175a622ab11a0331c9ca6233"}
+  ],
+  "next_gate": "Commit the complete v0.5 implementation, then freeze an excluded small confirmation. Every future Pi execution still requires fresh real Seatbelt acceptance."
+}

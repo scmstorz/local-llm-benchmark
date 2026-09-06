@@ -1,0 +1,885 @@
+{
+  "claims_not_supported": [
+    "No reliability probability or tail-latency claim is supported because every model-task configuration has n=1.",
+    "The report does not rank model quality from inconclusive transport outcomes.",
+    "The report does not treat the six PHP successes as evidence that Pi v0.2 is equally compatible with every task or model.",
+    "The report does not merge the interrupted Ollama 0.32.15 sweep with this Ollama 0.33.2 cohort."
+  ],
+  "configuration": {
+    "attempts": 16,
+    "automatic_retries": 0,
+    "case_count": 2,
+    "deployment_count": 8,
+    "harness_id": "pi-v0.2",
+    "maximum_active_wall_time_seconds": 900,
+    "maximum_total_output_tokens": 12000,
+    "normal_agent_turn_limit": null,
+    "ollama_version": "0.33.2",
+    "pi_package": "@earendil-works/pi-coding-agent@0.84.4",
+    "runs_per_configuration": 1
+  },
+  "evidence_class": "measured_n1_with_partial_infrastructure_confounds",
+  "findings": [
+    "Six of sixteen model-task systems reached valid agent termination and passed all twelve deterministic checks; all six were PHP runs.",
+    "PHP produced six verified successes, one conclusive active-time budget failure with verifier-complete code, and one inconclusive provider-timeout outcome.",
+    "JavaScript produced no verified success in this sweep. One run was a conclusive hidden-test failure, four were conclusive budget failures, and three were inconclusive transport or standby outcomes.",
+    "A verified success is strong positive evidence for that exact configuration. An inconclusive negative is not evidence that the model lacks the underlying coding capability.",
+    "Trajectory cost varied sharply even among PHP successes, supporting separate reporting of outcome, time, turns and tool effort rather than a single score."
+  ],
+  "generated_at": "2026-09-04T07:01:21.292668Z",
+  "method_deviations_discovered_after_execution": [
+    {
+      "id": "pi_provider_timeout_not_explicitly_applied",
+      "impact": "The frozen 300-second request timeout was present in run metadata but absent from Pi's retry.provider.timeoutMs setting. Provider timeout outcomes are inconclusive negatives."
+    },
+    {
+      "id": "policy_wall_clock_counted_standby",
+      "impact": "The Pi extension used wall-clock time while the parent used monotonic active time. Qwen 3.6 JavaScript was aborted after standby despite only 31.90 active seconds and is an inconclusive negative."
+    },
+    {
+      "id": "coarse_raw_invalid_agent_end_taxonomy",
+      "impact": "The raw v0.2 outcome collapsed provider errors and budget aborts into invalid_agent_end. This report derives a non-destructive diagnostic taxonomy from immutable event and audit artifacts."
+    }
+  ],
+  "next_step": {
+    "action": "Integrate the implemented v0.3 configuration and policy into a new live adapter, then qualify explicit provider timeout, monotonic parent time and measurement-only trajectory tokens before preregistering any rerun. Preserve this v0.2 sweep unchanged.",
+    "harness_candidate": "pi-v0.3"
+  },
+  "observations": [
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "deployment_id": "qwen3-6-35b-a3b-mxfp8-d82a30588f1c-ollama-0-33-2",
+      "diagnostic_interpretation": {
+        "category": "verified_success",
+        "evidence_status": "conclusive_success",
+        "type": "verified_success"
+      },
+      "digest": "d82a30588f1c7bc2afa5226f3d67c8987bf505104f8f0512a0f8643ac4525d16",
+      "final_verification_sha256": "9d0bbd0200991c561751e92443183091659ef88cdb49d7b6345ec7b2392b8745",
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "position": 1,
+      "raw_outcome": {
+        "agent_termination_valid": true,
+        "failure_category": null,
+        "failure_type": null,
+        "runtime_success": true,
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "run_id": "pi-agentic-run-20260903T190203Z-6e47b2c9",
+      "run_record_sha256": "05f0fe98a0940c989a3cdf08f9d5254d090a13ed5f059888b2cea50faa2d3be8",
+      "trajectory": {
+        "active_wall_time_seconds": 88.02346083399993,
+        "agent_turns": 14,
+        "failed_tool_calls": 5,
+        "file_reads": 16,
+        "file_writes": 3,
+        "input_tokens": 100818,
+        "output_tokens": 4107,
+        "public_test_runs": 2,
+        "termination_reason": "agent_end",
+        "time_to_first_successful_public_verification_seconds": 77.938,
+        "tool_calls": 24
+      },
+      "verification": {
+        "changed_paths": [
+          "src/CheckoutService.php",
+          "src/RetryPolicy.php"
+        ],
+        "hidden_checks_passed": 8,
+        "hidden_checks_total": 8,
+        "integrity_passed": true,
+        "public_checks_passed": 4,
+        "public_checks_total": 4
+      }
+    },
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "diagnostic_interpretation": {
+        "category": "verified_success",
+        "evidence_status": "conclusive_success",
+        "type": "verified_success"
+      },
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "final_verification_sha256": "e44936fab264bf9b2a233eeef9e0d8b2937edcc80918ec4167880c5159212d1f",
+      "model": "qwen3.8:27b-mlx",
+      "position": 2,
+      "raw_outcome": {
+        "agent_termination_valid": true,
+        "failure_category": null,
+        "failure_type": null,
+        "runtime_success": true,
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "run_id": "pi-agentic-run-20260903T190535Z-c03ce76b",
+      "run_record_sha256": "ade562058efc513bca01da571c9442f16e60f4fd0b4b4bb0e2e84aafd2c7cd66",
+      "trajectory": {
+        "active_wall_time_seconds": 73.20414212499998,
+        "agent_turns": 5,
+        "failed_tool_calls": 0,
+        "file_reads": 12,
+        "file_writes": 2,
+        "input_tokens": 23297,
+        "output_tokens": 2587,
+        "public_test_runs": 1,
+        "termination_reason": "agent_end",
+        "time_to_first_successful_public_verification_seconds": 61.159,
+        "tool_calls": 15
+      },
+      "verification": {
+        "changed_paths": [
+          "src/CheckoutService.php",
+          "src/RetryPolicy.php"
+        ],
+        "hidden_checks_passed": 8,
+        "hidden_checks_total": 8,
+        "integrity_passed": true,
+        "public_checks_passed": 4,
+        "public_checks_total": 4
+      }
+    },
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "deployment_id": "gpt-oss-20b-17052f91a42e-ollama-0-33-2",
+      "diagnostic_interpretation": {
+        "category": "agent_budget_failure",
+        "evidence_status": "conclusive_bounded_failure",
+        "type": "maximum_wall_time_exceeded"
+      },
+      "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+      "final_verification_sha256": "f91297551a977b2fb4b8d602e318ee4e1d8f18a3028f794b67f10fab36bf7318",
+      "model": "gpt-oss:20b",
+      "position": 3,
+      "raw_outcome": {
+        "agent_termination_valid": false,
+        "failure_category": "infrastructure_or_runtime_failure",
+        "failure_type": "maximum_wall_time_exceeded",
+        "runtime_success": false,
+        "verified_success": false,
+        "verifier_success": true
+      },
+      "run_id": "pi-agentic-run-20260903T190720Z-0dce07b2",
+      "run_record_sha256": "dfd485bf4226fc9842d6b2c13f4e33be6d105cf86d48a4fec4cb32e82bd83dd6",
+      "trajectory": {
+        "active_wall_time_seconds": 900.0241529999998,
+        "agent_turns": 18,
+        "failed_tool_calls": 0,
+        "file_reads": 13,
+        "file_writes": 2,
+        "input_tokens": 76635,
+        "output_tokens": 4700,
+        "public_test_runs": 1,
+        "termination_reason": "maximum_wall_time_exceeded",
+        "time_to_first_successful_public_verification_seconds": 66.213,
+        "tool_calls": 16
+      },
+      "verification": {
+        "changed_paths": [
+          "src/CheckoutService.php",
+          "src/RetryPolicy.php"
+        ],
+        "hidden_checks_passed": 8,
+        "hidden_checks_total": 8,
+        "integrity_passed": true,
+        "public_checks_passed": 4,
+        "public_checks_total": 4
+      }
+    },
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "deployment_id": "muse-glimmer-30b-mlx-ef32a55b4976-ollama-0-33-2",
+      "diagnostic_interpretation": {
+        "category": "provider_or_transport_failure",
+        "evidence_status": "inconclusive_negative",
+        "type": "provider_request_timeout"
+      },
+      "digest": "ef32a55b4976faa955cbab0462d09bd081351ef5b87d73d8fcd299bf17c111d7",
+      "final_verification_sha256": "80a9cba3f11fb538853df5c58221614b1ce271029fb3ca2fa1a5a42e96402854",
+      "model": "muse-glimmer:30b-mlx",
+      "position": 4,
+      "raw_outcome": {
+        "agent_termination_valid": false,
+        "failure_category": "agent_failure",
+        "failure_type": "invalid_agent_end",
+        "runtime_success": true,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "run_id": "pi-agentic-run-20260903T192252Z-9ebe1835",
+      "run_record_sha256": "ef6220d25c66393debb3cb46461c7c587fabc1129375828cefd423ad121b923f",
+      "trajectory": {
+        "active_wall_time_seconds": 83.18514099999993,
+        "agent_turns": 5,
+        "failed_tool_calls": 2,
+        "file_reads": 12,
+        "file_writes": 0,
+        "input_tokens": 9554,
+        "output_tokens": 2438,
+        "public_test_runs": 0,
+        "termination_reason": "invalid_agent_end",
+        "time_to_first_successful_public_verification_seconds": null,
+        "tool_calls": 14
+      },
+      "verification": {
+        "changed_paths": [],
+        "hidden_checks_passed": 3,
+        "hidden_checks_total": 8,
+        "integrity_passed": true,
+        "public_checks_passed": 2,
+        "public_checks_total": 4
+      }
+    },
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "deployment_id": "ornith-1-5-35b-9f3b89b25219-ollama-0-33-2",
+      "diagnostic_interpretation": {
+        "category": "verified_success",
+        "evidence_status": "conclusive_success",
+        "type": "verified_success"
+      },
+      "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc",
+      "final_verification_sha256": "c54a317732e96ae42688c406a35aab653f525a8fcfef0b545924946d438c2f7e",
+      "model": "ornith-1.5:35b",
+      "position": 5,
+      "raw_outcome": {
+        "agent_termination_valid": true,
+        "failure_category": null,
+        "failure_type": null,
+        "runtime_success": true,
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "run_id": "pi-agentic-run-20260903T193950Z-b39a8600",
+      "run_record_sha256": "3b752dddb423b5e324b3591d8df3ebd9dcdedcae8d7da72bebed6db08e20d6e1",
+      "trajectory": {
+        "active_wall_time_seconds": 111.08573249999972,
+        "agent_turns": 14,
+        "failed_tool_calls": 3,
+        "file_reads": 14,
+        "file_writes": 3,
+        "input_tokens": 69796,
+        "output_tokens": 7536,
+        "public_test_runs": 2,
+        "termination_reason": "agent_end",
+        "time_to_first_successful_public_verification_seconds": 96.098,
+        "tool_calls": 22
+      },
+      "verification": {
+        "changed_paths": [
+          "src/CheckoutService.php",
+          "src/RetryPolicy.php"
+        ],
+        "hidden_checks_passed": 8,
+        "hidden_checks_total": 8,
+        "integrity_passed": true,
+        "public_checks_passed": 4,
+        "public_checks_total": 4
+      }
+    },
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "deployment_id": "granite4-2-30b-be22829aa92a-ollama-0-33-2",
+      "diagnostic_interpretation": {
+        "category": "verified_success",
+        "evidence_status": "conclusive_success",
+        "type": "verified_success"
+      },
+      "digest": "be22829aa92aad40153c3b2cfd628269ac9281967e74c44d96750568a5af8ed4",
+      "final_verification_sha256": "8db88d2a8d8b54212b5528677d0dcd420b2c0ecb14517d3559009e2ff8e379eb",
+      "model": "granite4.2:30b",
+      "position": 6,
+      "raw_outcome": {
+        "agent_termination_valid": true,
+        "failure_category": null,
+        "failure_type": null,
+        "runtime_success": true,
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "run_id": "pi-agentic-run-20260903T195459Z-344a5761",
+      "run_record_sha256": "91edf5bd00ea058485f06df4d658a7756133b1eedec5a68cad05c54f910cc992",
+      "trajectory": {
+        "active_wall_time_seconds": 360.81747600000017,
+        "agent_turns": 10,
+        "failed_tool_calls": 2,
+        "file_reads": 11,
+        "file_writes": 3,
+        "input_tokens": 47161,
+        "output_tokens": 5449,
+        "public_test_runs": 2,
+        "termination_reason": "agent_end",
+        "time_to_first_successful_public_verification_seconds": 303.578,
+        "tool_calls": 17
+      },
+      "verification": {
+        "changed_paths": [
+          "src/CheckoutService.php",
+          "src/RetryPolicy.php"
+        ],
+        "hidden_checks_passed": 8,
+        "hidden_checks_total": 8,
+        "integrity_passed": true,
+        "public_checks_passed": 4,
+        "public_checks_total": 4
+      }
+    },
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "deployment_id": "nemotron-3-5-lightning-30b-mlx-8b1474be6e54-ollama-0-33-2",
+      "diagnostic_interpretation": {
+        "category": "verified_success",
+        "evidence_status": "conclusive_success",
+        "type": "verified_success"
+      },
+      "digest": "8b1474be6e54dc19eb7aa08bebfb9bda147c4b9ef9796a726131ad29ad15645a",
+      "final_verification_sha256": "45c1f59d53a0de87b60e1935da9c6a917b150f3875275630693163439405d733",
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "position": 7,
+      "raw_outcome": {
+        "agent_termination_valid": true,
+        "failure_category": null,
+        "failure_type": null,
+        "runtime_success": true,
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "run_id": "pi-agentic-run-20260903T200131Z-9f33f2bb",
+      "run_record_sha256": "faf1008c1bfcf2954aaade0712cb48653fae3b085fe76770a9d7bd01d4017860",
+      "trajectory": {
+        "active_wall_time_seconds": 96.80717850000019,
+        "agent_turns": 14,
+        "failed_tool_calls": 10,
+        "file_reads": 14,
+        "file_writes": 3,
+        "input_tokens": 161672,
+        "output_tokens": 10544,
+        "public_test_runs": 3,
+        "termination_reason": "agent_end",
+        "time_to_first_successful_public_verification_seconds": 82.844,
+        "tool_calls": 29
+      },
+      "verification": {
+        "changed_paths": [
+          "src/CheckoutService.php",
+          "src/RetryPolicy.php"
+        ],
+        "hidden_checks_passed": 8,
+        "hidden_checks_total": 8,
+        "integrity_passed": true,
+        "public_checks_passed": 4,
+        "public_checks_total": 4
+      }
+    },
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "deployment_id": "gemma4-31b-mlx-a22a363052da-ollama-0-33-2",
+      "diagnostic_interpretation": {
+        "category": "verified_success",
+        "evidence_status": "conclusive_success",
+        "type": "verified_success"
+      },
+      "digest": "a22a363052da770302019d5afab29bd967f9318e4377bddd297421189ea09d7d",
+      "final_verification_sha256": "f239ef58ceb0cc81366d71c489983aa8db61360b5bdc05ecf4293c75446f7569",
+      "model": "gemma4:31b-mlx",
+      "position": 8,
+      "raw_outcome": {
+        "agent_termination_valid": true,
+        "failure_category": null,
+        "failure_type": null,
+        "runtime_success": true,
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "run_id": "pi-agentic-run-20260903T200339Z-2e316ef7",
+      "run_record_sha256": "4edda476e8157b5b9bbe820ef5300027ecc6b7078a24e2ee641d56b12aff1358",
+      "trajectory": {
+        "active_wall_time_seconds": 156.26386183399973,
+        "agent_turns": 14,
+        "failed_tool_calls": 0,
+        "file_reads": 8,
+        "file_writes": 2,
+        "input_tokens": 58547,
+        "output_tokens": 5778,
+        "public_test_runs": 3,
+        "termination_reason": "agent_end",
+        "time_to_first_successful_public_verification_seconds": 95.201,
+        "tool_calls": 13
+      },
+      "verification": {
+        "changed_paths": [
+          "src/CheckoutService.php",
+          "src/RetryPolicy.php"
+        ],
+        "hidden_checks_passed": 8,
+        "hidden_checks_total": 8,
+        "integrity_passed": true,
+        "public_checks_passed": 4,
+        "public_checks_total": 4
+      }
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "deployment_id": "gemma4-31b-mlx-a22a363052da-ollama-0-33-2",
+      "diagnostic_interpretation": {
+        "category": "task_or_verification_failure",
+        "evidence_status": "conclusive_task_failure",
+        "type": "hidden_tests_failed"
+      },
+      "digest": "a22a363052da770302019d5afab29bd967f9318e4377bddd297421189ea09d7d",
+      "final_verification_sha256": "1f3ad95640ba27c72ce948c56a2723cf95a5297d5ae1c9e668b1f9d7f9fbcbd4",
+      "model": "gemma4:31b-mlx",
+      "position": 9,
+      "raw_outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": "hidden_tests_failed",
+        "runtime_success": true,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "run_id": "pi-agentic-run-20260903T200647Z-65ffaf4c",
+      "run_record_sha256": "0c609c2b179cadfecbbe3a4786bbb4dbf2d3722e87b73add87584016d5a9a9f9",
+      "trajectory": {
+        "active_wall_time_seconds": 240.42398058399976,
+        "agent_turns": 7,
+        "failed_tool_calls": 0,
+        "file_reads": 1,
+        "file_writes": 2,
+        "input_tokens": 40021,
+        "output_tokens": 7008,
+        "public_test_runs": 3,
+        "termination_reason": "agent_end",
+        "time_to_first_successful_public_verification_seconds": 125.335,
+        "tool_calls": 6
+      },
+      "verification": {
+        "changed_paths": [
+          "src/async-cache.mjs"
+        ],
+        "hidden_checks_passed": 7,
+        "hidden_checks_total": 8,
+        "integrity_passed": true,
+        "public_checks_passed": 4,
+        "public_checks_total": 4
+      }
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "deployment_id": "nemotron-3-5-lightning-30b-mlx-8b1474be6e54-ollama-0-33-2",
+      "diagnostic_interpretation": {
+        "category": "agent_budget_failure",
+        "evidence_status": "conclusive_bounded_failure",
+        "type": "maximum_total_output_tokens_exceeded"
+      },
+      "digest": "8b1474be6e54dc19eb7aa08bebfb9bda147c4b9ef9796a726131ad29ad15645a",
+      "final_verification_sha256": "5c277ffddf30414694fa9e07a69008436786ab96eab1268ec48872b8a2127a6a",
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "position": 10,
+      "raw_outcome": {
+        "agent_termination_valid": false,
+        "failure_category": "agent_failure",
+        "failure_type": "invalid_agent_end",
+        "runtime_success": true,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "run_id": "pi-agentic-run-20260903T201118Z-0043c154",
+      "run_record_sha256": "9c228bf6996168f774db183490721a3a8c2c06b2f6f3205c822967d4f50bec42",
+      "trajectory": {
+        "active_wall_time_seconds": 352.13049954200005,
+        "agent_turns": 7,
+        "failed_tool_calls": 6,
+        "file_reads": 4,
+        "file_writes": 0,
+        "input_tokens": 18951,
+        "output_tokens": 37668,
+        "public_test_runs": 1,
+        "termination_reason": "invalid_agent_end",
+        "time_to_first_successful_public_verification_seconds": null,
+        "tool_calls": 10
+      },
+      "verification": {
+        "changed_paths": [],
+        "hidden_checks_passed": 5,
+        "hidden_checks_total": 8,
+        "integrity_passed": true,
+        "public_checks_passed": 3,
+        "public_checks_total": 4
+      }
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "deployment_id": "granite4-2-30b-be22829aa92a-ollama-0-33-2",
+      "diagnostic_interpretation": {
+        "category": "agent_budget_failure",
+        "evidence_status": "conclusive_bounded_failure",
+        "type": "maximum_total_output_tokens_exceeded"
+      },
+      "digest": "be22829aa92aad40153c3b2cfd628269ac9281967e74c44d96750568a5af8ed4",
+      "final_verification_sha256": "9298e7993c1b43a9121ff3a8b3e7ffc00963011afed13204ea81c9fc8b5f6702",
+      "model": "granite4.2:30b",
+      "position": 11,
+      "raw_outcome": {
+        "agent_termination_valid": false,
+        "failure_category": "agent_failure",
+        "failure_type": "invalid_agent_end",
+        "runtime_success": true,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "run_id": "pi-agentic-run-20260903T201742Z-140cf2c2",
+      "run_record_sha256": "27d7323a8b85bd4ee20fd993cd7bb17fdf50503760959261b8bd1968de6e8f2c",
+      "trajectory": {
+        "active_wall_time_seconds": 774.5242843329997,
+        "agent_turns": 19,
+        "failed_tool_calls": 12,
+        "file_reads": 4,
+        "file_writes": 2,
+        "input_tokens": 55390,
+        "output_tokens": 12228,
+        "public_test_runs": 2,
+        "termination_reason": "invalid_agent_end",
+        "time_to_first_successful_public_verification_seconds": null,
+        "tool_calls": 18
+      },
+      "verification": {
+        "changed_paths": [
+          "src/async-cache.mjs"
+        ],
+        "hidden_checks_passed": 6,
+        "hidden_checks_total": 8,
+        "integrity_passed": true,
+        "public_checks_passed": 4,
+        "public_checks_total": 4
+      }
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "deployment_id": "ornith-1-5-35b-9f3b89b25219-ollama-0-33-2",
+      "diagnostic_interpretation": {
+        "category": "agent_budget_failure",
+        "evidence_status": "conclusive_bounded_failure",
+        "type": "maximum_total_output_tokens_exceeded"
+      },
+      "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc",
+      "final_verification_sha256": "b12f9b594ec459e80a6c57136d989c1cb0b018c14b482ebb2088ff0db6bc3351",
+      "model": "ornith-1.5:35b",
+      "position": 12,
+      "raw_outcome": {
+        "agent_termination_valid": false,
+        "failure_category": "agent_failure",
+        "failure_type": "invalid_agent_end",
+        "runtime_success": true,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "run_id": "pi-agentic-run-20260903T203108Z-b02fb57b",
+      "run_record_sha256": "0fb52bc95e4395fd0cf33d8797b14a61f0667f56acac391da74747bf22dfe066",
+      "trajectory": {
+        "active_wall_time_seconds": 425.1495745000002,
+        "agent_turns": 5,
+        "failed_tool_calls": 2,
+        "file_reads": 4,
+        "file_writes": 1,
+        "input_tokens": 11630,
+        "output_tokens": 30887,
+        "public_test_runs": 1,
+        "termination_reason": "invalid_agent_end",
+        "time_to_first_successful_public_verification_seconds": null,
+        "tool_calls": 7
+      },
+      "verification": {
+        "changed_paths": [
+          "src/async-cache.mjs"
+        ],
+        "hidden_checks_passed": 7,
+        "hidden_checks_total": 8,
+        "integrity_passed": true,
+        "public_checks_passed": 3,
+        "public_checks_total": 4
+      }
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "deployment_id": "muse-glimmer-30b-mlx-ef32a55b4976-ollama-0-33-2",
+      "diagnostic_interpretation": {
+        "category": "agent_budget_failure",
+        "evidence_status": "conclusive_bounded_failure",
+        "type": "maximum_wall_time_exceeded"
+      },
+      "digest": "ef32a55b4976faa955cbab0462d09bd081351ef5b87d73d8fcd299bf17c111d7",
+      "final_verification_sha256": "8ab5444d0941e136925461f17892b81adb80909ad10edff0bcfda37503b6e3b0",
+      "model": "muse-glimmer:30b-mlx",
+      "position": 13,
+      "raw_outcome": {
+        "agent_termination_valid": false,
+        "failure_category": "infrastructure_or_runtime_failure",
+        "failure_type": "maximum_wall_time_exceeded",
+        "runtime_success": false,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "run_id": "pi-agentic-run-20260903T203845Z-dbbf8dfe",
+      "run_record_sha256": "fb1ff30722d8afe28d9c807e48261bb2c1a6af5ae38b41ae312633ca3441a2fd",
+      "trajectory": {
+        "active_wall_time_seconds": 900.0285174580004,
+        "agent_turns": 3,
+        "failed_tool_calls": 0,
+        "file_reads": 5,
+        "file_writes": 0,
+        "input_tokens": 4496,
+        "output_tokens": 8414,
+        "public_test_runs": 0,
+        "termination_reason": "maximum_wall_time_exceeded",
+        "time_to_first_successful_public_verification_seconds": null,
+        "tool_calls": 5
+      },
+      "verification": {
+        "changed_paths": [],
+        "hidden_checks_passed": 5,
+        "hidden_checks_total": 8,
+        "integrity_passed": true,
+        "public_checks_passed": 3,
+        "public_checks_total": 4
+      }
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "deployment_id": "gpt-oss-20b-17052f91a42e-ollama-0-33-2",
+      "diagnostic_interpretation": {
+        "category": "provider_or_transport_failure",
+        "evidence_status": "inconclusive_negative",
+        "type": "provider_stream_incomplete"
+      },
+      "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+      "final_verification_sha256": "0f44c93a9133bd7420b00c0f2df7c7da3da0ef61789fa0b087eefd8a2520a476",
+      "model": "gpt-oss:20b",
+      "position": 14,
+      "raw_outcome": {
+        "agent_termination_valid": false,
+        "failure_category": "agent_failure",
+        "failure_type": "invalid_agent_end",
+        "runtime_success": true,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "run_id": "pi-agentic-run-20260903T212130Z-76eecef3",
+      "run_record_sha256": "10d8b0c3ffb5ae03da24e11543495b7d2abc3c745e266e6ae66855d6df16b0a4",
+      "trajectory": {
+        "active_wall_time_seconds": 167.25681750000058,
+        "agent_turns": 8,
+        "failed_tool_calls": 0,
+        "file_reads": 7,
+        "file_writes": 0,
+        "input_tokens": 20056,
+        "output_tokens": 363,
+        "public_test_runs": 0,
+        "termination_reason": "invalid_agent_end",
+        "time_to_first_successful_public_verification_seconds": null,
+        "tool_calls": 7
+      },
+      "verification": {
+        "changed_paths": [],
+        "hidden_checks_passed": 5,
+        "hidden_checks_total": 8,
+        "integrity_passed": true,
+        "public_checks_passed": 3,
+        "public_checks_total": 4
+      }
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "diagnostic_interpretation": {
+        "category": "provider_or_transport_failure",
+        "evidence_status": "inconclusive_negative",
+        "type": "provider_request_timeout"
+      },
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "final_verification_sha256": "4ae82ce1b04d11d3027c431ad1ac3642af1435ad3e6104d5c6d865338d684a35",
+      "model": "qwen3.8:27b-mlx",
+      "position": 15,
+      "raw_outcome": {
+        "agent_termination_valid": false,
+        "failure_category": "agent_failure",
+        "failure_type": "invalid_agent_end",
+        "runtime_success": true,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "run_id": "pi-agentic-run-20260903T212540Z-1b671b8d",
+      "run_record_sha256": "bba2c89c05c27c0e798b79661587d7102003c8dc63f4377aaf7848f317f27d39",
+      "trajectory": {
+        "active_wall_time_seconds": 30.774200291000852,
+        "agent_turns": 1,
+        "failed_tool_calls": 0,
+        "file_reads": 0,
+        "file_writes": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "public_test_runs": 0,
+        "termination_reason": "invalid_agent_end",
+        "time_to_first_successful_public_verification_seconds": null,
+        "tool_calls": 0
+      },
+      "verification": {
+        "changed_paths": [],
+        "hidden_checks_passed": 5,
+        "hidden_checks_total": 8,
+        "integrity_passed": true,
+        "public_checks_passed": 3,
+        "public_checks_total": 4
+      }
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "deployment_id": "qwen3-6-35b-a3b-mxfp8-d82a30588f1c-ollama-0-33-2",
+      "diagnostic_interpretation": {
+        "category": "timing_confound",
+        "evidence_status": "inconclusive_negative",
+        "type": "policy_wall_clock_included_standby"
+      },
+      "digest": "d82a30588f1c7bc2afa5226f3d67c8987bf505104f8f0512a0f8643ac4525d16",
+      "final_verification_sha256": "e8b19d6814128c5f6a26181b2ef91ffebe4d6459bb406950a90b661357bf3b51",
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "position": 16,
+      "raw_outcome": {
+        "agent_termination_valid": false,
+        "failure_category": "agent_failure",
+        "failure_type": "invalid_agent_end",
+        "runtime_success": true,
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "run_id": "pi-agentic-run-20260903T214153Z-a20e377f",
+      "run_record_sha256": "e2ba29abf8a4950df7cf2e444e261bf22cf29da0b030fe00282e51b101beea80",
+      "trajectory": {
+        "active_wall_time_seconds": 31.89969849999943,
+        "agent_turns": 2,
+        "failed_tool_calls": 0,
+        "file_reads": 4,
+        "file_writes": 0,
+        "input_tokens": 1564,
+        "output_tokens": 326,
+        "public_test_runs": 0,
+        "termination_reason": "invalid_agent_end",
+        "time_to_first_successful_public_verification_seconds": null,
+        "tool_calls": 4
+      },
+      "verification": {
+        "changed_paths": [],
+        "hidden_checks_passed": 5,
+        "hidden_checks_total": 8,
+        "integrity_passed": true,
+        "public_checks_passed": 3,
+        "public_checks_total": 4
+      }
+    }
+  ],
+  "report_id": "track-b-pi-capability-sweep-v0.2",
+  "report_type": "measured_capability_sweep_with_diagnostic_corrections",
+  "schema_version": "1.0.0",
+  "source": {
+    "implementation_git_commit": "17447e03fcc164df35238012d418f89003f0949e",
+    "plan_path": "tasks/coding/track-b/pi-capability-sweep-v0.2.json",
+    "plan_sha256": "3d36245403d147250a4350144ed64d0fd6a4d9152e2cf15ac9bad75cce2a4437",
+    "sweep_id": "pi-sweep-20260903T190203Z-bb8f9f39",
+    "sweep_sha256": "4edfa6e28caa0096163ae146ca6c09a725793ace9dce005ac3e26bbbb51ce8f7"
+  },
+  "study_mode": "capability_sweep",
+  "summary": {
+    "attempts": 16,
+    "case_summary": [
+      {
+        "attempts": 8,
+        "case_id": "coding.dev.php-payment-result-migration",
+        "case_path": "tasks/coding/dev/php-payment-result-migration/case.json",
+        "conclusive_bounded_or_task_failures": 1,
+        "inconclusive_negatives": 1,
+        "language": "PHP",
+        "task_family": "api_migration",
+        "verified_successes": 6,
+        "verifier_checks": 12
+      },
+      {
+        "attempts": 8,
+        "case_id": "coding.dev.async-cache-coalescing",
+        "case_path": "tasks/coding/dev/async-cache-coalescing/case.json",
+        "conclusive_bounded_or_task_failures": 5,
+        "inconclusive_negatives": 3,
+        "language": "JavaScript",
+        "task_family": "feature_implementation",
+        "verified_successes": 0,
+        "verifier_checks": 12
+      }
+    ],
+    "evidence_status_counts": {
+      "conclusive_bounded_failure": 5,
+      "conclusive_success": 6,
+      "conclusive_task_failure": 1,
+      "inconclusive_negative": 4
+    },
+    "model_summary": [
+      {
+        "attempts": 2,
+        "deployment_id": "qwen3-6-35b-a3b-mxfp8-d82a30588f1c-ollama-0-33-2",
+        "inconclusive_negatives": 1,
+        "model": "qwen3.6:35b-a3b-mxfp8",
+        "verified_successes": 1
+      },
+      {
+        "attempts": 2,
+        "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+        "inconclusive_negatives": 1,
+        "model": "qwen3.8:27b-mlx",
+        "verified_successes": 1
+      },
+      {
+        "attempts": 2,
+        "deployment_id": "gpt-oss-20b-17052f91a42e-ollama-0-33-2",
+        "inconclusive_negatives": 1,
+        "model": "gpt-oss:20b",
+        "verified_successes": 0
+      },
+      {
+        "attempts": 2,
+        "deployment_id": "muse-glimmer-30b-mlx-ef32a55b4976-ollama-0-33-2",
+        "inconclusive_negatives": 1,
+        "model": "muse-glimmer:30b-mlx",
+        "verified_successes": 0
+      },
+      {
+        "attempts": 2,
+        "deployment_id": "ornith-1-5-35b-9f3b89b25219-ollama-0-33-2",
+        "inconclusive_negatives": 0,
+        "model": "ornith-1.5:35b",
+        "verified_successes": 1
+      },
+      {
+        "attempts": 2,
+        "deployment_id": "granite4-2-30b-be22829aa92a-ollama-0-33-2",
+        "inconclusive_negatives": 0,
+        "model": "granite4.2:30b",
+        "verified_successes": 1
+      },
+      {
+        "attempts": 2,
+        "deployment_id": "nemotron-3-5-lightning-30b-mlx-8b1474be6e54-ollama-0-33-2",
+        "inconclusive_negatives": 0,
+        "model": "nemotron-3.5-lightning:30b-mlx",
+        "verified_successes": 1
+      },
+      {
+        "attempts": 2,
+        "deployment_id": "gemma4-31b-mlx-a22a363052da-ollama-0-33-2",
+        "inconclusive_negatives": 0,
+        "model": "gemma4:31b-mlx",
+        "verified_successes": 1
+      }
+    ],
+    "verified_successes": 6
+  },
+  "track": "B"
+}

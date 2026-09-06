@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "log-incident-sweep-controller-v0.2-no-inference-qualification",
+  "qualified_on": "2026-09-06",
+  "status": "qualified_for_measured_sweep_planning",
+  "track": "B",
+  "protocol_id": "agentic-log-incident-v0.2",
+  "controller_id": "log-incident-sweep-controller-v0.2",
+  "scope": "No live inference. Qualify one append-only controller and public-safe report path for the full Mini/Pi by deployment by three-case Cartesian product.",
+  "execution_model": {
+    "local_preparation_actions_and_verification_are_checkpointed": true,
+    "live_command_crosses_exactly_one_model_boundary": true,
+    "drive_command_keeps_one_foreground_process_across_remaining_cells": true,
+    "terminal_cells_are_never_repeated": true,
+    "interrupted_live_state_is_preserved_as_infrastructure_failure": true,
+    "automatic_retries": 0,
+    "resource_gate_before_first_request_of_every_cell": true,
+    "mini_continuation_gate_before_every_later_turn": true,
+    "pi_real_seatbelt_acceptance_before_every_trajectory": true,
+    "model_unloaded_after_every_terminal_cell": true
+  },
+  "outcome_model": {
+    "runtime_success_separate": true,
+    "agent_termination_separate": true,
+    "verifier_success_separate": true,
+    "verified_success_primary": true,
+    "infrastructure_failure_retained": true,
+    "task_failure_retained": true,
+    "raw_per_run_data_retained": true,
+    "candidate_content_excluded_from_public_report": true
+  },
+  "qualification_evidence": {
+    "focused_controller_and_report_tests_passed": 5,
+    "repository_python_tests_passed": 288,
+    "pi_node_tests_passed": 21,
+    "pi_opt_in_live_transport_tests_skipped": 1,
+    "complete_cartesian_product_enforced": true,
+    "three_case_protocol_identity_enforced": true,
+    "deployment_and_runtime_drift_rejected": true,
+    "resource_gate_process_evidence_sanitized": true,
+    "interrupted_live_state_not_retried": true,
+    "public_report_privacy_test_passed": true,
+    "live_ollama_requests": 0,
+    "live_model_inference": false
+  },
+  "methodological_boundaries": {
+    "runs_per_configuration": 1,
+    "reliability_probability_claims": false,
+    "performance_distribution_claims": false,
+    "tail_percentiles": false,
+    "one_factor_causal_harness_claim_allowed": false,
+    "comparison_unit": "complete_system",
+    "excluded_smokes_reused_as_measured": false
+  },
+  "artifacts": [
+    {
+      "path": "local_llm_benchmark/log_incident_sweep.py",
+      "sha256": "a7d9d4e7086ffed1a372c907ad84d5bd5989b21c1534c0fdd9373319cbeb94d0"
+    },
+    {
+      "path": "local_llm_benchmark/log_incident_report.py",
+      "sha256": "82cfa085f7f69d4e01e7632e68c6dd38db33564b218c47c0d26cd473c9670357"
+    },
+    {
+      "path": "tests/test_log_incident_sweep.py",
+      "sha256": "cd0721ef7baa1138990905bbb72b4aebf7c75a85452adcefa0546a07351d07ed"
+    },
+    {
+      "path": "tasks/agentic/track-b/mini-log-v0.2-qualification.json",
+      "sha256": "9614a9eea0a80554c188bb6859063fa3261436a25838b865fa1fce9111302588"
+    },
+    {
+      "path": "tasks/agentic/track-b/pi-log-v0.2-qualification.json",
+      "sha256": "309003c732de430e89c8e17211397ff403bcf559b0cbe93e6a07bbf882011d48"
+    },
+    {
+      "path": "reports/agentic/log-incident-qualification-smokes-v0.2.json",
+      "sha256": "68365595ecc732c18afa20c707c561d84c5122938c51f9c784dbd49feb0ff4b7"
+    }
+  ],
+  "next_gate": "Freeze exact active-default deployments, all three cases, both complete systems and a balanced 30-cell order before starting a measured run."
+}

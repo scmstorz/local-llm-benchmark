@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "harness_id": "mini-v0.1",
+  "harness_family": "project_mini_harness",
+  "status": "implementation_draft",
+  "protocol_path": "tasks/coding/track-b/track-b-v0.1.json",
+  "system_prompt_path": "tasks/coding/track-b/prompts/mini-system-v0.1.txt",
+  "action_protocol": "single_json_object_per_turn",
+  "actions": [
+    "read_file",
+    "write_file",
+    "replace_text",
+    "run_public_tests",
+    "finish"
+  ],
+  "context_policy": {
+    "initial_context": [
+      "task_text",
+      "candidate_visible_path_inventory",
+      "tool_contract",
+      "budgets"
+    ],
+    "file_contents_loaded_on_demand": true,
+    "observations_appended_verbatim": true,
+    "automatic_compaction": false
+  },
+  "tool_policy": {
+    "read_file": "candidate_visible_existing_files_only",
+    "write_file": "allowed_existing_files_only",
+    "replace_text": "one_exact_occurrence_in_allowed_existing_file",
+    "run_public_tests": "frozen_public_test_command_only",
+    "finish": "no_side_effect"
+  }
+}

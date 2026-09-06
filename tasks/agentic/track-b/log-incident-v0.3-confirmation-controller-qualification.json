@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "log-incident-v0.3-confirmation-controller-no-inference",
+  "qualified_on": "2026-09-06",
+  "status": "qualified_for_authorized_execution",
+  "plan_id": "log-incident-v0.3-specification-confirmation",
+  "authorization_id": "log-incident-v0.3-execution-authorization",
+  "experimental_scope": "No live inference. The resumable controller, frozen-plan loader, post-freeze authorization binding, mocked resource gate, checkpoint lifecycle and public-safe layered report path were exercised offline.",
+  "qualification_evidence": {
+    "frozen_six_cell_matrix_validated": true,
+    "post_freeze_authorization_hash_bound": true,
+    "first_cell_prepared_without_inference": true,
+    "live_boundary_requires_explicit_confirmation": true,
+    "mocked_live_boundary_checkpointed": true,
+    "semantic_and_transport_outcomes_reported_separately": true,
+    "private_candidate_content_excluded_from_public_report": true,
+    "absolute_paths_excluded_from_public_report": true,
+    "focused_python_tests_passed": 5,
+    "live_ollama_requests": 0,
+    "live_model_inference": false
+  },
+  "interruption_policy": {
+    "raw_attempts_append_only": true,
+    "terminal_attempts_never_repeated": true,
+    "lost_live_process_classified_as_infrastructure_or_control_failure": true,
+    "automatic_retries": 0
+  },
+  "artifacts": [
+    {"path": "local_llm_benchmark/log_incident_confirmation_v03.py", "sha256": "a3ab7bfb95f2187799c870ede9fe21a58fdd6c7875ea588cbd317e658390d1bc"},
+    {"path": "local_llm_benchmark/log_incident_confirmation_report_v03.py", "sha256": "b0e509b5671a8ae1280bc2761cdacf12f2c3f9ed2a6dda8c6a011a1007f928b2"},
+    {"path": "tests/test_log_incident_confirmation_v03.py", "sha256": "27579c12875b53455e2a7b8ba21f07732e4d90edb5122924bc3bf415e90580c5"},
+    {"path": "tasks/agentic/track-b/log-incident-v0.3-confirmation-plan.json", "sha256": "e44a7e8ba45fff262f1d697ba47ab56537b55456d01a1b52636729bc8be81c45"},
+    {"path": "tasks/agentic/track-b/log-incident-v0.3-execution-authorization.json", "sha256": "e697c59bcfb60c5f51a2205513ecb0823aad0f51ca8659540949446cd8487723"}
+  ],
+  "next_gate": "Commit this qualified controller, then execute only after the real 30-second resource gate passes for every cell."
+}

@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "log-incident-qualification-smokes-v0.2",
+  "status": "complete_with_protocol_deviation",
+  "generated_at": "2026-09-05T20:26:35.934209Z",
+  "evidence_class": "excluded_qualification_smoke_pair",
+  "plan": {
+    "path": "tasks/agentic/track-b/log-incident-qualification-smokes-v0.2.json",
+    "sha256": "6cc1676ce225125f6aabf0e8c21deb7b9b32e570cb381bbdf40e67d49d1f9842",
+    "execution_commit": "a435ff05154b3fe5fff0968ad8ab891e7860c43f"
+  },
+  "case": {
+    "case_id": "agentic.ops.retry-queue-amplification",
+    "case_version": "1.0.0"
+  },
+  "deployment": {
+    "name": "qwen3.8:27b-mlx",
+    "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "quantization": "nvfp4"
+  },
+  "runtime": {
+    "name": "ollama",
+    "version": "0.33.2"
+  },
+  "resource_controls": {
+    "pre_mini_gate_passed": true,
+    "pre_pi_gate_passed": true,
+    "gate_observation_seconds_each": 30,
+    "pi_real_seatbelt_checks_passed": 9,
+    "pi_real_seatbelt_checks_total": 9,
+    "postflight_running_models": []
+  },
+  "admitted_units": [
+    {
+      "position": 1,
+      "harness_id": "mini-log-v0.2",
+      "run_id": "mini-log-v02-run-20260905T201751Z-0332819d",
+      "private_run_record_sha256": "00746375a9f82794cadc78d87afd456274725adabd057913690b421d9bc0ee84",
+      "status": "complete",
+      "runtime_success": true,
+      "agent_termination_valid": true,
+      "verifier_success": false,
+      "verified_success": false,
+      "failure_category": "task_or_verification_failure",
+      "failure_type": "deterministic_checks_failed",
+      "essential_checks_passed": 11,
+      "essential_checks_total": 14,
+      "failed_check_ids": [
+        "incident_window_utc",
+        "affected_scope",
+        "critical_evidence"
+      ],
+      "active_wall_time_seconds": 83.51756224998826,
+      "agent_turns": 7,
+      "model_requests": 7,
+      "tool_calls": 7,
+      "file_reads": 6,
+      "repeated_file_reads": 0,
+      "failed_tool_calls": 0,
+      "input_tokens": 14763,
+      "output_tokens": 1853
+    },
+    {
+      "position": 2,
+      "harness_id": "pi-log-v0.2",
+      "run_id": "pi-log-v02-run-20260905T202049Z-a10d63c7",
+      "private_run_record_sha256": "54941d630e57c49591324e0a1bfd9a1ed6f6b3ce229dc716d2e108cba33b335e",
+      "status": "complete",
+      "runtime_success": true,
+      "agent_termination_valid": true,
+      "verifier_success": false,
+      "verified_success": false,
+      "failure_category": "task_or_verification_failure",
+      "failure_type": "missing_or_malformed_report",
+      "essential_checks_passed": 0,
+      "essential_checks_total": 1,
+      "failed_check_ids": [
+        "report_object"
+      ],
+      "active_wall_time_seconds": 170.64388150000013,
+      "agent_turns": 4,
+      "tool_calls": 8,
+      "file_reads": 8,
+      "repeated_file_reads": 2,
+      "failed_tool_calls": 0,
+      "input_tokens": 24702,
+      "output_tokens": 7808,
+      "final_report_parse_status": "invalid",
+      "final_report_parse_failure": "malformed_final_json"
+    }
+  ],
+  "posthoc_diagnostics": {
+    "included_in_official_outcomes": false,
+    "pi_embedded_json_parseable_after_removing_leading_prose": true,
+    "pi_embedded_json_essential_checks_passed": 10,
+    "pi_embedded_json_essential_checks_total": 14,
+    "pi_embedded_json_failed_check_ids": [
+      "incident_window_utc",
+      "affected_scope",
+      "causal_chain",
+      "critical_evidence"
+    ],
+    "interpretation": "Pi's failure is not merely cosmetic. The strict result remains malformed, and the embedded object would still fail four deterministic checks if repaired post hoc."
+  },
+  "control_events": [
+    {
+      "run_id": "mini-log-v02-run-20260905T201040Z-654a36de",
+      "private_run_record_sha256": "cdc2039ae1feaeba9ca1b882b8dcbc234aca1d8f3d816fef857654e5d343fec3",
+      "classification": "development_environment_mismatch",
+      "detail": "The enclosing development sandbox denied loopback access before Ollama could be reached.",
+      "model_contact_observed": false,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "admitted_as_model_outcome": false
+    },
+    {
+      "run_id": "mini-log-v02-run-20260905T201240Z-14363cee",
+      "private_run_record_sha256": "567cded8a084bbea05f523bd4b1b0a9974e8ec8296f360caf1266f3831577add",
+      "classification": "orchestration_session_interrupted",
+      "detail": "The execution session ended during the seventh request after six completed read turns. The partial stream was preserved and was neither reconstructed nor scored.",
+      "model_contact_observed": true,
+      "complete_agent_trajectory": false,
+      "admitted_as_model_outcome": false
+    }
+  ],
+  "protocol_compliance": {
+    "frozen_model_case_and_settings_preserved": true,
+    "automatic_retries": 0,
+    "strict_one_execution_attempt_compliance": false,
+    "deviation": "A fresh Mini development run was started after an execution-session interruption despite the frozen do-not-retry rule. The incomplete run remains preserved and excluded.",
+    "impact": "The pair is valid only as excluded machinery evidence. It must not be presented as a clean one-attempt comparison, model ranking, performance comparison or measured capability result."
+  },
+  "interpretation": {
+    "mini_end_to_end_path_interpretable": true,
+    "pi_end_to_end_path_interpretable": true,
+    "machinery_gate": "passed_with_documented_protocol_deviation",
+    "included_in_measured_aggregates": false,
+    "comparison_unit": "complete_system",
+    "one_factor_causal_harness_claim_allowed": false,
+    "candidate_outputs_published": false,
+    "next_gate": "Build and qualify a durable v0.2 sweep controller, then freeze a balanced three-case Capability Sweep before any measured request."
+  }
+}

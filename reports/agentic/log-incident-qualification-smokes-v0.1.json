@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "log-incident-qualification-smokes-v0.1",
+  "status": "awaiting_execution",
+  "evidence_class": "excluded_qualification_smoke_pair",
+  "case_id": "agentic.ops.checkout-pool-regression",
+  "planned_systems": [
+    "mini-log-v0.1",
+    "pi-log-v0.1"
+  ],
+  "live_ollama_requests": 0,
+  "exclusive_window_confirmation_required": true,
+  "note": "This placeholder records the frozen reporting target. The report command replaces it only after both planned units have terminal outcomes."
+}

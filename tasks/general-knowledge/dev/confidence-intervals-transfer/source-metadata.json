@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "reference.general-knowledge.confidence-intervals-transfer.2026-08-28",
+  "title": "Frozen reference dossier: comparing two apparently conflicting studies",
+  "publisher": "Local LLM Benchmark Lab",
+  "page_type": "project_authored_reference_dossier",
+  "retrieved_at": "2026-08-28",
+  "source_language": "en",
+  "authoritative_sources": [
+    "https://itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+    "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+    "https://www.itl.nist.gov/div898/handbook/prc/section1/prc15.htm",
+    "https://itl.nist.gov/div898/handbook/prc/section2/prc221.htm",
+    "https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf",
+    "https://sites.stat.columbia.edu/gelman/research/unpublished/signif3.pdf",
+    "https://www.ncbi.nlm.nih.gov/books/NBK621595/?report=printable"
+  ],
+  "artifacts": {
+    "reference_source": {
+      "path": "tasks/general-knowledge/dev/confidence-intervals-transfer/reference.md",
+      "sha256": "9dccf5fa844571c659e485151a15fdcb428b95ef6443f6a3ceb4fe46602a0d6b",
+      "word_count_whitespace": 751,
+      "location_labels_added": true,
+      "candidate_visible": false
+    }
+  },
+  "construction": {
+    "method": "Project-authored scenario and synthesis of cited authoritative and primary methodological sources",
+    "semantic_policy": "Freeze all numbers, assumptions, inferential distinctions and decision thresholds before candidate generation.",
+    "frozen_on": "2026-08-28"
+  },
+  "copyright": {
+    "dossier_license": "project_repository_license",
+    "source_publications_copied": false,
+    "git_tracked": true
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "track-b-php-development-smokes-v0.1",
+  "report_type": "excluded_harness_development_smoke",
+  "generated_at": "2026-09-02T16:17:43Z",
+  "track": "B",
+  "study_mode": "capability_sweep",
+  "evidence_class": "excluded_development_smoke",
+  "frozen_plan": {
+    "path": "tasks/coding/track-b/php-ornith-development-smokes-v0.1.json",
+    "sha256": "3b900bd5ff17127a42ddb1045d5d3269a5a7079eb283201bf2b512e621ff9bea",
+    "execution_order": [
+      "mini-v0.1",
+      "pi-v0.1"
+    ],
+    "automatic_retries": 0,
+    "manual_repair": false
+  },
+  "case": {
+    "case_id": "coding.dev.php-payment-result-migration",
+    "case_version": "1.0.0",
+    "task_family": "api_migration",
+    "language": "PHP",
+    "verifier_version": "1.0.0",
+    "public_checks": 4,
+    "hidden_checks": 8
+  },
+  "deployment": {
+    "name": "ornith-1.5:35b",
+    "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc",
+    "runtime": "ollama",
+    "ollama_version": "0.32.15",
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "context_tokens": 16384,
+    "maximum_output_tokens_per_turn": 1600,
+    "maximum_total_output_tokens": 12000
+  },
+  "resource_gate": {
+    "cold_after_explicit_unload_before_each_harness": true,
+    "empty_ollama_observation_seconds": 30,
+    "postflight_empty_observation_seconds": 30,
+    "unexpected_embedding_reload_blocked_pi_start": true,
+    "blocking_application": "Blog-Read-O-Matic",
+    "blocking_model": "nomic-embed-text-v2-moe:latest",
+    "resolution": "The user attempted SIGINT, an explicitly authorized SIGTERM did not stop the process, and an explicitly authorized SIGKILL stopped only the identified Streamlit process. The embedding model was then unloaded and Ollama remained empty for 30 seconds before Pi started."
+  },
+  "outcome_matrix": [
+    {
+      "harness_id": "mini-v0.1",
+      "run_id": "agentic-run-20260902T130507Z-3fce1a9c",
+      "runtime_success": true,
+      "agent_termination_valid": false,
+      "verifier_success": false,
+      "overall_verified_success": false,
+      "failure_category": "agent_failure",
+      "failure_type": "maximum_protocol_errors_exceeded"
+    },
+    {
+      "harness_id": "pi-v0.1",
+      "run_id": "pi-agentic-run-20260902T130719Z-00667a46",
+      "runtime_success": true,
+      "agent_termination_valid": false,
+      "verifier_success": true,
+      "overall_verified_success": false,
+      "failure_category": "agent_failure",
+      "failure_type": "invalid_agent_end"
+    }
+  ],
+  "observations": [
+    {
+      "harness_id": "mini-v0.1",
+      "harness_family": "project_mini_harness",
+      "run_id": "agentic-run-20260902T130507Z-3fce1a9c",
+      "run_record_sha256": "ed1529ca1c497931a85a9070771076a764cf0e5cc56730d88075fd68556338e6",
+      "final_verification_sha256": "ba78fd30dda258206f4bc1eb842cc494c0860baa7600064ecc100be72a92e52f",
+      "termination_reason": "maximum_protocol_errors_exceeded",
+      "trajectory": {
+        "active_wall_time_seconds": 11.646844,
+        "agent_turns": 3,
+        "protocol_errors": 3,
+        "tool_calls": 0,
+        "failed_tool_calls": 0,
+        "file_reads": 0,
+        "file_writes": 0,
+        "public_test_runs": 0,
+        "input_tokens": 2877,
+        "output_tokens": 66,
+        "time_to_first_successful_public_verification_seconds": null
+      },
+      "artifact_integrity_passed": true,
+      "changed_paths": [],
+      "public_checks_passed": 2,
+      "public_checks_total": 4,
+      "hidden_checks_passed": 3,
+      "hidden_checks_total": 8,
+      "interpretation": "Ornith returned a JSON action inside a Markdown code fence on all three turns. The frozen strict parser correctly performed no normalization. The unchanged baseline was verified after termination. This is a protocol-fit failure, not a PHP semantic-capability result."
+    },
+    {
+      "harness_id": "pi-v0.1",
+      "harness_family": "pinned_pi",
+      "pi_package": "@earendil-works/pi-coding-agent@0.84.4",
+      "run_id": "pi-agentic-run-20260902T130719Z-00667a46",
+      "run_record_sha256": "b875c74ea35b94b5f83fe092924120b223b548869e90b7a3b7b593bc3689bc0a",
+      "final_verification_sha256": "42da3ca0f61dd884dc420f4d80437e99759fae147659bd84275b02ce0f5ba80d",
+      "sandbox_acceptance_sha256": "5626298be3264798f829898a0fab12224d5b1e4863712f8b5a56b989b45bac74",
+      "sandbox_backend": "pi-macos-seatbelt-v0.1",
+      "sandbox_acceptance_checks_passed": 11,
+      "sandbox_acceptance_checks_total": 11,
+      "termination_reason": "invalid_agent_end",
+      "trajectory": {
+        "active_wall_time_seconds": 85.274668,
+        "productive_agent_turns": 12,
+        "aborted_terminal_turn": 13,
+        "tool_calls": 21,
+        "failed_tool_calls": 3,
+        "file_reads": 13,
+        "file_writes": 4,
+        "public_test_runs": 2,
+        "input_tokens": 59541,
+        "output_tokens": 5685,
+        "time_to_first_successful_public_verification_seconds": 85.023,
+        "retry_events": 0
+      },
+      "failed_tool_call_taxonomy": {
+        "blocked_unlisted_shell_commands": 2,
+        "failed_public_test_runs": 1
+      },
+      "artifact_integrity_passed": true,
+      "changed_paths": [
+        "src/CheckoutService.php",
+        "src/RetryPolicy.php"
+      ],
+      "public_checks_passed": 4,
+      "public_checks_total": 4,
+      "hidden_checks_passed": 8,
+      "hidden_checks_total": 8,
+      "interpretation": "Pi produced verifier-complete code and reached a passing public test in the twelfth permitted working turn. A thirteenth turn was required for the model to emit a normal final response. The frozen policy aborted that turn, so final assistant stop_reason was error and the overall run remained a formal failure despite complete code verification."
+    }
+  ],
+  "findings": [
+    "The harness changed the observed failure boundary for the same model and task: mini-v0.1 stopped at response protocol, while pi-v0.1 reached verifier-complete code.",
+    "Verifier success and valid agent termination are independent outcomes. Pi passed all deterministic checks but did not finish within the trajectory budget.",
+    "The twelve-turn limit is ambiguous for tool-using agents because a tool call in the final working turn normally requires one additional assistant turn to settle. The next protocol version should define a termination-only allowance explicitly rather than silently increasing the working budget.",
+    "The resource gate prevented a mixed-deployment run after a background application reloaded an embedding model."
+  ],
+  "claims_not_supported": [
+    "No harness winner can be declared from one excluded smoke per harness.",
+    "The raw wall times are not comparable performance estimates because the trajectories performed different amounts of work and no repetitions were run.",
+    "The observations do not estimate reliability, stochastic quality or tail latency.",
+    "The Pi result must not be relabeled as overall verified success after the fact."
+  ],
+  "next_protocol_decision": {
+    "status": "superseded_after_methodology_review",
+    "proposal": "Separate working-turn budget from one termination-only settling turn in both harness families. The settling turn must not permit reads, writes, tests or other tools.",
+    "rerun_current_smokes": false,
+    "reason": "The frozen development attempts remain valid diagnostic evidence and must not be replaced after observing their outcomes."
+  },
+  "subsequent_protocol_decision": {
+    "protocol_id": "coding-track-b-v0.2",
+    "decision": "Remove the normal agent-turn limit. Record turns as trajectory evidence and bound runs through wall time, total output tokens, tool-specific operation limits and mini protocol-error limits.",
+    "rationale": "Turn semantics differ across Pi and mini, and users care about verified completion, elapsed time and resource consumption rather than an arbitrary number of interaction rounds.",
+    "historical_v01_outcomes_unchanged": true
+  }
+}

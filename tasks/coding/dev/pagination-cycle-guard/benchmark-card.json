@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "1.0.0",
+  "case_id": "coding.dev.pagination-cycle-guard",
+  "case_version": "1.0.0",
+  "track": "A",
+  "title": "Cursor pagination cycle guard",
+  "evaluation_goal": "Measure whether a model can produce a bounded patch that makes a cursor-paginated collector terminate safely, deduplicate records and respect an exact fetch budget.",
+  "task_family": "bug_fixing",
+  "pre_run_task_features": {
+    "change_scope": "localized_package",
+    "expected_files_changed": "one_or_two",
+    "locality": "single_component_with_public_api_boundary",
+    "context_requirement": "small_repository_snapshot",
+    "specification_clarity": "explicit_behavioral_contract",
+    "reasoning_requirement": "state_machine_and_boundary_reasoning",
+    "dependency_depth": "low",
+    "tool_requirement": "none_in_track_a",
+    "feedback_strength": "public_and_hidden_deterministic_tests",
+    "language_framework": "python_standard_library",
+    "autonomy_requirement": "single_turn_patch",
+    "risk": "medium_data_correctness_and_termination",
+    "reversibility": "high_in_disposable_fixture"
+  },
+  "candidate_visible_requirements": [
+    "Preserve first-seen record ordering while deduplicating by identifier.",
+    "Continue across empty pages that provide a continuation cursor.",
+    "Detect a repeated fetched cursor before refetching it.",
+    "Enforce max_pages as an exact fetch-call budget.",
+    "Validate max_pages before the first source call.",
+    "Preserve the public API and modify only allowed source files."
+  ],
+  "verification_layers": [
+    {
+      "id": "output_contract",
+      "required": true,
+      "success": "The visible response contains exactly one parseable Git-style unified diff."
+    },
+    {
+      "id": "scope_integrity",
+      "required": true,
+      "success": "Only declared files below src/paged_sync are changed; protected files remain byte-identical."
+    },
+    {
+      "id": "patch_application",
+      "required": true,
+      "success": "git apply accepts and applies the candidate patch to a disposable baseline copy."
+    },
+    {
+      "id": "public_tests",
+      "required": true,
+      "success": "All candidate-visible unittest cases pass."
+    },
+    {
+      "id": "hidden_acceptance_tests",
+      "required": true,
+      "success": "All candidate-hidden boundary and anti-gaming tests pass."
+    }
+  ],
+  "primary_outcome": {
+    "name": "verified_success",
+    "type": "boolean",
+    "quality_scale_maximum": null,
+    "note": "No universal composite score is assigned. Diagnostic test counts are not interpreted as fractional semantic quality."
+  },
+  "failure_taxonomy": [
+    "empty_output",
+    "malformed_patch",
+    "patch_scope_violation",
+    "patch_apply_failure",
+    "protected_file_modified",
+    "public_tests_failed",
+    "hidden_tests_failed",
+    "verification_timeout",
+    "runtime_failure",
+    "other"
+  ],
+  "risk_and_threshold": {
+    "risk": "medium",
+    "verifier_strength": "strong_for_declared_behavior",
+    "single_run_decision": "exploratory_verified_outcome_only",
+    "reliability_claim_allowed": false
+  }
+}

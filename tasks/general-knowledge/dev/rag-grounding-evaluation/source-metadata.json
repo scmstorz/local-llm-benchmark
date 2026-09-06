@@ -1,0 +1,7 @@
+{
+  "schema_version":"1.0.0","source_id":"reference.general-knowledge.rag-grounding-evaluation.2026-08-29","title":"Frozen reference dossier: grounding and evaluating a RAG system","publisher":"Local LLM Benchmark Lab","page_type":"project_authored_reference_dossier","retrieved_at":"2026-08-29","source_language":"en",
+  "authoritative_sources":["https://arxiv.org/abs/2005.11401","https://arxiv.org/abs/2307.03172","https://aclanthology.org/2023.emnlp-main.398/","https://aclanthology.org/2024.acl-long.585/"],
+  "artifacts":{"reference_source":{"path":"tasks/general-knowledge/dev/rag-grounding-evaluation/reference.md","sha256":"33237f352d0fa02ce24550c3e607c184f767916e8dca92d2374956fc6f2beb8e","word_count_whitespace":526,"location_labels_added":true,"candidate_visible":false}},
+  "construction":{"method":"Project-authored synthesis of cited authoritative sources","semantic_policy":"Preserve source distinctions and conditions without copying source prose.","frozen_on":"2026-08-29"},
+  "copyright":{"dossier_license":"project_repository_license","source_publications_copied":false,"git_tracked":true}
+}

@@ -1,0 +1,3 @@
+NOTIFY-500 2026-09-05T08:11:03Z ERROR tls_handshake tenant=synthetic-load-test endpoint=hooks.example.invalid certificate=expired deliveries_failed=17
+NOTIFY-501 2026-09-05T08:11:05Z INFO route_isolation tenant=synthetic-load-test production_tenants_affected=false queue=notification-test
+NOTIFY-502 2026-09-05T08:16:00Z INFO production_delivery_health success_rate=0.999 queue=notification-production

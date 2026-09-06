@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "isolation_profile_id": "pi-log-v0.3",
+  "status": "qualification_candidate",
+  "backend": "pi-log-macos-seatbelt-v0.1",
+  "workspace": {
+    "fresh_selected_case_copy_per_run": true,
+    "fixture_files_os_read_only": true,
+    "symlink_targets_rejected": true,
+    "host_repository_denied": true,
+    "other_case_fixtures_absent": true,
+    "shared_writable_state": false
+  },
+  "process": {
+    "allowed_executable": "resolved_node_binary_only",
+    "shells_allowed": false,
+    "candidate_code_executed": false
+  },
+  "network": {"ollama_loopback_allowed": true, "external_egress": false},
+  "runtime_writes": {
+    "agent_configuration_directory": true,
+    "private_temporary_directory": true,
+    "policy_audit_log": true,
+    "candidate_workspace": false
+  },
+  "evaluation": {
+    "ground_truth_outside_workspace": true,
+    "verifier_source_outside_workspace": true,
+    "final_verification_after_pi_exit": true,
+    "hidden_feedback_to_model": false
+  },
+  "acceptance_required_before_live_run": true,
+  "reused_backend_reason": "The OS capability boundary is unchanged; v0.3 repeats qualification for every selected case and changes only visible semantics and result accounting."
+}

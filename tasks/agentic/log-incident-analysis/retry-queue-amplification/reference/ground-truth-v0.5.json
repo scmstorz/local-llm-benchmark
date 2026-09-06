@@ -1,0 +1,67 @@
+{
+  "schema_version": "4.0.0",
+  "case_id": "agentic.ops.retry-queue-amplification",
+  "visible_controlled_values": {
+    "primary_service": ["order-worker", "inventory", "message-broker", "notification-service", "order-api"],
+    "affected_user_journey": ["order_status_and_fulfillment", "checkout", "notification_delivery"],
+    "root_cause_code": ["retry_policy_regression", "dependency_outage", "message_broker_failure", "notification_tls_failure", "unknown"],
+    "trigger_codes": ["dependency_slowdown", "traffic_increase", "scheduled_job", "credential_expiry", "unknown"],
+    "rejected_hypothesis_codes": ["message_broker_outage", "notification_tls_failure", "database_outage"],
+    "impact_codes": ["order_fulfillment_delayed", "order_status_delayed", "orders_lost", "checkout_unavailable", "notification_delivery_failed"],
+    "recommendation_codes": ["restore_bounded_backoff", "cap_retry_amplification", "alert_on_redelivery_ratio", "load_test_degraded_dependency", "replace_message_broker", "rotate_notification_certificate"],
+    "uncertainty_codes": ["exact_delayed_order_count_unknown", "retry_policy_change_owner_unknown", "downstream_slowdown_origin_unknown", "full_recovery_time_unknown"]
+  },
+  "incident": {
+    "start_utc": "2026-09-05T08:12:44Z",
+    "last_observed_utc": "2026-09-05T08:25:49Z",
+    "primary_service": "order-worker",
+    "affected_user_journey": "order_status_and_fulfillment",
+    "recovery_status": "full"
+  },
+  "diagnosis": {
+    "root_cause_code": "retry_policy_regression",
+    "required_trigger_codes": ["dependency_slowdown"]
+  },
+  "required_causal_chain_subsequence": [
+    "WRK-101",
+    "INV-201",
+    "WRK-104",
+    "WRK-106",
+    "BRK-301",
+    "API-401",
+    "API-402",
+    "WRK-107",
+    "BRK-303",
+    "BRK-304",
+    "API-404"
+  ],
+  "required_evidence": {
+    "root_cause": ["WRK-101"],
+    "trigger": ["INV-201"],
+    "symptom": ["WRK-104", "WRK-106", "BRK-301"],
+    "impact": ["API-401", "API-402"],
+    "recovery": ["WRK-107", "BRK-304", "API-404"]
+  },
+  "accepted_rejected_hypothesis_evidence_groups": {
+    "message_broker_outage": [
+      ["BRK-300", "BRK-302"]
+    ],
+    "notification_tls_failure": [
+      ["NOTIFY-500", "NOTIFY-501", "NOTIFY-502"],
+      ["NOTIFY-501", "NOTIFY-502"]
+    ]
+  },
+  "required_impact_codes": ["order_fulfillment_delayed", "order_status_delayed"],
+  "forbidden_impact_codes": ["orders_lost", "checkout_unavailable", "notification_delivery_failed"],
+  "required_recommendation_codes": [
+    "restore_bounded_backoff",
+    "cap_retry_amplification",
+    "alert_on_redelivery_ratio",
+    "load_test_degraded_dependency"
+  ],
+  "required_uncertainty_codes": [
+    "exact_delayed_order_count_unknown",
+    "retry_policy_change_owner_unknown",
+    "downstream_slowdown_origin_unknown"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0.0",
+  "suite_id": "general-knowledge-hard-v0.2",
+  "suite_version": "0.2.0",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-08-29",
+  "purpose": "Increase the number and domain breadth of difficult general-knowledge transfer cases before drawing model-level conclusions.",
+  "selection_policy": {
+    "case_count": 6,
+    "selection_completed_before_any_suite_run": true,
+    "all_cases_are_development_cases": true,
+    "candidate_source_access": "internal_knowledge_only",
+    "interactive_judge_source_access": "frozen_reference_dossier",
+    "rationale": "The block spans quantitative medicine, evolutionary biology, power systems, distributed software systems, ML methodology and RAG evaluation. It tests mechanisms, boundary conditions and transfer rather than isolated trivia."
+  },
+  "models": {
+    "A": "qwen3.6:35b-a3b-mxfp8",
+    "B": "qwen3.8:27b-mlx",
+    "C": "gpt-oss:20b",
+    "D": "muse-glimmer:30b-mlx"
+  },
+  "fixed_inference": {
+    "ollama_endpoint": "http://127.0.0.1:11434",
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 8192,
+    "num_predict": 2600,
+    "keep_alive": "10m",
+    "timeout_seconds": 600.0
+  },
+  "measurement_policy": {
+    "cold_runs_per_model": 1,
+    "initial_warm_runs_per_model": 1,
+    "quality_candidate": "first_complete_warm_run",
+    "adaptive_warm_repetitions": "Add two warm repetitions only when close or unstable timing could affect a speed-quality conclusion.",
+    "publication_grade_repetitions": "Reserve five measured warm runs for finalists or a later publication-grade rerun.",
+    "run_interleaving": "Each case is completed as one controlled four-model comparison; case order and within-case model order are frozen below."
+  },
+  "environment_gate": {
+    "before_each_comparison": [
+      "Verify the Mnemosyn and News-App application workers are stopped.",
+      "Inspect running processes rather than inferring application state from open shells or paths.",
+      "Explicitly unload every model reported by Ollama.",
+      "Confirm Ollama remains empty during the preflight observation window."
+    ],
+    "preflight_observation_seconds": 30,
+    "postflight_observation_seconds": 30
+  },
+  "execution_schedule": [
+    {
+      "position": 1,
+      "case_id": "general_knowledge.dev.medical-screening-bayes",
+      "case_path": "tasks/general-knowledge/dev/medical-screening-bayes/case.json",
+      "model_order": ["A", "B", "D", "C"]
+    },
+    {
+      "position": 2,
+      "case_id": "general_knowledge.dev.antibiotic-resistance",
+      "case_path": "tasks/general-knowledge/dev/antibiotic-resistance/case.json",
+      "model_order": ["B", "C", "A", "D"]
+    },
+    {
+      "position": 3,
+      "case_id": "general_knowledge.dev.renewable-electricity-matching",
+      "case_path": "tasks/general-knowledge/dev/renewable-electricity-matching/case.json",
+      "model_order": ["C", "D", "B", "A"]
+    },
+    {
+      "position": 4,
+      "case_id": "general_knowledge.dev.distributed-payment-reliability",
+      "case_path": "tasks/general-knowledge/dev/distributed-payment-reliability/case.json",
+      "model_order": ["D", "A", "C", "B"]
+    },
+    {
+      "position": 5,
+      "case_id": "general_knowledge.dev.ml-evaluation-leakage",
+      "case_path": "tasks/general-knowledge/dev/ml-evaluation-leakage/case.json",
+      "model_order": ["A", "D", "C", "B"]
+    },
+    {
+      "position": 6,
+      "case_id": "general_knowledge.dev.rag-grounding-evaluation",
+      "case_path": "tasks/general-knowledge/dev/rag-grounding-evaluation/case.json",
+      "model_order": ["C", "B", "A", "D"]
+    }
+  ],
+  "analysis_policy": {
+    "judge_before_unblinding": true,
+    "judge_each_case_against_its_frozen_card": true,
+    "preserve_invalid_and_noncompliant_outcomes": true,
+    "report_case_level_scores": true,
+    "aggregate_only_after_all_six_cases_are_judged": true,
+    "primary_aggregate": "Mean final score across all six predeclared cases, retaining invalid and capped outcomes.",
+    "secondary_aggregates": [
+      "Median final score",
+      "Compliant-only mean with compliance rate shown separately",
+      "Per-domain wins and ranks",
+      "Mean warm wall time and case-level quality-latency Pareto frontiers"
+    ],
+    "no_post_hoc_case_exclusion": true
+  }
+}

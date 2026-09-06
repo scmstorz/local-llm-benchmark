@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "pagination-cycle-guard-verifier-v1.2-retrospective-replay",
+  "report_type": "retrospective_verifier_replay",
+  "formal_comparison": false,
+  "source_report_path": "reports/coding/pagination-cycle-guard-track-a-whole-file-v1.1.json",
+  "case_id": "coding.dev.pagination-cycle-guard",
+  "case_version": "1.2.0",
+  "track": "A",
+  "generated_at": "2026-09-01T20:07:51Z",
+  "purpose": "Validate a separately versioned verifier correction against controls and exact saved v1.1 candidate responses without requesting new model output.",
+  "changed_input": {
+    "component": "hidden_verifier",
+    "previous_version": "1.1.0",
+    "new_version": "1.2.0",
+    "added_test": "test_cycle_back_to_nonempty_start_cursor_raises_before_refetch",
+    "requirement_covered": "A cycle returning to a supplied non-empty start_cursor must raise PaginationCycleError before that cursor is fetched again."
+  },
+  "unchanged_inputs": [
+    "task",
+    "system prompt",
+    "candidate-visible repository snapshot",
+    "fixture",
+    "public tests",
+    "whole-file artifact contract",
+    "inference defaults"
+  ],
+  "v1_2_input_hashes": {
+    "case_file_sha256": "99ac13269dff2e306341486bc90be11a513d1481ac30dd7d2e2cd48b645cd394",
+    "benchmark_card_file_sha256": "b80740cd13b850f15326ad19a42eda13912ded84e6ed8814deddc8506fb8196e",
+    "hidden_test_file_sha256": "cd095a713d413ad3b1b4697250c23595370fc35f432293da4356245e53b8043e",
+    "task_file_sha256": "010425aa1e61955d0fbd08fdfd14b4a3ce7fb691252747f1695cc797a1233bef",
+    "system_prompt_file_sha256": "9d1db330936ab4862665b74ac1726a3af84b09320dff706d8d1aafdee315f085",
+    "fixture_manifest_sha256": "6c8da4a1bb22d0e8710676c1e7c1cc5318a9a6c6bc10c63514dcbd7b931b722b"
+  },
+  "controls": {
+    "baseline": {
+      "public_tests_pass": false,
+      "hidden_tests_pass": false,
+      "expected_red": true
+    },
+    "reference_repair": {
+      "public_tests_passed": 4,
+      "hidden_tests_passed": 7,
+      "verified_success": true,
+      "expected_green": true
+    },
+    "known_false_positive": {
+      "run_id": "coding-run-20260901T195110Z-f85acf4e",
+      "expected_to_fail_added_test": true,
+      "failed_added_test": true
+    }
+  },
+  "source_execution_order": [
+    "C",
+    "A",
+    "B",
+    "E",
+    "D"
+  ],
+  "runs": [
+    {
+      "position": 1,
+      "alias": "C",
+      "model": "gpt-oss:20b",
+      "run_id": "coding-run-20260901T194835Z-a0d353d1",
+      "original_v1_1_output_status": "empty",
+      "original_v1_1_frozen_verifier_success": false,
+      "replay_status": "not_applicable",
+      "reason": "The original attempt exposed no candidate artifact."
+    },
+    {
+      "position": 2,
+      "alias": "A",
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "run_id": "coding-run-20260901T194946Z-f38cc56a",
+      "response_sha256": "2f52d5a68dc2032742f1b73414d88152511fd4e15c5b7347a827549c267d91a9",
+      "original_v1_1_frozen_verifier_success": false,
+      "v1_2_replay": {
+        "public_tests_passed": 4,
+        "hidden_tests_passed": 6,
+        "hidden_tests_failed": 1,
+        "failed_test": "test_page_limit_prevents_one_extra_fetch",
+        "new_start_cursor_test_passed": true,
+        "verified_success": false,
+        "failure_code": "hidden_tests_failed"
+      }
+    },
+    {
+      "position": 3,
+      "alias": "B",
+      "model": "qwen3.8:27b-mlx",
+      "run_id": "coding-run-20260901T195110Z-f85acf4e",
+      "response_sha256": "5a656f13a449c625154501d4b400b59918c0515ea4e200bb96e7074c3114adc0",
+      "original_v1_1_frozen_verifier_success": true,
+      "v1_2_replay": {
+        "public_tests_passed": 4,
+        "hidden_tests_passed": 6,
+        "hidden_tests_failed": 1,
+        "failed_test": "test_cycle_back_to_nonempty_start_cursor_raises_before_refetch",
+        "new_start_cursor_test_passed": false,
+        "verified_success": false,
+        "failure_code": "hidden_tests_failed"
+      }
+    },
+    {
+      "position": 4,
+      "alias": "E",
+      "model": "ornith-1.5:35b",
+      "run_id": "coding-run-20260901T195224Z-4ab8fb1b",
+      "response_sha256": "1181f681ca776d65d773aceead41381c4061f912901fec28a486435fecf55255",
+      "original_v1_1_frozen_verifier_success": true,
+      "v1_2_replay": {
+        "public_tests_passed": 4,
+        "hidden_tests_passed": 7,
+        "hidden_tests_failed": 0,
+        "new_start_cursor_test_passed": true,
+        "verified_success": true,
+        "failure_code": null
+      }
+    },
+    {
+      "position": 5,
+      "alias": "D",
+      "model": "muse-glimmer:30b-mlx",
+      "run_id": "coding-run-20260901T195321Z-4441eae1",
+      "response_sha256": "75505a81622344666f27446463615fb119bc1fec2434b5710218cb3472e258bd",
+      "original_v1_1_frozen_verifier_success": true,
+      "v1_2_replay": {
+        "public_tests_passed": 4,
+        "hidden_tests_passed": 7,
+        "hidden_tests_failed": 0,
+        "new_start_cursor_test_passed": true,
+        "verified_success": true,
+        "failure_code": null
+      }
+    }
+  ],
+  "aggregate": {
+    "new_inference_attempts": 0,
+    "original_planned_attempts": 5,
+    "saved_valid_artifacts": 4,
+    "artifacts_replayed": 4,
+    "v1_2_replay_successes": 2,
+    "v1_2_replay_failures": 2,
+    "known_v1_1_false_positives_caught": 1,
+    "unexpected_regressions": 0
+  },
+  "interpretation": {
+    "validation_result": "The verifier correction behaved as designed: the baseline remained red, the reference remained green, Qwen 3.8's known explicit-requirement violation became a deterministic failure, and the three other valid artifacts retained their previously established behavior.",
+    "model_result": "Under retrospective v1.2 replay, Ornith and Muse Glimmer pass; Qwen 3.6 still fails the existing exact-budget test; Qwen 3.8 now fails the added start-cursor-cycle test; GPT-OSS has no artifact to replay.",
+    "evidence_boundary": "These are post-hoc re-evaluations of saved v1.1 outputs, not fresh v1.2 model attempts and not a preregistered v1.2 comparison. The immutable v1.1 result remains three frozen-verifier passes out of five.",
+    "next_use": "Carry verifier v1.2 into future coding work, including both Track B harness families. A fresh Track A v1.2 comparison is optional and requires a separately frozen plan plus explicit run authorization."
+  }
+}

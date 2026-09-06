@@ -1,0 +1,3 @@
+TIME-100 2026-09-05T08:05:20Z INFO image_apply host=payment-03 image=pay-node-2026.09.05 chronyd_enabled=false rtc_source=local
+TIME-101 2026-09-05T08:13:40Z ERROR clock_probe host=payment-03 reported_local=2026-09-05T08:21:22Z offset_ms=462000 synchronized=false
+TIME-102 2026-09-05T08:13:41Z INFO clock_probe host=payment-02 offset_ms=18 synchronized=true

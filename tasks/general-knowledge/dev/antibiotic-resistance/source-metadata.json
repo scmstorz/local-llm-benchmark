@@ -1,0 +1,7 @@
+{
+  "schema_version":"1.0.0","source_id":"reference.general-knowledge.antibiotic-resistance.2026-08-29","title":"Frozen reference dossier: antibiotic resistance and responsible use","publisher":"Local LLM Benchmark Lab","page_type":"project_authored_reference_dossier","retrieved_at":"2026-08-29","source_language":"en",
+  "authoritative_sources":["https://www.who.int/en/news-room/fact-sheets/detail/antimicrobial-resistance","https://www.who.int/europe/news-room/fact-sheets/item/antimicrobial-resistance","https://www.cdc.gov/antimicrobial-resistance/causes/index.html","https://www.cdc.gov/antimicrobial-resistance/prevention/index.html"],
+  "artifacts":{"reference_source":{"path":"tasks/general-knowledge/dev/antibiotic-resistance/reference.md","sha256":"66b34bd69af2435cebb25bfd6a0f45ca9a51efd0b39386d641f48fbc1dd72e9a","word_count_whitespace":488,"location_labels_added":true,"candidate_visible":false}},
+  "construction":{"method":"Project-authored synthesis of cited authoritative sources","semantic_policy":"Preserve source distinctions and conditions without copying source prose.","frozen_on":"2026-08-29"},
+  "copyright":{"dossier_license":"project_repository_license","source_publications_copied":false,"git_tracked":true}
+}

@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "track-b-pi-eight-model-two-case-capability-sweep-v0.2",
+  "status": "frozen_before_execution",
+  "frozen_at": "2026-09-03T18:59:53Z",
+  "track": "B",
+  "study_mode": "capability_sweep",
+  "evidence_class": "measured_capability_sweep",
+  "purpose": "Restart the complete eight-model by two-case Pi comparison under one post-crash Ollama runtime after the v0.1 sweep was interrupted by a runtime upgrade.",
+  "supersedes_plan_for_new_execution": "track-b-pi-eight-model-two-case-capability-sweep-v0.1",
+  "prior_partial_sweep": {
+    "sweep_id": "pi-sweep-20260903T165020Z-1192bbcf",
+    "runtime_version": "0.32.15",
+    "complete_units": 8,
+    "interrupted_unit_position": 9,
+    "reuse_in_v0.2": false,
+    "reason": "The computer crash was followed by an automatic Ollama change to 0.33.2. Mixing runtime versions would violate the frozen experimental unit."
+  },
+  "harness_id": "pi-v0.2",
+  "harness_path": "tasks/coding/track-b/pi-v0.2.json",
+  "protocol_id": "coding-track-b-v0.2",
+  "protocol_path": "tasks/coding/track-b/track-b-v0.2.json",
+  "runtime": {
+    "name": "ollama",
+    "version": "0.33.2",
+    "provider_endpoint": "http://127.0.0.1:11434"
+  },
+  "frozen_inputs": {
+    "implementation_git_commit": "17447e03fcc164df35238012d418f89003f0949e",
+    "artifacts": [
+      {"path": "models/catalog.json", "sha256": "79e56238c9405d27dfba266e319a837571b6239cb9a6d1682729e58ebcf3d834"},
+      {"path": "tasks/coding/track-b/track-b-v0.2.json", "sha256": "1e4d5d4ca64404107d3bf5060998836a26eb2c04ce5d740509009d2f9793fb77"},
+      {"path": "tasks/coding/track-b/pi-v0.2.json", "sha256": "47a18b0ace2c0deac1dbdc1dfdbafcbb07e939a380031420deb0fee0f65aaa7d"},
+      {"path": "tasks/coding/track-b/prompts/pi-system-v0.1.txt", "sha256": "06909f8d8394ee349303107cff7b7ac3dd48071e36690985c13464150d978de1"},
+      {"path": "integrations/pi/benchmark-policy.mjs", "sha256": "a0c8fc7686498ef1038c7e0ed8f6fbfdb451aaedf3d43fa67a193b591b23c1e8"},
+      {"path": "integrations/pi/package-lock.json", "sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730"},
+      {"path": "local_llm_benchmark/pi_adapter.py", "sha256": "61dcae4bb14c7384844def225664e23d54762d943bdd12cf922e92f5bf539f1b"},
+      {"path": "local_llm_benchmark/pi_sweep.py", "sha256": "d28fd67821263270e053dff84c58aa0ce87313f0a0d7cf794c72b9855070444e"},
+      {"path": "local_llm_benchmark/macos_sandbox.py", "sha256": "6598fd2add777a40b9712b67736e02df53c0248511b30339f2f5d431c0d34ea9"},
+      {"path": "local_llm_benchmark/coding.py", "sha256": "0996db95185a53756e24fd56eff311a58f4d4409619f7492f2c7709e8a19cb70"},
+      {"path": "local_llm_benchmark/runner.py", "sha256": "5446a65d92386dca99655593fc6dd8f85b9956e495bfa179e82549dc66575c54"},
+      {"path": "local_llm_benchmark/cli.py", "sha256": "75d8057dac7901e77033ae7d6abb6a275ce04f4c9c965f1318a281f2bcbdc4f9"},
+      {"path": "tasks/coding/dev/php-payment-result-migration/case.json", "sha256": "8fd6a46683604eb6f80ad6f583a05f8d2730d6c840afcb6a9d297b395741179e"},
+      {"path": "tasks/coding/dev/php-payment-result-migration/fixture-manifest.json", "sha256": "3ebec29219f27d5528ab307c786fa55a528b68d3d68cfa27770619e3bce8e2b1"},
+      {"path": "tasks/coding/dev/php-payment-result-migration/TASK.md", "sha256": "277a815f4ac6ab2dbb03e27f3d6c99928c26f52f32d6787c3ce6c123aa7196aa"},
+      {"path": "tasks/coding/dev/php-payment-result-migration/benchmark-card.json", "sha256": "4d5b73c801053104a1a3f01589d538255f20c630a6aaf583790bde3cda1a2c4b"},
+      {"path": "tasks/coding/dev/php-payment-result-migration/fixture/tests/run.php", "sha256": "ec02405e6071ed40ed02a38bce661cab7708fdce5507a7af5e378990d5166092"},
+      {"path": "tasks/coding/dev/php-payment-result-migration/verifier/hidden_tests.php", "sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/case.json", "sha256": "3ddbd8799d4d34fa6a548ddcda3704a10182be6f421ee3ea3a3a0aee3e8e0995"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/fixture-manifest.json", "sha256": "e579c70324d365d743a64fc3655a10df85e84bfcac97e91f2833e091c0920536"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/TASK.md", "sha256": "9c8ff7589cbc9f5d37f7c366b604fcb855111fd62a2ec59d4117e095e3fdbd8f"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/benchmark-card.json", "sha256": "dee8ff7c4a080127fbd8257d0ab9bea51025fe51f3ca71530f91206042210475"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/fixture/tests/cache.test.mjs", "sha256": "018465cbf881c869d3f44646329ff30216d84519d897f71fe7a882cdd787fb5f"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/verifier/hidden_tests.mjs", "sha256": "1454a79a190b49ab3af52afc517e5a91d6812de7fd15d852a64d0fe6a71034ee"}
+    ]
+  },
+  "deployments": [
+    {"name": "qwen3.6:35b-a3b-mxfp8", "deployment_id": "qwen3-6-35b-a3b-mxfp8-d82a30588f1c-ollama-0-33-2", "digest": "d82a30588f1c7bc2afa5226f3d67c8987bf505104f8f0512a0f8643ac4525d16", "native_tools_advertised": true},
+    {"name": "qwen3.8:27b-mlx", "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2", "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e", "native_tools_advertised": true},
+    {"name": "gpt-oss:20b", "deployment_id": "gpt-oss-20b-17052f91a42e-ollama-0-33-2", "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7", "native_tools_advertised": true},
+    {"name": "muse-glimmer:30b-mlx", "deployment_id": "muse-glimmer-30b-mlx-ef32a55b4976-ollama-0-33-2", "digest": "ef32a55b4976faa955cbab0462d09bd081351ef5b87d73d8fcd299bf17c111d7", "native_tools_advertised": true},
+    {"name": "ornith-1.5:35b", "deployment_id": "ornith-1-5-35b-9f3b89b25219-ollama-0-33-2", "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc", "native_tools_advertised": false},
+    {"name": "granite4.2:30b", "deployment_id": "granite4-2-30b-be22829aa92a-ollama-0-33-2", "digest": "be22829aa92aad40153c3b2cfd628269ac9281967e74c44d96750568a5af8ed4", "native_tools_advertised": false},
+    {"name": "nemotron-3.5-lightning:30b-mlx", "deployment_id": "nemotron-3-5-lightning-30b-mlx-8b1474be6e54-ollama-0-33-2", "digest": "8b1474be6e54dc19eb7aa08bebfb9bda147c4b9ef9796a726131ad29ad15645a", "native_tools_advertised": true},
+    {"name": "gemma4:31b-mlx", "deployment_id": "gemma4-31b-mlx-a22a363052da-ollama-0-33-2", "digest": "a22a363052da770302019d5afab29bd967f9318e4377bddd297421189ea09d7d", "native_tools_advertised": true}
+  ],
+  "inclusion_rule": "Every model in the original v0.1 cohort is rerun under the new common runtime. Missing advertised native-tool capability remains a compatibility risk, not an exclusion.",
+  "cases": [
+    {"case_id": "coding.dev.php-payment-result-migration", "case_path": "tasks/coding/dev/php-payment-result-migration/case.json", "task_family": "api_migration", "language": "PHP", "verifier_checks": 12},
+    {"case_id": "coding.dev.async-cache-coalescing", "case_path": "tasks/coding/dev/async-cache-coalescing/case.json", "task_family": "feature_implementation", "language": "JavaScript", "verifier_checks": 12}
+  ],
+  "execution_order": [
+    {"position": 1, "model": "qwen3.6:35b-a3b-mxfp8", "case_id": "coding.dev.php-payment-result-migration"},
+    {"position": 2, "model": "qwen3.8:27b-mlx", "case_id": "coding.dev.php-payment-result-migration"},
+    {"position": 3, "model": "gpt-oss:20b", "case_id": "coding.dev.php-payment-result-migration"},
+    {"position": 4, "model": "muse-glimmer:30b-mlx", "case_id": "coding.dev.php-payment-result-migration"},
+    {"position": 5, "model": "ornith-1.5:35b", "case_id": "coding.dev.php-payment-result-migration"},
+    {"position": 6, "model": "granite4.2:30b", "case_id": "coding.dev.php-payment-result-migration"},
+    {"position": 7, "model": "nemotron-3.5-lightning:30b-mlx", "case_id": "coding.dev.php-payment-result-migration"},
+    {"position": 8, "model": "gemma4:31b-mlx", "case_id": "coding.dev.php-payment-result-migration"},
+    {"position": 9, "model": "gemma4:31b-mlx", "case_id": "coding.dev.async-cache-coalescing"},
+    {"position": 10, "model": "nemotron-3.5-lightning:30b-mlx", "case_id": "coding.dev.async-cache-coalescing"},
+    {"position": 11, "model": "granite4.2:30b", "case_id": "coding.dev.async-cache-coalescing"},
+    {"position": 12, "model": "ornith-1.5:35b", "case_id": "coding.dev.async-cache-coalescing"},
+    {"position": 13, "model": "muse-glimmer:30b-mlx", "case_id": "coding.dev.async-cache-coalescing"},
+    {"position": 14, "model": "gpt-oss:20b", "case_id": "coding.dev.async-cache-coalescing"},
+    {"position": 15, "model": "qwen3.8:27b-mlx", "case_id": "coding.dev.async-cache-coalescing"},
+    {"position": 16, "model": "qwen3.6:35b-a3b-mxfp8", "case_id": "coding.dev.async-cache-coalescing"}
+  ],
+  "order_rationale": "The v0.1 counterbalanced order is retained exactly. PHP uses catalog order and JavaScript reverses it; every model's two ordinal positions sum to 17.",
+  "shared_inference": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 1600,
+    "maximum_total_output_tokens": 12000,
+    "maximum_active_wall_time_seconds": 900,
+    "normal_agent_turn_limit": null
+  },
+  "comparison_rules": {
+    "runs_per_configuration": 1,
+    "automatic_retries": 0,
+    "adaptive_repetitions": false,
+    "development_smokes_reused": false,
+    "terminal_outcomes_repeated_within_this_plan": false,
+    "performance_distribution_claims": false,
+    "reliability_probability_claims": false,
+    "trajectory_metrics_are_descriptive": true
+  },
+  "resource_gate": {
+    "known_ollama_consumers": ["Mnemosyn", "News-App", "Blog-Read-O-Matic"],
+    "loaded_models_must_be_empty_before_live_execution": true,
+    "empty_state_observation_seconds": 30,
+    "deployment_digest_rechecked_before_live_execution": true,
+    "unload_model_after_each_run": true,
+    "unexpected_model_activity_pauses_the_sweep": true
+  },
+  "interruption_policy": {
+    "raw_attempts_are_append_only": true,
+    "complete_outcomes_are_never_repeated_within_this_plan": true,
+    "prepared_or_verification_pending_runs_are_resumed_in_place": true,
+    "running_state_after_process_loss_is_preserved_and_restarted_fresh": true,
+    "runtime_drift_blocks_resume": true
+  },
+  "reporting": {
+    "primary_outcome": "verified_success",
+    "separate_runtime_termination_verifier_and_verified_outcomes": true,
+    "model_result_format": "verified successes out of two heterogeneous tasks plus per-case outcomes",
+    "no_composite_score": true,
+    "no_tail_percentiles": true,
+    "raw_code_and_trajectories_remain_ignored": true,
+    "v0.1_partial_evidence_reported_separately": true
+  },
+  "execution_authorization": {
+    "explicit_user_authorization_received": true,
+    "authorization_received_on": "2026-09-03",
+    "scope": "Continue the all-model same-Pi same-task comparison after the crash without mixing runtime versions.",
+    "resource_gate_can_pause_execution_without_additional_confirmation": true,
+    "no_remote_push_authorized": true
+  }
+}

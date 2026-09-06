@@ -1,0 +1,35 @@
+{
+  "schema_version":"1.0.0","card_version":"1.0.0","case_id":"general_knowledge.dev.distributed-payment-reliability","case_version":"1.0.0","source_of_truth":"The frozen judge-only reference dossier; candidates answer from internal knowledge.",
+  "evaluation_principles":["Reward explicit reasoning at failure boundaries.","Require idempotency to represent one stable business intent.","Demand a bounded, realistic guarantee rather than exactly-once magic."],
+  "key_facts":[
+    {"id":"KF01","label":"Ambiguous timeout","claim_type":"failure_mode","weight":3,"source_locations":["S01"],"expected":"Explains that a timeout cannot distinguish an unprocessed request from a completed operation whose response was lost."},
+    {"id":"KF02","label":"Duplicate-after-charge failure","claim_type":"failure_mode","weight":4,"source_locations":["S03"],"expected":"Shows how a crash after charging but before durable local completion or acknowledgement can cause a retry and second charge."},
+    {"id":"KF03","label":"Stable payment idempotency key","claim_type":"control","weight":4,"source_locations":["S02"],"expected":"Scopes one stable key to one logical payment intent and preserves it across retries while preventing mismatched reuse."},
+    {"id":"KF04","label":"Durable local deduplication","claim_type":"control","weight":3,"source_locations":["S03"],"expected":"Uses inbox, processed-message state or uniqueness plus atomic local transitions rather than an in-memory check."},
+    {"id":"KF05","label":"Kafka guarantee boundary","claim_type":"boundary","weight":4,"source_locations":["S04"],"expected":"Limits Kafka exactly-once semantics to supported Kafka transactional flows and excludes automatic atomicity with the provider or arbitrary DB."},
+    {"id":"KF06","label":"Transactional outbox role","claim_type":"control","weight":3,"source_locations":["S05"],"expected":"Uses an outbox to atomically couple local business state and outgoing events while retaining duplicate-safe publication or consumption."},
+    {"id":"KF07","label":"State and concurrency","claim_type":"control","weight":2,"source_locations":["S06"],"expected":"Uses explicit payment states, stable identifiers and concurrency or uniqueness controls."},
+    {"id":"KF08","label":"Reconciliation","claim_type":"recovery","weight":2,"source_locations":["S06","S07"],"expected":"Uses provider queries, webhooks and reconciliation to resolve unknown or missed states."}
+  ],
+  "key_ideas":[
+    {"id":"KI01","label":"Exactly once is end-to-end","weight":4,"source_locations":["S04","S07"],"expected":"Evaluates the guarantee across all side-effect boundaries rather than inheriting a broker feature name."},
+    {"id":"KI02","label":"Make retries safe","weight":4,"source_locations":["S01","S02","S03"],"expected":"Designs duplicates as expected and renders repeat attempts harmless or detectable."},
+    {"id":"KI03","label":"Separate atomicity problems","weight":4,"source_locations":["S04","S05"],"expected":"Distinguishes Kafka transactions, local DB plus event atomicity, and external-provider idempotency."},
+    {"id":"KI04","label":"Convergence over impossible certainty","weight":3,"source_locations":["S06","S07"],"expected":"States a bounded safety goal plus eventual reconciliation and observability."}
+  ],
+  "known_critical_errors":[
+    {"id":"CE01","severity":"critical","description":"Claims Kafka exactly-once automatically prevents duplicate calls or charges at an external provider."},
+    {"id":"CE02","severity":"critical","description":"Recommends blind retries of a non-idempotent charge after ambiguous timeouts."},
+    {"id":"CE03","severity":"major","description":"Uses a fresh idempotency key for each retry of the same payment intent."},
+    {"id":"CE04","severity":"major","description":"Claims a transactional outbox makes an external charge atomic with a local database transaction."},
+    {"id":"CE05","severity":"major","description":"Omits any reconciliation path for unknown external outcomes."}
+  ],
+  "nonessential_details":["Kafka configuration syntax","A particular PostgreSQL schema","Provider-specific API field names"],
+  "rubric":{"maximum_score":100,"coverage_status_multipliers":{"full":1.0,"partial":0.5,"missing":0.0,"contradicted":0.0},"derived_coverage":{"key_facts_max":25,"key_facts_formula":"sum(key_fact.weight * status_multiplier)","key_ideas_max":15,"key_ideas_formula":"sum(key_idea.weight * status_multiplier)"},"judged_dimensions":[
+    {"id":"factual_accuracy","max":25,"anchors":{"25":"No material distributed-systems or payment-safety error.","20":"Accurate overall with one minor imprecision.","12":"At least one major error or several meaningful imprecisions.","0":"Fundamentally unsafe or unreliable."}},
+    {"id":"explanatory_quality","max":10,"anchors":{"10":"Uses concrete failure timelines and integrates the controls into a coherent design.","7":"Sound design with one underdeveloped connection.","4":"Lists patterns without tracing failures or boundaries.","0":"Does not explain the reliability problem."}},
+    {"id":"epistemic_precision","max":10,"anchors":{"10":"States exact boundaries and realistic safety or convergence guarantees.","7":"Mostly precise with one limited overstatement.","4":"Repeatedly overpromises guarantees.","0":"Promises impossible end-to-end certainty."}},
+    {"id":"structure_clarity","max":10,"anchors":{"10":"Clear German, descriptive structure and useful to an experienced developer.","7":"Generally clear with minor awkwardness.","4":"Noticeably hard to follow.","0":"Incoherent or not meaningfully German."}},
+    {"id":"compression","max":5,"anchors":{"5":"High information density without material repetition.","3":"Some avoidable repetition.","1":"Substantially padded.","0":"Exceeds the hard maximum or is not focused."}}
+  ],"hard_constraints":{"empty_output":{"result":"invalid","final_score":0},"output_language_not_german":{"result":"noncompliant","final_score_cap":59},"word_count_above_800":{"result":"noncompliant","compression_score":0,"final_score_cap":59},"generation_truncated_at_token_limit":{"result":"noncompliant","final_score_cap":59},"reasoning_markup_in_candidate_output":{"result":"noncompliant","final_score_cap":59}},"critical_error_caps":{"one_critical_error":{"factual_accuracy_cap":8,"final_score_cap":59},"two_or_more_critical_errors":{"factual_accuracy_cap":4,"final_score_cap":39}},"verdict_thresholds":{"excellent":90,"good":75,"usable":60,"poor":1,"invalid":0}}
+}

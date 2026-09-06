@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "track-b-mini-capability-sweep-v0.3",
+  "status": "frozen_before_execution",
+  "created_on": "2026-09-04",
+  "track": "B",
+  "study_mode": "capability_sweep",
+  "evidence_class": "measured_capability_sweep",
+  "harness_id": "mini-v0.3",
+  "harness_path": "tasks/coding/track-b/mini-v0.3.json",
+  "purpose": "Measure the five active-default local deployments once on the same three tasks and time-first boundary used by Pi v0.3, without making reliability, tail-performance or one-factor causal harness claims.",
+  "runtime": {
+    "name": "ollama",
+    "version": "0.33.2"
+  },
+  "model_selection": {
+    "source": "models/lifecycle.json",
+    "source_sha256": "18d896067eddf62ddf3c7ded8d34f22e32fef9994877239cf8e6abf877c30621",
+    "rule": "include_in_default_sweeps equals true",
+    "selected_count": 5,
+    "excluded_by_rule": [
+      "nemotron-3.5-lightning:30b-mlx",
+      "granite4.2:30b",
+      "gpt-oss:20b"
+    ]
+  },
+  "smoke_gate": {
+    "passed": true,
+    "report_path": "reports/coding/track-b-mini-qwen38-js-development-smoke-v0.3.1.json",
+    "report_sha256": "f97f45d814d30853e565ed4629708424646ed876243bfb4e91c91f5923138933",
+    "verified_success_required": false,
+    "observed_outcome": "hidden_tests_failed",
+    "result_reused_in_measured_cohort": false
+  },
+  "frozen_inputs": {
+    "implementation_git_commit": "1b4c04c51b4272fec808ea2898e6e218685e2107",
+    "artifacts": [
+      {"path": "models/catalog.json", "sha256": "79e56238c9405d27dfba266e319a837571b6239cb9a6d1682729e58ebcf3d834"},
+      {"path": "models/lifecycle.json", "sha256": "18d896067eddf62ddf3c7ded8d34f22e32fef9994877239cf8e6abf877c30621"},
+      {"path": "tasks/coding/track-b/track-b-v0.3.json", "sha256": "cac27f7bdfee3e8bb46f39a12633c9c259f95b6537193904043d36e962daa260"},
+      {"path": "tasks/coding/track-b/track-b-mini-v0.3.json", "sha256": "b3568186c63525c0f5ae29a983a66c192c01d1425447352f7a78adc44797294b"},
+      {"path": "tasks/coding/track-b/mini-v0.3.json", "sha256": "a0473568ea70b8c07dfe3b3042281323aeb59ab8de4d8ea7e18f9127f18b3518"},
+      {"path": "tasks/coding/track-b/mini-v0.3-qualification.json", "sha256": "65e9baba2e8266ce8a953131fdfc036f6d30a05672480716ad6c8c064592caad"},
+      {"path": "tasks/coding/track-b/prompts/mini-system-v0.3.txt", "sha256": "75314f0664a6d127039d7b8c2804f242d4bf164ec52f0183289513107872e1c4"},
+      {"path": "tasks/coding/track-b/schemas/mini-action-v0.3.json", "sha256": "155ec85fd1f47d3f9b06924bfdfcaa838b1472d21c7aa83a83fd02e1c6e35539"},
+      {"path": "local_llm_benchmark/mini_v03_adapter.py", "sha256": "8579a6d9332fb268a40020b0acc3513e6e3afa782ca89569a168150124691ce1"},
+      {"path": "local_llm_benchmark/mini_v03_sweep.py", "sha256": "a6505e0a0bca1f882873a37fe5f66cce086f777a42f92e94e3d19399e55ac290"},
+      {"path": "local_llm_benchmark/agentic.py", "sha256": "e2be075cc71772352dff156ae07824c44cdfd2a0fdebbace6ee1fccd48d50883"},
+      {"path": "local_llm_benchmark/coding.py", "sha256": "0996db95185a53756e24fd56eff311a58f4d4409619f7492f2c7709e8a19cb70"},
+      {"path": "local_llm_benchmark/ollama.py", "sha256": "cda83848193dd1ceb3d608c4fe0ae1d6e886fdc1121c2225bd3d2d020cc13102"},
+      {"path": "local_llm_benchmark/runner.py", "sha256": "5446a65d92386dca99655593fc6dd8f85b9956e495bfa179e82549dc66575c54"},
+      {"path": "reports/coding/track-b-mini-qwen38-js-development-smoke-v0.3.1.json", "sha256": "f97f45d814d30853e565ed4629708424646ed876243bfb4e91c91f5923138933"},
+      {"path": "tasks/coding/dev/php-payment-result-migration/case.json", "sha256": "8fd6a46683604eb6f80ad6f583a05f8d2730d6c840afcb6a9d297b395741179e"},
+      {"path": "tasks/coding/dev/php-payment-result-migration/fixture-manifest.json", "sha256": "3ebec29219f27d5528ab307c786fa55a528b68d3d68cfa27770619e3bce8e2b1"},
+      {"path": "tasks/coding/dev/php-payment-result-migration/TASK.md", "sha256": "277a815f4ac6ab2dbb03e27f3d6c99928c26f52f32d6787c3ce6c123aa7196aa"},
+      {"path": "tasks/coding/dev/php-payment-result-migration/benchmark-card.json", "sha256": "4d5b73c801053104a1a3f01589d538255f20c630a6aaf583790bde3cda1a2c4b"},
+      {"path": "tasks/coding/dev/php-payment-result-migration/fixture/tests/run.php", "sha256": "ec02405e6071ed40ed02a38bce661cab7708fdce5507a7af5e378990d5166092"},
+      {"path": "tasks/coding/dev/php-payment-result-migration/verifier/hidden_tests.php", "sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/case.json", "sha256": "3ddbd8799d4d34fa6a548ddcda3704a10182be6f421ee3ea3a3a0aee3e8e0995"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/fixture-manifest.json", "sha256": "e579c70324d365d743a64fc3655a10df85e84bfcac97e91f2833e091c0920536"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/TASK.md", "sha256": "9c8ff7589cbc9f5d37f7c366b604fcb855111fd62a2ec59d4117e095e3fdbd8f"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/benchmark-card.json", "sha256": "dee8ff7c4a080127fbd8257d0ab9bea51025fe51f3ca71530f91206042210475"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/fixture/tests/cache.test.mjs", "sha256": "018465cbf881c869d3f44646329ff30216d84519d897f71fe7a882cdd787fb5f"},
+      {"path": "tasks/coding/dev/async-cache-coalescing/verifier/hidden_tests.mjs", "sha256": "1454a79a190b49ab3af52afc517e5a91d6812de7fd15d852a64d0fe6a71034ee"},
+      {"path": "tasks/coding/dev/pagination-cycle-guard/case-whole-file-v1.2.json", "sha256": "99ac13269dff2e306341486bc90be11a513d1481ac30dd7d2e2cd48b645cd394"},
+      {"path": "tasks/coding/dev/pagination-cycle-guard/fixture-manifest.json", "sha256": "27f570101c0021e4460594197da7cd43349c3c0eea5c41a86f8d26d88b5fafc6"},
+      {"path": "tasks/coding/dev/pagination-cycle-guard/TASK.md", "sha256": "010425aa1e61955d0fbd08fdfd14b4a3ce7fb691252747f1695cc797a1233bef"},
+      {"path": "tasks/coding/dev/pagination-cycle-guard/benchmark-card.json", "sha256": "70274d7d3a6e1298258a3b2a0394edea189f96db7e6ccc18c8beb99734bf660d"},
+      {"path": "tasks/coding/dev/pagination-cycle-guard/fixture/tests/test_sync.py", "sha256": "5c067fd4baa12b910ced754bf497b4a63ea98c38a2c4ae10a0d7b34540c39438"},
+      {"path": "tasks/coding/dev/pagination-cycle-guard/verifier/hidden_tests_v1_2.py", "sha256": "cd095a713d413ad3b1b4697250c23595370fc35f432293da4356245e53b8043e"}
+    ]
+  },
+  "deployments": [
+    {
+      "name": "qwen3.6:35b-a3b-mxfp8",
+      "deployment_id": "qwen3-6-35b-a3b-mxfp8-d82a30588f1c-ollama-0-33-2",
+      "digest": "d82a30588f1c7bc2afa5226f3d67c8987bf505104f8f0512a0f8643ac4525d16",
+      "size_bytes": 37667341338,
+      "quantization": "mxfp8"
+    },
+    {
+      "name": "qwen3.8:27b-mlx",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "size_bytes": 18174721847,
+      "quantization": "nvfp4"
+    },
+    {
+      "name": "muse-glimmer:30b-mlx",
+      "deployment_id": "muse-glimmer-30b-mlx-ef32a55b4976-ollama-0-33-2",
+      "digest": "ef32a55b4976faa955cbab0462d09bd081351ef5b87d73d8fcd299bf17c111d7",
+      "size_bytes": 21232871036,
+      "quantization": "unspecified_by_runtime"
+    },
+    {
+      "name": "ornith-1.5:35b",
+      "deployment_id": "ornith-1-5-35b-9f3b89b25219-ollama-0-33-2",
+      "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc",
+      "size_bytes": 22616285024,
+      "quantization": "Q4_K_M"
+    },
+    {
+      "name": "gemma4:31b-mlx",
+      "deployment_id": "gemma4-31b-mlx-a22a363052da-ollama-0-33-2",
+      "digest": "a22a363052da770302019d5afab29bd967f9318e4377bddd297421189ea09d7d",
+      "size_bytes": 19424434885,
+      "quantization": "unspecified_by_runtime"
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "case_path": "tasks/coding/dev/php-payment-result-migration/case.json",
+      "case_version": "1.0.0",
+      "task_family": "api_migration",
+      "language": "PHP",
+      "verifier_checks": 12
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "case_path": "tasks/coding/dev/async-cache-coalescing/case.json",
+      "case_version": "1.0.0",
+      "task_family": "feature_implementation",
+      "language": "JavaScript",
+      "verifier_checks": 12
+    },
+    {
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "case_path": "tasks/coding/dev/pagination-cycle-guard/case-whole-file-v1.2.json",
+      "case_version": "1.2.0",
+      "task_family": "bug_fixing",
+      "language": "Python",
+      "verifier_checks": 7
+    }
+  ],
+  "execution_order": [
+    {"position": 1, "model": "qwen3.6:35b-a3b-mxfp8", "case_id": "coding.dev.php-payment-result-migration"},
+    {"position": 2, "model": "qwen3.8:27b-mlx", "case_id": "coding.dev.async-cache-coalescing"},
+    {"position": 3, "model": "muse-glimmer:30b-mlx", "case_id": "coding.dev.pagination-cycle-guard"},
+    {"position": 4, "model": "ornith-1.5:35b", "case_id": "coding.dev.php-payment-result-migration"},
+    {"position": 5, "model": "gemma4:31b-mlx", "case_id": "coding.dev.async-cache-coalescing"},
+    {"position": 6, "model": "muse-glimmer:30b-mlx", "case_id": "coding.dev.async-cache-coalescing"},
+    {"position": 7, "model": "ornith-1.5:35b", "case_id": "coding.dev.pagination-cycle-guard"},
+    {"position": 8, "model": "gemma4:31b-mlx", "case_id": "coding.dev.php-payment-result-migration"},
+    {"position": 9, "model": "qwen3.6:35b-a3b-mxfp8", "case_id": "coding.dev.async-cache-coalescing"},
+    {"position": 10, "model": "qwen3.8:27b-mlx", "case_id": "coding.dev.pagination-cycle-guard"},
+    {"position": 11, "model": "gemma4:31b-mlx", "case_id": "coding.dev.pagination-cycle-guard"},
+    {"position": 12, "model": "qwen3.6:35b-a3b-mxfp8", "case_id": "coding.dev.pagination-cycle-guard"},
+    {"position": 13, "model": "qwen3.8:27b-mlx", "case_id": "coding.dev.php-payment-result-migration"},
+    {"position": 14, "model": "muse-glimmer:30b-mlx", "case_id": "coding.dev.php-payment-result-migration"},
+    {"position": 15, "model": "ornith-1.5:35b", "case_id": "coding.dev.async-cache-coalescing"}
+  ],
+  "order_rationale": "The Mini sweep deliberately reuses the preregistered Pi v0.3 cell order. Every model receives every task once, no model runs consecutively and model position sums range from 22 to 26. Matching positions improves descriptive system-level comparison without turning it into a one-factor causal harness experiment.",
+  "configuration": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 1600,
+    "maximum_active_wall_time_seconds": 900,
+    "provider_request_timeout_seconds": 300,
+    "maximum_total_output_tokens": null,
+    "maximum_agent_turns": null,
+    "maximum_protocol_errors": null
+  },
+  "comparison_rules": {
+    "runs_per_configuration": 1,
+    "automatic_retries": 0,
+    "adaptive_repetitions": false,
+    "development_smokes_reused": false,
+    "performance_distribution_claims": false,
+    "reliability_probability_claims": false,
+    "trajectory_metrics_are_descriptive": true,
+    "tokens_turns_and_protocol_errors_are_measurement_only": true,
+    "terminal_failures_are_not_retried_within_this_plan": true,
+    "pi_comparison_is_system_level_not_one_factor_causal": true
+  },
+  "resource_gate": {
+    "known_ollama_consumers": [
+      "Mnemosyn",
+      "News-App",
+      "Blog-Read-O-Matic",
+      "Behat test processes"
+    ],
+    "loaded_models_must_be_empty_before_each_unit": true,
+    "empty_state_observation_seconds": 30,
+    "deployment_digest_rechecked_before_each_unit": true,
+    "unload_model_after_each_run": true,
+    "unexpected_model_activity_pauses_the_sweep": true
+  },
+  "interruption_policy": {
+    "raw_attempts_are_append_only": true,
+    "complete_outcomes_are_never_repeated_within_this_plan": true,
+    "prepared_or_verification_pending_runs_are_resumed_in_place": true,
+    "provider_request_running_after_process_loss_is_preserved_and_restarted_fresh": true,
+    "runtime_or_artifact_drift_blocks_resume": true
+  },
+  "reporting": {
+    "primary_outcome": "verified_success",
+    "runtime_agent_termination_verifier_and_verified_outcomes_separate": true,
+    "model_result_format": "verified successes out of three heterogeneous tasks plus per-case outcomes",
+    "no_composite_score": true,
+    "no_tail_percentiles": true,
+    "raw_code_model_text_test_output_and_trajectories_remain_ignored": true,
+    "compare_pi_only_as_a_separate_complete_system_condition": true
+  },
+  "execution_authorization": {
+    "explicit_user_authorization_received": true,
+    "authorization_received_on": "2026-09-04",
+    "scope": "Freeze and execute the five-active-model by three-task Mini v0.3 Capability Sweep after the excluded smoke passes its technical gate.",
+    "resource_gate_can_pause_execution_without_additional_confirmation": true,
+    "no_remote_push_authorized": true
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "inventory_id": "mini-log-v0.5",
+  "status": "qualification_candidate",
+  "harness_family": "project_mini_harness",
+  "task_family": "incident_investigation",
+  "task_subset_size": 3,
+  "actions": [
+    {"name": "read_file", "scope": "selected_case_visible_regular_files_only", "side_effect": false},
+    {"name": "finish_report", "scope": "one_v2_schema_constrained_incident_report", "side_effect": false}
+  ],
+  "outcome_accounting": {
+    "semantic_verified_success": "primary",
+    "strict_transport_compliance": "secondary_and_separate"
+  },
+  "unavailable_capabilities": [
+    "filesystem_write", "shell", "code_execution", "public_tests",
+    "hidden_verifier", "browser", "external_network", "persistent_memory",
+    "shared_mutable_state", "subagents", "approvals", "cross_case_access"
+  ],
+  "model_transport": {
+    "runtime": "ollama",
+    "endpoint_policy": "HTTP loopback origin only",
+    "structured_output": true
+  },
+  "context_policy": {
+    "initial_file_contents": false,
+    "file_inventory_visible": true,
+    "selected_case_only": true,
+    "read_observations_appended_verbatim": true,
+    "automatic_compaction": false
+  }
+}

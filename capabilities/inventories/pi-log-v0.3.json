@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "inventory_id": "pi-log-v0.3",
+  "status": "qualification_candidate",
+  "harness_family": "pinned_pi",
+  "task_family": "incident_investigation",
+  "task_subset_size": 3,
+  "model_visible_tools": [
+    {
+      "name": "read",
+      "implementation": "pinned_pi_native_read_tool",
+      "scope": "selected_case_visible_regular_files_only",
+      "side_effect": false
+    }
+  ],
+  "final_output": {
+    "mechanism": "final_assistant_text",
+    "requested_format": "one_unfenced_v2_json_object",
+    "semantic_acceptance": "exactly_one_intact_json_object",
+    "internal_json_repair": false,
+    "strict_transport_compliance_scored_separately": true
+  },
+  "defense_in_depth": {
+    "policy_extension_allowlist": ["read"],
+    "os_sandbox": "deny_by_default_macos_seatbelt",
+    "model_transport": "Ollama loopback only"
+  },
+  "unavailable_capabilities": [
+    "filesystem_write", "shell", "code_execution", "public_tests",
+    "hidden_verifier", "browser", "external_network", "persistent_memory",
+    "shared_mutable_state", "subagents", "approvals", "cross_case_access"
+  ],
+  "context_policy": {
+    "initial_file_contents": false,
+    "file_inventory_visible": true,
+    "selected_case_only": true,
+    "read_observations_managed_by_pinned_pi": true,
+    "automatic_compaction": false
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "1.0.0",
+  "case_id": "coding.dev.php-payment-result-migration",
+  "case_version": "1.0.0",
+  "track": "A",
+  "title": "PHP typed payment-result API migration",
+  "evaluation_goal": "Measure whether a model can migrate a small typed PHP service across status-specific retry, idempotency and persistence semantics without tools or test feedback.",
+  "task_family": "api_migration",
+  "pre_run_task_features": {
+    "change_scope": "two_collaborating_source_files",
+    "expected_files_changed": "one_or_two",
+    "locality": "small_multi_file_service_boundary",
+    "context_requirement": "small_typed_repository_snapshot",
+    "specification_clarity": "explicit_state_transition_and_retry_contract",
+    "reasoning_requirement": "status_classification_idempotency_and_side_effect_invariants",
+    "dependency_depth": "medium_across_service_policy_interfaces_and_value_objects",
+    "tool_requirement": "none_in_track_a",
+    "feedback_strength": "public_and_hidden_deterministic_tests",
+    "language_framework": "php_8_4_standard_library_framework_neutral",
+    "autonomy_requirement": "single_turn_one_or_two_complete_file_replacements",
+    "risk": "high_payment_retry_and_duplicate_side_effects",
+    "reversibility": "high_in_disposable_fixture"
+  },
+  "candidate_visible_requirements": [
+    "Short-circuit every already-final payment state without gateway or repository side effects.",
+    "Use one stable order-derived idempotency key across every permitted retry.",
+    "Retry only retryable technical failures and respect the configured attempt cap.",
+    "Map success, decline, unknown and exhausted retryable outcomes to distinct repository transitions and checkout outcomes.",
+    "Record exactly one final transition and preserve existing validation and typed APIs.",
+    "Change only the two allowed PHP service and policy files without dependencies."
+  ],
+  "artifact_contract": {
+    "format": "whole_file_envelope",
+    "transport_normalization": "The marker-delimiting newline is replaced by exactly one canonical final newline in each installed file.",
+    "controller_repairs_code": false,
+    "existing_files_only": true
+  },
+  "verification_runtime": {
+    "name": "PHP",
+    "minimum_version": "8.4",
+    "package_dependencies": 0,
+    "version_is_recorded_by": "verification.runtime_version_command"
+  },
+  "verification_layers": [
+    {
+      "id": "output_contract",
+      "required": true,
+      "success": "The response contains only one or two complete-file envelopes with unique normalized paths."
+    },
+    {
+      "id": "scope_integrity",
+      "required": true,
+      "success": "Only CheckoutService.php and RetryPolicy.php change; contracts, tests and Composer metadata remain byte-identical."
+    },
+    {
+      "id": "artifact_installation",
+      "required": true,
+      "success": "The controller installs exact candidate file content plus the declared canonical final newline into a disposable baseline copy."
+    },
+    {
+      "id": "public_tests",
+      "required": true,
+      "success": "All four candidate-visible PHP checks pass."
+    },
+    {
+      "id": "hidden_acceptance_tests",
+      "required": true,
+      "success": "All eight candidate-hidden checks for validation, retry classification, final-state short-circuiting, attempt exhaustion, key stability and single persistence pass."
+    }
+  ],
+  "primary_outcome": {
+    "name": "verified_success",
+    "type": "boolean",
+    "quality_scale_maximum": null,
+    "note": "No universal composite score is assigned. Diagnostic test counts are not interpreted as fractional semantic quality."
+  },
+  "failure_taxonomy": [
+    "empty_output",
+    "malformed_artifact",
+    "artifact_scope_violation",
+    "artifact_install_failure",
+    "protected_file_modified",
+    "verification_runtime_failure",
+    "public_tests_failed",
+    "hidden_tests_failed",
+    "verification_timeout",
+    "runtime_failure",
+    "other"
+  ],
+  "risk_and_threshold": {
+    "risk": "high",
+    "verifier_strength": "strong_for_declared_observable_behavior_with_known_non_exhaustiveness",
+    "single_run_decision": "exploratory_verified_outcome_only",
+    "reliability_claim_allowed": false
+  }
+}

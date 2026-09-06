@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "agentic-software-development-reality-gap-five-model-v1",
+  "case_id": "source_grounded_writing.dev.agentic-software-development-reality-gap",
+  "case_path": "tasks/source-grounded-writing/dev/agentic-software-development-reality-gap/case.json",
+  "status": "frozen_before_execution",
+  "frozen_at": "2026-08-31T21:41:00Z",
+  "model_metadata_verified_at": "2026-08-31T21:40:07Z",
+  "model_metadata_verification": "Ollama /api/tags metadata query only; no model load or inference",
+  "models": {
+    "A": {
+      "name": "qwen3.6:35b-a3b-mxfp8",
+      "digest": "d82a30588f1c7bc2afa5226f3d67c8987bf505104f8f0512a0f8643ac4525d16"
+    },
+    "B": {
+      "name": "qwen3.8:27b-mlx",
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e"
+    },
+    "C": {
+      "name": "gpt-oss:20b",
+      "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7"
+    },
+    "D": {
+      "name": "muse-glimmer:30b-mlx",
+      "digest": "ef32a55b4976faa955cbab0462d09bd081351ef5b87d73d8fcd299bf17c111d7"
+    },
+    "E": {
+      "name": "ornith-1.5:35b",
+      "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc"
+    }
+  },
+  "execution_order": ["A", "E", "D", "B", "C"],
+  "order_method": "Counterbalance against the first writing case's DBCEA order: among all permutations in which no alias repeats its earlier position, maximize the minimum absolute position displacement, then maximize total displacement, then choose the lexicographically first tie. The resulting authoritative order is AEDBC.",
+  "methodology": {
+    "cold_runs_per_model": 1,
+    "warm_runs_per_model": 1,
+    "quality_candidate": "warm",
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 8192,
+    "num_predict": 2600,
+    "keep_alive": "10m",
+    "timeout_seconds": 600.0,
+    "adaptive_repeats": "Only after inspecting execution integrity, and only when timing uncertainty could change a decision."
+  },
+  "environment_gate": {
+    "required": true,
+    "known_ollama_consumers": ["Mnemosyn", "News-App"],
+    "resource_intensive_external_workloads_must_be_idle": true,
+    "current_known_blocker": "Do not start while the user's Behat test suite is consuming substantial resources.",
+    "loaded_models_must_be_empty_before_start": true,
+    "unexpected_models_invalidate_performance_evidence": true
+  },
+  "execution_authorization": {
+    "plan_freeze_does_not_authorize_generation": true,
+    "explicit_subsequent_user_request_required": true
+  },
+  "evaluation": {
+    "judge_all_warm_candidates_in_one_blinded_batch": true,
+    "open_private_model_mapping_only_after_judgment": true,
+    "quality_scale_maximum": 100
+  },
+  "interpretation_limit": "This Capability Sweep comparison does not estimate latency tails, failure rates or quality distributions."
+}

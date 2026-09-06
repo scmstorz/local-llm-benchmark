@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0", "card_version": "1.0.0", "case_id": "general_knowledge.dev.antibiotic-resistance", "case_version": "1.0.0",
+  "source_of_truth": "The frozen judge-only reference dossier; candidates answer from internal knowledge.",
+  "evaluation_principles": ["Reward evolutionary mechanism rather than slogans.", "Require a balanced account of patient benefit and population externalities.", "Do not reward individual treatment advice."],
+  "key_facts": [
+    {"id":"KF01","label":"Microorganisms become resistant","claim_type":"definition","weight":4,"source_locations":["S01"],"expected":"Explains that bacteria or other microorganisms, not the patient's body, become resistant."},
+    {"id":"KF02","label":"Antibiotics do not treat viruses","claim_type":"boundary","weight":3,"source_locations":["S01"],"expected":"Rejects leftover antibiotics for a viral cold and explains the missing benefit."},
+    {"id":"KF03","label":"Variation and selection","claim_type":"mechanism","weight":4,"source_locations":["S02"],"expected":"Connects mutation or acquired variation, differential survival under exposure and reproduction without implying purposeful adaptation."},
+    {"id":"KF04","label":"Horizontal gene transfer","claim_type":"mechanism","weight":3,"source_locations":["S02","S03"],"expected":"Explains that resistance genes can move among bacteria as well as resistant strains spreading clonally."},
+    {"id":"KF05","label":"Misuse and overuse","claim_type":"cause","weight":3,"source_locations":["S04"],"expected":"Identifies unnecessary, poorly targeted or otherwise inappropriate exposure as selection pressure."},
+    {"id":"KF06","label":"Appropriate treatment trade-off","claim_type":"tradeoff","weight":3,"source_locations":["S04","S05"],"expected":"Explains that stewardship includes timely necessary therapy plus the right drug, dose and duration, not blanket avoidance."},
+    {"id":"KF07","label":"Diagnostics and prevention","claim_type":"intervention","weight":3,"source_locations":["S05","S06"],"expected":"Covers cultures or susceptibility-guided narrowing and measures that prevent infection or transmission."},
+    {"id":"KF08","label":"Innovation is insufficient","claim_type":"qualification","weight":2,"source_locations":["S06"],"expected":"Explains that new drugs help but resistance can evolve to them and prevention or stewardship remain necessary."}
+  ],
+  "key_ideas": [
+    {"id":"KI01","label":"Evolution under selection pressure","weight":4,"source_locations":["S02"],"expected":"Presents resistance as selection acting on heritable bacterial variation."},
+    {"id":"KI02","label":"One Health transmission system","weight":4,"source_locations":["S03","S07"],"expected":"Connects humans, animals, healthcare and environment rather than reducing AMR to one patient."},
+    {"id":"KI03","label":"Stewardship is optimization","weight":4,"source_locations":["S04","S05"],"expected":"Balances immediate patient need with minimizing unnecessary selection pressure."},
+    {"id":"KI04","label":"Layered response","weight":3,"source_locations":["S06","S07"],"expected":"Combines prevention, surveillance, diagnostics, stewardship and innovation."}
+  ],
+  "known_critical_errors": [
+    {"id":"CE01","severity":"critical","description":"Claims that the human body becomes antibiotic-resistant."},
+    {"id":"CE02","severity":"critical","description":"Recommends using leftover antibiotics for a cold or gives unsafe individual treatment instructions."},
+    {"id":"CE03","severity":"major","description":"Says antibiotics cause bacteria to purposefully develop the needed mutation."},
+    {"id":"CE04","severity":"major","description":"Advocates withholding necessary antibiotics as the general solution."},
+    {"id":"CE05","severity":"major","description":"Claims new antibiotics permanently solve resistance."}
+  ],
+  "nonessential_details": ["Named resistance genes", "A country-specific prescribing rule", "Drug-development market policy"],
+  "rubric": {
+    "maximum_score":100,"coverage_status_multipliers":{"full":1.0,"partial":0.5,"missing":0.0,"contradicted":0.0},"derived_coverage":{"key_facts_max":25,"key_facts_formula":"sum(key_fact.weight * status_multiplier)","key_ideas_max":15,"key_ideas_formula":"sum(key_idea.weight * status_multiplier)"},
+    "judged_dimensions":[
+      {"id":"factual_accuracy","max":25,"anchors":{"25":"No material microbiological or clinical error.","20":"Accurate overall with one minor imprecision.","12":"At least one major error or several meaningful imprecisions.","0":"Fundamentally unreliable."}},
+      {"id":"explanatory_quality","max":10,"anchors":{"10":"Builds a coherent chain from variation and selection to spread and intervention.","7":"Sound explanation with one underdeveloped connection.","4":"Lists concepts without explaining how they connect.","0":"Does not explain the mechanism."}},
+      {"id":"epistemic_precision","max":10,"anchors":{"10":"Balances necessary care and stewardship without unsafe advice or absolutes.","7":"Mostly calibrated with one limited overstatement.","4":"Repeatedly presents context-dependent decisions as universal.","0":"Gives dangerous false certainty."}},
+      {"id":"structure_clarity","max":10,"anchors":{"10":"Clear German, descriptive structure and understandable without biomedical training.","7":"Generally clear with minor awkwardness.","4":"Noticeably hard to follow.","0":"Incoherent or not meaningfully German."}},
+      {"id":"compression","max":5,"anchors":{"5":"High information density without material repetition.","3":"Some avoidable repetition.","1":"Substantially padded.","0":"Exceeds the hard maximum or is not focused."}}
+    ],
+    "hard_constraints":{"empty_output":{"result":"invalid","final_score":0},"output_language_not_german":{"result":"noncompliant","final_score_cap":59},"word_count_above_800":{"result":"noncompliant","compression_score":0,"final_score_cap":59},"generation_truncated_at_token_limit":{"result":"noncompliant","final_score_cap":59},"reasoning_markup_in_candidate_output":{"result":"noncompliant","final_score_cap":59}},
+    "critical_error_caps":{"one_critical_error":{"factual_accuracy_cap":8,"final_score_cap":59},"two_or_more_critical_errors":{"factual_accuracy_cap":4,"final_score_cap":39}},"verdict_thresholds":{"excellent":90,"good":75,"usable":60,"poor":1,"invalid":0}
+  }
+}

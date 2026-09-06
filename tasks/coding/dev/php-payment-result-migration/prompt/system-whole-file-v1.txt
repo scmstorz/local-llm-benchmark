@@ -1,0 +1,9 @@
+You are completing a bounded software-maintenance benchmark.
+
+Return only the complete contents of each source file you change. Wrap every file exactly as follows:
+
+<<<FILE path="relative/path.php">>>
+complete file content
+<<<END FILE>>>
+
+Do not return a Git diff. Do not use Markdown fences, prose, ellipses or partial snippets. Submit only files you change, use each path at most once and preserve the complete valid source of every submitted file. Modify only paths allowed by the task. Do not alter tests, weaken assertions, add dependencies or include generated files.

@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "coding.dev.async-cache-coalescing",
+  "case_version": "1.0.0",
+  "track": "A",
+  "task_family": "feature_implementation",
+  "task_path": "tasks/coding/dev/async-cache-coalescing/TASK.md",
+  "prompt": {
+    "version": "1.0.0",
+    "system_path": "tasks/coding/dev/async-cache-coalescing/prompt/system-whole-file-v1.txt"
+  },
+  "fixture": {
+    "root": "tasks/coding/dev/async-cache-coalescing/fixture",
+    "manifest_path": "tasks/coding/dev/async-cache-coalescing/fixture-manifest.json",
+    "manifest_version": "1.0.0"
+  },
+  "candidate_context": {
+    "files": [
+      "package.json",
+      "src/async-cache.mjs",
+      "src/index.mjs",
+      "tests/cache.test.mjs"
+    ],
+    "tools_allowed": false,
+    "browsing_allowed": false
+  },
+  "artifact_contract": {
+    "version": "1.1.0",
+    "format": "whole_file_envelope",
+    "opening_marker_template": "<<<FILE path=\"{relative_path}\">>>",
+    "closing_marker": "<<<END FILE>>>",
+    "canonical_final_newline": true,
+    "maximum_bytes": 65536,
+    "minimum_files": 1,
+    "maximum_files": 2,
+    "existing_files_only": true,
+    "allowed_path_globs": [
+      "src/*.mjs"
+    ],
+    "protected_path_globs": [
+      "tests/**",
+      "package.json"
+    ]
+  },
+  "verification": {
+    "version": "1.0.0",
+    "runtime_version_command": [
+      "node",
+      "--version"
+    ],
+    "public_test_command": [
+      "node",
+      "--test",
+      "tests/cache.test.mjs"
+    ],
+    "hidden_test_path": "tasks/coding/dev/async-cache-coalescing/verifier/hidden_tests.mjs",
+    "hidden_test_command": [
+      "node",
+      "{hidden_test}",
+      "{fixture}"
+    ],
+    "test_timeout_seconds": 30,
+    "baseline_expected": {
+      "public_tests_pass": false,
+      "hidden_tests_pass": false
+    }
+  },
+  "evaluation": {
+    "benchmark_card_path": "tasks/coding/dev/async-cache-coalescing/benchmark-card.json",
+    "benchmark_card_version": "1.0.0",
+    "primary_outcome": "verified_success"
+  },
+  "inference_defaults": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict": 3000,
+    "keep_alive": "5m",
+    "timeout_seconds": 600
+  }
+}

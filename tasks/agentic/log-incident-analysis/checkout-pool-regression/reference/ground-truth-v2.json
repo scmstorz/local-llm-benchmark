@@ -1,0 +1,57 @@
+{
+  "schema_version": "2.0.0",
+  "case_id": "agentic.ops.checkout-pool-regression",
+  "incident": {
+    "start_utc": "2026-09-05T08:17:06Z",
+    "last_observed_utc": "2026-09-05T08:25:12Z",
+    "primary_service": "payment-api",
+    "affected_user_journey": "checkout",
+    "recovery_status": "full"
+  },
+  "diagnosis": {
+    "root_cause_code": "configuration_regression",
+    "required_trigger_codes": ["traffic_increase"]
+  },
+  "required_causal_chain_subsequence": [
+    "PAY-301",
+    "GATE-101",
+    "PAY-303",
+    "ORD-201",
+    "GATE-102",
+    "PAY-307",
+    "PAY-308",
+    "GATE-106"
+  ],
+  "required_evidence": {
+    "root_cause": ["PAY-301"],
+    "trigger": ["GATE-101"],
+    "symptom": ["PAY-303", "ORD-201"],
+    "impact": ["GATE-102"],
+    "recovery": ["PAY-307", "PAY-308", "GATE-106"]
+  },
+  "required_rejected_hypotheses": {
+    "database_outage": ["DB-400", "PAY-305"],
+    "authentication_failure": ["AUTH-500", "AUTH-502"]
+  },
+  "required_impact_codes": ["checkout_requests_failed", "checkout_latency_increased"],
+  "forbidden_impact_codes": ["login_outage", "database_unavailable", "data_loss"],
+  "required_recommendation_codes": [
+    "restore_safe_pool_limit",
+    "validate_capacity_configuration",
+    "alert_on_pool_saturation"
+  ],
+  "required_uncertainty_codes": [
+    "exact_affected_request_count_unknown",
+    "configuration_change_owner_unknown"
+  ],
+  "forbidden_diagnosis_fragments": [
+    "database caused the incident",
+    "authentication caused the incident",
+    "traffic increase was the root cause"
+  ],
+  "forbidden_impact_fragments": [
+    "data loss occurred",
+    "login outage occurred",
+    "database was unavailable"
+  ]
+}

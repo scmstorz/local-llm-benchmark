@@ -1,0 +1,13 @@
+{
+  "name": "benchmark/php-payment-result-migration",
+  "description": "Dependency-free fixture for a typed payment-result migration",
+  "type": "project",
+  "require": {
+    "php": ">=8.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Benchmark\\Payment\\": "src/"
+    }
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local-llm-benchmark.invalid/schemas/judge-result-v1.2.json",
+  "title": "Interactive Codex summary judge result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "evaluation_id",
+    "case",
+    "candidate_id",
+    "judge",
+    "deterministic_checks",
+    "fact_assessments",
+    "idea_assessments",
+    "errors",
+    "dimension_scores",
+    "score_summary",
+    "verdict",
+    "overall_assessment",
+    "confidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.2.0"
+    },
+    "evaluation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["case_id", "case_version", "card_version"],
+      "properties": {
+        "case_id": {
+          "const": "summarization.dev.the-agent-company"
+        },
+        "case_version": {
+          "const": "1.0.0"
+        },
+        "card_version": {
+          "const": "1.0.0"
+        }
+      }
+    },
+    "candidate_id": {
+      "type": "string",
+      "pattern": "^candidate-[a-z0-9-]+$"
+    },
+    "judge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "model_label", "evaluated_at", "instructions_version"],
+      "properties": {
+        "kind": {
+          "const": "interactive_codex"
+        },
+        "model_label": {
+          "type": ["string", "null"]
+        },
+        "evaluated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "instructions_version": {
+          "const": "1.0.0"
+        }
+      }
+    },
+    "deterministic_checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["check_version", "nonempty", "detected_language", "language_method", "language_evidence", "language_pass", "word_count", "maximum_words", "maximum_words_pass", "source_location_labels_absent", "markdown_heading_count", "bold_heading_count", "structural_heading_count", "heading_pass", "reasoning_markup_absent", "generation_done_reason", "generation_complete"],
+      "properties": {
+        "check_version": {
+          "const": "1.0.0"
+        },
+        "nonempty": {
+          "type": "boolean"
+        },
+        "detected_language": {
+          "type": ["string", "null"]
+        },
+        "language_method": {
+          "const": "stopword_heuristic_v1"
+        },
+        "language_evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["german_stopword_hits", "english_stopword_hits"],
+          "properties": {
+            "german_stopword_hits": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "english_stopword_hits": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "language_pass": {
+          "type": "boolean"
+        },
+        "word_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "maximum_words": {
+          "const": 1000
+        },
+        "maximum_words_pass": {
+          "type": "boolean"
+        },
+        "source_location_labels_absent": {
+          "type": "boolean"
+        },
+        "markdown_heading_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "bold_heading_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "structural_heading_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "heading_pass": {
+          "type": "boolean"
+        },
+        "reasoning_markup_absent": {
+          "type": "boolean"
+        },
+        "generation_done_reason": {
+          "type": ["string", "null"]
+        },
+        "generation_complete": {
+          "type": "boolean"
+        }
+      }
+    },
+    "fact_assessments": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "$ref": "#/$defs/coverageAssessment"
+      }
+    },
+    "idea_assessments": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "$ref": "#/$defs/coverageAssessment"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["severity", "type", "description", "source_locations"],
+        "properties": {
+          "known_error_id": {
+            "type": ["string", "null"]
+          },
+          "severity": {
+            "enum": ["critical", "major", "minor"]
+          },
+          "type": {
+            "enum": ["hallucination", "contradiction", "misattribution", "numeric_error", "certainty_inflation", "unsupported_addition", "other"]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_locations": {
+            "$ref": "#/$defs/sourceLocations"
+          }
+        }
+      }
+    },
+    "dimension_scores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["factual_accuracy", "epistemic_precision", "prioritization", "structure_clarity", "compression"],
+      "properties": {
+        "factual_accuracy": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 25
+        },
+        "epistemic_precision": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "prioritization": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "structure_clarity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "compression": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5
+        }
+      }
+    },
+    "score_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key_fact_coverage", "key_idea_coverage", "raw_total", "caps_applied", "final_total"],
+      "properties": {
+        "key_fact_coverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 25
+        },
+        "key_idea_coverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 15
+        },
+        "raw_total": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "caps_applied": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "final_total": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "verdict": {
+      "enum": ["excellent", "good", "usable", "poor", "invalid"]
+    },
+    "overall_assessment": {
+      "type": "string",
+      "minLength": 1
+    },
+    "confidence": {
+      "enum": ["high", "medium", "low"]
+    }
+  },
+  "$defs": {
+    "sourceLocations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[HKPS][0-9]{2}$"
+      },
+      "uniqueItems": true
+    },
+    "coverageAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "status", "rationale", "source_locations"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^K[FI][0-9]{2}$"
+        },
+        "status": {
+          "enum": ["full", "partial", "missing", "contradicted"]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_locations": {
+          "$ref": "#/$defs/sourceLocations"
+        }
+      }
+    }
+  }
+}

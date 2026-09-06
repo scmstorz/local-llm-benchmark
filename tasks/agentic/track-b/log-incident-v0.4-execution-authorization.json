@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "authorization_id": "log-incident-v0.4-execution-authorization",
+  "status": "authorized_pending_resource_gate",
+  "authorized_on": "2026-09-06",
+  "authorization_source": "After the additive v0.4 repair was committed, the user explicitly stated that all competing applications were stopped and authorized the small confirmation run.",
+  "plan_id": "log-incident-v0.4-specification-confirmation",
+  "plan_path": "tasks/agentic/track-b/log-incident-v0.4-confirmation-plan.json",
+  "plan_sha256": "8b9d5399c86b744c06ceec66ef6b3c3323b3c19d754d951da3a9de76621013c0",
+  "live_execution_authorized": true,
+  "cell_count": 6,
+  "automatic_retries": 0,
+  "resource_gate_still_required": true,
+  "scope": {
+    "model": "qwen3.8:27b-mlx",
+    "harnesses": ["mini-log-v0.4", "pi-log-v0.4"],
+    "case_count": 3,
+    "only_frozen_execution_order": true,
+    "broader_sweep_authorized": false
+  },
+  "interruption_policy": "Preserve an interrupted live attempt as an infrastructure or control failure; never create an unplanned replacement attempt.",
+  "remote_push_authorized": false
+}

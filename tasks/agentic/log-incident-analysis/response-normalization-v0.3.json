@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "normalization_id": "single-intact-json-object-v0.3",
+  "status": "qualification_candidate",
+  "strict_transport_compliance": {
+    "definition": "After trimming surrounding whitespace, the entire final response parses as exactly one JSON object.",
+    "scored_separately": true,
+    "required_for_semantic_verification": false
+  },
+  "semantic_extraction": {
+    "accepted_objects": 1,
+    "accept_markdown_code_fence_envelope": true,
+    "accept_surrounding_non_json_text": true,
+    "reject_zero_intact_objects": true,
+    "reject_multiple_intact_objects": true,
+    "reject_json_braces_outside_recovered_object": true,
+    "repair_internal_json": false,
+    "merge_multiple_objects": false,
+    "execute_candidate_content": false
+  },
+  "outcomes": [
+    "strict_transport_compliance",
+    "semantic_report_extracted",
+    "normalization_applied",
+    "normalization_kind",
+    "semantic_verifier_success"
+  ],
+  "primary_outcome_rule": "Runtime success, valid agent termination and semantic verifier success define verified success; strict transport compliance remains separately reportable.",
+  "rationale": "Outer presentation noise is deterministically removable in a deployed system, while ambiguous or internally malformed JSON is not silently repaired."
+}

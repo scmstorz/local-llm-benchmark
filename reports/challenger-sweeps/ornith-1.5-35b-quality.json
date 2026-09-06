@@ -1,0 +1,553 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "ornith-1.5-35b-joint-quality",
+  "date": "2026-08-29",
+  "batch_id": "challenger-evaluation-20260829T102544Z-0388dba0",
+  "blind_judgments_sha256": "c9208361029c84298a2d73bfdf8dec0515585223a0ef597f290625e59ac0fa3a",
+  "scope": "All thirteen current development cases with canonical incumbent candidates.",
+  "evidence_class": "joint late-challenger rejudgment with limited cognitive blinding",
+  "supplemental_batches": [
+    {
+      "batch_id": "challenger-evaluation-20260829T105731Z-6e4fc2bc",
+      "case_id": "general_knowledge.dev.ml-evaluation-leakage",
+      "blind_judgments_sha256": "bc9ff6a1625b64dd0ae455c6f16a8e0f1d658430f584e9d245606be52a4db45c",
+      "baseline_evidence": "completed_after_challenger_sweep"
+    },
+    {
+      "batch_id": "challenger-evaluation-20260829T120744Z-774fb473",
+      "case_id": "general_knowledge.dev.rag-grounding-evaluation",
+      "independent_judgments_sha256": "2a0322a26f5c87ae279ab08da522ed02b07eb4bccabd5f42041c371c9ac39f91",
+      "blind_judgments_sha256": "bcbdcc3ec69625c7399fee97eaaf951b560ec814f6ebb193569f9b14690c9193",
+      "baseline_evidence": "completed_after_challenger_sweep"
+    }
+  ],
+  "score_scale": {
+    "minimum": 0,
+    "maximum": 100
+  },
+  "methodology_note": "All five exact warm candidates were jointly rejudged. Performance values are single warm screens gathered in different controlled sessions and are not distributions.",
+  "aggregates": [
+    {
+      "model": "ornith-1.5:35b",
+      "n": 13,
+      "mean_quality": 87.81,
+      "median_quality": 91,
+      "case_wins": 3,
+      "top_two_finishes": 10,
+      "invalid_cases": 0,
+      "poor_cases": 0,
+      "mean_warm_wall_seconds": 15.03,
+      "median_warm_wall_seconds": 14.78,
+      "mean_output_tokens_per_second": 80.47
+    },
+    {
+      "model": "muse-glimmer:30b-mlx",
+      "n": 13,
+      "mean_quality": 87.12,
+      "median_quality": 90.5,
+      "case_wins": 5,
+      "top_two_finishes": 10,
+      "invalid_cases": 0,
+      "poor_cases": 0,
+      "mean_warm_wall_seconds": 37.36,
+      "median_warm_wall_seconds": 31.12,
+      "mean_output_tokens_per_second": 31.18
+    },
+    {
+      "model": "qwen3.8:27b-mlx",
+      "n": 13,
+      "mean_quality": 82,
+      "median_quality": 83.5,
+      "case_wins": 2,
+      "top_two_finishes": 3,
+      "invalid_cases": 0,
+      "poor_cases": 0,
+      "mean_warm_wall_seconds": 34.31,
+      "median_warm_wall_seconds": 26.68,
+      "mean_output_tokens_per_second": 40.38
+    },
+    {
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "n": 13,
+      "mean_quality": 79.92,
+      "median_quality": 82.5,
+      "case_wins": 3,
+      "top_two_finishes": 3,
+      "invalid_cases": 0,
+      "poor_cases": 1,
+      "mean_warm_wall_seconds": 15.15,
+      "median_warm_wall_seconds": 14.24,
+      "mean_output_tokens_per_second": 82.99
+    },
+    {
+      "model": "gpt-oss:20b",
+      "n": 13,
+      "mean_quality": 61.5,
+      "median_quality": 74.5,
+      "case_wins": 0,
+      "top_two_finishes": 0,
+      "invalid_cases": 2,
+      "poor_cases": 3,
+      "mean_warm_wall_seconds": 26.2,
+      "median_warm_wall_seconds": 19.11,
+      "mean_output_tokens_per_second": 79.14
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "general_knowledge.dev.antibiotic-resistance",
+      "results": [
+        {
+          "model": "ornith-1.5:35b",
+          "score": 94.5,
+          "rank": 1,
+          "verdict": "excellent"
+        },
+        {
+          "model": "muse-glimmer:30b-mlx",
+          "score": 90,
+          "rank": 2,
+          "verdict": "excellent"
+        },
+        {
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "score": 84.5,
+          "rank": 3,
+          "verdict": "good"
+        },
+        {
+          "model": "qwen3.8:27b-mlx",
+          "score": 81,
+          "rank": 4,
+          "verdict": "good"
+        },
+        {
+          "model": "gpt-oss:20b",
+          "score": 57,
+          "rank": 5,
+          "verdict": "poor"
+        }
+      ]
+    },
+    {
+      "case_id": "general_knowledge.dev.confidence-intervals",
+      "results": [
+        {
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "score": 92.5,
+          "rank": 1,
+          "verdict": "excellent"
+        },
+        {
+          "model": "muse-glimmer:30b-mlx",
+          "score": 90.5,
+          "rank": 2,
+          "verdict": "excellent"
+        },
+        {
+          "model": "ornith-1.5:35b",
+          "score": 88.5,
+          "rank": 3,
+          "verdict": "good"
+        },
+        {
+          "model": "qwen3.8:27b-mlx",
+          "score": 83.5,
+          "rank": 4,
+          "verdict": "good"
+        },
+        {
+          "model": "gpt-oss:20b",
+          "score": 0,
+          "rank": 5,
+          "verdict": "invalid"
+        }
+      ]
+    },
+    {
+      "case_id": "general_knowledge.dev.confidence-intervals-transfer",
+      "results": [
+        {
+          "model": "muse-glimmer:30b-mlx",
+          "score": 95,
+          "rank": 1,
+          "verdict": "excellent"
+        },
+        {
+          "model": "ornith-1.5:35b",
+          "score": 88.5,
+          "rank": 2,
+          "verdict": "good"
+        },
+        {
+          "model": "gpt-oss:20b",
+          "score": 79.5,
+          "rank": 3,
+          "verdict": "good"
+        },
+        {
+          "model": "qwen3.8:27b-mlx",
+          "score": 73,
+          "rank": 4,
+          "verdict": "usable"
+        },
+        {
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "score": 59,
+          "rank": 5,
+          "verdict": "poor"
+        }
+      ]
+    },
+    {
+      "case_id": "general_knowledge.dev.distributed-payment-reliability",
+      "results": [
+        {
+          "model": "ornith-1.5:35b",
+          "score": 83,
+          "rank": 1,
+          "verdict": "good"
+        },
+        {
+          "model": "qwen3.8:27b-mlx",
+          "score": 81,
+          "rank": 2,
+          "verdict": "good"
+        },
+        {
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "score": 65,
+          "rank": 3,
+          "verdict": "usable"
+        },
+        {
+          "model": "muse-glimmer:30b-mlx",
+          "score": 60,
+          "rank": 4,
+          "verdict": "usable"
+        },
+        {
+          "model": "gpt-oss:20b",
+          "score": 54,
+          "rank": 5,
+          "verdict": "poor"
+        }
+      ]
+    },
+    {
+      "case_id": "general_knowledge.dev.interest-rates-and-inflation",
+      "results": [
+        {
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "score": 82.5,
+          "rank": 1,
+          "verdict": "good"
+        },
+        {
+          "model": "muse-glimmer:30b-mlx",
+          "score": 82,
+          "rank": 2,
+          "verdict": "good"
+        },
+        {
+          "model": "ornith-1.5:35b",
+          "score": 72.5,
+          "rank": 3,
+          "verdict": "usable"
+        },
+        {
+          "model": "gpt-oss:20b",
+          "score": 70.5,
+          "rank": 4,
+          "verdict": "usable"
+        },
+        {
+          "model": "qwen3.8:27b-mlx",
+          "score": 69,
+          "rank": 5,
+          "verdict": "usable"
+        }
+      ]
+    },
+    {
+      "case_id": "general_knowledge.dev.medical-screening-bayes",
+      "results": [
+        {
+          "model": "muse-glimmer:30b-mlx",
+          "score": 94,
+          "rank": 1,
+          "verdict": "excellent"
+        },
+        {
+          "model": "ornith-1.5:35b",
+          "score": 91,
+          "rank": 2,
+          "verdict": "excellent"
+        },
+        {
+          "model": "qwen3.8:27b-mlx",
+          "score": 88.5,
+          "rank": 3,
+          "verdict": "good"
+        },
+        {
+          "model": "gpt-oss:20b",
+          "score": 81.5,
+          "rank": 4,
+          "verdict": "good"
+        },
+        {
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "score": 78,
+          "rank": 5,
+          "verdict": "good"
+        }
+      ]
+    },
+    {
+      "case_id": "general_knowledge.dev.mrna-vaccine-mechanism",
+      "results": [
+        {
+          "model": "qwen3.8:27b-mlx",
+          "score": 89.5,
+          "rank": 1,
+          "verdict": "good"
+        },
+        {
+          "model": "ornith-1.5:35b",
+          "score": 88.5,
+          "rank": 2,
+          "verdict": "good"
+        },
+        {
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "score": 81,
+          "rank": 3,
+          "verdict": "good"
+        },
+        {
+          "model": "muse-glimmer:30b-mlx",
+          "score": 80.5,
+          "rank": 4,
+          "verdict": "good"
+        },
+        {
+          "model": "gpt-oss:20b",
+          "score": 74.5,
+          "rank": 5,
+          "verdict": "usable"
+        }
+      ]
+    },
+    {
+      "case_id": "general_knowledge.dev.renewable-electricity-matching",
+      "results": [
+        {
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "score": 84.5,
+          "rank": 1,
+          "verdict": "good"
+        },
+        {
+          "model": "muse-glimmer:30b-mlx",
+          "score": 82.5,
+          "rank": 2,
+          "verdict": "good"
+        },
+        {
+          "model": "ornith-1.5:35b",
+          "score": 76,
+          "rank": 3,
+          "verdict": "good"
+        },
+        {
+          "model": "qwen3.8:27b-mlx",
+          "score": 66,
+          "rank": 4,
+          "verdict": "usable"
+        },
+        {
+          "model": "gpt-oss:20b",
+          "score": 50,
+          "rank": 5,
+          "verdict": "poor"
+        }
+      ]
+    },
+    {
+      "case_id": "summarization.dev.metr-long-software-tasks",
+      "results": [
+        {
+          "model": "muse-glimmer:30b-mlx",
+          "score": 92.5,
+          "rank": 1,
+          "verdict": "excellent"
+        },
+        {
+          "model": "ornith-1.5:35b",
+          "score": 91.5,
+          "rank": 2,
+          "verdict": "excellent"
+        },
+        {
+          "model": "qwen3.8:27b-mlx",
+          "score": 74,
+          "rank": 3,
+          "verdict": "usable"
+        },
+        {
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "score": 71,
+          "rank": 4,
+          "verdict": "usable"
+        },
+        {
+          "model": "gpt-oss:20b",
+          "score": 0,
+          "rank": 5,
+          "verdict": "invalid"
+        }
+      ]
+    },
+    {
+      "case_id": "summarization.dev.mit-sloan-ai-climate",
+      "results": [
+        {
+          "model": "qwen3.8:27b-mlx",
+          "score": 94.5,
+          "rank": 1,
+          "verdict": "excellent"
+        },
+        {
+          "model": "ornith-1.5:35b",
+          "score": 91.5,
+          "rank": 2,
+          "verdict": "excellent"
+        },
+        {
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "score": 89.5,
+          "rank": 3,
+          "verdict": "good"
+        },
+        {
+          "model": "muse-glimmer:30b-mlx",
+          "score": 87.5,
+          "rank": 4,
+          "verdict": "good"
+        },
+        {
+          "model": "gpt-oss:20b",
+          "score": 77.5,
+          "rank": 5,
+          "verdict": "good"
+        }
+      ]
+    },
+    {
+      "case_id": "summarization.dev.the-agent-company",
+      "results": [
+        {
+          "model": "muse-glimmer:30b-mlx",
+          "score": 93,
+          "rank": 1,
+          "verdict": "excellent"
+        },
+        {
+          "model": "ornith-1.5:35b",
+          "score": 91.5,
+          "rank": 2,
+          "verdict": "excellent"
+        },
+        {
+          "model": "gpt-oss:20b",
+          "score": 89.5,
+          "rank": 3,
+          "verdict": "good"
+        },
+        {
+          "model": "qwen3.8:27b-mlx",
+          "score": 89,
+          "rank": 4,
+          "verdict": "good"
+        },
+        {
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "score": 81.5,
+          "rank": 5,
+          "verdict": "good"
+        }
+      ]
+    },
+    {
+      "case_id": "general_knowledge.dev.ml-evaluation-leakage",
+      "results": [
+        {
+          "model": "muse-glimmer:30b-mlx",
+          "score": 93.5,
+          "rank": 1,
+          "verdict": "excellent"
+        },
+        {
+          "model": "ornith-1.5:35b",
+          "score": 91.5,
+          "rank": 2,
+          "verdict": "excellent"
+        },
+        {
+          "model": "qwen3.8:27b-mlx",
+          "score": 89.5,
+          "rank": 3,
+          "verdict": "good"
+        },
+        {
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "score": 86,
+          "rank": 4,
+          "verdict": "good"
+        },
+        {
+          "model": "gpt-oss:20b",
+          "score": 80.5,
+          "rank": 5,
+          "verdict": "good"
+        }
+      ]
+    },
+    {
+      "case_id": "general_knowledge.dev.rag-grounding-evaluation",
+      "results": [
+        {
+          "model": "ornith-1.5:35b",
+          "score": 93,
+          "rank": 1,
+          "verdict": "excellent"
+        },
+        {
+          "model": "muse-glimmer:30b-mlx",
+          "score": 91.5,
+          "rank": 2,
+          "verdict": "excellent"
+        },
+        {
+          "model": "qwen3.8:27b-mlx",
+          "score": 87.5,
+          "rank": 3,
+          "verdict": "good"
+        },
+        {
+          "model": "gpt-oss:20b",
+          "score": 85,
+          "rank": 4,
+          "verdict": "good"
+        },
+        {
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "score": 84,
+          "rank": 5,
+          "verdict": "good"
+        }
+      ]
+    }
+  ]
+}

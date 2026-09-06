@@ -1,0 +1,6 @@
+WRK-103 2026-09-05T10:10:16+02:00 WARN inventory_call trace_id=ord-771 attempt=1 result=timeout duration_ms=1800
+WRK-104 2026-09-05T10:10:16.018+02:00 WARN inventory_call trace_id=ord-771 attempt=2 result=timeout delay_ms=0
+WRK-105 2026-09-05T10:10:16.041+02:00 WARN inventory_call trace_id=ord-771 attempt=3 result=timeout delay_ms=0
+WRK-106 2026-09-05T10:12:28+02:00 ERROR retry_amplification retry_rate_per_second=184 baseline=12 concurrent_attempts=246 policy=immediate
+WRK-107 2026-09-05T10:19:04+02:00 INFO config_rollback from_release=2026.09.05-1 to_release=2026.09.04-4 retry_max=2 retry_backoff=exponential
+WRK-108 2026-09-05T10:20:11+02:00 INFO retry_rate_normal retry_rate_per_second=14 concurrent_attempts=21

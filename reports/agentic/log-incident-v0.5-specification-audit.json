@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.0.0",
+  "audit_id": "log-incident-v0.5-specification-audit",
+  "audited_on": "2026-09-06",
+  "status": "completed_without_blocking_alignment_findings",
+  "evidence_class": "excluded_specification_confirmation",
+  "source": {
+    "report_path": "reports/agentic/log-incident-v0.5-specification-confirmation.json",
+    "report_sha256": "922675c9c00b60cd505cc3888116a71259520b376603f4329574ba821c5f7c28",
+    "sweep_id": "log-incident-v05-confirmation-20260906T164135Z-b60a96b5",
+    "sweep_record_sha256": "bb2eccb55e44d86db3eaa678a1a4758a2ae60926f1fba36d204e189e824c7c86",
+    "execution_git_commit": "0b14f72ce0f75ab65baf45320c873f770bcabaaf"
+  },
+  "scope": {
+    "model": "qwen3.8:27b-mlx",
+    "harnesses": [
+      "mini-log-v0.5",
+      "pi-log-v0.5"
+    ],
+    "case_count": 3,
+    "planned_cell_count": 6,
+    "runs_per_system_case": 1,
+    "automatic_retries": 0
+  },
+  "official_outcomes": {
+    "runtime_success": "6/6",
+    "valid_agent_termination": "6/6",
+    "semantic_verified_success": "0/6",
+    "strict_transport_compliance": "5/6",
+    "response_normalization_applied": "1/6",
+    "candidate_reports_produced": "6/6",
+    "schema_valid_reports": "5/6",
+    "essential_checks_passed_over_observed": "68/76",
+    "essential_checks_passed_for_schema_valid_reports": "68/75",
+    "active_wall_time_seconds": {
+      "raw": [
+        76.96,
+        128.19,
+        82.27,
+        120.36,
+        80.31,
+        232.39
+      ],
+      "minimum": 76.96,
+      "median": 101.31,
+      "maximum": 232.39,
+      "total": 720.48
+    }
+  },
+  "required_post_run_audits": {
+    "terminal_or_classified_outcomes": {
+      "passed": true,
+      "result": "All six cells completed technically with valid agent termination; no timeout, runtime crash or automatic retry occurred."
+    },
+    "failure_traceability": {
+      "passed": true,
+      "result": "Every failed deterministic check maps to an explicit candidate-visible field or evidence requirement; no verifier false negative or hidden representation ambiguity was found."
+    },
+    "canonical_scope_contract": {
+      "passed": true,
+      "result": "All six reports selected the exact correct visible primary-service and affected-journey IDs."
+    },
+    "local_evidence_attachment_contract": {
+      "passed": true,
+      "result": "Position 1 correctly fails because its authentication entry attaches only AUTH-502 in evidence_ids; event IDs mentioned elsewhere do not count under the visible v0.5 rule."
+    },
+    "normalization_policy": {
+      "passed": true,
+      "result": "One Pi response contained one intact report object with surrounding text and was normalized without content repair; its semantic failure remained independent of strict transport compliance."
+    },
+    "supplemental_free_text_grounding": {
+      "passed": true,
+      "result": "All six reports received claim-level human review. Four pass the supplemental grounding and polarity layer; positions 3 and 5 contain candidate-attributable prose overclaims."
+    }
+  },
+  "supplemental_free_text_review": {
+    "reviewed_reports": "6/6",
+    "passed": "4/6",
+    "failed": "2/6",
+    "passing_positions": [
+      1,
+      2,
+      4,
+      6
+    ],
+    "failing_positions": [
+      3,
+      5
+    ],
+    "findings": [
+      {
+        "position": 3,
+        "classification": "unsupported_or_inconsistent_free_text_claim",
+        "observation": "The diagnosis says that 913 pending authorizations remained at the last observation, while the cited recovery evidence records 612 remaining; the impact section itself states the correct 913-created and 612-remaining distinction."
+      },
+      {
+        "position": 5,
+        "classification": "epistemic_overclaim",
+        "observation": "The impact prose asserts that no orders were lost and checkout was unaffected. The excerpts establish neither positive impact; they do not establish the stronger categorical absence claims."
+      }
+    ],
+    "interpretation": "The supplemental review validates the v0.5 separation: controlled fields can be checked deterministically, while factual grounding and assertion polarity in prose still require a distinct judgment layer."
+  },
+  "candidate_attributable_findings": [
+    {
+      "position": 1,
+      "harness_id": "mini-log-v0.5",
+      "case_id": "agentic.ops.checkout-pool-regression",
+      "failed_check_ids": [
+        "distractor_rejection"
+      ],
+      "observation": "The authentication rejection attaches only AUTH-502. AUTH-500 and AUTH-501 appear in reason or other structures, but the visible contract explicitly makes this entry's evidence_ids the sole deterministic attachment."
+    },
+    {
+      "position": 2,
+      "harness_id": "pi-log-v0.5",
+      "case_id": "agentic.ops.retry-queue-amplification",
+      "failed_check_ids": [
+        "causal_chain"
+      ],
+      "observation": "The structured chain omits the zero-delay second retry WRK-104 and the intermediate queue-draining waypoint BRK-303, although the diagnosis prose explains the retry mechanism correctly."
+    },
+    {
+      "position": 3,
+      "harness_id": "mini-log-v0.5",
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "failed_check_ids": [
+        "critical_evidence",
+        "uncertainty"
+      ],
+      "observation": "REC-700 is named in impact prose but is not attached under the impact evidence role, and payment_data_loss_unknown is omitted. The prose also misstates the last-observed pending count."
+    },
+    {
+      "position": 4,
+      "harness_id": "pi-log-v0.5",
+      "case_id": "agentic.ops.checkout-pool-regression",
+      "failed_check_ids": [
+        "report_schema"
+      ],
+      "observation": "The report uses rationale instead of the required reason field in uncertainty entries. It is bare JSON and its core diagnosis is grounded, but strict transport does not imply schema validity."
+    },
+    {
+      "position": 5,
+      "harness_id": "mini-log-v0.5",
+      "case_id": "agentic.ops.retry-queue-amplification",
+      "failed_check_ids": [
+        "causal_chain"
+      ],
+      "observation": "The structured chain substitutes the first timed-out call WRK-103 for the required zero-delay retry evidence WRK-104. Separate free-text review also finds two categorical absence claims stronger than the excerpts support."
+    },
+    {
+      "position": 6,
+      "harness_id": "pi-log-v0.5",
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "failed_check_ids": [
+        "causal_chain",
+        "bounded_impact"
+      ],
+      "observation": "The structured chain omits EDGE-403, and the controlled impact list omits checkout_latency_increased. One intact JSON object was recovered from surrounding response text without changing these misses."
+    }
+  ],
+  "qualitative_context": {
+    "correct_core_diagnosis": "6/6",
+    "correct_root_cause_code": "6/6",
+    "correct_trigger_code": "6/6",
+    "correct_incident_scope_and_recovery_state": "6/6 by manual inspection",
+    "meaning": "The official zero is a conjunction over a strict verified-outcome contract, not evidence that the six reports were useless. Each report found the central incident mechanism, but none satisfied every required structured condition and the separate prose review together."
+  },
+  "alignment_findings": {
+    "blocking_specification_ambiguities": 0,
+    "benchmark_false_negatives": 0,
+    "candidate_attributable_deterministic_misses": 8,
+    "candidate_attributable_free_text_failures": 2
+  },
+  "decision": {
+    "v0_5_official_evidence_preserved": true,
+    "v0_5_specification_gate_passed": true,
+    "broad_v0_5_capability_sweep_may_be_prepared": true,
+    "broad_v0_5_capability_sweep_execution_authorized": false,
+    "reliability_or_harness_ranking_supported": false,
+    "next_representation_required_before_capability_sweep": false,
+    "reason": "The live confirmation exposed no new verifier defect or hidden contract mismatch. The observed failures are traceable candidate outcomes, and the separate prose layer caught claims outside deterministic structure."
+  },
+  "interpretation_limits": [
+    "Each system-case cell has n=1.",
+    "The study cannot estimate reliability, quality stochasticity or latency tails.",
+    "Mini and Pi are complete deployed systems, not an isolated one-factor harness experiment.",
+    "The human review does not overwrite or rescore the frozen official 0/6 deterministic result.",
+    "The 4/6 supplemental result judges free-text grounding only and is not a substitute for deterministic verified success.",
+    "The timing observations are descriptive because the machine was not controlled as a laboratory performance environment."
+  ]
+}

@@ -1,0 +1,1794 @@
+{
+  "cases": [
+    {
+      "case_id": "summarization.dev.mit-sloan-ai-climate",
+      "case_version": "1.1.0",
+      "comparison_id": "comparison-20260828T060458Z-73b47a56",
+      "deployment": {
+        "num_ctx": 8192,
+        "num_predict": 2600,
+        "ollama_version": "0.32.15",
+        "seed": 42,
+        "temperature": 0.0,
+        "think": false
+      },
+      "evaluated_at": "2026-08-28T06:17:37Z",
+      "performance_evidence": "controlled",
+      "results": [
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 33.65,
+            "status": "complete",
+            "wall_time_seconds": 53.84,
+            "word_count": 710
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "muse-glimmer:30b-mlx",
+          "rank": 1,
+          "raw_score": 90.5,
+          "score": 90.5,
+          "verdict": "excellent",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 29.62,
+            "status": "complete",
+            "wall_time_seconds": 33.84,
+            "word_count": 516
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 82.63,
+            "status": "complete",
+            "wall_time_seconds": 38.74,
+            "word_count": 527
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "rank": 2,
+          "raw_score": 88.5,
+          "score": 88.5,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.08,
+            "status": "complete",
+            "wall_time_seconds": 11.28,
+            "word_count": 476
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 45.26,
+            "status": "complete",
+            "wall_time_seconds": 36.84,
+            "word_count": 587
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.8:27b-mlx",
+          "rank": 3,
+          "raw_score": 88.5,
+          "score": 88.5,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 46.25,
+            "status": "complete",
+            "wall_time_seconds": 23.95,
+            "word_count": 592
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 91.66,
+            "status": "complete",
+            "wall_time_seconds": 20.38,
+            "word_count": 467
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "gpt-oss:20b",
+          "rank": 4,
+          "raw_score": 82.0,
+          "score": 82.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 91.52,
+            "status": "complete",
+            "wall_time_seconds": 13.15,
+            "word_count": 467
+          }
+        }
+      ],
+      "selection_note": "Canonical controlled rerun of the MIT Sloan case; replaces the initial run whose timing was affected by other Ollama clients.",
+      "suite": "summarization"
+    },
+    {
+      "case_id": "summarization.dev.the-agent-company",
+      "case_version": "1.0.0",
+      "comparison_id": "comparison-20260828T170544Z-d6c92325",
+      "deployment": {
+        "num_ctx": 16384,
+        "num_predict": 2600,
+        "ollama_version": "0.32.15",
+        "seed": 42,
+        "temperature": 0.0,
+        "think": false
+      },
+      "evaluated_at": "2026-08-28T17:33:47Z",
+      "performance_evidence": "controlled",
+      "results": [
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 20.54,
+            "status": "complete",
+            "wall_time_seconds": 138.13,
+            "word_count": 853
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "muse-glimmer:30b-mlx",
+          "rank": 1,
+          "raw_score": 90.0,
+          "score": 90.0,
+          "verdict": "excellent",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 19.51,
+            "status": "complete",
+            "wall_time_seconds": 82.73,
+            "word_count": 773
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 26.61,
+            "status": "complete",
+            "wall_time_seconds": 121.0,
+            "word_count": 1025
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.8:27b-mlx",
+          "rank": 2,
+          "raw_score": 88.0,
+          "score": 88.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 21.34,
+            "status": "complete",
+            "wall_time_seconds": 91.21,
+            "word_count": 986
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 42.91,
+            "status": "complete",
+            "wall_time_seconds": 53.3,
+            "word_count": 722
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "gpt-oss:20b",
+          "rank": 3,
+          "raw_score": 86.0,
+          "score": 86.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 43.99,
+            "status": "complete",
+            "wall_time_seconds": 39.42,
+            "word_count": 722
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 79.82,
+            "status": "complete",
+            "wall_time_seconds": 67.16,
+            "word_count": 965
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "rank": 4,
+          "raw_score": 72.0,
+          "score": 72.0,
+          "verdict": "usable",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 79.01,
+            "status": "complete",
+            "wall_time_seconds": 21.85,
+            "word_count": 868
+          }
+        }
+      ],
+      "selection_note": "Canonical TheAgentCompany paper comparison.",
+      "suite": "summarization"
+    },
+    {
+      "case_id": "summarization.dev.metr-long-software-tasks",
+      "case_version": "1.0.0",
+      "comparison_id": "comparison-20260828T180540Z-0a1267f8",
+      "deployment": {
+        "num_ctx": 16384,
+        "num_predict": 2600,
+        "ollama_version": "0.32.15",
+        "seed": 42,
+        "temperature": 0.0,
+        "think": false
+      },
+      "evaluated_at": "2026-08-28T19:24:07Z",
+      "performance_evidence": "controlled",
+      "results": [
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 23.33,
+            "status": "complete",
+            "wall_time_seconds": 109.22,
+            "word_count": 722
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "muse-glimmer:30b-mlx",
+          "rank": 1,
+          "raw_score": 94.5,
+          "score": 94.5,
+          "verdict": "excellent",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 22.88,
+            "status": "complete",
+            "wall_time_seconds": 65.45,
+            "word_count": 722
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 44.18,
+            "status": "complete",
+            "wall_time_seconds": 79.58,
+            "word_count": 864
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.8:27b-mlx",
+          "rank": 2,
+          "raw_score": 71.0,
+          "score": 71.0,
+          "verdict": "usable",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 36.1,
+            "status": "complete",
+            "wall_time_seconds": 46.03,
+            "word_count": 856
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 80.34,
+            "status": "complete",
+            "wall_time_seconds": 51.04,
+            "word_count": 901
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "rank": 3,
+          "raw_score": 69.0,
+          "score": 69.0,
+          "verdict": "usable",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 80.81,
+            "status": "complete",
+            "wall_time_seconds": 22.13,
+            "word_count": 891
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "length",
+            "output_tokens_per_second": 45.89,
+            "status": "complete",
+            "wall_time_seconds": 67.51,
+            "word_count": 56
+          },
+          "complete": false,
+          "compliant": false,
+          "model": "gpt-oss:20b",
+          "rank": 4,
+          "raw_score": 0.0,
+          "score": 0.0,
+          "verdict": "invalid",
+          "warm": {
+            "done_reason": "length",
+            "output_tokens_per_second": 44.04,
+            "status": "complete",
+            "wall_time_seconds": 59.28,
+            "word_count": 56
+          }
+        }
+      ],
+      "selection_note": "Canonical METR long-software-tasks paper comparison.",
+      "suite": "summarization"
+    },
+    {
+      "case_id": "general_knowledge.dev.confidence-intervals",
+      "case_version": "1.0.0",
+      "comparison_id": "comparison-20260828T195518Z-856dd260",
+      "deployment": {
+        "num_ctx": 8192,
+        "num_predict": 2600,
+        "ollama_version": "0.32.15",
+        "seed": 42,
+        "temperature": 0.0,
+        "think": false
+      },
+      "evaluated_at": "2026-08-28T20:16:57Z",
+      "performance_evidence": "controlled",
+      "results": [
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 23.37,
+            "status": "complete",
+            "wall_time_seconds": 48.32,
+            "word_count": 423
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "muse-glimmer:30b-mlx",
+          "rank": 1,
+          "raw_score": 92.5,
+          "score": 92.5,
+          "verdict": "excellent",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 23.2,
+            "status": "complete",
+            "wall_time_seconds": 37.52,
+            "word_count": 422
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 45.67,
+            "status": "complete",
+            "wall_time_seconds": 32.71,
+            "word_count": 653
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.8:27b-mlx",
+          "rank": 2,
+          "raw_score": 91.0,
+          "score": 91.0,
+          "verdict": "excellent",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 46.71,
+            "status": "complete",
+            "wall_time_seconds": 26.68,
+            "word_count": 652
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.24,
+            "status": "complete",
+            "wall_time_seconds": 46.81,
+            "word_count": 586
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "rank": 3,
+          "raw_score": 90.5,
+          "score": 90.5,
+          "verdict": "excellent",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.05,
+            "status": "complete",
+            "wall_time_seconds": 13.35,
+            "word_count": 579
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "length",
+            "output_tokens_per_second": 64.66,
+            "status": "complete",
+            "wall_time_seconds": 46.58,
+            "word_count": 0
+          },
+          "complete": false,
+          "compliant": false,
+          "model": "gpt-oss:20b",
+          "rank": 4,
+          "raw_score": 0.0,
+          "score": 0.0,
+          "verdict": "invalid",
+          "warm": {
+            "done_reason": "length",
+            "output_tokens_per_second": 50.88,
+            "status": "complete",
+            "wall_time_seconds": 51.21,
+            "word_count": 0
+          }
+        }
+      ],
+      "selection_note": "Canonical confidence-interval foundation comparison.",
+      "suite": "general_knowledge"
+    },
+    {
+      "case_id": "general_knowledge.dev.confidence-intervals-transfer",
+      "case_version": "1.0.0",
+      "comparison_id": "comparison-20260829T035945Z-41ceba9a",
+      "deployment": {
+        "num_ctx": 8192,
+        "num_predict": 2600,
+        "ollama_version": "0.32.15",
+        "seed": 42,
+        "temperature": 0.0,
+        "think": false
+      },
+      "evaluated_at": "2026-08-29T04:10:39Z",
+      "performance_evidence": "controlled",
+      "results": [
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 36.83,
+            "status": "complete",
+            "wall_time_seconds": 41.19,
+            "word_count": 635
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "muse-glimmer:30b-mlx",
+          "rank": 1,
+          "raw_score": 96.5,
+          "score": 96.5,
+          "verdict": "excellent",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 36.24,
+            "status": "complete",
+            "wall_time_seconds": 34.38,
+            "word_count": 622
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 94.44,
+            "status": "complete",
+            "wall_time_seconds": 26.7,
+            "word_count": 658
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "gpt-oss:20b",
+          "rank": 2,
+          "raw_score": 75.0,
+          "score": 75.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 94.15,
+            "status": "complete",
+            "wall_time_seconds": 16.51,
+            "word_count": 658
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 48.32,
+            "status": "complete",
+            "wall_time_seconds": 33.29,
+            "word_count": 742
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.8:27b-mlx",
+          "rank": 3,
+          "raw_score": 71.5,
+          "score": 71.5,
+          "verdict": "usable",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 48.72,
+            "status": "complete",
+            "wall_time_seconds": 29.14,
+            "word_count": 795
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 85.31,
+            "status": "complete",
+            "wall_time_seconds": 43.18,
+            "word_count": 943
+          },
+          "complete": true,
+          "compliant": false,
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "rank": 4,
+          "raw_score": 72.5,
+          "score": 59.0,
+          "verdict": "poor",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 85.22,
+            "status": "complete",
+            "wall_time_seconds": 18.61,
+            "word_count": 894
+          }
+        }
+      ],
+      "selection_note": "Canonical confidence-interval transfer comparison.",
+      "suite": "general_knowledge"
+    },
+    {
+      "case_id": "general_knowledge.dev.mrna-vaccine-mechanism",
+      "case_version": "1.0.0",
+      "comparison_id": "comparison-20260829T054707Z-7bef0727",
+      "deployment": {
+        "num_ctx": 8192,
+        "num_predict": 2600,
+        "ollama_version": "0.32.15",
+        "seed": 42,
+        "temperature": 0.0,
+        "think": false
+      },
+      "evaluated_at": "2026-08-29T05:54:48Z",
+      "performance_evidence": "controlled",
+      "results": [
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 44.74,
+            "status": "complete",
+            "wall_time_seconds": 27.85,
+            "word_count": 602
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.8:27b-mlx",
+          "rank": 1,
+          "raw_score": 91.5,
+          "score": 91.5,
+          "verdict": "excellent",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 42.09,
+            "status": "complete",
+            "wall_time_seconds": 26.55,
+            "word_count": 623
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.84,
+            "status": "complete",
+            "wall_time_seconds": 43.09,
+            "word_count": 625
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "rank": 2,
+          "raw_score": 81.5,
+          "score": 81.5,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.1,
+            "status": "complete",
+            "wall_time_seconds": 11.34,
+            "word_count": 543
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 92.33,
+            "status": "complete",
+            "wall_time_seconds": 22.19,
+            "word_count": 565
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "gpt-oss:20b",
+          "rank": 3,
+          "raw_score": 81.0,
+          "score": 81.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 91.88,
+            "status": "complete",
+            "wall_time_seconds": 15.85,
+            "word_count": 560
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 36.89,
+            "status": "complete",
+            "wall_time_seconds": 36.96,
+            "word_count": 519
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "muse-glimmer:30b-mlx",
+          "rank": 4,
+          "raw_score": 81.0,
+          "score": 81.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 34.95,
+            "status": "complete",
+            "wall_time_seconds": 31.29,
+            "word_count": 519
+          }
+        }
+      ],
+      "selection_note": "Canonical mRNA-vaccine mechanism comparison.",
+      "suite": "general_knowledge"
+    },
+    {
+      "case_id": "general_knowledge.dev.interest-rates-and-inflation",
+      "case_version": "1.0.0",
+      "comparison_id": "comparison-20260829T062601Z-8cb212b9",
+      "deployment": {
+        "num_ctx": 8192,
+        "num_predict": 2600,
+        "ollama_version": "0.32.15",
+        "seed": 42,
+        "temperature": 0.0,
+        "think": false
+      },
+      "evaluated_at": "2026-08-29T06:37:38Z",
+      "performance_evidence": "controlled",
+      "results": [
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.56,
+            "status": "complete",
+            "wall_time_seconds": 37.07,
+            "word_count": 639
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "rank": 1,
+          "raw_score": 82.0,
+          "score": 82.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.59,
+            "status": "complete",
+            "wall_time_seconds": 12.61,
+            "word_count": 631
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 36.75,
+            "status": "complete",
+            "wall_time_seconds": 30.92,
+            "word_count": 428
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "muse-glimmer:30b-mlx",
+          "rank": 2,
+          "raw_score": 73.5,
+          "score": 73.5,
+          "verdict": "usable",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 34.83,
+            "status": "complete",
+            "wall_time_seconds": 28.88,
+            "word_count": 498
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 43.15,
+            "status": "complete",
+            "wall_time_seconds": 27.02,
+            "word_count": 551
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.8:27b-mlx",
+          "rank": 3,
+          "raw_score": 63.5,
+          "score": 63.5,
+          "verdict": "usable",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 41.74,
+            "status": "complete",
+            "wall_time_seconds": 22.98,
+            "word_count": 544
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 90.61,
+            "status": "complete",
+            "wall_time_seconds": 20.97,
+            "word_count": 623
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "gpt-oss:20b",
+          "rank": 4,
+          "raw_score": 63.0,
+          "score": 63.0,
+          "verdict": "usable",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 89.67,
+            "status": "complete",
+            "wall_time_seconds": 18.41,
+            "word_count": 537
+          }
+        }
+      ],
+      "selection_note": "Canonical interest-rate and inflation mechanism comparison.",
+      "suite": "general_knowledge"
+    },
+    {
+      "case_id": "general_knowledge.dev.medical-screening-bayes",
+      "case_version": "1.0.0",
+      "comparison_id": "comparison-20260829T075406Z-f1f854c7",
+      "deployment": {
+        "num_ctx": 8192,
+        "num_predict": 2600,
+        "ollama_version": "0.32.15",
+        "seed": 42,
+        "temperature": 0.0,
+        "think": false
+      },
+      "evaluated_at": "2026-08-29T08:08:28Z",
+      "performance_evidence": "controlled",
+      "results": [
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 38.87,
+            "status": "complete",
+            "wall_time_seconds": 33.92,
+            "word_count": 350
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "muse-glimmer:30b-mlx",
+          "rank": 1,
+          "raw_score": 94.5,
+          "score": 94.5,
+          "verdict": "excellent",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 37.24,
+            "status": "complete",
+            "wall_time_seconds": 25.48,
+            "word_count": 360
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 49.34,
+            "status": "complete",
+            "wall_time_seconds": 32.94,
+            "word_count": 621
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.8:27b-mlx",
+          "rank": 2,
+          "raw_score": 91.5,
+          "score": 91.5,
+          "verdict": "excellent",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 47.29,
+            "status": "complete",
+            "wall_time_seconds": 25.17,
+            "word_count": 608
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 78.26,
+            "status": "complete",
+            "wall_time_seconds": 28.85,
+            "word_count": 590
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "gpt-oss:20b",
+          "rank": 3,
+          "raw_score": 82.5,
+          "score": 82.5,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 63.94,
+            "status": "complete",
+            "wall_time_seconds": 27.09,
+            "word_count": 578
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.26,
+            "status": "complete",
+            "wall_time_seconds": 46.29,
+            "word_count": 563
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "rank": 4,
+          "raw_score": 80.5,
+          "score": 80.5,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.98,
+            "status": "complete",
+            "wall_time_seconds": 15.4,
+            "word_count": 675
+          }
+        }
+      ],
+      "selection_note": "Canonical medical-screening and base-rate reasoning comparison; the first Hard Knowledge v0.2 case.",
+      "suite": "general_knowledge"
+    },
+    {
+      "case_id": "general_knowledge.dev.antibiotic-resistance",
+      "case_version": "1.0.0",
+      "comparison_id": "comparison-20260829T084441Z-4dc3483d",
+      "deployment": {
+        "num_ctx": 8192,
+        "num_predict": 2600,
+        "ollama_version": "0.32.15",
+        "seed": 42,
+        "temperature": 0.0,
+        "think": false
+      },
+      "evaluated_at": "2026-08-29T08:56:14Z",
+      "performance_evidence": "controlled",
+      "results": [
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 36.86,
+            "status": "complete",
+            "wall_time_seconds": 33.88,
+            "word_count": 446
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "muse-glimmer:30b-mlx",
+          "rank": 1,
+          "raw_score": 94.0,
+          "score": 94.0,
+          "verdict": "excellent",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 34.56,
+            "status": "complete",
+            "wall_time_seconds": 28.64,
+            "word_count": 431
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 46.71,
+            "status": "complete",
+            "wall_time_seconds": 27.4,
+            "word_count": 547
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.8:27b-mlx",
+          "rank": 2,
+          "raw_score": 86.0,
+          "score": 86.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 44.86,
+            "status": "complete",
+            "wall_time_seconds": 20.14,
+            "word_count": 508
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 82.15,
+            "status": "complete",
+            "wall_time_seconds": 40.62,
+            "word_count": 502
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "rank": 3,
+          "raw_score": 81.5,
+          "score": 81.5,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 83.02,
+            "status": "complete",
+            "wall_time_seconds": 12.88,
+            "word_count": 586
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 91.93,
+            "status": "complete",
+            "wall_time_seconds": 21.46,
+            "word_count": 468
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "gpt-oss:20b",
+          "rank": 4,
+          "raw_score": 57.5,
+          "score": 57.5,
+          "verdict": "poor",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 91.41,
+            "status": "complete",
+            "wall_time_seconds": 15.16,
+            "word_count": 468
+          }
+        }
+      ],
+      "selection_note": "Canonical antibiotic-resistance and stewardship comparison; the second Hard Knowledge v0.2 case.",
+      "suite": "general_knowledge"
+    },
+    {
+      "case_id": "general_knowledge.dev.renewable-electricity-matching",
+      "case_version": "1.0.0",
+      "comparison_id": "comparison-20260829T090820Z-76d94b40",
+      "deployment": {
+        "num_ctx": 8192,
+        "num_predict": 2600,
+        "ollama_version": "0.32.15",
+        "seed": 42,
+        "temperature": 0.0,
+        "think": false
+      },
+      "evaluated_at": "2026-08-29T09:20:35Z",
+      "performance_evidence": "controlled",
+      "results": [
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 68.72,
+            "status": "complete",
+            "wall_time_seconds": 54.62,
+            "word_count": 581
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "rank": 1,
+          "raw_score": 84.5,
+          "score": 84.5,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 76.33,
+            "status": "complete",
+            "wall_time_seconds": 14.96,
+            "word_count": 588
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 32.75,
+            "status": "complete",
+            "wall_time_seconds": 38.23,
+            "word_count": 447
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "muse-glimmer:30b-mlx",
+          "rank": 2,
+          "raw_score": 75.5,
+          "score": 75.5,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 29.6,
+            "status": "complete",
+            "wall_time_seconds": 30.6,
+            "word_count": 430
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 30.97,
+            "status": "complete",
+            "wall_time_seconds": 39.15,
+            "word_count": 552
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.8:27b-mlx",
+          "rank": 3,
+          "raw_score": 67.5,
+          "score": 67.5,
+          "verdict": "usable",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 23.7,
+            "status": "complete",
+            "wall_time_seconds": 45.58,
+            "word_count": 553
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "length",
+            "output_tokens_per_second": 88.15,
+            "status": "complete",
+            "wall_time_seconds": 35.95,
+            "word_count": 314
+          },
+          "complete": false,
+          "compliant": false,
+          "model": "gpt-oss:20b",
+          "rank": 4,
+          "raw_score": 59.0,
+          "score": 59.0,
+          "verdict": "poor",
+          "warm": {
+            "done_reason": "length",
+            "output_tokens_per_second": 88.51,
+            "status": "complete",
+            "wall_time_seconds": 29.44,
+            "word_count": 312
+          }
+        }
+      ],
+      "selection_note": "Canonical renewable-electricity matching and power-system flexibility comparison; the third Hard Knowledge v0.2 case.",
+      "suite": "general_knowledge"
+    },
+    {
+      "case_id": "general_knowledge.dev.distributed-payment-reliability",
+      "case_version": "1.0.0",
+      "comparison_id": "comparison-20260829T093603Z-a1fc2009",
+      "deployment": {
+        "num_ctx": 8192,
+        "num_predict": 2600,
+        "ollama_version": "0.32.15",
+        "seed": 42,
+        "temperature": 0.0,
+        "think": false
+      },
+      "evaluated_at": "2026-08-29T09:52:00Z",
+      "performance_evidence": "controlled",
+      "results": [
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 43.41,
+            "status": "complete",
+            "wall_time_seconds": 31.6,
+            "word_count": 608
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.8:27b-mlx",
+          "rank": 1,
+          "raw_score": 77.0,
+          "score": 77.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 37.95,
+            "status": "complete",
+            "wall_time_seconds": 33.2,
+            "word_count": 672
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 37.07,
+            "status": "complete",
+            "wall_time_seconds": 33.32,
+            "word_count": 473
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "muse-glimmer:30b-mlx",
+          "rank": 2,
+          "raw_score": 70.0,
+          "score": 70.0,
+          "verdict": "usable",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 35.27,
+            "status": "complete",
+            "wall_time_seconds": 29.56,
+            "word_count": 483
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.07,
+            "status": "complete",
+            "wall_time_seconds": 43.39,
+            "word_count": 693
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "rank": 3,
+          "raw_score": 68.5,
+          "score": 68.5,
+          "verdict": "usable",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 83.55,
+            "status": "complete",
+            "wall_time_seconds": 13.44,
+            "word_count": 614
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 93.59,
+            "status": "complete",
+            "wall_time_seconds": 24.87,
+            "word_count": 528
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "gpt-oss:20b",
+          "rank": 4,
+          "raw_score": 54.0,
+          "score": 54.0,
+          "verdict": "poor",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 93.67,
+            "status": "complete",
+            "wall_time_seconds": 15.74,
+            "word_count": 464
+          }
+        }
+      ],
+      "selection_note": "Canonical distributed-payment reliability and end-to-end idempotency comparison; the fourth Hard Knowledge v0.2 case.",
+      "suite": "general_knowledge"
+    },
+    {
+      "case_id": "general_knowledge.dev.ml-evaluation-leakage",
+      "case_version": "1.0.0",
+      "comparison_id": "comparison-20260829T105041Z-ff417428",
+      "deployment": {
+        "num_ctx": 8192,
+        "num_predict": 2600,
+        "ollama_version": "0.32.15",
+        "seed": 42,
+        "temperature": 0.0,
+        "think": false
+      },
+      "evaluated_at": "2026-08-29T11:39:48Z",
+      "performance_evidence": "controlled",
+      "results": [
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 36.37,
+            "status": "complete",
+            "wall_time_seconds": 31.63,
+            "word_count": 482
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "muse-glimmer:30b-mlx",
+          "rank": 1,
+          "raw_score": 93.5,
+          "score": 93.5,
+          "verdict": "excellent",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 35.91,
+            "status": "complete",
+            "wall_time_seconds": 26.17,
+            "word_count": 493
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 46.2,
+            "status": "complete",
+            "wall_time_seconds": 29.86,
+            "word_count": 637
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.8:27b-mlx",
+          "rank": 2,
+          "raw_score": 89.5,
+          "score": 89.5,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 43.43,
+            "status": "complete",
+            "wall_time_seconds": 29.22,
+            "word_count": 694
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 85.02,
+            "status": "complete",
+            "wall_time_seconds": 39.83,
+            "word_count": 699
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "rank": 3,
+          "raw_score": 86.0,
+          "score": 86.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.56,
+            "status": "complete",
+            "wall_time_seconds": 14.24,
+            "word_count": 663
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 91.79,
+            "status": "complete",
+            "wall_time_seconds": 24.67,
+            "word_count": 811
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "gpt-oss:20b",
+          "rank": 4,
+          "raw_score": 80.5,
+          "score": 80.5,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 91.48,
+            "status": "complete",
+            "wall_time_seconds": 19.11,
+            "word_count": 800
+          }
+        }
+      ],
+      "selection_note": "Canonical ML evaluation leakage and nested-validation comparison; the fifth Hard Knowledge v0.2 case. Quality scores come from the complete five-way joint late-challenger rejudgment.",
+      "suite": "general_knowledge"
+    },
+    {
+      "case_id": "general_knowledge.dev.rag-grounding-evaluation",
+      "case_version": "1.0.0",
+      "comparison_id": "comparison-20260829T115954Z-59c6a2df",
+      "deployment": {
+        "num_ctx": 8192,
+        "num_predict": 2600,
+        "ollama_version": "0.32.15",
+        "seed": 42,
+        "temperature": 0.0,
+        "think": false
+      },
+      "evaluated_at": "2026-08-29T12:10:14Z",
+      "performance_evidence": "controlled",
+      "results": [
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 32.9,
+            "status": "complete",
+            "wall_time_seconds": 36.01,
+            "word_count": 445
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "muse-glimmer:30b-mlx",
+          "rank": 1,
+          "raw_score": 91.5,
+          "score": 91.5,
+          "verdict": "excellent",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 31.48,
+            "status": "complete",
+            "wall_time_seconds": 31.12,
+            "word_count": 461
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 44.52,
+            "status": "complete",
+            "wall_time_seconds": 32.65,
+            "word_count": 610
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.8:27b-mlx",
+          "rank": 2,
+          "raw_score": 87.5,
+          "score": 87.5,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 44.75,
+            "status": "complete",
+            "wall_time_seconds": 26.16,
+            "word_count": 615
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 93.94,
+            "status": "complete",
+            "wall_time_seconds": 22.64,
+            "word_count": 578
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "gpt-oss:20b",
+          "rank": 3,
+          "raw_score": 85.0,
+          "score": 85.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 93.69,
+            "status": "complete",
+            "wall_time_seconds": 20.28,
+            "word_count": 625
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.66,
+            "status": "complete",
+            "wall_time_seconds": 38.52,
+            "word_count": 683
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "rank": 4,
+          "raw_score": 84.0,
+          "score": 84.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.55,
+            "status": "complete",
+            "wall_time_seconds": 14.88,
+            "word_count": 646
+          }
+        }
+      ],
+      "selection_note": "Canonical RAG grounding and pipeline-observability comparison; the sixth and final Hard Knowledge v0.2 case. Quality scores come from the complete five-way joint late-challenger rejudgment.",
+      "suite": "general_knowledge"
+    },
+    {
+      "case_id": "source_grounded_writing.dev.ai-transformation-value-gap",
+      "case_version": "1.0.0",
+      "comparison_id": "comparison-20260830T172156Z-450bbffe",
+      "deployment": {
+        "num_ctx": 8192,
+        "num_predict": 2600,
+        "ollama_version": "0.32.15",
+        "seed": 42,
+        "temperature": 0.0,
+        "think": false
+      },
+      "evaluated_at": "2026-08-30T17:40:48Z",
+      "performance_evidence": "controlled",
+      "results": [
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 34.91,
+            "status": "complete",
+            "wall_time_seconds": 62.88,
+            "word_count": 426
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "muse-glimmer:30b-mlx",
+          "rank": 1,
+          "raw_score": 88.0,
+          "score": 88.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 34.37,
+            "status": "complete",
+            "wall_time_seconds": 43.2,
+            "word_count": 448
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.52,
+            "status": "complete",
+            "wall_time_seconds": 21.63,
+            "word_count": 424
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "ornith-1.5:35b",
+          "rank": 2,
+          "raw_score": 82.0,
+          "score": 82.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.42,
+            "status": "complete",
+            "wall_time_seconds": 8.41,
+            "word_count": 424
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 81.52,
+            "status": "complete",
+            "wall_time_seconds": 35.84,
+            "word_count": 510
+          },
+          "complete": true,
+          "compliant": false,
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "rank": 3,
+          "raw_score": 84.5,
+          "score": 79.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 82.38,
+            "status": "complete",
+            "wall_time_seconds": 10.85,
+            "word_count": 485
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 44.03,
+            "status": "complete",
+            "wall_time_seconds": 38.19,
+            "word_count": 461
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.8:27b-mlx",
+          "rank": 4,
+          "raw_score": 69.0,
+          "score": 69.0,
+          "verdict": "usable",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 42.55,
+            "status": "complete",
+            "wall_time_seconds": 15.8,
+            "word_count": 387
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "length",
+            "output_tokens_per_second": 79.91,
+            "status": "complete",
+            "wall_time_seconds": 41.01,
+            "word_count": 0
+          },
+          "complete": false,
+          "compliant": false,
+          "model": "gpt-oss:20b",
+          "rank": 5,
+          "raw_score": 0.0,
+          "score": 0.0,
+          "verdict": "invalid",
+          "warm": {
+            "done_reason": "length",
+            "output_tokens_per_second": 72.39,
+            "status": "complete",
+            "wall_time_seconds": 36.06,
+            "word_count": 0
+          }
+        }
+      ],
+      "selection_note": "Canonical first source-grounded professional-writing comparison using five independently judged deployments. heading_pass is inapplicable because the frozen LinkedIn task requires paragraphs but no structural heading.",
+      "suite": "source_grounded_writing"
+    },
+    {
+      "case_id": "source_grounded_writing.dev.agentic-software-development-reality-gap",
+      "case_version": "1.0.0",
+      "comparison_id": "comparison-20260901T073315Z-42a44ad5",
+      "deployment": {
+        "num_ctx": 8192,
+        "num_predict": 2600,
+        "ollama_version": "0.32.15",
+        "seed": 42,
+        "temperature": 0.0,
+        "think": false
+      },
+      "evaluated_at": "2026-09-01T07:55:15Z",
+      "performance_evidence": "controlled",
+      "results": [
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.75,
+            "status": "complete",
+            "wall_time_seconds": 21.6,
+            "word_count": 415
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "ornith-1.5:35b",
+          "rank": 1,
+          "raw_score": 83.0,
+          "score": 83.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 84.72,
+            "status": "complete",
+            "wall_time_seconds": 9.05,
+            "word_count": 415
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 49.19,
+            "status": "complete",
+            "wall_time_seconds": 36.93,
+            "word_count": 450
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "qwen3.8:27b-mlx",
+          "rank": 2,
+          "raw_score": 81.0,
+          "score": 81.0,
+          "verdict": "good",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 47.75,
+            "status": "complete",
+            "wall_time_seconds": 17.82,
+            "word_count": 466
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 81.73,
+            "status": "complete",
+            "wall_time_seconds": 64.97,
+            "word_count": 537
+          },
+          "complete": true,
+          "compliant": false,
+          "model": "qwen3.6:35b-a3b-mxfp8",
+          "rank": 3,
+          "raw_score": 63.5,
+          "score": 63.5,
+          "verdict": "usable",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 82.08,
+            "status": "complete",
+            "wall_time_seconds": 10.87,
+            "word_count": 495
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 34.27,
+            "status": "complete",
+            "wall_time_seconds": 69.69,
+            "word_count": 513
+          },
+          "complete": true,
+          "compliant": true,
+          "model": "muse-glimmer:30b-mlx",
+          "rank": 4,
+          "raw_score": 73.0,
+          "score": 59.0,
+          "verdict": "poor",
+          "warm": {
+            "done_reason": "stop",
+            "output_tokens_per_second": 35.04,
+            "status": "complete",
+            "wall_time_seconds": 39.85,
+            "word_count": 418
+          }
+        },
+        {
+          "cold": {
+            "done_reason": "length",
+            "output_tokens_per_second": 90.48,
+            "status": "complete",
+            "wall_time_seconds": 37.34,
+            "word_count": 0
+          },
+          "complete": false,
+          "compliant": false,
+          "model": "gpt-oss:20b",
+          "rank": 5,
+          "raw_score": 0.0,
+          "score": 0.0,
+          "verdict": "invalid",
+          "warm": {
+            "done_reason": "length",
+            "output_tokens_per_second": 89.18,
+            "status": "complete",
+            "wall_time_seconds": 29.24,
+            "word_count": 0
+          }
+        }
+      ],
+      "selection_note": "Canonical second source-grounded professional-writing comparison using five independently judged deployments. heading_pass is inapplicable because the frozen LinkedIn task requires paragraphs but no structural heading.",
+      "suite": "source_grounded_writing"
+    }
+  ],
+  "data_through": "2026-09-01T07:55:15Z",
+  "model_summary": [
+    {
+      "case_count": 15,
+      "completed_count": 15,
+      "compliant_count": 15,
+      "invalid_count": 0,
+      "mean_compliant_quality_score": 85.63,
+      "mean_quality_score": 85.63,
+      "mean_warm_output_tokens_per_second": 31.65,
+      "mean_warm_wall_time_seconds": 37.91,
+      "median_quality_score": 90.5,
+      "model": "muse-glimmer:30b-mlx",
+      "penalized_count": 1,
+      "wins": 10
+    },
+    {
+      "case_count": 2,
+      "completed_count": 2,
+      "compliant_count": 2,
+      "invalid_count": 0,
+      "mean_compliant_quality_score": 82.5,
+      "mean_quality_score": 82.5,
+      "mean_warm_output_tokens_per_second": 84.57,
+      "mean_warm_wall_time_seconds": 8.73,
+      "median_quality_score": 82.5,
+      "model": "ornith-1.5:35b",
+      "penalized_count": 0,
+      "wins": 1
+    },
+    {
+      "case_count": 15,
+      "completed_count": 15,
+      "compliant_count": 15,
+      "invalid_count": 0,
+      "mean_compliant_quality_score": 80.93,
+      "mean_quality_score": 80.93,
+      "mean_warm_output_tokens_per_second": 41.02,
+      "mean_warm_wall_time_seconds": 31.98,
+      "median_quality_score": 86.0,
+      "model": "qwen3.8:27b-mlx",
+      "penalized_count": 0,
+      "wins": 2
+    },
+    {
+      "case_count": 15,
+      "completed_count": 15,
+      "compliant_count": 12,
+      "invalid_count": 0,
+      "mean_compliant_quality_score": 80.71,
+      "mean_quality_score": 78.0,
+      "mean_warm_output_tokens_per_second": 82.89,
+      "mean_warm_wall_time_seconds": 14.58,
+      "median_quality_score": 81.5,
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "penalized_count": 2,
+      "wins": 2
+    },
+    {
+      "case_count": 15,
+      "completed_count": 10,
+      "compliant_count": 10,
+      "invalid_count": 4,
+      "mean_compliant_quality_score": 74.65,
+      "mean_quality_score": 53.7,
+      "mean_warm_output_tokens_per_second": 79.36,
+      "mean_warm_wall_time_seconds": 27.06,
+      "median_quality_score": 63.0,
+      "model": "gpt-oss:20b",
+      "penalized_count": 0,
+      "wins": 0
+    }
+  ],
+  "schema_version": "1.0.0",
+  "selection": {
+    "comparison_count": 15,
+    "manifest": "reports/comparison-selection.json",
+    "strategy": "explicit_manifest"
+  }
+}

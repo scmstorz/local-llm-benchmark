@@ -1,0 +1,35 @@
+{
+  "schema_version":"1.0.0","card_version":"1.0.0","case_id":"general_knowledge.dev.renewable-electricity-matching","case_version":"1.0.0","source_of_truth":"The frozen judge-only reference dossier; candidates answer from internal knowledge.",
+  "evaluation_principles":["Require physical balancing rather than annual-energy arithmetic.","Reward matching flexibility resources to timescales.","Preserve the real but limited value of annual procurement."],
+  "key_facts":[
+    {"id":"KF01","label":"Annual totals are not hourly supply","claim_type":"boundary","weight":4,"source_locations":["S01","S02"],"expected":"Explains that equal annual consumption and renewable procurement do not establish simultaneous physical supply."},
+    {"id":"KF02","label":"Continuous balancing and residual load","claim_type":"mechanism","weight":4,"source_locations":["S01","S03"],"expected":"Defines the need to balance demand against variable output and explains residual or net load."},
+    {"id":"KF03","label":"Curtailment","claim_type":"mechanism","weight":2,"source_locations":["S03"],"expected":"Explains surplus curtailment and why it can be rational yet reveal missing flexibility or grids."},
+    {"id":"KF04","label":"Storage constraints","claim_type":"qualification","weight":4,"source_locations":["S04"],"expected":"Distinguishes power, energy, duration and losses and rejects a generic battery solution for all timescales."},
+    {"id":"KF05","label":"Grid and geographic diversity","claim_type":"intervention","weight":3,"source_locations":["S05"],"expected":"Explains the value and limits of transmission and interconnection."},
+    {"id":"KF06","label":"Demand flexibility","claim_type":"intervention","weight":2,"source_locations":["S05"],"expected":"Explains load shifting or reduction and its practical limits."},
+    {"id":"KF07","label":"Other long-duration flexibility","claim_type":"intervention","weight":3,"source_locations":["S04"],"expected":"Includes longer-duration storage or dispatchable low-emissions supply for longer scarcity periods."},
+    {"id":"KF08","label":"Hourly matching trade-offs","claim_type":"tradeoff","weight":3,"source_locations":["S06","S07"],"expected":"Covers better temporal alignment plus cost, overbuilding, location and additionality caveats."}
+  ],
+  "key_ideas":[
+    {"id":"KI01","label":"Energy quantity versus availability","weight":4,"source_locations":["S01","S03"],"expected":"Separates annual energy accounting from when and where power is available."},
+    {"id":"KI02","label":"Portfolio across timescales","weight":4,"source_locations":["S04","S05"],"expected":"Matches diverse flexibility resources to short, multi-day and seasonal needs."},
+    {"id":"KI03","label":"Accounting versus causal impact","weight":4,"source_locations":["S02","S06","S07"],"expected":"Separates contractual attribution from additional generation and actual system emissions changes."},
+    {"id":"KI04","label":"System-dependent optimization","weight":3,"source_locations":["S06","S07"],"expected":"Rejects universal technology recipes and recognizes system context and coordination."}
+  ],
+  "known_critical_errors":[
+    {"id":"CE01","severity":"critical","description":"Claims that 100% annual matching proves 24/7 physical renewable supply."},
+    {"id":"CE02","severity":"major","description":"Claims that any unspecified battery can cover all balancing and seasonal needs."},
+    {"id":"CE03","severity":"major","description":"Claims annual renewable procurement has no possible emissions or investment value."},
+    {"id":"CE04","severity":"major","description":"Conflates grid reliability with zero emissions."},
+    {"id":"CE05","severity":"major","description":"Claims transmission or geographic diversity eliminates all prolonged correlated scarcity."}
+  ],
+  "nonessential_details":["A numerical capacity-expansion solution","A specific national electricity mix","Corporate accounting recommendations"],
+  "rubric":{"maximum_score":100,"coverage_status_multipliers":{"full":1.0,"partial":0.5,"missing":0.0,"contradicted":0.0},"derived_coverage":{"key_facts_max":25,"key_facts_formula":"sum(key_fact.weight * status_multiplier)","key_ideas_max":15,"key_ideas_formula":"sum(key_idea.weight * status_multiplier)"},"judged_dimensions":[
+    {"id":"factual_accuracy","max":25,"anchors":{"25":"No material power-system or emissions-accounting error.","20":"Accurate overall with one minor imprecision.","12":"At least one major error or several meaningful imprecisions.","0":"Fundamentally unreliable."}},
+    {"id":"explanatory_quality","max":10,"anchors":{"10":"Connects temporal mismatch, residual load and a multi-timescale flexibility portfolio.","7":"Sound explanation with one underdeveloped connection.","4":"Lists technologies without explaining the system problem.","0":"Does not explain the mechanism."}},
+    {"id":"epistemic_precision","max":10,"anchors":{"10":"Calibrates benefits and limits without categorical technology claims.","7":"Mostly calibrated with one limited overstatement.","4":"Repeatedly presents contingent outcomes as automatic.","0":"Systematically false certainty."}},
+    {"id":"structure_clarity","max":10,"anchors":{"10":"Clear German, descriptive structure and understandable without power-system training.","7":"Generally clear with minor awkwardness.","4":"Noticeably hard to follow.","0":"Incoherent or not meaningfully German."}},
+    {"id":"compression","max":5,"anchors":{"5":"High information density without material repetition.","3":"Some avoidable repetition.","1":"Substantially padded.","0":"Exceeds the hard maximum or is not focused."}}
+  ],"hard_constraints":{"empty_output":{"result":"invalid","final_score":0},"output_language_not_german":{"result":"noncompliant","final_score_cap":59},"word_count_above_800":{"result":"noncompliant","compression_score":0,"final_score_cap":59},"generation_truncated_at_token_limit":{"result":"noncompliant","final_score_cap":59},"reasoning_markup_in_candidate_output":{"result":"noncompliant","final_score_cap":59}},"critical_error_caps":{"one_critical_error":{"factual_accuracy_cap":8,"final_score_cap":59},"two_or_more_critical_errors":{"factual_accuracy_cap":4,"final_score_cap":39}},"verdict_thresholds":{"excellent":90,"good":75,"usable":60,"poor":1,"invalid":0}}
+}

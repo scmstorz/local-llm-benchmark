@@ -1,0 +1,59 @@
+{
+  "schema_version": "2.0.0",
+  "incident": {
+    "start_utc": "2026-09-05T08:12:44Z",
+    "last_observed_utc": "2026-09-05T08:25:49Z",
+    "primary_service": "order-worker",
+    "affected_user_journey": "order_status_and_fulfillment",
+    "recovery_status": "full"
+  },
+  "diagnosis": {
+    "root_cause_code": "retry_policy_regression",
+    "trigger_codes": ["dependency_slowdown"],
+    "summary": "A deployment replaced bounded exponential retries with six immediate attempts. The later inventory cache rebuild increased latency but retained high success, exposing the unsafe policy. Immediate retries multiplied work, raised redeliveries and broker lag, and delayed fulfillment and status reads. Rolling back the retry policy stopped amplification; full user-facing recovery was confirmed only after the queue drained."
+  },
+  "causal_chain": [
+    {"event_id": "WRK-101", "file": "logs/order-worker.log.1"},
+    {"event_id": "INV-201", "file": "logs/inventory.jsonl"},
+    {"event_id": "WRK-104", "file": "logs/order-worker.log"},
+    {"event_id": "WRK-106", "file": "logs/order-worker.log"},
+    {"event_id": "BRK-301", "file": "logs/broker.log"},
+    {"event_id": "API-401", "file": "logs/order-api.jsonl"},
+    {"event_id": "API-402", "file": "logs/order-api.jsonl"},
+    {"event_id": "WRK-107", "file": "logs/order-worker.log"},
+    {"event_id": "BRK-303", "file": "logs/broker.log"},
+    {"event_id": "BRK-304", "file": "logs/broker.log"},
+    {"event_id": "API-404", "file": "logs/order-api.jsonl"}
+  ],
+  "evidence": [
+    {"event_id": "WRK-101", "file": "logs/order-worker.log.1", "supports": "root_cause"},
+    {"event_id": "INV-201", "file": "logs/inventory.jsonl", "supports": "trigger"},
+    {"event_id": "WRK-104", "file": "logs/order-worker.log", "supports": "symptom"},
+    {"event_id": "WRK-106", "file": "logs/order-worker.log", "supports": "symptom"},
+    {"event_id": "BRK-301", "file": "logs/broker.log", "supports": "symptom"},
+    {"event_id": "API-401", "file": "logs/order-api.jsonl", "supports": "impact"},
+    {"event_id": "API-402", "file": "logs/order-api.jsonl", "supports": "impact"},
+    {"event_id": "WRK-107", "file": "logs/order-worker.log", "supports": "recovery"},
+    {"event_id": "BRK-304", "file": "logs/broker.log", "supports": "recovery"},
+    {"event_id": "API-404", "file": "logs/order-api.jsonl", "supports": "recovery"}
+  ],
+  "rejected_hypotheses": [
+    {"code": "message_broker_outage", "evidence_ids": ["BRK-300", "BRK-302"], "reason": "The cluster remained available with all replicas synchronized and low publish latency; consumer lag followed high redelivery volume."},
+    {"code": "notification_tls_failure", "evidence_ids": ["NOTIFY-500", "NOTIFY-501", "NOTIFY-502"], "reason": "The certificate error was isolated to a synthetic tenant and test queue, while production delivery health remained normal."}
+  ],
+  "impact": {
+    "codes": ["order_fulfillment_delayed", "order_status_delayed"],
+    "summary": "Fulfillment state updates were delayed, order-status latency rose, and sampled status requests returned 503. The supplied excerpts do not establish loss of orders or an unavailable checkout path."
+  },
+  "recommended_actions": [
+    {"code": "restore_bounded_backoff", "rationale": "Retain exponential spacing and the previously safe retry limit."},
+    {"code": "cap_retry_amplification", "rationale": "Enforce concurrency and retry-rate limits so degradation cannot multiply work without bound."},
+    {"code": "alert_on_redelivery_ratio", "rationale": "Detect the amplification mechanism before queue lag reaches users."},
+    {"code": "load_test_degraded_dependency", "rationale": "Exercise retry behavior under elevated downstream latency before rollout."}
+  ],
+  "uncertainties": [
+    {"code": "exact_delayed_order_count_unknown", "reason": "Only sampled responses and queue states are present, not a complete order count."},
+    {"code": "retry_policy_change_owner_unknown", "reason": "The deployment source is logged without a person or team."},
+    {"code": "downstream_slowdown_origin_unknown", "reason": "The cache rebuild correlates with latency, but its initiating owner or change is absent."}
+  ]
+}

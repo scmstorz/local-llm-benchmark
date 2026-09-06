@@ -1,0 +1,207 @@
+{
+  "schema_version": "1.0.0",
+  "audit_id": "log-incident-capability-sweep-v0.5-quality-audit",
+  "status": "completed",
+  "audited_on": "2026-09-06",
+  "source_report": {
+    "path": "reports/agentic/log-incident-capability-sweep-v0.5.json",
+    "sha256": "ad23b17411c125f8de7c5204223e508972ce03d3d53057b234d164adbec1474f",
+    "sweep_id": "log-incident-v05-capability-20260906T174952Z-4623e13a",
+    "planned_cell_count": 30
+  },
+  "judge": {
+    "kind": "interactive_frontier_llm_review",
+    "identity": "interactive Codex session",
+    "paid_judge_api_used": false,
+    "model_identity_blinded": false,
+    "limitation": "The judge had already seen the run order and model mapping. The review therefore applies a claim-level source-grounding rule but is not evidence from a blinded assessor."
+  },
+  "review_contract": {
+    "scope": [
+      "diagnosis.summary",
+      "rejected_hypotheses[].reason",
+      "impact.summary",
+      "recommended_actions[].rationale",
+      "uncertainties[].reason"
+    ],
+    "pass_rule": "Every factual free-text assertion must be supported by the supplied fixture and use polarity and uncertainty consistent with that evidence.",
+    "failure_examples": [
+      "an unsupported factual assertion",
+      "a numerical or metric-type contradiction",
+      "a categorical absence claim where the evidence establishes only that no such outcome was observed"
+    ],
+    "not_applicable_rule": "No supplemental prose decision is made when the run produced no parseable report.",
+    "separation": "This audit neither repairs deterministic fields nor changes strict transport, runtime or semantic-verifier outcomes."
+  },
+  "summary": {
+    "planned_cells": 30,
+    "runtime_complete_reports": 27,
+    "free_text_pass": 24,
+    "free_text_fail": 3,
+    "free_text_not_applicable": 3,
+    "free_text_pass_rate_among_reports": 0.8889,
+    "deterministic_semantic_success": 1,
+    "deterministic_and_free_text_accepted": 1,
+    "strict_transport_compliance": 22
+  },
+  "positions": {
+    "pass": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9,
+      10,
+      11,
+      13,
+      16,
+      17,
+      18,
+      19,
+      20,
+      22,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ],
+    "fail": [
+      7,
+      12,
+      15
+    ],
+    "not_applicable": [
+      14,
+      21,
+      23
+    ]
+  },
+  "findings": [
+    {
+      "position": 7,
+      "model": "ornith-1.5:35b",
+      "harness_id": "mini-log-v0.5",
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "classification": "stale_count_presented_as_current",
+      "observation": "The remediation prose treats the initial 913-item backlog as still remaining. REC-702 is the final supplied backlog observation and records 612 pending after 301 completed.",
+      "source_event_ids": [
+        "REC-700",
+        "REC-702"
+      ]
+    },
+    {
+      "position": 12,
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "harness_id": "pi-log-v0.5",
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "classification": "metric_type_conflation",
+      "observation": "The impact prose says p95 latency rose from 188 ms to more than 2,000 ms. EDGE-400 supplies the 188 ms p95 baseline, but EDGE-401 supplies a single failed request duration of 2,012 ms, not an incident p95.",
+      "source_event_ids": [
+        "EDGE-400",
+        "EDGE-401"
+      ]
+    },
+    {
+      "position": 15,
+      "model": "ornith-1.5:35b",
+      "harness_id": "mini-log-v0.5",
+      "case_id": "agentic.ops.retry-queue-amplification",
+      "classification": "categorical_absence_claim_from_incomplete_evidence",
+      "observation": "The impact prose categorically says that no order loss, checkout outage or production notification failure occurred. The fixture supports the weaker statement that these outcomes are not established; it does not prove their categorical absence. NOTIFY-502 also reports a 0.999 production success rate rather than perfect delivery.",
+      "source_event_ids": [
+        "NOTIFY-501",
+        "NOTIFY-502",
+        "API-401",
+        "API-402"
+      ]
+    }
+  ],
+  "by_harness": [
+    {
+      "harness_id": "mini-log-v0.5",
+      "applicable": 15,
+      "pass": 13,
+      "fail": 2,
+      "not_applicable": 0
+    },
+    {
+      "harness_id": "pi-log-v0.5",
+      "applicable": 12,
+      "pass": 11,
+      "fail": 1,
+      "not_applicable": 3
+    }
+  ],
+  "by_model": [
+    {
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "applicable": 6,
+      "pass": 5,
+      "fail": 1,
+      "not_applicable": 0
+    },
+    {
+      "model": "qwen3.8:27b-mlx",
+      "applicable": 6,
+      "pass": 6,
+      "fail": 0,
+      "not_applicable": 0
+    },
+    {
+      "model": "muse-glimmer:30b-mlx",
+      "applicable": 4,
+      "pass": 4,
+      "fail": 0,
+      "not_applicable": 2
+    },
+    {
+      "model": "ornith-1.5:35b",
+      "applicable": 5,
+      "pass": 3,
+      "fail": 2,
+      "not_applicable": 1
+    },
+    {
+      "model": "gemma4:31b-mlx",
+      "applicable": 6,
+      "pass": 6,
+      "fail": 0,
+      "not_applicable": 0
+    }
+  ],
+  "by_case": [
+    {
+      "case_id": "agentic.ops.checkout-pool-regression",
+      "applicable": 9,
+      "pass": 9,
+      "fail": 0,
+      "not_applicable": 1
+    },
+    {
+      "case_id": "agentic.ops.retry-queue-amplification",
+      "applicable": 10,
+      "pass": 9,
+      "fail": 1,
+      "not_applicable": 0
+    },
+    {
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "applicable": 8,
+      "pass": 6,
+      "fail": 2,
+      "not_applicable": 2
+    }
+  ],
+  "interpretation": [
+    "The supplemental prose layer accepts 24 of 27 available reports, but it does not alter the official deterministic result of 1 semantic success in 30 planned cells.",
+    "The only deterministic semantic success, position 25, also passes this supplemental review; therefore the combined fully accepted count remains 1 of 30.",
+    "All three prose failures are candidate-attributable grounding or epistemic-calibration errors, not newly discovered verifier defects.",
+    "No model reliability rate or universal ranking follows from one run per exact system-case configuration."
+  ]
+}

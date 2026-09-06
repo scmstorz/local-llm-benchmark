@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "coding.dev.pagination-cycle-guard",
+  "case_version": "1.0.0",
+  "track": "A",
+  "task_family": "bug_fixing",
+  "task_path": "tasks/coding/dev/pagination-cycle-guard/TASK.md",
+  "prompt": {
+    "version": "1.0.0",
+    "system_path": "tasks/coding/dev/pagination-cycle-guard/prompt/system.txt"
+  },
+  "fixture": {
+    "root": "tasks/coding/dev/pagination-cycle-guard/fixture",
+    "manifest_path": "tasks/coding/dev/pagination-cycle-guard/fixture-manifest.json",
+    "manifest_version": "1.0.0"
+  },
+  "candidate_context": {
+    "files": [
+      "pyproject.toml",
+      "src/paged_sync/__init__.py",
+      "src/paged_sync/errors.py",
+      "src/paged_sync/models.py",
+      "src/paged_sync/sync.py",
+      "tests/test_sync.py"
+    ],
+    "tools_allowed": false,
+    "browsing_allowed": false
+  },
+  "patch_contract": {
+    "format": "git_unified_diff",
+    "single_outer_diff_fence_allowed": true,
+    "maximum_bytes": 65536,
+    "allowed_path_globs": [
+      "src/paged_sync/*.py"
+    ],
+    "protected_path_globs": [
+      "tests/**",
+      "pyproject.toml"
+    ]
+  },
+  "verification": {
+    "version": "1.0.0",
+    "public_test_command": [
+      "{python}",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "hidden_test_path": "tasks/coding/dev/pagination-cycle-guard/verifier/hidden_tests.py",
+    "test_timeout_seconds": 30,
+    "baseline_expected": {
+      "public_tests_pass": false,
+      "hidden_tests_pass": false
+    }
+  },
+  "evaluation": {
+    "benchmark_card_path": "tasks/coding/dev/pagination-cycle-guard/benchmark-card.json",
+    "benchmark_card_version": "1.0.0",
+    "primary_outcome": "verified_success"
+  },
+  "inference_defaults": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict": 3000,
+    "keep_alive": "5m",
+    "timeout_seconds": 600
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "schema_version": "1.0.0",
+  "card_version": "1.0.0",
+  "case_id": "source_grounded_writing.dev.ai-transformation-value-gap",
+  "case_version": "1.0.0",
+  "title": "AI transformation and the enterprise value gap",
+  "evaluation_goal": "Assess whether a model can turn five source-separated evidence cards and three user-authored thoughts into a useful, accurate and original German LinkedIn post.",
+  "evidence_requirements": [
+    {
+      "id": "E01",
+      "weight": 3,
+      "requirement": "Establish the central value gap: organizational AI use is widespread, while measured or reported enterprise-level value remains limited.",
+      "source_locations": ["S02", "S03"]
+    },
+    {
+      "id": "E02",
+      "weight": 3,
+      "requirement": "Explain that workflow redesign and operating practices are associated with value, while preserving the survey's self-report, correlation and maturity limitations.",
+      "source_locations": ["S01", "S04", "S05"]
+    },
+    {
+      "id": "E03",
+      "weight": 3,
+      "requirement": "Use the customer-support study to show a real task-level productivity gain and its strong heterogeneity across worker experience or skill.",
+      "source_locations": ["S06", "S07", "S08"]
+    },
+    {
+      "id": "E04",
+      "weight": 2,
+      "requirement": "Preserve the distinction between the suggestive knowledge-transfer mechanism and what the customer-support study cannot establish about jobs, wages or other work settings.",
+      "source_locations": ["S09", "S10"]
+    },
+    {
+      "id": "E05",
+      "weight": 3,
+      "requirement": "Explain the jagged frontier using both the large gains on inside-frontier tasks and the performance loss on the selected outside-frontier task.",
+      "source_locations": ["S11", "S12", "S13", "S14"]
+    },
+    {
+      "id": "E06",
+      "weight": 2,
+      "requirement": "Avoid overgeneralizing the jagged-frontier experiment by acknowledging its task, evaluation, incentive or model-generation boundaries.",
+      "source_locations": ["S15"]
+    },
+    {
+      "id": "E07",
+      "weight": 3,
+      "requirement": "Use the P&G experiment to distinguish AI-enabled individual performance from human-team performance without claiming that AI replaces teams generally.",
+      "source_locations": ["S16", "S17", "S20"]
+    },
+    {
+      "id": "E08",
+      "weight": 2,
+      "requirement": "Capture at least one additional P&G finding about time, cross-functional expertise or emotional experience with its appropriate boundary.",
+      "source_locations": ["S18", "S19", "S20"]
+    },
+    {
+      "id": "E09",
+      "weight": 2,
+      "requirement": "Use the multi-firm Copilot experiment to separate measured email-time savings from unmeasured productivity or quality.",
+      "source_locations": ["S21", "S22", "S23", "S24"]
+    },
+    {
+      "id": "E10",
+      "weight": 2,
+      "requirement": "Connect the absence of detected task or process restructuring in an individual rollout to the open need for team- and firm-level complementary innovation, without treating the null result as proof that transformation is impossible.",
+      "source_locations": ["S24", "S25"]
+    }
+  ],
+  "synthesis_expectations": [
+    "Build one argument around the difference between local task gains and organization-level value rather than presenting five mini-summaries.",
+    "Relate evidence from at least three sources and more than one level of analysis: individual, task or team, and organization.",
+    "Use evidence selectively; full coverage does not require naming every publication or reproducing every number.",
+    "Integrate all three user thoughts as genuine components of the argument, not as an appended list or falsely attributed research findings.",
+    "End with a useful implication or question that follows from the evidence and the user's perspective."
+  ],
+  "known_material_errors": [
+    {
+      "id": "KE01",
+      "severity": "critical",
+      "description": "Claims that more than 80 percent of companies measured no ROI or no financial benefit; the McKinsey item is self-reported lack of tangible enterprise-level EBIT impact."
+    },
+    {
+      "id": "KE02",
+      "severity": "major",
+      "description": "Presents workflow redesign or CEO oversight as experimentally proven causes of EBIT impact."
+    },
+    {
+      "id": "KE03",
+      "severity": "critical",
+      "description": "Generalizes the 14 or 34 percent customer-support result to all employees, companies or knowledge work."
+    },
+    {
+      "id": "KE04",
+      "severity": "critical",
+      "description": "Claims that the P&G experiment shows AI can replace human teams generally or across complete innovation workflows."
+    },
+    {
+      "id": "KE05",
+      "severity": "critical",
+      "description": "Reports the Copilot study as measuring higher productivity, output quality or business value; it measured application behavior and time use."
+    },
+    {
+      "id": "KE06",
+      "severity": "major",
+      "description": "Omits or reverses the outside-frontier performance loss and presents AI assistance as uniformly beneficial."
+    },
+    {
+      "id": "KE07",
+      "severity": "major",
+      "description": "Attributes one of the user's personal thoughts to a study or presents it as measured evidence."
+    },
+    {
+      "id": "KE08",
+      "severity": "major",
+      "description": "Treats the absence of detected task restructuring during the individual rollout as proof that AI cannot transform organizations."
+    }
+  ],
+  "score_construction": {
+    "maximum": 100,
+    "evidence_coverage": {
+      "maximum": 25,
+      "status_multipliers": {
+        "full": 1.0,
+        "partial": 0.5,
+        "missing": 0.0,
+        "contradicted": 0.0
+      },
+      "calculation": "Sum each evidence requirement weight multiplied by its status multiplier; weights sum to 25."
+    },
+    "personal_thought_integration": {
+      "maximum": 15,
+      "items": ["T01", "T02", "T03"],
+      "weight_per_item": 5,
+      "status_multipliers": {
+        "full": 1.0,
+        "partial": 0.5,
+        "missing": 0.0,
+        "contradicted": 0.0
+      },
+      "calculation": "Award five points per faithfully and substantively integrated personal thought, multiplied by status."
+    },
+    "judged_dimensions": [
+      {
+        "id": "factual_epistemic_accuracy",
+        "max": 20,
+        "anchors": {
+          "20": "All material claims are supported, attributed at the right level and calibrated to each study's design and limits.",
+          "15": "Accurate overall with one limited imprecision or minor unsupported flourish.",
+          "8": "At least one major scope, causal, numeric or attribution error, or several meaningful imprecisions.",
+          "0": "Critical errors or pervasive unsupported claims make the post unreliable."
+        }
+      },
+      {
+        "id": "cross_source_synthesis",
+        "max": 15,
+        "anchors": {
+          "15": "Evidence from multiple sources and levels is related to build one original argument; tensions and boundaries do real explanatory work.",
+          "11": "A coherent argument uses multiple sources but leaves one important relationship implicit or slightly list-like.",
+          "6": "Mostly a sequence of source summaries with weak cross-source reasoning.",
+          "0": "No meaningful synthesis or a conclusion disconnected from the supplied evidence."
+        }
+      },
+      {
+        "id": "argument_reader_value",
+        "max": 10,
+        "anchors": {
+          "10": "Clear thesis, strong progression and a useful implication that helps the intended reader think or act differently.",
+          "7": "Sound and useful, but predictable, weakly prioritized or missing a sharp implication.",
+          "4": "The thesis is vague, the progression is uneven or the takeaway is generic.",
+          "0": "No discernible argument or reader value."
+        }
+      },
+      {
+        "id": "linkedin_style",
+        "max": 10,
+        "anchors": {
+          "10": "Natural, credible German professional voice with an effective opening, readable paragraphs and no hype or template-like filler.",
+          "7": "Generally suitable with minor stiffness, jargon, repetition or performative LinkedIn phrasing.",
+          "4": "Noticeably generic, inflated, awkward or formatted like a report rather than a post.",
+          "0": "Unusable for the requested audience and format."
+        }
+      },
+      {
+        "id": "compression_format",
+        "max": 5,
+        "anchors": {
+          "5": "High information value per word, within 400–550 words, short readable paragraphs and all format constraints satisfied.",
+          "3": "Within the hard limit but somewhat overlong, compressed, repetitive or outside the target range.",
+          "1": "Substantial padding, poor selection or distracting formatting.",
+          "0": "Over 600 words, not meaningfully a LinkedIn post or materially violates the required form."
+        }
+      }
+    ],
+    "hard_constraints": {
+      "empty_output": {
+        "result": "invalid",
+        "final_score": 0
+      },
+      "output_language_not_german": {
+        "result": "noncompliant",
+        "final_score_cap": 59
+      },
+      "word_count_above_600": {
+        "result": "noncompliant",
+        "compression_format_score": 0,
+        "final_score_cap": 59
+      },
+      "generation_truncated_at_token_limit": {
+        "result": "noncompliant",
+        "final_score_cap": 59
+      },
+      "reasoning_markup_in_candidate_output": {
+        "result": "noncompliant",
+        "final_score_cap": 59
+      },
+      "technical_location_labels_in_output": {
+        "result": "noncompliant",
+        "final_score_cap": 79
+      }
+    },
+    "critical_error_caps": {
+      "one_critical_error": {
+        "factual_epistemic_accuracy_cap": 7,
+        "final_score_cap": 59
+      },
+      "two_or_more_critical_errors": {
+        "factual_epistemic_accuracy_cap": 3,
+        "final_score_cap": 39
+      }
+    },
+    "verdict_thresholds": {
+      "excellent": 90,
+      "good": 75,
+      "usable": 60,
+      "poor": 1,
+      "invalid": 0
+    }
+  }
+}
+

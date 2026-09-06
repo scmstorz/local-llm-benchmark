@@ -1,0 +1,210 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "coding-track-a-v0.1",
+  "report_type": "cross_case_capability_summary",
+  "generated_at": "2026-09-02T10:23:09Z",
+  "track": "A",
+  "study_mode": "capability_sweep",
+  "scope": {
+    "task_count": 3,
+    "deployment_count": 5,
+    "core_inference_attempts": 15,
+    "repetitions_per_task_and_deployment": 1,
+    "languages": [
+      "Python",
+      "JavaScript",
+      "PHP"
+    ],
+    "core_cases": [
+      "coding.dev.pagination-cycle-guard",
+      "coding.dev.async-cache-coalescing",
+      "coding.dev.php-payment-result-migration"
+    ],
+    "excluded_from_core_matrix": [
+      {
+        "source_report": "reports/coding/pagination-cycle-guard-track-a-v1.json",
+        "reason": "The unified-diff v1 pilot tested the same task and deployments as the later whole-file run. It remains transport evidence but is not counted as a fourth independent task."
+      },
+      {
+        "category": "development_smokes",
+        "reason": "Smoke runs preceded their frozen comparison plans."
+      }
+    ]
+  },
+  "deployments": [
+    "qwen3.6:35b-a3b-mxfp8",
+    "qwen3.8:27b-mlx",
+    "gpt-oss:20b",
+    "muse-glimmer:30b-mlx",
+    "ornith-1.5:35b"
+  ],
+  "source_reports": [
+    {
+      "path": "reports/coding/pagination-cycle-guard-track-a-v1.json",
+      "sha256": "5778ba79d8e484e89e663c138ce34ca1fe719cfaec01790dcca7180706d49137",
+      "role": "separate unified-diff transport pilot"
+    },
+    {
+      "path": "reports/coding/pagination-cycle-guard-track-a-whole-file-v1.1.json",
+      "sha256": "e8e3695f12610b9fc008188b48b923a187e46f8a41e39a4a0b420e39ac76db14",
+      "role": "core frozen comparison"
+    },
+    {
+      "path": "reports/coding/pagination-cycle-guard-verifier-v1.2-retrospective-replay.json",
+      "sha256": "e21323fe07c02d4c1b06ab4db90565a8c08741aeaec0a0cf69bc8b6f1a4632eb",
+      "role": "post-hoc corrected-verifier replay"
+    },
+    {
+      "path": "reports/coding/async-cache-coalescing-track-a-v1.json",
+      "sha256": "fa2c87f8ff42752ea2b8d8ec06ed201941c93f0cd4912d897e7267c9486a931c",
+      "role": "core frozen comparison"
+    },
+    {
+      "path": "reports/coding/php-payment-result-migration-track-a-v1.json",
+      "sha256": "6dd022c01f1f8ab2eff6e5e2f02c25d99409da29860bbeeb335bca5f9d60676c",
+      "role": "core frozen comparison with layered transport evidence"
+    }
+  ],
+  "primary_frozen_outcomes": [
+    {
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "case_version": "1.1.0",
+      "language": "Python",
+      "task_family": "bug_fixing",
+      "artifact_contract": "whole_file_envelope_v1.1",
+      "verifier_version": "1.1.0",
+      "verified_successes": 3,
+      "attempts": 5,
+      "known_later_false_positives": 1,
+      "outcomes": {
+        "qwen3.6:35b-a3b-mxfp8": "failed_verification",
+        "qwen3.8:27b-mlx": "verified_success_later_invalidated_by_v1.2",
+        "gpt-oss:20b": "empty_output",
+        "muse-glimmer:30b-mlx": "verified_success",
+        "ornith-1.5:35b": "verified_success"
+      }
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "case_version": "1.0.0",
+      "language": "JavaScript",
+      "task_family": "feature_implementation",
+      "artifact_contract": "whole_file_envelope_v1.1",
+      "verifier_version": "1.0.0",
+      "verified_successes": 0,
+      "attempts": 5,
+      "outcomes": {
+        "qwen3.6:35b-a3b-mxfp8": "failed_public_tests_5_of_12_checks",
+        "qwen3.8:27b-mlx": "failed_hidden_tests_10_of_12_checks",
+        "gpt-oss:20b": "empty_output",
+        "muse-glimmer:30b-mlx": "failed_hidden_tests_9_of_12_checks",
+        "ornith-1.5:35b": "failed_public_tests_5_of_12_checks"
+      }
+    },
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "case_version": "1.0.0",
+      "language": "PHP",
+      "task_family": "api_migration",
+      "artifact_contract": "whole_file_envelope_v1.1",
+      "verifier_version": "1.0.0",
+      "strict_verified_successes": 0,
+      "attempts": 5,
+      "outcomes": {
+        "qwen3.6:35b-a3b-mxfp8": "malformed_artifact",
+        "qwen3.8:27b-mlx": "malformed_artifact",
+        "gpt-oss:20b": "empty_output",
+        "muse-glimmer:30b-mlx": "malformed_artifact",
+        "ornith-1.5:35b": "malformed_artifact"
+      }
+    }
+  ],
+  "best_known_requirement_evidence": [
+    {
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "evidence_basis": "retrospective v1.2 replay of exact saved v1.1 artifacts",
+      "formal_fresh_comparison": false,
+      "outcomes": {
+        "qwen3.6:35b-a3b-mxfp8": "failed",
+        "qwen3.8:27b-mlx": "failed",
+        "gpt-oss:20b": "no_artifact",
+        "muse-glimmer:30b-mlx": "verifier_confirmed",
+        "ornith-1.5:35b": "verifier_confirmed"
+      }
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "evidence_basis": "frozen primary verifier",
+      "formal_fresh_comparison": true,
+      "outcomes": {
+        "qwen3.6:35b-a3b-mxfp8": "failed",
+        "qwen3.8:27b-mlx": "failed",
+        "gpt-oss:20b": "no_artifact",
+        "muse-glimmer:30b-mlx": "failed",
+        "ornith-1.5:35b": "failed"
+      }
+    },
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "evidence_basis": "one preregistered and three explicitly post-hoc code-byte-identical transport checks",
+      "formal_fresh_comparison": false,
+      "outcomes": {
+        "qwen3.6:35b-a3b-mxfp8": "failed",
+        "qwen3.8:27b-mlx": "verifier_confirmed_posthoc",
+        "gpt-oss:20b": "no_artifact",
+        "muse-glimmer:30b-mlx": "verifier_confirmed_posthoc",
+        "ornith-1.5:35b": "verifier_confirmed_preregistered_secondary"
+      }
+    }
+  ],
+  "descriptive_model_summary": {
+    "qwen3.6:35b-a3b-mxfp8": {
+      "primary_frozen_successes": 0,
+      "best_known_verifier_confirmed_task_outcomes": 0,
+      "observed_boundary": "Produced usable artifacts in all three core comparisons but did not satisfy any complete current verifier."
+    },
+    "qwen3.8:27b-mlx": {
+      "primary_frozen_successes": 1,
+      "best_known_verifier_confirmed_task_outcomes": 1,
+      "observed_boundary": "Closest JavaScript candidate and verifier-confirmed PHP code, but the frozen Python pass became a false positive under the corrected verifier."
+    },
+    "gpt-oss:20b": {
+      "primary_frozen_successes": 0,
+      "best_known_verifier_confirmed_task_outcomes": 0,
+      "observed_boundary": "Consumed the 3,000-token budget in hidden reasoning and emitted no visible artifact in all three core comparisons; this is a deployment-setting and harness-fit result, not proof of absent coding knowledge."
+    },
+    "muse-glimmer:30b-mlx": {
+      "primary_frozen_successes": 1,
+      "best_known_verifier_confirmed_task_outcomes": 2,
+      "observed_boundary": "Solved the corrected Python requirements and produced verifier-confirmed PHP code, but failed JavaScript invalidation races and used comparatively long outputs and wall time."
+    },
+    "ornith-1.5:35b": {
+      "primary_frozen_successes": 1,
+      "best_known_verifier_confirmed_task_outcomes": 2,
+      "observed_boundary": "Solved the corrected Python requirements and produced verifier-confirmed PHP code with the shortest successful cold wall times, but failed the JavaScript concurrency task."
+    }
+  },
+  "aggregate": {
+    "primary_frozen_successes_across_15_attempts": 3,
+    "primary_frozen_successes_known_valid_after_all_audits": 2,
+    "strict_php_successes": 0,
+    "best_known_verifier_confirmed_task_outcomes_across_15_attempts": 5,
+    "javascript_successes": 0,
+    "gpt_oss_empty_outputs": 3,
+    "models_solving_all_three_tasks": 0
+  },
+  "interpretation": {
+    "central_finding": "No deployment dominated across the three tasks. Observed coding capability changed with task semantics, language, artifact transport and verifier strength.",
+    "harness_finding": "The PHP comparison shows that strict artifact delivery and code semantics are distinct outcomes. Track B should test whether file-writing tools remove this transport floor.",
+    "verifier_finding": "The pagination false positive shows that a stronger model score is meaningless when the verifier omits an explicit requirement.",
+    "routing_finding": "The sample is too small for a router, but already rejects a universal model ranking and motivates task-conditional least-cost sufficient configurations.",
+    "next_experiment": "Run the same frozen fixtures and strongest available verifiers under two separately reported Track B harnesses: pinned Pi and the project mini-harness."
+  },
+  "limitations": [
+    "One attempt per task and deployment cannot estimate stochastic reliability or latency distributions.",
+    "The tasks differ in language and task family, so language effects cannot be separated from task effects.",
+    "The best-known evidence matrix mixes frozen, preregistered-secondary and explicitly post-hoc evidence and is not a formal leaderboard.",
+    "Parameter count, quantization, runtime implementation and memory use differ between deployments.",
+    "No tested deployment solved the JavaScript case, so no least-cost sufficient configuration exists for that task in this sample."
+  ]
+}
