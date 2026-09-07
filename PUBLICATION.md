@@ -94,6 +94,10 @@ share ancestry.
 
 ## Licensing
 
-No open-source license has been selected yet. Publication makes the source
-visible, but normal copyright restrictions remain until a license file is
-added by the repository owner.
+Project-owned content is published under the Apache License 2.0. The public
+snapshot includes the unmodified standard text as `LICENSE`, and Python
+package metadata points to that file.
+
+This license does not relicense third-party dependencies, model artifacts or
+externally published benchmark sources. Non-redistributable source texts remain
+outside the public snapshot regardless of the repository license.

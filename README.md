@@ -350,6 +350,15 @@ explicit allowlist and scanned before push.
 See [PUBLICATION.md](PUBLICATION.md) for the exact policy and reproducible
 release procedure.
 
+## License
+
+Copyright 2026 Sacha Storz.
+
+Project-owned code, documentation, prompts, synthetic fixtures and reports are
+licensed under the [Apache License 2.0](LICENSE). Third-party dependencies,
+model artifacts and externally published source material remain subject to
+their respective terms; the project license does not relicense them.
+
 ## Status and limitations
 
 - The project is experimental and currently optimized for one local macOS

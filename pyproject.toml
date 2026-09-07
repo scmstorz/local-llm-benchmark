@@ -2,6 +2,7 @@
 name = "local-llm-benchmark"
 version = "0.1.0"
 description = "Personal, reproducible benchmark lab for local Ollama models"
+license = { file = "LICENSE" }
 requires-python = ">=3.11"
 dependencies = []
 
@@ -10,4 +11,3 @@ local-llm-benchmark = "local_llm_benchmark.cli:main"
 
 [tool.setuptools]
 packages = ["local_llm_benchmark"]
-
