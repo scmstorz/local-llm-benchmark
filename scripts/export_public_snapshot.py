@@ -14,6 +14,7 @@ ROOT_FILES = {
     "LICENSE",
     "LICENSE.md",
     "PUBLICATION.md",
+    "RELEASING.md",
     "README.md",
     "pyproject.toml",
 }

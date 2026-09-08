@@ -37,7 +37,25 @@ The following remain local even if they are tracked in the research history:
 Project-authored reference dossiers are public where they summarize and cite
 sources without reproducing them. All log-incident fixtures are synthetic.
 
-## Reproducible export
+## Reproducible release preparation
+
+The recommended update workflow uses a dedicated, clean clone of the public
+repository. After fetching and fast-forwarding that clone to `origin/main`, run
+the following command from a clean, committed research worktree:
+
+```bash
+python3 scripts/prepare_public_release.py /path/to/public-clone
+```
+
+The command exports the allowlisted snapshot, audits it, synchronizes it into
+the public clone, audits the synchronized tree, checks its diff and runs the
+public offline tests. It refuses an unsafe or stale release worktree and never
+commits or pushes. The complete diff and Git author identity must still be
+reviewed manually.
+
+See [RELEASING.md](RELEASING.md) for the full release checklist.
+
+## Low-level reproducible export
 
 Create a snapshot only from a clean committed worktree:
 
@@ -78,9 +96,15 @@ depends on locally installed Pi packages, non-redistributed source fixtures and
 the private commit history referenced by frozen experiment plans; it is not a
 valid command for a clean public snapshot.
 
-Before a push, also inspect the staged path list and URLs manually. A dedicated
-scanner such as Gitleaks should be added when it is available, but it does not
-replace the repository-owned gate or manual inspection of benchmark content.
+Before a push, also inspect the staged path list, complete diff and URLs
+manually. A dedicated scanner such as Gitleaks may be added later, but it does
+not replace the repository-owned gate or manual inspection of benchmark
+content.
+
+GitHub CI is deliberately deferred. If added, it should run only fast public
+software tests on pull requests and manual invocation, never Ollama or model
+benchmarks. Because a pushed branch is already public, CI cannot replace the
+local privacy gate.
 
 ## History boundary
 

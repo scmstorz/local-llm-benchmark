@@ -53,7 +53,8 @@ def relative_files(root: Path) -> list[Path]:
     return sorted(
         path
         for path in root.rglob("*")
-        if path.is_file() and ".git" not in path.relative_to(root).parts
+        if (path.is_file() or path.is_symlink())
+        and ".git" not in path.relative_to(root).parts
     )
 
 

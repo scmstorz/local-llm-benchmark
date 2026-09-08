@@ -347,8 +347,9 @@ internal chronological notes are excluded. Sanitized aggregate experiment IDs
 remain in curated reports for provenance. The export is generated from an
 explicit allowlist and scanned before push.
 
-See [PUBLICATION.md](PUBLICATION.md) for the exact policy and reproducible
-release procedure.
+See [PUBLICATION.md](PUBLICATION.md) for the exact boundary and
+[RELEASING.md](RELEASING.md) for the reproducible, locally gated update
+procedure.
 
 ## License
 
