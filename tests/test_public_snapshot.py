@@ -16,6 +16,7 @@ from scripts.run_public_tests import PUBLIC_TEST_MODULES, REPO_ROOT
 
 class PublicSnapshotPolicyTests(unittest.TestCase):
     def test_public_project_artifacts_are_included(self) -> None:
+        self.assertTrue(is_public("CHANGELOG.md"))
         self.assertTrue(is_public("README.md"))
         self.assertTrue(is_public("PUBLICATION.md"))
         self.assertTrue(is_public("RELEASING.md"))

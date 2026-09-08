@@ -351,6 +351,14 @@ See [PUBLICATION.md](PUBLICATION.md) for the exact boundary and
 [RELEASING.md](RELEASING.md) for the reproducible, locally gated update
 procedure.
 
+## Releases and versioning
+
+Project releases version public repository snapshots. Task, prompt, verifier,
+harness and study-protocol versions remain independent immutable identifiers;
+for example, a task protocol named `v0.5` does not imply project release
+`v0.5.0`. See [CHANGELOG.md](CHANGELOG.md) for tagged release scope and
+interpretation boundaries.
+
 ## License
 
 Copyright 2026 Sacha Storz.

@@ -78,6 +78,20 @@ the rendered README and changed files on GitHub. Tags and GitHub Releases are
 separate, intentional publication decisions; this procedure does not create
 them automatically.
 
+## Tagged releases
+
+Repository tags use project-level semantic versions such as `v0.1.0`. Versions
+embedded in task IDs, prompts, verifiers, harnesses and study protocols are
+independent frozen contract versions and must not be inferred from the project
+tag.
+
+Create an annotated tag only after the intended public commit has passed the
+full release procedure and its remote `main` ref has been verified. Review the
+corresponding [CHANGELOG.md](CHANGELOG.md) entry, push the tag separately, and
+then create the GitHub Release from that exact tag. Verify the remote tag target
+and published release page afterwards. Do not move or silently replace a
+published tag.
+
 If any gate or review fails, do not commit. Discard the dedicated clone and
 start again from a fresh clone after correcting the research repository. This
 is safer than repairing an uncertain release worktree in place.

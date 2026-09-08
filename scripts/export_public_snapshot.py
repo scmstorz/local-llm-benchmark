@@ -11,6 +11,7 @@ from pathlib import Path
 
 ROOT_FILES = {
     ".gitignore",
+    "CHANGELOG.md",
     "LICENSE",
     "LICENSE.md",
     "PUBLICATION.md",
