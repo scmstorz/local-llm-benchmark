@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "quality-stochasticity-text-v0.1",
+  "study_version": "0.1.0",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-08",
+  "decision_question": "Is Ornith a stable default for single-turn German text work, and when does Glimmer provide a repeatable quality advantage worth its longer observed wait?",
+  "study_mode": "quality_stochasticity",
+  "implementation_commit": "1cba52ce3c0db20d23524817ff4f66a36499a1a8",
+  "runtime": {
+    "name": "ollama",
+    "version": "0.33.2",
+    "binding_source": "Both deployments were last registered under Ollama 0.33.2; the server was offline at plan freeze and the controller must revalidate the live runtime before every measured unit."
+  },
+  "deployments": [
+    {
+      "alias": "O",
+      "deployment_id": "ornith-1-5-35b-9f3b89b25219-ollama-0-33-2",
+      "name": "ornith-1.5:35b",
+      "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc",
+      "size_bytes": 22616285024,
+      "cataloged_quantization": "Q4_K_M"
+    },
+    {
+      "alias": "G",
+      "deployment_id": "muse-glimmer-30b-mlx-ef32a55b4976-ollama-0-33-2",
+      "name": "muse-glimmer:30b-mlx",
+      "digest": "ef32a55b4976faa955cbab0462d09bd081351ef5b87d73d8fcd299bf17c111d7",
+      "size_bytes": 21232871036,
+      "cataloged_quantization": "runtime artifact metadata does not expose a quantization label"
+    }
+  ],
+  "cases": [
+    {
+      "alias": "S",
+      "case_id": "summarization.dev.metr-long-software-tasks",
+      "case_path": "tasks/summarization/dev/metr-long-software-tasks/case.json",
+      "num_ctx": 16384,
+      "selection_role": "Close prior quality boundary: Glimmer 94.5 and Ornith 91.5 in the joint late-challenger judgment."
+    },
+    {
+      "alias": "W",
+      "case_id": "source_grounded_writing.dev.agentic-software-development-reality-gap",
+      "case_path": "tasks/source-grounded-writing/dev/agentic-software-development-reality-gap/case.json",
+      "num_ctx": 8192,
+      "selection_role": "Decision-relevant prior disagreement: Ornith 83 and Glimmer 59 after a critical historical-versus-current claim by Glimmer."
+    }
+  ],
+  "methodology": {
+    "measured_runs_per_condition": 5,
+    "condition_count": 4,
+    "total_planned_measured_runs": 20,
+    "historical_outputs_reused": false,
+    "quality_candidate": "Every fresh runtime-complete measured generation; failures remain explicit outcomes and are not silently removed.",
+    "generation_settings": {
+      "temperature": 0.0,
+      "seed": 42,
+      "think": false,
+      "num_predict": 2600,
+      "keep_alive": "10m"
+    },
+    "fixed_seed_interpretation": "Operational repeatability under the project's normal deterministic-request configuration, not sampling-temperature or seed sensitivity.",
+    "preload_policy": "After a clean resource gate, preload exactly the selected deployment; preload is excluded from the quality sample and timed separately.",
+    "measurement_phase_label": "warm",
+    "timeout_seconds": 600.0,
+    "automatic_retries": 0,
+    "terminal_failures_repeated": false,
+    "controller_interruption_policy": "Preserve a nonterminal attempt. Reconcile a completed orphan run if present; otherwise permit one replacement because no answer-dependent terminal outcome existed.",
+    "performance_claims": "Descriptive wall time and range only; this is not a performance-tail study.",
+    "reliability_claims": "Observed counts only; n=5 cannot estimate rare-event probabilities precisely."
+  },
+  "execution_order_method": "The first four repetitions form a Williams-style position balance in which every deployment-case condition occupies each within-block position once. The fifth repeats the base order. Blocks are arranged to avoid identical adjacent conditions and minimize same-deployment boundaries; one cross-block same-deployment transition remains.",
+  "execution_order": [
+    {"position": 1, "unit_id": "qsv01-01", "deployment_alias": "G", "case_alias": "S", "repetition": 2},
+    {"position": 2, "unit_id": "qsv01-02", "deployment_alias": "O", "case_alias": "W", "repetition": 2},
+    {"position": 3, "unit_id": "qsv01-03", "deployment_alias": "G", "case_alias": "W", "repetition": 2},
+    {"position": 4, "unit_id": "qsv01-04", "deployment_alias": "O", "case_alias": "S", "repetition": 2},
+    {"position": 5, "unit_id": "qsv01-05", "deployment_alias": "G", "case_alias": "W", "repetition": 4},
+    {"position": 6, "unit_id": "qsv01-06", "deployment_alias": "O", "case_alias": "S", "repetition": 4},
+    {"position": 7, "unit_id": "qsv01-07", "deployment_alias": "G", "case_alias": "S", "repetition": 4},
+    {"position": 8, "unit_id": "qsv01-08", "deployment_alias": "O", "case_alias": "W", "repetition": 4},
+    {"position": 9, "unit_id": "qsv01-09", "deployment_alias": "O", "case_alias": "S", "repetition": 1},
+    {"position": 10, "unit_id": "qsv01-10", "deployment_alias": "G", "case_alias": "W", "repetition": 1},
+    {"position": 11, "unit_id": "qsv01-11", "deployment_alias": "O", "case_alias": "W", "repetition": 1},
+    {"position": 12, "unit_id": "qsv01-12", "deployment_alias": "G", "case_alias": "S", "repetition": 1},
+    {"position": 13, "unit_id": "qsv01-13", "deployment_alias": "O", "case_alias": "W", "repetition": 3},
+    {"position": 14, "unit_id": "qsv01-14", "deployment_alias": "G", "case_alias": "S", "repetition": 3},
+    {"position": 15, "unit_id": "qsv01-15", "deployment_alias": "O", "case_alias": "S", "repetition": 3},
+    {"position": 16, "unit_id": "qsv01-16", "deployment_alias": "G", "case_alias": "W", "repetition": 3},
+    {"position": 17, "unit_id": "qsv01-17", "deployment_alias": "O", "case_alias": "S", "repetition": 5},
+    {"position": 18, "unit_id": "qsv01-18", "deployment_alias": "G", "case_alias": "W", "repetition": 5},
+    {"position": 19, "unit_id": "qsv01-19", "deployment_alias": "O", "case_alias": "W", "repetition": 5},
+    {"position": 20, "unit_id": "qsv01-20", "deployment_alias": "G", "case_alias": "S", "repetition": 5}
+  ],
+  "resource_gate": {
+    "loaded_models_must_be_empty_before_each_unit": true,
+    "empty_state_observation_seconds": 15,
+    "deployment_digest_rechecked_before_each_unit": true,
+    "exact_ollama_version_required": true,
+    "model_unloaded_after_each_unit": true,
+    "unexpected_model_activity_pauses_the_study": true,
+    "behat_must_not_be_running": true,
+    "blocking_process_rules": [
+      {"rule_id": "behat_test_runner", "pattern": "(?i)(?:^|[\\s/])(?:vendor/bin/)?behat(?:[\\s]|$)"},
+      {"rule_id": "behat_environment_worker", "pattern": "(?i)(?:--env=behat_test|var/behat-env)"},
+      {"rule_id": "other_test_runner", "pattern": "(?i)(?:^|[\\s/])(?:pytest|phpunit|jest|vitest|mocha|playwright|cypress)(?:[\\s]|$)"},
+      {"rule_id": "package_test_script", "pattern": "(?i)(?:^|[\\s/])(?:npm|pnpm|yarn)(?:[\\s]+run)?[\\s]+test(?:[\\s]|$)"},
+      {"rule_id": "mnemosyn_application", "pattern": "(?i)^(?!.*mnemosyn_mcp\\.py).*mnemosyn"},
+      {"rule_id": "news_or_blog_application", "pattern": "(?i)(?:news-app|blog-read-o-matic)"}
+    ]
+  },
+  "blinding": {
+    "bundle_seed": "quality-stochasticity-text-v0.1-20260908",
+    "fresh_opaque_candidate_ids": true,
+    "one_bundle_per_case": true,
+    "expected_scalar_candidates_per_case": 10,
+    "scalar_scores_frozen_before_pairwise": true,
+    "same_repetition_pairwise_checks_per_case": 5,
+    "expected_pairwise_checks_total": 10,
+    "pairwise_scores_do_not_revise_scalar_scores": true,
+    "private_mapping_opened_only_after_scalar_and_pairwise_freeze": true
+  },
+  "reporting": {
+    "quality_scale": "normalized 0-100 under each existing case rubric",
+    "per_condition": ["raw scores", "mean", "median", "standard deviation", "minimum", "maximum", "deterministic compliance", "usable outcomes", "byte-identical groups", "recurring error categories"],
+    "pairwise": ["wins", "losses", "ties"],
+    "timing": "raw values, median and range only",
+    "forbidden_claims": ["P90", "P95", "P99", "precise rare-failure probability", "universal composite score"],
+    "raw_candidates_public": false,
+    "private_mappings_public": false,
+    "sanitized_aggregate_report_planned": true
+  },
+  "authorization": {
+    "live_execution_authorized": true,
+    "authorized_on": "2026-09-08",
+    "scope": "Exactly the frozen 20 measured units, subject to every per-unit resource gate.",
+    "remote_push_authorized": false
+  },
+  "frozen_artifacts": [
+    {"path": "local_llm_benchmark/quality_stochasticity.py", "sha256": "3aa134283af49159c8fd5bbe5e0bee7cd4cca426e66f9d8c0b55adfd6793a4be"},
+    {"path": "local_llm_benchmark/runner.py", "sha256": "5446a65d92386dca99655593fc6dd8f85b9956e495bfa179e82549dc66575c54"},
+    {"path": "local_llm_benchmark/ollama.py", "sha256": "cda83848193dd1ceb3d608c4fe0ae1d6e886fdc1121c2225bd3d2d020cc13102"},
+    {"path": "local_llm_benchmark/log_incident_smokes.py", "sha256": "c3313223eaaef7e1345edb6c392b229eb7420440b650f18bb26e484f16e6bb27"},
+    {"path": "tasks/summarization/dev/metr-long-software-tasks/case.json", "sha256": "9a00daafb4d0f85f1e580681e4bdb62302adc134be1b52c3b01c71bb9b613199"},
+    {"path": "tasks/summarization/dev/metr-long-software-tasks/source-metadata.json", "sha256": "f32f5865b371ae1d283c5574891b8239b45adf3700f4bc78c36071758640b1c9"},
+    {"path": "tasks/summarization/dev/metr-long-software-tasks/prompt/system.txt", "sha256": "5d977d846ee6ae4d2cd3f0ca1fde11955512739c291b28cf50c47ad1c4067f3e"},
+    {"path": "tasks/summarization/dev/metr-long-software-tasks/prompt/user.md", "sha256": "94bc8852712a2129081aa49e2fad43627b86f78980e906c0e0436f4ecc228d46"},
+    {"path": "tasks/summarization/dev/metr-long-software-tasks/benchmark-card.json", "sha256": "37d824405a8ade51dc9798f8f9023fdcf93c2effc95459b0e66aa41f7d941e61"},
+    {"path": "tasks/summarization/dev/metr-long-software-tasks/judge-instructions.md", "sha256": "1365fa8adae8b58f6b7eab6d6bae3234c6a3cfd0ba81819ef62cb800b26db8ba"},
+    {"path": "tasks/summarization/dev/metr-long-software-tasks/judge-result.schema.json", "sha256": "6aafb2e7e28b444292243e69b8e00ae992f304155ab28bf2691631d315607ec2"},
+    {"path": "data/private/summarization/dev/metr-long-software-tasks/source.md", "sha256": "e7dd5cfd91283dd787f8d8ea2f9833d33c3a3e34f993d3cc93d51254dcd77ba8", "visibility": "private"},
+    {"path": "tasks/source-grounded-writing/dev/agentic-software-development-reality-gap/case.json", "sha256": "0c285ac566109863c3d4f8fad7f6768d8cdc73de97368db2b77f4d33e4f15ac9"},
+    {"path": "tasks/source-grounded-writing/dev/agentic-software-development-reality-gap/source-metadata.json", "sha256": "aeafbe188ba14b5f2ebc4ff5a26f1b6d35282f3881b354e901a6290db5bbf8a6"},
+    {"path": "tasks/source-grounded-writing/dev/agentic-software-development-reality-gap/prompt/system.txt", "sha256": "0a8425b0b749ae33ef41656c3ff5d7b2ba40a70d947f15c5368d884b65b7d742"},
+    {"path": "tasks/source-grounded-writing/dev/agentic-software-development-reality-gap/prompt/user.md", "sha256": "3c203fade20e09bdba339b16c6aa8055f52eff3299febca87896f5d41756f991"},
+    {"path": "tasks/source-grounded-writing/dev/agentic-software-development-reality-gap/benchmark-card.json", "sha256": "b3ac04096e3fd4cdaeb9d69de32eada7afcbd6004a6a189c1ebd99febb43aea2"},
+    {"path": "tasks/source-grounded-writing/dev/agentic-software-development-reality-gap/judge-instructions.md", "sha256": "11fc7f37cdc0ba933cdf0e58aa9e9cf2effab8d62a700409a359262e4a3caec9"},
+    {"path": "tasks/source-grounded-writing/dev/agentic-software-development-reality-gap/judge-result.schema.json", "sha256": "bd5f39473e3d3f47b950eb2b056ef08536dcd1806527844e552c7d2b4ab02379"},
+    {"path": "tasks/source-grounded-writing/dev/agentic-software-development-reality-gap/source-packet.md", "sha256": "8df198d0afa5c910a6bfa0ab926714e8b2db89ae9c9d32473e960581659c687d"},
+    {"path": "data/private/source-grounded-writing/dev/agentic-software-development-reality-gap/personal-thoughts.md", "sha256": "c1b816c18349f23cd32d491acefea6752508536f918e34b11c9b23bbde5b50d4", "visibility": "private"}
+  ]
+}

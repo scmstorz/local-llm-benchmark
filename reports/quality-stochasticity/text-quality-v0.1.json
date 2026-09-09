@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "german-text-quality-stochasticity-v0.1",
+  "date": "2026-09-08",
+  "study_id": "quality-study-20260908T140753Z-07fb3b80",
+  "study_type": "quality_stochasticity",
+  "models": ["ornith-1.5:35b", "muse-glimmer:30b-mlx"],
+  "cases": [
+    "summarization.dev.metr-long-software-tasks",
+    "source_grounded_writing.dev.agentic-software-development-reality-gap"
+  ],
+  "generation": {
+    "runs_per_condition": 5,
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_predict": 2600,
+    "measurement_phase": "warm",
+    "ollama_version": "0.33.2"
+  },
+  "execution": {
+    "planned_units": 20,
+    "complete_units": 20,
+    "failed_units": 0,
+    "deterministically_compliant_units": 20,
+    "total_measured_request_seconds": 1058.85
+  },
+  "results": [
+    {
+      "case_id": "summarization.dev.metr-long-software-tasks",
+      "model": "muse-glimmer:30b-mlx",
+      "scores_by_repetition": {"1":96,"2":97,"3":97,"4":98,"5":95},
+      "quality": {"n":5,"mean":96.6,"median":97,"sample_standard_deviation":1.14,"minimum":95,"maximum":98},
+      "performance": {"mean_wall_seconds":84.54,"median_wall_seconds":84.00,"sample_standard_deviation_seconds":8.78,"minimum_wall_seconds":74.03,"maximum_wall_seconds":96.82,"mean_output_tokens_per_second":27.87},
+      "pairwise": {"wins":5,"losses":0,"ties":0},
+      "byte_identical_response_groups": 0,
+      "unique_responses": 5,
+      "recurring_material_errors": []
+    },
+    {
+      "case_id": "summarization.dev.metr-long-software-tasks",
+      "model": "ornith-1.5:35b",
+      "scores_by_repetition": {"1":93,"2":93,"3":93,"4":93,"5":93},
+      "quality": {"n":5,"mean":93,"median":93,"sample_standard_deviation":0,"minimum":93,"maximum":93},
+      "performance": {"mean_wall_seconds":38.59,"median_wall_seconds":37.77,"sample_standard_deviation_seconds":3.72,"minimum_wall_seconds":34.45,"maximum_wall_seconds":44.17,"mean_output_tokens_per_second":73.54},
+      "pairwise": {"wins":0,"losses":5,"ties":0},
+      "byte_identical_response_groups": 1,
+      "unique_responses": 1,
+      "recurring_material_errors": []
+    },
+    {
+      "case_id": "source_grounded_writing.dev.agentic-software-development-reality-gap",
+      "model": "ornith-1.5:35b",
+      "scores_by_repetition": {"1":88.5,"2":88.5,"3":88.5,"4":88.5,"5":88.5},
+      "quality": {"n":5,"mean":88.5,"median":88.5,"sample_standard_deviation":0,"minimum":88.5,"maximum":88.5},
+      "performance": {"mean_wall_seconds":21.44,"median_wall_seconds":20.14,"sample_standard_deviation_seconds":3.38,"minimum_wall_seconds":18.05,"maximum_wall_seconds":26.87,"mean_output_tokens_per_second":69.82},
+      "pairwise": {"wins":5,"losses":0,"ties":0},
+      "byte_identical_response_groups": 1,
+      "unique_responses": 1,
+      "recurring_material_errors": []
+    },
+    {
+      "case_id": "source_grounded_writing.dev.agentic-software-development-reality-gap",
+      "model": "muse-glimmer:30b-mlx",
+      "scores_by_repetition": {"1":87,"2":59,"3":82.5,"4":59,"5":59},
+      "quality": {"n":5,"mean":69.3,"median":59,"sample_standard_deviation":14.19,"minimum":59,"maximum":87},
+      "performance": {"mean_wall_seconds":67.20,"median_wall_seconds":69.80,"sample_standard_deviation_seconds":15.02,"minimum_wall_seconds":52.05,"maximum_wall_seconds":89.42,"mean_output_tokens_per_second":29.30},
+      "pairwise": {"wins":0,"losses":5,"ties":0},
+      "byte_identical_response_groups": 0,
+      "unique_responses": 5,
+      "observed_critical_error_runs": 3,
+      "recurring_material_errors": ["historical_swe_lancer_result_presented_as_current","individual_task_result_inflated_in_two_runs"]
+    }
+  ],
+  "decision": {
+    "default_source_grounded_public_writing": "ornith-1.5:35b",
+    "quality_first_dense_research_summary": "muse-glimmer:30b-mlx",
+    "universal_winner": null
+  },
+  "integrity": {
+    "plan_commit": "7d09769",
+    "controller_commit": "1cba52c",
+    "scalar_freeze_sha256": "9c9863d41b7f6ac257ffd55d2d1f261432216cfd430793e3bca25020f74768d5",
+    "pairwise_freeze_sha256": "fe893ef1516c5907e172fa3ab16a9ebdd2a8e57645c95b0815617656d988cdf2",
+    "mapping_opened_after_both_freezes": true,
+    "procedurally_blinded": true,
+    "cognitive_blinding_guaranteed": false
+  },
+  "reporting_limits": [
+    "No P90, P95 or P99 from n=5.",
+    "No precise quality-failure or runtime-failure probability is estimated.",
+    "Fixed temperature and seed do not measure sampling-setting sensitivity.",
+    "Natural response length makes latency and throughput descriptive.",
+    "A later challenger requires joint rejudgment of the complete candidate set."
+  ]
+}

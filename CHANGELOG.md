@@ -4,6 +4,30 @@ Repository releases use project-level versions. Task, dataset, prompt, verifier,
 harness, and study-protocol versions are independent immutable identifiers. A
 task named `v0.5` therefore does not imply project release `v0.5.0`.
 
+## Unreleased
+
+### Added
+
+- Evaluation Pipeline v0.2 with schema-valid scalar imports, exact candidate
+  coverage, immutable SHA-256-bound scalar and pairwise freezes, and a
+  model-mapping reveal that is unavailable before both judgment phases finish;
+- dependency-free validation for the closed JSON Schema subset used by frozen
+  judge-result contracts;
+- automatic public-safe JSON and Markdown aggregation that keeps quality,
+  response variation, judged errors, pairwise preference, runtime reliability,
+  and performance separate; and
+- regression tests for phase ordering, pre-reveal access boundaries, mutation
+  detection, pair orientation, schema/check integrity, and privacy-safe output.
+
+### Interpretation boundaries
+
+- The pipeline enforces procedural blinding but cannot prevent identity
+  inference from response style or repeated content.
+- The validator intentionally supports only the documented schema subset and
+  rejects unknown assertion keywords.
+- The completed v0.1 repeated-text report predates this automation and is not
+  retroactively claimed as a v0.2 pipeline execution.
+
 ## v0.1.0 — 2026-09-08
 
 First tagged public research preview.

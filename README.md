@@ -58,12 +58,13 @@ The task and verifier remain fixed while the complete harness changes.
 
 OpenCode has a qualification card but is not yet admitted to measured runs.
 
-### Planned studies
+### Current and planned studies
 
-The current results are capability screens with mostly one observation per
-cell. Separate study modes are planned for:
+Most current results are capability screens with one observation per cell. The
+first two-model, two-case quality-stochasticity study is now complete.
+Separate study modes cover:
 
-- quality stochasticity;
+- quality stochasticity, with the first repeated text study complete;
 - performance and reliability distributions;
 - context scaling;
 - multi-model collaboration;
@@ -82,6 +83,7 @@ not claims about model families in general.
 | --- | --- |
 | 15-case direct text cohort | Gemma 4, Muse Glimmer, and Qwen 3.8 were tightly grouped at the top; Gemma had no hard output failures. |
 | 13-case Ornith comparison | Ornith combined the highest observed mean quality with Qwen-3.6-like warm latency; Glimmer still won more individual cases. |
+| Repeated German text quality | Glimmer won 5/5 METR-summary pairs; Ornith won 5/5 source-grounded-writing pairs and avoided Glimmer's recurring historical/current claim error. |
 | Agentic coding with pinned Pi | Qwen 3.8 was the only model to verify all 3/3 Python, JavaScript, and PHP tasks. |
 | Pi versus the Mini harness | Pi verified 9/15 cells and Mini 6/15, but opposite task-model interactions rule out a universal harness ranking. |
 | Agentic log analysis | All 27 completed reports found the central incident mechanism, yet only 1/30 satisfied the entire deterministic semantic contract. |
@@ -95,6 +97,7 @@ Start with the curated reports:
 
 - [direct text results](reports/challenger-sweeps/september-2026-model-cohort-quality.md)
 - [Ornith late-challenger study](reports/challenger-sweeps/ornith-1.5-35b-quality.md)
+- [repeated German text quality study](reports/quality-stochasticity/text-quality-v0.1.md)
 - [Coding Track A](reports/coding/coding-track-a-v0.1.md)
 - [Pi versus Mini agentic coding](reports/coding/track-b-pi-vs-mini-system-comparison-v0.3.md)
 - [agentic log incident sweep](reports/agentic/log-incident-capability-sweep-v0.5.md)
@@ -184,6 +187,26 @@ Raw requests, Ollama streams, responses, deployment metadata, deterministic
 checks, and blinded judge bundles are written below `results/` and ignored by
 Git. The runner never calls a paid judge API. Quality judgment is a separate,
 explicit workflow.
+
+For repeated quality studies, the additive v0.2 evaluation pipeline enforces
+the order `scalar freeze -> pairwise freeze -> model reveal`. It validates each
+judge result against the exact case schema, hashes both immutable freezes, and
+only then reads private model mappings and performance data to generate
+separate quality, reliability, variation, error, pairwise, and latency
+aggregates:
+
+```bash
+python3 -m local_llm_benchmark.quality_evaluation_v02 init \
+  --study-dir results/quality-stochasticity/studies/STUDY-ID
+
+python3 -m local_llm_benchmark.quality_evaluation_v02 status \
+  --study-dir results/quality-stochasticity/studies/STUDY-ID
+```
+
+See the [Quality Evaluation Pipeline v0.2](docs/quality-evaluation-v0.2.md)
+for the complete result-file contracts and reveal workflow. The previously
+published v0.1 quality study remains a historical, manually frozen evaluation;
+it is not retroactively represented as a v0.2 pipeline run.
 
 Inspect all commands:
 

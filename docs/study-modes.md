@@ -6,9 +6,13 @@ undifferentiated benchmark score.
 
 ## Current decision
 
-The active study mode is **Capability Sweep**. Hard Knowledge v0.2 will be
-completed under its already frozen protocol. The project will add a **Quality
-Stochasticity Study** and a **Performance and Reliability Study** later.
+The broad **Capability Sweep** and the first **Quality Stochasticity Study** are
+complete. The latter follows the protocol frozen in
+[`quality-stochasticity-v0.1.md`](quality-stochasticity-v0.1.md) and repeats two
+deployments across two discriminative text cases five times per condition. Its
+public-safe result is recorded in
+[`text-quality-v0.1.md`](../reports/quality-stochasticity/text-quality-v0.1.md).
+A **Performance and Reliability Study** remains separate and later.
 
 This staging is a compute-budget decision, not a claim that variation and
 reliability are unimportant. Running enough repetitions for defensible latency
@@ -55,7 +59,7 @@ tasks, and which recurring strengths, weaknesses and failure modes appear?
 The current Hard Knowledge v0.2 block remains unchanged and belongs to this
 mode.
 
-## 2. Quality Stochasticity Study — later
+## 2. Quality Stochasticity Study — initial slice complete
 
 ### Question
 
@@ -91,6 +95,22 @@ stochasticity.
 
 Five quality samples are exploratory. They can reveal material instability but
 cannot establish rare-event rates or precise distribution tails.
+
+The initial text study found task-specific rather than universal superiority.
+Glimmer won all five METR-summary pairs, while Ornith won all five
+source-grounded-writing pairs. Ornith repeated one byte-identical response per
+case; Glimmer produced five variants per case and repeated a consequential
+historical-to-current claim error in three of five writing observations. These
+are observed counts under one fixed request condition, not estimated failure
+probabilities.
+
+Future repeated-quality studies use the additive
+[Evaluation Pipeline v0.2](quality-evaluation-v0.2.md). It validates complete
+case-specific judge records, freezes scalar results before predeclared
+pairwise comparisons, prevents model and performance metadata access until
+both freezes are hashed, and then generates separate public-safe outcome
+layers. The completed v0.1 study remains historical evidence and is not
+retroactively relabeled as a v0.2 pipeline run.
 
 ## 3. Performance and Reliability Study — later
 

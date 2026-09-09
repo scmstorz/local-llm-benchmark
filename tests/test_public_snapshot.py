@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import subprocess
 import unittest
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -8,6 +9,7 @@ from scripts.audit_public_snapshot import audit
 from scripts.export_public_snapshot import is_public
 from scripts.prepare_public_release import (
     canonical_remote,
+    run_full_candidate_diff_check,
     sync_snapshot,
     tree_fingerprint,
 )
@@ -24,6 +26,7 @@ class PublicSnapshotPolicyTests(unittest.TestCase):
         self.assertTrue(is_public("tasks/general-knowledge/README.md"))
         self.assertTrue(is_public("reports/overview.md"))
         self.assertTrue(is_public("docs/benchmark-design.md"))
+        self.assertTrue(is_public("docs/quality-evaluation-v0.2.md"))
 
     def test_local_research_material_is_excluded(self) -> None:
         self.assertFalse(is_public("PROJECT_STATUS.md"))
@@ -60,6 +63,43 @@ class PublicSnapshotPolicyTests(unittest.TestCase):
             self.assertIn("matched email address pattern", details)
             self.assertIn("broken local link: missing.md", details)
             self.assertIn("path is outside the public boundary", details)
+
+    def test_full_diff_check_includes_new_untracked_files(self) -> None:
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            subprocess.run(
+                ["git", "init", "-b", "main"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+            subprocess.run(["git", "config", "user.name", "Test"], cwd=root, check=True)
+            subprocess.run(
+                [
+                    "git",
+                    "config",
+                    "user.email",
+                    "test" + chr(64) + "example.invalid",
+                ],
+                cwd=root,
+                check=True,
+            )
+            (root / "tracked.txt").write_text("tracked\n", encoding="utf-8")
+            subprocess.run(["git", "add", "tracked.txt"], cwd=root, check=True)
+            subprocess.run(
+                ["git", "commit", "-m", "baseline"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+            )
+            candidate = root / "new-file.md"
+            candidate.write_text("# New file\n\n", encoding="utf-8")
+
+            with self.assertRaises(subprocess.CalledProcessError):
+                run_full_candidate_diff_check(root)
+
+            candidate.write_text("# New file\n", encoding="utf-8")
+            run_full_candidate_diff_check(root)
 
     def test_audit_rejects_an_escaping_directory_symlink(self) -> None:
         with TemporaryDirectory() as directory:

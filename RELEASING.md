@@ -50,7 +50,8 @@ The script performs the following gates in order:
 4. synchronizes the exact snapshot into the public clone, including intentional
    deletions of formerly public tracked files;
 5. audits the synchronized clone again;
-6. runs `git diff --check`; and
+6. runs `git diff --cached --check` through a temporary index so modified and
+   newly added files are both covered without staging the real candidate; and
 7. runs the dependency-free public test suite with bytecode generation disabled
    and verifies that the tests did not modify the candidate tree.
 

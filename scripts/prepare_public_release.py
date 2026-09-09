@@ -186,6 +186,22 @@ def run_checked(
     subprocess.run(command, cwd=cwd, check=True, env=env)
 
 
+def run_full_candidate_diff_check(public_clone: Path) -> None:
+    """Run Git's whitespace check over tracked and newly added candidate files."""
+
+    with TemporaryDirectory(prefix="local-llm-benchmark-index-") as directory:
+        index_path = Path(directory) / "index"
+        environment = os.environ.copy()
+        environment["GIT_INDEX_FILE"] = str(index_path)
+        run_checked(["git", "read-tree", "HEAD"], public_clone, env=environment)
+        run_checked(["git", "add", "-A"], public_clone, env=environment)
+        run_checked(
+            ["git", "diff", "--cached", "--check"],
+            public_clone,
+            env=environment,
+        )
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
@@ -227,7 +243,7 @@ def main() -> int:
             print(f"  {finding.path}: {finding.detail}", file=sys.stderr)
         raise SystemExit("Synchronized public clone failed the public audit.")
 
-    run_checked(["git", "diff", "--check"], public_clone)
+    run_full_candidate_diff_check(public_clone)
     candidate_fingerprint = tree_fingerprint(public_clone)
     test_env = os.environ.copy()
     test_env["PYTHONDONTWRITEBYTECODE"] = "1"
