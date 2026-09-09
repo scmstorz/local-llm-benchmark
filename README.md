@@ -60,11 +60,12 @@ OpenCode has a qualification card but is not yet admitted to measured runs.
 
 ### Current and planned studies
 
-Most current results are capability screens with one observation per cell. The
-first two-model, two-case quality-stochasticity study is now complete.
+Most current results are capability screens with one observation per cell. Two
+two-model, two-case quality-stochasticity studies are now complete: one on
+summary and source-grounded writing, and one on difficult general knowledge.
 Separate study modes cover:
 
-- quality stochasticity, with the first repeated text study complete;
+- quality stochasticity, with two initial repeated studies complete;
 - performance and reliability distributions;
 - context scaling;
 - multi-model collaboration;
@@ -84,6 +85,7 @@ not claims about model families in general.
 | 15-case direct text cohort | Gemma 4, Muse Glimmer, and Qwen 3.8 were tightly grouped at the top; Gemma had no hard output failures. |
 | 13-case Ornith comparison | Ornith combined the highest observed mean quality with Qwen-3.6-like warm latency; Glimmer still won more individual cases. |
 | Repeated German text quality | Glimmer won 5/5 METR-summary pairs; Ornith won 5/5 source-grounded-writing pairs and avoided Glimmer's recurring historical/current claim error. |
+| Repeated difficult knowledge | Qwen 3.8 and Glimmer split direct pairs 5–5; Qwen had the markedly narrower score ranges and the safer observed quality floor. |
 | Agentic coding with pinned Pi | Qwen 3.8 was the only model to verify all 3/3 Python, JavaScript, and PHP tasks. |
 | Pi versus the Mini harness | Pi verified 9/15 cells and Mini 6/15, but opposite task-model interactions rule out a universal harness ranking. |
 | Agentic log analysis | All 27 completed reports found the central incident mechanism, yet only 1/30 satisfied the entire deterministic semantic contract. |
@@ -98,6 +100,7 @@ Start with the curated reports:
 - [direct text results](reports/challenger-sweeps/september-2026-model-cohort-quality.md)
 - [Ornith late-challenger study](reports/challenger-sweeps/ornith-1.5-35b-quality.md)
 - [repeated German text quality study](reports/quality-stochasticity/text-quality-v0.1.md)
+- [repeated difficult-knowledge study](reports/quality-stochasticity/knowledge-quality-v0.2-analysis.md)
 - [Coding Track A](reports/coding/coding-track-a-v0.1.md)
 - [Pi versus Mini agentic coding](reports/coding/track-b-pi-vs-mini-system-comparison-v0.3.md)
 - [agentic log incident sweep](reports/agentic/log-incident-capability-sweep-v0.5.md)
@@ -207,6 +210,14 @@ See the [Quality Evaluation Pipeline v0.2](docs/quality-evaluation-v0.2.md)
 for the complete result-file contracts and reveal workflow. The previously
 published v0.1 quality study remains a historical, manually frozen evaluation;
 it is not retroactively represented as a v0.2 pipeline run.
+
+The completed second repeated-quality study is the
+[General-Knowledge Quality Stochasticity Study v0.2](docs/quality-stochasticity-knowledge-v0.2.md).
+It compares Qwen 3.8 with Muse Glimmer on one quantitative and one conceptual
+transfer case, with five fresh repetitions per condition. Its preparation did
+not call Ollama; the later live phase completed 20/20 measured units and used
+Evaluation Pipeline v0.2 before reveal. See the public-safe
+[interpretation](reports/quality-stochasticity/knowledge-quality-v0.2-analysis.md).
 
 Inspect all commands:
 

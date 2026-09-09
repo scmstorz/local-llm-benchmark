@@ -38,6 +38,7 @@ PUBLIC_DOCS = {
     "docs/hard-knowledge-v0.2.md",
     "docs/non-coding-agentic-roadmap.md",
     "docs/quality-evaluation-v0.2.md",
+    "docs/quality-stochasticity-knowledge-v0.2.md",
     "docs/quality-stochasticity-v0.1.md",
     "docs/study-modes.md",
     "docs/summarization-v0.1.md",

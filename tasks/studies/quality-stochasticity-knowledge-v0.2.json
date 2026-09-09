@@ -1,0 +1,205 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "quality-stochasticity-knowledge-v0.2",
+  "study_version": "0.2.0",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-09",
+  "decision_question": "Are Qwen 3.8 and its strongest exact-case challenger stable on difficult German knowledge and transfer work, and does either deployment provide a repeatable quality advantage?",
+  "study_mode": "quality_stochasticity",
+  "implementation_commit": "4c97e5e8b4fabe794f76746f920148422a9805d8",
+  "selection_evidence": {
+    "source_report": "reports/challenger-sweeps/ornith-1.5-35b-quality.json",
+    "selection_rule": "Choose the deployment with the highest prior score against Qwen 3.8 in both selected cases under one internally comparable joint blinded judgment batch.",
+    "selected_challenger": "muse-glimmer:30b-mlx",
+    "alternatives_considered": [
+      "ornith-1.5:35b",
+      "gemma4:31b-mlx"
+    ],
+    "prior_scores": [
+      {
+        "case_id": "general_knowledge.dev.medical-screening-bayes",
+        "qwen3.8:27b-mlx": 88.5,
+        "muse-glimmer:30b-mlx": 94.0
+      },
+      {
+        "case_id": "general_knowledge.dev.ml-evaluation-leakage",
+        "qwen3.8:27b-mlx": 89.5,
+        "muse-glimmer:30b-mlx": 93.5
+      }
+    ],
+    "interpretation": "The prior scores select a decision-relevant boundary; they are not reused as observations in this fresh repeated study."
+  },
+  "runtime": {
+    "name": "ollama",
+    "version": "0.33.2",
+    "binding_source": "Both deployments were last registered under Ollama 0.33.2. The controller must revalidate the live runtime and exact artifact digest before every measured unit."
+  },
+  "deployments": [
+    {
+      "alias": "Q",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "name": "qwen3.8:27b-mlx",
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "size_bytes": 18174721847,
+      "cataloged_quantization": "nvfp4"
+    },
+    {
+      "alias": "G",
+      "deployment_id": "muse-glimmer-30b-mlx-ef32a55b4976-ollama-0-33-2",
+      "name": "muse-glimmer:30b-mlx",
+      "digest": "ef32a55b4976faa955cbab0462d09bd081351ef5b87d73d8fcd299bf17c111d7",
+      "size_bytes": 21232871036,
+      "cataloged_quantization": "runtime artifact metadata does not expose a quantization label"
+    }
+  ],
+  "cases": [
+    {
+      "alias": "B",
+      "case_id": "general_knowledge.dev.medical-screening-bayes",
+      "case_path": "tasks/general-knowledge/dev/medical-screening-bayes/case.json",
+      "num_ctx": 8192,
+      "selection_role": "Quantitative analytical case requiring natural-frequency Bayes reasoning, base-rate calibration and separation of diagnostic accuracy from screening benefit."
+    },
+    {
+      "alias": "L",
+      "case_id": "general_knowledge.dev.ml-evaluation-leakage",
+      "case_path": "tasks/general-knowledge/dev/ml-evaluation-leakage/case.json",
+      "num_ctx": 8192,
+      "selection_role": "Conceptual transfer case requiring an audit of preprocessing leakage, model-selection bias, nested cross-validation and deployment-aligned evaluation."
+    }
+  ],
+  "methodology": {
+    "measured_runs_per_condition": 5,
+    "condition_count": 4,
+    "total_planned_measured_runs": 20,
+    "historical_outputs_reused": false,
+    "quality_candidate": "Every fresh runtime-complete measured generation; failures remain explicit outcomes and are not silently removed.",
+    "generation_settings": {
+      "temperature": 0.0,
+      "seed": 42,
+      "think": false,
+      "num_predict": 2600,
+      "keep_alive": "10m"
+    },
+    "fixed_seed_interpretation": "Operational repeatability under the project's normal deterministic-request configuration, not sampling-temperature or seed sensitivity.",
+    "preload_policy": "After a clean resource gate, preload exactly the selected deployment; preload is excluded from the quality sample and timed separately.",
+    "measurement_phase_label": "warm",
+    "timeout_seconds": 600.0,
+    "automatic_retries": 0,
+    "terminal_failures_repeated": false,
+    "controller_interruption_policy": "Preserve a nonterminal attempt. Reconcile a completed orphan run if present; otherwise permit one replacement because no answer-dependent terminal outcome existed.",
+    "performance_claims": "Descriptive wall time and range only; this is not a performance-tail study.",
+    "reliability_claims": "Observed counts only; n=5 cannot estimate rare-event probabilities precisely."
+  },
+  "execution_order_method": "The first four repetitions form a Williams-style position balance in which every deployment-case condition occupies each within-block position once. The fifth repeats the base order. Blocks avoid identical adjacent conditions and minimize same-deployment boundaries; one cross-block same-deployment transition remains.",
+  "execution_order": [
+    {"position": 1, "unit_id": "qsk02-01", "deployment_alias": "G", "case_alias": "B", "repetition": 2},
+    {"position": 2, "unit_id": "qsk02-02", "deployment_alias": "Q", "case_alias": "L", "repetition": 2},
+    {"position": 3, "unit_id": "qsk02-03", "deployment_alias": "G", "case_alias": "L", "repetition": 2},
+    {"position": 4, "unit_id": "qsk02-04", "deployment_alias": "Q", "case_alias": "B", "repetition": 2},
+    {"position": 5, "unit_id": "qsk02-05", "deployment_alias": "G", "case_alias": "L", "repetition": 4},
+    {"position": 6, "unit_id": "qsk02-06", "deployment_alias": "Q", "case_alias": "B", "repetition": 4},
+    {"position": 7, "unit_id": "qsk02-07", "deployment_alias": "G", "case_alias": "B", "repetition": 4},
+    {"position": 8, "unit_id": "qsk02-08", "deployment_alias": "Q", "case_alias": "L", "repetition": 4},
+    {"position": 9, "unit_id": "qsk02-09", "deployment_alias": "Q", "case_alias": "B", "repetition": 1},
+    {"position": 10, "unit_id": "qsk02-10", "deployment_alias": "G", "case_alias": "L", "repetition": 1},
+    {"position": 11, "unit_id": "qsk02-11", "deployment_alias": "Q", "case_alias": "L", "repetition": 1},
+    {"position": 12, "unit_id": "qsk02-12", "deployment_alias": "G", "case_alias": "B", "repetition": 1},
+    {"position": 13, "unit_id": "qsk02-13", "deployment_alias": "Q", "case_alias": "L", "repetition": 3},
+    {"position": 14, "unit_id": "qsk02-14", "deployment_alias": "G", "case_alias": "B", "repetition": 3},
+    {"position": 15, "unit_id": "qsk02-15", "deployment_alias": "Q", "case_alias": "B", "repetition": 3},
+    {"position": 16, "unit_id": "qsk02-16", "deployment_alias": "G", "case_alias": "L", "repetition": 3},
+    {"position": 17, "unit_id": "qsk02-17", "deployment_alias": "Q", "case_alias": "B", "repetition": 5},
+    {"position": 18, "unit_id": "qsk02-18", "deployment_alias": "G", "case_alias": "L", "repetition": 5},
+    {"position": 19, "unit_id": "qsk02-19", "deployment_alias": "Q", "case_alias": "L", "repetition": 5},
+    {"position": 20, "unit_id": "qsk02-20", "deployment_alias": "G", "case_alias": "B", "repetition": 5}
+  ],
+  "resource_gate": {
+    "loaded_models_must_be_empty_before_each_unit": true,
+    "empty_state_observation_seconds": 15,
+    "deployment_digest_rechecked_before_each_unit": true,
+    "exact_ollama_version_required": true,
+    "model_unloaded_after_each_unit": true,
+    "unexpected_model_activity_pauses_the_study": true,
+    "behat_must_not_be_running": true,
+    "blocking_process_rules": [
+      {"rule_id": "behat_test_runner", "pattern": "(?i)(?:^|[\\s/])(?:vendor/bin/)?behat(?:[\\s]|$)"},
+      {"rule_id": "behat_environment_worker", "pattern": "(?i)(?:--env=behat_test|var/behat-env)"},
+      {"rule_id": "other_test_runner", "pattern": "(?i)(?:^|[\\s/])(?:pytest|phpunit|jest|vitest|mocha|playwright|cypress)(?:[\\s]|$)"},
+      {"rule_id": "package_test_script", "pattern": "(?i)(?:^|[\\s/])(?:npm|pnpm|yarn)(?:[\\s]+run)?[\\s]+test(?:[\\s]|$)"},
+      {"rule_id": "mnemosyn_application", "pattern": "(?i)^(?!.*mnemosyn_mcp\\.py).*mnemosyn"},
+      {"rule_id": "news_or_blog_application", "pattern": "(?i)(?:news-app|blog-read-o-matic)"}
+    ]
+  },
+  "blinding": {
+    "bundle_seed": "quality-stochasticity-knowledge-v0.2-20260909",
+    "fresh_opaque_candidate_ids": true,
+    "one_bundle_per_case": true,
+    "expected_scalar_candidates_per_case": 10,
+    "scalar_scores_frozen_before_pairwise": true,
+    "same_repetition_pairwise_checks_per_case": 5,
+    "expected_pairwise_checks_total": 10,
+    "pairwise_scores_do_not_revise_scalar_scores": true,
+    "private_mapping_opened_only_after_scalar_and_pairwise_freeze": true,
+    "evaluation_pipeline": "quality_evaluation_v0.2"
+  },
+  "reporting": {
+    "quality_scale": "normalized 0-100 under each existing case rubric",
+    "per_condition": [
+      "raw scores",
+      "mean",
+      "median",
+      "standard deviation",
+      "minimum",
+      "maximum",
+      "deterministic compliance",
+      "usable outcomes",
+      "byte-identical groups",
+      "recurring error categories"
+    ],
+    "pairwise": [
+      "wins",
+      "losses",
+      "ties"
+    ],
+    "timing": "raw values, median and range only",
+    "forbidden_claims": [
+      "P90",
+      "P95",
+      "P99",
+      "precise rare-failure probability",
+      "universal composite score"
+    ],
+    "raw_candidates_public": false,
+    "private_mappings_public": false,
+    "sanitized_aggregate_report_planned": true
+  },
+  "authorization": {
+    "live_execution_authorized": true,
+    "authorized_on": "2026-09-09",
+    "scope": "Exactly the frozen 20 measured units, subject to every per-unit resource gate and a later explicit user go-ahead.",
+    "preparation_turn_inference_authorized": false,
+    "next_live_action_requires_explicit_user_go_ahead": true,
+    "remote_push_authorized": false
+  },
+  "frozen_artifacts": [
+    {"path": "reports/challenger-sweeps/ornith-1.5-35b-quality.json", "sha256": "9514d9e295829f3c7c340c9eb771f7365a5aae17e5cd89f88b8fe0a0a6a2fdca"},
+    {"path": "local_llm_benchmark/quality_stochasticity.py", "sha256": "3aa134283af49159c8fd5bbe5e0bee7cd4cca426e66f9d8c0b55adfd6793a4be"},
+    {"path": "local_llm_benchmark/runner.py", "sha256": "5446a65d92386dca99655593fc6dd8f85b9956e495bfa179e82549dc66575c54"},
+    {"path": "local_llm_benchmark/ollama.py", "sha256": "cda83848193dd1ceb3d608c4fe0ae1d6e886fdc1121c2225bd3d2d020cc13102"},
+    {"path": "local_llm_benchmark/log_incident_smokes.py", "sha256": "c3313223eaaef7e1345edb6c392b229eb7420440b650f18bb26e484f16e6bb27"},
+    {"path": "tasks/general-knowledge/prompt/system.txt", "sha256": "a9344b687a84109c8effde6db6d14bc8ccc4c37416dc4c6395807b3920ed2147"},
+    {"path": "tasks/general-knowledge/judge-instructions.md", "sha256": "27ecbddfb41e0e55c5f77bd59e0446391c957989082fa5e30ded43dd8fd33027"},
+    {"path": "tasks/general-knowledge/judge-result.schema.json", "sha256": "11abb5d458d43980a53a7ee0e0c9aa00ad5683821b0d65fa13b36e85f6a9d616"},
+    {"path": "tasks/general-knowledge/dev/medical-screening-bayes/case.json", "sha256": "42a26041a6ed87f184184dc6e5972ea1861e4e4e8338b3089bc989df859fdfff"},
+    {"path": "tasks/general-knowledge/dev/medical-screening-bayes/source-metadata.json", "sha256": "cc7045b147837fcd7a81be2bb4008a424c7b8113134227710a6177194dd48da7"},
+    {"path": "tasks/general-knowledge/dev/medical-screening-bayes/prompt/user.md", "sha256": "1dbad6c00b18886cffa1010496f4080e2d3d43abc4463e6d7d78b93bda49a2f6"},
+    {"path": "tasks/general-knowledge/dev/medical-screening-bayes/benchmark-card.json", "sha256": "78faf9cbb53e58ef46e7aefe643b84d045339d7b2929d16ca0a19eeea684da46"},
+    {"path": "tasks/general-knowledge/dev/medical-screening-bayes/reference.md", "sha256": "dd75d73fdf1af7265fcc3ce00876fbe1b20306c14b169ee165395e2c23edbe48"},
+    {"path": "tasks/general-knowledge/dev/ml-evaluation-leakage/case.json", "sha256": "6792a39a46428c3210261822fa44b9387d6c584fe5118319976100a7c429c40f"},
+    {"path": "tasks/general-knowledge/dev/ml-evaluation-leakage/source-metadata.json", "sha256": "d28f0d6f422e31c0196dbc1c5052683c443cd97edaae9d4b5289f3253024e222"},
+    {"path": "tasks/general-knowledge/dev/ml-evaluation-leakage/prompt/user.md", "sha256": "370ffc2cde226a84808d9accf36c1d43e8fa74fb84c2ecd195c7732623f30d0a"},
+    {"path": "tasks/general-knowledge/dev/ml-evaluation-leakage/benchmark-card.json", "sha256": "d2b81fabc243b91fb0cb45e616f5e724ab560107ff0d4e311e3f1ef8e9598e7d"},
+    {"path": "tasks/general-knowledge/dev/ml-evaluation-leakage/reference.md", "sha256": "de4d1372c38c31804c505afb0b9a15962372be5159e96a295661c4f0eeedba2e"}
+  ]
+}

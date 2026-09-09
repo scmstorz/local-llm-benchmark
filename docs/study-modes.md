@@ -6,12 +6,17 @@ undifferentiated benchmark score.
 
 ## Current decision
 
-The broad **Capability Sweep** and the first **Quality Stochasticity Study** are
-complete. The latter follows the protocol frozen in
+The broad **Capability Sweep** and two initial **Quality Stochasticity Study**
+slices are complete. The first completed study follows the protocol frozen in
 [`quality-stochasticity-v0.1.md`](quality-stochasticity-v0.1.md) and repeats two
 deployments across two discriminative text cases five times per condition. Its
 public-safe result is recorded in
 [`text-quality-v0.1.md`](../reports/quality-stochasticity/text-quality-v0.1.md).
+The second completed study follows
+[`quality-stochasticity-knowledge-v0.2.md`](quality-stochasticity-knowledge-v0.2.md),
+with results in its generated
+[`aggregate`](../reports/quality-stochasticity/knowledge-quality-v0.2.md) and
+curated [`interpretation`](../reports/quality-stochasticity/knowledge-quality-v0.2-analysis.md).
 A **Performance and Reliability Study** remains separate and later.
 
 This staging is a compute-budget decision, not a claim that variation and
@@ -59,7 +64,7 @@ tasks, and which recurring strengths, weaknesses and failure modes appear?
 The current Hard Knowledge v0.2 block remains unchanged and belongs to this
 mode.
 
-## 2. Quality Stochasticity Study — initial slice complete
+## 2. Quality Stochasticity Study — two initial slices complete
 
 ### Question
 
@@ -103,6 +108,23 @@ case; Glimmer produced five variants per case and repeated a consequential
 historical-to-current claim error in three of five writing observations. These
 are observed counts under one fixed request condition, not estimated failure
 probabilities.
+
+### Second completed slice: difficult general knowledge
+
+The second study crosses `qwen3.8:27b-mlx` and
+`muse-glimmer:30b-mlx` with the medical-screening Bayes case and the ML
+evaluation-leakage case. Glimmer was selected as the strongest exact-case
+challenger from an internally comparable prior judgment batch; it led Qwen 3.8
+on both cases. Five fresh repetitions per condition produce 20 measured runs
+and ten predeclared same-repetition pairwise checks.
+
+All 20 fresh generations completed technically and passed deterministic output
+checks. Direct pairwise preferences split 5–5. Qwen's scores remained in the
+narrow ranges 90–92.5 and 91.5–93, while Glimmer ranged from 80–94.5 and
+85.5–95.5. Glimmer produced the highest individual scores but also two Bayes
+answers with a major lead-time contradiction. Qwen therefore supplied the
+stronger observed quality floor for these two tasks; this is not a universal
+model ranking.
 
 Future repeated-quality studies use the additive
 [Evaluation Pipeline v0.2](quality-evaluation-v0.2.md). It validates complete

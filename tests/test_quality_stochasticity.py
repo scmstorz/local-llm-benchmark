@@ -17,6 +17,11 @@ from local_llm_benchmark.quality_stochasticity import (
 from local_llm_benchmark.runner import RunnerError
 
 
+KNOWLEDGE_PLAN_PATH = Path(
+    "tasks/studies/quality-stochasticity-knowledge-v0.2.json"
+)
+
+
 def synthetic_plan() -> dict:
     units = []
     position = 0
@@ -87,6 +92,36 @@ class QualityStochasticityTests(unittest.TestCase):
         self.assertEqual(
             {deployment["alias"] for deployment in plan["deployments"]},
             {"O", "G"},
+        )
+
+    def test_frozen_knowledge_plan_is_complete_and_hash_bound(self) -> None:
+        repo_root = Path.cwd().resolve()
+        loaded = load_quality_plan(
+            repo_root,
+            KNOWLEDGE_PLAN_PATH,
+            require_private_inputs=False,
+        )
+        plan = loaded["plan"]
+        self.assertEqual(plan["study_version"], "0.2.0")
+        self.assertEqual(plan["methodology"]["total_planned_measured_runs"], 20)
+        self.assertEqual(len(plan["execution_order"]), 20)
+        self.assertEqual(
+            {case["alias"] for case in plan["cases"]},
+            {"B", "L"},
+        )
+        self.assertEqual(
+            {deployment["alias"] for deployment in plan["deployments"]},
+            {"Q", "G"},
+        )
+        self.assertEqual(
+            plan["selection_evidence"]["selected_challenger"],
+            "muse-glimmer:30b-mlx",
+        )
+        self.assertFalse(
+            plan["authorization"]["preparation_turn_inference_authorized"]
+        )
+        self.assertTrue(
+            plan["authorization"]["next_live_action_requires_explicit_user_go_ahead"]
         )
 
     def test_structure_requires_the_full_repeated_product(self) -> None:

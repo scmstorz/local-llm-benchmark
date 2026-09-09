@@ -1,0 +1,674 @@
+{
+  "generated_at": "2026-09-09T16:21:34.138909Z",
+  "interpretation": {
+    "composite_score": false,
+    "score_scale": "0-100 within each task-specific rubric",
+    "small_sample_rule": "Raw values, mean, median, sample standard deviation, minimum and maximum are reported. No P90, P95, P99 or precise reliability probability is inferred for n < 10."
+  },
+  "pipeline_version": "0.2.0",
+  "results": [
+    {
+      "case_id": "general_knowledge.dev.medical-screening-bayes",
+      "digest": "ef32a55b4976faa955cbab0462d09bd081351ef5b87d73d8fcd299bf17c111d7",
+      "errors": {
+        "by_severity": [
+          {
+            "count": 4,
+            "value": "minor"
+          },
+          {
+            "count": 2,
+            "value": "major"
+          }
+        ],
+        "by_type": [
+          {
+            "count": 2,
+            "value": "certainty_inflation"
+          },
+          {
+            "count": 2,
+            "value": "contradiction"
+          },
+          {
+            "count": 1,
+            "value": "other"
+          },
+          {
+            "count": 1,
+            "value": "unsupported_addition"
+          }
+        ],
+        "known_error_ids": [],
+        "recurring_known_error_ids": [],
+        "recurring_types": [
+          {
+            "count": 2,
+            "value": "certainty_inflation"
+          },
+          {
+            "count": 2,
+            "value": "contradiction"
+          }
+        ],
+        "total": 6
+      },
+      "model": "muse-glimmer:30b-mlx",
+      "pairwise": {
+        "losses": 3,
+        "ties": 0,
+        "wins": 2
+      },
+      "performance": {
+        "generation_duration_seconds": {
+          "maximum": 28.22921275,
+          "mean": 25.447544892000003,
+          "median_p50": 25.241439959,
+          "minimum": 23.410210542,
+          "n": 5,
+          "standard_deviation_sample": 1.881021809324463,
+          "values": [
+            25.241439959,
+            24.159303375,
+            26.197557834,
+            28.22921275,
+            23.410210542
+          ]
+        },
+        "output_tokens_per_second": {
+          "maximum": 39.341807641910954,
+          "mean": 37.239566970483985,
+          "median_p50": 37.827953516867495,
+          "minimum": 33.86562737212713,
+          "n": 5,
+          "standard_deviation_sample": 2.0543388131347844,
+          "values": [
+            37.08187811473343,
+            38.08056820678092,
+            37.827953516867495,
+            33.86562737212713,
+            39.341807641910954
+          ]
+        },
+        "time_to_first_content_seconds": {
+          "maximum": 8.571382375026587,
+          "mean": 7.927253208204638,
+          "median_p50": 7.744273458985845,
+          "minimum": 7.394856416009134,
+          "n": 5,
+          "standard_deviation_sample": 0.4958569432756697,
+          "values": [
+            7.744273458985845,
+            8.315813166002044,
+            7.609940624999581,
+            8.571382375026587,
+            7.394856416009134
+          ]
+        },
+        "wall_time_seconds": {
+          "maximum": 30.519734458008315,
+          "mean": 27.472052958206042,
+          "median_p50": 27.05751045900979,
+          "minimum": 25.277419791003922,
+          "n": 5,
+          "standard_deviation_sample": 1.9245988744116875,
+          "values": [
+            27.05751045900979,
+            26.78186645801179,
+            27.723733624996385,
+            30.519734458008315,
+            25.277419791003922
+          ]
+        }
+      },
+      "quality": {
+        "deterministic_compliance": 5,
+        "score_distribution": {
+          "maximum": 94.5,
+          "mean": 88.1,
+          "median_p50": 92.0,
+          "minimum": 80.0,
+          "n": 5,
+          "standard_deviation_sample": 6.795218907437787,
+          "values": [
+            80.0,
+            92.5,
+            94.5,
+            81.5,
+            92.0
+          ]
+        },
+        "scores_by_repetition": [
+          {
+            "repetition": 1,
+            "score": 80
+          },
+          {
+            "repetition": 2,
+            "score": 92.5
+          },
+          {
+            "repetition": 3,
+            "score": 94.5
+          },
+          {
+            "repetition": 4,
+            "score": 81.5
+          },
+          {
+            "repetition": 5,
+            "score": 92
+          }
+        ],
+        "usable_outputs": 5,
+        "verdicts": [
+          {
+            "count": 3,
+            "value": "excellent"
+          },
+          {
+            "count": 2,
+            "value": "good"
+          }
+        ]
+      },
+      "reliability": {
+        "failure_categories": [],
+        "planned_runs": 5,
+        "technical_failures": 0,
+        "technical_successes": 5
+      },
+      "variation": {
+        "byte_identical_group_sizes": [],
+        "evaluated_outputs": 5,
+        "unique_response_hashes": 5
+      }
+    },
+    {
+      "case_id": "general_knowledge.dev.medical-screening-bayes",
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "errors": {
+        "by_severity": [
+          {
+            "count": 6,
+            "value": "minor"
+          }
+        ],
+        "by_type": [
+          {
+            "count": 5,
+            "value": "other"
+          },
+          {
+            "count": 1,
+            "value": "certainty_inflation"
+          }
+        ],
+        "known_error_ids": [],
+        "recurring_known_error_ids": [],
+        "recurring_types": [
+          {
+            "count": 5,
+            "value": "other"
+          }
+        ],
+        "total": 6
+      },
+      "model": "qwen3.8:27b-mlx",
+      "pairwise": {
+        "losses": 2,
+        "ties": 0,
+        "wins": 3
+      },
+      "performance": {
+        "generation_duration_seconds": {
+          "maximum": 41.166966458,
+          "mean": 30.158492000000003,
+          "median_p50": 27.503757375,
+          "minimum": 25.279257292,
+          "n": 5,
+          "standard_deviation_sample": 6.626292349491686,
+          "values": [
+            27.503757375,
+            41.166966458,
+            25.458651792,
+            31.383827083,
+            25.279257292
+          ]
+        },
+        "output_tokens_per_second": {
+          "maximum": 47.31151656019942,
+          "mean": 40.83656187260575,
+          "median_p50": 43.484967660714034,
+          "minimum": 28.299389054779503,
+          "n": 5,
+          "standard_deviation_sample": 7.925897527185538,
+          "values": [
+            43.484967660714034,
+            28.299389054779503,
+            46.97813575406318,
+            38.1088003332726,
+            47.31151656019942
+          ]
+        },
+        "time_to_first_content_seconds": {
+          "maximum": 2.5758052919991314,
+          "mean": 1.959570258395979,
+          "median_p50": 1.7728512499888893,
+          "minimum": 1.735430875007296,
+          "n": 5,
+          "standard_deviation_sample": 0.35887739676248426,
+          "values": [
+            1.7728512499888893,
+            2.5758052919991314,
+            1.7359809589979704,
+            1.9777829159866087,
+            1.735430875007296
+          ]
+        },
+        "wall_time_seconds": {
+          "maximum": 43.64665495799272,
+          "mean": 32.0352704165969,
+          "median_p50": 29.196889499988174,
+          "minimum": 26.94104012500611,
+          "n": 5,
+          "standard_deviation_sample": 6.973674890579781,
+          "values": [
+            29.196889499988174,
+            43.64665495799272,
+            27.119356500013964,
+            33.27241099998355,
+            26.94104012500611
+          ]
+        }
+      },
+      "quality": {
+        "deterministic_compliance": 5,
+        "score_distribution": {
+          "maximum": 92.5,
+          "mean": 92.0,
+          "median_p50": 92.5,
+          "minimum": 90.0,
+          "n": 5,
+          "standard_deviation_sample": 1.118033988749895,
+          "values": [
+            92.5,
+            90.0,
+            92.5,
+            92.5,
+            92.5
+          ]
+        },
+        "scores_by_repetition": [
+          {
+            "repetition": 1,
+            "score": 92.5
+          },
+          {
+            "repetition": 2,
+            "score": 90
+          },
+          {
+            "repetition": 3,
+            "score": 92.5
+          },
+          {
+            "repetition": 4,
+            "score": 92.5
+          },
+          {
+            "repetition": 5,
+            "score": 92.5
+          }
+        ],
+        "usable_outputs": 5,
+        "verdicts": [
+          {
+            "count": 5,
+            "value": "excellent"
+          }
+        ]
+      },
+      "reliability": {
+        "failure_categories": [],
+        "planned_runs": 5,
+        "technical_failures": 0,
+        "technical_successes": 5
+      },
+      "variation": {
+        "byte_identical_group_sizes": [
+          4
+        ],
+        "evaluated_outputs": 5,
+        "unique_response_hashes": 2
+      }
+    },
+    {
+      "case_id": "general_knowledge.dev.ml-evaluation-leakage",
+      "digest": "ef32a55b4976faa955cbab0462d09bd081351ef5b87d73d8fcd299bf17c111d7",
+      "errors": {
+        "by_severity": [
+          {
+            "count": 3,
+            "value": "minor"
+          },
+          {
+            "count": 1,
+            "value": "major"
+          }
+        ],
+        "by_type": [
+          {
+            "count": 3,
+            "value": "certainty_inflation"
+          },
+          {
+            "count": 1,
+            "value": "other"
+          }
+        ],
+        "known_error_ids": [],
+        "recurring_known_error_ids": [],
+        "recurring_types": [
+          {
+            "count": 3,
+            "value": "certainty_inflation"
+          }
+        ],
+        "total": 4
+      },
+      "model": "muse-glimmer:30b-mlx",
+      "pairwise": {
+        "losses": 2,
+        "ties": 0,
+        "wins": 3
+      },
+      "performance": {
+        "generation_duration_seconds": {
+          "maximum": 61.318487209,
+          "mean": 35.9142550584,
+          "median_p50": 28.73951475,
+          "minimum": 26.145024458,
+          "n": 5,
+          "standard_deviation_sample": 14.903434618588342,
+          "values": [
+            26.145024458,
+            61.318487209,
+            26.189960834,
+            37.178288041,
+            28.73951475
+          ]
+        },
+        "output_tokens_per_second": {
+          "maximum": 35.50978964400234,
+          "mean": 29.14809959309621,
+          "median_p50": 33.73490820086499,
+          "minimum": 16.716002736766082,
+          "n": 5,
+          "standard_deviation_sample": 8.175625159847216,
+          "values": [
+            33.73490820086499,
+            16.716002736766082,
+            35.50978964400234,
+            24.88011279540132,
+            34.89968458844629
+          ]
+        },
+        "time_to_first_content_seconds": {
+          "maximum": 9.399660625000251,
+          "mean": 5.136731983203208,
+          "median_p50": 4.007016666000709,
+          "minimum": 3.5532565000175964,
+          "n": 5,
+          "standard_deviation_sample": 2.438815255316231,
+          "values": [
+            3.798736166994786,
+            9.399660625000251,
+            4.007016666000709,
+            4.924989958002698,
+            3.5532565000175964
+          ]
+        },
+        "wall_time_seconds": {
+          "maximum": 65.74680754099973,
+          "mean": 38.583495508210035,
+          "median_p50": 30.581545000022743,
+          "minimum": 28.132008959015366,
+          "n": 5,
+          "standard_deviation_sample": 15.934140712361026,
+          "values": [
+            28.132008959015366,
+            65.74680754099973,
+            28.460278540995205,
+            39.996837500017136,
+            30.581545000022743
+          ]
+        }
+      },
+      "quality": {
+        "deterministic_compliance": 5,
+        "score_distribution": {
+          "maximum": 95.5,
+          "mean": 92.2,
+          "median_p50": 94.0,
+          "minimum": 85.5,
+          "n": 5,
+          "standard_deviation_sample": 4.024922359499621,
+          "values": [
+            85.5,
+            94.5,
+            95.5,
+            91.5,
+            94.0
+          ]
+        },
+        "scores_by_repetition": [
+          {
+            "repetition": 1,
+            "score": 85.5
+          },
+          {
+            "repetition": 2,
+            "score": 94.5
+          },
+          {
+            "repetition": 3,
+            "score": 95.5
+          },
+          {
+            "repetition": 4,
+            "score": 91.5
+          },
+          {
+            "repetition": 5,
+            "score": 94
+          }
+        ],
+        "usable_outputs": 5,
+        "verdicts": [
+          {
+            "count": 4,
+            "value": "excellent"
+          },
+          {
+            "count": 1,
+            "value": "good"
+          }
+        ]
+      },
+      "reliability": {
+        "failure_categories": [],
+        "planned_runs": 5,
+        "technical_failures": 0,
+        "technical_successes": 5
+      },
+      "variation": {
+        "byte_identical_group_sizes": [],
+        "evaluated_outputs": 5,
+        "unique_response_hashes": 5
+      }
+    },
+    {
+      "case_id": "general_knowledge.dev.ml-evaluation-leakage",
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "errors": {
+        "by_severity": [
+          {
+            "count": 5,
+            "value": "minor"
+          }
+        ],
+        "by_type": [
+          {
+            "count": 5,
+            "value": "certainty_inflation"
+          }
+        ],
+        "known_error_ids": [],
+        "recurring_known_error_ids": [],
+        "recurring_types": [
+          {
+            "count": 5,
+            "value": "certainty_inflation"
+          }
+        ],
+        "total": 5
+      },
+      "model": "qwen3.8:27b-mlx",
+      "pairwise": {
+        "losses": 3,
+        "ties": 0,
+        "wins": 2
+      },
+      "performance": {
+        "generation_duration_seconds": {
+          "maximum": 42.56512225,
+          "mean": 29.892480816800003,
+          "median_p50": 27.485297959,
+          "minimum": 25.106262916,
+          "n": 5,
+          "standard_deviation_sample": 7.229382339874,
+          "values": [
+            27.485297959,
+            42.56512225,
+            25.612311084,
+            28.693409875,
+            25.106262916
+          ]
+        },
+        "output_tokens_per_second": {
+          "maximum": 45.60615029926663,
+          "mean": 40.30234826979629,
+          "median_p50": 42.24076456190765,
+          "minimum": 28.497510071171003,
+          "n": 5,
+          "standard_deviation_sample": 6.903829583439809,
+          "values": [
+            42.24076456190765,
+            28.497510071171003,
+            44.70506375800195,
+            40.46225265863421,
+            45.60615029926663
+          ]
+        },
+        "time_to_first_content_seconds": {
+          "maximum": 2.1332492920046207,
+          "mean": 1.9707175750052557,
+          "median_p50": 1.9287578750227112,
+          "minimum": 1.86494895798387,
+          "n": 5,
+          "standard_deviation_sample": 0.1033398209490579,
+          "values": [
+            1.86494895798387,
+            1.923049709002953,
+            2.1332492920046207,
+            2.0035820410121232,
+            1.9287578750227112
+          ]
+        },
+        "wall_time_seconds": {
+          "maximum": 44.370732624985976,
+          "mean": 31.759059474803507,
+          "median_p50": 29.27313270798186,
+          "minimum": 26.892878666025354,
+          "n": 5,
+          "standard_deviation_sample": 7.195671401307306,
+          "values": [
+            29.27313270798186,
+            44.370732624985976,
+            27.65188279200811,
+            30.60667058301624,
+            26.892878666025354
+          ]
+        }
+      },
+      "quality": {
+        "deterministic_compliance": 5,
+        "score_distribution": {
+          "maximum": 93.0,
+          "mean": 92.2,
+          "median_p50": 92.5,
+          "minimum": 91.5,
+          "n": 5,
+          "standard_deviation_sample": 0.6708203932499369,
+          "values": [
+            92.5,
+            93.0,
+            91.5,
+            92.5,
+            91.5
+          ]
+        },
+        "scores_by_repetition": [
+          {
+            "repetition": 1,
+            "score": 92.5
+          },
+          {
+            "repetition": 2,
+            "score": 93
+          },
+          {
+            "repetition": 3,
+            "score": 91.5
+          },
+          {
+            "repetition": 4,
+            "score": 92.5
+          },
+          {
+            "repetition": 5,
+            "score": 91.5
+          }
+        ],
+        "usable_outputs": 5,
+        "verdicts": [
+          {
+            "count": 5,
+            "value": "excellent"
+          }
+        ]
+      },
+      "reliability": {
+        "failure_categories": [],
+        "planned_runs": 5,
+        "technical_failures": 0,
+        "technical_successes": 5
+      },
+      "variation": {
+        "byte_identical_group_sizes": [
+          2,
+          2
+        ],
+        "evaluated_outputs": 5,
+        "unique_response_hashes": 3
+      }
+    }
+  ],
+  "schema_version": "quality_evaluation_public_aggregate_v0.2",
+  "source_freezes": {
+    "pairwise_sha256": "6ab5b6a5f9e511860d63788b389bb48d17220e204594c653a2e8fcb26e500816",
+    "scalar_sha256": "6349b889f68bed77e75dee1350341636bd28606b5c50874701ebf1567e905885"
+  },
+  "study_id": "quality-study-20260909T152526Z-090c25b9"
+}
