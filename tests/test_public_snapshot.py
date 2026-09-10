@@ -26,6 +26,7 @@ class PublicSnapshotPolicyTests(unittest.TestCase):
         self.assertTrue(is_public("tasks/general-knowledge/README.md"))
         self.assertTrue(is_public("reports/overview.md"))
         self.assertTrue(is_public("docs/benchmark-design.md"))
+        self.assertTrue(is_public("docs/performance-reliability-v0.1.md"))
         self.assertTrue(is_public("docs/quality-evaluation-v0.2.md"))
         self.assertTrue(
             is_public("docs/quality-stochasticity-knowledge-v0.2.md")

@@ -17,7 +17,13 @@ The second completed study follows
 with results in its generated
 [`aggregate`](../reports/quality-stochasticity/knowledge-quality-v0.2.md) and
 curated [`interpretation`](../reports/quality-stochasticity/knowledge-quality-v0.2-analysis.md).
-A **Performance and Reliability Study** remains separate and later.
+The first **Performance and Reliability Study** is complete. It compares two
+decision-relevant deployments on one natural-output workload and one controlled
+256-token decode workload. Its 80 measured requests remain separate from the
+quality studies; see the generated
+[`aggregate`](../reports/performance-reliability/performance-reliability-v0.1.md)
+and curated
+[`interpretation`](../reports/performance-reliability/performance-reliability-v0.1-analysis.md).
 
 This staging is a compute-budget decision, not a claim that variation and
 reliability are unimportant. Running enough repetitions for defensible latency
@@ -134,7 +140,7 @@ both freezes are hashed, and then generates separate public-safe outcome
 layers. The completed v0.1 study remains historical evidence and is not
 retroactively relabeled as a v0.2 pipeline run.
 
-## 3. Performance and Reliability Study — later
+## 3. Performance and Reliability Study — v0.1 complete
 
 ### Question
 
@@ -166,6 +172,20 @@ visible beside wall time.
 - keep system-idle checks and unrelated Ollama activity monitoring
 - never pool unlike tasks into one runtime distribution without labeling the
   workload mixture explicitly
+
+The frozen v0.1 implementation applies this design to Qwen 3.8 and Ornith. Each
+of the four conditions receives 20 measured observations, divided into four
+five-run blocks to reduce time- and order-confounding. Every block begins with
+an empty-state gate, model preload and one excluded warm-up. See the
+[v0.1 protocol](performance-reliability-v0.1.md).
+
+All 80 measured requests completed technically and passed their deterministic
+output contracts. Ornith had the lower median wall time and higher median
+decode throughput in the controlled 256-token workload. Four Qwen natural
+observations crossed notebook standby; they remain in the primary distribution,
+and the interpretation reports a separate sensitivity view. This preserves the
+predeclared sample while preventing the affected P90 from being mistaken for
+an intrinsic deployment tail.
 
 Percentile thresholds are pragmatic, not guarantees of precision:
 

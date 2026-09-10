@@ -57,6 +57,7 @@ PUBLIC_TEST_MODULES = (
     "tests.test_pi_v03_config",
     "tests.test_pi_v03_qualification",
     "tests.test_pi_v03_report",
+    "tests.test_performance_reliability",
     "tests.test_json_schema",
     "tests.test_quality_evaluation_v02",
     "tests.test_quality_stochasticity",

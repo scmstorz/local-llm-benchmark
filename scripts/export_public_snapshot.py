@@ -37,6 +37,7 @@ PUBLIC_DOCS = {
     "docs/coding-routing-roadmap.md",
     "docs/hard-knowledge-v0.2.md",
     "docs/non-coding-agentic-roadmap.md",
+    "docs/performance-reliability-v0.1.md",
     "docs/quality-evaluation-v0.2.md",
     "docs/quality-stochasticity-knowledge-v0.2.md",
     "docs/quality-stochasticity-v0.1.md",

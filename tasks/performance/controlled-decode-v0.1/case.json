@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "performance.controlled.decode-256",
+  "case_version": "1.0.0",
+  "suite": "performance",
+  "split": "development",
+  "difficulty": "controlled",
+  "task_type": "controlled_decode",
+  "title": "Fixed-input 256-token decode workload",
+  "purpose": "Measure prefill and decode behavior under a fixed prompt and a runtime-enforced output-token ceiling.",
+  "input": {
+    "source_id": "reference.general-knowledge.ml-evaluation-leakage.2026-08-29",
+    "reference_source_path": "tasks/general-knowledge/dev/ml-evaluation-leakage/reference.md",
+    "source_metadata_path": "tasks/general-knowledge/dev/ml-evaluation-leakage/source-metadata.json",
+    "source_artifact_key": "reference_source",
+    "reference_visible_to_candidate": true,
+    "candidate_browsing_allowed": false,
+    "candidate_tools_allowed": false,
+    "minimum_num_ctx": 4096
+  },
+  "prompt": {
+    "version": "1.0.0",
+    "system_path": "tasks/performance/controlled-decode-v0.1/system.txt",
+    "user_template_path": "tasks/performance/controlled-decode-v0.1/user.md",
+    "source_delivery": "candidate",
+    "source_placeholder": "{source_text}"
+  },
+  "output": {
+    "language": "protocol_token",
+    "audience": "Runtime measurement",
+    "format": "The token vector repeated until the runtime cutoff",
+    "target_words": null,
+    "minimum_words": null,
+    "maximum_words": 2000,
+    "external_information_allowed": false,
+    "source_location_labels_allowed": false
+  },
+  "evaluation": {
+    "benchmark_card_path": "tasks/performance/controlled-decode-v0.1/case.json",
+    "benchmark_card_version": "1.0.0",
+    "judge_instructions_path": "tasks/performance/controlled-decode-v0.1/system.txt",
+    "judge_instructions_version": "1.0.0",
+    "judge_result_schema_path": "tasks/performance/controlled-decode-v0.1/case.json",
+    "judge_result_schema_version": "1.0.0",
+    "judge_kind": "deterministic_protocol_only",
+    "paid_judge_api": false
+  }
+}

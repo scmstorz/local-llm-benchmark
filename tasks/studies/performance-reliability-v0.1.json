@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "performance-reliability-v0.1",
+  "study_version": "0.1.0",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-09",
+  "study_mode": "performance_and_reliability",
+  "decision_question": "How do Qwen 3.8 and Ornith differ in steady-state latency, throughput, observed technical reliability and output-contract reliability on one natural and one controlled workload?",
+  "implementation_base_commit": "7650a8e3e6d037050a4f291fa1ed32ee227c1aa5",
+  "runtime": {
+    "name": "ollama",
+    "version": "0.33.2"
+  },
+  "deployments": [
+    {
+      "alias": "Q",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "name": "qwen3.8:27b-mlx",
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "size_bytes": 18174721847,
+      "cataloged_quantization": "nvfp4",
+      "selection_role": "Stable difficult-knowledge and agentic default candidate."
+    },
+    {
+      "alias": "O",
+      "deployment_id": "ornith-1-5-35b-9f3b89b25219-ollama-0-33-2",
+      "name": "ornith-1.5:35b",
+      "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc",
+      "size_bytes": 22616285024,
+      "cataloged_quantization": "Q4_K_M",
+      "selection_role": "Fast and stable source-grounded text default candidate."
+    }
+  ],
+  "workloads": [
+    {
+      "alias": "N",
+      "workload_id": "natural-ml-evaluation-leakage-v0.1",
+      "kind": "natural_output",
+      "case_id": "general_knowledge.dev.ml-evaluation-leakage",
+      "case_path": "tasks/general-knowledge/dev/ml-evaluation-leakage/case.json",
+      "num_ctx": 8192,
+      "num_predict": 2600,
+      "generation_settings": {
+        "temperature": 0.0,
+        "seed": 42,
+        "think": false,
+        "keep_alive": "30m",
+        "timeout_seconds": 600.0
+      },
+      "output_contract": {
+        "required_checks": [
+          "nonempty",
+          "language_pass",
+          "maximum_words_pass",
+          "source_location_labels_absent",
+          "heading_pass",
+          "reasoning_markup_absent",
+          "generation_complete"
+        ],
+        "semantic_quality_verified": false
+      },
+      "interpretation": "Natural answer length is part of experienced latency. These measurements are not pure runtime-speed evidence."
+    },
+    {
+      "alias": "C",
+      "workload_id": "controlled-fixed-input-decode-256-v0.1",
+      "kind": "controlled_decode",
+      "case_id": "performance.controlled.decode-256",
+      "case_path": "tasks/performance/controlled-decode-v0.1/case.json",
+      "num_ctx": 8192,
+      "num_predict": 256,
+      "target_eval_count": 256,
+      "generation_settings": {
+        "temperature": 0.0,
+        "seed": 42,
+        "think": false,
+        "keep_alive": "30m",
+        "timeout_seconds": 600.0
+      },
+      "output_contract": {
+        "required_token": "vector",
+        "required_done_reason": "length",
+        "semantic_quality_verified": false
+      },
+      "interpretation": "The prompt bytes are identical across deployments and output is capped at 256 runtime tokens. Actual prompt-token counts are reported because tokenizers may differ."
+    }
+  ],
+  "methodology": {
+    "warmup_runs_per_block": 1,
+    "warmup_included_in_steady_state": false,
+    "measured_runs_per_block": 5,
+    "segments_per_condition": 4,
+    "measured_runs_per_condition": 20,
+    "condition_count": 4,
+    "total_planned_measured_runs": 80,
+    "total_planned_excluded_warmups": 16,
+    "block_order": "Four Williams-style position-balanced cycles over the four deployment-workload conditions.",
+    "model_load_policy": "Start each block from an empty Ollama state, time one explicit preload, run one excluded warm-up, then at most five measured requests.",
+    "interruption_policy": "Checkpoint after every request. Preserve a terminal measured result; reconcile a completed orphan; otherwise permit one replacement only when no terminal result exists.",
+    "automatic_retries_after_terminal_result": 0,
+    "timeout_seconds": 600.0,
+    "performance_population": "Technically complete measured runs that satisfy the workload-specific deterministic output contract.",
+    "reliability_population": "All 80 planned measured attempts, including infrastructure and output-contract failures."
+  },
+  "execution_order": [
+    {"position": 1, "block_id": "pr01-qn-s1", "deployment_alias": "Q", "workload_alias": "N", "segment": 1, "repetitions": [1, 2, 3, 4, 5]},
+    {"position": 2, "block_id": "pr01-oc-s1", "deployment_alias": "O", "workload_alias": "C", "segment": 1, "repetitions": [1, 2, 3, 4, 5]},
+    {"position": 3, "block_id": "pr01-qc-s1", "deployment_alias": "Q", "workload_alias": "C", "segment": 1, "repetitions": [1, 2, 3, 4, 5]},
+    {"position": 4, "block_id": "pr01-on-s1", "deployment_alias": "O", "workload_alias": "N", "segment": 1, "repetitions": [1, 2, 3, 4, 5]},
+    {"position": 5, "block_id": "pr01-oc-s2", "deployment_alias": "O", "workload_alias": "C", "segment": 2, "repetitions": [6, 7, 8, 9, 10]},
+    {"position": 6, "block_id": "pr01-on-s2", "deployment_alias": "O", "workload_alias": "N", "segment": 2, "repetitions": [6, 7, 8, 9, 10]},
+    {"position": 7, "block_id": "pr01-qn-s2", "deployment_alias": "Q", "workload_alias": "N", "segment": 2, "repetitions": [6, 7, 8, 9, 10]},
+    {"position": 8, "block_id": "pr01-qc-s2", "deployment_alias": "Q", "workload_alias": "C", "segment": 2, "repetitions": [6, 7, 8, 9, 10]},
+    {"position": 9, "block_id": "pr01-on-s3", "deployment_alias": "O", "workload_alias": "N", "segment": 3, "repetitions": [11, 12, 13, 14, 15]},
+    {"position": 10, "block_id": "pr01-qc-s3", "deployment_alias": "Q", "workload_alias": "C", "segment": 3, "repetitions": [11, 12, 13, 14, 15]},
+    {"position": 11, "block_id": "pr01-oc-s3", "deployment_alias": "O", "workload_alias": "C", "segment": 3, "repetitions": [11, 12, 13, 14, 15]},
+    {"position": 12, "block_id": "pr01-qn-s3", "deployment_alias": "Q", "workload_alias": "N", "segment": 3, "repetitions": [11, 12, 13, 14, 15]},
+    {"position": 13, "block_id": "pr01-qc-s4", "deployment_alias": "Q", "workload_alias": "C", "segment": 4, "repetitions": [16, 17, 18, 19, 20]},
+    {"position": 14, "block_id": "pr01-qn-s4", "deployment_alias": "Q", "workload_alias": "N", "segment": 4, "repetitions": [16, 17, 18, 19, 20]},
+    {"position": 15, "block_id": "pr01-on-s4", "deployment_alias": "O", "workload_alias": "N", "segment": 4, "repetitions": [16, 17, 18, 19, 20]},
+    {"position": 16, "block_id": "pr01-oc-s4", "deployment_alias": "O", "workload_alias": "C", "segment": 4, "repetitions": [16, 17, 18, 19, 20]}
+  ],
+  "resource_gate": {
+    "loaded_models_must_be_empty_before_each_block": true,
+    "empty_state_observation_seconds": 15,
+    "guard_before_each_measured_run": true,
+    "model_unloaded_after_each_block": true,
+    "unexpected_model_activity_pauses_the_study": true,
+    "behat_must_not_be_running": true,
+    "blocking_process_rules": [
+      {"rule_id": "behat_test_runner", "pattern": "(?i)(?:^|[\\s/])(?:vendor/bin/)?behat(?:[\\s]|$)"},
+      {"rule_id": "behat_environment_worker", "pattern": "(?i)(?:--env=behat_test|var/behat-env)"},
+      {"rule_id": "other_test_runner", "pattern": "(?i)(?:^|[\\s/])(?:pytest|phpunit|jest|vitest|mocha|playwright|cypress)(?:[\\s]|$)"},
+      {"rule_id": "package_test_script", "pattern": "(?i)(?:^|[\\s/])(?:npm|pnpm|yarn)(?:[\\s]+run)?[\\s]+test(?:[\\s]|$)"},
+      {"rule_id": "mnemosyn_application", "pattern": "(?i)^(?!.*mnemosyn_mcp\\.py).*mnemosyn"},
+      {"rule_id": "news_or_blog_application", "pattern": "(?i)(?:news-app|blog-read-o-matic)"}
+    ]
+  },
+  "failure_taxonomy": {
+    "infrastructure": [
+      "timeout",
+      "runtime_unavailable",
+      "runtime_crash",
+      "out_of_memory",
+      "model_load_failure",
+      "cleanup_failure",
+      "other"
+    ],
+    "output_contract": [
+      "empty_output",
+      "malformed_output",
+      "generation_truncated_or_short",
+      "natural_task_contract_failed"
+    ],
+    "separation_rule": "Infrastructure completion and output-contract success are stored and reported independently."
+  },
+  "reporting": {
+    "raw_per_attempt_data_persisted": true,
+    "mean": true,
+    "sample_standard_deviation": true,
+    "minimum": true,
+    "median_p50": true,
+    "maximum": true,
+    "p90_minimum_n": 20,
+    "p95_minimum_n": 50,
+    "p99_minimum_n": 100,
+    "percentile_method": "nearest_rank",
+    "quality_evaluated": false,
+    "composite_score": false,
+    "public_json_path": "reports/performance-reliability/performance-reliability-v0.1.json",
+    "public_markdown_path": "reports/performance-reliability/performance-reliability-v0.1.md",
+    "interpretation_limits": [
+      "P90 is exploratory at n=20.",
+      "P95 and P99 are forbidden at this sample size.",
+      "Observed failure rates are sample counts, not precise population probabilities.",
+      "Natural-output latency includes response-length differences.",
+      "No semantic-quality or cost-per-verified-success claim is supported."
+    ]
+  },
+  "authorization": {
+    "live_execution_authorized": true,
+    "authorized_on": "2026-09-09",
+    "scope": "Exactly 80 measured requests plus 16 excluded warm-ups, subject to every resource gate and the 600-second per-request timeout.",
+    "remote_push_authorized": false
+  },
+  "frozen_artifacts": [
+    {"path": "local_llm_benchmark/performance_reliability.py", "sha256": "a311d9af5c2fad41b51d33541b5aa4649e819bda7eb46eff85062acec286941e"},
+    {"path": "local_llm_benchmark/runner.py", "sha256": "5446a65d92386dca99655593fc6dd8f85b9956e495bfa179e82549dc66575c54"},
+    {"path": "local_llm_benchmark/ollama.py", "sha256": "cda83848193dd1ceb3d608c4fe0ae1d6e886fdc1121c2225bd3d2d020cc13102"},
+    {"path": "local_llm_benchmark/checks.py", "sha256": "1a322df3170c6ef17078a957765a0d550c792284507d05ac19f8068d986552ac"},
+    {"path": "local_llm_benchmark/log_incident_smokes.py", "sha256": "c3313223eaaef7e1345edb6c392b229eb7420440b650f18bb26e484f16e6bb27"},
+    {"path": "tasks/performance/controlled-decode-v0.1/case.json", "sha256": "40e4a71f47db44d547d5d882437854413fb7ea2cda1311d0e6230d1ef5e59285"},
+    {"path": "tasks/performance/controlled-decode-v0.1/system.txt", "sha256": "ce4badaaa5f3eee16a10fcda5cca1e158aba2682de2e657b1ded195c911c435e"},
+    {"path": "tasks/performance/controlled-decode-v0.1/user.md", "sha256": "7dcd103a0d9cbc6c0a8e51bf6bee60ef229532c206603560803fe8bd0c57874c"},
+    {"path": "tasks/general-knowledge/dev/ml-evaluation-leakage/case.json", "sha256": "6792a39a46428c3210261822fa44b9387d6c584fe5118319976100a7c429c40f"},
+    {"path": "tasks/general-knowledge/dev/ml-evaluation-leakage/source-metadata.json", "sha256": "d28f0d6f422e31c0196dbc1c5052683c443cd97edaae9d4b5289f3253024e222"},
+    {"path": "tasks/general-knowledge/dev/ml-evaluation-leakage/reference.md", "sha256": "de4d1372c38c31804c505afb0b9a15962372be5159e96a295661c4f0eeedba2e"},
+    {"path": "tasks/general-knowledge/prompt/system.txt", "sha256": "a9344b687a84109c8effde6db6d14bc8ccc4c37416dc4c6395807b3920ed2147"},
+    {"path": "tasks/general-knowledge/dev/ml-evaluation-leakage/prompt/user.md", "sha256": "370ffc2cde226a84808d9accf36c1d43e8fa74fb84c2ecd195c7732623f30d0a"}
+  ]
+}
