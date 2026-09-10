@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "executive_summary": "A phased rollout may proceed for North only. North passes the regional quality and capacity gates. Central, West and East each fail one decisive regional gate. The portfolio GO dashboard is not a valid substitute for the policy's region-level rule, and the final PDF table supersedes its preliminary values.",
+  "decision": {
+    "code": "phased_go",
+    "approved_regions": ["north"],
+    "blocked_regions": [
+      {"region": "central", "blocker_code": "sev2_above_limit", "explanation": "Central has three open Sev-2 issues; the policy permits at most two."},
+      {"region": "west", "blocker_code": "completion_below_threshold", "explanation": "West is at 94% completion; the policy requires at least 95%."},
+      {"region": "east", "blocker_code": "open_sev1", "explanation": "East has one open Sev-1 issue; the policy requires zero."}
+    ]
+  },
+  "evidence": [
+    {"fact_code": "POL-GATES", "source_ref": "rollout-policy.docx#table=Regional-gates", "supports": "Defines the four mandatory regional gates."},
+    {"fact_code": "POL-REGION", "source_ref": "rollout-policy.docx#heading=Decision-rule", "supports": "Requires region-level rather than portfolio-level evaluation."},
+    {"fact_code": "POL-PHASE", "source_ref": "rollout-policy.docx#heading=Phased-release", "supports": "Allows a phased launch when at least one region passes."},
+    {"fact_code": "POL-CUTOFF", "source_ref": "rollout-policy.docx#heading=Evidence-cutoff", "supports": "Fixes the applicable evidence time."},
+    {"fact_code": "REL-PRELIMINARY", "source_ref": "reliability-review.pdf#page=2&table=Preliminary-validation", "supports": "Identifies the stale preliminary regional values."},
+    {"fact_code": "REL-FINAL", "source_ref": "reliability-review.pdf#page=3&note=Final-table", "supports": "Establishes that the final table supersedes page 2."},
+    {"fact_code": "REL-NORTH", "source_ref": "reliability-review.pdf#page=3&table=Final-validation&row=North", "supports": "North passes completion and issue-count gates."},
+    {"fact_code": "REL-CENTRAL", "source_ref": "reliability-review.pdf#page=3&table=Final-validation&row=Central", "supports": "Central exceeds the Sev-2 limit."},
+    {"fact_code": "REL-WEST", "source_ref": "reliability-review.pdf#page=3&table=Final-validation&row=West", "supports": "West misses the completion threshold."},
+    {"fact_code": "REL-EAST", "source_ref": "reliability-review.pdf#page=3&table=Final-validation&row=East", "supports": "East has an open Sev-1 issue."},
+    {"fact_code": "CAP-NORTH", "source_ref": "regional-readiness.xlsx#sheet=Capacity&range=B4:E4", "supports": "North's formula-derived capacity ratio of 1.2685 exceeds 1.25."},
+    {"fact_code": "DASH-STATUS", "source_ref": "regional-readiness.xlsx#sheet=Summary&range=B3:B5", "supports": "The displayed portfolio GO is based on aggregation and conflicts with policy."}
+  ],
+  "conflicts": [
+    {
+      "code": "preliminary_validation_superseded",
+      "source_refs": [
+        "reliability-review.pdf#page=2&table=Preliminary-validation",
+        "reliability-review.pdf#page=3&note=Final-table"
+      ],
+      "resolution": "Use the final page-3 table because the document explicitly supersedes the preliminary page-2 values at the cutoff."
+    },
+    {
+      "code": "aggregate_dashboard_overstates_readiness",
+      "source_refs": [
+        "rollout-policy.docx#heading=Decision-rule",
+        "regional-readiness.xlsx#sheet=Summary&range=B3:B5"
+      ],
+      "resolution": "Ignore the aggregate GO for eligibility and apply every gate to each region independently."
+    }
+  ],
+  "recommended_actions": [
+    {"code": "launch_north_only", "rationale": "North is the only region with evidence that passes all four gates."},
+    {"code": "hold_blocked_regions", "rationale": "Central, West and East each have one decisive failed gate."},
+    {"code": "correct_dashboard_logic", "rationale": "The dashboard must apply regional gates instead of portfolio aggregates."},
+    {"code": "reassess_after_new_evidence", "rationale": "Re-evaluate blocked regions after remediation evidence is finalized under a new cutoff."}
+  ],
+  "uncertainties": [
+    {"code": "remediation_completion_dates_unknown", "reason": "The dossier does not give committed closure dates for the failed gates."},
+    {"code": "post_cutoff_changes_unknown", "reason": "The decision package intentionally contains no evidence after the stated cutoff."}
+  ]
+}

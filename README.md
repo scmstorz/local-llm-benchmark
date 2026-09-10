@@ -56,6 +56,11 @@ The task and verifier remain fixed while the complete harness changes.
 - 3 coding tasks with public and candidate-hidden tests
 - 3 synthetic, multi-file log incident investigations with read-only tools
 
+A first read-only multi-format decision case now has a tested semantic contract
+for Word, PDF and Excel evidence. Its binary artifacts and harness remain
+deliberately unqualified, so it is not yet part of the executable suite. See
+the [v0.1 design and gate status](docs/multi-format-document-analysis-v0.1.md).
+
 OpenCode has a qualification card but is not yet admitted to measured runs.
 
 ### Current and planned studies

@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "multi-format-document-analysis-v0.1",
+  "status": "design_complete_artifacts_pending",
+  "case_id": "agentic.documents.rollout-readiness-reconciliation",
+  "live_inference_performed": false,
+  "live_execution_authorized": false,
+  "completed_gates": [
+    "decision question defined",
+    "Track A canonical-representation and Track B real-artifact conditions separated",
+    "source blueprint defines DOCX, PDF and XLSX evidence roles",
+    "strict output schema defined",
+    "controlled semantic ground truth defined",
+    "reference report passes deterministic verifier",
+    "targeted semantic near-miss tests implemented",
+    "free-text review boundary defined"
+  ],
+  "blocking_gates": [
+    "generate the three real binary artifacts with approved artifact runtimes",
+    "render and visually inspect every DOCX and PDF page and every XLSX sheet",
+    "freeze binary hashes and tool/runtime versions",
+    "create and reconcile canonical extractions against visual source truth",
+    "qualify the read-only artifact tool surface",
+    "run one excluded harness smoke per admitted complete system",
+    "freeze a measured model/harness plan after qualification"
+  ],
+  "prohibited_claims": [
+    "the case is executable",
+    "the harness can read office files",
+    "binary and canonical conditions are directly interchangeable",
+    "the verifier alone establishes free-text factual correctness",
+    "performance on this case measures OCR, document editing or spreadsheet repair"
+  ]
+}

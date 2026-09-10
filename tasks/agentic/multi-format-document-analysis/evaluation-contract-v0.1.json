@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "contract_version": "0.1",
+  "task_family": "document_decision_reconciliation",
+  "primary_outcome": "semantic_verified_success",
+  "strict_transport_scored_separately": true,
+  "supplemental_free_text_review_required": true,
+  "essential_checks": [
+    {
+      "check_id": "report_schema",
+      "visible_marker": "[REPORT_SCHEMA]",
+      "purpose": "The report matches the strict structured-output schema."
+    },
+    {
+      "check_id": "decision",
+      "visible_marker": "[DECISION]",
+      "purpose": "The overall launch decision follows policy and final evidence."
+    },
+    {
+      "check_id": "approved_regions",
+      "visible_marker": "[APPROVED_REGIONS]",
+      "purpose": "Only regions that pass every applicable gate are approved."
+    },
+    {
+      "check_id": "region_blockers",
+      "visible_marker": "[REGION_BLOCKERS]",
+      "purpose": "Every held region is paired with its decisive failed gate."
+    },
+    {
+      "check_id": "citation_integrity",
+      "visible_marker": "[CITATION_INTEGRITY]",
+      "purpose": "Fact codes point to exact known artifact anchors."
+    },
+    {
+      "check_id": "required_evidence",
+      "visible_marker": "[REQUIRED_EVIDENCE]",
+      "purpose": "All facts required for the decision and conflicts are cited."
+    },
+    {
+      "check_id": "cross_format_coverage",
+      "visible_marker": "[CROSS_FORMAT_COVERAGE]",
+      "purpose": "The decision uses necessary evidence from DOCX, PDF and XLSX."
+    },
+    {
+      "check_id": "conflict_resolution",
+      "visible_marker": "[CONFLICT_RESOLUTION]",
+      "purpose": "Superseded and misleading aggregate evidence is resolved."
+    },
+    {
+      "check_id": "action_plan",
+      "visible_marker": "[ACTION_PLAN]",
+      "purpose": "The minimum safe rollout and evidence-correction actions are present."
+    },
+    {
+      "check_id": "uncertainty",
+      "visible_marker": "[UNCERTAINTY]",
+      "purpose": "Unknown future remediation and post-cutoff state remain explicit."
+    },
+    {
+      "check_id": "controlled_value_integrity",
+      "visible_marker": "[CONTROLLED_VALUES]",
+      "purpose": "Controlled result values come only from the visible codebook."
+    }
+  ],
+  "not_deterministically_interpreted": [
+    "executive-summary claim polarity",
+    "free-text explanation entailment",
+    "rationale quality",
+    "German writing quality",
+    "decision usefulness"
+  ]
+}

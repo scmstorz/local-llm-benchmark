@@ -51,6 +51,7 @@ PUBLIC_TEST_MODULES = (
     "tests.test_mini_v03_sweep_plan",
     "tests.test_model_catalog",
     "tests.test_model_lifecycle",
+    "tests.test_multi_format_document_analysis",
     "tests.test_ollama",
     "tests.test_opencode_qualification_card",
     "tests.test_pi_report",

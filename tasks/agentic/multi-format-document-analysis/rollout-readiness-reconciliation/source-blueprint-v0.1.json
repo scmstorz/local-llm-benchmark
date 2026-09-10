@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "agentic.documents.rollout-readiness-reconciliation",
+  "blueprint_version": "1.0.0",
+  "synthetic": true,
+  "artifacts": [
+    {
+      "format": "docx",
+      "filename": "rollout-policy.docx",
+      "role": "governance policy and decision rule",
+      "design_preset": "standard_business_brief",
+      "header_pattern": "memo_masthead",
+      "planned_complexity": [
+        "policy thresholds in a real Word table",
+        "a region-level rule in prose",
+        "a phased-go rule separate from the thresholds"
+      ]
+    },
+    {
+      "format": "pdf",
+      "filename": "reliability-review.pdf",
+      "role": "regional release-validation evidence",
+      "planned_complexity": [
+        "a preliminary table followed by an explicitly superseding final table",
+        "page-specific evidence anchors",
+        "a note defining the evidence cutoff"
+      ]
+    },
+    {
+      "format": "xlsx",
+      "filename": "regional-readiness.xlsx",
+      "role": "capacity inputs, formulas and portfolio dashboard",
+      "planned_complexity": [
+        "separate Summary and Capacity sheets",
+        "typed numeric inputs and formula-derived capacity ratios",
+        "a deliberately misleading aggregate GO formula preserved as evidence"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_code": "POL-GATES",
+      "artifact": "docx",
+      "source_ref": "rollout-policy.docx#table=Regional-gates",
+      "content": "A region passes only with completion >= 95%, open Sev-1 = 0, open Sev-2 <= 2, and support capacity / projected peak load >= 1.25."
+    },
+    {
+      "fact_code": "POL-REGION",
+      "artifact": "docx",
+      "source_ref": "rollout-policy.docx#heading=Decision-rule",
+      "content": "Every gate is applied per region; portfolio averages cannot substitute for a failed regional gate."
+    },
+    {
+      "fact_code": "POL-PHASE",
+      "artifact": "docx",
+      "source_ref": "rollout-policy.docx#heading=Phased-release",
+      "content": "A phased launch may proceed when at least one region passes all gates, but only passing regions may launch."
+    },
+    {
+      "fact_code": "POL-CUTOFF",
+      "artifact": "docx",
+      "source_ref": "rollout-policy.docx#heading=Evidence-cutoff",
+      "content": "The decision uses evidence finalized by 2026-08-31 18:00 UTC."
+    },
+    {
+      "fact_code": "REL-PRELIMINARY",
+      "artifact": "pdf",
+      "source_ref": "reliability-review.pdf#page=2&table=Preliminary-validation",
+      "content": "The preliminary table lists Central with two Sev-2 issues and East with zero Sev-1 issues."
+    },
+    {
+      "fact_code": "REL-FINAL",
+      "artifact": "pdf",
+      "source_ref": "reliability-review.pdf#page=3&note=Final-table",
+      "content": "The final table on page 3 supersedes the preliminary table on page 2 and is the evidence finalized at the cutoff."
+    },
+    {
+      "fact_code": "REL-NORTH",
+      "artifact": "pdf",
+      "source_ref": "reliability-review.pdf#page=3&table=Final-validation&row=North",
+      "content": "North: 97% completion, zero open Sev-1, one open Sev-2."
+    },
+    {
+      "fact_code": "REL-CENTRAL",
+      "artifact": "pdf",
+      "source_ref": "reliability-review.pdf#page=3&table=Final-validation&row=Central",
+      "content": "Central: 96% completion, zero open Sev-1, three open Sev-2."
+    },
+    {
+      "fact_code": "REL-WEST",
+      "artifact": "pdf",
+      "source_ref": "reliability-review.pdf#page=3&table=Final-validation&row=West",
+      "content": "West: 94% completion, zero open Sev-1, zero open Sev-2."
+    },
+    {
+      "fact_code": "REL-EAST",
+      "artifact": "pdf",
+      "source_ref": "reliability-review.pdf#page=3&table=Final-validation&row=East",
+      "content": "East: 98% completion, one open Sev-1, zero open Sev-2."
+    },
+    {
+      "fact_code": "CAP-NORTH",
+      "artifact": "xlsx",
+      "source_ref": "regional-readiness.xlsx#sheet=Capacity&range=B4:E4",
+      "content": "North has support capacity 137 and projected peak load 108; the formula ratio is 1.2685."
+    },
+    {
+      "fact_code": "CAP-CENTRAL",
+      "artifact": "xlsx",
+      "source_ref": "regional-readiness.xlsx#sheet=Capacity&range=B5:E5",
+      "content": "Central has support capacity 150 and projected peak load 117; the formula ratio is 1.2821."
+    },
+    {
+      "fact_code": "CAP-WEST",
+      "artifact": "xlsx",
+      "source_ref": "regional-readiness.xlsx#sheet=Capacity&range=B6:E6",
+      "content": "West has support capacity 150 and projected peak load 100; the formula ratio is 1.5000."
+    },
+    {
+      "fact_code": "CAP-EAST",
+      "artifact": "xlsx",
+      "source_ref": "regional-readiness.xlsx#sheet=Capacity&range=B7:E7",
+      "content": "East has support capacity 180 and projected peak load 130; the formula ratio is 1.3846."
+    },
+    {
+      "fact_code": "DASH-STATUS",
+      "artifact": "xlsx",
+      "source_ref": "regional-readiness.xlsx#sheet=Summary&range=B3:B5",
+      "content": "The portfolio dashboard displays GO because it aggregates completion and issue counts instead of applying all gates per region."
+    }
+  ],
+  "artifact_creation_gates": {
+    "docx": [
+      "created with an approved document runtime",
+      "preset and table-geometry audit passes",
+      "all rendered pages inspected"
+    ],
+    "pdf": [
+      "created with the approved PDF workflow",
+      "text extraction reconciles with intended facts",
+      "all rendered pages inspected"
+    ],
+    "xlsx": [
+      "created with @oai/artifact-tool from the workspace dependency loader",
+      "values and formulas inspected",
+      "formula-error scan passes except the intentionally wrong business rule",
+      "all sheets rendered and inspected"
+    ]
+  }
+}

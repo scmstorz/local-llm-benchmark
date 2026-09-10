@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "agentic.documents.rollout-readiness-reconciliation",
+  "verifier_version": "1.0.0",
+  "visible_controlled_values": {
+    "decision_codes": ["full_go", "phased_go", "no_go", "insufficient_evidence"],
+    "region_codes": ["north", "central", "west", "east"],
+    "blocker_codes": ["completion_below_threshold", "open_sev1", "sev2_above_limit", "capacity_below_threshold", "missing_evidence"],
+    "conflict_codes": ["preliminary_validation_superseded", "aggregate_dashboard_overstates_readiness"],
+    "action_codes": ["launch_north_only", "hold_blocked_regions", "correct_dashboard_logic", "reassess_after_new_evidence", "request_exception"],
+    "uncertainty_codes": ["remediation_completion_dates_unknown", "post_cutoff_changes_unknown", "support_roster_quality_unknown"]
+  },
+  "decision_code": "phased_go",
+  "approved_regions": ["north"],
+  "blocked_regions": [
+    {"region": "central", "blocker_code": "sev2_above_limit"},
+    {"region": "west", "blocker_code": "completion_below_threshold"},
+    {"region": "east", "blocker_code": "open_sev1"}
+  ],
+  "required_fact_codes": [
+    "POL-GATES",
+    "POL-REGION",
+    "POL-PHASE",
+    "POL-CUTOFF",
+    "REL-PRELIMINARY",
+    "REL-FINAL",
+    "REL-NORTH",
+    "REL-CENTRAL",
+    "REL-WEST",
+    "REL-EAST",
+    "CAP-NORTH",
+    "DASH-STATUS"
+  ],
+  "required_conflicts": [
+    {
+      "code": "preliminary_validation_superseded",
+      "source_refs": [
+        "reliability-review.pdf#page=2&table=Preliminary-validation",
+        "reliability-review.pdf#page=3&note=Final-table"
+      ]
+    },
+    {
+      "code": "aggregate_dashboard_overstates_readiness",
+      "source_refs": [
+        "rollout-policy.docx#heading=Decision-rule",
+        "regional-readiness.xlsx#sheet=Summary&range=B3:B5"
+      ]
+    }
+  ],
+  "required_action_codes": [
+    "launch_north_only",
+    "hold_blocked_regions",
+    "correct_dashboard_logic",
+    "reassess_after_new_evidence"
+  ],
+  "required_uncertainty_codes": [
+    "remediation_completion_dates_unknown",
+    "post_cutoff_changes_unknown"
+  ]
+}

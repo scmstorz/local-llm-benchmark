@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "agentic.documents.rollout-readiness-reconciliation",
+  "case_version": "1.0.0",
+  "track": "A+B",
+  "task_family": "document_decision_reconciliation",
+  "status": "design_complete_artifacts_pending",
+  "live_execution_authorized": false,
+  "artifact_generation_complete": false,
+  "canonical_extraction_complete": false,
+  "task_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/TASK-v0.1.md",
+  "source_blueprint_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/source-blueprint-v0.1.json",
+  "planned_artifact_root": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/fixture",
+  "candidate_context": {
+    "read_only": true,
+    "browsing_allowed": false,
+    "shared_state_allowed": false,
+    "planned_files": [
+      "rollout-policy.docx",
+      "reliability-review.pdf",
+      "regional-readiness.xlsx"
+    ]
+  },
+  "evaluation_conditions": [
+    {
+      "condition_id": "canonical-representation",
+      "track": "A",
+      "question": "Can the model reason over a common frozen extraction?",
+      "artifact_tooling_is_part_of_identity": false
+    },
+    {
+      "condition_id": "real-artifact-harness",
+      "track": "B",
+      "question": "Can the complete harness discover and extract the same evidence from real artifacts?",
+      "artifact_tooling_is_part_of_identity": true
+    }
+  ],
+  "output_contract": {
+    "format": "structured_decision_report",
+    "version": "1.0.0",
+    "schema_path": "tasks/agentic/multi-format-document-analysis/report-schema-v1.json",
+    "strict_json_transport_scored_separately": true,
+    "maximum_serialized_bytes": 32768
+  },
+  "verification": {
+    "version": "1.0.0",
+    "ground_truth_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/reference/ground-truth-v0.1.json",
+    "reference_report_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/reference/reference-report-v0.1.json",
+    "implementation_path": "local_llm_benchmark/multi_format_document_analysis.py"
+  },
+  "evaluation": {
+    "contract_path": "tasks/agentic/multi-format-document-analysis/evaluation-contract-v0.1.json",
+    "primary_outcome": "semantic_verified_success",
+    "supplemental_free_text_review_required": true,
+    "llm_judge_required_for_measured_capability": true,
+    "composite_score": false
+  }
+}

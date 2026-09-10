@@ -687,6 +687,14 @@ be retroactively expanded.
 These families remain deliberately out of the immediate implementation scope.
 Their order is frozen as a planning preference, not as an experiment design.
 
+The first cross-format read-only decision case now has a tested semantic
+contract and source blueprint, but no binary artifacts or qualified harness.
+Its [v0.1 design](multi-format-document-analysis-v0.1.md) admits XLSX, DOCX and
+PDF extraction one family at a time before they may appear together in a
+measured run. Spreadsheet repair, Word assembly and PDF/OCR below remain
+distinct manipulation tasks; the design-stage analysis case does not complete
+or supersede them.
+
 ### 2. Spreadsheet Repair and Reporting
 
 Use real `.xlsx` and CSV artifacts with deterministic checks for values,

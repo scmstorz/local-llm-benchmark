@@ -8,6 +8,12 @@ task named `v0.5` therefore does not imply project release `v0.5.0`.
 
 ### Added
 
+- a complete Performance and Reliability Study v0.1 with 80 measured requests,
+  separate natural and controlled-decode workloads, per-attempt raw metrics,
+  exploratory P90 reporting and an explicit notebook-standby sensitivity view;
+- a design-complete, execution-locked multi-format decision case with separate
+  canonical-representation and real-artifact conditions, strict structured
+  output, controlled ground truth and 11 deterministic semantic checks;
 - Evaluation Pipeline v0.2 with schema-valid scalar imports, exact candidate
   coverage, immutable SHA-256-bound scalar and pairwise freezes, and a
   model-mapping reveal that is unavailable before both judgment phases finish;

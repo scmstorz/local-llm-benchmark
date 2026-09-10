@@ -36,6 +36,7 @@ PUBLIC_DOCS = {
     "docs/benchmark-design.md",
     "docs/coding-routing-roadmap.md",
     "docs/hard-knowledge-v0.2.md",
+    "docs/multi-format-document-analysis-v0.1.md",
     "docs/non-coding-agentic-roadmap.md",
     "docs/performance-reliability-v0.1.md",
     "docs/quality-evaluation-v0.2.md",
