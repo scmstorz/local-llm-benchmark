@@ -1,0 +1,719 @@
+{
+  "generation_scope": {
+    "automatic_retries": 0,
+    "companion_cold_generations": 12,
+    "historical_answers_reused": false,
+    "measured_warm_observations": 12,
+    "observations_per_condition": 3,
+    "total_native_generations": 24
+  },
+  "generation_settings": {
+    "keep_alive": "10m",
+    "num_ctx": 8192,
+    "num_predict": 2600,
+    "seed": 42,
+    "temperature": 0,
+    "think": false,
+    "timeout_seconds": 600
+  },
+  "integrity": {
+    "all_native_joins_and_aggregates_reproduce": true,
+    "clean_resource_gates": 12,
+    "empty_postflights": 12,
+    "native_records_verified": 24,
+    "native_request_payloads_match_original_conditions": true,
+    "original_case_and_hardware_match": true,
+    "parent_plan_sha256": "2d552c728d735c13b1af7939169adb6e2ce08300771ff91bf2fc4aa3b4f48f5d",
+    "private_closeout_sha256": "7a0c3090e3bd4892b8b026b7994076c7378689191294f058293511c62a497324",
+    "source_fingerprints_validated": 411
+  },
+  "methodology": {
+    "blinding": "Partial cognitive blinding: prior answers/scores, error hypotheses and orchestration were known. All twelve fresh scalar judgments and six pairwise judgments were frozen before opening the current maps.",
+    "fixed_seed_interpretation": "Operational repeatability at temperature zero and seed 42; not seed/temperature sensitivity or independent random draws.",
+    "historical_scalar_judgments_copied": false,
+    "interpretation_limits": [
+      "Three observations per condition are exploratory.",
+      "Byte-identical responses are preserved and are not independent text variants or independent judge opinions.",
+      "No tail latency, rare-event probability, universal rank or cross-task composite score.",
+      "New-versus-old scalar differences are not a measured improvement of identical text."
+    ],
+    "paid_judge_api_used": false,
+    "pairwise_policy": "All three predeclared same-repetition cross-deployment pairs per case; no scalar revision.",
+    "warm_definition": "Immediate second generation after a same-task cold generation; same as the completed core comparison.",
+    "writing_heading_diagnostic": "Native generic all-checks compliance includes heading_pass and is therefore zero for these heading-free posts. The writing rubric requires no heading; applicable_native_checks_passed excludes this diagnostic, and no score cap is applied."
+  },
+  "results": [
+    {
+      "applicable_native_checks_passed": 3,
+      "case_id": "general_knowledge.dev.medical-screening-bayes",
+      "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc",
+      "errors": {
+        "by_severity": [
+          {
+            "count": 6,
+            "value": "major"
+          },
+          {
+            "count": 3,
+            "value": "minor"
+          }
+        ],
+        "by_type": [
+          {
+            "count": 6,
+            "value": "contradiction"
+          },
+          {
+            "count": 3,
+            "value": "numeric_error"
+          }
+        ],
+        "known_error_ids": [],
+        "recurring_known_error_ids": [],
+        "recurring_types": [
+          {
+            "count": 6,
+            "value": "contradiction"
+          },
+          {
+            "count": 3,
+            "value": "numeric_error"
+          }
+        ],
+        "total": 9
+      },
+      "exact_error_recurrence": {
+        "completion_time_increase_called_productivity_increase": 0,
+        "false_negative_called_true_negative": 3,
+        "mortality_direction_reversed": 3
+      },
+      "model": "ornith-1.5:35b",
+      "pairwise": {
+        "losses": 3,
+        "ties": 0,
+        "wins": 0
+      },
+      "performance": {
+        "generation_duration_seconds": {
+          "maximum": 21.939245,
+          "mean": 14.888565,
+          "median_p50": 11.518148,
+          "minimum": 11.208302,
+          "n": 3,
+          "standard_deviation_sample": 6.108033028948763,
+          "values": [
+            21.939245,
+            11.518148,
+            11.208302
+          ]
+        },
+        "output_tokens_per_second": {
+          "maximum": 100.72890612690486,
+          "mean": 83.40281013343314,
+          "median_p50": 98.01923017485103,
+          "minimum": 51.4602940985435,
+          "n": 3,
+          "standard_deviation_sample": 27.696188075630022,
+          "values": [
+            51.4602940985435,
+            98.01923017485103,
+            100.72890612690486
+          ]
+        },
+        "time_to_first_content_seconds": {
+          "maximum": 0.06846912507899106,
+          "mean": 0.05308290268294513,
+          "median_p50": 0.048842750024050474,
+          "minimum": 0.04193683294579387,
+          "n": 3,
+          "standard_deviation_sample": 0.013764984649042581,
+          "values": [
+            0.06846912507899106,
+            0.04193683294579387,
+            0.048842750024050474
+          ]
+        },
+        "wall_time_seconds": {
+          "maximum": 22.008521958021447,
+          "mean": 14.942104971967638,
+          "median_p50": 11.560356582980603,
+          "minimum": 11.257436374900863,
+          "n": 3,
+          "standard_deviation_sample": 6.121570625967499,
+          "values": [
+            22.008521958021447,
+            11.560356582980603,
+            11.257436374900863
+          ]
+        }
+      },
+      "quality": {
+        "deterministic_compliance": 3,
+        "score_distribution": {
+          "maximum": 68.5,
+          "mean": 68.5,
+          "median_p50": 68.5,
+          "minimum": 68.5,
+          "n": 3,
+          "standard_deviation_sample": 0.0,
+          "values": [
+            68.5,
+            68.5,
+            68.5
+          ]
+        },
+        "scores_by_repetition": [
+          {
+            "repetition": 1,
+            "score": 68.5
+          },
+          {
+            "repetition": 2,
+            "score": 68.5
+          },
+          {
+            "repetition": 3,
+            "score": 68.5
+          }
+        ],
+        "usable_outputs": 3,
+        "verdicts": [
+          {
+            "count": 3,
+            "value": "usable"
+          }
+        ]
+      },
+      "reliability": {
+        "failure_categories": [],
+        "planned_runs": 3,
+        "technical_failures": 0,
+        "technical_successes": 3
+      },
+      "variation": {
+        "byte_identical_group_sizes": [
+          3
+        ],
+        "evaluated_outputs": 3,
+        "unique_response_hashes": 1
+      },
+      "word_counts_by_repetition": [
+        530,
+        530,
+        530
+      ]
+    },
+    {
+      "applicable_native_checks_passed": 3,
+      "case_id": "general_knowledge.dev.medical-screening-bayes",
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "errors": {
+        "by_severity": [
+          {
+            "count": 6,
+            "value": "minor"
+          }
+        ],
+        "by_type": [
+          {
+            "count": 3,
+            "value": "certainty_inflation"
+          },
+          {
+            "count": 3,
+            "value": "other"
+          }
+        ],
+        "known_error_ids": [],
+        "recurring_known_error_ids": [],
+        "recurring_types": [
+          {
+            "count": 3,
+            "value": "certainty_inflation"
+          },
+          {
+            "count": 3,
+            "value": "other"
+          }
+        ],
+        "total": 6
+      },
+      "exact_error_recurrence": {
+        "completion_time_increase_called_productivity_increase": 0,
+        "false_negative_called_true_negative": 0,
+        "mortality_direction_reversed": 0
+      },
+      "model": "qwen3.8:27b-mlx",
+      "pairwise": {
+        "losses": 0,
+        "ties": 0,
+        "wins": 3
+      },
+      "performance": {
+        "generation_duration_seconds": {
+          "maximum": 53.002268625,
+          "mean": 38.666529861,
+          "median_p50": 32.967978791,
+          "minimum": 30.029342167,
+          "n": 3,
+          "standard_deviation_sample": 12.501757905759401,
+          "values": [
+            53.002268625,
+            30.029342167,
+            32.967978791
+          ]
+        },
+        "output_tokens_per_second": {
+          "maximum": 38.42908025032129,
+          "mean": 31.584194933121314,
+          "median_p50": 35.003662411813764,
+          "minimum": 21.319842137228896,
+          "n": 3,
+          "standard_deviation_sample": 9.052683335950718,
+          "values": [
+            21.319842137228896,
+            38.42908025032129,
+            35.003662411813764
+          ]
+        },
+        "time_to_first_content_seconds": {
+          "maximum": 0.11799099994823337,
+          "mean": 0.1115246939783295,
+          "median_p50": 0.10904954094439745,
+          "minimum": 0.10753354104235768,
+          "n": 3,
+          "standard_deviation_sample": 0.005651052875177946,
+          "values": [
+            0.11799099994823337,
+            0.10753354104235768,
+            0.10904954094439745
+          ]
+        },
+        "wall_time_seconds": {
+          "maximum": 53.07905066711828,
+          "mean": 38.7375978610944,
+          "median_p50": 33.037796000018716,
+          "minimum": 30.095946916146204,
+          "n": 3,
+          "standard_deviation_sample": 12.506860935047934,
+          "values": [
+            53.07905066711828,
+            30.095946916146204,
+            33.037796000018716
+          ]
+        }
+      },
+      "quality": {
+        "deterministic_compliance": 3,
+        "score_distribution": {
+          "maximum": 85.0,
+          "mean": 85.0,
+          "median_p50": 85.0,
+          "minimum": 85.0,
+          "n": 3,
+          "standard_deviation_sample": 0.0,
+          "values": [
+            85.0,
+            85.0,
+            85.0
+          ]
+        },
+        "scores_by_repetition": [
+          {
+            "repetition": 1,
+            "score": 85.0
+          },
+          {
+            "repetition": 2,
+            "score": 85.0
+          },
+          {
+            "repetition": 3,
+            "score": 85.0
+          }
+        ],
+        "usable_outputs": 3,
+        "verdicts": [
+          {
+            "count": 3,
+            "value": "good"
+          }
+        ]
+      },
+      "reliability": {
+        "failure_categories": [],
+        "planned_runs": 3,
+        "technical_failures": 0,
+        "technical_successes": 3
+      },
+      "variation": {
+        "byte_identical_group_sizes": [
+          2
+        ],
+        "evaluated_outputs": 3,
+        "unique_response_hashes": 2
+      },
+      "word_counts_by_repetition": [
+        592,
+        602,
+        602
+      ]
+    },
+    {
+      "applicable_native_checks_passed": 3,
+      "case_id": "source_grounded_writing.dev.agentic-software-development-reality-gap",
+      "digest": "8b1474be6e54dc19eb7aa08bebfb9bda147c4b9ef9796a726131ad29ad15645a",
+      "errors": {
+        "by_severity": [
+          {
+            "count": 4,
+            "value": "major"
+          },
+          {
+            "count": 4,
+            "value": "minor"
+          }
+        ],
+        "by_type": [
+          {
+            "count": 4,
+            "value": "numeric_error"
+          },
+          {
+            "count": 1,
+            "value": "causal_overclaim"
+          },
+          {
+            "count": 1,
+            "value": "certainty_inflation"
+          },
+          {
+            "count": 1,
+            "value": "misattribution"
+          },
+          {
+            "count": 1,
+            "value": "unsupported_addition"
+          }
+        ],
+        "known_error_ids": [
+          {
+            "count": 1,
+            "value": "KE05"
+          }
+        ],
+        "recurring_known_error_ids": [],
+        "recurring_types": [
+          {
+            "count": 4,
+            "value": "numeric_error"
+          }
+        ],
+        "total": 8
+      },
+      "exact_error_recurrence": {
+        "completion_time_increase_called_productivity_increase": 2,
+        "false_negative_called_true_negative": 0,
+        "mortality_direction_reversed": 0
+      },
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "pairwise": {
+        "losses": 3,
+        "ties": 0,
+        "wins": 0
+      },
+      "performance": {
+        "generation_duration_seconds": {
+          "maximum": 5.659435958,
+          "mean": 5.416294958000001,
+          "median_p50": 5.653143958,
+          "minimum": 4.936304958,
+          "n": 3,
+          "standard_deviation_sample": 0.4156954382609943,
+          "values": [
+            5.653143958,
+            5.659435958,
+            4.936304958
+          ]
+        },
+        "output_tokens_per_second": {
+          "maximum": 118.10453465910037,
+          "mean": 109.49288132132001,
+          "median_p50": 115.20582701856593,
+          "minimum": 95.16828228629376,
+          "n": 3,
+          "standard_deviation_sample": 12.489845060369227,
+          "values": [
+            95.16828228629376,
+            115.20582701856593,
+            118.10453465910037
+          ]
+        },
+        "time_to_first_content_seconds": {
+          "maximum": 0.06230699992738664,
+          "mean": 0.05880518055831393,
+          "median_p50": 0.05801354185678065,
+          "minimum": 0.05609499989077449,
+          "n": 3,
+          "standard_deviation_sample": 0.003180763271455661,
+          "values": [
+            0.06230699992738664,
+            0.05609499989077449,
+            0.05801354185678065
+          ]
+        },
+        "wall_time_seconds": {
+          "maximum": 5.699711832916364,
+          "mean": 5.4587164162658155,
+          "median_p50": 5.6980195408686996,
+          "minimum": 4.978417875012383,
+          "n": 3,
+          "standard_deviation_sample": 0.4159515987596696,
+          "values": [
+            5.6980195408686996,
+            5.699711832916364,
+            4.978417875012383
+          ]
+        }
+      },
+      "quality": {
+        "deterministic_compliance": 0,
+        "score_distribution": {
+          "maximum": 58.5,
+          "mean": 49.833333333333336,
+          "median_p50": 47.5,
+          "minimum": 43.5,
+          "n": 3,
+          "standard_deviation_sample": 7.767453465154029,
+          "values": [
+            43.5,
+            47.5,
+            58.5
+          ]
+        },
+        "scores_by_repetition": [
+          {
+            "repetition": 1,
+            "score": 43.5
+          },
+          {
+            "repetition": 2,
+            "score": 47.5
+          },
+          {
+            "repetition": 3,
+            "score": 58.5
+          }
+        ],
+        "usable_outputs": 0,
+        "verdicts": [
+          {
+            "count": 3,
+            "value": "poor"
+          }
+        ]
+      },
+      "reliability": {
+        "failure_categories": [],
+        "planned_runs": 3,
+        "technical_failures": 0,
+        "technical_successes": 3
+      },
+      "variation": {
+        "byte_identical_group_sizes": [],
+        "evaluated_outputs": 3,
+        "unique_response_hashes": 3
+      },
+      "word_counts_by_repetition": [
+        266,
+        335,
+        289
+      ]
+    },
+    {
+      "applicable_native_checks_passed": 3,
+      "case_id": "source_grounded_writing.dev.agentic-software-development-reality-gap",
+      "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc",
+      "errors": {
+        "by_severity": [
+          {
+            "count": 6,
+            "value": "minor"
+          }
+        ],
+        "by_type": [
+          {
+            "count": 3,
+            "value": "misattribution"
+          },
+          {
+            "count": 3,
+            "value": "scope_inflation"
+          }
+        ],
+        "known_error_ids": [],
+        "recurring_known_error_ids": [],
+        "recurring_types": [
+          {
+            "count": 3,
+            "value": "misattribution"
+          },
+          {
+            "count": 3,
+            "value": "scope_inflation"
+          }
+        ],
+        "total": 6
+      },
+      "exact_error_recurrence": {
+        "completion_time_increase_called_productivity_increase": 0,
+        "false_negative_called_true_negative": 0,
+        "mortality_direction_reversed": 0
+      },
+      "model": "ornith-1.5:35b",
+      "pairwise": {
+        "losses": 0,
+        "ties": 0,
+        "wins": 3
+      },
+      "performance": {
+        "generation_duration_seconds": {
+          "maximum": 9.524272,
+          "mean": 9.064883666666667,
+          "median_p50": 9.260799,
+          "minimum": 8.40958,
+          "n": 3,
+          "standard_deviation_sample": 0.5825990706243303,
+          "values": [
+            8.40958,
+            9.260799,
+            9.524272
+          ]
+        },
+        "output_tokens_per_second": {
+          "maximum": 94.6539541808271,
+          "mean": 88.06120077310989,
+          "median_p50": 85.95370658622436,
+          "minimum": 83.57594155227822,
+          "n": 3,
+          "standard_deviation_sample": 5.831958484110578,
+          "values": [
+            94.6539541808271,
+            85.95370658622436,
+            83.57594155227822
+          ]
+        },
+        "time_to_first_content_seconds": {
+          "maximum": 0.05473095900379121,
+          "mean": 0.05074693060790499,
+          "median_p50": 0.05342566594481468,
+          "minimum": 0.044084166875109076,
+          "n": 3,
+          "standard_deviation_sample": 0.005806915094243112,
+          "values": [
+            0.044084166875109076,
+            0.05473095900379121,
+            0.05342566594481468
+          ]
+        },
+        "wall_time_seconds": {
+          "maximum": 9.5782125829719,
+          "mean": 9.116556527636325,
+          "median_p50": 9.317484041908756,
+          "minimum": 8.453972958028316,
+          "n": 3,
+          "standard_deviation_sample": 0.5884365582346973,
+          "values": [
+            8.453972958028316,
+            9.317484041908756,
+            9.5782125829719
+          ]
+        }
+      },
+      "quality": {
+        "deterministic_compliance": 0,
+        "score_distribution": {
+          "maximum": 76.0,
+          "mean": 76.0,
+          "median_p50": 76.0,
+          "minimum": 76.0,
+          "n": 3,
+          "standard_deviation_sample": 0.0,
+          "values": [
+            76.0,
+            76.0,
+            76.0
+          ]
+        },
+        "scores_by_repetition": [
+          {
+            "repetition": 1,
+            "score": 76.0
+          },
+          {
+            "repetition": 2,
+            "score": 76.0
+          },
+          {
+            "repetition": 3,
+            "score": 76.0
+          }
+        ],
+        "usable_outputs": 3,
+        "verdicts": [
+          {
+            "count": 3,
+            "value": "good"
+          }
+        ]
+      },
+      "reliability": {
+        "failure_categories": [],
+        "planned_runs": 3,
+        "technical_failures": 0,
+        "technical_successes": 3
+      },
+      "variation": {
+        "byte_identical_group_sizes": [
+          3
+        ],
+        "evaluated_outputs": 3,
+        "unique_response_hashes": 1
+      },
+      "word_counts_by_repetition": [
+        431,
+        431,
+        431
+      ]
+    }
+  ],
+  "runtime": {
+    "hardware": {
+      "machine": "arm64",
+      "memory_total_bytes": 68719476736,
+      "processor": "arm",
+      "release": "25.1.0",
+      "system": "Darwin"
+    },
+    "name": "ollama",
+    "version": "0.40.5"
+  },
+  "schema_version": "core_text_confirmation_v0.3",
+  "source_freezes": [
+    {
+      "aggregate_reproduces": true,
+      "case": "bayes",
+      "native_join_reproduces": true,
+      "pairwise_sha256": "36c12b58783876df7c9d5cd0dbbfb5d8b7a36704b91025d166b4e86f351c2bb0",
+      "scalar_sha256": "6431ebdc493002b934b4eac01417f733f84c1dd9938b8b251e08461d013153b1"
+    },
+    {
+      "aggregate_reproduces": true,
+      "case": "writing",
+      "native_join_reproduces": true,
+      "pairwise_sha256": "36b3345c99f0680132d2b3d70c1e7a082147a5c62fb40091854d43a5a6810d8e",
+      "scalar_sha256": "37f3ce7df3972f74bc3e8452adf3561a731f513ce90098c30cf61414cfae32e0"
+    }
+  ],
+  "study_date": "2026-10-17"
+}

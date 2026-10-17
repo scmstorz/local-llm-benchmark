@@ -34,6 +34,15 @@ anew; earlier scores stay unchanged. The joint view distinguishes model,
 backend and harness effects, and discloses the later execution window and
 partial cognitive blinding.
 
+The [selected text confirmation](reports/quality-stochasticity/core-text-confirmation-v0.3.md)
+adds three fresh warm answers per selected model/task condition. Qwen wins all
+three Bayes pairs and Ornith all three writing pairs. Ornith repeats the same
+material Bayes errors in three identical answers; Nemotron repeats its writing
+productivity-direction error in two of three. This is fixed-setting repeatability
+evidence with partial blinding, not a reliability probability or universal rank.
+See the [protocol](docs/quality-confirmation-v0.3.md) for the twelve cold companions
+and twelve measured warm generations.
+
 The additive [coverage reader 0.2](docs/core-records-v0.2.md) also handles Pi's
 separately recorded deployment admission: missing native identity stays unknown
 unless the exact plan-bound pre-inference gate and final run hash validate it.
@@ -208,6 +217,7 @@ Start with the curated reports:
 - [Ornith late-challenger study](reports/challenger-sweeps/ornith-1.5-35b-quality.md)
 - [repeated German text quality study](reports/quality-stochasticity/text-quality-v0.1.md)
 - [repeated difficult-knowledge study](reports/quality-stochasticity/knowledge-quality-v0.2-analysis.md)
+- [selected core text confirmation](reports/quality-stochasticity/core-text-confirmation-v0.3.md)
 - [Performance and Reliability Study v0.1 interpretation](reports/performance-reliability/performance-reliability-v0.1-analysis.md)
 - [Performance and Reliability Study v0.1 protocol](docs/performance-reliability-v0.1.md)
 - [Coding Track A](reports/coding/coding-track-a-v0.1.md)

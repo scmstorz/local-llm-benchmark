@@ -33,6 +33,7 @@ class PublicSnapshotPolicyTests(unittest.TestCase):
         self.assertTrue(is_public("docs/multi-format-verification-v0.3.md"))
         self.assertTrue(is_public("docs/performance-reliability-v0.1.md"))
         self.assertTrue(is_public("docs/quality-evaluation-v0.2.md"))
+        self.assertTrue(is_public("docs/quality-confirmation-v0.3.md"))
         self.assertTrue(
             is_public("docs/quality-stochasticity-knowledge-v0.2.md")
         )
@@ -49,6 +50,8 @@ class PublicSnapshotPolicyTests(unittest.TestCase):
         self.assertFalse(is_public("docs/case-study-assets/screenshot.png"))
         self.assertFalse(is_public("data/private/source.md"))
         self.assertFalse(is_public("results/raw/run.json"))
+        self.assertFalse(is_public("tasks/studies/quality-confirmation-bayes-v0.3.json"))
+        self.assertFalse(is_public("tasks/studies/quality-confirmation-writing-v0.3.json"))
 
     def test_audit_accepts_small_linked_public_tree(self) -> None:
         with TemporaryDirectory() as directory:

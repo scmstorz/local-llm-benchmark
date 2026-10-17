@@ -47,6 +47,7 @@ PUBLIC_DOCS = {
     "docs/non-coding-agentic-roadmap.md",
     "docs/performance-reliability-v0.1.md",
     "docs/quality-evaluation-v0.2.md",
+    "docs/quality-confirmation-v0.3.md",
     "docs/quality-stochasticity-knowledge-v0.2.md",
     "docs/quality-stochasticity-v0.1.md",
     "docs/study-modes.md",
@@ -60,6 +61,9 @@ PRIVATE_EXACT_PATHS = {
     "docs/case-study-log.md",
     "docs/case-study-writing-agent-brief.md",
     "docs/learning-workflow-blog-post-agent-brief.md",
+    # These immutable plans bind a private driver and literal owner authorization.
+    "tasks/studies/quality-confirmation-bayes-v0.3.json",
+    "tasks/studies/quality-confirmation-writing-v0.3.json",
 }
 
 
