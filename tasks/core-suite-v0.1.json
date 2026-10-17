@@ -1,0 +1,575 @@
+{
+  "schema_version": "1.0.0",
+  "suite_id": "personal-core-suite-v0.1",
+  "suite_version": "0.1.0",
+  "status": "provisionally_closed",
+  "task_scope": "23 distinct task cases; system variants do not increase the task count. Models are bound separately.",
+  "text_methodology_source": "tasks/capability-suite-v0.3.json",
+  "cases": [
+    {
+      "case_id": "summarization.dev.mit-sloan-ai-climate",
+      "family": "summarization",
+      "label": "mit-sloan-ai-climate",
+      "case_path": "tasks/summarization/dev/mit-sloan-ai-climate/case.json",
+      "num_ctx": 8192,
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "case_sha256": "24fe3a8a9a7e2bc375933d525336ee419da3d69b756bfbaac3b3f2a382318609"
+    },
+    {
+      "case_id": "summarization.dev.the-agent-company",
+      "family": "summarization",
+      "label": "the-agent-company",
+      "case_path": "tasks/summarization/dev/the-agent-company/case.json",
+      "num_ctx": 16384,
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "case_sha256": "16d837ad36276f4226a81b3aec8cd55b6ec9597b1345c5624aa9abead778b2a6"
+    },
+    {
+      "case_id": "summarization.dev.metr-long-software-tasks",
+      "family": "summarization",
+      "label": "metr-long-software-tasks",
+      "case_path": "tasks/summarization/dev/metr-long-software-tasks/case.json",
+      "num_ctx": 16384,
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "case_sha256": "9a00daafb4d0f85f1e580681e4bdb62302adc134be1b52c3b01c71bb9b613199"
+    },
+    {
+      "case_id": "general_knowledge.dev.confidence-intervals",
+      "family": "general_knowledge",
+      "label": "confidence-intervals",
+      "case_path": "tasks/general-knowledge/dev/confidence-intervals/case.json",
+      "num_ctx": 8192,
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "case_sha256": "14d65341db4637a17172b65fc060fa8486fc136a8b6d3031b2aa3dd40e5bb671"
+    },
+    {
+      "case_id": "general_knowledge.dev.confidence-intervals-transfer",
+      "family": "general_knowledge",
+      "label": "confidence-intervals-transfer",
+      "case_path": "tasks/general-knowledge/dev/confidence-intervals-transfer/case.json",
+      "num_ctx": 8192,
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "case_sha256": "d05940358d5e2ab7defe9fefb5ec66871d551bf222b1dbacb01c608c18cd0b60"
+    },
+    {
+      "case_id": "general_knowledge.dev.mrna-vaccine-mechanism",
+      "family": "general_knowledge",
+      "label": "mrna-vaccine-mechanism",
+      "case_path": "tasks/general-knowledge/dev/mrna-vaccine-mechanism/case.json",
+      "num_ctx": 8192,
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "case_sha256": "46579ef7f0ad42178a46c49dd4cb001e2bd332f3958cd9f85ad31d092e2404b6"
+    },
+    {
+      "case_id": "general_knowledge.dev.interest-rates-and-inflation",
+      "family": "general_knowledge",
+      "label": "interest-rates-and-inflation",
+      "case_path": "tasks/general-knowledge/dev/interest-rates-and-inflation/case.json",
+      "num_ctx": 8192,
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "case_sha256": "1e2b10c8d097654633ba3b1f1e67306f4bf239c58e40d30e51dc5d59b5e64db4"
+    },
+    {
+      "case_id": "general_knowledge.dev.medical-screening-bayes",
+      "family": "general_knowledge",
+      "label": "medical-screening-bayes",
+      "case_path": "tasks/general-knowledge/dev/medical-screening-bayes/case.json",
+      "num_ctx": 8192,
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "case_sha256": "42a26041a6ed87f184184dc6e5972ea1861e4e4e8338b3089bc989df859fdfff"
+    },
+    {
+      "case_id": "general_knowledge.dev.antibiotic-resistance",
+      "family": "general_knowledge",
+      "label": "antibiotic-resistance",
+      "case_path": "tasks/general-knowledge/dev/antibiotic-resistance/case.json",
+      "num_ctx": 8192,
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "case_sha256": "671aaf1b8e0c22c5c938610841323cff5970446537fe8c76f1f5e2d36c8b8f6a"
+    },
+    {
+      "case_id": "general_knowledge.dev.renewable-electricity-matching",
+      "family": "general_knowledge",
+      "label": "renewable-electricity-matching",
+      "case_path": "tasks/general-knowledge/dev/renewable-electricity-matching/case.json",
+      "num_ctx": 8192,
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "case_sha256": "76d9e706a8b538bc0f6f8aa3f5f2a20b885230150e4ee282ddc7879bc652ed8d"
+    },
+    {
+      "case_id": "general_knowledge.dev.distributed-payment-reliability",
+      "family": "general_knowledge",
+      "label": "distributed-payment-reliability",
+      "case_path": "tasks/general-knowledge/dev/distributed-payment-reliability/case.json",
+      "num_ctx": 8192,
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "case_sha256": "1ffb16175b365ae0343b8368063e199191fea4cd797e98281da463170fc79e20"
+    },
+    {
+      "case_id": "general_knowledge.dev.ml-evaluation-leakage",
+      "family": "general_knowledge",
+      "label": "ml-evaluation-leakage",
+      "case_path": "tasks/general-knowledge/dev/ml-evaluation-leakage/case.json",
+      "num_ctx": 8192,
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "case_sha256": "6792a39a46428c3210261822fa44b9387d6c584fe5118319976100a7c429c40f"
+    },
+    {
+      "case_id": "general_knowledge.dev.rag-grounding-evaluation",
+      "family": "general_knowledge",
+      "label": "rag-grounding-evaluation",
+      "case_path": "tasks/general-knowledge/dev/rag-grounding-evaluation/case.json",
+      "num_ctx": 8192,
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "case_sha256": "e725df2aa5a5e31230e2d47a452d44279d96e82e350f7efdb1b3fee98afaa6f2"
+    },
+    {
+      "case_id": "source_grounded_writing.dev.ai-transformation-value-gap",
+      "family": "source_grounded_writing",
+      "label": "ai-transformation-value-gap",
+      "case_path": "tasks/source-grounded-writing/dev/ai-transformation-value-gap/case.json",
+      "num_ctx": 8192,
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "case_sha256": "75408a92e96f47637d6f0bf4c2d11071cc001933875a546d22b1499e4d343bcc"
+    },
+    {
+      "case_id": "source_grounded_writing.dev.agentic-software-development-reality-gap",
+      "family": "source_grounded_writing",
+      "label": "agentic-software-development-reality-gap",
+      "case_path": "tasks/source-grounded-writing/dev/agentic-software-development-reality-gap/case.json",
+      "num_ctx": 8192,
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "case_sha256": "0c285ac566109863c3d4f8fad7f6768d8cdc73de97368db2b77f4d33e4f15ac9"
+    },
+    {
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "family": "coding",
+      "label": "pagination-cycle-guard",
+      "case_path": "tasks/coding/dev/pagination-cycle-guard/case-whole-file-v1.2.json",
+      "systems": [
+        "direct-coding",
+        "mini-coding",
+        "pi-coding"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/coding/coding-track-a-v0.1.json",
+          "class": "measured_direct_coding",
+          "current_evaluation": false,
+          "systems": [
+            "direct-coding"
+          ]
+        },
+        {
+          "path": "reports/coding/track-b-pi-vs-mini-system-comparison-v0.3.json",
+          "class": "measured_complete_systems",
+          "current_evaluation": true,
+          "systems": [
+            "mini-coding",
+            "pi-coding"
+          ]
+        }
+      ],
+      "case_sha256": "99ac13269dff2e306341486bc90be11a513d1481ac30dd7d2e2cd48b645cd394"
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "family": "coding",
+      "label": "async-cache-coalescing",
+      "case_path": "tasks/coding/dev/async-cache-coalescing/case.json",
+      "systems": [
+        "direct-coding",
+        "mini-coding",
+        "pi-coding"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/coding/coding-track-a-v0.1.json",
+          "class": "measured_direct_coding",
+          "current_evaluation": true,
+          "systems": [
+            "direct-coding"
+          ]
+        },
+        {
+          "path": "reports/coding/track-b-pi-vs-mini-system-comparison-v0.3.json",
+          "class": "measured_complete_systems",
+          "current_evaluation": true,
+          "systems": [
+            "mini-coding",
+            "pi-coding"
+          ]
+        }
+      ],
+      "case_sha256": "3ddbd8799d4d34fa6a548ddcda3704a10182be6f421ee3ea3a3a0aee3e8e0995"
+    },
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "family": "coding",
+      "label": "php-payment-result-migration",
+      "case_path": "tasks/coding/dev/php-payment-result-migration/case.json",
+      "systems": [
+        "direct-coding",
+        "mini-coding",
+        "pi-coding"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/coding/coding-track-a-v0.1.json",
+          "class": "measured_direct_coding",
+          "current_evaluation": true,
+          "systems": [
+            "direct-coding"
+          ]
+        },
+        {
+          "path": "reports/coding/track-b-pi-vs-mini-system-comparison-v0.3.json",
+          "class": "measured_complete_systems",
+          "current_evaluation": true,
+          "systems": [
+            "mini-coding",
+            "pi-coding"
+          ]
+        }
+      ],
+      "case_sha256": "8fd6a46683604eb6f80ad6f583a05f8d2730d6c840afcb6a9d297b395741179e"
+    },
+    {
+      "case_id": "agentic.ops.checkout-pool-regression",
+      "family": "log_investigation",
+      "label": "checkout-pool-regression",
+      "case_path": "tasks/agentic/log-incident-analysis/checkout-pool-regression/case-v0.5.json",
+      "systems": [
+        "mini-log",
+        "pi-log"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/agentic/log-incident-capability-sweep-v0.5.json",
+          "class": "measured_complete_systems",
+          "current_evaluation": true,
+          "systems": [
+            "mini-log",
+            "pi-log"
+          ]
+        }
+      ],
+      "case_sha256": "df20ccc55b0db7b4a463d945ee4d7bc4f5df2977db6b07ac7164c21ed728dacd"
+    },
+    {
+      "case_id": "agentic.ops.retry-queue-amplification",
+      "family": "log_investigation",
+      "label": "retry-queue-amplification",
+      "case_path": "tasks/agentic/log-incident-analysis/retry-queue-amplification/case-v0.5.json",
+      "systems": [
+        "mini-log",
+        "pi-log"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/agentic/log-incident-capability-sweep-v0.5.json",
+          "class": "measured_complete_systems",
+          "current_evaluation": true,
+          "systems": [
+            "mini-log",
+            "pi-log"
+          ]
+        }
+      ],
+      "case_sha256": "d5ae40c4a63f3c9b027ddf75c42b41d117b1dd8dbe92f2b27ccd984ee54d751b"
+    },
+    {
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "family": "log_investigation",
+      "label": "clock-skew-partial-recovery",
+      "case_path": "tasks/agentic/log-incident-analysis/clock-skew-partial-recovery/case-v0.5.json",
+      "systems": [
+        "mini-log",
+        "pi-log"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/agentic/log-incident-capability-sweep-v0.5.json",
+          "class": "measured_complete_systems",
+          "current_evaluation": true,
+          "systems": [
+            "mini-log",
+            "pi-log"
+          ]
+        }
+      ],
+      "case_sha256": "44b03ed13f71dd483dba85cb566a7969bb6a3293f2408e84efd1d56dfdc716b5"
+    },
+    {
+      "case_id": "agentic.documents.rollout-readiness-reconciliation",
+      "family": "multi_format_documents",
+      "label": "rollout-readiness-reconciliation",
+      "case_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json",
+      "systems": [
+        "canonical-rollout",
+        "mini-rollout",
+        "pi-rollout"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/agentic/multi-format-capability-sweep-v0.1.json",
+          "class": "measured_direct_and_complete_systems",
+          "current_evaluation": true,
+          "systems": [
+            "canonical-rollout",
+            "mini-rollout",
+            "pi-rollout"
+          ]
+        }
+      ],
+      "case_sha256": "6a3eeb93f801f91068ba995ab35a955f85f188f4d9110a55d2708adb5b30875a"
+    },
+    {
+      "case_id": "agentic.documents.supplier-award-reconciliation",
+      "family": "multi_format_documents",
+      "label": "supplier-award-reconciliation",
+      "case_path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/case-v0.2.json",
+      "systems": [
+        "mini-supplier",
+        "pi-supplier"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/agentic/multi-format-transfer-smoke-v0.3.json",
+          "class": "excluded_development_smoke",
+          "current_evaluation": false,
+          "systems": [
+            "mini-supplier",
+            "pi-supplier"
+          ]
+        }
+      ],
+      "unsupported_conditions": {
+        "direct": "Canonical extraction exists; no admitted standalone supplier Track A runner. It is not silently routed through the rollout runner."
+      },
+      "case_sha256": "e804433ad1bddfa1a93f4f484240d5dae6b2a761367647f56a2784e43cd0b467"
+    }
+  ],
+  "profiles": {
+    "full": [
+      "summarization.dev.mit-sloan-ai-climate",
+      "summarization.dev.the-agent-company",
+      "summarization.dev.metr-long-software-tasks",
+      "general_knowledge.dev.confidence-intervals",
+      "general_knowledge.dev.confidence-intervals-transfer",
+      "general_knowledge.dev.mrna-vaccine-mechanism",
+      "general_knowledge.dev.interest-rates-and-inflation",
+      "general_knowledge.dev.medical-screening-bayes",
+      "general_knowledge.dev.antibiotic-resistance",
+      "general_knowledge.dev.renewable-electricity-matching",
+      "general_knowledge.dev.distributed-payment-reliability",
+      "general_knowledge.dev.ml-evaluation-leakage",
+      "general_knowledge.dev.rag-grounding-evaluation",
+      "source_grounded_writing.dev.ai-transformation-value-gap",
+      "source_grounded_writing.dev.agentic-software-development-reality-gap",
+      "coding.dev.pagination-cycle-guard",
+      "coding.dev.async-cache-coalescing",
+      "coding.dev.php-payment-result-migration",
+      "agentic.ops.checkout-pool-regression",
+      "agentic.ops.retry-queue-amplification",
+      "agentic.ops.clock-skew-partial-recovery",
+      "agentic.documents.rollout-readiness-reconciliation",
+      "agentic.documents.supplier-award-reconciliation"
+    ],
+    "first-comparison": [
+      "summarization.dev.metr-long-software-tasks",
+      "general_knowledge.dev.medical-screening-bayes",
+      "source_grounded_writing.dev.agentic-software-development-reality-gap",
+      "coding.dev.php-payment-result-migration",
+      "agentic.ops.clock-skew-partial-recovery",
+      "agentic.documents.supplier-award-reconciliation"
+    ]
+  },
+  "deferred_task_families": [
+    {
+      "family": "structured_extraction_and_normalization",
+      "target": "next_suite_version",
+      "reason": "Useful deterministic everyday task; explicitly deferred by owner to close this suite now."
+    }
+  ]
+}

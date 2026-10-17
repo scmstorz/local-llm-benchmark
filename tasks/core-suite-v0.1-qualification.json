@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "personal-core-suite-v0.1-offline-closure",
+  "qualified_on": "2026-10-17",
+  "status": "offline_workflow_qualified_candidate_selection_pending",
+  "scope": "Provisional existing-task closure, future supplier evaluation selection, command planning and coverage. No model capability or new live sandbox claim.",
+  "evidence": {
+    "distinct_tasks": 23,
+    "task_families": 6,
+    "task_system_variants": 35,
+    "runner_configurations": 11,
+    "real_offline_definition_loads_passed": 35,
+    "supplier_integration_tests_passed": 7,
+    "core_workflow_tests_passed": 17,
+    "research_tests_passed": 657,
+    "pi_default_tests_passed": 17,
+    "pi_default_tests_opt_in_skipped": 1,
+    "multi_format_policy_tests_passed": 13,
+    "model_inference_requests": 0,
+    "ollama_metadata_requests": 0,
+    "new_live_sandbox_acceptances": 0
+  },
+  "first_comparison": {
+    "status": "draft",
+    "reference_model": "qwen3.8:27b-mlx",
+    "candidate_model": null,
+    "runtime_version": null,
+    "task_count": 6,
+    "cells_per_deployment": 10,
+    "planned_deployments": 2,
+    "execution_authorized": false
+  },
+  "preserved_boundaries": {
+    "historical_model_answers_unchanged": true,
+    "historical_smoke_scores_unchanged": true,
+    "original_frozen_adapters_unchanged": true,
+    "old_supplier_smoke_measured": false,
+    "automatic_retries": 0,
+    "source_grounded_review_still_required": true
+  },
+  "artifacts": [
+    {
+      "path": "local_llm_benchmark/core_suite.py",
+      "sha256": "0be0a4246b33c8f67f23e791288f59a0c4aff7db773ae01c01d6f1a15319d3c9"
+    },
+    {
+      "path": "local_llm_benchmark/supplier_execution.py",
+      "sha256": "3b05b7d8c845ab083a5e9ca3f72419d97d24362e2f8fa6b0da833c40b4f2aa64"
+    },
+    {
+      "path": "tasks/core-suite-v0.1.json",
+      "sha256": "3f9b782f5ef590368a3930b25f5a09be9e280ec68715e8e7bf1e91d5d8d7ab8a"
+    },
+    {
+      "path": "tasks/core-first-comparison-v0.1.json",
+      "sha256": "b84fa0370df536d3351aeabf58c5a62072b37f6c9d9835bafbd00ec687378183"
+    },
+    {
+      "path": "capabilities/core-systems-v0.1.json",
+      "sha256": "813bcd85237879533cbc1b45c71e929264bef48bc2d113f08fb17662a393a584"
+    },
+    {
+      "path": "tasks/agentic/supplier-execution-v0.3.json",
+      "sha256": "6bd321c8d328988362074a4192fe3a8d4592486a798dbe8e9ae9da812b4708ee"
+    },
+    {
+      "path": "tests/test_core_suite.py",
+      "sha256": "e4277b447f415f802609aa54ffa94e9a8ae8ff9b33d9a89446e59e4770b22bf0"
+    },
+    {
+      "path": "tests/test_supplier_execution.py",
+      "sha256": "36daeb1f88894ea4f109cb6eda5b8d311aa88a6bd09cb38085105743e52283a6"
+    },
+    {
+      "path": "reports/core-suite-v0.1-coverage.json",
+      "sha256": "d86606b663404cb7004a3e6526742ec64618da9c83501aa011532f3221f42cfc"
+    },
+    {
+      "path": "reports/core-suite-v0.1-coverage.md",
+      "sha256": "d461e0e75469c4d65418f18d0cf0a2d031d0c4bae500cd4d94f848118222226f"
+    },
+    {
+      "path": "docs/core-suite-v0.1.md",
+      "sha256": "49a857401231f322300decba680c75108929f51af835d67da32a2b281e758d4d"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "configuration_id": "supplier-execution-v0.3",
+  "evaluation_contract_path": "tasks/agentic/multi-format-document-analysis/evaluation-contract-v0.3.json",
+  "verifier_version": "2.1.0",
+  "metrics_contract_path": "tasks/agentic/multi-format-transfer-metrics-v0.2.json",
+  "metrics_version": "0.2.0",
+  "existing_runs_adoptable": false,
+  "model_facing_harnesses": ["mini-multi-format-v0.2", "pi-multi-format-v0.4"],
+  "execution_authorized": false
+}

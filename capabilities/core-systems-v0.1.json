@@ -1,0 +1,482 @@
+{
+  "schema_version": "1.0.0",
+  "registry_id": "personal-core-systems-v0.1",
+  "systems": {
+    "direct-text": {
+      "kind": "direct",
+      "module": "local_llm_benchmark",
+      "prepare_argv": [
+        "python3",
+        "-m",
+        "local_llm_benchmark",
+        "suite",
+        "--model",
+        "{model}",
+        "--suite",
+        "{text_suite}",
+        "--results-dir",
+        "{results_dir}",
+        "--sweeps-dir",
+        "{sweeps_dir}"
+      ],
+      "prepare_runs_inference": true,
+      "actions": {},
+      "artifact_paths": [
+        "tasks/capability-suite-v0.3.json"
+      ],
+      "expected_harness_id": null,
+      "planning_status": "admitted_with_fresh_execution_gates"
+    },
+    "direct-coding": {
+      "kind": "direct",
+      "module": "local_llm_benchmark",
+      "prepare_argv": [
+        "python3",
+        "-m",
+        "local_llm_benchmark",
+        "coding-run",
+        "--model",
+        "{model}",
+        "--case",
+        "{case_path}",
+        "--results-dir",
+        "{results_dir}"
+      ],
+      "prepare_runs_inference": true,
+      "actions": {},
+      "artifact_paths": [],
+      "expected_harness_id": null,
+      "planning_status": "admitted_with_fresh_execution_gates"
+    },
+    "mini-coding": {
+      "kind": "mini",
+      "module": "local_llm_benchmark.mini_v03_adapter",
+      "prepare_argv": [
+        "python3",
+        "-m",
+        "local_llm_benchmark.mini_v03_adapter",
+        "start",
+        "--model",
+        "{model}",
+        "--case",
+        "{case_path}",
+        "--results-dir",
+        "{results_dir}"
+      ],
+      "prepare_runs_inference": false,
+      "actions": {
+        "call": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.mini_v03_adapter",
+          "call",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "step": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.mini_v03_adapter",
+          "step",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "finalize": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.mini_v03_adapter",
+          "finalize",
+          "--run-dir",
+          "{run_dir}"
+        ]
+      },
+      "artifact_paths": [
+        "tasks/coding/track-b/mini-v0.3.json"
+      ],
+      "expected_harness_id": "mini-v0.3",
+      "planning_status": "admitted_with_fresh_execution_gates"
+    },
+    "pi-coding": {
+      "kind": "pi",
+      "module": "local_llm_benchmark.pi_v03_adapter",
+      "prepare_argv": [
+        "python3",
+        "-m",
+        "local_llm_benchmark.pi_v03_adapter",
+        "prepare",
+        "--model",
+        "{model}",
+        "--case",
+        "{case_path}",
+        "--results-dir",
+        "{results_dir}"
+      ],
+      "prepare_runs_inference": false,
+      "actions": {
+        "sandbox-check": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.pi_v03_adapter",
+          "sandbox-check",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "run": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.pi_v03_adapter",
+          "run",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "finalize": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.pi_v03_adapter",
+          "finalize",
+          "--run-dir",
+          "{run_dir}"
+        ]
+      },
+      "artifact_paths": [
+        "tasks/coding/track-b/pi-v0.3.json"
+      ],
+      "expected_harness_id": "pi-v0.3",
+      "planning_status": "admitted_with_fresh_execution_gates"
+    },
+    "mini-log": {
+      "kind": "mini",
+      "module": "local_llm_benchmark.log_incident_mini_v05",
+      "prepare_argv": [
+        "python3",
+        "-m",
+        "local_llm_benchmark.log_incident_mini_v05",
+        "start",
+        "--model",
+        "{model}",
+        "--case",
+        "{case_path}",
+        "--results-dir",
+        "{results_dir}"
+      ],
+      "prepare_runs_inference": false,
+      "actions": {
+        "call": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.log_incident_mini_v05",
+          "call",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "step": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.log_incident_mini_v05",
+          "step",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "finalize": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.log_incident_mini_v05",
+          "finalize",
+          "--run-dir",
+          "{run_dir}"
+        ]
+      },
+      "artifact_paths": [
+        "tasks/agentic/track-b/mini-log-v0.5.json"
+      ],
+      "expected_harness_id": "mini-log-v0.5",
+      "planning_status": "admitted_with_fresh_execution_gates"
+    },
+    "pi-log": {
+      "kind": "pi",
+      "module": "local_llm_benchmark.log_incident_pi_v05",
+      "prepare_argv": [
+        "python3",
+        "-m",
+        "local_llm_benchmark.log_incident_pi_v05",
+        "prepare",
+        "--model",
+        "{model}",
+        "--case",
+        "{case_path}",
+        "--results-dir",
+        "{results_dir}"
+      ],
+      "prepare_runs_inference": false,
+      "actions": {
+        "sandbox-check": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.log_incident_pi_v05",
+          "sandbox-check",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "run": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.log_incident_pi_v05",
+          "run",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "finalize": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.log_incident_pi_v05",
+          "finalize",
+          "--run-dir",
+          "{run_dir}"
+        ]
+      },
+      "artifact_paths": [
+        "tasks/agentic/track-b/pi-log-v0.5.json"
+      ],
+      "expected_harness_id": "pi-log-v0.5",
+      "planning_status": "admitted_with_fresh_execution_gates"
+    },
+    "canonical-rollout": {
+      "kind": "direct",
+      "module": "local_llm_benchmark.multi_format_canonical",
+      "prepare_argv": [
+        "python3",
+        "-m",
+        "local_llm_benchmark.multi_format_canonical",
+        "prepare",
+        "--model",
+        "{model}",
+        "--results-dir",
+        "{results_dir}"
+      ],
+      "prepare_runs_inference": false,
+      "actions": {
+        "run": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.multi_format_canonical",
+          "run",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "finalize": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.multi_format_canonical",
+          "finalize",
+          "--run-dir",
+          "{run_dir}"
+        ]
+      },
+      "artifact_paths": [
+        "tasks/agentic/track-a/multi-format-canonical-v0.1.json"
+      ],
+      "expected_harness_id": "canonical-representation-v0.1",
+      "planning_status": "admitted_with_fresh_execution_gates"
+    },
+    "mini-rollout": {
+      "kind": "mini",
+      "module": "local_llm_benchmark.multi_format_mini",
+      "prepare_argv": [
+        "python3",
+        "-m",
+        "local_llm_benchmark.multi_format_mini",
+        "start",
+        "--model",
+        "{model}",
+        "--case",
+        "{case_path}",
+        "--results-dir",
+        "{results_dir}"
+      ],
+      "prepare_runs_inference": false,
+      "actions": {
+        "call": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.multi_format_mini",
+          "call",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "step": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.multi_format_mini",
+          "step",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "finalize": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.multi_format_mini",
+          "finalize",
+          "--run-dir",
+          "{run_dir}"
+        ]
+      },
+      "artifact_paths": [
+        "tasks/agentic/track-b/mini-multi-format-v0.1.json"
+      ],
+      "expected_harness_id": "mini-multi-format-v0.1",
+      "planning_status": "admitted_with_fresh_execution_gates"
+    },
+    "pi-rollout": {
+      "kind": "pi",
+      "module": "local_llm_benchmark.multi_format_pi_v03",
+      "prepare_argv": [
+        "python3",
+        "-m",
+        "local_llm_benchmark.multi_format_pi_v03",
+        "prepare",
+        "--model",
+        "{model}",
+        "--case",
+        "{case_path}",
+        "--results-dir",
+        "{results_dir}"
+      ],
+      "prepare_runs_inference": false,
+      "actions": {
+        "sandbox-check": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.multi_format_pi_v03",
+          "sandbox-check",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "run": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.multi_format_pi_v03",
+          "run",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "finalize": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.multi_format_pi_v03",
+          "finalize",
+          "--run-dir",
+          "{run_dir}"
+        ]
+      },
+      "artifact_paths": [
+        "tasks/agentic/track-b/pi-multi-format-v0.3.json"
+      ],
+      "expected_harness_id": "pi-multi-format-v0.3",
+      "planning_status": "admitted_with_fresh_execution_gates"
+    },
+    "mini-supplier": {
+      "kind": "mini",
+      "module": "local_llm_benchmark.supplier_execution",
+      "prepare_argv": [
+        "python3",
+        "-m",
+        "local_llm_benchmark.supplier_execution",
+        "prepare",
+        "--system",
+        "mini",
+        "--model",
+        "{model}",
+        "--results-dir",
+        "{results_dir}"
+      ],
+      "prepare_runs_inference": false,
+      "actions": {
+        "call": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.supplier_execution",
+          "call",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "step": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.supplier_execution",
+          "step",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "finalize": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.supplier_execution",
+          "finalize",
+          "--run-dir",
+          "{run_dir}"
+        ]
+      },
+      "artifact_paths": [
+        "tasks/agentic/supplier-execution-v0.3.json",
+        "tasks/agentic/track-b/mini-multi-format-v0.2.json"
+      ],
+      "expected_harness_id": "mini-multi-format-v0.2",
+      "planning_status": "admitted_with_fresh_execution_gates",
+      "evaluation_configuration_id": "supplier-execution-v0.3"
+    },
+    "pi-supplier": {
+      "kind": "pi",
+      "module": "local_llm_benchmark.supplier_execution",
+      "prepare_argv": [
+        "python3",
+        "-m",
+        "local_llm_benchmark.supplier_execution",
+        "prepare",
+        "--system",
+        "pi",
+        "--model",
+        "{model}",
+        "--results-dir",
+        "{results_dir}"
+      ],
+      "prepare_runs_inference": false,
+      "actions": {
+        "sandbox-check": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.supplier_execution",
+          "sandbox-check",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "run": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.supplier_execution",
+          "run",
+          "--run-dir",
+          "{run_dir}"
+        ],
+        "finalize": [
+          "python3",
+          "-m",
+          "local_llm_benchmark.supplier_execution",
+          "finalize",
+          "--run-dir",
+          "{run_dir}"
+        ]
+      },
+      "artifact_paths": [
+        "tasks/agentic/supplier-execution-v0.3.json",
+        "tasks/agentic/track-b/pi-multi-format-v0.4.json"
+      ],
+      "expected_harness_id": "pi-multi-format-v0.4",
+      "planning_status": "admitted_with_fresh_execution_gates",
+      "evaluation_configuration_id": "supplier-execution-v0.3"
+    }
+  },
+  "additional_harness_policy": "Add a separately versioned registry with task mapping, exact identity, lifecycle commands and qualification. An installed harness alone is not admitted. Task membership and model registration stay independent.",
+  "unadmitted_harnesses": {
+    "opencode": "Qualification card only; no measured admission."
+  }
+}

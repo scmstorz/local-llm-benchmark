@@ -19,6 +19,7 @@ PUBLIC_TEST_MODULES = (
     "tests.test_cli",
     "tests.test_coding",
     "tests.test_coding_track_a_report",
+    "tests.test_core_suite",
     "tests.test_log_incident",
     "tests.test_log_incident_checkout_v02",
     "tests.test_log_incident_mini",
@@ -80,6 +81,7 @@ PUBLIC_TEST_MODULES = (
     "tests.test_public_snapshot",
     "tests.test_report",
     "tests.test_suite_resume",
+    "tests.test_supplier_execution",
     "tests.test_track_b_replication_report",
     "tests.test_track_b_system_report",
 )

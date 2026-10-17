@@ -8,7 +8,17 @@ A reproducible benchmark suite for answering a practical question:
 The suite runs models through [Ollama](https://ollama.com/) on one local
 machine. It currently covers German-language summarization, difficult
 knowledge explanations, source-grounded professional writing, direct coding,
-agentic coding, and read-only log incident analysis.
+agentic coding, read-only log incident analysis and multi-format document decisions.
+
+The task inventory is now **provisionally closed at 23 cases in six families**.
+The [core-suite workflow](docs/core-suite-v0.1.md) joins the existing runners
+through one offline task/system catalog, arbitrary-deployment command planning
+and a coverage view. There are 35 applicable task/system combinations per
+deployment; model names are registered separately. The
+[first comparison draft](tasks/core-first-comparison-v0.1.json) selects six
+representative tasks and ten cells per deployment, with its candidate and
+runtime deliberately unbound. Structured extraction and normalization is
+reserved for the next suite version.
 
 This is a personal benchmark lab, not a universal leaderboard. Its unit of
 comparison is a deployed system, not a model name in isolation:
@@ -111,6 +121,13 @@ keeps unavailable request totals unknown. The historical checks and prose
 judgments remain unchanged. See the
 [correction contracts and usage](docs/multi-format-verification-v0.3.md) and
 [corrected metrics](reports/agentic/multi-format-transfer-smoke-v0.3-metrics-v0.2.md).
+
+Future supplier runs can select those corrections at preparation through
+`local_llm_benchmark.supplier_execution`. It binds evaluation 0.3 and metrics
+0.2 to a distinct complete-system identity while reusing Mini v0.2 or Pi v0.4.
+Both finalization kernels use verifier 2.1.0 through that new entry point;
+historical runs cannot be adopted or rescored. The core-suite registry routes
+future supplier cells through this path.
 
 OpenCode has a qualification card but is not yet admitted to measured runs.
 

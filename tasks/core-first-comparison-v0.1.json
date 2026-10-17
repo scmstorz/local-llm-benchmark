@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "core-first-comparison-v0.1",
+  "status": "draft_awaiting_candidate_and_current_deployment_binding",
+  "suite_path": "tasks/core-suite-v0.1.json",
+  "systems_path": "capabilities/core-systems-v0.1.json",
+  "profile": "first-comparison",
+  "reference_model": "qwen3.8:27b-mlx",
+  "candidate_model": null,
+  "runtime_version": null,
+  "case_ids": [
+    "summarization.dev.metr-long-software-tasks",
+    "general_knowledge.dev.medical-screening-bayes",
+    "source_grounded_writing.dev.agentic-software-development-reality-gap",
+    "coding.dev.php-payment-result-migration",
+    "agentic.ops.clock-skew-partial-recovery",
+    "agentic.documents.supplier-award-reconciliation"
+  ],
+  "tasks": 6,
+  "planned_deployments": 2,
+  "task_system_cells_per_deployment": 10,
+  "automatic_retries": 0,
+  "execution_authorized": false,
+  "repetitions": "One cold/warm text pair per task (warm is quality candidate); one attempt per remaining task/system cell. Repeated reliability studies are separate.",
+  "selection_reason": "One task per existing family, including source integration, Bayes transfer, repository work, partial-recovery chronology and supplier document reconciliation.",
+  "before_execution": [
+    "Owner selects candidate; register both exact digests under the current shared Ollama version.",
+    "Generate a bound plan with core_suite plan and commit its source inputs.",
+    "Fresh model/system admission, Pi sandbox and resource checks; obtain the concrete live window and plan authorization."
+  ],
+  "evaluation": "Use deterministic checks and strict transport separately; assess source-grounded prose; jointly judge text candidates under existing rubrics before interpreting quality differences.",
+  "historical_reference_reuse": false
+}

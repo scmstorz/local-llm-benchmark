@@ -8,6 +8,14 @@ task named `v0.5` therefore does not imply project release `v0.5.0`.
 
 ### Added
 
+- a provisionally closed, model-independent 23-case core catalog, eleven runner
+  mappings and 35 task/system variants, with offline arbitrary-deployment
+  command planning, isolated result coverage and a six-task first-comparison
+  draft whose candidate and current runtime remain deliberately unselected;
+- a fresh-run supplier lifecycle entry point binding verifier 2.1.0 and metrics
+  0.2.0 before inference, rejecting historical adoption and completed-run
+  rescoring while preserving frozen Mini/Pi implementations;
+
 - a complete Performance and Reliability Study v0.1 with 80 measured requests,
   separate natural and controlled-decode workloads, per-attempt raw metrics,
   exploratory P90 reporting and an explicit notebook-standby sensitivity view;

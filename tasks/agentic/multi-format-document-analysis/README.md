@@ -1,5 +1,9 @@
 # Multi-Format Document Analysis
 
+Current entry point: the [provisional core-suite workflow](../../../docs/core-suite-v0.1.md)
+includes both document cases and separates historical measurements from the
+corrected evaluation for future supplier runs.
+
 This task family evaluates evidence reconciliation across real office-document
 formats. It keeps two conditions separate:
 
@@ -41,9 +45,9 @@ OCR, arbitrary document editing, Word report assembly and spreadsheet repair
 are separate future tasks. A result in this family must not be used as evidence
 for those capabilities.
 
-The second case, `agentic.documents.supplier-award-reconciliation`, is now
-qualified through the artifact-API layer and both complete Track B systems
-without model contact. It changes the
+The second case, `agentic.documents.supplier-award-reconciliation`, is
+qualified through the artifact-API layer and both complete Track B systems.
+It changes the
 domain and reasoning shape: four suppliers are filtered by policy, signed-final
 assurance, cost and capacity, then only eligible suppliers are ranked for
 primary and reserve selection. Atlas is the controlled primary and Boreal the
@@ -54,8 +58,14 @@ checks. All three source binaries passed structural and visual QA, their
 backend has exact parity with it. Mini v0.2 and Pi v0.4 are separately
 hash-qualified against those backend bytes. Pi v0.4 admits output only through
 one schema-constrained `finish_report` tool and passed a real 13/13 no-inference
-Seatbelt acceptance. No inference is authorized. A later, separately hash-bound
-plan now freezes exactly one Qwen
-3.8 attempt under Pi v0.4 followed by one under Mini v0.2. It is excluded from
-measured aggregates, permits no retry and contains no execution authorization.
-Both private raw runs are prepared with zero model requests.
+Seatbelt acceptance. The separately frozen excluded smoke completed one Qwen
+3.8 attempt under Pi v0.4 followed by one under Mini v0.2 on Ollama 0.40.2,
+without retries. Both runtime and strict transports passed; the frozen checks
+were 11/12 and 10/12, and both separate prose reviews found an unsupported
+signed-draft claim. See the [smoke report](../../../reports/agentic/multi-format-transfer-smoke-v0.3.md).
+
+Future supplier cells in the core suite explicitly use verifier 2.1.0 and
+metrics 0.2 through a fresh-run evaluation identity. The old smoke was not
+rescored or promoted to measured evidence. Its attempts are consumed; the
+first new comparison remains a draft with no selected candidate or live
+execution authorization.

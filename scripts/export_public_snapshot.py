@@ -34,6 +34,7 @@ PUBLIC_PREFIXES = (
 )
 
 PUBLIC_DOCS = {
+    "docs/core-suite-v0.1.md",
     "docs/benchmark-design.md",
     "docs/coding-routing-roadmap.md",
     "docs/hard-knowledge-v0.2.md",

@@ -1,0 +1,510 @@
+{
+  "suite_id": "personal-core-suite-v0.1",
+  "status": "provisionally_closed",
+  "task_count": 23,
+  "families": {
+    "summarization": 3,
+    "general_knowledge": 10,
+    "source_grounded_writing": 2,
+    "coding": 3,
+    "log_investigation": 3,
+    "multi_format_documents": 2
+  },
+  "task_system_variant_count": 35,
+  "model_set_fixed": false,
+  "execution_authorized": false,
+  "cases": [
+    {
+      "case_id": "summarization.dev.mit-sloan-ai-climate",
+      "family": "summarization",
+      "case_version": "1.1.0",
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "summarization.dev.the-agent-company",
+      "family": "summarization",
+      "case_version": "1.0.0",
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "summarization.dev.metr-long-software-tasks",
+      "family": "summarization",
+      "case_version": "1.0.0",
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "general_knowledge.dev.confidence-intervals",
+      "family": "general_knowledge",
+      "case_version": "1.0.0",
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "general_knowledge.dev.confidence-intervals-transfer",
+      "family": "general_knowledge",
+      "case_version": "1.0.0",
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "general_knowledge.dev.mrna-vaccine-mechanism",
+      "family": "general_knowledge",
+      "case_version": "1.0.0",
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "general_knowledge.dev.interest-rates-and-inflation",
+      "family": "general_knowledge",
+      "case_version": "1.0.0",
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "general_knowledge.dev.medical-screening-bayes",
+      "family": "general_knowledge",
+      "case_version": "1.0.0",
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "general_knowledge.dev.antibiotic-resistance",
+      "family": "general_knowledge",
+      "case_version": "1.0.0",
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "general_knowledge.dev.renewable-electricity-matching",
+      "family": "general_knowledge",
+      "case_version": "1.0.0",
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "general_knowledge.dev.distributed-payment-reliability",
+      "family": "general_knowledge",
+      "case_version": "1.0.0",
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "general_knowledge.dev.ml-evaluation-leakage",
+      "family": "general_knowledge",
+      "case_version": "1.0.0",
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "general_knowledge.dev.rag-grounding-evaluation",
+      "family": "general_knowledge",
+      "case_version": "1.0.0",
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "source_grounded_writing.dev.ai-transformation-value-gap",
+      "family": "source_grounded_writing",
+      "case_version": "1.0.0",
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "source_grounded_writing.dev.agentic-software-development-reality-gap",
+      "family": "source_grounded_writing",
+      "case_version": "1.0.0",
+      "systems": [
+        "direct-text"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/challenger-sweeps/september-2026-model-cohort-quality.json",
+          "class": "measured_text_quality",
+          "current_evaluation": true,
+          "systems": [
+            "direct-text"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "coding.dev.pagination-cycle-guard",
+      "family": "coding",
+      "case_version": "1.2.0",
+      "systems": [
+        "direct-coding",
+        "mini-coding",
+        "pi-coding"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/coding/coding-track-a-v0.1.json",
+          "class": "measured_direct_coding",
+          "current_evaluation": false,
+          "systems": [
+            "direct-coding"
+          ]
+        },
+        {
+          "path": "reports/coding/track-b-pi-vs-mini-system-comparison-v0.3.json",
+          "class": "measured_complete_systems",
+          "current_evaluation": true,
+          "systems": [
+            "mini-coding",
+            "pi-coding"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "coding.dev.async-cache-coalescing",
+      "family": "coding",
+      "case_version": "1.0.0",
+      "systems": [
+        "direct-coding",
+        "mini-coding",
+        "pi-coding"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/coding/coding-track-a-v0.1.json",
+          "class": "measured_direct_coding",
+          "current_evaluation": true,
+          "systems": [
+            "direct-coding"
+          ]
+        },
+        {
+          "path": "reports/coding/track-b-pi-vs-mini-system-comparison-v0.3.json",
+          "class": "measured_complete_systems",
+          "current_evaluation": true,
+          "systems": [
+            "mini-coding",
+            "pi-coding"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "coding.dev.php-payment-result-migration",
+      "family": "coding",
+      "case_version": "1.0.0",
+      "systems": [
+        "direct-coding",
+        "mini-coding",
+        "pi-coding"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/coding/coding-track-a-v0.1.json",
+          "class": "measured_direct_coding",
+          "current_evaluation": true,
+          "systems": [
+            "direct-coding"
+          ]
+        },
+        {
+          "path": "reports/coding/track-b-pi-vs-mini-system-comparison-v0.3.json",
+          "class": "measured_complete_systems",
+          "current_evaluation": true,
+          "systems": [
+            "mini-coding",
+            "pi-coding"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "agentic.ops.checkout-pool-regression",
+      "family": "log_investigation",
+      "case_version": "5.0.0",
+      "systems": [
+        "mini-log",
+        "pi-log"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/agentic/log-incident-capability-sweep-v0.5.json",
+          "class": "measured_complete_systems",
+          "current_evaluation": true,
+          "systems": [
+            "mini-log",
+            "pi-log"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "agentic.ops.retry-queue-amplification",
+      "family": "log_investigation",
+      "case_version": "5.0.0",
+      "systems": [
+        "mini-log",
+        "pi-log"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/agentic/log-incident-capability-sweep-v0.5.json",
+          "class": "measured_complete_systems",
+          "current_evaluation": true,
+          "systems": [
+            "mini-log",
+            "pi-log"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "family": "log_investigation",
+      "case_version": "5.0.0",
+      "systems": [
+        "mini-log",
+        "pi-log"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/agentic/log-incident-capability-sweep-v0.5.json",
+          "class": "measured_complete_systems",
+          "current_evaluation": true,
+          "systems": [
+            "mini-log",
+            "pi-log"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "agentic.documents.rollout-readiness-reconciliation",
+      "family": "multi_format_documents",
+      "case_version": "1.0.0",
+      "systems": [
+        "canonical-rollout",
+        "mini-rollout",
+        "pi-rollout"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/agentic/multi-format-capability-sweep-v0.1.json",
+          "class": "measured_direct_and_complete_systems",
+          "current_evaluation": true,
+          "systems": [
+            "canonical-rollout",
+            "mini-rollout",
+            "pi-rollout"
+          ]
+        }
+      ],
+      "unsupported_conditions": {}
+    },
+    {
+      "case_id": "agentic.documents.supplier-award-reconciliation",
+      "family": "multi_format_documents",
+      "case_version": "2.0.0",
+      "systems": [
+        "mini-supplier",
+        "pi-supplier"
+      ],
+      "historical_evidence": [
+        {
+          "path": "reports/agentic/multi-format-transfer-smoke-v0.3.json",
+          "class": "excluded_development_smoke",
+          "current_evaluation": false,
+          "systems": [
+            "mini-supplier",
+            "pi-supplier"
+          ]
+        }
+      ],
+      "unsupported_conditions": {
+        "direct": "Canonical extraction exists; no admitted standalone supplier Track A runner. It is not silently routed through the rollout runner."
+      }
+    }
+  ],
+  "history_rule": "Historical coverage is context, not a current-runtime matched baseline. Excluded smokes are not measured coverage; current_evaluation says nothing about runtime comparability.",
+  "deferred_task_families": [
+    {
+      "family": "structured_extraction_and_normalization",
+      "target": "next_suite_version",
+      "reason": "Useful deterministic everyday task; explicitly deferred by owner to close this suite now."
+    }
+  ]
+}
