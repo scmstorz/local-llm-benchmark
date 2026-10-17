@@ -8,6 +8,11 @@ task named `v0.5` therefore does not imply project release `v0.5.0`.
 
 ### Added
 
+- an Ornith 1.5 extension with ten fresh cells and thirty explicitly preserved
+  Qwen/Gemma/Nemotron references, plus a separate twelve-answer joint text
+  evaluation, four conditional pairwise checks and separate source review;
+- a four-model deployment catalog/cohort recording the same Ollama 0.40.5
+  runtime and Ornith's exact GGUF/Q4_K_M artifact alongside the MLX references;
 - a completed thirty-cell first core comparison of Qwen 3.8, Gemma 4 MLX and
   Nemotron 3.5 Lightning MLX under Ollama 0.40.5, with frozen joint text
   judgments, separate source/language review, exact provenance and native

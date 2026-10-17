@@ -1,0 +1,64 @@
+{
+  "automatic_retries": 0,
+  "case_ids": [
+    "summarization.dev.metr-long-software-tasks",
+    "general_knowledge.dev.medical-screening-bayes",
+    "source_grounded_writing.dev.agentic-software-development-reality-gap",
+    "coding.dev.php-payment-result-migration",
+    "agentic.ops.clock-skew-partial-recovery",
+    "agentic.documents.supplier-award-reconciliation"
+  ],
+  "catalog_path": "models/catalog-core-ornith-extension-20261017.json",
+  "catalog_sha256": "501a4a0eabe3e6f80a6ae8691c42622a2fd941cfe93d8d9fc2e2a1143c99c91b",
+  "cohort_id": "core-ornith-extension-2026-10-17",
+  "deployments": [
+    {
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-40-5",
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "requested_name": "qwen3.8:27b-mlx",
+      "role": "current_round_reference"
+    },
+    {
+      "deployment_id": "gemma4-31b-mlx-a22a363052da-ollama-0-40-5",
+      "digest": "a22a363052da770302019d5afab29bd967f9318e4377bddd297421189ea09d7d",
+      "requested_name": "gemma4:31b-mlx",
+      "role": "current_round_reference"
+    },
+    {
+      "deployment_id": "nemotron-3-5-lightning-30b-mlx-8b1474be6e54-ollama-0-40-5",
+      "digest": "8b1474be6e54dc19eb7aa08bebfb9bda147c4b9ef9796a726131ad29ad15645a",
+      "requested_name": "nemotron-3.5-lightning:30b-mlx",
+      "role": "current_round_reference"
+    },
+    {
+      "deployment_id": "ornith-1-5-35b-9f3b89b25219-ollama-0-40-5",
+      "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc",
+      "requested_name": "ornith-1.5:35b",
+      "role": "new_candidate"
+    }
+  ],
+  "deployments_planned": 4,
+  "distinct_tasks": 6,
+  "execution_authorized": false,
+  "execution_scope": {
+    "existing_reference_cells": 30,
+    "existing_reference_report": "reports/core-first-comparison-20261017.json",
+    "later_session_disclosed": true,
+    "new_cells": 10,
+    "new_deployment": "ornith-1.5:35b",
+    "text_evaluation": "Separate twelve-candidate late-challenger batch; earlier judgments retain their own batch identity."
+  },
+  "historical_reference_reuse": "Declared reuse of exact completed 0.40.5 reference artifacts, not new inference; no older-runtime scores adopted.",
+  "interpretation": "Selection and metadata registration do not establish current agent qualification or measured performance. Create a bound plan and satisfy fresh execution gates before inference.",
+  "ollama_version": "0.40.5",
+  "profile": "first-comparison",
+  "repetitions": "One cold/warm pair per text task; warm is the quality candidate. One attempt per remaining task/system/deployment cell.",
+  "schema_version": "1.0.0",
+  "selected_on": "2026-10-17",
+  "selection_reason": "Add installed Ornith to the completed three-model first comparison, on identical task/system inputs; conduct a separate declared four-model text rejudgment.",
+  "status": "selected_pre_execution",
+  "suite_path": "tasks/core-suite-v0.1.json",
+  "systems_path": "capabilities/core-systems-v0.1.json",
+  "task_system_cells_per_deployment": 10,
+  "task_system_deployment_cells": 40
+}

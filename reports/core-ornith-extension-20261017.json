@@ -1,0 +1,4109 @@
+{
+  "cells": [
+    {
+      "case_binding": {
+        "benchmark_card_version": "1.0.0",
+        "case_version": "1.0.0",
+        "prompt_version": "1.0.0",
+        "source_sha256": "e7dd5cfd91283dd787f8d8ea2f9833d33c3a3e34f993d3cc93d51254dcd77ba8"
+      },
+      "case_id": "summarization.dev.metr-long-software-tasks",
+      "cell_id": "reference-cell-001",
+      "harness_binding": {},
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "cold_provider_response": {
+          "eval_count": 1775,
+          "eval_duration_seconds": 65.640435042,
+          "load_duration_seconds": 6.812697834,
+          "output_tokens_per_second": 27.0412589262132,
+          "prompt_eval_count": 7957,
+          "time_to_first_content_seconds": 44.56688458309509,
+          "total_duration_seconds": 110.034321459,
+          "wall_time_seconds": 110.03540458297357
+        },
+        "native_provider_response": {
+          "eval_count": 1753,
+          "eval_duration_seconds": 121.274880583,
+          "load_duration_seconds": 0.024276375,
+          "output_tokens_per_second": 14.454765830919573,
+          "prompt_eval_count": 7957,
+          "time_to_first_content_seconds": 0.29253250011242926,
+          "total_duration_seconds": 121.485797666,
+          "wall_time_seconds": 121.48736875015311
+        },
+        "native_trajectory": {}
+      },
+      "model": "qwen3.8:27b-mlx",
+      "native_cell_id": "cell-001",
+      "native_checks": {
+        "bold_heading_count": 0,
+        "check_version": "1.0.0",
+        "detected_language": "de",
+        "generation_complete": true,
+        "generation_done_reason": "stop",
+        "heading_pass": true,
+        "language_evidence": {
+          "english_stopword_hits": 12,
+          "german_stopword_hits": 263
+        },
+        "language_method": "stopword_heuristic_v1",
+        "language_pass": true,
+        "markdown_heading_count": 6,
+        "maximum_words": 1000,
+        "maximum_words_pass": true,
+        "nonempty": true,
+        "reasoning_markup_absent": true,
+        "source_location_labels_absent": true,
+        "structural_heading_count": 6,
+        "word_count": 906
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {},
+      "preflight_sha256": "6eff7c008ab3c21a3adf30a37d8761c5cb72cdcbd674a8c1081c5b039d2a31fa",
+      "provider_requests": 2,
+      "quality_review": {
+        "batch": "ornith-extension-20261017-four-model",
+        "errors": [
+          {
+            "description": "The source reports over 800 human attempts, not over 800 different specialists.",
+            "severity": "major",
+            "source_locations": [
+              "P07"
+            ],
+            "type": "numeric_error"
+          },
+          {
+            "description": "Says the progress is primarily driven by particular factors, exceeding the sampled qualitative failed-run evidence.",
+            "severity": "minor",
+            "source_locations": [
+              "P12"
+            ],
+            "type": "certainty_inflation"
+          },
+          {
+            "description": "The reference-population paragraph compares the time the agent itself takes with human time, blurring the fitted capability definition introduced earlier.",
+            "severity": "minor",
+            "source_locations": [
+              "P09",
+              "P14"
+            ],
+            "type": "other"
+          }
+        ],
+        "score": 67.0,
+        "verdict": "usable"
+      },
+      "record_sha256": "41a9ce1025ad6bf31d7d2f824ad05f0a2d9bcea04dffd58273e698d716a4f4d0",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "10m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 2600,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "response_sha256": "e9b5d1cc1f6cb46d527a02a1ddae2b0213bf04d7b889c66f4cff47eba0fab7f3",
+      "system": "direct-text",
+      "verification": {}
+    },
+    {
+      "case_binding": {
+        "benchmark_card_version": "1.0.0",
+        "case_version": "1.0.0",
+        "prompt_version": "1.0.0",
+        "source_sha256": "dd75d73fdf1af7265fcc3ce00876fbe1b20306c14b169ee165395e2c23edbe48"
+      },
+      "case_id": "general_knowledge.dev.medical-screening-bayes",
+      "cell_id": "reference-cell-002",
+      "harness_binding": {},
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "cold_provider_response": {
+          "eval_count": 1124,
+          "eval_duration_seconds": 54.204024167,
+          "load_duration_seconds": 6.320015875,
+          "output_tokens_per_second": 20.73646776735635,
+          "prompt_eval_count": 392,
+          "time_to_first_content_seconds": 8.897141166962683,
+          "total_duration_seconds": 62.969103125,
+          "wall_time_seconds": 62.97087804204784
+        },
+        "native_provider_response": {
+          "eval_count": 1154,
+          "eval_duration_seconds": 51.913483417,
+          "load_duration_seconds": 0.010030417,
+          "output_tokens_per_second": 22.229292354172905,
+          "prompt_eval_count": 392,
+          "time_to_first_content_seconds": 0.1609762911684811,
+          "total_duration_seconds": 52.015242792,
+          "wall_time_seconds": 52.017017957987264
+        },
+        "native_trajectory": {}
+      },
+      "model": "qwen3.8:27b-mlx",
+      "native_cell_id": "cell-002",
+      "native_checks": {
+        "bold_heading_count": 1,
+        "check_version": "1.0.0",
+        "detected_language": "de",
+        "generation_complete": true,
+        "generation_done_reason": "stop",
+        "heading_pass": true,
+        "language_evidence": {
+          "english_stopword_hits": 11,
+          "german_stopword_hits": 182
+        },
+        "language_method": "stopword_heuristic_v1",
+        "language_pass": true,
+        "markdown_heading_count": 4,
+        "maximum_words": 800,
+        "maximum_words_pass": true,
+        "nonempty": true,
+        "reasoning_markup_absent": true,
+        "source_location_labels_absent": true,
+        "structural_heading_count": 5,
+        "word_count": 602
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {},
+      "preflight_sha256": "6eff7c008ab3c21a3adf30a37d8761c5cb72cdcbd674a8c1081c5b039d2a31fa",
+      "provider_requests": 2,
+      "quality_review": {
+        "batch": "ornith-extension-20261017-four-model",
+        "errors": [
+          {
+            "description": "Defines sensitivity using the wording that the test is sick rather than positive, although subsequent calculations and explanation resolve the intended meaning.",
+            "severity": "minor",
+            "source_locations": [
+              "S01"
+            ],
+            "type": "other"
+          }
+        ],
+        "score": 85.0,
+        "verdict": "good"
+      },
+      "record_sha256": "3641bdd2259826afb1e23fc529a4b12aea1e5734874ca08dfe090024bc9e9a1c",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "10m",
+        "options": {
+          "num_ctx": 8192,
+          "num_predict": 2600,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "response_sha256": "3b2a7d3de2fe1c02e6b256f8c6b92afa8663185ba554615dd7930e6e797853d8",
+      "system": "direct-text",
+      "verification": {}
+    },
+    {
+      "case_binding": {
+        "benchmark_card_version": "1.0.0",
+        "case_version": "1.0.0",
+        "prompt_version": "1.0.0",
+        "source_sha256": "8df198d0afa5c910a6bfa0ab926714e8b2db89ae9c9d32473e960581659c687d"
+      },
+      "case_id": "source_grounded_writing.dev.agentic-software-development-reality-gap",
+      "cell_id": "reference-cell-003",
+      "harness_binding": {},
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "cold_provider_response": {
+          "eval_count": 742,
+          "eval_duration_seconds": 33.875058875,
+          "load_duration_seconds": 5.216265208,
+          "output_tokens_per_second": 21.904020971240303,
+          "prompt_eval_count": 4187,
+          "time_to_first_content_seconds": 35.611539124976844,
+          "total_duration_seconds": 69.394247667,
+          "wall_time_seconds": 69.39518079091795
+        },
+        "native_provider_response": {
+          "eval_count": 750,
+          "eval_duration_seconds": 33.309333125,
+          "load_duration_seconds": 0.007046958,
+          "output_tokens_per_second": 22.51621181323185,
+          "prompt_eval_count": 4187,
+          "time_to_first_content_seconds": 0.16895270789973438,
+          "total_duration_seconds": 33.418392833,
+          "wall_time_seconds": 33.41926287487149
+        },
+        "native_trajectory": {}
+      },
+      "model": "qwen3.8:27b-mlx",
+      "native_cell_id": "cell-003",
+      "native_checks": {
+        "bold_heading_count": 0,
+        "check_version": "1.0.0",
+        "detected_language": "de",
+        "generation_complete": true,
+        "generation_done_reason": "stop",
+        "heading_pass": false,
+        "language_evidence": {
+          "english_stopword_hits": 12,
+          "german_stopword_hits": 127
+        },
+        "language_method": "stopword_heuristic_v1",
+        "language_pass": true,
+        "markdown_heading_count": 0,
+        "maximum_words": 600,
+        "maximum_words_pass": true,
+        "nonempty": true,
+        "reasoning_markup_absent": true,
+        "source_location_labels_absent": true,
+        "structural_heading_count": 0,
+        "word_count": 423
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {},
+      "preflight_sha256": "6eff7c008ab3c21a3adf30a37d8761c5cb72cdcbd674a8c1081c5b039d2a31fa",
+      "provider_requests": 2,
+      "quality_review": {
+        "batch": "ornith-extension-20261017-four-model",
+        "errors": [
+          {
+            "description": "Reports a leading model solving roughly 36 percent of freelance tasks; that result is not in the supplied historical SWE-Lancer card.",
+            "severity": "major",
+            "source_locations": [
+              "S03"
+            ],
+            "thought_ids": [],
+            "type": "numeric_error"
+          },
+          {
+            "description": "Says the error rate increases at higher reliability requirements; stricter success thresholds shorten the attainable horizon rather than increasing a fixed system error rate.",
+            "severity": "major",
+            "source_locations": [
+              "S11",
+              "S12"
+            ],
+            "thought_ids": [],
+            "type": "contradiction"
+          },
+          {
+            "description": "States that repository-context checking caused the measured productivity loss, without the plausible-mechanism and study-period limits.",
+            "severity": "major",
+            "source_locations": [
+              "S18",
+              "S19",
+              "S20"
+            ],
+            "thought_ids": [],
+            "type": "certainty_inflation"
+          },
+          {
+            "description": "Describes organization-level benefits and instability as general outcomes rather than adjusted observational associations.",
+            "severity": "minor",
+            "source_locations": [
+              "S23",
+              "S24"
+            ],
+            "thought_ids": [],
+            "type": "certainty_inflation"
+          }
+        ],
+        "score": 59.0,
+        "verdict": "poor"
+      },
+      "record_sha256": "921ab4f9d3ed560bb078311cd2f4c3e99eb56a5a63391e7f4e2af5a035c08189",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "10m",
+        "options": {
+          "num_ctx": 8192,
+          "num_predict": 2600,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "response_sha256": "2494f7f9e8243e8298f1fc1d82db858dc58793753b47ea4383f78a7e0ed257f1",
+      "system": "direct-text",
+      "verification": {}
+    },
+    {
+      "case_binding": {
+        "benchmark_card_version": "1.0.0",
+        "case_version": "1.0.0",
+        "prompt_version": "1.0.0",
+        "source_sha256": "e7dd5cfd91283dd787f8d8ea2f9833d33c3a3e34f993d3cc93d51254dcd77ba8"
+      },
+      "case_id": "summarization.dev.metr-long-software-tasks",
+      "cell_id": "reference-cell-004",
+      "harness_binding": {},
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "cold_provider_response": {
+          "eval_count": 1248,
+          "eval_duration_seconds": 68.298737417,
+          "load_duration_seconds": 6.011482584,
+          "output_tokens_per_second": 18.27266575047059,
+          "prompt_eval_count": 7900,
+          "time_to_first_content_seconds": 69.37197037506849,
+          "total_duration_seconds": 137.289796834,
+          "wall_time_seconds": 137.29131704103202
+        },
+        "native_provider_response": {
+          "eval_count": 1167,
+          "eval_duration_seconds": 70.658817167,
+          "load_duration_seconds": 0.006314583,
+          "output_tokens_per_second": 16.51598550315144,
+          "prompt_eval_count": 7900,
+          "time_to_first_content_seconds": 0.24171604216098785,
+          "total_duration_seconds": 70.782049083,
+          "wall_time_seconds": 70.78363420907408
+        },
+        "native_trajectory": {}
+      },
+      "model": "gemma4:31b-mlx",
+      "native_cell_id": "cell-004",
+      "native_checks": {
+        "bold_heading_count": 0,
+        "check_version": "1.0.0",
+        "detected_language": "de",
+        "generation_complete": true,
+        "generation_done_reason": "stop",
+        "heading_pass": true,
+        "language_evidence": {
+          "english_stopword_hits": 10,
+          "german_stopword_hits": 176
+        },
+        "language_method": "stopword_heuristic_v1",
+        "language_pass": true,
+        "markdown_heading_count": 6,
+        "maximum_words": 1000,
+        "maximum_words_pass": true,
+        "nonempty": true,
+        "reasoning_markup_absent": true,
+        "source_location_labels_absent": true,
+        "structural_heading_count": 6,
+        "word_count": 599
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {},
+      "preflight_sha256": "689827fe71f4c90b5be9fa0ab0c5ee397518ad8efc8d821cfb0ef23c52bdefc3",
+      "provider_requests": 2,
+      "quality_review": {
+        "batch": "ornith-extension-20261017-four-model",
+        "errors": [
+          {
+            "description": "Attributes improvements primarily to reasoning, tool use and recovery without the small failed-transcript sample qualification.",
+            "severity": "minor",
+            "source_locations": [
+              "P12"
+            ],
+            "type": "certainty_inflation"
+          }
+        ],
+        "score": 76.5,
+        "verdict": "good"
+      },
+      "record_sha256": "3d6a0c28f1f3b141974e99391da5576d5e3beb48edb177fad3f503255b2d0185",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "10m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 2600,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "response_sha256": "7acba66ef578a38177634264060869afa7313bfcc3a750beff2546e53e895f32",
+      "system": "direct-text",
+      "verification": {}
+    },
+    {
+      "case_binding": {
+        "benchmark_card_version": "1.0.0",
+        "case_version": "1.0.0",
+        "prompt_version": "1.0.0",
+        "source_sha256": "dd75d73fdf1af7265fcc3ce00876fbe1b20306c14b169ee165395e2c23edbe48"
+      },
+      "case_id": "general_knowledge.dev.medical-screening-bayes",
+      "cell_id": "reference-cell-005",
+      "harness_binding": {},
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "cold_provider_response": {
+          "eval_count": 928,
+          "eval_duration_seconds": 50.883183125,
+          "load_duration_seconds": 5.813244417,
+          "output_tokens_per_second": 18.23785272474539,
+          "prompt_eval_count": 398,
+          "time_to_first_content_seconds": 8.509522250154987,
+          "total_duration_seconds": 59.291590959,
+          "wall_time_seconds": 59.296645833179355
+        },
+        "native_provider_response": {
+          "eval_count": 931,
+          "eval_duration_seconds": 50.60353525,
+          "load_duration_seconds": 0.007900417,
+          "output_tokens_per_second": 18.397924085748535,
+          "prompt_eval_count": 398,
+          "time_to_first_content_seconds": 1.0086051248945296,
+          "total_duration_seconds": 51.546123209,
+          "wall_time_seconds": 51.54751216690056
+        },
+        "native_trajectory": {}
+      },
+      "model": "gemma4:31b-mlx",
+      "native_cell_id": "cell-005",
+      "native_checks": {
+        "bold_heading_count": 5,
+        "check_version": "1.0.0",
+        "detected_language": "de",
+        "generation_complete": true,
+        "generation_done_reason": "stop",
+        "heading_pass": true,
+        "language_evidence": {
+          "english_stopword_hits": 6,
+          "german_stopword_hits": 117
+        },
+        "language_method": "stopword_heuristic_v1",
+        "language_pass": true,
+        "markdown_heading_count": 4,
+        "maximum_words": 800,
+        "maximum_words_pass": true,
+        "nonempty": true,
+        "reasoning_markup_absent": true,
+        "source_location_labels_absent": true,
+        "structural_heading_count": 9,
+        "word_count": 438
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {},
+      "preflight_sha256": "689827fe71f4c90b5be9fa0ab0c5ee397518ad8efc8d821cfb0ef23c52bdefc3",
+      "provider_requests": 2,
+      "quality_review": {
+        "batch": "ornith-extension-20261017-four-model",
+        "errors": [
+          {
+            "description": "Says screening is effective only if disease-specific deaths fall; the dossier also considers morbidity, quality of life and harms.",
+            "severity": "minor",
+            "source_locations": [
+              "S07"
+            ],
+            "type": "certainty_inflation"
+          }
+        ],
+        "score": 84.0,
+        "verdict": "good"
+      },
+      "record_sha256": "f96e6566635778179622f471cacbb08230ab45b6d08ecf7b3e6ddb02de23e14e",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "10m",
+        "options": {
+          "num_ctx": 8192,
+          "num_predict": 2600,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "response_sha256": "5c53f8d6a1a771ff967910fe5fb85222358d09b8d42695391c934cb48a7ad943",
+      "system": "direct-text",
+      "verification": {}
+    },
+    {
+      "case_binding": {
+        "benchmark_card_version": "1.0.0",
+        "case_version": "1.0.0",
+        "prompt_version": "1.0.0",
+        "source_sha256": "8df198d0afa5c910a6bfa0ab926714e8b2db89ae9c9d32473e960581659c687d"
+      },
+      "case_id": "source_grounded_writing.dev.agentic-software-development-reality-gap",
+      "cell_id": "reference-cell-006",
+      "harness_binding": {},
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "cold_provider_response": {
+          "eval_count": 664,
+          "eval_duration_seconds": 38.682132458,
+          "load_duration_seconds": 4.020032708,
+          "output_tokens_per_second": 17.165547962510935,
+          "prompt_eval_count": 4212,
+          "time_to_first_content_seconds": 40.04493770794943,
+          "total_duration_seconds": 78.595277541,
+          "wall_time_seconds": 78.59610024979338
+        },
+        "native_provider_response": {
+          "eval_count": 658,
+          "eval_duration_seconds": 37.818726042,
+          "load_duration_seconds": 0.007842292,
+          "output_tokens_per_second": 17.398788083693006,
+          "prompt_eval_count": 4212,
+          "time_to_first_content_seconds": 0.23175141704268754,
+          "total_duration_seconds": 37.937854334,
+          "wall_time_seconds": 37.938686582958326
+        },
+        "native_trajectory": {}
+      },
+      "model": "gemma4:31b-mlx",
+      "native_cell_id": "cell-006",
+      "native_checks": {
+        "bold_heading_count": 0,
+        "check_version": "1.0.0",
+        "detected_language": "de",
+        "generation_complete": true,
+        "generation_done_reason": "stop",
+        "heading_pass": false,
+        "language_evidence": {
+          "english_stopword_hits": 12,
+          "german_stopword_hits": 108
+        },
+        "language_method": "stopword_heuristic_v1",
+        "language_pass": true,
+        "markdown_heading_count": 0,
+        "maximum_words": 600,
+        "maximum_words_pass": true,
+        "nonempty": true,
+        "reasoning_markup_absent": true,
+        "source_location_labels_absent": true,
+        "structural_heading_count": 0,
+        "word_count": 362
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {},
+      "preflight_sha256": "689827fe71f4c90b5be9fa0ab0c5ee397518ad8efc8d821cfb0ef23c52bdefc3",
+      "provider_requests": 2,
+      "quality_review": {
+        "batch": "ornith-extension-20261017-four-model",
+        "errors": [
+          {
+            "description": "Opening accepts verification left to human intuition as an adequate alternative to robust automated processes, weakening the required robust review and verification position.",
+            "severity": "major",
+            "source_locations": [],
+            "thought_ids": [
+              "T01"
+            ],
+            "type": "other"
+          },
+          {
+            "description": "States repository conventions and cleanup as the cause of the observed slowdown rather than plausible mechanisms with study-specific limits.",
+            "severity": "major",
+            "source_locations": [
+              "S18",
+              "S19",
+              "S20"
+            ],
+            "thought_ids": [],
+            "type": "certainty_inflation"
+          }
+        ],
+        "score": 61.5,
+        "verdict": "usable"
+      },
+      "record_sha256": "2b6f65d31e77890a5ca6218a2bf7bc86430d8abdd9d9dfdf2869b0d7d659c5b7",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "10m",
+        "options": {
+          "num_ctx": 8192,
+          "num_predict": 2600,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "response_sha256": "37e4fbe2d255f7836594600bd197fc7c35252e6898e0f8044b39fdf8560c4706",
+      "system": "direct-text",
+      "verification": {}
+    },
+    {
+      "case_binding": {
+        "benchmark_card_version": "1.0.0",
+        "case_version": "1.0.0",
+        "prompt_version": "1.0.0",
+        "source_sha256": "e7dd5cfd91283dd787f8d8ea2f9833d33c3a3e34f993d3cc93d51254dcd77ba8"
+      },
+      "case_id": "summarization.dev.metr-long-software-tasks",
+      "cell_id": "reference-cell-007",
+      "harness_binding": {},
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "cold_provider_response": {
+          "eval_count": 1360,
+          "eval_duration_seconds": 14.118548542,
+          "load_duration_seconds": 12.407520208,
+          "output_tokens_per_second": 96.32718235548495,
+          "prompt_eval_count": 7913,
+          "time_to_first_content_seconds": 24.751367750111967,
+          "total_duration_seconds": 38.841459625,
+          "wall_time_seconds": 38.842338165966794
+        },
+        "native_provider_response": {
+          "eval_count": 1301,
+          "eval_duration_seconds": 13.071598208,
+          "load_duration_seconds": 0.00481225,
+          "output_tokens_per_second": 99.52876299424274,
+          "prompt_eval_count": 7913,
+          "time_to_first_content_seconds": 0.060124041978269815,
+          "total_duration_seconds": 13.112846541,
+          "wall_time_seconds": 13.113672875100747
+        },
+        "native_trajectory": {}
+      },
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "native_cell_id": "cell-007",
+      "native_checks": {
+        "bold_heading_count": 0,
+        "check_version": "1.0.0",
+        "detected_language": "de",
+        "generation_complete": true,
+        "generation_done_reason": "stop",
+        "heading_pass": true,
+        "language_evidence": {
+          "english_stopword_hits": 8,
+          "german_stopword_hits": 171
+        },
+        "language_method": "stopword_heuristic_v1",
+        "language_pass": true,
+        "markdown_heading_count": 9,
+        "maximum_words": 1000,
+        "maximum_words_pass": true,
+        "nonempty": true,
+        "reasoning_markup_absent": true,
+        "source_location_labels_absent": true,
+        "structural_heading_count": 9,
+        "word_count": 634
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {},
+      "preflight_sha256": "e8ceb02c33d068267500537b10743f4752469120f4f14310e9479166f2df77c1",
+      "provider_requests": 2,
+      "quality_review": {
+        "batch": "ornith-extension-20261017-four-model",
+        "errors": [
+          {
+            "description": "Turns over 800 attempts into over 800 distinct experts.",
+            "severity": "major",
+            "source_locations": [
+              "P07"
+            ],
+            "type": "numeric_error"
+          },
+          {
+            "description": "Speculates that a future AGI could have an infinite time horizon; this is not a finding in the supplied paper.",
+            "severity": "minor",
+            "source_locations": [
+              "P19"
+            ],
+            "type": "unsupported_addition"
+          }
+        ],
+        "score": 64.5,
+        "verdict": "usable"
+      },
+      "record_sha256": "5ee638312774be18fea27b3b92d96fe00a237063845cecf4b46936a82f53f6a1",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "10m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 2600,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "response_sha256": "5f9f0f9519236b466d5d878ff91150a7529e3645ac123aae43d798cb7b11b2f7",
+      "system": "direct-text",
+      "verification": {}
+    },
+    {
+      "case_binding": {
+        "benchmark_card_version": "1.0.0",
+        "case_version": "1.0.0",
+        "prompt_version": "1.0.0",
+        "source_sha256": "dd75d73fdf1af7265fcc3ce00876fbe1b20306c14b169ee165395e2c23edbe48"
+      },
+      "case_id": "general_knowledge.dev.medical-screening-bayes",
+      "cell_id": "reference-cell-008",
+      "harness_binding": {},
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "cold_provider_response": {
+          "eval_count": 1124,
+          "eval_duration_seconds": 9.600895708,
+          "load_duration_seconds": 10.611042167,
+          "output_tokens_per_second": 117.07241013600645,
+          "prompt_eval_count": 402,
+          "time_to_first_content_seconds": 12.316333041992038,
+          "total_duration_seconds": 21.899423792,
+          "wall_time_seconds": 21.90018816711381
+        },
+        "native_provider_response": {
+          "eval_count": 1196,
+          "eval_duration_seconds": 11.349768084,
+          "load_duration_seconds": 0.003730875,
+          "output_tokens_per_second": 105.3766025127884,
+          "prompt_eval_count": 402,
+          "time_to_first_content_seconds": 0.04495908413082361,
+          "total_duration_seconds": 11.377141875,
+          "wall_time_seconds": 11.377855792175978
+        },
+        "native_trajectory": {}
+      },
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "native_cell_id": "cell-008",
+      "native_checks": {
+        "bold_heading_count": 0,
+        "check_version": "1.0.0",
+        "detected_language": "de",
+        "generation_complete": true,
+        "generation_done_reason": "stop",
+        "heading_pass": true,
+        "language_evidence": {
+          "english_stopword_hits": 8,
+          "german_stopword_hits": 183
+        },
+        "language_method": "stopword_heuristic_v1",
+        "language_pass": true,
+        "markdown_heading_count": 3,
+        "maximum_words": 800,
+        "maximum_words_pass": true,
+        "nonempty": true,
+        "reasoning_markup_absent": true,
+        "source_location_labels_absent": true,
+        "structural_heading_count": 3,
+        "word_count": 613
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {},
+      "preflight_sha256": "e8ceb02c33d068267500537b10743f4752469120f4f14310e9479166f2df77c1",
+      "provider_requests": 2,
+      "quality_review": {
+        "batch": "ornith-extension-20261017-four-model",
+        "errors": [
+          {
+            "description": "Conflates NNT with NNS when defining the number that must be screened.",
+            "severity": "minor",
+            "source_locations": [
+              "S07"
+            ],
+            "type": "other"
+          },
+          {
+            "description": "The final statement says the positive does not change probability in the expected direction, although it raises disease probability from 1 to 15.4 percent; the error is magnitude, not direction.",
+            "severity": "minor",
+            "source_locations": [
+              "S02",
+              "S03"
+            ],
+            "type": "contradiction"
+          }
+        ],
+        "score": 81.0,
+        "verdict": "good"
+      },
+      "record_sha256": "6c6678a652b06b15615b0edf248d830f42502eac130e5a203fa6d51052a7701b",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "10m",
+        "options": {
+          "num_ctx": 8192,
+          "num_predict": 2600,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "response_sha256": "8b2e06764e2dccc7433549bc70778df04a585c65dbd5ea14569098eeeaab04c2",
+      "system": "direct-text",
+      "verification": {}
+    },
+    {
+      "case_binding": {
+        "benchmark_card_version": "1.0.0",
+        "case_version": "1.0.0",
+        "prompt_version": "1.0.0",
+        "source_sha256": "8df198d0afa5c910a6bfa0ab926714e8b2db89ae9c9d32473e960581659c687d"
+      },
+      "case_id": "source_grounded_writing.dev.agentic-software-development-reality-gap",
+      "cell_id": "reference-cell-009",
+      "harness_binding": {},
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "cold_provider_response": {
+          "eval_count": 626,
+          "eval_duration_seconds": 5.927325417,
+          "load_duration_seconds": 9.809418125,
+          "output_tokens_per_second": 105.61255810328662,
+          "prompt_eval_count": 4237,
+          "time_to_first_content_seconds": 13.248256917111576,
+          "total_duration_seconds": 19.150276792,
+          "wall_time_seconds": 19.15100924996659
+        },
+        "native_provider_response": {
+          "eval_count": 1067,
+          "eval_duration_seconds": 10.438930166,
+          "load_duration_seconds": 0.004601416,
+          "output_tokens_per_second": 102.21353941759858,
+          "prompt_eval_count": 4237,
+          "time_to_first_content_seconds": 0.05408733314834535,
+          "total_duration_seconds": 10.473917666,
+          "wall_time_seconds": 10.474754416150972
+        },
+        "native_trajectory": {}
+      },
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "native_cell_id": "cell-009",
+      "native_checks": {
+        "bold_heading_count": 0,
+        "check_version": "1.0.0",
+        "detected_language": "de",
+        "generation_complete": true,
+        "generation_done_reason": "stop",
+        "heading_pass": false,
+        "language_evidence": {
+          "english_stopword_hits": 12,
+          "german_stopword_hits": 165
+        },
+        "language_method": "stopword_heuristic_v1",
+        "language_pass": true,
+        "markdown_heading_count": 0,
+        "maximum_words": 600,
+        "maximum_words_pass": true,
+        "nonempty": true,
+        "reasoning_markup_absent": true,
+        "source_location_labels_absent": true,
+        "structural_heading_count": 0,
+        "word_count": 543
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {},
+      "preflight_sha256": "e8ceb02c33d068267500537b10743f4752469120f4f14310e9479166f2df77c1",
+      "provider_requests": 2,
+      "quality_review": {
+        "batch": "ornith-extension-20261017-four-model",
+        "errors": [
+          {
+            "description": "Changes the randomized finding of 19-percent longer implementation time into a 19-percent productivity increase, reversing a central source result.",
+            "severity": "critical",
+            "source_locations": [
+              "S16",
+              "S17"
+            ],
+            "thought_ids": [],
+            "type": "contradiction"
+          },
+          {
+            "description": "Says instability was unchanged, contradicting the positive association between AI adoption and delivery instability.",
+            "severity": "major",
+            "source_locations": [
+              "S23"
+            ],
+            "thought_ids": [],
+            "type": "contradiction"
+          },
+          {
+            "description": "Treats the historical one-million-dollar task payout total as an evaluation budget.",
+            "severity": "major",
+            "source_locations": [
+              "S01",
+              "S02"
+            ],
+            "thought_ids": [],
+            "type": "numeric_error"
+          },
+          {
+            "description": "Reports the post-study perceived improvement as 24 percent; the source reports 20 percent after and 24 percent before.",
+            "severity": "minor",
+            "source_locations": [
+              "S17"
+            ],
+            "thought_ids": [],
+            "type": "numeric_error"
+          },
+          {
+            "description": "Calls management proposal-selection tasks more complex without a supported complexity comparison.",
+            "severity": "minor",
+            "source_locations": [
+              "S02"
+            ],
+            "thought_ids": [],
+            "type": "unsupported_addition"
+          }
+        ],
+        "score": 44.5,
+        "verdict": "poor"
+      },
+      "record_sha256": "b198bcec17b3f40182e6744f2eb0f40172eac756a466615703063ac6fa078233",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "10m",
+        "options": {
+          "num_ctx": 8192,
+          "num_predict": 2600,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "response_sha256": "55ea9b56a37c162883f4ac632baf08f2866643b91a633b87355d24de3d0deb1f",
+      "system": "direct-text",
+      "verification": {}
+    },
+    {
+      "case_binding": {
+        "artifact_contract_version": "1.1.0",
+        "benchmark_card_version": "1.0.0",
+        "case_version": "1.0.0",
+        "fixture_manifest_sha256": "390245902d8137e4c9de2e04898650b617ee978910c93b15d243282222c82c73",
+        "hidden_test_sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2",
+        "prompt_version": "1.0.0",
+        "task_sha256": "277a815f4ac6ab2dbb03e27f3d6c99928c26f52f32d6787c3ce6c123aa7196aa",
+        "verifier_version": "1.0.0"
+      },
+      "case_id": "coding.dev.php-payment-result-migration",
+      "cell_id": "reference-cell-010",
+      "harness_binding": {
+        "name": "local_llm_benchmark.direct_files",
+        "version": "1.1.0"
+      },
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 42.342184,
+        "native_provider_response": {
+          "eval_count": 651,
+          "eval_duration_seconds": 14.837579958,
+          "load_duration_seconds": 4.011712833,
+          "output_tokens_per_second": 43.87507948349754,
+          "prompt_eval_count": 4298,
+          "time_to_first_content_seconds": 27.00198616599664,
+          "total_duration_seconds": 41.718901583,
+          "wall_time_seconds": 41.71963774994947
+        },
+        "native_trajectory": {}
+      },
+      "model": "gemma4:31b-mlx",
+      "native_cell_id": "cell-010",
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {
+        "failure_code": null,
+        "output_status": "valid",
+        "task_status": "verified_success",
+        "verification_status": "passed",
+        "verified_success": true
+      },
+      "preflight_sha256": "afb4fae8d1be0bdfde7a71c09616318977ca76debf9b61e7fb8753b504863c49",
+      "provider_requests": 1,
+      "quality_review": null,
+      "record_sha256": "521771519d1a4ae6fc29bfa2d616aff09b321d5c56253ebfb8413aa06794f104",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "5m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 3000,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "system": "direct-coding",
+      "verification": {
+        "failure_code": null,
+        "sha256": "d3cfb5d1f4e1e1c9b552c3cfdbe3abf16aea4e80d6c22ecbbfc6547a7b555b13",
+        "verification_status": "passed",
+        "verified_success": true,
+        "verifier_version": "1.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "artifact_contract_version": "1.1.0",
+        "benchmark_card_version": "1.0.0",
+        "case_version": "1.0.0",
+        "fixture_manifest_sha256": "390245902d8137e4c9de2e04898650b617ee978910c93b15d243282222c82c73",
+        "hidden_test_sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2",
+        "prompt_version": "1.0.0",
+        "task_sha256": "277a815f4ac6ab2dbb03e27f3d6c99928c26f52f32d6787c3ce6c123aa7196aa",
+        "verifier_version": "1.0.0"
+      },
+      "case_id": "coding.dev.php-payment-result-migration",
+      "cell_id": "reference-cell-011",
+      "harness_binding": {
+        "name": "local_llm_benchmark.direct_files",
+        "version": "1.1.0"
+      },
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 24.750878,
+        "native_provider_response": {
+          "eval_count": 647,
+          "eval_duration_seconds": 4.182957834,
+          "load_duration_seconds": 16.308063375,
+          "output_tokens_per_second": 154.6752383543152,
+          "prompt_eval_count": 3994,
+          "time_to_first_content_seconds": 20.391235209070146,
+          "total_duration_seconds": 24.509563833,
+          "wall_time_seconds": 24.511032750131562
+        },
+        "native_trajectory": {}
+      },
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "native_cell_id": "cell-011",
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {
+        "failure_code": "malformed_artifact",
+        "output_status": "malformed",
+        "task_status": "failed",
+        "verification_status": "unavailable",
+        "verified_success": false
+      },
+      "preflight_sha256": "2c717ff5df62abd27887de6d1d7ccdd78871193de48f82c658f3fffc80bc6653",
+      "provider_requests": 1,
+      "quality_review": null,
+      "record_sha256": "8f6e6905f29d29e5122c07c95c101ad455aaa292bebecfbbd1b85a3de14683ab",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "5m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 3000,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "system": "direct-coding",
+      "verification": {
+        "failure_code": "malformed_artifact",
+        "sha256": "d71f7ae235f5689c176ad3836409d84661d39b03d61dde3f55f40e79204a83bf",
+        "verification_status": "unavailable",
+        "verified_success": false,
+        "verifier_version": "1.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "artifact_contract_version": "1.1.0",
+        "benchmark_card_version": "1.0.0",
+        "case_version": "1.0.0",
+        "fixture_manifest_sha256": "390245902d8137e4c9de2e04898650b617ee978910c93b15d243282222c82c73",
+        "hidden_test_sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2",
+        "prompt_version": "1.0.0",
+        "task_sha256": "277a815f4ac6ab2dbb03e27f3d6c99928c26f52f32d6787c3ce6c123aa7196aa",
+        "verifier_version": "1.0.0"
+      },
+      "case_id": "coding.dev.php-payment-result-migration",
+      "cell_id": "reference-cell-012",
+      "harness_binding": {
+        "name": "local_llm_benchmark.direct_files",
+        "version": "1.1.0"
+      },
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 31.024622,
+        "native_provider_response": {
+          "eval_count": 649,
+          "eval_duration_seconds": 10.201529792,
+          "load_duration_seconds": 3.413092708,
+          "output_tokens_per_second": 63.61790959125985,
+          "prompt_eval_count": 4157,
+          "time_to_first_content_seconds": 20.679203542182222,
+          "total_duration_seconds": 30.80508125,
+          "wall_time_seconds": 30.80586904217489
+        },
+        "native_trajectory": {}
+      },
+      "model": "qwen3.8:27b-mlx",
+      "native_cell_id": "cell-012",
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {
+        "failure_code": "malformed_artifact",
+        "output_status": "malformed",
+        "task_status": "failed",
+        "verification_status": "unavailable",
+        "verified_success": false
+      },
+      "preflight_sha256": "7c34dafa54cac881026be83dccb60a731183abb49c88809c71ca266e3885345f",
+      "provider_requests": 1,
+      "quality_review": null,
+      "record_sha256": "cc0825e8e11896eea5e2be7c14999af9d44a4be40bc14100e78fdc7ae8f3f1b2",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "5m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 3000,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "system": "direct-coding",
+      "verification": {
+        "failure_code": "malformed_artifact",
+        "sha256": "3c3117ef3f70bd5b2f135af55548046db7e2eac84a2bc277899f30165095e1a7",
+        "verification_status": "unavailable",
+        "verified_success": false,
+        "verifier_version": "1.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_sha256": "4d5b73c801053104a1a3f01589d538255f20c630a6aaf583790bde3cda1a2c4b",
+        "case_definition_sha256": "8fd6a46683604eb6f80ad6f583a05f8d2730d6c840afcb6a9d297b395741179e",
+        "case_version": "1.0.0",
+        "fixture_manifest_sha256": "390245902d8137e4c9de2e04898650b617ee978910c93b15d243282222c82c73",
+        "hidden_test_sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2",
+        "task_sha256": "277a815f4ac6ab2dbb03e27f3d6c99928c26f52f32d6787c3ce6c123aa7196aa",
+        "verifier_version": "1.0.0"
+      },
+      "case_id": "coding.dev.php-payment-result-migration",
+      "cell_id": "reference-cell-013",
+      "harness_binding": {
+        "action_schema_sha256": "155ec85fd1f47d3f9b06924bfdfcaa838b1472d21c7aa83a83fd02e1c6e35539",
+        "harness_family": "project_mini_harness",
+        "harness_id": "mini-v0.3",
+        "harness_sha256": "a0473568ea70b8c07dfe3b3042281323aeb59ab8de4d8ea7e18f9127f18b3518",
+        "implementation_sha256": "8579a6d9332fb268a40020b0acc3513e6e3afa782ca89569a168150124691ce1",
+        "protocol_sha256": "b3568186c63525c0f5ae29a983a66c192c01d1425447352f7a78adc44797294b",
+        "semantic_reference_sha256": "cac27f7bdfee3e8bb46f39a12633c9c259f95b6537193904043d36e962daa260",
+        "system_prompt_sha256": "75314f0664a6d127039d7b8c2804f242d4bf164ec52f0183289513107872e1c4"
+      },
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 40.265967,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 33.682553455699235,
+          "agent_turns": 19,
+          "failed_tool_calls": 1,
+          "file_reads": 14,
+          "file_writes": 2,
+          "input_tokens": 89345,
+          "model_requests": 19,
+          "model_wall_time_seconds": 33.26619466417469,
+          "output_tokens": 1014,
+          "protocol_errors": 0,
+          "public_test_runs": 2,
+          "tool_calls": 18,
+          "tool_wall_time_seconds": 0.41635879152454436
+        }
+      },
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "native_cell_id": "cell-013",
+      "native_limits": {
+        "maximum_active_wall_time_seconds": 900,
+        "maximum_agent_turns": null,
+        "maximum_protocol_errors": null,
+        "maximum_total_output_tokens": null,
+        "provider_request_timeout_seconds": 300
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": "hidden_tests_failed",
+        "runtime_success": true,
+        "trajectory_termination_reason": "finish_action",
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "preflight_sha256": "952de2afa83968df4529a43026cb410b972745393fdb7f26a1234bce345c9ffd",
+      "provider_requests": 19,
+      "quality_review": null,
+      "record_sha256": "fb2e3b05661d285702931c3d16150a970dd896acc85abcc0098c2595346a64c0",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "5m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 1600,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "request_configuration_basis": "first native request artifact; later messages differ with the trajectory",
+      "system": "mini-coding",
+      "verification": {
+        "verifier_version": "1.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_sha256": "4d5b73c801053104a1a3f01589d538255f20c630a6aaf583790bde3cda1a2c4b",
+        "case_definition_sha256": "8fd6a46683604eb6f80ad6f583a05f8d2730d6c840afcb6a9d297b395741179e",
+        "case_version": "1.0.0",
+        "fixture_manifest_sha256": "390245902d8137e4c9de2e04898650b617ee978910c93b15d243282222c82c73",
+        "hidden_test_sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2",
+        "task_sha256": "277a815f4ac6ab2dbb03e27f3d6c99928c26f52f32d6787c3ce6c123aa7196aa",
+        "verifier_version": "1.0.0"
+      },
+      "case_id": "coding.dev.php-payment-result-migration",
+      "cell_id": "reference-cell-014",
+      "harness_binding": {
+        "action_schema_sha256": "155ec85fd1f47d3f9b06924bfdfcaa838b1472d21c7aa83a83fd02e1c6e35539",
+        "harness_family": "project_mini_harness",
+        "harness_id": "mini-v0.3",
+        "harness_sha256": "a0473568ea70b8c07dfe3b3042281323aeb59ab8de4d8ea7e18f9127f18b3518",
+        "implementation_sha256": "8579a6d9332fb268a40020b0acc3513e6e3afa782ca89569a168150124691ce1",
+        "protocol_sha256": "b3568186c63525c0f5ae29a983a66c192c01d1425447352f7a78adc44797294b",
+        "semantic_reference_sha256": "cac27f7bdfee3e8bb46f39a12633c9c259f95b6537193904043d36e962daa260",
+        "system_prompt_sha256": "75314f0664a6d127039d7b8c2804f242d4bf164ec52f0183289513107872e1c4"
+      },
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 69.789224,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 64.21811883337796,
+          "agent_turns": 17,
+          "failed_tool_calls": 0,
+          "file_reads": 13,
+          "file_writes": 2,
+          "input_tokens": 67459,
+          "model_requests": 17,
+          "model_wall_time_seconds": 64.01948874793015,
+          "output_tokens": 991,
+          "protocol_errors": 0,
+          "public_test_runs": 1,
+          "tool_calls": 16,
+          "tool_wall_time_seconds": 0.19863008544780314
+        }
+      },
+      "model": "qwen3.8:27b-mlx",
+      "native_cell_id": "cell-014",
+      "native_limits": {
+        "maximum_active_wall_time_seconds": 900,
+        "maximum_agent_turns": null,
+        "maximum_protocol_errors": null,
+        "maximum_total_output_tokens": null,
+        "provider_request_timeout_seconds": 300
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": null,
+        "failure_type": null,
+        "runtime_success": true,
+        "trajectory_termination_reason": "finish_action",
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "preflight_sha256": "24a102be1eb10944e867274756e42c4f9605bb521822c70df8e21a90341ba3ce",
+      "provider_requests": 17,
+      "quality_review": null,
+      "record_sha256": "ee911b551488018e05d68efc9925599217275677917f1f2d183af52072abcdd6",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "5m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 1600,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "request_configuration_basis": "first native request artifact; later messages differ with the trajectory",
+      "system": "mini-coding",
+      "verification": {
+        "verifier_version": "1.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_sha256": "4d5b73c801053104a1a3f01589d538255f20c630a6aaf583790bde3cda1a2c4b",
+        "case_definition_sha256": "8fd6a46683604eb6f80ad6f583a05f8d2730d6c840afcb6a9d297b395741179e",
+        "case_version": "1.0.0",
+        "fixture_manifest_sha256": "390245902d8137e4c9de2e04898650b617ee978910c93b15d243282222c82c73",
+        "hidden_test_sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2",
+        "task_sha256": "277a815f4ac6ab2dbb03e27f3d6c99928c26f52f32d6787c3ce6c123aa7196aa",
+        "verifier_version": "1.0.0"
+      },
+      "case_id": "coding.dev.php-payment-result-migration",
+      "cell_id": "reference-cell-015",
+      "harness_binding": {
+        "action_schema_sha256": "155ec85fd1f47d3f9b06924bfdfcaa838b1472d21c7aa83a83fd02e1c6e35539",
+        "harness_family": "project_mini_harness",
+        "harness_id": "mini-v0.3",
+        "harness_sha256": "a0473568ea70b8c07dfe3b3042281323aeb59ab8de4d8ea7e18f9127f18b3518",
+        "implementation_sha256": "8579a6d9332fb268a40020b0acc3513e6e3afa782ca89569a168150124691ce1",
+        "protocol_sha256": "b3568186c63525c0f5ae29a983a66c192c01d1425447352f7a78adc44797294b",
+        "semantic_reference_sha256": "cac27f7bdfee3e8bb46f39a12633c9c259f95b6537193904043d36e962daa260",
+        "system_prompt_sha256": "75314f0664a6d127039d7b8c2804f242d4bf164ec52f0183289513107872e1c4"
+      },
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 943.92943,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 910.4924038369209,
+          "agent_turns": 95,
+          "failed_tool_calls": 89,
+          "file_reads": 5,
+          "file_writes": 0,
+          "input_tokens": 1337163,
+          "model_requests": 95,
+          "model_wall_time_seconds": 910.4574003401212,
+          "output_tokens": 16553,
+          "protocol_errors": 0,
+          "public_test_runs": 0,
+          "tool_calls": 94,
+          "tool_wall_time_seconds": 0.035003496799618006
+        }
+      },
+      "model": "gemma4:31b-mlx",
+      "native_cell_id": "cell-015",
+      "native_limits": {
+        "maximum_active_wall_time_seconds": 900,
+        "maximum_agent_turns": null,
+        "maximum_protocol_errors": null,
+        "maximum_total_output_tokens": null,
+        "provider_request_timeout_seconds": 300
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {
+        "agent_termination_valid": false,
+        "failure_category": "infrastructure_or_runtime_failure",
+        "failure_type": "maximum_active_wall_time_exceeded",
+        "runtime_success": false,
+        "trajectory_termination_reason": "maximum_active_wall_time_exceeded",
+        "verified_success": false,
+        "verifier_success": false
+      },
+      "preflight_sha256": "936a7ec3f17237ecfed00bac79cfd8ac03e48a1e2f6a02641b1255accd869591",
+      "provider_requests": 95,
+      "quality_review": null,
+      "record_sha256": "afb6fb10b5ea0f708a2f9b5da99c0887578637e7ab3e10dd628a6197be667275",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "5m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 1600,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "request_configuration_basis": "first native request artifact; later messages differ with the trajectory",
+      "system": "mini-coding",
+      "verification": {
+        "verifier_version": "1.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_sha256": "4d5b73c801053104a1a3f01589d538255f20c630a6aaf583790bde3cda1a2c4b",
+        "case_definition_sha256": "8fd6a46683604eb6f80ad6f583a05f8d2730d6c840afcb6a9d297b395741179e",
+        "case_version": "1.0.0",
+        "fixture_manifest_sha256": "390245902d8137e4c9de2e04898650b617ee978910c93b15d243282222c82c73",
+        "hidden_test_sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2",
+        "task_sha256": "277a815f4ac6ab2dbb03e27f3d6c99928c26f52f32d6787c3ce6c123aa7196aa",
+        "verifier_version": "1.0.0"
+      },
+      "case_id": "coding.dev.php-payment-result-migration",
+      "cell_id": "reference-cell-016",
+      "harness_binding": {
+        "adapter_sha256": "ed5263b65380fd9bfe7d51f9a6343aa7b42bac8c46d09ce310bcc9a756172d0e",
+        "configuration_builder_sha256": "70582592151a53fddf1cab81770ae0447cd1049b578bf881dd3c9b7b3623e32b",
+        "extension_sha256": "26d5920e298cf3831f0c70c1cd979dfab02d0ede6fbfc67f4de2d0c1c09ec42c",
+        "harness_family": "pinned_pi",
+        "harness_id": "pi-v0.3",
+        "harness_sha256": "5c59dbcc7daad21577ad4f590902cfd1ff0fae4102a156da8854252318317699",
+        "package_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+        "package_lock_sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730",
+        "package_name": "@earendil-works/pi-coding-agent",
+        "package_version": "0.84.4",
+        "protocol_sha256": "cac27f7bdfee3e8bb46f39a12633c9c259f95b6537193904043d36e962daa260",
+        "sandbox_adapter_sha256": "3b1837ca57dec6c9045d79cb6b34b4c86fadc0ed8dd360f0bd7dabe305f02405",
+        "system_prompt_sha256": "06909f8d8394ee349303107cff7b7ac3dd48071e36690985c13464150d978de1"
+      },
+      "identity_basis": "verified_pre_inference_resource_gate",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 100.583231,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 99.6409519170411,
+          "agent_turns": 5,
+          "failed_tool_calls": 0,
+          "file_reads": 12,
+          "file_writes": 2,
+          "input_tokens": 4999,
+          "output_tokens": 2558,
+          "protocol_errors": 0,
+          "public_test_runs": 1,
+          "tool_calls": 15
+        }
+      },
+      "model": "qwen3.8:27b-mlx",
+      "native_cell_id": "cell-016",
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": null,
+        "failure_type": null,
+        "runtime_success": true,
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "preflight_sha256": "bd0c8c69ed662fd9a894b9b89706ebae3c425c41932e76e0f89bddbedef4b54b",
+      "provider_configuration": {
+        "api": "openai-completions",
+        "basis": "native Pi configuration; not a capture of each HTTP payload",
+        "compat": {
+          "supportsDeveloperRole": false,
+          "supportsReasoningEffort": false
+        },
+        "contextWindow": 16384,
+        "maxTokens": 1600,
+        "reasoning": false,
+        "samplingParams": {
+          "seed": 42,
+          "temperature": 0.0
+        }
+      },
+      "provider_requests": null,
+      "quality_review": null,
+      "record_sha256": "59e9603549d25f9d1cc8e2c6462f314b28bb548184a915ae685e8855d8885550",
+      "record_status": "complete",
+      "system": "pi-coding",
+      "verification": {
+        "verifier_version": "1.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_sha256": "4d5b73c801053104a1a3f01589d538255f20c630a6aaf583790bde3cda1a2c4b",
+        "case_definition_sha256": "8fd6a46683604eb6f80ad6f583a05f8d2730d6c840afcb6a9d297b395741179e",
+        "case_version": "1.0.0",
+        "fixture_manifest_sha256": "390245902d8137e4c9de2e04898650b617ee978910c93b15d243282222c82c73",
+        "hidden_test_sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2",
+        "task_sha256": "277a815f4ac6ab2dbb03e27f3d6c99928c26f52f32d6787c3ce6c123aa7196aa",
+        "verifier_version": "1.0.0"
+      },
+      "case_id": "coding.dev.php-payment-result-migration",
+      "cell_id": "reference-cell-017",
+      "harness_binding": {
+        "adapter_sha256": "ed5263b65380fd9bfe7d51f9a6343aa7b42bac8c46d09ce310bcc9a756172d0e",
+        "configuration_builder_sha256": "70582592151a53fddf1cab81770ae0447cd1049b578bf881dd3c9b7b3623e32b",
+        "extension_sha256": "26d5920e298cf3831f0c70c1cd979dfab02d0ede6fbfc67f4de2d0c1c09ec42c",
+        "harness_family": "pinned_pi",
+        "harness_id": "pi-v0.3",
+        "harness_sha256": "5c59dbcc7daad21577ad4f590902cfd1ff0fae4102a156da8854252318317699",
+        "package_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+        "package_lock_sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730",
+        "package_name": "@earendil-works/pi-coding-agent",
+        "package_version": "0.84.4",
+        "protocol_sha256": "cac27f7bdfee3e8bb46f39a12633c9c259f95b6537193904043d36e962daa260",
+        "sandbox_adapter_sha256": "3b1837ca57dec6c9045d79cb6b34b4c86fadc0ed8dd360f0bd7dabe305f02405",
+        "system_prompt_sha256": "06909f8d8394ee349303107cff7b7ac3dd48071e36690985c13464150d978de1"
+      },
+      "identity_basis": "verified_pre_inference_resource_gate",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 258.276296,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 257.38809395907447,
+          "agent_turns": 13,
+          "failed_tool_calls": 0,
+          "file_reads": 8,
+          "file_writes": 2,
+          "input_tokens": 3419,
+          "output_tokens": 5736,
+          "protocol_errors": 0,
+          "public_test_runs": 2,
+          "tool_calls": 12
+        }
+      },
+      "model": "gemma4:31b-mlx",
+      "native_cell_id": "cell-017",
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": null,
+        "failure_type": null,
+        "runtime_success": true,
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "preflight_sha256": "1ed3f09f46b3d905171cad88223eb55d22247526db8b930db4ce23fe27459c63",
+      "provider_configuration": {
+        "api": "openai-completions",
+        "basis": "native Pi configuration; not a capture of each HTTP payload",
+        "compat": {
+          "supportsDeveloperRole": false,
+          "supportsReasoningEffort": false
+        },
+        "contextWindow": 16384,
+        "maxTokens": 1600,
+        "reasoning": false,
+        "samplingParams": {
+          "seed": 42,
+          "temperature": 0.0
+        }
+      },
+      "provider_requests": null,
+      "quality_review": null,
+      "record_sha256": "683bd1529bd44bd5a13957260c38422ef08d20a34bf04f30db11c6ca383a68a7",
+      "record_status": "complete",
+      "system": "pi-coding",
+      "verification": {
+        "verifier_version": "1.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_sha256": "4d5b73c801053104a1a3f01589d538255f20c630a6aaf583790bde3cda1a2c4b",
+        "case_definition_sha256": "8fd6a46683604eb6f80ad6f583a05f8d2730d6c840afcb6a9d297b395741179e",
+        "case_version": "1.0.0",
+        "fixture_manifest_sha256": "390245902d8137e4c9de2e04898650b617ee978910c93b15d243282222c82c73",
+        "hidden_test_sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2",
+        "task_sha256": "277a815f4ac6ab2dbb03e27f3d6c99928c26f52f32d6787c3ce6c123aa7196aa",
+        "verifier_version": "1.0.0"
+      },
+      "case_id": "coding.dev.php-payment-result-migration",
+      "cell_id": "reference-cell-018",
+      "harness_binding": {
+        "adapter_sha256": "ed5263b65380fd9bfe7d51f9a6343aa7b42bac8c46d09ce310bcc9a756172d0e",
+        "configuration_builder_sha256": "70582592151a53fddf1cab81770ae0447cd1049b578bf881dd3c9b7b3623e32b",
+        "extension_sha256": "26d5920e298cf3831f0c70c1cd979dfab02d0ede6fbfc67f4de2d0c1c09ec42c",
+        "harness_family": "pinned_pi",
+        "harness_id": "pi-v0.3",
+        "harness_sha256": "5c59dbcc7daad21577ad4f590902cfd1ff0fae4102a156da8854252318317699",
+        "package_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+        "package_lock_sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730",
+        "package_name": "@earendil-works/pi-coding-agent",
+        "package_version": "0.84.4",
+        "protocol_sha256": "cac27f7bdfee3e8bb46f39a12633c9c259f95b6537193904043d36e962daa260",
+        "sandbox_adapter_sha256": "3b1837ca57dec6c9045d79cb6b34b4c86fadc0ed8dd360f0bd7dabe305f02405",
+        "system_prompt_sha256": "06909f8d8394ee349303107cff7b7ac3dd48071e36690985c13464150d978de1"
+      },
+      "identity_basis": "verified_pre_inference_resource_gate",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 199.459512,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 198.46589679084718,
+          "agent_turns": 21,
+          "failed_tool_calls": 9,
+          "file_reads": 16,
+          "file_writes": 6,
+          "input_tokens": 10318,
+          "output_tokens": 15314,
+          "protocol_errors": 0,
+          "public_test_runs": 6,
+          "tool_calls": 34
+        }
+      },
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "native_cell_id": "cell-018",
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": null,
+        "failure_type": null,
+        "runtime_success": true,
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "preflight_sha256": "b4049a9c3c8495e4ddb9b680b39e183488844ba67db89410c21a151f8c5450c4",
+      "provider_configuration": {
+        "api": "openai-completions",
+        "basis": "native Pi configuration; not a capture of each HTTP payload",
+        "compat": {
+          "supportsDeveloperRole": false,
+          "supportsReasoningEffort": false
+        },
+        "contextWindow": 16384,
+        "maxTokens": 1600,
+        "reasoning": false,
+        "samplingParams": {
+          "seed": 42,
+          "temperature": 0.0
+        }
+      },
+      "provider_requests": null,
+      "quality_review": null,
+      "record_sha256": "6adf197ddaa8f555dcda5bc27ebea717cfe48b1c4c75889e6634a0048fa5edaf",
+      "record_status": "complete",
+      "system": "pi-coding",
+      "verification": {
+        "verifier_version": "1.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_sha256": "1ae623f826009762ce4305c53b4e54c73393f7a4f08582393930d6890e8fec69",
+        "case_definition_sha256": "44b03ed13f71dd483dba85cb566a7969bb6a3293f2408e84efd1d56dfdc716b5",
+        "case_version": "5.0.0",
+        "fixture_manifest_sha256": "7c7b8837826f29366970ccdc85760fec4d74fbd0e2616d463f1de2688f68e9e2",
+        "ground_truth_sha256": "881e52f80ee7e84798dec1217b1329160c75417e327b8036f0e01aa8d01e7e3c",
+        "reference_report_sha256": "b032b1aae9c581c58962503030b5f7f0cfac3af8abec1d02cc15074174fbc1fc",
+        "report_schema_sha256": "5e6cecff4e9283e71f34c4a24f0f244f851ec39651ef241f263f0704d78b9bab",
+        "response_normalization_sha256": "749bc2d95338ee95094bbe296b967a7c7577ee7c6e0a44cae1e419096e2c9def",
+        "task_sha256": "8b3b9eb1f74f697f8864c6a153e631d3b910d552b1c132464551057ca98eaace",
+        "verifier_version": "5.0.0",
+        "visible_criteria_sha256": "7887fd537ad2273054e55285b20499766c2c835d8acbdee61f1a7ae97e89ef23"
+      },
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "cell_id": "reference-cell-019",
+      "harness_binding": {
+        "action_schema_sha256": "4765edf9c52e806a4e9faebaf55b7171ba240d3ebbc969720a9115af80b7cbaa",
+        "capability_inventory_sha256": "46d4a63d6bfabf68ee631c29e5bb5e5b1a73b997007fdd323bc498e4bc179ffb",
+        "harness_family": "project_mini_harness",
+        "harness_id": "mini-log-v0.5",
+        "harness_sha256": "37f5ad45ad4d7f217b5434ef43aa25c4b7b44dcb5f56ef9a739b541948661a28",
+        "implementation_sha256": "1e7456fa846ce8e918cbb294062e34e0fdd1b912285bf01a493b712eb023c246",
+        "isolation_profile_sha256": "4b77f9ccdabdca628e8cba47ee318f6930bd65fde8fcfa42c928dc94ed53040d",
+        "protocol_sha256": "019a676d0e7f6988e62b859a7a4cbf5e4edc155654529aec6142778a5dc727a4",
+        "system_prompt_sha256": "54e49b3c3372fb46ee2531a8d52066d57e51e6648b0bb9e61d0e7191cccd7ebf",
+        "verifier_sha256": "84e6bdcd6c4ae080a9b1b03c5eff965b45a4f864d0b820086c47cd187061374b"
+      },
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 102.536899,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 99.65825279220007,
+          "agent_turns": 8,
+          "failed_tool_calls": 0,
+          "file_reads": 7,
+          "input_tokens": 25053,
+          "model_requests": 8,
+          "model_wall_time_seconds": 99.65483170864172,
+          "output_tokens": 1699,
+          "protocol_errors": 0,
+          "tool_calls": 8,
+          "tool_wall_time_seconds": 0.0034210835583508015
+        }
+      },
+      "model": "gemma4:31b-mlx",
+      "native_cell_id": "cell-019",
+      "native_limits": {
+        "maximum_active_wall_time_seconds": 300,
+        "maximum_agent_turns": null,
+        "maximum_protocol_errors": null,
+        "maximum_total_output_tokens": null,
+        "provider_request_timeout_seconds": 180
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": "deterministic_checks_failed",
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "semantic_verifier_success": false,
+        "strict_transport_compliance": true,
+        "trajectory_termination_reason": "finish_report",
+        "verified_success": false
+      },
+      "preflight_sha256": "79e30bcb40300dfe029075d15414e39b50b853919ca7293b5932057707caac64",
+      "provider_requests": 8,
+      "quality_review": {
+        "accepted": true,
+        "findings": [
+          "Correctly identifies the +462-second clock defect, node admission trigger, first user impact and only partial recovery with 612 pending. No material contradictory or unsupported prose claim found.",
+          "Native verification is 11/15: the causal chain omits LB-201, PAY3-300 and EDGE-403; alternative rejection lacks required attached counter-evidence; the latency impact code and two material uncertainty codes are absent. Prose acceptance does not repair these failures."
+        ],
+        "status": "reviewed"
+      },
+      "record_sha256": "f46e9c4feb0d9ed705d7965fdc5336a878408ffef19ee90012a284fed9a99b2e",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "5m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 4000,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "request_configuration_basis": "first native request artifact; later messages differ with the trajectory",
+      "system": "mini-log",
+      "verification": {
+        "essential_check_count": 15,
+        "essential_pass_count": 11,
+        "verifier_version": "5.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_sha256": "1ae623f826009762ce4305c53b4e54c73393f7a4f08582393930d6890e8fec69",
+        "case_definition_sha256": "44b03ed13f71dd483dba85cb566a7969bb6a3293f2408e84efd1d56dfdc716b5",
+        "case_version": "5.0.0",
+        "fixture_manifest_sha256": "7c7b8837826f29366970ccdc85760fec4d74fbd0e2616d463f1de2688f68e9e2",
+        "ground_truth_sha256": "881e52f80ee7e84798dec1217b1329160c75417e327b8036f0e01aa8d01e7e3c",
+        "reference_report_sha256": "b032b1aae9c581c58962503030b5f7f0cfac3af8abec1d02cc15074174fbc1fc",
+        "report_schema_sha256": "5e6cecff4e9283e71f34c4a24f0f244f851ec39651ef241f263f0704d78b9bab",
+        "response_normalization_sha256": "749bc2d95338ee95094bbe296b967a7c7577ee7c6e0a44cae1e419096e2c9def",
+        "task_sha256": "8b3b9eb1f74f697f8864c6a153e631d3b910d552b1c132464551057ca98eaace",
+        "verifier_version": "5.0.0",
+        "visible_criteria_sha256": "7887fd537ad2273054e55285b20499766c2c835d8acbdee61f1a7ae97e89ef23"
+      },
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "cell_id": "reference-cell-020",
+      "harness_binding": {
+        "action_schema_sha256": "4765edf9c52e806a4e9faebaf55b7171ba240d3ebbc969720a9115af80b7cbaa",
+        "capability_inventory_sha256": "46d4a63d6bfabf68ee631c29e5bb5e5b1a73b997007fdd323bc498e4bc179ffb",
+        "harness_family": "project_mini_harness",
+        "harness_id": "mini-log-v0.5",
+        "harness_sha256": "37f5ad45ad4d7f217b5434ef43aa25c4b7b44dcb5f56ef9a739b541948661a28",
+        "implementation_sha256": "1e7456fa846ce8e918cbb294062e34e0fdd1b912285bf01a493b712eb023c246",
+        "isolation_profile_sha256": "4b77f9ccdabdca628e8cba47ee318f6930bd65fde8fcfa42c928dc94ed53040d",
+        "protocol_sha256": "019a676d0e7f6988e62b859a7a4cbf5e4edc155654529aec6142778a5dc727a4",
+        "system_prompt_sha256": "54e49b3c3372fb46ee2531a8d52066d57e51e6648b0bb9e61d0e7191cccd7ebf",
+        "verifier_sha256": "84e6bdcd6c4ae080a9b1b03c5eff965b45a4f864d0b820086c47cd187061374b"
+      },
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 40.521051,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 37.634599124779925,
+          "agent_turns": 8,
+          "failed_tool_calls": 0,
+          "file_reads": 7,
+          "input_tokens": 24190,
+          "model_requests": 8,
+          "model_wall_time_seconds": 37.63013399904594,
+          "output_tokens": 1428,
+          "protocol_errors": 0,
+          "tool_calls": 8,
+          "tool_wall_time_seconds": 0.004465125733986497
+        }
+      },
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "native_cell_id": "cell-020",
+      "native_limits": {
+        "maximum_active_wall_time_seconds": 300,
+        "maximum_agent_turns": null,
+        "maximum_protocol_errors": null,
+        "maximum_total_output_tokens": null,
+        "provider_request_timeout_seconds": 180
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": "deterministic_checks_failed",
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "semantic_verifier_success": false,
+        "strict_transport_compliance": true,
+        "trajectory_termination_reason": "finish_report",
+        "verified_success": false
+      },
+      "preflight_sha256": "8f91dee1e48b2a7830c9b051915e5a8fe2f47aa147d90430eecc24570b07c288",
+      "provider_requests": 8,
+      "quality_review": {
+        "accepted": false,
+        "findings": [
+          "Correct root clock offset and partial-recovery category, but the recommendation says 913 authorizations remain, contradicting the final observation of 612 pending after 301 completions.",
+          "The provider rejection reason claims PROV-501 proves another trace succeeded and that only pay-77 was affected. PROV-501 instead records pay-77 never received; neither exclusivity nor this attached proof is supported.",
+          "Native verification is 10/15: causal ordering, evidence roles, attached alternative counter-evidence, bounded impact and material uncertainties fail. The prose rejection is separate from those deterministic failures."
+        ],
+        "status": "reviewed"
+      },
+      "record_sha256": "4b235efc85c463b179bb3cebd2b5da3c7bb78a9963cecda25889cad037e4b27f",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "5m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 4000,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "request_configuration_basis": "first native request artifact; later messages differ with the trajectory",
+      "system": "mini-log",
+      "verification": {
+        "essential_check_count": 15,
+        "essential_pass_count": 10,
+        "verifier_version": "5.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_sha256": "1ae623f826009762ce4305c53b4e54c73393f7a4f08582393930d6890e8fec69",
+        "case_definition_sha256": "44b03ed13f71dd483dba85cb566a7969bb6a3293f2408e84efd1d56dfdc716b5",
+        "case_version": "5.0.0",
+        "fixture_manifest_sha256": "7c7b8837826f29366970ccdc85760fec4d74fbd0e2616d463f1de2688f68e9e2",
+        "ground_truth_sha256": "881e52f80ee7e84798dec1217b1329160c75417e327b8036f0e01aa8d01e7e3c",
+        "reference_report_sha256": "b032b1aae9c581c58962503030b5f7f0cfac3af8abec1d02cc15074174fbc1fc",
+        "report_schema_sha256": "5e6cecff4e9283e71f34c4a24f0f244f851ec39651ef241f263f0704d78b9bab",
+        "response_normalization_sha256": "749bc2d95338ee95094bbe296b967a7c7577ee7c6e0a44cae1e419096e2c9def",
+        "task_sha256": "8b3b9eb1f74f697f8864c6a153e631d3b910d552b1c132464551057ca98eaace",
+        "verifier_version": "5.0.0",
+        "visible_criteria_sha256": "7887fd537ad2273054e55285b20499766c2c835d8acbdee61f1a7ae97e89ef23"
+      },
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "cell_id": "reference-cell-021",
+      "harness_binding": {
+        "action_schema_sha256": "4765edf9c52e806a4e9faebaf55b7171ba240d3ebbc969720a9115af80b7cbaa",
+        "capability_inventory_sha256": "46d4a63d6bfabf68ee631c29e5bb5e5b1a73b997007fdd323bc498e4bc179ffb",
+        "harness_family": "project_mini_harness",
+        "harness_id": "mini-log-v0.5",
+        "harness_sha256": "37f5ad45ad4d7f217b5434ef43aa25c4b7b44dcb5f56ef9a739b541948661a28",
+        "implementation_sha256": "1e7456fa846ce8e918cbb294062e34e0fdd1b912285bf01a493b712eb023c246",
+        "isolation_profile_sha256": "4b77f9ccdabdca628e8cba47ee318f6930bd65fde8fcfa42c928dc94ed53040d",
+        "protocol_sha256": "019a676d0e7f6988e62b859a7a4cbf5e4edc155654529aec6142778a5dc727a4",
+        "system_prompt_sha256": "54e49b3c3372fb46ee2531a8d52066d57e51e6648b0bb9e61d0e7191cccd7ebf",
+        "verifier_sha256": "84e6bdcd6c4ae080a9b1b03c5eff965b45a4f864d0b820086c47cd187061374b"
+      },
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 62.164618,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 59.68592775054276,
+          "agent_turns": 8,
+          "failed_tool_calls": 0,
+          "file_reads": 7,
+          "input_tokens": 23499,
+          "model_requests": 8,
+          "model_wall_time_seconds": 59.68362141773105,
+          "output_tokens": 1410,
+          "protocol_errors": 0,
+          "tool_calls": 8,
+          "tool_wall_time_seconds": 0.0023063328117132187
+        }
+      },
+      "model": "qwen3.8:27b-mlx",
+      "native_cell_id": "cell-021",
+      "native_limits": {
+        "maximum_active_wall_time_seconds": 300,
+        "maximum_agent_turns": null,
+        "maximum_protocol_errors": null,
+        "maximum_total_output_tokens": null,
+        "provider_request_timeout_seconds": 180
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": "deterministic_checks_failed",
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "semantic_verifier_success": false,
+        "strict_transport_compliance": true,
+        "trajectory_termination_reason": "finish_report",
+        "verified_success": false
+      },
+      "preflight_sha256": "554ffb3bfaf0fe58fcfa3338aaa6d496ca1486f8232e1d8597628debaa0aeddc",
+      "provider_requests": 8,
+      "quality_review": {
+        "accepted": true,
+        "findings": [
+          "Coherent grounded clock-skew diagnosis, causal sequence, source-attached rejection of provider/database alternatives, and explicit distinction between recovered new requests and the final 612-pending backlog. No material prose contradiction found.",
+          "Native verification remains 13/15: the REC-700 backlog-creation impact evidence role and payment_data_loss_unknown uncertainty code are missing. Correct prose does not supply those omitted machine-scored fields."
+        ],
+        "status": "reviewed"
+      },
+      "record_sha256": "e0ae46ce747e2716b995a8fb2d99c7a80b09f7cfeb40b5685ae40c6ec9feaf01",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "5m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 4000,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "request_configuration_basis": "first native request artifact; later messages differ with the trajectory",
+      "system": "mini-log",
+      "verification": {
+        "essential_check_count": 15,
+        "essential_pass_count": 13,
+        "verifier_version": "5.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_sha256": "1ae623f826009762ce4305c53b4e54c73393f7a4f08582393930d6890e8fec69",
+        "case_definition_sha256": "44b03ed13f71dd483dba85cb566a7969bb6a3293f2408e84efd1d56dfdc716b5",
+        "case_version": "5.0.0",
+        "fixture_manifest_sha256": "7c7b8837826f29366970ccdc85760fec4d74fbd0e2616d463f1de2688f68e9e2",
+        "ground_truth_sha256": "881e52f80ee7e84798dec1217b1329160c75417e327b8036f0e01aa8d01e7e3c",
+        "reference_report_sha256": "b032b1aae9c581c58962503030b5f7f0cfac3af8abec1d02cc15074174fbc1fc",
+        "report_schema_sha256": "5e6cecff4e9283e71f34c4a24f0f244f851ec39651ef241f263f0704d78b9bab",
+        "response_normalization_sha256": "749bc2d95338ee95094bbe296b967a7c7577ee7c6e0a44cae1e419096e2c9def",
+        "task_sha256": "8b3b9eb1f74f697f8864c6a153e631d3b910d552b1c132464551057ca98eaace",
+        "verifier_version": "5.0.0",
+        "visible_criteria_sha256": "7887fd537ad2273054e55285b20499766c2c835d8acbdee61f1a7ae97e89ef23"
+      },
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "cell_id": "reference-cell-022",
+      "harness_binding": {
+        "adapter_sha256": "3321664532b4a4f4909c2aa0d72ffee2ce640e6683c9e85cc807002fdda78e22",
+        "capability_inventory_sha256": "a13368e9119198fb83c6b4e2990bc7ea588f10a7aa8d0f31351b1e5cf70ee412",
+        "extension_sha256": "46fcae296ce7fa84c1f5b2437f00a047dcd6e58541370768d8317eefacc6322a",
+        "harness_family": "pinned_pi",
+        "harness_id": "pi-log-v0.5",
+        "harness_sha256": "8862df54b6bd1ad9f1d940d880a9f225ba5f8c711a85114f628766e328c387aa",
+        "isolation_profile_sha256": "3b27f7f9410461ea392d63e70a1459ecc62f1db5175a622ab11a0331c9ca6233",
+        "package_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+        "package_lock_sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730",
+        "package_name": "@earendil-works/pi-coding-agent",
+        "package_version": "0.84.4",
+        "protocol_sha256": "019a676d0e7f6988e62b859a7a4cbf5e4edc155654529aec6142778a5dc727a4",
+        "sandbox_adapter_sha256": "c4fd42fa1b4bacd08feba49b871b5ae4336608a8d570d597c3c954af7b07a167",
+        "system_prompt_sha256": "4fa9658b0d5a5448034b0b205cc1f0b3ca2a3931d7bfd60ee88a65c855267960",
+        "verifier_sha256": "84e6bdcd6c4ae080a9b1b03c5eff965b45a4f864d0b820086c47cd187061374b"
+      },
+      "identity_basis": "verified_pre_inference_resource_gate",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 300.796866,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 300.0249817909207,
+          "agent_turns": 2,
+          "failed_tool_calls": 0,
+          "file_reads": 7,
+          "file_writes": 0,
+          "input_tokens": 3163,
+          "output_tokens": 208,
+          "protocol_errors": 0,
+          "public_test_runs": 0,
+          "tool_calls": 7
+        }
+      },
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "native_cell_id": "cell-022",
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {
+        "agent_termination_valid": false,
+        "failure_category": "infrastructure_or_runtime_failure",
+        "failure_type": "maximum_active_wall_time_exceeded",
+        "runtime_success": false,
+        "semantic_verified_success": false,
+        "semantic_verifier_success": false,
+        "strict_transport_compliance": false,
+        "trajectory_termination_reason": "maximum_active_wall_time_exceeded",
+        "verified_success": false
+      },
+      "preflight_sha256": "83cb184c698ac4ef05bb2a0caaa74fc450e81ff5419d744734422749222727d2",
+      "provider_configuration": {
+        "api": "openai-completions",
+        "basis": "native Pi configuration; not a capture of each HTTP payload",
+        "compat": {
+          "supportsDeveloperRole": false,
+          "supportsReasoningEffort": false
+        },
+        "contextWindow": 16384,
+        "maxTokens": 4000,
+        "reasoning": false,
+        "samplingParams": {
+          "seed": 42,
+          "temperature": 0.0
+        }
+      },
+      "provider_requests": null,
+      "quality_review": {
+        "accepted": null,
+        "findings": [
+          "The episode read all seven log files but exhausted the 300-second active limit without a final assistant response/report. No prose exists to review; this is not a zero quality score.",
+          "Native runtime/termination and strict transport fail. The deterministic verifier receives no report; its failed checks do not establish which source facts the model would have reported."
+        ],
+        "status": "not_assessable_no_final_report"
+      },
+      "record_sha256": "06ec8f21c86f13b3c029ea8538179029dfe536d880354a4a1771e9926244aaed",
+      "record_status": "complete",
+      "system": "pi-log",
+      "verification": {
+        "essential_check_count": 1,
+        "essential_pass_count": 0,
+        "verifier_version": "5.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_sha256": "1ae623f826009762ce4305c53b4e54c73393f7a4f08582393930d6890e8fec69",
+        "case_definition_sha256": "44b03ed13f71dd483dba85cb566a7969bb6a3293f2408e84efd1d56dfdc716b5",
+        "case_version": "5.0.0",
+        "fixture_manifest_sha256": "7c7b8837826f29366970ccdc85760fec4d74fbd0e2616d463f1de2688f68e9e2",
+        "ground_truth_sha256": "881e52f80ee7e84798dec1217b1329160c75417e327b8036f0e01aa8d01e7e3c",
+        "reference_report_sha256": "b032b1aae9c581c58962503030b5f7f0cfac3af8abec1d02cc15074174fbc1fc",
+        "report_schema_sha256": "5e6cecff4e9283e71f34c4a24f0f244f851ec39651ef241f263f0704d78b9bab",
+        "response_normalization_sha256": "749bc2d95338ee95094bbe296b967a7c7577ee7c6e0a44cae1e419096e2c9def",
+        "task_sha256": "8b3b9eb1f74f697f8864c6a153e631d3b910d552b1c132464551057ca98eaace",
+        "verifier_version": "5.0.0",
+        "visible_criteria_sha256": "7887fd537ad2273054e55285b20499766c2c835d8acbdee61f1a7ae97e89ef23"
+      },
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "cell_id": "reference-cell-023",
+      "harness_binding": {
+        "adapter_sha256": "3321664532b4a4f4909c2aa0d72ffee2ce640e6683c9e85cc807002fdda78e22",
+        "capability_inventory_sha256": "a13368e9119198fb83c6b4e2990bc7ea588f10a7aa8d0f31351b1e5cf70ee412",
+        "extension_sha256": "46fcae296ce7fa84c1f5b2437f00a047dcd6e58541370768d8317eefacc6322a",
+        "harness_family": "pinned_pi",
+        "harness_id": "pi-log-v0.5",
+        "harness_sha256": "8862df54b6bd1ad9f1d940d880a9f225ba5f8c711a85114f628766e328c387aa",
+        "isolation_profile_sha256": "3b27f7f9410461ea392d63e70a1459ecc62f1db5175a622ab11a0331c9ca6233",
+        "package_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+        "package_lock_sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730",
+        "package_name": "@earendil-works/pi-coding-agent",
+        "package_version": "0.84.4",
+        "protocol_sha256": "019a676d0e7f6988e62b859a7a4cbf5e4edc155654529aec6142778a5dc727a4",
+        "sandbox_adapter_sha256": "c4fd42fa1b4bacd08feba49b871b5ae4336608a8d570d597c3c954af7b07a167",
+        "system_prompt_sha256": "4fa9658b0d5a5448034b0b205cc1f0b3ca2a3931d7bfd60ee88a65c855267960",
+        "verifier_sha256": "84e6bdcd6c4ae080a9b1b03c5eff965b45a4f864d0b820086c47cd187061374b"
+      },
+      "identity_basis": "verified_pre_inference_resource_gate",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 292.87705,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 292.20648504188284,
+          "agent_turns": 3,
+          "failed_tool_calls": 0,
+          "file_reads": 8,
+          "file_writes": 0,
+          "input_tokens": 5005,
+          "output_tokens": 7795,
+          "protocol_errors": 0,
+          "public_test_runs": 0,
+          "tool_calls": 8
+        }
+      },
+      "model": "qwen3.8:27b-mlx",
+      "native_cell_id": "cell-023",
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": "deterministic_checks_failed",
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "semantic_verifier_success": false,
+        "strict_transport_compliance": false,
+        "trajectory_termination_reason": "agent_end",
+        "verified_success": false
+      },
+      "preflight_sha256": "cbc0a2bf28cae7a0ce81a3b0d18447060dc1da2036ccb2fedc02173474980b13",
+      "provider_configuration": {
+        "api": "openai-completions",
+        "basis": "native Pi configuration; not a capture of each HTTP payload",
+        "compat": {
+          "supportsDeveloperRole": false,
+          "supportsReasoningEffort": false
+        },
+        "contextWindow": 16384,
+        "maxTokens": 4000,
+        "reasoning": false,
+        "samplingParams": {
+          "seed": 42,
+          "temperature": 0.0
+        }
+      },
+      "provider_requests": null,
+      "quality_review": {
+        "accepted": true,
+        "findings": [
+          "The native extracted report is source-grounded: host-specific skew, exposing admission, sampled impact, alternative causes, final 612-pending partial recovery and four material uncertainties are correctly distinguished. No material prose contradiction found.",
+          "Native semantics remain 14/15 because the causal_chain omits LB-201 and EDGE-403 even though they appear elsewhere. Strict transport fails because the raw response adds an introductory sentence; the frozen normalizer extracts JSON without converting that into strict compliance."
+        ],
+        "status": "reviewed"
+      },
+      "record_sha256": "6ac6690424ee4ee36561c6327e94c13cd23834987661bd96c9e5c487b91ddf53",
+      "record_status": "complete",
+      "system": "pi-log",
+      "verification": {
+        "essential_check_count": 15,
+        "essential_pass_count": 14,
+        "verifier_version": "5.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_sha256": "1ae623f826009762ce4305c53b4e54c73393f7a4f08582393930d6890e8fec69",
+        "case_definition_sha256": "44b03ed13f71dd483dba85cb566a7969bb6a3293f2408e84efd1d56dfdc716b5",
+        "case_version": "5.0.0",
+        "fixture_manifest_sha256": "7c7b8837826f29366970ccdc85760fec4d74fbd0e2616d463f1de2688f68e9e2",
+        "ground_truth_sha256": "881e52f80ee7e84798dec1217b1329160c75417e327b8036f0e01aa8d01e7e3c",
+        "reference_report_sha256": "b032b1aae9c581c58962503030b5f7f0cfac3af8abec1d02cc15074174fbc1fc",
+        "report_schema_sha256": "5e6cecff4e9283e71f34c4a24f0f244f851ec39651ef241f263f0704d78b9bab",
+        "response_normalization_sha256": "749bc2d95338ee95094bbe296b967a7c7577ee7c6e0a44cae1e419096e2c9def",
+        "task_sha256": "8b3b9eb1f74f697f8864c6a153e631d3b910d552b1c132464551057ca98eaace",
+        "verifier_version": "5.0.0",
+        "visible_criteria_sha256": "7887fd537ad2273054e55285b20499766c2c835d8acbdee61f1a7ae97e89ef23"
+      },
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "cell_id": "reference-cell-024",
+      "harness_binding": {
+        "adapter_sha256": "3321664532b4a4f4909c2aa0d72ffee2ce640e6683c9e85cc807002fdda78e22",
+        "capability_inventory_sha256": "a13368e9119198fb83c6b4e2990bc7ea588f10a7aa8d0f31351b1e5cf70ee412",
+        "extension_sha256": "46fcae296ce7fa84c1f5b2437f00a047dcd6e58541370768d8317eefacc6322a",
+        "harness_family": "pinned_pi",
+        "harness_id": "pi-log-v0.5",
+        "harness_sha256": "8862df54b6bd1ad9f1d940d880a9f225ba5f8c711a85114f628766e328c387aa",
+        "isolation_profile_sha256": "3b27f7f9410461ea392d63e70a1459ecc62f1db5175a622ab11a0331c9ca6233",
+        "package_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+        "package_lock_sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730",
+        "package_name": "@earendil-works/pi-coding-agent",
+        "package_version": "0.84.4",
+        "protocol_sha256": "019a676d0e7f6988e62b859a7a4cbf5e4edc155654529aec6142778a5dc727a4",
+        "sandbox_adapter_sha256": "c4fd42fa1b4bacd08feba49b871b5ae4336608a8d570d597c3c954af7b07a167",
+        "system_prompt_sha256": "4fa9658b0d5a5448034b0b205cc1f0b3ca2a3931d7bfd60ee88a65c855267960",
+        "verifier_sha256": "84e6bdcd6c4ae080a9b1b03c5eff965b45a4f864d0b820086c47cd187061374b"
+      },
+      "identity_basis": "verified_pre_inference_resource_gate",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 300.638688,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 300.0253479578532,
+          "agent_turns": 8,
+          "failed_tool_calls": 0,
+          "file_reads": 7,
+          "file_writes": 0,
+          "input_tokens": 4978,
+          "output_tokens": 1286,
+          "protocol_errors": 0,
+          "public_test_runs": 0,
+          "tool_calls": 7
+        }
+      },
+      "model": "gemma4:31b-mlx",
+      "native_cell_id": "cell-024",
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "outcome": {
+        "agent_termination_valid": false,
+        "failure_category": "infrastructure_or_runtime_failure",
+        "failure_type": "maximum_active_wall_time_exceeded",
+        "runtime_success": false,
+        "semantic_verified_success": false,
+        "semantic_verifier_success": false,
+        "strict_transport_compliance": false,
+        "trajectory_termination_reason": "maximum_active_wall_time_exceeded",
+        "verified_success": false
+      },
+      "preflight_sha256": "9affb745ef21a84b21e03432858b24986a48e8d391764852e11d7adb425ba0ad",
+      "provider_configuration": {
+        "api": "openai-completions",
+        "basis": "native Pi configuration; not a capture of each HTTP payload",
+        "compat": {
+          "supportsDeveloperRole": false,
+          "supportsReasoningEffort": false
+        },
+        "contextWindow": 16384,
+        "maxTokens": 4000,
+        "reasoning": false,
+        "samplingParams": {
+          "seed": 42,
+          "temperature": 0.0
+        }
+      },
+      "provider_requests": null,
+      "quality_review": {
+        "accepted": null,
+        "findings": [
+          "Read all seven log files but exhausted the 300-second active limit without a final response/report. Prose is not assessable and receives no scalar quality score.",
+          "Native runtime/termination and strict transport fail. Only the schema/no-report check can run; this is not evidence of fifteen separately diagnosed factual errors."
+        ],
+        "status": "not_assessable_no_final_report"
+      },
+      "record_sha256": "8024497e9b135fa5306800a0d80b70d4902555fff9e8f6bcaa4f1b9b56db48ad",
+      "record_status": "complete",
+      "system": "pi-log",
+      "verification": {
+        "essential_check_count": 1,
+        "essential_pass_count": 0,
+        "verifier_version": "5.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "case_definition_sha256": "e804433ad1bddfa1a93f4f484240d5dae6b2a761367647f56a2784e43cd0b467",
+        "case_version": "2.0.0",
+        "ground_truth_sha256": "98f4c6b333d49f6fa11453f05f119bd5a4a918f354788b3307b7adc00ecda3aa",
+        "reference_report_sha256": "b607be3c680d6c2640aa0bde619f29cc3fd75eec046eb4c035c61055dfed009a",
+        "report_schema_sha256": "d6d8d49013cc32afdc7564ff31233668de409540ecdc259e4e5c2f9fa7ccf146",
+        "task_sha256": "c1a511e8b64d7d6bde3a968e6cd96a1417ac8d605b52f2e5a03136c74ec891cd"
+      },
+      "case_id": "agentic.documents.supplier-award-reconciliation",
+      "cell_id": "reference-cell-025",
+      "harness_binding": {
+        "action_schema_sha256": "dc2f2c114b37d01d91b8e46add879b90d3f5c19259e171765907a980b0197479",
+        "adapter_kernel_sha256": "231782331781c633f3d641e9f67fdac43aa63086c456a166d452a730017bb5fd",
+        "artifact_backend_sha256": "c753c5cde1b94957efe7e213543f51e0ea2b444b980b75a969282ed6ccf53d98",
+        "capability_inventory_sha256": "7c430dd7ebce771e52e23af35cce7970a4e482bd747f3f384dd388e28c06d223",
+        "harness_family": "project_mini_harness",
+        "harness_id": "mini-multi-format-v0.2",
+        "harness_sha256": "e71a4b8e61792f94c57d45fcf18c94044e5e843e6bd4c5d5e51d9011b1e584a0",
+        "implementation_sha256": "ca1bba67de232a69fb82a05c48d12467bde04c47b83fadfa3e467557780c0eff",
+        "isolation_profile_sha256": "8c3c93bb13c507c751bee58b4c41aa8110d39a9a1aa89f2fa5a85ae6da1b4c16",
+        "protocol_sha256": "f963dfa8ef9b6ffb77c483b2afb959a683be520ab24f8807bf0995b147fc9053",
+        "system_prompt_sha256": "c64cc5f50d6486416e440bee99e80bb0f9fd1acaa375b71039d22b924b4a9b32"
+      },
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 125.115295,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 119.15988766518421,
+          "agent_turns": 18,
+          "failed_tool_calls": 0,
+          "input_tokens": 71706,
+          "model_requests": 18,
+          "model_wall_time_seconds": 118.97963804285973,
+          "output_tokens": 2720,
+          "protocol_errors": 0,
+          "tool_calls": 17,
+          "tool_wall_time_seconds": 0.1802496223244816
+        }
+      },
+      "model": "qwen3.8:27b-mlx",
+      "native_cell_id": "cell-025",
+      "native_limits": {
+        "maximum_active_wall_time_seconds": 300,
+        "maximum_agent_turns": null,
+        "maximum_protocol_errors": null,
+        "maximum_total_output_tokens": null,
+        "provider_request_timeout_seconds": 180
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "normalized_supplier_metrics": {
+        "adapter_tool_calls": 17,
+        "adapter_tool_calls_include_completion": false,
+        "agent_turns": 18,
+        "artifact_tool_calls": 17,
+        "completion_calls": 1,
+        "counter_sources": {
+          "artifact_tool_calls": "trajectory.tool_calls",
+          "completion_calls": "turns[].action=finish_report",
+          "model_requests": "trajectory.model_requests"
+        },
+        "model_requests": 18,
+        "model_requests_status": "recorded",
+        "model_requests_unknown_reason": null,
+        "system_id": "mini-multi-format-v0.2",
+        "total_tool_or_action_calls": 18,
+        "version": "0.2.0"
+      },
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": null,
+        "runtime_success": true,
+        "semantic_verified_success": true,
+        "semantic_verifier_success": true,
+        "strict_transport_compliance": true,
+        "trajectory_termination_reason": "finish_report",
+        "verified_success": true
+      },
+      "preflight_sha256": "d9baba1d1816fbc6e2e4eadc64825502d06c96fef485cfaed730f7e49d89d575",
+      "provider_requests": 18,
+      "quality_review": {
+        "accepted": false,
+        "findings": [
+          "Native verification is 12/12 with strict transport and correct Atlas primary/Boreal reserve, supplier blockers, cost/headroom arithmetic and required actions/uncertainties.",
+          "The draft conflict explicitly calls page 2 a signed draft even though its attached Unsigned-draft source and the report’s own evidence say it is unsigned. This materially misstates the evidence status. The executive summary also calls 14:30 the cutoff, while policy and later actions use 16:00; 14:30 is final signature time. Prose fails without changing any native pass."
+        ],
+        "status": "reviewed"
+      },
+      "record_sha256": "f2a2c1b064e6dc403ac2d6aa87f69faeaf81e9dec963f50e39c136d1945522c3",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "5m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 5000,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "request_configuration_basis": "first native request artifact; later messages differ with the trajectory",
+      "system": "mini-supplier",
+      "verification": {
+        "essential_check_count": 12,
+        "essential_pass_count": 12,
+        "verifier_version": "2.1.0"
+      }
+    },
+    {
+      "case_binding": {
+        "case_definition_sha256": "e804433ad1bddfa1a93f4f484240d5dae6b2a761367647f56a2784e43cd0b467",
+        "case_version": "2.0.0",
+        "ground_truth_sha256": "98f4c6b333d49f6fa11453f05f119bd5a4a918f354788b3307b7adc00ecda3aa",
+        "reference_report_sha256": "b607be3c680d6c2640aa0bde619f29cc3fd75eec046eb4c035c61055dfed009a",
+        "report_schema_sha256": "d6d8d49013cc32afdc7564ff31233668de409540ecdc259e4e5c2f9fa7ccf146",
+        "task_sha256": "c1a511e8b64d7d6bde3a968e6cd96a1417ac8d605b52f2e5a03136c74ec891cd"
+      },
+      "case_id": "agentic.documents.supplier-award-reconciliation",
+      "cell_id": "reference-cell-026",
+      "harness_binding": {
+        "action_schema_sha256": "dc2f2c114b37d01d91b8e46add879b90d3f5c19259e171765907a980b0197479",
+        "adapter_kernel_sha256": "231782331781c633f3d641e9f67fdac43aa63086c456a166d452a730017bb5fd",
+        "artifact_backend_sha256": "c753c5cde1b94957efe7e213543f51e0ea2b444b980b75a969282ed6ccf53d98",
+        "capability_inventory_sha256": "7c430dd7ebce771e52e23af35cce7970a4e482bd747f3f384dd388e28c06d223",
+        "harness_family": "project_mini_harness",
+        "harness_id": "mini-multi-format-v0.2",
+        "harness_sha256": "e71a4b8e61792f94c57d45fcf18c94044e5e843e6bd4c5d5e51d9011b1e584a0",
+        "implementation_sha256": "ca1bba67de232a69fb82a05c48d12467bde04c47b83fadfa3e467557780c0eff",
+        "isolation_profile_sha256": "8c3c93bb13c507c751bee58b4c41aa8110d39a9a1aa89f2fa5a85ae6da1b4c16",
+        "protocol_sha256": "f963dfa8ef9b6ffb77c483b2afb959a683be520ab24f8807bf0995b147fc9053",
+        "system_prompt_sha256": "c64cc5f50d6486416e440bee99e80bb0f9fd1acaa375b71039d22b924b4a9b32"
+      },
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 108.259023,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 103.89710241416469,
+          "agent_turns": 13,
+          "failed_tool_calls": 0,
+          "input_tokens": 46499,
+          "model_requests": 13,
+          "model_wall_time_seconds": 103.77560278982855,
+          "output_tokens": 1585,
+          "protocol_errors": 0,
+          "tool_calls": 12,
+          "tool_wall_time_seconds": 0.12149962433613837
+        }
+      },
+      "model": "gemma4:31b-mlx",
+      "native_cell_id": "cell-026",
+      "native_limits": {
+        "maximum_active_wall_time_seconds": 300,
+        "maximum_agent_turns": null,
+        "maximum_protocol_errors": null,
+        "maximum_total_output_tokens": null,
+        "provider_request_timeout_seconds": 180
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "normalized_supplier_metrics": {
+        "adapter_tool_calls": 12,
+        "adapter_tool_calls_include_completion": false,
+        "agent_turns": 13,
+        "artifact_tool_calls": 12,
+        "completion_calls": 1,
+        "counter_sources": {
+          "artifact_tool_calls": "trajectory.tool_calls",
+          "completion_calls": "turns[].action=finish_report",
+          "model_requests": "trajectory.model_requests"
+        },
+        "model_requests": 13,
+        "model_requests_status": "recorded",
+        "model_requests_unknown_reason": null,
+        "system_id": "mini-multi-format-v0.2",
+        "total_tool_or_action_calls": 13,
+        "version": "0.2.0"
+      },
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "semantic_verifier_success": false,
+        "strict_transport_compliance": true,
+        "trajectory_termination_reason": "finish_report",
+        "verified_success": false
+      },
+      "preflight_sha256": "de16405c9b6df7cdd8c8b5585a136bba9b04eafa98bc086e9b04175bdbb6fed5",
+      "provider_requests": 13,
+      "quality_review": {
+        "accepted": true,
+        "findings": [
+          "Source-supported Atlas primary/Boreal reserve, correct costs and Cedar/Delta blockers. Delta is called eligible in its assurance-only evidence entry but is correctly excluded for capacity in the decision and summary; the gate-local wording is imprecise, without reversing the overall decision.",
+          "Native verification remains 8/12: required evidence is incomplete; draft supersession is absent; the dashboard conflict lacks required authority/scope anchors; future reassessment and the required post-cutoff/capacity uncertainties are missing. Prose accuracy acceptance does not mean a complete task solution."
+        ],
+        "status": "reviewed"
+      },
+      "record_sha256": "89a694174c5a3cc17d4d1b13af960ce946faafd4c113c1ebe1482b42349725dd",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "5m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 5000,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "request_configuration_basis": "first native request artifact; later messages differ with the trajectory",
+      "system": "mini-supplier",
+      "verification": {
+        "essential_check_count": 12,
+        "essential_pass_count": 8,
+        "verifier_version": "2.1.0"
+      }
+    },
+    {
+      "case_binding": {
+        "case_definition_sha256": "e804433ad1bddfa1a93f4f484240d5dae6b2a761367647f56a2784e43cd0b467",
+        "case_version": "2.0.0",
+        "ground_truth_sha256": "98f4c6b333d49f6fa11453f05f119bd5a4a918f354788b3307b7adc00ecda3aa",
+        "reference_report_sha256": "b607be3c680d6c2640aa0bde619f29cc3fd75eec046eb4c035c61055dfed009a",
+        "report_schema_sha256": "d6d8d49013cc32afdc7564ff31233668de409540ecdc259e4e5c2f9fa7ccf146",
+        "task_sha256": "c1a511e8b64d7d6bde3a968e6cd96a1417ac8d605b52f2e5a03136c74ec891cd"
+      },
+      "case_id": "agentic.documents.supplier-award-reconciliation",
+      "cell_id": "reference-cell-027",
+      "harness_binding": {
+        "action_schema_sha256": "dc2f2c114b37d01d91b8e46add879b90d3f5c19259e171765907a980b0197479",
+        "adapter_kernel_sha256": "231782331781c633f3d641e9f67fdac43aa63086c456a166d452a730017bb5fd",
+        "artifact_backend_sha256": "c753c5cde1b94957efe7e213543f51e0ea2b444b980b75a969282ed6ccf53d98",
+        "capability_inventory_sha256": "7c430dd7ebce771e52e23af35cce7970a4e482bd747f3f384dd388e28c06d223",
+        "harness_family": "project_mini_harness",
+        "harness_id": "mini-multi-format-v0.2",
+        "harness_sha256": "e71a4b8e61792f94c57d45fcf18c94044e5e843e6bd4c5d5e51d9011b1e584a0",
+        "implementation_sha256": "ca1bba67de232a69fb82a05c48d12467bde04c47b83fadfa3e467557780c0eff",
+        "isolation_profile_sha256": "8c3c93bb13c507c751bee58b4c41aa8110d39a9a1aa89f2fa5a85ae6da1b4c16",
+        "protocol_sha256": "f963dfa8ef9b6ffb77c483b2afb959a683be520ab24f8807bf0995b147fc9053",
+        "system_prompt_sha256": "c64cc5f50d6486416e440bee99e80bb0f9fd1acaa375b71039d22b924b4a9b32"
+      },
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 46.006037,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 40.81257983017713,
+          "agent_turns": 16,
+          "failed_tool_calls": 0,
+          "input_tokens": 61753,
+          "model_requests": 16,
+          "model_wall_time_seconds": 40.66861624806188,
+          "output_tokens": 2372,
+          "protocol_errors": 0,
+          "tool_calls": 15,
+          "tool_wall_time_seconds": 0.14396358211524785
+        }
+      },
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "native_cell_id": "cell-027",
+      "native_limits": {
+        "maximum_active_wall_time_seconds": 300,
+        "maximum_agent_turns": null,
+        "maximum_protocol_errors": null,
+        "maximum_total_output_tokens": null,
+        "provider_request_timeout_seconds": 180
+      },
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "normalized_supplier_metrics": {
+        "adapter_tool_calls": 15,
+        "adapter_tool_calls_include_completion": false,
+        "agent_turns": 16,
+        "artifact_tool_calls": 15,
+        "completion_calls": 1,
+        "counter_sources": {
+          "artifact_tool_calls": "trajectory.tool_calls",
+          "completion_calls": "turns[].action=finish_report",
+          "model_requests": "trajectory.model_requests"
+        },
+        "model_requests": 16,
+        "model_requests_status": "recorded",
+        "model_requests_unknown_reason": null,
+        "system_id": "mini-multi-format-v0.2",
+        "total_tool_or_action_calls": 16,
+        "version": "0.2.0"
+      },
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "semantic_verifier_success": false,
+        "strict_transport_compliance": true,
+        "trajectory_termination_reason": "finish_report",
+        "verified_success": false
+      },
+      "preflight_sha256": "567dee8616264f0d475ea44971ba99d96f8f5014da94405df07a64dfaa6aa267",
+      "provider_requests": 16,
+      "quality_review": {
+        "accepted": false,
+        "findings": [
+          "Correct Atlas/Boreal decision, blockers and main numerical values, but the draft-conflict prose says all draft supplier ratings are C or A; Delta is B in the supplied draft. The capacity rationale attributes the 15% threshold partly to a commercial-scope disclaimer that does not establish that threshold.",
+          "All free text is English despite the explicit German-output task requirement; this adherence failure is not checked by the native controlled-value verifier.",
+          "Native verification remains 9/12: required evidence is incomplete; conflicts omit required final-signature/policy anchors locally; future reassessment is absent. No native score is changed."
+        ],
+        "status": "reviewed"
+      },
+      "record_sha256": "7c95b7ea187bf373b6a847fa0820a317e627e6958a5ad2f6647d52d2094a8ad7",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "5m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 5000,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "request_configuration_basis": "first native request artifact; later messages differ with the trajectory",
+      "system": "mini-supplier",
+      "verification": {
+        "essential_check_count": 12,
+        "essential_pass_count": 9,
+        "verifier_version": "2.1.0"
+      }
+    },
+    {
+      "case_binding": {
+        "canonical_sha256": "5029f93fb99bd6e3da7fdd8e48109efa27e7d8af2ff025ff770d714325806d85",
+        "case_definition_sha256": "e804433ad1bddfa1a93f4f484240d5dae6b2a761367647f56a2784e43cd0b467",
+        "case_version": "2.0.0",
+        "ground_truth_sha256": "98f4c6b333d49f6fa11453f05f119bd5a4a918f354788b3307b7adc00ecda3aa",
+        "reference_report_sha256": "b607be3c680d6c2640aa0bde619f29cc3fd75eec046eb4c035c61055dfed009a",
+        "report_schema_sha256": "d6d8d49013cc32afdc7564ff31233668de409540ecdc259e4e5c2f9fa7ccf146",
+        "task_sha256": "c1a511e8b64d7d6bde3a968e6cd96a1417ac8d605b52f2e5a03136c74ec891cd"
+      },
+      "case_id": "agentic.documents.supplier-award-reconciliation",
+      "cell_id": "reference-cell-028",
+      "harness_binding": {
+        "adapter_kernel_sha256": "a03feac060ea0d61d683b0dda214b8461e5e4dba86d403ea61e5b356dde3ed31",
+        "adapter_sha256": "b171a143063fc6cf27f8d8b9204862b787b6b24f395031ba1da8b543ff1d31dd",
+        "artifact_backend_sha256": "c753c5cde1b94957efe7e213543f51e0ea2b444b980b75a969282ed6ccf53d98",
+        "capability_inventory_sha256": "2812fe665a24ab7deed1039658178848f1e15501f3d5fca3b76b99f2ba23afb7",
+        "extension_sha256": "ee03340c59a1a1f555f857eb95c711195a9fc0f3a54c90068df66cbb143e3c25",
+        "harness_family": "pinned_pi",
+        "harness_id": "pi-multi-format-v0.4",
+        "harness_sha256": "8a0a50a13d80747e327d017090fc0dc92f405024c2ad29b8f1cdf09a2f709ccf",
+        "isolation_profile_sha256": "216873e724213cfe4066ff6c39e57e6c19abb9e014aa56cf8c52e288ecbcc747",
+        "package_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+        "package_lock_sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730",
+        "package_version": "0.84.4",
+        "protocol_sha256": "f963dfa8ef9b6ffb77c483b2afb959a683be520ab24f8807bf0995b147fc9053",
+        "python_worker_selector_sha256": "1994c1700d7375207997fb80061ee07c7eb953a4c02e45c922614c13b8c8a50d",
+        "sandbox_adapter_sha256": "5ed6153d37679914597c4a9b81c4e523805309aaf013972977890a38be8dc957",
+        "system_prompt_sha256": "f7ea45bc022cba91c0933828a75181f11c12214e1eba8d58243c22e949e9175a"
+      },
+      "identity_basis": "verified_pre_inference_resource_gate",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 300.618419,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 300.0140732501168,
+          "agent_turns": 7,
+          "failed_tool_calls": 0,
+          "file_reads": 0,
+          "file_writes": 0,
+          "input_tokens": 6892,
+          "output_tokens": 1707,
+          "protocol_errors": 0,
+          "public_test_runs": 0,
+          "tool_calls": 17
+        }
+      },
+      "model": "gemma4:31b-mlx",
+      "native_cell_id": "cell-028",
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "normalized_supplier_metrics": {
+        "adapter_tool_calls": 17,
+        "adapter_tool_calls_include_completion": true,
+        "agent_turns": 7,
+        "artifact_tool_calls": 17,
+        "completion_calls": 0,
+        "counter_sources": {
+          "artifact_tool_calls": [
+            "trajectory.list_calls",
+            "trajectory.docx_reads",
+            "trajectory.pdf_reads",
+            "trajectory.xlsx_reads"
+          ],
+          "completion_calls": "trajectory.finish_report_calls",
+          "model_requests": null
+        },
+        "model_requests": null,
+        "model_requests_status": "unknown",
+        "model_requests_unknown_reason": "Adapter did not record trajectory.model_requests; agent turns are not HTTP request counts.",
+        "system_id": "pi-multi-format-v0.4",
+        "total_tool_or_action_calls": 17,
+        "version": "0.2.0"
+      },
+      "outcome": {
+        "agent_termination_valid": false,
+        "failure_category": "infrastructure_or_runtime_failure",
+        "runtime_success": false,
+        "semantic_verified_success": false,
+        "semantic_verifier_success": false,
+        "strict_transport_compliance": false,
+        "trajectory_termination_reason": "maximum_active_wall_time_exceeded",
+        "verified_success": false
+      },
+      "preflight_sha256": "9ad276e27d0c863fb4ea97a8845c1337aaed72ef3a6c05bcff99027eb7715c13",
+      "provider_configuration": {
+        "api": "openai-completions",
+        "basis": "native Pi configuration; not a capture of each HTTP payload",
+        "compat": {
+          "supportsDeveloperRole": false,
+          "supportsReasoningEffort": false
+        },
+        "contextWindow": 16384,
+        "maxTokens": 5000,
+        "reasoning": false,
+        "samplingParams": {
+          "seed": 42,
+          "temperature": 0.0
+        }
+      },
+      "provider_requests": null,
+      "quality_review": {
+        "accepted": null,
+        "findings": [
+          "Completed 17 artifact operations (inventory, 4 DOCX, 6 PDF, 6 XLSX) but exhausted the 300-second active limit without calling finish_report. There is no final structured report to review.",
+          "Native runtime/termination and strict transport fail; the native missing-report result is 0/12. That does not diagnose twelve independently observed factual mistakes, and no prose quality score is invented."
+        ],
+        "status": "not_assessable_no_final_report"
+      },
+      "record_sha256": "868add8f7c7024778e08c0de6646cfac35563097d3314f7fe7ad457874d54f2f",
+      "record_status": "complete",
+      "system": "pi-supplier",
+      "verification": {
+        "essential_check_count": 12,
+        "essential_pass_count": 0,
+        "verifier_version": "2.1.0"
+      }
+    },
+    {
+      "case_binding": {
+        "canonical_sha256": "5029f93fb99bd6e3da7fdd8e48109efa27e7d8af2ff025ff770d714325806d85",
+        "case_definition_sha256": "e804433ad1bddfa1a93f4f484240d5dae6b2a761367647f56a2784e43cd0b467",
+        "case_version": "2.0.0",
+        "ground_truth_sha256": "98f4c6b333d49f6fa11453f05f119bd5a4a918f354788b3307b7adc00ecda3aa",
+        "reference_report_sha256": "b607be3c680d6c2640aa0bde619f29cc3fd75eec046eb4c035c61055dfed009a",
+        "report_schema_sha256": "d6d8d49013cc32afdc7564ff31233668de409540ecdc259e4e5c2f9fa7ccf146",
+        "task_sha256": "c1a511e8b64d7d6bde3a968e6cd96a1417ac8d605b52f2e5a03136c74ec891cd"
+      },
+      "case_id": "agentic.documents.supplier-award-reconciliation",
+      "cell_id": "reference-cell-029",
+      "harness_binding": {
+        "adapter_kernel_sha256": "a03feac060ea0d61d683b0dda214b8461e5e4dba86d403ea61e5b356dde3ed31",
+        "adapter_sha256": "b171a143063fc6cf27f8d8b9204862b787b6b24f395031ba1da8b543ff1d31dd",
+        "artifact_backend_sha256": "c753c5cde1b94957efe7e213543f51e0ea2b444b980b75a969282ed6ccf53d98",
+        "capability_inventory_sha256": "2812fe665a24ab7deed1039658178848f1e15501f3d5fca3b76b99f2ba23afb7",
+        "extension_sha256": "ee03340c59a1a1f555f857eb95c711195a9fc0f3a54c90068df66cbb143e3c25",
+        "harness_family": "pinned_pi",
+        "harness_id": "pi-multi-format-v0.4",
+        "harness_sha256": "8a0a50a13d80747e327d017090fc0dc92f405024c2ad29b8f1cdf09a2f709ccf",
+        "isolation_profile_sha256": "216873e724213cfe4066ff6c39e57e6c19abb9e014aa56cf8c52e288ecbcc747",
+        "package_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+        "package_lock_sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730",
+        "package_version": "0.84.4",
+        "protocol_sha256": "f963dfa8ef9b6ffb77c483b2afb959a683be520ab24f8807bf0995b147fc9053",
+        "python_worker_selector_sha256": "1994c1700d7375207997fb80061ee07c7eb953a4c02e45c922614c13b8c8a50d",
+        "sandbox_adapter_sha256": "5ed6153d37679914597c4a9b81c4e523805309aaf013972977890a38be8dc957",
+        "system_prompt_sha256": "f7ea45bc022cba91c0933828a75181f11c12214e1eba8d58243c22e949e9175a"
+      },
+      "identity_basis": "verified_pre_inference_resource_gate",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 149.417355,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 148.76100616599433,
+          "agent_turns": 18,
+          "failed_tool_calls": 0,
+          "file_reads": 0,
+          "file_writes": 0,
+          "input_tokens": 17086,
+          "output_tokens": 11762,
+          "protocol_errors": 0,
+          "public_test_runs": 0,
+          "tool_calls": 17
+        }
+      },
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "native_cell_id": "cell-029",
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "normalized_supplier_metrics": {
+        "adapter_tool_calls": 17,
+        "adapter_tool_calls_include_completion": true,
+        "agent_turns": 18,
+        "artifact_tool_calls": 16,
+        "completion_calls": 1,
+        "counter_sources": {
+          "artifact_tool_calls": [
+            "trajectory.list_calls",
+            "trajectory.docx_reads",
+            "trajectory.pdf_reads",
+            "trajectory.xlsx_reads"
+          ],
+          "completion_calls": "trajectory.finish_report_calls",
+          "model_requests": null
+        },
+        "model_requests": null,
+        "model_requests_status": "unknown",
+        "model_requests_unknown_reason": "Adapter did not record trajectory.model_requests; agent turns are not HTTP request counts.",
+        "system_id": "pi-multi-format-v0.4",
+        "total_tool_or_action_calls": 17,
+        "version": "0.2.0"
+      },
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "semantic_verifier_success": false,
+        "strict_transport_compliance": true,
+        "trajectory_termination_reason": "agent_end",
+        "verified_success": false
+      },
+      "preflight_sha256": "ffa8cada4658cf5a9df5711c218c05ab4dc1ddc1b640852f5d7f1f44cbca0eda",
+      "provider_configuration": {
+        "api": "openai-completions",
+        "basis": "native Pi configuration; not a capture of each HTTP payload",
+        "compat": {
+          "supportsDeveloperRole": false,
+          "supportsReasoningEffort": false
+        },
+        "contextWindow": 16384,
+        "maxTokens": 5000,
+        "reasoning": false,
+        "samplingParams": {
+          "seed": 42,
+          "temperature": 0.0
+        }
+      },
+      "provider_requests": null,
+      "quality_review": {
+        "accepted": false,
+        "findings": [
+          "Correct source-grounded Atlas/Boreal award, costs, blockers and unsigned-draft/signed-final distinction; no material reversed source fact found.",
+          "Both conflict resolutions and several complete policy-support entries are English, while the frozen task requires German free-text values. The mixed-language prose therefore fails the explicit language constraint; this is separate from factual grounding.",
+          "Native verification is 9/12: required evidence is incomplete; local conflict anchors omit the final-signature note and dashboard scope; future reassessment is absent. Strict transport passes, and no native score is changed."
+        ],
+        "status": "reviewed"
+      },
+      "record_sha256": "fabb8b684ca8de6a9ccae8af3546b6d838cd0031edb4ae8a570ba4915fbbeedb",
+      "record_status": "complete",
+      "system": "pi-supplier",
+      "verification": {
+        "essential_check_count": 12,
+        "essential_pass_count": 9,
+        "verifier_version": "2.1.0"
+      }
+    },
+    {
+      "case_binding": {
+        "canonical_sha256": "5029f93fb99bd6e3da7fdd8e48109efa27e7d8af2ff025ff770d714325806d85",
+        "case_definition_sha256": "e804433ad1bddfa1a93f4f484240d5dae6b2a761367647f56a2784e43cd0b467",
+        "case_version": "2.0.0",
+        "ground_truth_sha256": "98f4c6b333d49f6fa11453f05f119bd5a4a918f354788b3307b7adc00ecda3aa",
+        "reference_report_sha256": "b607be3c680d6c2640aa0bde619f29cc3fd75eec046eb4c035c61055dfed009a",
+        "report_schema_sha256": "d6d8d49013cc32afdc7564ff31233668de409540ecdc259e4e5c2f9fa7ccf146",
+        "task_sha256": "c1a511e8b64d7d6bde3a968e6cd96a1417ac8d605b52f2e5a03136c74ec891cd"
+      },
+      "case_id": "agentic.documents.supplier-award-reconciliation",
+      "cell_id": "reference-cell-030",
+      "harness_binding": {
+        "adapter_kernel_sha256": "a03feac060ea0d61d683b0dda214b8461e5e4dba86d403ea61e5b356dde3ed31",
+        "adapter_sha256": "b171a143063fc6cf27f8d8b9204862b787b6b24f395031ba1da8b543ff1d31dd",
+        "artifact_backend_sha256": "c753c5cde1b94957efe7e213543f51e0ea2b444b980b75a969282ed6ccf53d98",
+        "capability_inventory_sha256": "2812fe665a24ab7deed1039658178848f1e15501f3d5fca3b76b99f2ba23afb7",
+        "extension_sha256": "ee03340c59a1a1f555f857eb95c711195a9fc0f3a54c90068df66cbb143e3c25",
+        "harness_family": "pinned_pi",
+        "harness_id": "pi-multi-format-v0.4",
+        "harness_sha256": "8a0a50a13d80747e327d017090fc0dc92f405024c2ad29b8f1cdf09a2f709ccf",
+        "isolation_profile_sha256": "216873e724213cfe4066ff6c39e57e6c19abb9e014aa56cf8c52e288ecbcc747",
+        "package_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+        "package_lock_sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730",
+        "package_version": "0.84.4",
+        "protocol_sha256": "f963dfa8ef9b6ffb77c483b2afb959a683be520ab24f8807bf0995b147fc9053",
+        "python_worker_selector_sha256": "1994c1700d7375207997fb80061ee07c7eb953a4c02e45c922614c13b8c8a50d",
+        "sandbox_adapter_sha256": "5ed6153d37679914597c4a9b81c4e523805309aaf013972977890a38be8dc957",
+        "system_prompt_sha256": "f7ea45bc022cba91c0933828a75181f11c12214e1eba8d58243c22e949e9175a"
+      },
+      "identity_basis": "verified_pre_inference_resource_gate",
+      "measurement_origin": "prior_same_runtime_round",
+      "metrics": {
+        "controller_execution_seconds": 235.188407,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 234.54447033302858,
+          "agent_turns": 6,
+          "failed_tool_calls": 0,
+          "file_reads": 0,
+          "file_writes": 0,
+          "input_tokens": 10678,
+          "output_tokens": 5582,
+          "protocol_errors": 0,
+          "public_test_runs": 0,
+          "tool_calls": 18
+        }
+      },
+      "model": "qwen3.8:27b-mlx",
+      "native_cell_id": "cell-030",
+      "native_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+      "normalized_supplier_metrics": {
+        "adapter_tool_calls": 18,
+        "adapter_tool_calls_include_completion": true,
+        "agent_turns": 6,
+        "artifact_tool_calls": 17,
+        "completion_calls": 1,
+        "counter_sources": {
+          "artifact_tool_calls": [
+            "trajectory.list_calls",
+            "trajectory.docx_reads",
+            "trajectory.pdf_reads",
+            "trajectory.xlsx_reads"
+          ],
+          "completion_calls": "trajectory.finish_report_calls",
+          "model_requests": null
+        },
+        "model_requests": null,
+        "model_requests_status": "unknown",
+        "model_requests_unknown_reason": "Adapter did not record trajectory.model_requests; agent turns are not HTTP request counts.",
+        "system_id": "pi-multi-format-v0.4",
+        "total_tool_or_action_calls": 18,
+        "version": "0.2.0"
+      },
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "semantic_verifier_success": false,
+        "strict_transport_compliance": true,
+        "trajectory_termination_reason": "agent_end",
+        "verified_success": false
+      },
+      "preflight_sha256": "001a52fdb59cb85bbf57667652c75f8478fce2ba9ad881d3cffffe7e49d2087f",
+      "provider_configuration": {
+        "api": "openai-completions",
+        "basis": "native Pi configuration; not a capture of each HTTP payload",
+        "compat": {
+          "supportsDeveloperRole": false,
+          "supportsReasoningEffort": false
+        },
+        "contextWindow": 16384,
+        "maxTokens": 5000,
+        "reasoning": false,
+        "samplingParams": {
+          "seed": 42,
+          "temperature": 0.0
+        }
+      },
+      "provider_requests": null,
+      "quality_review": {
+        "accepted": false,
+        "findings": [
+          "Correct Atlas/Boreal award, costs, blockers, cutoff/signature times, actions and uncertainties. Native verification is 11/12: the dashboard conflict omits its mandatory local policy authority anchor, despite citing it elsewhere. Strict transport passes.",
+          "The draft conflict, draft evidence support and executive summary repeatedly call the explicitly unsigned page 2 draft signed. This materially misstates evidence authority and fails prose grounding; no native result is changed."
+        ],
+        "status": "reviewed"
+      },
+      "record_sha256": "15e407448fd9a66c05d6e42b9a194564728ffe13af410f02ec489e39bc09c5a0",
+      "record_status": "complete",
+      "system": "pi-supplier",
+      "verification": {
+        "essential_check_count": 12,
+        "essential_pass_count": 11,
+        "verifier_version": "2.1.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_version": "1.0.0",
+        "case_version": "1.0.0",
+        "prompt_version": "1.0.0",
+        "source_sha256": "e7dd5cfd91283dd787f8d8ea2f9833d33c3a3e34f993d3cc93d51254dcd77ba8"
+      },
+      "case_id": "summarization.dev.metr-long-software-tasks",
+      "cell_id": "ornith-cell-001",
+      "harness_binding": {},
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "new_ornith_extension",
+      "metrics": {
+        "cold_provider_response": {
+          "eval_count": 1702,
+          "eval_duration_seconds": 17.716671,
+          "load_duration_seconds": 10.595025833,
+          "output_tokens_per_second": 96.0677093343326,
+          "prompt_eval_count": 7957,
+          "time_to_first_content_seconds": 15.597165208077058,
+          "total_duration_seconds": 33.312688083,
+          "wall_time_seconds": 33.31342833302915
+        },
+        "native_provider_response": {
+          "eval_count": 1702,
+          "eval_duration_seconds": 18.871617,
+          "load_duration_seconds": 0.004319584,
+          "output_tokens_per_second": 90.18835004970693,
+          "prompt_eval_count": 7957,
+          "time_to_first_content_seconds": 0.06757745798677206,
+          "total_duration_seconds": 18.938588084,
+          "wall_time_seconds": 18.939444666029885
+        },
+        "native_trajectory": {}
+      },
+      "model": "ornith-1.5:35b",
+      "native_cell_id": "cell-001",
+      "native_checks": {
+        "bold_heading_count": 0,
+        "check_version": "1.0.0",
+        "detected_language": "de",
+        "generation_complete": true,
+        "generation_done_reason": "stop",
+        "heading_pass": true,
+        "language_evidence": {
+          "english_stopword_hits": 14,
+          "german_stopword_hits": 242
+        },
+        "language_method": "stopword_heuristic_v1",
+        "language_pass": true,
+        "markdown_heading_count": 8,
+        "maximum_words": 1000,
+        "maximum_words_pass": true,
+        "nonempty": true,
+        "reasoning_markup_absent": true,
+        "source_location_labels_absent": true,
+        "structural_heading_count": 8,
+        "word_count": 884
+      },
+      "native_plan_sha256": "2074a2ed6c289d0d1356c488c6114990d3cf037c82875d8abc578f089eba1901",
+      "outcome": {},
+      "preflight_sha256": "a25725ae654a8ca9ad7788e9f6a4449727261a5c10cc8bffb35fa8e9621a06f2",
+      "provider_requests": 2,
+      "quality_review": {
+        "batch": "ornith-extension-20261017-four-model",
+        "errors": [
+          {
+            "description": "Qualitative failed-run analysis is framed as assigning the causes of progress without preserving its small-sample evidential limits.",
+            "severity": "minor",
+            "source_locations": [
+              "P12"
+            ],
+            "type": "certainty_inflation"
+          }
+        ],
+        "score": 83.0,
+        "verdict": "good"
+      },
+      "record_sha256": "1116c8bfd0468453ac2b3e4b65781c24ab844dff13af2daf26f822a368f6ef65",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "10m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 2600,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "response_sha256": "ab38b5e142eafd378acc141deb5f3361e671a991ca5ec6a21f90f48035a8410f",
+      "system": "direct-text",
+      "verification": {}
+    },
+    {
+      "case_binding": {
+        "benchmark_card_version": "1.0.0",
+        "case_version": "1.0.0",
+        "prompt_version": "1.0.0",
+        "source_sha256": "dd75d73fdf1af7265fcc3ce00876fbe1b20306c14b169ee165395e2c23edbe48"
+      },
+      "case_id": "general_knowledge.dev.medical-screening-bayes",
+      "cell_id": "ornith-cell-002",
+      "harness_binding": {},
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "new_ornith_extension",
+      "metrics": {
+        "cold_provider_response": {
+          "eval_count": 1129,
+          "eval_duration_seconds": 11.131809,
+          "load_duration_seconds": 2.052384125,
+          "output_tokens_per_second": 101.42107181321562,
+          "prompt_eval_count": 392,
+          "time_to_first_content_seconds": 2.433265957981348,
+          "total_duration_seconds": 13.564500916,
+          "wall_time_seconds": 13.56515954202041
+        },
+        "native_provider_response": {
+          "eval_count": 1129,
+          "eval_duration_seconds": 12.611554,
+          "load_duration_seconds": 0.003318833,
+          "output_tokens_per_second": 89.52108518902587,
+          "prompt_eval_count": 392,
+          "time_to_first_content_seconds": 0.060742124915122986,
+          "total_duration_seconds": 12.671913875,
+          "wall_time_seconds": 12.672635833034292
+        },
+        "native_trajectory": {}
+      },
+      "model": "ornith-1.5:35b",
+      "native_cell_id": "cell-002",
+      "native_checks": {
+        "bold_heading_count": 0,
+        "check_version": "1.0.0",
+        "detected_language": "de",
+        "generation_complete": true,
+        "generation_done_reason": "stop",
+        "heading_pass": true,
+        "language_evidence": {
+          "english_stopword_hits": 2,
+          "german_stopword_hits": 134
+        },
+        "language_method": "stopword_heuristic_v1",
+        "language_pass": true,
+        "markdown_heading_count": 11,
+        "maximum_words": 800,
+        "maximum_words_pass": true,
+        "nonempty": true,
+        "reasoning_markup_absent": true,
+        "source_location_labels_absent": true,
+        "structural_heading_count": 11,
+        "word_count": 530
+      },
+      "native_plan_sha256": "2074a2ed6c289d0d1356c488c6114990d3cf037c82875d8abc578f089eba1901",
+      "outcome": {},
+      "preflight_sha256": "a25725ae654a8ca9ad7788e9f6a4449727261a5c10cc8bffb35fa8e9621a06f2",
+      "provider_requests": 2,
+      "quality_review": {
+        "batch": "ornith-extension-20261017-four-model",
+        "errors": [
+          {
+            "description": "Concludes: Steigt sie nicht, rettet das Screening kein Leben, referring to overall mortality. A decrease would satisfy not increasing yet is evidence in the opposite direction.",
+            "severity": "major",
+            "source_locations": [
+              "S07"
+            ],
+            "type": "contradiction"
+          },
+          {
+            "description": "Labels false negatives as true negatives but sick.",
+            "severity": "minor",
+            "source_locations": [
+              "S04"
+            ],
+            "type": "contradiction"
+          },
+          {
+            "description": "A one percentage point specificity change in 9,900 healthy people changes false positives by 99, not hundreds as claimed.",
+            "severity": "minor",
+            "source_locations": [
+              "S02"
+            ],
+            "type": "numeric_error"
+          }
+        ],
+        "score": 65.5,
+        "verdict": "usable"
+      },
+      "record_sha256": "2b3b81bb1f907534fff7eb491d478164fa79ae68a8c22a6634cae4f81af51572",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "10m",
+        "options": {
+          "num_ctx": 8192,
+          "num_predict": 2600,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "response_sha256": "aafaf07444103992089685d1eeeb04df60d317d2876785535c34426aea3bfa06",
+      "system": "direct-text",
+      "verification": {}
+    },
+    {
+      "case_binding": {
+        "benchmark_card_version": "1.0.0",
+        "case_version": "1.0.0",
+        "prompt_version": "1.0.0",
+        "source_sha256": "8df198d0afa5c910a6bfa0ab926714e8b2db89ae9c9d32473e960581659c687d"
+      },
+      "case_id": "source_grounded_writing.dev.agentic-software-development-reality-gap",
+      "cell_id": "ornith-cell-003",
+      "harness_binding": {},
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "new_ornith_extension",
+      "metrics": {
+        "cold_provider_response": {
+          "eval_count": 796,
+          "eval_duration_seconds": 11.273347,
+          "load_duration_seconds": 6.32808975,
+          "output_tokens_per_second": 70.60902143791014,
+          "prompt_eval_count": 4187,
+          "time_to_first_content_seconds": 9.401031165849417,
+          "total_duration_seconds": 20.675012292,
+          "wall_time_seconds": 20.67583612492308
+        },
+        "native_provider_response": {
+          "eval_count": 796,
+          "eval_duration_seconds": 16.532811,
+          "load_duration_seconds": 0.004071291,
+          "output_tokens_per_second": 48.14668237603394,
+          "prompt_eval_count": 4187,
+          "time_to_first_content_seconds": 0.06337420805357397,
+          "total_duration_seconds": 16.595617416,
+          "wall_time_seconds": 16.596501958090812
+        },
+        "native_trajectory": {}
+      },
+      "model": "ornith-1.5:35b",
+      "native_cell_id": "cell-003",
+      "native_checks": {
+        "bold_heading_count": 0,
+        "check_version": "1.0.0",
+        "detected_language": "de",
+        "generation_complete": true,
+        "generation_done_reason": "stop",
+        "heading_pass": false,
+        "language_evidence": {
+          "english_stopword_hits": 6,
+          "german_stopword_hits": 111
+        },
+        "language_method": "stopword_heuristic_v1",
+        "language_pass": true,
+        "markdown_heading_count": 0,
+        "maximum_words": 600,
+        "maximum_words_pass": true,
+        "nonempty": true,
+        "reasoning_markup_absent": true,
+        "source_location_labels_absent": true,
+        "structural_heading_count": 0,
+        "word_count": 431
+      },
+      "native_plan_sha256": "2074a2ed6c289d0d1356c488c6114990d3cf037c82875d8abc578f089eba1901",
+      "outcome": {},
+      "preflight_sha256": "a25725ae654a8ca9ad7788e9f6a4449727261a5c10cc8bffb35fa8e9621a06f2",
+      "provider_requests": 2,
+      "quality_review": {
+        "batch": "ornith-extension-20261017-four-model",
+        "errors": [
+          {
+            "description": "Opening says benchmarks show production software capability, without the historical and bounded execution-benchmark qualification until a weaker later caveat.",
+            "severity": "major",
+            "source_locations": [
+              "S01",
+              "S03",
+              "S05"
+            ],
+            "thought_ids": [],
+            "type": "certainty_inflation"
+          },
+          {
+            "description": "Presents repository context and cleanup as the reason for the productivity gap rather than plausible mechanisms in a limited study.",
+            "severity": "minor",
+            "source_locations": [
+              "S18",
+              "S19",
+              "S20"
+            ],
+            "thought_ids": [],
+            "type": "certainty_inflation"
+          }
+        ],
+        "score": 75.5,
+        "verdict": "good"
+      },
+      "record_sha256": "08a15e64a14e665c005aeec6316841e0c7eb4f4317ee8e6a26ba999b54f71bc0",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "10m",
+        "options": {
+          "num_ctx": 8192,
+          "num_predict": 2600,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "response_sha256": "a174f2ec683dd987b2db021a543db2492d3ce3dea195e13624e99ee9961260e2",
+      "system": "direct-text",
+      "verification": {}
+    },
+    {
+      "case_binding": {
+        "artifact_contract_version": "1.1.0",
+        "benchmark_card_version": "1.0.0",
+        "case_version": "1.0.0",
+        "fixture_manifest_sha256": "390245902d8137e4c9de2e04898650b617ee978910c93b15d243282222c82c73",
+        "hidden_test_sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2",
+        "prompt_version": "1.0.0",
+        "task_sha256": "277a815f4ac6ab2dbb03e27f3d6c99928c26f52f32d6787c3ce6c123aa7196aa",
+        "verifier_version": "1.0.0"
+      },
+      "case_id": "coding.dev.php-payment-result-migration",
+      "cell_id": "ornith-cell-004",
+      "harness_binding": {
+        "name": "local_llm_benchmark.direct_files",
+        "version": "1.1.0"
+      },
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "new_ornith_extension",
+      "metrics": {
+        "controller_execution_seconds": 26.976043,
+        "native_provider_response": {
+          "eval_count": 580,
+          "eval_duration_seconds": 14.290448,
+          "load_duration_seconds": 5.316436042,
+          "output_tokens_per_second": 40.58655124038099,
+          "prompt_eval_count": 4157,
+          "time_to_first_content_seconds": 12.400855374988168,
+          "total_duration_seconds": 26.690623125,
+          "wall_time_seconds": 26.691492874873802
+        },
+        "native_trajectory": {}
+      },
+      "model": "ornith-1.5:35b",
+      "native_cell_id": "cell-004",
+      "native_plan_sha256": "2074a2ed6c289d0d1356c488c6114990d3cf037c82875d8abc578f089eba1901",
+      "outcome": {
+        "failure_code": "malformed_artifact",
+        "output_status": "malformed",
+        "task_status": "failed",
+        "verification_status": "unavailable",
+        "verified_success": false
+      },
+      "preflight_sha256": "fa1a34fdfdfda3345aeeaf44395437ccaa5bb9aeb1163c56abed5808ebf92882",
+      "provider_requests": 1,
+      "quality_review": null,
+      "record_sha256": "0543c0ee093ec736bad07d7ae577ca4e5ca59dd3c71d3ebece7b92058bfbc4f4",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "5m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 3000,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "system": "direct-coding",
+      "verification": {
+        "failure_code": "malformed_artifact",
+        "sha256": "d71f7ae235f5689c176ad3836409d84661d39b03d61dde3f55f40e79204a83bf",
+        "verification_status": "unavailable",
+        "verified_success": false,
+        "verifier_version": "1.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_sha256": "4d5b73c801053104a1a3f01589d538255f20c630a6aaf583790bde3cda1a2c4b",
+        "case_definition_sha256": "8fd6a46683604eb6f80ad6f583a05f8d2730d6c840afcb6a9d297b395741179e",
+        "case_version": "1.0.0",
+        "fixture_manifest_sha256": "390245902d8137e4c9de2e04898650b617ee978910c93b15d243282222c82c73",
+        "hidden_test_sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2",
+        "task_sha256": "277a815f4ac6ab2dbb03e27f3d6c99928c26f52f32d6787c3ce6c123aa7196aa",
+        "verifier_version": "1.0.0"
+      },
+      "case_id": "coding.dev.php-payment-result-migration",
+      "cell_id": "ornith-cell-005",
+      "harness_binding": {
+        "action_schema_sha256": "155ec85fd1f47d3f9b06924bfdfcaa838b1472d21c7aa83a83fd02e1c6e35539",
+        "harness_family": "project_mini_harness",
+        "harness_id": "mini-v0.3",
+        "harness_sha256": "a0473568ea70b8c07dfe3b3042281323aeb59ab8de4d8ea7e18f9127f18b3518",
+        "implementation_sha256": "8579a6d9332fb268a40020b0acc3513e6e3afa782ca89569a168150124691ce1",
+        "protocol_sha256": "b3568186c63525c0f5ae29a983a66c192c01d1425447352f7a78adc44797294b",
+        "semantic_reference_sha256": "cac27f7bdfee3e8bb46f39a12633c9c259f95b6537193904043d36e962daa260",
+        "system_prompt_sha256": "75314f0664a6d127039d7b8c2804f242d4bf164ec52f0183289513107872e1c4"
+      },
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "new_ornith_extension",
+      "metrics": {
+        "controller_execution_seconds": 36.343885,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 29.801731165498495,
+          "agent_turns": 18,
+          "failed_tool_calls": 1,
+          "file_reads": 13,
+          "file_writes": 2,
+          "input_tokens": 79369,
+          "model_requests": 18,
+          "model_wall_time_seconds": 29.331316413590685,
+          "output_tokens": 1151,
+          "protocol_errors": 0,
+          "public_test_runs": 2,
+          "tool_calls": 17,
+          "tool_wall_time_seconds": 0.47041475190781057
+        }
+      },
+      "model": "ornith-1.5:35b",
+      "native_cell_id": "cell-005",
+      "native_limits": {
+        "maximum_active_wall_time_seconds": 900,
+        "maximum_agent_turns": null,
+        "maximum_protocol_errors": null,
+        "maximum_total_output_tokens": null,
+        "provider_request_timeout_seconds": 300
+      },
+      "native_plan_sha256": "2074a2ed6c289d0d1356c488c6114990d3cf037c82875d8abc578f089eba1901",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": null,
+        "failure_type": null,
+        "runtime_success": true,
+        "trajectory_termination_reason": "finish_action",
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "preflight_sha256": "5631dd2d48c907f0b228301d71e72010dbf2d753cf193c8ba8644dd15832b699",
+      "provider_requests": 18,
+      "quality_review": null,
+      "record_sha256": "50f0694ea36390bc72dca18455bb841f2825073c40c2c799c9a822f63281c690",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "5m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 1600,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "request_configuration_basis": "first native request artifact; later messages differ with the trajectory",
+      "system": "mini-coding",
+      "verification": {
+        "verifier_version": "1.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_sha256": "4d5b73c801053104a1a3f01589d538255f20c630a6aaf583790bde3cda1a2c4b",
+        "case_definition_sha256": "8fd6a46683604eb6f80ad6f583a05f8d2730d6c840afcb6a9d297b395741179e",
+        "case_version": "1.0.0",
+        "fixture_manifest_sha256": "390245902d8137e4c9de2e04898650b617ee978910c93b15d243282222c82c73",
+        "hidden_test_sha256": "9caf4d9a678ca44f2b524dde617c04504eb1a94f89e2e2f9378c83ba7326e8f2",
+        "task_sha256": "277a815f4ac6ab2dbb03e27f3d6c99928c26f52f32d6787c3ce6c123aa7196aa",
+        "verifier_version": "1.0.0"
+      },
+      "case_id": "coding.dev.php-payment-result-migration",
+      "cell_id": "ornith-cell-006",
+      "harness_binding": {
+        "adapter_sha256": "ed5263b65380fd9bfe7d51f9a6343aa7b42bac8c46d09ce310bcc9a756172d0e",
+        "configuration_builder_sha256": "70582592151a53fddf1cab81770ae0447cd1049b578bf881dd3c9b7b3623e32b",
+        "extension_sha256": "26d5920e298cf3831f0c70c1cd979dfab02d0ede6fbfc67f4de2d0c1c09ec42c",
+        "harness_family": "pinned_pi",
+        "harness_id": "pi-v0.3",
+        "harness_sha256": "5c59dbcc7daad21577ad4f590902cfd1ff0fae4102a156da8854252318317699",
+        "package_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+        "package_lock_sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730",
+        "package_name": "@earendil-works/pi-coding-agent",
+        "package_version": "0.84.4",
+        "protocol_sha256": "cac27f7bdfee3e8bb46f39a12633c9c259f95b6537193904043d36e962daa260",
+        "sandbox_adapter_sha256": "3b1837ca57dec6c9045d79cb6b34b4c86fadc0ed8dd360f0bd7dabe305f02405",
+        "system_prompt_sha256": "06909f8d8394ee349303107cff7b7ac3dd48071e36690985c13464150d978de1"
+      },
+      "identity_basis": "verified_pre_inference_resource_gate",
+      "measurement_origin": "new_ornith_extension",
+      "metrics": {
+        "controller_execution_seconds": 101.707738,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 100.6749120419845,
+          "agent_turns": 10,
+          "failed_tool_calls": 2,
+          "file_reads": 15,
+          "file_writes": 2,
+          "input_tokens": 7408,
+          "output_tokens": 5698,
+          "protocol_errors": 0,
+          "public_test_runs": 1,
+          "tool_calls": 20
+        }
+      },
+      "model": "ornith-1.5:35b",
+      "native_cell_id": "cell-006",
+      "native_plan_sha256": "2074a2ed6c289d0d1356c488c6114990d3cf037c82875d8abc578f089eba1901",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": null,
+        "failure_type": null,
+        "runtime_success": true,
+        "verified_success": true,
+        "verifier_success": true
+      },
+      "preflight_sha256": "9cd5bf166c57e3b1f50c79be2c79b72e76fb1f7f69c2634d88584dfe0b999039",
+      "provider_configuration": {
+        "api": "openai-completions",
+        "basis": "native Pi configuration; not a capture of each HTTP payload",
+        "compat": {
+          "supportsDeveloperRole": false,
+          "supportsReasoningEffort": false
+        },
+        "contextWindow": 16384,
+        "maxTokens": 1600,
+        "reasoning": false,
+        "samplingParams": {
+          "seed": 42,
+          "temperature": 0.0
+        }
+      },
+      "provider_requests": null,
+      "quality_review": null,
+      "record_sha256": "b530df682eb486f6004fddb39990c303e81e20842e5d5707e6188edc043047c3",
+      "record_status": "complete",
+      "system": "pi-coding",
+      "verification": {
+        "verifier_version": "1.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_sha256": "1ae623f826009762ce4305c53b4e54c73393f7a4f08582393930d6890e8fec69",
+        "case_definition_sha256": "44b03ed13f71dd483dba85cb566a7969bb6a3293f2408e84efd1d56dfdc716b5",
+        "case_version": "5.0.0",
+        "fixture_manifest_sha256": "7c7b8837826f29366970ccdc85760fec4d74fbd0e2616d463f1de2688f68e9e2",
+        "ground_truth_sha256": "881e52f80ee7e84798dec1217b1329160c75417e327b8036f0e01aa8d01e7e3c",
+        "reference_report_sha256": "b032b1aae9c581c58962503030b5f7f0cfac3af8abec1d02cc15074174fbc1fc",
+        "report_schema_sha256": "5e6cecff4e9283e71f34c4a24f0f244f851ec39651ef241f263f0704d78b9bab",
+        "response_normalization_sha256": "749bc2d95338ee95094bbe296b967a7c7577ee7c6e0a44cae1e419096e2c9def",
+        "task_sha256": "8b3b9eb1f74f697f8864c6a153e631d3b910d552b1c132464551057ca98eaace",
+        "verifier_version": "5.0.0",
+        "visible_criteria_sha256": "7887fd537ad2273054e55285b20499766c2c835d8acbdee61f1a7ae97e89ef23"
+      },
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "cell_id": "ornith-cell-007",
+      "harness_binding": {
+        "action_schema_sha256": "4765edf9c52e806a4e9faebaf55b7171ba240d3ebbc969720a9115af80b7cbaa",
+        "capability_inventory_sha256": "46d4a63d6bfabf68ee631c29e5bb5e5b1a73b997007fdd323bc498e4bc179ffb",
+        "harness_family": "project_mini_harness",
+        "harness_id": "mini-log-v0.5",
+        "harness_sha256": "37f5ad45ad4d7f217b5434ef43aa25c4b7b44dcb5f56ef9a739b541948661a28",
+        "implementation_sha256": "1e7456fa846ce8e918cbb294062e34e0fdd1b912285bf01a493b712eb023c246",
+        "isolation_profile_sha256": "4b77f9ccdabdca628e8cba47ee318f6930bd65fde8fcfa42c928dc94ed53040d",
+        "protocol_sha256": "019a676d0e7f6988e62b859a7a4cbf5e4edc155654529aec6142778a5dc727a4",
+        "system_prompt_sha256": "54e49b3c3372fb46ee2531a8d52066d57e51e6648b0bb9e61d0e7191cccd7ebf",
+        "verifier_sha256": "84e6bdcd6c4ae080a9b1b03c5eff965b45a4f864d0b820086c47cd187061374b"
+      },
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "new_ornith_extension",
+      "metrics": {
+        "controller_execution_seconds": 36.644914,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 33.91167645785026,
+          "agent_turns": 8,
+          "failed_tool_calls": 0,
+          "file_reads": 7,
+          "input_tokens": 23435,
+          "model_requests": 8,
+          "model_wall_time_seconds": 33.908772961003706,
+          "output_tokens": 2101,
+          "protocol_errors": 0,
+          "tool_calls": 8,
+          "tool_wall_time_seconds": 0.0029034968465566635
+        }
+      },
+      "model": "ornith-1.5:35b",
+      "native_cell_id": "cell-007",
+      "native_limits": {
+        "maximum_active_wall_time_seconds": 300,
+        "maximum_agent_turns": null,
+        "maximum_protocol_errors": null,
+        "maximum_total_output_tokens": null,
+        "provider_request_timeout_seconds": 180
+      },
+      "native_plan_sha256": "2074a2ed6c289d0d1356c488c6114990d3cf037c82875d8abc578f089eba1901",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": "deterministic_checks_failed",
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "semantic_verifier_success": false,
+        "strict_transport_compliance": true,
+        "trajectory_termination_reason": "finish_report",
+        "verified_success": false
+      },
+      "preflight_sha256": "26964b03557f7706ffad12479f60bb9994de9efc65c8c8c123c3947103058550",
+      "provider_requests": 8,
+      "quality_review": {
+        "accepted": false,
+        "findings": [
+          "Correctly identifies the +462-second host clock defect, admission trigger, first user impact and partial recovery. However, the reconciliation recommendation says 913 authorizations remain; the final source observation has 612 pending after 301 completions.",
+          "The diagnosis gives payment-03 shutdown as 08:27:12Z without correcting its explicitly untrusted host clock. With the independently observed +462-second offset, this corresponds to approximately 08:19:30 UTC. The task requires report timestamps normalized to UTC.",
+          "Native verification remains 11/15: causal_chain omits LB-201; the database rejection lacks DB-601 in its attached evidence; checkout_latency_increased is missing; provider_outage is not the allowed rejected-hypothesis code payment_provider_outage. Prose review changes no native outcome."
+        ],
+        "status": "reviewed"
+      },
+      "record_sha256": "084ed650c70e7719486d10e9438a7c606d2fda16e95af0e83c6549d1b5cf9bad",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "5m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 4000,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "request_configuration_basis": "first native request artifact; later messages differ with the trajectory",
+      "system": "mini-log",
+      "verification": {
+        "essential_check_count": 15,
+        "essential_pass_count": 11,
+        "verifier_version": "5.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "benchmark_card_sha256": "1ae623f826009762ce4305c53b4e54c73393f7a4f08582393930d6890e8fec69",
+        "case_definition_sha256": "44b03ed13f71dd483dba85cb566a7969bb6a3293f2408e84efd1d56dfdc716b5",
+        "case_version": "5.0.0",
+        "fixture_manifest_sha256": "7c7b8837826f29366970ccdc85760fec4d74fbd0e2616d463f1de2688f68e9e2",
+        "ground_truth_sha256": "881e52f80ee7e84798dec1217b1329160c75417e327b8036f0e01aa8d01e7e3c",
+        "reference_report_sha256": "b032b1aae9c581c58962503030b5f7f0cfac3af8abec1d02cc15074174fbc1fc",
+        "report_schema_sha256": "5e6cecff4e9283e71f34c4a24f0f244f851ec39651ef241f263f0704d78b9bab",
+        "response_normalization_sha256": "749bc2d95338ee95094bbe296b967a7c7577ee7c6e0a44cae1e419096e2c9def",
+        "task_sha256": "8b3b9eb1f74f697f8864c6a153e631d3b910d552b1c132464551057ca98eaace",
+        "verifier_version": "5.0.0",
+        "visible_criteria_sha256": "7887fd537ad2273054e55285b20499766c2c835d8acbdee61f1a7ae97e89ef23"
+      },
+      "case_id": "agentic.ops.clock-skew-partial-recovery",
+      "cell_id": "ornith-cell-008",
+      "harness_binding": {
+        "adapter_sha256": "3321664532b4a4f4909c2aa0d72ffee2ce640e6683c9e85cc807002fdda78e22",
+        "capability_inventory_sha256": "a13368e9119198fb83c6b4e2990bc7ea588f10a7aa8d0f31351b1e5cf70ee412",
+        "extension_sha256": "46fcae296ce7fa84c1f5b2437f00a047dcd6e58541370768d8317eefacc6322a",
+        "harness_family": "pinned_pi",
+        "harness_id": "pi-log-v0.5",
+        "harness_sha256": "8862df54b6bd1ad9f1d940d880a9f225ba5f8c711a85114f628766e328c387aa",
+        "isolation_profile_sha256": "3b27f7f9410461ea392d63e70a1459ecc62f1db5175a622ab11a0331c9ca6233",
+        "package_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+        "package_lock_sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730",
+        "package_name": "@earendil-works/pi-coding-agent",
+        "package_version": "0.84.4",
+        "protocol_sha256": "019a676d0e7f6988e62b859a7a4cbf5e4edc155654529aec6142778a5dc727a4",
+        "sandbox_adapter_sha256": "c4fd42fa1b4bacd08feba49b871b5ae4336608a8d570d597c3c954af7b07a167",
+        "system_prompt_sha256": "4fa9658b0d5a5448034b0b205cc1f0b3ca2a3931d7bfd60ee88a65c855267960",
+        "verifier_sha256": "84e6bdcd6c4ae080a9b1b03c5eff965b45a4f864d0b820086c47cd187061374b"
+      },
+      "identity_basis": "verified_pre_inference_resource_gate",
+      "measurement_origin": "new_ornith_extension",
+      "metrics": {
+        "controller_execution_seconds": 301.073711,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 300.04060533386655,
+          "agent_turns": 4,
+          "failed_tool_calls": 0,
+          "file_reads": 8,
+          "file_writes": 0,
+          "input_tokens": 5024,
+          "output_tokens": 15822,
+          "protocol_errors": 0,
+          "public_test_runs": 0,
+          "tool_calls": 8
+        }
+      },
+      "model": "ornith-1.5:35b",
+      "native_cell_id": "cell-008",
+      "native_plan_sha256": "2074a2ed6c289d0d1356c488c6114990d3cf037c82875d8abc578f089eba1901",
+      "outcome": {
+        "agent_termination_valid": false,
+        "failure_category": "infrastructure_or_runtime_failure",
+        "failure_type": "maximum_active_wall_time_exceeded",
+        "runtime_success": false,
+        "semantic_verified_success": false,
+        "semantic_verifier_success": false,
+        "strict_transport_compliance": false,
+        "trajectory_termination_reason": "maximum_active_wall_time_exceeded",
+        "verified_success": false
+      },
+      "preflight_sha256": "cfe505bc4b6a6f1a4b2944f58baa34eadf54c20ea688e5c1aa5561586a914cd8",
+      "provider_configuration": {
+        "api": "openai-completions",
+        "basis": "native Pi configuration; not a capture of each HTTP payload",
+        "compat": {
+          "supportsDeveloperRole": false,
+          "supportsReasoningEffort": false
+        },
+        "contextWindow": 16384,
+        "maxTokens": 4000,
+        "reasoning": false,
+        "samplingParams": {
+          "seed": 42,
+          "temperature": 0.0
+        }
+      },
+      "provider_requests": null,
+      "quality_review": {
+        "accepted": null,
+        "findings": [
+          "The episode read all seven source log files (eight reads, one repeated) and exhausted the 300-second active budget without a final assistant report. Prose is not assessable; no zero quality score is invented.",
+          "Native runtime, valid termination and strict transport fail. The verifier can run only the missing-report schema check (0/1), which does not establish fifteen separate factual errors. Native output-token counters cover completed message events and are not a full count for an interrupted response."
+        ],
+        "status": "not_assessable_no_final_report"
+      },
+      "record_sha256": "ae0ba62f72093162e85fcde718665c8e5af3da82941ac02f0bfccb79663c0d9b",
+      "record_status": "complete",
+      "system": "pi-log",
+      "verification": {
+        "essential_check_count": 1,
+        "essential_pass_count": 0,
+        "verifier_version": "5.0.0"
+      }
+    },
+    {
+      "case_binding": {
+        "case_definition_sha256": "e804433ad1bddfa1a93f4f484240d5dae6b2a761367647f56a2784e43cd0b467",
+        "case_version": "2.0.0",
+        "ground_truth_sha256": "98f4c6b333d49f6fa11453f05f119bd5a4a918f354788b3307b7adc00ecda3aa",
+        "reference_report_sha256": "b607be3c680d6c2640aa0bde619f29cc3fd75eec046eb4c035c61055dfed009a",
+        "report_schema_sha256": "d6d8d49013cc32afdc7564ff31233668de409540ecdc259e4e5c2f9fa7ccf146",
+        "task_sha256": "c1a511e8b64d7d6bde3a968e6cd96a1417ac8d605b52f2e5a03136c74ec891cd"
+      },
+      "case_id": "agentic.documents.supplier-award-reconciliation",
+      "cell_id": "ornith-cell-009",
+      "harness_binding": {
+        "action_schema_sha256": "dc2f2c114b37d01d91b8e46add879b90d3f5c19259e171765907a980b0197479",
+        "adapter_kernel_sha256": "231782331781c633f3d641e9f67fdac43aa63086c456a166d452a730017bb5fd",
+        "artifact_backend_sha256": "c753c5cde1b94957efe7e213543f51e0ea2b444b980b75a969282ed6ccf53d98",
+        "capability_inventory_sha256": "7c430dd7ebce771e52e23af35cce7970a4e482bd747f3f384dd388e28c06d223",
+        "harness_family": "project_mini_harness",
+        "harness_id": "mini-multi-format-v0.2",
+        "harness_sha256": "e71a4b8e61792f94c57d45fcf18c94044e5e843e6bd4c5d5e51d9011b1e584a0",
+        "implementation_sha256": "ca1bba67de232a69fb82a05c48d12467bde04c47b83fadfa3e467557780c0eff",
+        "isolation_profile_sha256": "8c3c93bb13c507c751bee58b4c41aa8110d39a9a1aa89f2fa5a85ae6da1b4c16",
+        "protocol_sha256": "f963dfa8ef9b6ffb77c483b2afb959a683be520ab24f8807bf0995b147fc9053",
+        "system_prompt_sha256": "c64cc5f50d6486416e440bee99e80bb0f9fd1acaa375b71039d22b924b4a9b32"
+      },
+      "identity_basis": "native_observation_plus_preflight",
+      "measurement_origin": "new_ornith_extension",
+      "metrics": {
+        "controller_execution_seconds": 81.283357,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 74.51783566735685,
+          "agent_turns": 18,
+          "failed_tool_calls": 0,
+          "input_tokens": 72490,
+          "model_requests": 18,
+          "model_wall_time_seconds": 74.32436245912686,
+          "output_tokens": 3987,
+          "protocol_errors": 0,
+          "tool_calls": 17,
+          "tool_wall_time_seconds": 0.1934732082299888
+        }
+      },
+      "model": "ornith-1.5:35b",
+      "native_cell_id": "cell-009",
+      "native_limits": {
+        "maximum_active_wall_time_seconds": 300,
+        "maximum_agent_turns": null,
+        "maximum_protocol_errors": null,
+        "maximum_total_output_tokens": null,
+        "provider_request_timeout_seconds": 180
+      },
+      "native_plan_sha256": "2074a2ed6c289d0d1356c488c6114990d3cf037c82875d8abc578f089eba1901",
+      "normalized_supplier_metrics": {
+        "adapter_tool_calls": 17,
+        "adapter_tool_calls_include_completion": false,
+        "agent_turns": 18,
+        "artifact_tool_calls": 17,
+        "completion_calls": 1,
+        "counter_sources": {
+          "artifact_tool_calls": "trajectory.tool_calls",
+          "completion_calls": "turns[].action=finish_report",
+          "model_requests": "trajectory.model_requests"
+        },
+        "model_requests": 18,
+        "model_requests_status": "recorded",
+        "model_requests_unknown_reason": null,
+        "system_id": "mini-multi-format-v0.2",
+        "total_tool_or_action_calls": 18,
+        "version": "0.2.0"
+      },
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "semantic_verifier_success": false,
+        "strict_transport_compliance": true,
+        "trajectory_termination_reason": "finish_report",
+        "verified_success": false
+      },
+      "preflight_sha256": "ab2aa4037dcb982f7714f16f775d8b85305aa6947bfd8d6d754a09fe096b84ab",
+      "provider_requests": 18,
+      "quality_review": {
+        "accepted": false,
+        "findings": [
+          "The report reads the source values correctly but reverses the cost ranking: it calls Boreal at EUR 1,165,000 cheaper than Atlas at EUR 1,140,000, selecting Boreal primary and Atlas reserve. Atlas is also inconsistently listed as rejected for its assurance rating even while the explanation correctly says its final B rating is eligible.",
+          "The action codes award_atlas and designate_boreal_reserve pass the native action check, but their free-text rationales explicitly call these codes wrong and recommend the reversed award. A controlled-code pass does not establish an internally consistent action plan.",
+          "Draft versus signed-final status and cutoff are correctly distinguished. Most free text is German, but capacity headroom is repeatedly mislabeled utilization. The decisive prose failure is the reversed ranking and inconsistent supplier/action fields, not a German-language violation.",
+          "Native verification remains 8/12: primary, reserve, supplier blockers and conflict resolution fail. Required evidence and citation integrity pass; the dashboard conflict mentions policy in prose but omits the mandatory policy authority anchor from its local source_refs. No native result is changed."
+        ],
+        "status": "reviewed"
+      },
+      "record_sha256": "46fbbf9b2aea14026dc7e9e83cd9578c269cffe39a9f6d91321df29ea872ed4b",
+      "record_status": "complete",
+      "request_configuration": {
+        "keep_alive": "5m",
+        "options": {
+          "num_ctx": 16384,
+          "num_predict": 5000,
+          "seed": 42,
+          "temperature": 0.0
+        },
+        "stream": true,
+        "think": false
+      },
+      "request_configuration_basis": "first native request artifact; later messages differ with the trajectory",
+      "system": "mini-supplier",
+      "verification": {
+        "essential_check_count": 12,
+        "essential_pass_count": 8,
+        "verifier_version": "2.1.0"
+      }
+    },
+    {
+      "case_binding": {
+        "canonical_sha256": "5029f93fb99bd6e3da7fdd8e48109efa27e7d8af2ff025ff770d714325806d85",
+        "case_definition_sha256": "e804433ad1bddfa1a93f4f484240d5dae6b2a761367647f56a2784e43cd0b467",
+        "case_version": "2.0.0",
+        "ground_truth_sha256": "98f4c6b333d49f6fa11453f05f119bd5a4a918f354788b3307b7adc00ecda3aa",
+        "reference_report_sha256": "b607be3c680d6c2640aa0bde619f29cc3fd75eec046eb4c035c61055dfed009a",
+        "report_schema_sha256": "d6d8d49013cc32afdc7564ff31233668de409540ecdc259e4e5c2f9fa7ccf146",
+        "task_sha256": "c1a511e8b64d7d6bde3a968e6cd96a1417ac8d605b52f2e5a03136c74ec891cd"
+      },
+      "case_id": "agentic.documents.supplier-award-reconciliation",
+      "cell_id": "ornith-cell-010",
+      "harness_binding": {
+        "adapter_kernel_sha256": "a03feac060ea0d61d683b0dda214b8461e5e4dba86d403ea61e5b356dde3ed31",
+        "adapter_sha256": "b171a143063fc6cf27f8d8b9204862b787b6b24f395031ba1da8b543ff1d31dd",
+        "artifact_backend_sha256": "c753c5cde1b94957efe7e213543f51e0ea2b444b980b75a969282ed6ccf53d98",
+        "capability_inventory_sha256": "2812fe665a24ab7deed1039658178848f1e15501f3d5fca3b76b99f2ba23afb7",
+        "extension_sha256": "ee03340c59a1a1f555f857eb95c711195a9fc0f3a54c90068df66cbb143e3c25",
+        "harness_family": "pinned_pi",
+        "harness_id": "pi-multi-format-v0.4",
+        "harness_sha256": "8a0a50a13d80747e327d017090fc0dc92f405024c2ad29b8f1cdf09a2f709ccf",
+        "isolation_profile_sha256": "216873e724213cfe4066ff6c39e57e6c19abb9e014aa56cf8c52e288ecbcc747",
+        "package_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+        "package_lock_sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730",
+        "package_version": "0.84.4",
+        "protocol_sha256": "f963dfa8ef9b6ffb77c483b2afb959a683be520ab24f8807bf0995b147fc9053",
+        "python_worker_selector_sha256": "1994c1700d7375207997fb80061ee07c7eb953a4c02e45c922614c13b8c8a50d",
+        "sandbox_adapter_sha256": "5ed6153d37679914597c4a9b81c4e523805309aaf013972977890a38be8dc957",
+        "system_prompt_sha256": "f7ea45bc022cba91c0933828a75181f11c12214e1eba8d58243c22e949e9175a"
+      },
+      "identity_basis": "verified_pre_inference_resource_gate",
+      "measurement_origin": "new_ornith_extension",
+      "metrics": {
+        "controller_execution_seconds": 140.886953,
+        "native_provider_response": {},
+        "native_trajectory": {
+          "active_wall_time_seconds": 140.05739625007845,
+          "agent_turns": 6,
+          "failed_tool_calls": 0,
+          "file_reads": 0,
+          "file_writes": 0,
+          "input_tokens": 10475,
+          "output_tokens": 8033,
+          "protocol_errors": 0,
+          "public_test_runs": 0,
+          "tool_calls": 18
+        }
+      },
+      "model": "ornith-1.5:35b",
+      "native_cell_id": "cell-010",
+      "native_plan_sha256": "2074a2ed6c289d0d1356c488c6114990d3cf037c82875d8abc578f089eba1901",
+      "normalized_supplier_metrics": {
+        "adapter_tool_calls": 18,
+        "adapter_tool_calls_include_completion": true,
+        "agent_turns": 6,
+        "artifact_tool_calls": 17,
+        "completion_calls": 1,
+        "counter_sources": {
+          "artifact_tool_calls": [
+            "trajectory.list_calls",
+            "trajectory.docx_reads",
+            "trajectory.pdf_reads",
+            "trajectory.xlsx_reads"
+          ],
+          "completion_calls": "trajectory.finish_report_calls",
+          "model_requests": null
+        },
+        "model_requests": null,
+        "model_requests_status": "unknown",
+        "model_requests_unknown_reason": "Adapter did not record trajectory.model_requests; agent turns are not HTTP request counts.",
+        "system_id": "pi-multi-format-v0.4",
+        "total_tool_or_action_calls": 18,
+        "version": "0.2.0"
+      },
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "semantic_verifier_success": false,
+        "strict_transport_compliance": true,
+        "trajectory_termination_reason": "agent_end",
+        "verified_success": false
+      },
+      "preflight_sha256": "dc7ed588c660e26167d498e954acd7c47beb9d889be62309c6de3c9e072e557c",
+      "provider_configuration": {
+        "api": "openai-completions",
+        "basis": "native Pi configuration; not a capture of each HTTP payload",
+        "compat": {
+          "supportsDeveloperRole": false,
+          "supportsReasoningEffort": false
+        },
+        "contextWindow": 16384,
+        "maxTokens": 5000,
+        "reasoning": false,
+        "samplingParams": {
+          "seed": 42,
+          "temperature": 0.0
+        }
+      },
+      "provider_requests": null,
+      "quality_review": {
+        "accepted": true,
+        "findings": [
+          "Correct Atlas primary at EUR 1,140,000 and Boreal reserve at EUR 1,165,000, with the correct Cedar critical-finding and Delta 12-percent headroom exclusions. The unsigned draft, signed final, signature time and decision cutoff are correctly distinguished.",
+          "Free text is predominantly German with awkward mixed terminology. The dashboard resolution contains a double negative but immediately and repeatedly states the correct rule that commercial ranking cannot replace eligibility checks. The future-evidence action should more explicitly name a new decision cycle; it does not assert that post-cutoff evidence changes the frozen award. These imprecisions do not reverse the source-grounded decision.",
+          "Native verification remains 10/12: required evidence omits BID-CEDAR; local conflict anchors omit the signed-final note in draft supersession and policy authority in the dashboard conflict. Those facts appear elsewhere, but prose acceptance does not supply the missing locally required anchors or complete the native task."
+        ],
+        "status": "reviewed"
+      },
+      "record_sha256": "54d242d83680b6be66ef36817a52a51fdec96697ce85e55c40a1c2852ae2e04d",
+      "record_status": "complete",
+      "system": "pi-supplier",
+      "verification": {
+        "essential_check_count": 12,
+        "essential_pass_count": 10,
+        "verifier_version": "2.1.0"
+      }
+    }
+  ],
+  "cohort_path": "models/cohorts/core-ornith-extension-2026-10-17.json",
+  "coverage": {
+    "cells": 40,
+    "counts": {
+      "complete": 40
+    },
+    "new_cells": 10,
+    "reader_sha256": "8556ebfb86ba2198ed07800f89d474e0634a1d952aad7d38ba169cbd83028f17",
+    "reference_cells": 30,
+    "source_drift": [],
+    "version": "0.3.0"
+  },
+  "deployments": [
+    {
+      "artifact_details": {
+        "format": "safetensors",
+        "parameter_size": null,
+        "quantization_level": "nvfp4"
+      },
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-40-5",
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "model": "qwen3.8:27b-mlx",
+      "size_bytes": 18174721847
+    },
+    {
+      "artifact_details": {
+        "format": "safetensors",
+        "parameter_size": null,
+        "quantization_level": null
+      },
+      "deployment_id": "gemma4-31b-mlx-a22a363052da-ollama-0-40-5",
+      "digest": "a22a363052da770302019d5afab29bd967f9318e4377bddd297421189ea09d7d",
+      "model": "gemma4:31b-mlx",
+      "size_bytes": 19424434885
+    },
+    {
+      "artifact_details": {
+        "format": "safetensors",
+        "parameter_size": null,
+        "quantization_level": null
+      },
+      "deployment_id": "nemotron-3-5-lightning-30b-mlx-8b1474be6e54-ollama-0-40-5",
+      "digest": "8b1474be6e54dc19eb7aa08bebfb9bda147c4b9ef9796a726131ad29ad15645a",
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "size_bytes": 22666641559
+    },
+    {
+      "artifact_details": {
+        "format": "gguf",
+        "parameter_size": "35.5B",
+        "quantization_level": "Q4_K_M"
+      },
+      "deployment_id": "ornith-1-5-35b-9f3b89b25219-ollama-0-40-5",
+      "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc",
+      "model": "ornith-1.5:35b",
+      "size_bytes": 22616285024
+    }
+  ],
+  "environment": {
+    "coding_php_version": "8.4.17",
+    "logical_cpu_count": 16,
+    "memory_bytes": 68719476736,
+    "model": "Mac16,5",
+    "node_version": "v22.22.1",
+    "os_release": "25.1.0",
+    "processor": "Apple M4 Max",
+    "python_version": "3.14.4",
+    "system": "Darwin"
+  },
+  "execution_window": {
+    "new_completed_at": "2026-10-17T18:14:29.674457Z",
+    "new_started_at": "2026-10-17T17:56:48.947510Z"
+  },
+  "follow_up_selection": [
+    "First repeat only two text comparisons: Bayes with Ornith versus Qwen, and grounded writing with Ornith versus Nemotron. Three independent observations per selected cell would test the specific errors and task tradeoff in a fresh shared judgment batch; this remains too small for precise reliability probabilities.",
+    "Repeat the existing coding fixture with Mini and Pi, prioritizing Nemotron hidden-test behavior and Gemma failed-edit recovery; change harness versions only in a separate experiment.",
+    "Repeat supplier/log cells selectively to test source-status, final-state and language errors. Preserve the 300-second budget before testing a separately versioned budget or prompt change."
+  ],
+  "generated_at": "2026-10-17T18:15:13.977831Z",
+  "methodology": {
+    "agent": "One native bounded attempt per cell. Tool-error recovery within an attempt is not a restarted benchmark attempt.",
+    "artifact_metadata": "Exact digests identify the deployed weights. Empty runtime quantization/parameter-size metadata remains unknown; no value is inferred from a model tag.",
+    "attempt_restarts": 0,
+    "budgets": {
+      "coding_agent_active_seconds": 900,
+      "coding_provider_request_seconds": 300,
+      "log_supplier_agent_active_seconds": 300,
+      "log_supplier_provider_request_seconds": 180
+    },
+    "cells_per_model": 10,
+    "claims": "Single-observation capability screen, not reliability probabilities or a universal model ranking.",
+    "composite_score": null,
+    "distinct_tasks": 6,
+    "historical_measurement_reuse": "Declared reuse of thirty exact same-runtime reference cells; ten new Ornith cells only.",
+    "interrupted_usage": "Native Pi token usage summarizes completed message events; a budget-interrupted response can have streamed content without a final usage event. Preserve native counters and do not claim complete token totals for interrupted episodes.",
+    "judgment_variability": "The same nine saved reference answers receive new scores in this separate joint batch. Score changes are evaluator variation, not fresh inference or model improvement.",
+    "model_count": 4,
+    "native_checks": "LinkedIn heading_pass false is preserved as a generic diagnostic; the frozen writing rubric does not require headings and adds no heading-based quality cap.",
+    "postflight": "Every native block records an empty model list after unloading its own model.",
+    "quality": "Twelve fresh scalar judgments and four conditional pairwise checks frozen before revealing fresh IDs. Partial cognitive blinding: judge knew earlier content/scores, historical Ornith findings and orchestration. Previous judgment batch remains unchanged.",
+    "resource_gates": "Fresh thirty-second empty-model/process checks per native block; fresh Pi sandbox acceptance.",
+    "temporal_scope": "Ornith ran later on the same day. Runtime, reference digests, all 409 previous bound files and hardware matched. GGUF/Q4_K_M Ornith versus three MLX deployments is a system comparison, not an isolated model-family experiment.",
+    "text": "One cold/warm pair per task and deployment. Warm is the sole quality candidate.",
+    "timing": "Native provider/active timings retain their own units. Controller time excludes preparation/resource/sandbox checks and model unload, but includes native verification and CLI orchestration."
+  },
+  "plan_sha256": "2074a2ed6c289d0d1356c488c6114990d3cf037c82875d8abc578f089eba1901",
+  "plan_source_commit": "426f501a4e3abb83827d87150a955bf1df2737fb",
+  "profile": "first-comparison",
+  "provenance": {
+    "bound_source_file_count": 410,
+    "new_bound_source_file_count": 410,
+    "new_native_run_records": 13,
+    "raw_records_rewritten": false,
+    "reference_bound_source_file_count": 409,
+    "reference_coverage_reproduces": true,
+    "reference_native_run_records": 39,
+    "reference_plan_sha256": "6dbee7eb595c5daf06a368eab91ab79b8c2635c56647807036edfd67c3305590",
+    "reference_report_path": "reports/core-first-comparison-20261017.json",
+    "reference_report_sha256": "887cc52605bca1e5b87a3787c14299290852f074f43554aa7a34fa3c715ef1f3",
+    "reference_source_commit": "4339700aa64626ab76afe7e46d0e86f266c1d910",
+    "reference_text_evaluation": {
+      "conditional_pairs": 2,
+      "independent_candidates": 9,
+      "paid_judge_api_used": false,
+      "pairwise_freeze_sha256": "9936fc1b981cbda25bbfd3775ade129ccd55d235c054a7fcf6684694ff2d7299",
+      "pipeline_version": "0.2.0",
+      "scalar_freeze_sha256": "2c61cc318bc951b2298ee588521ceab0023213f009b7f41d6edaa34fb42d884a"
+    },
+    "supplier_evaluation_contract": "0.3",
+    "supplier_metrics_version": "0.2.0",
+    "supplier_verifier_version": "2.1.0"
+  },
+  "report_id": "core-ornith-extension-20261017",
+  "request_count": {
+    "known_cells": 28,
+    "known_subtotal": 274,
+    "rule": "Pi turns are not HTTP requests; unknowns are not zero. Reference requests are preserved prior measurements.",
+    "total": null,
+    "total_cells": 40,
+    "unit": "provider inference requests",
+    "unknown_cells": 12
+  },
+  "runtime": {
+    "name": "ollama",
+    "version": "0.40.5"
+  },
+  "schema_version": "core_ornith_extension_report_v0.1",
+  "source_review": {
+    "blinded": false,
+    "extension_review_sha256": "f2d98f0cb56a1e3cce0166f1edbfd96c29015f30be5cd19d283cf78f613a1e3a",
+    "judge_kind": "interactive_codex",
+    "native_outcomes_changed": false,
+    "new_reviews": 4,
+    "reference_review_sha256": "19abba88fa05b39ab1a3b723f337f311c54ff677dc56849df7bdd9d0827e2312",
+    "reference_reviews": 12,
+    "review_count": 16,
+    "supplier_language_rule": "German free-text values required by the frozen TASK-v0.2; reviewed separately from native code/anchor checks."
+  },
+  "suite_id": "personal-core-suite-v0.1",
+  "system_registry_path": "capabilities/core-systems-v0.1.json",
+  "text_evaluation": {
+    "batch_id": "ornith-extension-20261017-four-model",
+    "conditional_pairs": 4,
+    "exact_reference_candidates": 9,
+    "independent_candidates": 12,
+    "new_inference_candidates": 3,
+    "paid_judge_api_used": false,
+    "pairwise_freeze_sha256": "c4ac22a921c00b72ef4e5eadbe740fafd29a71c4cdd2d3b32a2460bc902f2a6a",
+    "pipeline_version": "0.2.0",
+    "scalar_freeze_sha256": "dd361bd798eee9bd80fa64e96ab91be577113cafbbf0d856377b9d2784ca1ffd"
+  }
+}

@@ -27,6 +27,13 @@ cover six tasks and all thirty task/system/deployment cells, with no restarted
 attempts. Task quality, deterministic checks, runtime, strict output and source
 grounding are reported separately. Each cell is one observation.
 
+The [Ornith extension](reports/core-ornith-extension-20261017.md) adds ten new
+Ornith 1.5 cells and explicitly reuses the thirty exact reference measurements.
+Its separate four-model text evaluation judges all twelve saved warm answers
+anew; earlier scores stay unchanged. The joint view distinguishes model,
+backend and harness effects, and discloses the later execution window and
+partial cognitive blinding.
+
 The additive [coverage reader 0.2](docs/core-records-v0.2.md) also handles Pi's
 separately recorded deployment admission: missing native identity stays unknown
 unless the exact plan-bound pre-inference gate and final run hash validate it.
