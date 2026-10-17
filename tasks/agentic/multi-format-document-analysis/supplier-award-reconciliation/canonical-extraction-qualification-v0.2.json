@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "supplier-award-canonical-extraction-v0.2",
+  "case_id": "agentic.documents.supplier-award-reconciliation",
+  "status": "qualified",
+  "qualified_on": "2026-09-11",
+  "live_inference_performed": false,
+  "extraction": {
+    "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/canonical/canonical-extraction-v0.2.json",
+    "format": "json",
+    "size_bytes": 16213,
+    "sha256": "5029f93fb99bd6e3da7fdd8e48109efa27e7d8af2ff025ff770d714325806d85"
+  },
+  "schema": {
+    "path": "tasks/agentic/multi-format-document-analysis/canonical-extraction-schema-v2.json",
+    "sha256": "65433bb9b4e20fa07a186470eaf9be912c82434413c986a9b5a4ed5108733b2c"
+  },
+  "toolchain": {
+    "platform": "Darwin 25.1.0 arm64",
+    "python": "3.14.4",
+    "docx_extractor": "Python standard library zipfile plus deterministic OOXML token extraction",
+    "pdf_extractor": "Poppler pdftotext 25.11.0 with layout preservation",
+    "xlsx_extractor": "Python standard library zipfile plus deterministic OOXML cell and shared-string extraction"
+  },
+  "artifact_inputs": [
+    {
+      "filename": "supplier-selection-policy.docx",
+      "format": "docx",
+      "size_bytes": 40404,
+      "sha256": "46142aed4eaa15601252f7dc60756154c1eace4100109a8ab78162e3ea102708"
+    },
+    {
+      "filename": "supplier-assurance-review.pdf",
+      "format": "pdf",
+      "size_bytes": 7678,
+      "sha256": "c25a322efb3e2433787f3f95343f5855c8f05218d287ac310dc19abbdd0c38df"
+    },
+    {
+      "filename": "bid-evaluation.xlsx",
+      "format": "xlsx",
+      "size_bytes": 14872,
+      "sha256": "f5753b208f79ea8758fe3a35c3fbbb514468bc7372efe0c59623dc2670c5b42c"
+    }
+  ],
+  "reproducibility_inputs": [
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/build_canonical_extraction.py",
+      "sha256": "b76ad2bf086b6583cf5ff8189d0c1a138b3e8926de0451109f99624ce16db615"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/inspect_canonical_extraction.py",
+      "sha256": "ad80628fea45c104ab7ac457defa6da47ec3529b4986169bcb0b1ed3a70d2e1a"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/source-blueprint-v0.2.json",
+      "sha256": "b58fe432a2016360e82742a167e2789d645538a3d78aeb0f59024c26fb22c058"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/docx-artifact-qualification-v0.2.json",
+      "sha256": "13f7444ad97ce266a54142e18820cf8d8c43f77d1e6b977b5469fec428f87b8c"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/pdf-artifact-qualification-v0.2.json",
+      "sha256": "bd4c0349c8a77b26ecd702756648996f6e2900b71f88ef6229aed9ce89cbc387"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/xlsx-artifact-qualification-v0.2.json",
+      "sha256": "ee7c54c4f515e9cbfbdbb59d55cbffefa5f9168c30aca64760385eddbb9e1457"
+    }
+  ],
+  "parity_checks": {
+    "schema_valid": true,
+    "artifact_hashes_exact_match": true,
+    "fresh_binary_rebuild_exact_match": true,
+    "second_serialization_byte_for_byte_match": true,
+    "blueprint_fact_order_exact_match": true,
+    "source_refs_unique": true,
+    "record_count": 16,
+    "record_counts_by_format": {"docx": 4, "pdf": 6, "xlsx": 6},
+    "policy_thresholds_and_filter_then_rank_rule_exact_match": true,
+    "unsigned_draft_and_signed_final_pdf_values_exact_match": true,
+    "signed_final_pdf_authority_and_cutoff_exact_match": true,
+    "bid_values_formulas_and_cached_results_exact_match": true,
+    "commercial_dashboard_values_scope_and_formulas_exact_match": true
+  },
+  "source_anchor_reconciliation": {
+    "expected_fact_codes": [
+      "POL-ELIGIBILITY", "POL-SELECTION", "POL-AUTHORITY", "POL-CUTOFF",
+      "ASSUR-DRAFT", "ASSUR-FINAL", "ASSUR-ATLAS", "ASSUR-BOREAL", "ASSUR-CEDAR", "ASSUR-DELTA",
+      "BID-ATLAS", "BID-BOREAL", "BID-CEDAR", "BID-DELTA", "DASH-RECOMMENDATION", "DASH-SCOPE"
+    ],
+    "matched_fact_codes": 16,
+    "missing_fact_codes": [],
+    "unexpected_fact_codes": [],
+    "passed": true
+  },
+  "answer_leakage_check": {
+    "prohibited_fragments": [
+      "primary_supplier", "reserve_supplier", "rejected_suppliers", "blocker_code",
+      "recommended_actions", "uncertainties", "award_with_reserve", "award_atlas",
+      "designate_boreal_reserve", "exclude_ineligible_suppliers"
+    ],
+    "matches": [],
+    "passed": true,
+    "interpretation": "The representation exposes source-derived evidence and stable citation identities but no controlled decision, blocker, action or uncertainty answer."
+  },
+  "gates_passed": [
+    "all three frozen binary hashes verified before extraction",
+    "canonical JSON validates against the frozen v2 extraction schema",
+    "all 16 blueprint fact identities and source anchors match in order",
+    "fresh extraction from the binaries exactly matches the frozen representation",
+    "a second serialization is byte-for-byte identical",
+    "policy, assurance, commercial analysis, dashboard and formula values reconcile",
+    "controlled answer leakage scan passes",
+    "canonical extraction hash and tool/runtime versions frozen"
+  ],
+  "not_qualified_by_this_record": [
+    "Track B artifact-reading tools",
+    "Mini or Pi complete-system execution",
+    "model inference",
+    "measured Track A or Track B results"
+  ]
+}

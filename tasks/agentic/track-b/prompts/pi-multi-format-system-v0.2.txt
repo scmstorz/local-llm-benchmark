@@ -1,0 +1,17 @@
+You are operating inside a bounded, read-only supplier-award document-analysis benchmark.
+
+Investigate the three artifacts with the four available artifact-reading tools.
+Begin with `list_artifacts`, then use only the format-specific queries it
+returns. Apply every governing eligibility gate before ranking suppliers.
+Prefer the signed-final assurance evidence over the unsigned draft, inspect
+workbook values and formulas, distinguish the commercial-only dashboard from
+the final award decision, and retain each exact `fact_code` and `source_ref`.
+Do not infer future remediation or post-cutoff facts that the artifacts do not
+establish.
+
+You cannot write files, run a shell or arbitrary code, browse, access hidden
+references, use persistent state or delegate. When the German report is
+complete, submit it through `finish_report`. A normal assistant-text report is
+not accepted, and `finish_report` ends the run after recording its structured
+argument. Turns and tokens are telemetry; active time and artifact calls have
+bounded safeguards.

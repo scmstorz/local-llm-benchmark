@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "agentic.documents.supplier-award-reconciliation",
+  "blueprint_version": "2.0.0",
+  "synthetic": true,
+  "transfer_design": {
+    "source_case": "agentic.documents.rollout-readiness-reconciliation",
+    "reused_source_artifacts": false,
+    "reused_candidate_observations": false,
+    "changed_domain": "supplier award and reserve selection",
+    "changed_reasoning_shape": "filter suppliers by cross-format eligibility, then rank only eligible suppliers by adjusted first-year cost",
+    "anti_isomorphism_controls": [
+      "select exactly one primary and one reserve instead of independently approving regions",
+      "two suppliers are eligible and must be ranked",
+      "the cheapest supplier is ineligible for a non-commercial reason",
+      "the second rejected supplier fails a formula-derived capacity threshold",
+      "no numeric value, entity name, cutoff or source anchor is reused from v0.1"
+    ]
+  },
+  "artifacts": [
+    {
+      "format": "docx",
+      "filename": "supplier-selection-policy.docx",
+      "role": "eligibility, evidence-authority and constrained-ranking policy",
+      "design_preset": "standard_business_brief",
+      "header_pattern": "memo_masthead",
+      "planned_complexity": [
+        "four eligibility gates in a real Word table",
+        "a two-stage filter-then-rank rule in prose",
+        "an explicit signed-final evidence hierarchy and cutoff"
+      ]
+    },
+    {
+      "format": "pdf",
+      "filename": "supplier-assurance-review.pdf",
+      "role": "draft and signed-final assurance evidence",
+      "planned_complexity": [
+        "an unsigned draft table followed by a signed-final table",
+        "supplier-specific assurance rows and page anchors",
+        "an explicit final-appendix supersession note"
+      ]
+    },
+    {
+      "format": "xlsx",
+      "filename": "bid-evaluation.xlsx",
+      "role": "formula-derived adjusted cost, capacity headroom and commercial ranking",
+      "planned_complexity": [
+        "separate Dashboard and Bid Analysis sheets",
+        "typed cost and capacity inputs with auditable formulas",
+        "a deliberately incomplete commercial recommendation that ignores assurance eligibility"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_code": "POL-ELIGIBILITY",
+      "artifact": "docx",
+      "source_ref": "supplier-selection-policy.docx#table=Eligibility-gates",
+      "content": "A supplier is eligible only with signed-final assurance rating A or B, zero unresolved critical findings, capacity headroom >= 15%, and adjusted first-year cost <= EUR 1,200,000."
+    },
+    {
+      "fact_code": "POL-SELECTION",
+      "artifact": "docx",
+      "source_ref": "supplier-selection-policy.docx#heading=Selection-sequence",
+      "content": "First exclude every ineligible supplier; then select the eligible supplier with the lowest adjusted first-year cost as primary and the next-lowest eligible supplier as reserve."
+    },
+    {
+      "fact_code": "POL-AUTHORITY",
+      "artifact": "docx",
+      "source_ref": "supplier-selection-policy.docx#heading=Evidence-authority",
+      "content": "The signed-final assurance appendix at the cutoff supersedes drafts, and a commercial dashboard cannot waive an assurance or capacity gate."
+    },
+    {
+      "fact_code": "POL-CUTOFF",
+      "artifact": "docx",
+      "source_ref": "supplier-selection-policy.docx#heading=Decision-cutoff",
+      "content": "The award decision uses evidence finalized by 2026-09-08 16:00 UTC."
+    },
+    {
+      "fact_code": "ASSUR-DRAFT",
+      "artifact": "pdf",
+      "source_ref": "supplier-assurance-review.pdf#page=2&table=Unsigned-draft",
+      "content": "The unsigned draft lists Cedar with zero unresolved critical findings and Atlas with rating C."
+    },
+    {
+      "fact_code": "ASSUR-FINAL",
+      "artifact": "pdf",
+      "source_ref": "supplier-assurance-review.pdf#page=3&note=Signed-final",
+      "content": "The signed-final appendix on page 3 supersedes the unsigned draft on page 2 and was finalized before the decision cutoff."
+    },
+    {
+      "fact_code": "ASSUR-ATLAS",
+      "artifact": "pdf",
+      "source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Atlas",
+      "content": "Atlas has signed-final assurance rating B and zero unresolved critical findings."
+    },
+    {
+      "fact_code": "ASSUR-BOREAL",
+      "artifact": "pdf",
+      "source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Boreal",
+      "content": "Boreal has signed-final assurance rating A and zero unresolved critical findings."
+    },
+    {
+      "fact_code": "ASSUR-CEDAR",
+      "artifact": "pdf",
+      "source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Cedar",
+      "content": "Cedar has signed-final assurance rating A and one unresolved critical finding."
+    },
+    {
+      "fact_code": "ASSUR-DELTA",
+      "artifact": "pdf",
+      "source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Delta",
+      "content": "Delta has signed-final assurance rating B and zero unresolved critical findings."
+    },
+    {
+      "fact_code": "BID-ATLAS",
+      "artifact": "xlsx",
+      "source_ref": "bid-evaluation.xlsx#sheet=Bid Analysis&range=B5:J5",
+      "content": "Atlas has formula-derived adjusted first-year cost EUR 1,140,000 and capacity headroom 16% from 116 available units over 100 required units."
+    },
+    {
+      "fact_code": "BID-BOREAL",
+      "artifact": "xlsx",
+      "source_ref": "bid-evaluation.xlsx#sheet=Bid Analysis&range=B6:J6",
+      "content": "Boreal has formula-derived adjusted first-year cost EUR 1,165,000 and capacity headroom 25% from 125 available units over 100 required units."
+    },
+    {
+      "fact_code": "BID-CEDAR",
+      "artifact": "xlsx",
+      "source_ref": "bid-evaluation.xlsx#sheet=Bid Analysis&range=B7:J7",
+      "content": "Cedar has formula-derived adjusted first-year cost EUR 1,080,000 and capacity headroom 20% from 120 available units over 100 required units."
+    },
+    {
+      "fact_code": "BID-DELTA",
+      "artifact": "xlsx",
+      "source_ref": "bid-evaluation.xlsx#sheet=Bid Analysis&range=B8:J8",
+      "content": "Delta has formula-derived adjusted first-year cost EUR 1,130,000 and capacity headroom 12% from 112 available units over 100 required units."
+    },
+    {
+      "fact_code": "DASH-RECOMMENDATION",
+      "artifact": "xlsx",
+      "source_ref": "bid-evaluation.xlsx#sheet=Dashboard&range=B3:B5",
+      "content": "The dashboard recommends Cedar because Cedar has the lowest adjusted first-year cost."
+    },
+    {
+      "fact_code": "DASH-SCOPE",
+      "artifact": "xlsx",
+      "source_ref": "bid-evaluation.xlsx#sheet=Dashboard&range=B7:B8",
+      "content": "The dashboard states that its ranking is commercial only and does not incorporate assurance findings."
+    }
+  ],
+  "artifact_creation_gates": {
+    "docx": [
+      "created with an approved document runtime",
+      "standard_business_brief and memo_masthead tokens resolved before authoring",
+      "preset, structure, table geometry and accessibility audits pass",
+      "all rendered pages inspected"
+    ],
+    "pdf": [
+      "created with the approved PDF workflow",
+      "text and table extraction reconcile with intended facts",
+      "metadata, outline, page geometry and safety checks pass",
+      "all rendered pages inspected"
+    ],
+    "xlsx": [
+      "created with @oai/artifact-tool from the workspace dependency loader or a separately authorized versioned amendment",
+      "values, formulas and cached results inspected",
+      "formula-error scan passes while the intentionally incomplete business rule remains evidence",
+      "all sheets rendered and inspected"
+    ]
+  }
+}

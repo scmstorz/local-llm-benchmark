@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "amendment_id": "rollout-readiness-xlsx-authoring-v0.1",
+  "case_id": "agentic.documents.rollout-readiness-reconciliation",
+  "status": "executed_and_qualified",
+  "authorized_on": "2026-09-10",
+  "scope": "regional-readiness.xlsx fixture authoring and qualification only",
+  "reason": "The active Codex runtime does not expose load_workspace_dependencies or @oai/artifact-tool.",
+  "original_required_toolchain": [
+    "load_workspace_dependencies",
+    "@oai/artifact-tool"
+  ],
+  "authorized_alternative_toolchain": [
+    "openpyxl in an isolated temporary Python environment",
+    "LibreOffice headless for formula recalculation and workbook-to-PDF rendering",
+    "Poppler for page rasterization and visual inspection"
+  ],
+  "identity_policy": [
+    "Record exact tool versions in the XLSX qualification record.",
+    "Freeze the final workbook SHA-256 after recalculation and visual QA.",
+    "Do not describe this fixture as authored or rendered by @oai/artifact-tool.",
+    "Do not change or pool the Track A canonical-representation and Track B real-artifact conditions.",
+    "Qualify later artifact extraction independently from fixture authoring."
+  ],
+  "unchanged_boundaries": [
+    "No model inference is authorized.",
+    "No Office ZIP may be handcrafted.",
+    "The intentionally misleading aggregate GO rule remains evidence, not a formula error.",
+    "Every worksheet must pass formula, value and visual inspection before the XLSX gate closes."
+  ],
+  "qualification_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/xlsx-artifact-qualification-v0.1.json"
+}

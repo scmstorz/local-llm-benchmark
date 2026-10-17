@@ -1,0 +1,240 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "multi-format-capability-sweep-v0.1",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-11",
+  "track": "A+B",
+  "study_mode": "capability_sweep",
+  "evidence_class": "measured_capability_sweep",
+  "purpose": "Observe the five active-default local deployments once with extraction held constant in Track A and once under each accepted real-artifact complete system in Track B.",
+  "not_designed_to_estimate": [
+    "model reliability or quality stochasticity",
+    "latency distributions or tails",
+    "universal model ranking",
+    "one-factor causal harness effects",
+    "OCR, document editing, report assembly or spreadsheet repair"
+  ],
+  "runtime": {
+    "name": "ollama",
+    "expected_version": "0.33.2",
+    "host": "http://127.0.0.1:11434",
+    "must_be_reverified_before_execution": true
+  },
+  "qualification_gate": {
+    "smoke_report_path": "reports/agentic/multi-format-qualification-smokes-v0.1.json",
+    "smoke_report_sha256": "f35435a91e44c40fbaf6cd7ab6fbda1a73a7ec28ced1d68629324c7424eb4aeb",
+    "accepted_complete_systems": [
+      "mini-multi-format-v0.1",
+      "pi-multi-format-v0.3"
+    ],
+    "smoke_runs_reused_as_measured": false,
+    "controller_qualification_path": "tasks/agentic/multi-format-capability-sweep-v0.1-controller-qualification.json",
+    "controller_qualification_sha256": "4bb3b4427c356cc8c102f090bf4e797bae8425859214c81ad9ff2067b62033d7"
+  },
+  "model_selection": {
+    "source": "models/lifecycle.json",
+    "source_sha256": "18d896067eddf62ddf3c7ded8d34f22e32fef9994877239cf8e6abf877c30621",
+    "deployment_identity_source": "tasks/agentic/track-b/log-incident-capability-sweep-v0.5.json",
+    "deployment_identity_source_sha256": "3d87c5cbddc37578159da1b1e76e84d2f765f13f2c7af2fa77ccd7f55d0b4dcf",
+    "rule": "include_in_default_sweeps equals true",
+    "selected_count": 5,
+    "excluded_by_rule": [
+      "nemotron-3.5-lightning:30b-mlx",
+      "granite4.2:30b",
+      "gpt-oss:20b"
+    ]
+  },
+  "case": {
+    "case_id": "agentic.documents.rollout-readiness-reconciliation",
+    "case_version": "1.0.0",
+    "case_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json"
+  },
+  "conditions": [
+    {
+      "condition_id": "canonical-representation-v0.1",
+      "track": "A",
+      "condition_path": "tasks/agentic/track-a/multi-format-canonical-v0.1.json",
+      "qualification_id": "multi-format-canonical-v0.1-no-inference-qualification",
+      "qualification_path": "tasks/agentic/track-a/multi-format-canonical-v0.1-qualification.json",
+      "qualification_sha256": "7190474db2c79cda93258578f3e4cca81becd1a5c73ea18215e9815fc607e4e7",
+      "interpretation": "Model reasoning with the same frozen extraction; artifact extraction is held constant."
+    },
+    {
+      "condition_id": "mini-multi-format-v0.1",
+      "track": "B",
+      "harness_family": "project_mini_harness",
+      "harness_path": "tasks/agentic/track-b/mini-multi-format-v0.1.json",
+      "qualification_id": "mini-multi-format-v0.1-no-inference-qualification",
+      "qualification_path": "tasks/agentic/track-b/mini-multi-format-v0.1-qualification.json",
+      "qualification_sha256": "3d0ea522f3e9b93451548f410515a542db18a90f6720934e52188d4ed2aec8f1",
+      "interpretation": "Complete Mini system over the three real binary artifacts."
+    },
+    {
+      "condition_id": "pi-multi-format-v0.3",
+      "track": "B",
+      "harness_family": "pinned_pi",
+      "package_version": "0.84.4",
+      "harness_path": "tasks/agentic/track-b/pi-multi-format-v0.3.json",
+      "qualification_id": "pi-multi-format-v0.3-no-inference-qualification",
+      "qualification_path": "tasks/agentic/track-b/pi-multi-format-v0.3-qualification.json",
+      "qualification_sha256": "d387b7e4af4f64372ab3ada65c2a44a4dfd3cb28107423dd60a37250868e7f18",
+      "interpretation": "Complete pinned-Pi system over the three real binary artifacts after fresh 12-check Seatbelt acceptance."
+    }
+  ],
+  "deployments": [
+    {
+      "name": "qwen3.6:35b-a3b-mxfp8",
+      "deployment_id": "qwen3-6-35b-a3b-mxfp8-d82a30588f1c-ollama-0-33-2",
+      "digest": "d82a30588f1c7bc2afa5226f3d67c8987bf505104f8f0512a0f8643ac4525d16",
+      "size_bytes": 37667341338,
+      "quantization": "mxfp8"
+    },
+    {
+      "name": "qwen3.8:27b-mlx",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "size_bytes": 18174721847,
+      "quantization": "nvfp4"
+    },
+    {
+      "name": "muse-glimmer:30b-mlx",
+      "deployment_id": "muse-glimmer-30b-mlx-ef32a55b4976-ollama-0-33-2",
+      "digest": "ef32a55b4976faa955cbab0462d09bd081351ef5b87d73d8fcd299bf17c111d7",
+      "size_bytes": 21232871036,
+      "quantization": "unspecified_by_runtime"
+    },
+    {
+      "name": "ornith-1.5:35b",
+      "deployment_id": "ornith-1-5-35b-9f3b89b25219-ollama-0-33-2",
+      "digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc",
+      "size_bytes": 22616285024,
+      "quantization": "Q4_K_M"
+    },
+    {
+      "name": "gemma4:31b-mlx",
+      "deployment_id": "gemma4-31b-mlx-a22a363052da-ollama-0-33-2",
+      "digest": "a22a363052da770302019d5afab29bd967f9318e4377bddd297421189ea09d7d",
+      "size_bytes": 19424434885,
+      "quantization": "unspecified_by_runtime"
+    }
+  ],
+  "execution_order": [
+    {"position": 1, "condition_id": "canonical-representation-v0.1", "model": "qwen3.6:35b-a3b-mxfp8"},
+    {"position": 2, "condition_id": "mini-multi-format-v0.1", "model": "gemma4:31b-mlx"},
+    {"position": 3, "condition_id": "pi-multi-format-v0.3", "model": "ornith-1.5:35b"},
+    {"position": 4, "condition_id": "canonical-representation-v0.1", "model": "qwen3.8:27b-mlx"},
+    {"position": 5, "condition_id": "mini-multi-format-v0.1", "model": "qwen3.6:35b-a3b-mxfp8"},
+    {"position": 6, "condition_id": "pi-multi-format-v0.3", "model": "gemma4:31b-mlx"},
+    {"position": 7, "condition_id": "canonical-representation-v0.1", "model": "muse-glimmer:30b-mlx"},
+    {"position": 8, "condition_id": "mini-multi-format-v0.1", "model": "qwen3.8:27b-mlx"},
+    {"position": 9, "condition_id": "pi-multi-format-v0.3", "model": "muse-glimmer:30b-mlx"},
+    {"position": 10, "condition_id": "canonical-representation-v0.1", "model": "ornith-1.5:35b"},
+    {"position": 11, "condition_id": "mini-multi-format-v0.1", "model": "muse-glimmer:30b-mlx"},
+    {"position": 12, "condition_id": "pi-multi-format-v0.3", "model": "qwen3.8:27b-mlx"},
+    {"position": 13, "condition_id": "canonical-representation-v0.1", "model": "gemma4:31b-mlx"},
+    {"position": 14, "condition_id": "mini-multi-format-v0.1", "model": "ornith-1.5:35b"},
+    {"position": 15, "condition_id": "pi-multi-format-v0.3", "model": "qwen3.6:35b-a3b-mxfp8"}
+  ],
+  "order_rationale": "Conditions cycle Track A, Mini and Pi. Every model appears exactly once per condition, no model occupies adjacent cells, and model position sums range from 21 to 27 around the common mean of 24.",
+  "shared_inference": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 5000,
+    "maximum_active_wall_time_seconds": 300,
+    "provider_request_timeout_seconds": 180,
+    "maximum_total_output_tokens": null,
+    "maximum_agent_turns": null,
+    "maximum_protocol_errors": null,
+    "maximum_artifact_tool_calls_emergency": 40
+  },
+  "outcome_model": {
+    "primary": "semantic_verified_success",
+    "secondary": "strict_transport_compliance",
+    "runtime_success_separate": true,
+    "agent_termination_valid_separate": true,
+    "supplemental_free_text_claim_review_required": true,
+    "deterministic_success_is_not_final_quality_acceptance": true,
+    "check_counts_diagnostic_not_normalized_points": true,
+    "composite_score": false
+  },
+  "comparison_rules": {
+    "runs_per_configuration": 1,
+    "automatic_retries": 0,
+    "adaptive_repetitions": false,
+    "qualification_smokes_reused_as_measured": false,
+    "terminal_attempts_not_repeated": true,
+    "track_a_and_track_b_pooled": false,
+    "performance_distribution_claims": false,
+    "reliability_probability_claims": false,
+    "quality_stochasticity_claims": false,
+    "latency_distribution_claims": false,
+    "trajectory_metrics_are_descriptive": true,
+    "turns_tokens_and_protocol_errors_are_measurement_only": true,
+    "one_factor_causal_harness_claim_allowed": false,
+    "track_a_comparison_unit": "deployment_with_common_canonical_representation",
+    "track_b_comparison_unit": "complete_system"
+  },
+  "resource_gate": {
+    "loaded_models_must_be_empty_before_each_unit": true,
+    "empty_state_observation_seconds": 30,
+    "deployment_digest_rechecked_before_each_unit": true,
+    "exact_ollama_version_required": true,
+    "model_unloaded_after_each_unit": true,
+    "unexpected_model_activity_pauses_the_study": true,
+    "known_competing_applications_must_be_stopped": true,
+    "blocking_process_rules": [
+      {"rule_id": "behat_test_runner", "pattern": "(?i)(?:^|[\\s/])(?:vendor/bin/)?behat(?:[\\s]|$)"},
+      {"rule_id": "behat_environment_worker", "pattern": "(?i)(?:--env=behat_test|var/behat-env)"},
+      {"rule_id": "other_test_runner", "pattern": "(?i)(?:^|[\\s/])(?:pytest|phpunit|jest|vitest|mocha|playwright|cypress)(?:[\\s]|$)"},
+      {"rule_id": "package_test_script", "pattern": "(?i)(?:^|[\\s/])(?:npm|pnpm|yarn)(?:[\\s]+run)?[\\s]+test(?:[\\s]|$)"},
+      {"rule_id": "mnemosyn_application", "pattern": "(?i)^(?!.*mnemosyn_mcp\\.py).*mnemosyn"},
+      {"rule_id": "news_or_blog_application", "pattern": "(?i)(?:news-app|blog-read-o-matic)"}
+    ]
+  },
+  "interruption_policy": {
+    "raw_attempts_are_append_only": true,
+    "complete_outcomes_are_never_repeated": true,
+    "prepared_action_pending_and_verification_pending_runs_resume_in_place": true,
+    "live_process_loss": "preserve the cell as an infrastructure_or_control_failure and do not retry",
+    "runtime_model_or_definition_drift_blocks_resume": true
+  },
+  "reporting": {
+    "deterministic_json_path": "reports/agentic/multi-format-capability-sweep-v0.1.json",
+    "deterministic_markdown_path": "reports/agentic/multi-format-capability-sweep-v0.1.md",
+    "supplemental_review_json_path": "reports/agentic/multi-format-capability-sweep-v0.1-quality-audit.json",
+    "supplemental_review_markdown_path": "reports/agentic/multi-format-capability-sweep-v0.1-quality-audit.md",
+    "raw_candidate_reports_public": false,
+    "canonical_evidence_text_public": false,
+    "binary_contents_public": false,
+    "hidden_ground_truth_public": false,
+    "absolute_paths_public": false,
+    "no_composite_score": true
+  },
+  "authorization": {
+    "live_execution_authorized": false,
+    "post_freeze_authorization_required": true,
+    "fresh_clean_window_confirmation_required": true,
+    "reason": "The exact plan must exist before an independent user authorization is bound to its SHA-256.",
+    "no_remote_push_authorized": true
+  },
+  "frozen_inputs": {
+    "implementation_git_commit": "d8857b030adcebe8b59400b724fbebf5240cd461",
+    "worktree_inputs_frozen_by_sha256": true,
+    "artifacts": [
+      {"path": "models/lifecycle.json", "sha256": "18d896067eddf62ddf3c7ded8d34f22e32fef9994877239cf8e6abf877c30621"},
+      {"path": "tasks/agentic/track-b/log-incident-capability-sweep-v0.5.json", "sha256": "3d87c5cbddc37578159da1b1e76e84d2f765f13f2c7af2fa77ccd7f55d0b4dcf"},
+      {"path": "reports/agentic/multi-format-qualification-smokes-v0.1.json", "sha256": "f35435a91e44c40fbaf6cd7ab6fbda1a73a7ec28ced1d68629324c7424eb4aeb"},
+      {"path": "tasks/agentic/multi-format-capability-sweep-v0.1-controller-qualification.json", "sha256": "4bb3b4427c356cc8c102f090bf4e797bae8425859214c81ad9ff2067b62033d7"},
+      {"path": "tasks/agentic/track-a/multi-format-canonical-v0.1.json", "sha256": "872f4aa47e7321324ac9c0f2c0fa59cfa765e700355754d08b037f001a8076fe"},
+      {"path": "tasks/agentic/track-a/multi-format-canonical-v0.1-qualification.json", "sha256": "7190474db2c79cda93258578f3e4cca81becd1a5c73ea18215e9815fc607e4e7"},
+      {"path": "tasks/agentic/track-b/mini-multi-format-v0.1.json", "sha256": "d9416b9c0cd8271e3a2058c5a53dab9e70fb502b441a7792418e728acd514b82"},
+      {"path": "tasks/agentic/track-b/mini-multi-format-v0.1-qualification.json", "sha256": "3d0ea522f3e9b93451548f410515a542db18a90f6720934e52188d4ed2aec8f1"},
+      {"path": "tasks/agentic/track-b/pi-multi-format-v0.3.json", "sha256": "0cb147851c95071ca293d8413e652b576435e216c99fd0bc3acfae96d33b133f"},
+      {"path": "tasks/agentic/track-b/pi-multi-format-v0.3-qualification.json", "sha256": "d387b7e4af4f64372ab3ada65c2a44a4dfd3cb28107423dd60a37250868e7f18"},
+      {"path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json", "sha256": "6a3eeb93f801f91068ba995ab35a955f85f188f4d9110a55d2708adb5b30875a"},
+      {"path": "tasks/agentic/multi-format-document-analysis/evaluation-contract-v0.1.json", "sha256": "ae2b38c43191d2457254ac7e411046562ad336fddb09cf8e58ecdaaab8cd65ba"}
+    ]
+  }
+}

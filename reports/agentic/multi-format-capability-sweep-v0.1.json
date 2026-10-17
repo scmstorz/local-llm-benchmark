@@ -1,0 +1,777 @@
+{
+  "by_condition": [
+    {
+      "cell_count": 5,
+      "condition_id": "canonical-representation-v0.1",
+      "essential_checks_passed": 40,
+      "essential_checks_total": 55,
+      "runtime_success_count": 5,
+      "semantic_verified_success_count": 0,
+      "strict_transport_compliance_count": 5,
+      "terminal_count": 5
+    },
+    {
+      "cell_count": 5,
+      "condition_id": "mini-multi-format-v0.1",
+      "essential_checks_passed": 26,
+      "essential_checks_total": 55,
+      "runtime_success_count": 5,
+      "semantic_verified_success_count": 1,
+      "strict_transport_compliance_count": 3,
+      "terminal_count": 5
+    },
+    {
+      "cell_count": 5,
+      "condition_id": "pi-multi-format-v0.3",
+      "essential_checks_passed": 48,
+      "essential_checks_total": 55,
+      "runtime_success_count": 5,
+      "semantic_verified_success_count": 1,
+      "strict_transport_compliance_count": 4,
+      "terminal_count": 5
+    }
+  ],
+  "by_model": [
+    {
+      "cell_count": 3,
+      "essential_checks_passed": 25,
+      "essential_checks_total": 33,
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "runtime_success_count": 3,
+      "semantic_verified_success_count": 0,
+      "strict_transport_compliance_count": 2,
+      "terminal_count": 3
+    },
+    {
+      "cell_count": 3,
+      "essential_checks_passed": 22,
+      "essential_checks_total": 33,
+      "model": "gemma4:31b-mlx",
+      "runtime_success_count": 3,
+      "semantic_verified_success_count": 0,
+      "strict_transport_compliance_count": 3,
+      "terminal_count": 3
+    },
+    {
+      "cell_count": 3,
+      "essential_checks_passed": 18,
+      "essential_checks_total": 33,
+      "model": "ornith-1.5:35b",
+      "runtime_success_count": 3,
+      "semantic_verified_success_count": 0,
+      "strict_transport_compliance_count": 2,
+      "terminal_count": 3
+    },
+    {
+      "cell_count": 3,
+      "essential_checks_passed": 30,
+      "essential_checks_total": 33,
+      "model": "qwen3.8:27b-mlx",
+      "runtime_success_count": 3,
+      "semantic_verified_success_count": 2,
+      "strict_transport_compliance_count": 3,
+      "terminal_count": 3
+    },
+    {
+      "cell_count": 3,
+      "essential_checks_passed": 19,
+      "essential_checks_total": 33,
+      "model": "muse-glimmer:30b-mlx",
+      "runtime_success_count": 3,
+      "semantic_verified_success_count": 0,
+      "strict_transport_compliance_count": 2,
+      "terminal_count": 3
+    }
+  ],
+  "by_track": [
+    {
+      "cell_count": 5,
+      "essential_checks_passed": 40,
+      "essential_checks_total": 55,
+      "runtime_success_count": 5,
+      "semantic_verified_success_count": 0,
+      "strict_transport_compliance_count": 5,
+      "terminal_count": 5,
+      "track": "A"
+    },
+    {
+      "cell_count": 10,
+      "essential_checks_passed": 74,
+      "essential_checks_total": 110,
+      "runtime_success_count": 10,
+      "semantic_verified_success_count": 2,
+      "strict_transport_compliance_count": 7,
+      "terminal_count": 10,
+      "track": "B"
+    }
+  ],
+  "cell_count": 15,
+  "cells": [
+    {
+      "condition_id": "canonical-representation-v0.1",
+      "deployment_id": "qwen3-6-35b-a3b-mxfp8-d82a30588f1c-ollama-0-33-2",
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": null,
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "strict_transport_compliance": true
+      },
+      "position": 1,
+      "run_id": "canonical-multiformat-run-20260911T063427Z-68cd4c8b",
+      "seatbelt_checks": null,
+      "status": "complete",
+      "track": "A",
+      "trajectory": {
+        "active_wall_time_seconds": 78.4027536669746,
+        "agent_turns": 1,
+        "failed_tool_calls": null,
+        "input_tokens": 5994,
+        "model_requests": 1,
+        "output_tokens": 1886,
+        "protocol_errors": null,
+        "repeated_queries": null,
+        "response_normalization_applied": false,
+        "response_normalization_kind": "none",
+        "tool_calls": null
+      },
+      "verification": {
+        "essential_check_count": 11,
+        "essential_pass_count": 7,
+        "failed_check_ids": [
+          "approved_regions",
+          "region_blockers",
+          "required_evidence",
+          "action_plan"
+        ]
+      }
+    },
+    {
+      "condition_id": "mini-multi-format-v0.1",
+      "deployment_id": "gemma4-31b-mlx-a22a363052da-ollama-0-33-2",
+      "model": "gemma4:31b-mlx",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": null,
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "strict_transport_compliance": true
+      },
+      "position": 2,
+      "run_id": "mini-multiformat-run-20260911T063654Z-53adb2e7",
+      "seatbelt_checks": null,
+      "status": "complete",
+      "track": "B",
+      "trajectory": {
+        "active_wall_time_seconds": 104.36331308435183,
+        "agent_turns": 13,
+        "failed_tool_calls": 0,
+        "input_tokens": 41855,
+        "model_requests": 13,
+        "output_tokens": 1467,
+        "protocol_errors": 0,
+        "repeated_queries": 0,
+        "response_normalization_applied": null,
+        "response_normalization_kind": null,
+        "tool_calls": 12
+      },
+      "verification": {
+        "essential_check_count": 11,
+        "essential_pass_count": 7,
+        "failed_check_ids": [
+          "required_evidence",
+          "conflict_resolution",
+          "action_plan",
+          "uncertainty"
+        ]
+      }
+    },
+    {
+      "condition_id": "pi-multi-format-v0.3",
+      "deployment_id": "ornith-1-5-35b-9f3b89b25219-ollama-0-33-2",
+      "model": "ornith-1.5:35b",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": null,
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "strict_transport_compliance": true
+      },
+      "position": 3,
+      "run_id": "pi-multiformat-run-20260911T063911Z-c1e2f74a",
+      "seatbelt_checks": {
+        "checks_passed": 12,
+        "checks_total": 12,
+        "passed": true,
+        "profile_sha256": "ec0c969bfd5ce3967d4e1fda6e252f0c97254f3307af5b853c77491790a9c73e",
+        "validated_at": "2026-09-11T06:39:11.739582Z"
+      },
+      "status": "complete",
+      "track": "B",
+      "trajectory": {
+        "active_wall_time_seconds": 128.66984774998855,
+        "agent_turns": 7,
+        "failed_tool_calls": 0,
+        "input_tokens": 36533,
+        "model_requests": null,
+        "output_tokens": 8695,
+        "protocol_errors": 0,
+        "repeated_queries": 2,
+        "response_normalization_applied": false,
+        "response_normalization_kind": "none",
+        "tool_calls": 18
+      },
+      "verification": {
+        "essential_check_count": 11,
+        "essential_pass_count": 10,
+        "failed_check_ids": [
+          "required_evidence"
+        ]
+      }
+    },
+    {
+      "condition_id": "canonical-representation-v0.1",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "model": "qwen3.8:27b-mlx",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": null,
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "strict_transport_compliance": true
+      },
+      "position": 4,
+      "run_id": "canonical-multiformat-run-20260911T064151Z-d4c3743d",
+      "seatbelt_checks": null,
+      "status": "complete",
+      "track": "A",
+      "trajectory": {
+        "active_wall_time_seconds": 116.31937895796727,
+        "agent_turns": 1,
+        "failed_tool_calls": null,
+        "input_tokens": 5994,
+        "model_requests": 1,
+        "output_tokens": 2036,
+        "protocol_errors": null,
+        "repeated_queries": null,
+        "response_normalization_applied": false,
+        "response_normalization_kind": "none",
+        "tool_calls": null
+      },
+      "verification": {
+        "essential_check_count": 11,
+        "essential_pass_count": 8,
+        "failed_check_ids": [
+          "approved_regions",
+          "region_blockers",
+          "required_evidence"
+        ]
+      }
+    },
+    {
+      "condition_id": "mini-multi-format-v0.1",
+      "deployment_id": "qwen3-6-35b-a3b-mxfp8-d82a30588f1c-ollama-0-33-2",
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": null,
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "strict_transport_compliance": true
+      },
+      "position": 5,
+      "run_id": "mini-multiformat-run-20260911T064418Z-92bf3c87",
+      "seatbelt_checks": null,
+      "status": "complete",
+      "track": "B",
+      "trajectory": {
+        "active_wall_time_seconds": 98.09271124890074,
+        "agent_turns": 14,
+        "failed_tool_calls": 0,
+        "input_tokens": 46249,
+        "model_requests": 14,
+        "output_tokens": 2272,
+        "protocol_errors": 0,
+        "repeated_queries": 0,
+        "response_normalization_applied": null,
+        "response_normalization_kind": null,
+        "tool_calls": 13
+      },
+      "verification": {
+        "essential_check_count": 11,
+        "essential_pass_count": 8,
+        "failed_check_ids": [
+          "required_evidence",
+          "conflict_resolution",
+          "action_plan"
+        ]
+      }
+    },
+    {
+      "condition_id": "pi-multi-format-v0.3",
+      "deployment_id": "gemma4-31b-mlx-a22a363052da-ollama-0-33-2",
+      "model": "gemma4:31b-mlx",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": null,
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "strict_transport_compliance": true
+      },
+      "position": 6,
+      "run_id": "pi-multiformat-run-20260911T064628Z-c5b62fb8",
+      "seatbelt_checks": {
+        "checks_passed": 12,
+        "checks_total": 12,
+        "passed": true,
+        "profile_sha256": "de4f5a5d49dd121ea5fbd7208546542c9c7e04857b09d99d4597c4ace6a3e693",
+        "validated_at": "2026-09-11T06:46:29.141175Z"
+      },
+      "status": "complete",
+      "track": "B",
+      "trajectory": {
+        "active_wall_time_seconds": 182.7723627500236,
+        "agent_turns": 16,
+        "failed_tool_calls": 2,
+        "input_tokens": 86282,
+        "model_requests": null,
+        "output_tokens": 4835,
+        "protocol_errors": 0,
+        "repeated_queries": 0,
+        "response_normalization_applied": false,
+        "response_normalization_kind": "none",
+        "tool_calls": 15
+      },
+      "verification": {
+        "essential_check_count": 11,
+        "essential_pass_count": 7,
+        "failed_check_ids": [
+          "required_evidence",
+          "conflict_resolution",
+          "action_plan",
+          "uncertainty"
+        ]
+      }
+    },
+    {
+      "condition_id": "canonical-representation-v0.1",
+      "deployment_id": "muse-glimmer-30b-mlx-ef32a55b4976-ollama-0-33-2",
+      "model": "muse-glimmer:30b-mlx",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": null,
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "strict_transport_compliance": true
+      },
+      "position": 7,
+      "run_id": "canonical-multiformat-run-20260911T065003Z-44a6e7dc",
+      "seatbelt_checks": null,
+      "status": "complete",
+      "track": "A",
+      "trajectory": {
+        "active_wall_time_seconds": 90.71283324999968,
+        "agent_turns": 1,
+        "failed_tool_calls": null,
+        "input_tokens": 5276,
+        "model_requests": 1,
+        "output_tokens": 1154,
+        "protocol_errors": null,
+        "repeated_queries": null,
+        "response_normalization_applied": false,
+        "response_normalization_kind": "none",
+        "tool_calls": null
+      },
+      "verification": {
+        "essential_check_count": 11,
+        "essential_pass_count": 9,
+        "failed_check_ids": [
+          "required_evidence",
+          "conflict_resolution"
+        ]
+      }
+    },
+    {
+      "condition_id": "mini-multi-format-v0.1",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "model": "qwen3.8:27b-mlx",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": null,
+        "failure_type": null,
+        "runtime_success": true,
+        "semantic_verified_success": true,
+        "strict_transport_compliance": true
+      },
+      "position": 8,
+      "run_id": "mini-multiformat-run-20260911T065204Z-0edfa1ad",
+      "seatbelt_checks": null,
+      "status": "complete",
+      "track": "B",
+      "trajectory": {
+        "active_wall_time_seconds": 127.09535237483215,
+        "agent_turns": 17,
+        "failed_tool_calls": 0,
+        "input_tokens": 60158,
+        "model_requests": 17,
+        "output_tokens": 2239,
+        "protocol_errors": 0,
+        "repeated_queries": 0,
+        "response_normalization_applied": null,
+        "response_normalization_kind": null,
+        "tool_calls": 16
+      },
+      "verification": {
+        "essential_check_count": 11,
+        "essential_pass_count": 11,
+        "failed_check_ids": []
+      }
+    },
+    {
+      "condition_id": "pi-multi-format-v0.3",
+      "deployment_id": "muse-glimmer-30b-mlx-ef32a55b4976-ollama-0-33-2",
+      "model": "muse-glimmer:30b-mlx",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": null,
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "strict_transport_compliance": true
+      },
+      "position": 9,
+      "run_id": "pi-multiformat-run-20260911T065443Z-62a27510",
+      "seatbelt_checks": {
+        "checks_passed": 12,
+        "checks_total": 12,
+        "passed": true,
+        "profile_sha256": "88150547ba1bbe056a50e8671986269369429c7fbc130f5b8a0776737655dbd0",
+        "validated_at": "2026-09-11T06:54:44.927724Z"
+      },
+      "status": "complete",
+      "track": "B",
+      "trajectory": {
+        "active_wall_time_seconds": 232.7220006249845,
+        "agent_turns": 5,
+        "failed_tool_calls": 0,
+        "input_tokens": 22237,
+        "model_requests": null,
+        "output_tokens": 5767,
+        "protocol_errors": 0,
+        "repeated_queries": 0,
+        "response_normalization_applied": false,
+        "response_normalization_kind": "none",
+        "tool_calls": 16
+      },
+      "verification": {
+        "essential_check_count": 11,
+        "essential_pass_count": 10,
+        "failed_check_ids": [
+          "required_evidence"
+        ]
+      }
+    },
+    {
+      "condition_id": "canonical-representation-v0.1",
+      "deployment_id": "ornith-1-5-35b-9f3b89b25219-ollama-0-33-2",
+      "model": "ornith-1.5:35b",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": null,
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "strict_transport_compliance": true
+      },
+      "position": 10,
+      "run_id": "canonical-multiformat-run-20260911T065908Z-3af0371c",
+      "seatbelt_checks": null,
+      "status": "complete",
+      "track": "A",
+      "trajectory": {
+        "active_wall_time_seconds": 49.435867791995406,
+        "agent_turns": 1,
+        "failed_tool_calls": null,
+        "input_tokens": 6130,
+        "model_requests": 1,
+        "output_tokens": 2510,
+        "protocol_errors": null,
+        "repeated_queries": null,
+        "response_normalization_applied": false,
+        "response_normalization_kind": "none",
+        "tool_calls": null
+      },
+      "verification": {
+        "essential_check_count": 11,
+        "essential_pass_count": 8,
+        "failed_check_ids": [
+          "approved_regions",
+          "region_blockers",
+          "required_evidence"
+        ]
+      }
+    },
+    {
+      "condition_id": "mini-multi-format-v0.1",
+      "deployment_id": "muse-glimmer-30b-mlx-ef32a55b4976-ollama-0-33-2",
+      "model": "muse-glimmer:30b-mlx",
+      "outcome": {
+        "agent_termination_valid": false,
+        "failure_category": "agent_failure",
+        "failure_type": null,
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "strict_transport_compliance": false
+      },
+      "position": 11,
+      "run_id": "mini-multiformat-run-20260911T070028Z-9f6defca",
+      "seatbelt_checks": null,
+      "status": "complete",
+      "track": "B",
+      "trajectory": {
+        "active_wall_time_seconds": 108.36314087361097,
+        "agent_turns": 41,
+        "failed_tool_calls": 1,
+        "input_tokens": 394744,
+        "model_requests": 41,
+        "output_tokens": 290,
+        "protocol_errors": 0,
+        "repeated_queries": 39,
+        "response_normalization_applied": null,
+        "response_normalization_kind": null,
+        "tool_calls": 41
+      },
+      "verification": {
+        "essential_check_count": 11,
+        "essential_pass_count": 0,
+        "failed_check_ids": [
+          "report_schema",
+          "decision",
+          "approved_regions",
+          "region_blockers",
+          "citation_integrity",
+          "required_evidence",
+          "cross_format_coverage",
+          "conflict_resolution",
+          "action_plan",
+          "uncertainty",
+          "controlled_value_integrity"
+        ]
+      }
+    },
+    {
+      "condition_id": "pi-multi-format-v0.3",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+      "model": "qwen3.8:27b-mlx",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": null,
+        "failure_type": null,
+        "runtime_success": true,
+        "semantic_verified_success": true,
+        "strict_transport_compliance": true
+      },
+      "position": 12,
+      "run_id": "pi-multiformat-run-20260911T070251Z-100bc214",
+      "seatbelt_checks": {
+        "checks_passed": 12,
+        "checks_total": 12,
+        "passed": true,
+        "profile_sha256": "463e2d02d76366c67d94346416681444e3edfe240e346a63b6b3d0aec94171ab",
+        "validated_at": "2026-09-11T07:02:52.676438Z"
+      },
+      "status": "complete",
+      "track": "B",
+      "trajectory": {
+        "active_wall_time_seconds": 142.80140749999555,
+        "agent_turns": 7,
+        "failed_tool_calls": 0,
+        "input_tokens": 38893,
+        "model_requests": null,
+        "output_tokens": 4425,
+        "protocol_errors": 0,
+        "repeated_queries": 2,
+        "response_normalization_applied": false,
+        "response_normalization_kind": "none",
+        "tool_calls": 18
+      },
+      "verification": {
+        "essential_check_count": 11,
+        "essential_pass_count": 11,
+        "failed_check_ids": []
+      }
+    },
+    {
+      "condition_id": "canonical-representation-v0.1",
+      "deployment_id": "gemma4-31b-mlx-a22a363052da-ollama-0-33-2",
+      "model": "gemma4:31b-mlx",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": null,
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "strict_transport_compliance": true
+      },
+      "position": 13,
+      "run_id": "canonical-multiformat-run-20260911T070546Z-14c3a2bc",
+      "seatbelt_checks": null,
+      "status": "complete",
+      "track": "A",
+      "trajectory": {
+        "active_wall_time_seconds": 123.48985879099928,
+        "agent_turns": 1,
+        "failed_tool_calls": null,
+        "input_tokens": 6372,
+        "model_requests": 1,
+        "output_tokens": 1269,
+        "protocol_errors": null,
+        "repeated_queries": null,
+        "response_normalization_applied": false,
+        "response_normalization_kind": "none",
+        "tool_calls": null
+      },
+      "verification": {
+        "essential_check_count": 11,
+        "essential_pass_count": 8,
+        "failed_check_ids": [
+          "required_evidence",
+          "action_plan",
+          "uncertainty"
+        ]
+      }
+    },
+    {
+      "condition_id": "mini-multi-format-v0.1",
+      "deployment_id": "ornith-1-5-35b-9f3b89b25219-ollama-0-33-2",
+      "model": "ornith-1.5:35b",
+      "outcome": {
+        "agent_termination_valid": false,
+        "failure_category": "agent_failure",
+        "failure_type": null,
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "strict_transport_compliance": false
+      },
+      "position": 14,
+      "run_id": "mini-multiformat-run-20260911T070820Z-9e0aefe5",
+      "seatbelt_checks": null,
+      "status": "complete",
+      "track": "B",
+      "trajectory": {
+        "active_wall_time_seconds": 38.21209458314115,
+        "agent_turns": 41,
+        "failed_tool_calls": 23,
+        "input_tokens": 238167,
+        "model_requests": 41,
+        "output_tokens": 1310,
+        "protocol_errors": 0,
+        "repeated_queries": 22,
+        "response_normalization_applied": null,
+        "response_normalization_kind": null,
+        "tool_calls": 41
+      },
+      "verification": {
+        "essential_check_count": 11,
+        "essential_pass_count": 0,
+        "failed_check_ids": [
+          "report_schema",
+          "decision",
+          "approved_regions",
+          "region_blockers",
+          "citation_integrity",
+          "required_evidence",
+          "cross_format_coverage",
+          "conflict_resolution",
+          "action_plan",
+          "uncertainty",
+          "controlled_value_integrity"
+        ]
+      }
+    },
+    {
+      "condition_id": "pi-multi-format-v0.3",
+      "deployment_id": "qwen3-6-35b-a3b-mxfp8-d82a30588f1c-ollama-0-33-2",
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "outcome": {
+        "agent_termination_valid": true,
+        "failure_category": "task_or_verification_failure",
+        "failure_type": null,
+        "runtime_success": true,
+        "semantic_verified_success": false,
+        "strict_transport_compliance": false
+      },
+      "position": 15,
+      "run_id": "pi-multiformat-run-20260911T070934Z-8ff90d17",
+      "seatbelt_checks": {
+        "checks_passed": 12,
+        "checks_total": 12,
+        "passed": true,
+        "profile_sha256": "65640fce9e8b75b19b1af323c95ad018211596a2bddc7c6d62635ac74c540b3f",
+        "validated_at": "2026-09-11T07:09:34.957835Z"
+      },
+      "status": "complete",
+      "track": "B",
+      "trajectory": {
+        "active_wall_time_seconds": 210.9246965830098,
+        "agent_turns": 5,
+        "failed_tool_calls": 0,
+        "input_tokens": 24212,
+        "model_requests": null,
+        "output_tokens": 11282,
+        "protocol_errors": 0,
+        "repeated_queries": 0,
+        "response_normalization_applied": true,
+        "response_normalization_kind": "markdown_code_fence",
+        "tool_calls": 16
+      },
+      "verification": {
+        "essential_check_count": 11,
+        "essential_pass_count": 10,
+        "failed_check_ids": [
+          "required_evidence"
+        ]
+      }
+    }
+  ],
+  "evidence_class": "measured_capability_sweep",
+  "interpretation_boundaries": {
+    "check_counts_are_normalized_scores": false,
+    "latency_distribution_claims": false,
+    "one_factor_causal_harness_claim_allowed": false,
+    "quality_stochasticity_claims": false,
+    "reliability_probability_claims": false,
+    "runs_per_configuration": 1,
+    "track_a_and_track_b_pooled": false,
+    "trajectory_metrics_are_descriptive": true
+  },
+  "plan_id": "multi-format-capability-sweep-v0.1",
+  "plan_sha256": "822074b8abfe631bf7c1f63dcdcc03af24d81a7dd3a260722ceec4a485b26389",
+  "primary_outcome": "semantic_verified_success",
+  "public_safety": {
+    "absolute_paths_included": false,
+    "binary_contents_included": false,
+    "candidate_outputs_included": false,
+    "canonical_evidence_text_included": false,
+    "hidden_ground_truth_included": false
+  },
+  "report_id": "multi-format-capability-sweep-v0.1",
+  "schema_version": "1.0.0",
+  "secondary_outcome": "strict_transport_compliance",
+  "status": "deterministic_results_complete_supplemental_review_pending",
+  "study_id": "multi-format-capability-20260911T063427Z-0069dc6c",
+  "study_record_sha256": "6835bde43bec39d345a3728cf1bbc1e0447fd1e9f8b575b3e62250642a1d536c",
+  "supplemental_free_text_review": {
+    "deterministic_success_is_final_quality_acceptance": false,
+    "required": true,
+    "status": "pending"
+  }
+}

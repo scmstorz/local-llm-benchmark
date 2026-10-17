@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "isolation_profile_id": "mini-multi-format-v0.1",
+  "status": "qualification_candidate",
+  "workspace": {
+    "fresh_artifact_only_copy_per_run": true,
+    "exact_binary_hashes_verified_before_each_read": true,
+    "candidate_files_read_only_by_action_policy": true,
+    "symlink_targets_rejected": true,
+    "host_paths_unavailable_to_actions": true,
+    "shared_writable_state": false
+  },
+  "network": {"action_process_has_network_tools": false, "model_process_endpoint": "local_ollama_loopback_only", "external_egress": false},
+  "evaluation": {"ground_truth_outside_workspace": true, "canonical_extraction_outside_workspace": true, "candidate_code_executed": false, "final_verification_separate_from_model_request": true},
+  "audit": {"every_action_logged": true, "inputs_and_result_hashes_logged": true},
+  "limitation": "Application-level isolation is sufficient because the action protocol cannot execute candidate code or commands."
+}

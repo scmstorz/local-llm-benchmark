@@ -1,10 +1,195 @@
 {
   "schema_version": "1.0.0",
   "qualification_id": "multi-format-document-analysis-v0.1",
-  "status": "design_complete_artifacts_pending",
+  "status": "targeted_qwen38_confirmation_complete",
   "case_id": "agentic.documents.rollout-readiness-reconciliation",
-  "live_inference_performed": false,
-  "live_execution_authorized": false,
+  "live_inference_performed": true,
+  "live_execution_authorized": true,
+  "qualified_artifact_records": [
+    {
+      "format": "docx",
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/fixture/rollout-policy.docx",
+      "sha256": "957e46216355153109673d60e3b8ad2facc98451dd0ec7738ee76171eee25c0d",
+      "qualification_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/docx-artifact-qualification-v0.1.json"
+    },
+    {
+      "format": "xlsx",
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/fixture/regional-readiness.xlsx",
+      "sha256": "c6144e5756654ab7b9d4911b5f02cba5f19242d361227e3574dedefc47096d1d",
+      "qualification_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/xlsx-artifact-qualification-v0.1.json"
+    },
+    {
+      "format": "pdf",
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/fixture/reliability-review.pdf",
+      "sha256": "be9e322a643d2b587270e8c29ba6be937e6c233835593fdf9744b9ba2453edab",
+      "qualification_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/pdf-artifact-qualification-v0.1.json"
+    }
+  ],
+  "canonical_extraction_record": {
+    "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/canonical/canonical-extraction-v0.1.json",
+    "sha256": "9fda47f138ca4019fc0e1c84ad6b5734db43d3c23184794f5bc4d4cabef5c0db",
+    "schema_path": "tasks/agentic/multi-format-document-analysis/canonical-extraction-schema-v1.json",
+    "schema_sha256": "d6cb4c02aed9d2db918bdfa246daaf8599930bd1f18ef6704dd051c110ad9c3a",
+    "qualification_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/canonical-extraction-qualification-v0.1.json"
+  },
+  "qualified_harness_records": [
+    {
+      "component": "shared_artifact_api",
+      "qualification_path": "tasks/agentic/track-b/multi-format-artifact-api-v0.1-qualification.json",
+      "qualification_sha256": "017a40a98adde3116a7f82dd74e3bc4da9aff49f393adaa5b883c473a6a1923f"
+    },
+    {
+      "component": "mini_complete_system",
+      "qualification_path": "tasks/agentic/track-b/mini-multi-format-v0.1-qualification.json",
+      "qualification_sha256": "3d0ea522f3e9b93451548f410515a542db18a90f6720934e52188d4ed2aec8f1"
+    },
+    {
+      "component": "pi_v0_1_preflight_identity",
+      "qualification_path": "tasks/agentic/track-b/pi-multi-format-v0.1-qualification.json",
+      "qualification_sha256": "8fcaa15adcba6a478485b1ac2e9e908f89cacfd9a93b4d398e268678fba927ad",
+      "outcome": "superseded_after_real_seatbelt_failure_before_inference"
+    },
+    {
+      "component": "pi_v0_2_process_correction",
+      "qualification_path": "tasks/agentic/track-b/pi-multi-format-v0.2-qualification.json",
+      "qualification_sha256": "035f629cfcbcf558379e0a5d1e97add3aaa07ba8fa0cd6f495c558be0854a5fe",
+      "outcome": "superseded_after_extension_load_failure_with_zero_agent_turns"
+    },
+    {
+      "component": "pi_complete_system",
+      "qualification_path": "tasks/agentic/track-b/pi-multi-format-v0.3-qualification.json",
+      "qualification_sha256": "d387b7e4af4f64372ab3ada65c2a44a4dfd3cb28107423dd60a37250868e7f18",
+      "outcome": "accepted_after_12_check_real_seatbelt_qualification"
+    }
+  ],
+  "frozen_smoke_pair": {
+    "path": "tasks/agentic/track-b/multi-format-qualification-smokes-v0.1.json",
+    "sha256": "d3d49949df711ef70b8a31d4e3afa1cb376139180fe90e117a4a1bb9b862e134",
+    "execution_order": ["mini-multi-format-v0.1", "pi-multi-format-v0.1"],
+    "authorization_status": "executed_with_versioned_pi_recovery",
+    "pi_recovery_plans": [
+      {
+        "path": "tasks/agentic/track-b/pi-multi-format-qwen38-development-smoke-v0.2.json",
+        "sha256": "081a8c5e85c0d0ff6cf21f25f5b88b6edd9a0bc52118c1e2f515cc4619ae2889"
+      },
+      {
+        "path": "tasks/agentic/track-b/pi-multi-format-qwen38-development-smoke-v0.3.json",
+        "sha256": "c466a329a587980857ae336455160d24d114146620e7d7e2f144a0fa2d65f408"
+      }
+    ]
+  },
+  "completed_smoke_report": {
+    "json_path": "reports/agentic/multi-format-qualification-smokes-v0.1.json",
+    "json_sha256": "f35435a91e44c40fbaf6cd7ab6fbda1a73a7ec28ced1d68629324c7424eb4aeb",
+    "markdown_path": "reports/agentic/multi-format-qualification-smokes-v0.1.md",
+    "markdown_sha256": "7b89e1dd175a4dcf3d174d834861d430d387db52007e18646cb39ce09f45ddf9",
+    "accepted_systems": ["mini-multi-format-v0.1", "pi-multi-format-v0.3"],
+    "semantic_verified_successes": 2,
+    "strict_transport_successes": 1,
+    "measured_evidence": false
+  },
+  "frozen_measured_plan": {
+    "path": "tasks/agentic/multi-format-capability-sweep-v0.1.json",
+    "sha256": "822074b8abfe631bf7c1f63dcdcc03af24d81a7dd3a260722ceec4a485b26389",
+    "cell_count": 15,
+    "model_count": 5,
+    "condition_ids": [
+      "canonical-representation-v0.1",
+      "mini-multi-format-v0.1",
+      "pi-multi-format-v0.3"
+    ],
+    "runs_per_configuration": 1,
+    "automatic_retries": 0,
+    "post_freeze_execution_authorization_present": true,
+    "execution_authorization_path": "tasks/agentic/multi-format-capability-sweep-v0.1-execution-authorization.json"
+  },
+  "completed_measured_study": {
+    "status": "complete",
+    "study_id": "multi-format-capability-20260911T063427Z-0069dc6c",
+    "study_record_path": "results/agentic-sweeps/multi-format-capability-20260911T063427Z-0069dc6c/study.json",
+    "study_record_sha256": "6835bde43bec39d345a3728cf1bbc1e0447fd1e9f8b575b3e62250642a1d536c",
+    "execution_authorization_path": "tasks/agentic/multi-format-capability-sweep-v0.1-execution-authorization.json",
+    "execution_authorization_sha256": "f7f41b91d15b497f6f340b741e5f12fc624babf40053936c75e48b856a0afb21",
+    "cell_count": 15,
+    "terminal_cell_count": 15,
+    "runtime_success_count": 15,
+    "valid_agent_termination_count": 13,
+    "parseable_report_count": 13,
+    "semantic_verified_success_count": 2,
+    "strict_transport_compliance_count": 12,
+    "essential_checks_passed": 114,
+    "essential_checks_total": 165,
+    "resource_gates_passed": 15,
+    "pi_cells_with_fresh_12_check_seatbelt_acceptance": 5,
+    "automatic_retries": 0,
+    "ollama_postflight_empty": true,
+    "deterministic_report_path": "reports/agentic/multi-format-capability-sweep-v0.1.json",
+    "deterministic_report_sha256": "20ec8341a6abbfd89bb32ba8f8695016023b02c78fee8cd6ee4c0ce3ba7ddefa",
+    "supplemental_review_path": "reports/agentic/multi-format-capability-sweep-v0.1-quality-audit.json",
+    "supplemental_review_sha256": "c472684b522d139e03891e2505b41da1b24da9253fd552ea01fe9843575acf63",
+    "supplemental_free_text_pass": 7,
+    "supplemental_free_text_applicable": 13,
+    "combined_deterministic_free_text_and_strict_acceptance": 2
+  },
+  "completed_targeted_confirmation": {
+    "status": "complete",
+    "study_id": "multi-format-qwen38-confirmation-20260911T185719Z-086e9a45",
+    "study_record_path": "results/agentic-confirmations/multi-format-qwen38-confirmation-20260911T185719Z-086e9a45/study.json",
+    "study_record_sha256": "628ba27db480aec0d8a9fd9004ac4ec507c36c7e085239f4fff06c1b596f3ece",
+    "plan_path": "tasks/agentic/multi-format-qwen38-confirmation-v0.1.json",
+    "plan_sha256": "31cb64238d854226fd1937310c3409a5a64fd6e46275b33e067352d9315a7858",
+    "execution_authorization_path": "tasks/agentic/multi-format-qwen38-confirmation-v0.1-execution-authorization.json",
+    "execution_authorization_sha256": "a368a007dff28b83d65a1263205070a7b8b9222af873148286dad0a509408921",
+    "controller_qualification_path": "tasks/agentic/multi-format-qwen38-confirmation-v0.1-controller-qualification.json",
+    "controller_qualification_sha256": "fb37c3b119ed07cef94d570481239fd1e15f7eb4c1cfd209ec514184e66e9141",
+    "model": "qwen3.8:27b-mlx",
+    "cell_count": 9,
+    "terminal_cell_count": 9,
+    "runtime_success_count": 9,
+    "valid_agent_termination_count": 9,
+    "parseable_report_count": 9,
+    "semantic_verified_success_count": 5,
+    "strict_transport_compliance_count": 6,
+    "essential_checks_passed": 79,
+    "essential_checks_total": 99,
+    "resource_gates_passed": 9,
+    "pi_cells_with_fresh_12_check_seatbelt_acceptance": 3,
+    "scheduled_repetitions_per_condition": 3,
+    "automatic_retries": 0,
+    "historical_cells_reused": false,
+    "ollama_postflight_empty": true,
+    "condition_results": [
+      {
+        "condition_id": "canonical-representation-v0.1",
+        "semantic_verified_success_count": 0,
+        "strict_transport_compliance_count": 3,
+        "essential_checks_passed": 24,
+        "essential_checks_total": 33
+      },
+      {
+        "condition_id": "mini-multi-format-v0.1",
+        "semantic_verified_success_count": 3,
+        "strict_transport_compliance_count": 3,
+        "essential_checks_passed": 33,
+        "essential_checks_total": 33
+      },
+      {
+        "condition_id": "pi-multi-format-v0.3",
+        "semantic_verified_success_count": 2,
+        "strict_transport_compliance_count": 0,
+        "essential_checks_passed": 22,
+        "essential_checks_total": 33
+      }
+    ],
+    "deterministic_report_path": "reports/agentic/multi-format-qwen38-confirmation-v0.1.json",
+    "deterministic_report_sha256": "6ef85bcfc40356e6db181246e59ece66c29f9ff059c5d3aee61080d30d715be1",
+    "supplemental_review_path": "reports/agentic/multi-format-qwen38-confirmation-v0.1-quality-audit.json",
+    "supplemental_review_sha256": "3059d081a85b2b608d0bad60a4227803f99af97ead3d1df6bd368d135288dab4",
+    "supplemental_free_text_pass": 6,
+    "supplemental_free_text_applicable": 9,
+    "combined_deterministic_and_free_text_acceptance": 5,
+    "combined_deterministic_free_text_and_strict_acceptance": 3
+  },
   "completed_gates": [
     "decision question defined",
     "Track A canonical-representation and Track B real-artifact conditions separated",
@@ -13,22 +198,57 @@
     "controlled semantic ground truth defined",
     "reference report passes deterministic verifier",
     "targeted semantic near-miss tests implemented",
-    "free-text review boundary defined"
+    "free-text review boundary defined",
+    "regional-readiness.xlsx authored under an explicit alternative-runtime amendment",
+    "XLSX values, formulas and cached results structurally inspected",
+    "both XLSX worksheets rendered and visually inspected",
+    "XLSX source anchors, binary hash and runtime versions frozen",
+    "rollout-policy.docx authored under an explicit alternative-runtime amendment",
+    "DOCX preset tokens, heading/bookmark structure, numbering and fixed table geometry inspected",
+    "both DOCX pages rendered and visually inspected",
+    "DOCX source anchors, binary hash and runtime versions frozen",
+    "reliability-review.pdf authored under an explicit ReportLab amendment",
+    "PDF structure, metadata, outline and safety properties inspected",
+    "all three PDF pages rendered and visually inspected",
+    "PDF tables and source anchors reconciled against the source blueprint",
+    "PDF binary hash and runtime versions frozen",
+    "canonical extraction schema and representation frozen",
+    "all 15 canonical records rebuilt from the qualified binaries",
+    "canonical facts and source anchors reconciled with the source blueprint",
+    "canonical answer-leakage and byte-for-byte reproducibility checks passed",
+    "shared read-only artifact API returns all 15 binary-derived records with exact anchors",
+    "Mini and pinned Pi 0.84.4 adapters expose equivalent format-specific operations",
+    "application and Seatbelt isolation definitions reject writes, unrelated paths, hidden references and external network",
+    "every Mini action and Pi tool call is auditable with inputs and result hashes",
+    "Mini v0.1 excluded smoke completed with strict transport and 11/11 semantic checks",
+    "Pi v0.1 real Seatbelt failure was preserved before Pi or model inference",
+    "Pi v0.2 extension-load failure was preserved with zero turns, tokens and tool calls",
+    "Pi v0.3 requires and passed 12 real Seatbelt checks including explicit extension loading",
+    "Pi v0.3 excluded smoke completed with 11/11 semantic checks and normalized non-strict transport",
+    "Qwen was unloaded after each executed system and the final Ollama postflight was empty",
+    "tool-free canonical Track A runner passed four focused no-inference tests",
+    "resumable three-condition capability controller and public-safe report path passed seven focused no-inference tests",
+    "five-model by three-condition measured plan frozen with one attempt per cell and no automatic retries",
+    "independent post-freeze authorization bound to the exact measured plan hash",
+    "all 15 measured cells completed once after fresh per-cell resource gates",
+    "all five measured Pi cells passed fresh 12-check real Seatbelt acceptance",
+    "deterministic public-safe measured report completed with 2/15 semantic successes and 12/15 strict transports",
+    "supplemental prose review completed with 7/13 parseable reports passing and both deterministic successes accepted",
+    "final Ollama postflight confirmed no loaded models",
+    "separate nine-cell Qwen 3.8 targeted confirmation frozen and hash-authorized after Phase 94",
+    "all nine confirmation cells completed once after fresh resource gates without retry or historical-cell reuse",
+    "all three confirmation Pi cells passed fresh 12-check real Seatbelt acceptance",
+    "targeted confirmation completed with 5/9 semantic successes, 6/9 strict transports and 79/99 essential checks",
+    "targeted supplemental prose review completed with 6/9 reports passing and all five deterministic successes accepted",
+    "confirmation postflight verified an empty Ollama runtime"
   ],
-  "blocking_gates": [
-    "generate the three real binary artifacts with approved artifact runtimes",
-    "render and visually inspect every DOCX and PDF page and every XLSX sheet",
-    "freeze binary hashes and tool/runtime versions",
-    "create and reconcile canonical extractions against visual source truth",
-    "qualify the read-only artifact tool surface",
-    "run one excluded harness smoke per admitted complete system",
-    "freeze a measured model/harness plan after qualification"
-  ],
+  "blocking_gates": [],
   "prohibited_claims": [
-    "the case is executable",
-    "the harness can read office files",
+    "measured execution is authorized before a post-freeze authorization artifact is bound to the measured plan",
+    "the harness supports arbitrary office files beyond the frozen case",
     "binary and canonical conditions are directly interchangeable",
     "the verifier alone establishes free-text factual correctness",
-    "performance on this case measures OCR, document editing or spreadsheet repair"
+    "performance on this case measures OCR, document editing or spreadsheet repair",
+    "three targeted repetitions per condition establish a population reliability probability or universal model ranking"
   ]
 }

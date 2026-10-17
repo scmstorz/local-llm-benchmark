@@ -1,0 +1,98 @@
+{
+  "contract": {
+    "path": "tasks/agentic/multi-format-transfer-metrics-v0.2.json",
+    "sha256": "029fbfd306b9495e600179e688b98226904e19117fa7bdc36b27715c99fe8778"
+  },
+  "evidence_class": "excluded_development_smoke_pair",
+  "historical_outcomes_changed": false,
+  "inference_performed": false,
+  "interpretation": [
+    "Unknown HTTP request counts are null and are never inferred from agent turns.",
+    "A known subtotal is not a complete total when coverage is incomplete.",
+    "Artifact operations include inventory and reads; report completion is counted separately.",
+    "Native Pi tools and Mini actions are different system interactions; these counts alone do not establish efficiency.",
+    "This derived metrics version does not rescore or rewrite historical semantic or prose outcomes."
+  ],
+  "metrics_version": "0.2.0",
+  "model": "qwen3.8:27b-mlx",
+  "report_id": "multi-format-transfer-smoke-v0.3-metrics-v0.2",
+  "runtime": {
+    "name": "ollama",
+    "version": "0.40.2"
+  },
+  "schema_version": "1.0.0",
+  "source_study": {
+    "plan_id": "multi-format-transfer-smoke-v0.3",
+    "plan_sha256": "cc1b095394685acb2ecf85346bfd353c5f9eb8e52a7018a80e95e77f04406ff3",
+    "sha256": "d2e8f8e535a9479a37a65d48fed1d66426c3b5bfed0d8cacdce1a69b60801c35",
+    "study_id": "multi-format-transfer-smoke-20261017T100311Z-551af02f"
+  },
+  "totals": {
+    "artifact_tool_calls": {
+      "complete": true,
+      "known_subtotal": 34,
+      "known_unit_count": 2,
+      "unit_count": 2,
+      "value": 34
+    },
+    "completion_calls": {
+      "complete": true,
+      "known_subtotal": 2,
+      "known_unit_count": 2,
+      "unit_count": 2,
+      "value": 2
+    },
+    "model_requests": {
+      "complete": false,
+      "known_subtotal": 18,
+      "known_unit_count": 1,
+      "unit_count": 2,
+      "value": null
+    }
+  },
+  "units": [
+    {
+      "adapter_tool_calls": 18,
+      "adapter_tool_calls_include_completion": true,
+      "agent_turns": 6,
+      "artifact_tool_calls": 17,
+      "completion_calls": 1,
+      "counter_sources": {
+        "artifact_tool_calls": [
+          "trajectory.list_calls",
+          "trajectory.docx_reads",
+          "trajectory.pdf_reads",
+          "trajectory.xlsx_reads"
+        ],
+        "completion_calls": "trajectory.finish_report_calls",
+        "model_requests": null
+      },
+      "model_requests": null,
+      "model_requests_status": "unknown",
+      "model_requests_unknown_reason": "Adapter did not record trajectory.model_requests; agent turns are not HTTP request counts.",
+      "position": 1,
+      "source_run_sha256": "46c0043e843f70b12492dca16967782fadddfd528d430c70a9d557afc380da92",
+      "system_id": "pi-multi-format-v0.4",
+      "total_tool_or_action_calls": 18
+    },
+    {
+      "adapter_tool_calls": 17,
+      "adapter_tool_calls_include_completion": false,
+      "agent_turns": 18,
+      "artifact_tool_calls": 17,
+      "completion_calls": 1,
+      "counter_sources": {
+        "artifact_tool_calls": "trajectory.tool_calls",
+        "completion_calls": "turns[].action=finish_report",
+        "model_requests": "trajectory.model_requests"
+      },
+      "model_requests": 18,
+      "model_requests_status": "recorded",
+      "model_requests_unknown_reason": null,
+      "position": 2,
+      "source_run_sha256": "3940cb55dfb1cd49aa6d1655b7bd3451100b8c0f4e96e933884fe6e7dae18767",
+      "system_id": "mini-multi-format-v0.2",
+      "total_tool_or_action_calls": 18
+    }
+  ]
+}

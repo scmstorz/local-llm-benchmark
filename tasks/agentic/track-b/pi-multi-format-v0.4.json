@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "harness_id": "pi-multi-format-v0.4",
+  "harness_family": "pinned_pi",
+  "status": "qualification_candidate",
+  "protocol_path": "tasks/agentic/track-b/multi-format-transfer-v0.2.json",
+  "system_prompt_path": "tasks/agentic/track-b/prompts/pi-multi-format-system-v0.2.txt",
+  "capability_inventory_path": "capabilities/inventories/pi-multi-format-v0.4.json",
+  "isolation_profile_path": "capabilities/isolation-profiles/pi-multi-format-v0.4.json",
+  "implementation_status": "structured_completion_transport_pending_no_inference_qualification",
+  "supersedes": "pi-multi-format-v0.3",
+  "correction": "Capture the final report through one schema-constrained finish_report tool and reject free-text fallback as candidate output.",
+  "package": {
+    "name": "@earendil-works/pi-coding-agent",
+    "version": "0.84.4",
+    "npm_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+    "npm_shasum": "3a2f04bfc5e463b4cfa36b174a586d11a0bdf9ad",
+    "repository": "https://github.com/earendil-works/pi",
+    "node_requirement": ">=22.19.0"
+  },
+  "integration": {
+    "mode": "json",
+    "non_interactive": true,
+    "session_persistence": false,
+    "startup_network": false,
+    "provider": "ollama",
+    "api": "openai-completions",
+    "base_url": "http://127.0.0.1:11434/v1",
+    "tools": ["list_artifacts", "read_docx", "read_pdf", "read_xlsx", "finish_report"],
+    "artifact_tools": ["list_artifacts", "read_docx", "read_pdf", "read_xlsx"],
+    "completion_tool": "finish_report",
+    "discovered_extensions": false,
+    "explicit_extension": "integrations/pi/multi-format-readonly-v0.3.mjs",
+    "skills": false,
+    "prompt_templates": false,
+    "themes": false,
+    "context_files": false,
+    "project_trust": false,
+    "python_worker_selection": "exact_homebrew_python_app_executable",
+    "explicit_extension_load_acceptance": true
+  },
+  "final_output_protocol": "single_schema_constrained_finish_report_tool_argument"
+}

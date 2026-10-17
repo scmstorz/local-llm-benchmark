@@ -4,13 +4,27 @@
   "case_version": "1.0.0",
   "track": "A+B",
   "task_family": "document_decision_reconciliation",
-  "status": "design_complete_artifacts_pending",
+  "status": "harness_qualified_smokes_frozen_pending_resource_window",
   "live_execution_authorized": false,
-  "artifact_generation_complete": false,
-  "canonical_extraction_complete": false,
+  "artifact_generation_complete": true,
+  "canonical_extraction_complete": true,
   "task_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/TASK-v0.1.md",
   "source_blueprint_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/source-blueprint-v0.1.json",
   "planned_artifact_root": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/fixture",
+  "canonical_extraction": {
+    "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/canonical/canonical-extraction-v0.1.json",
+    "schema_path": "tasks/agentic/multi-format-document-analysis/canonical-extraction-schema-v1.json",
+    "qualification_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/canonical-extraction-qualification-v0.1.json"
+  },
+  "track_b_harness": {
+    "shared_backend_path": "local_llm_benchmark/multi_format_artifacts.py",
+    "artifact_api_qualification_path": "tasks/agentic/track-b/multi-format-artifact-api-v0.1-qualification.json",
+    "mini_harness_path": "tasks/agentic/track-b/mini-multi-format-v0.1.json",
+    "mini_qualification_path": "tasks/agentic/track-b/mini-multi-format-v0.1-qualification.json",
+    "pi_harness_path": "tasks/agentic/track-b/pi-multi-format-v0.1.json",
+    "pi_qualification_path": "tasks/agentic/track-b/pi-multi-format-v0.1-qualification.json",
+    "smoke_pair_plan_path": "tasks/agentic/track-b/multi-format-qualification-smokes-v0.1.json"
+  },
   "candidate_context": {
     "read_only": true,
     "browsing_allowed": false,

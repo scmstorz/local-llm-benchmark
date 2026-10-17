@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "amendment_id": "rollout-policy-docx-authoring-v0.1",
+  "case_id": "agentic.documents.rollout-readiness-reconciliation",
+  "status": "executed_and_qualified",
+  "authorized_on": "2026-09-10",
+  "scope": "rollout-policy.docx fixture authoring and qualification only",
+  "reason": "The active Codex runtime does not expose load_workspace_dependencies; the user explicitly authorized the controlled DOCX alternative.",
+  "required_design": {
+    "preset": "standard_business_brief",
+    "header_pattern": "memo_masthead"
+  },
+  "authorized_alternative_toolchain": [
+    "python-docx in an isolated temporary Python environment",
+    "LibreOffice headless for DOCX-to-PDF rendering",
+    "Poppler for page rasterization and visual inspection",
+    "dependency-free OOXML and ZIP inspection for frozen regression checks"
+  ],
+  "identity_policy": [
+    "Record exact tool versions in the DOCX qualification record.",
+    "Freeze the final DOCX SHA-256 after structural and visual QA.",
+    "Record the exact standard_business_brief token map and every named override.",
+    "Qualify later artifact extraction independently from fixture authoring.",
+    "Do not change or pool the Track A canonical-representation and Track B real-artifact conditions."
+  ],
+  "unchanged_boundaries": [
+    "No model inference is authorized.",
+    "No Office ZIP may be handcrafted.",
+    "The DOCX must contain a real Regional-gates table and stable heading anchors for Decision-rule, Phased-release and Evidence-cutoff.",
+    "Every rendered page must pass visual inspection before the DOCX artifact gate closes."
+  ],
+  "qualification_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/docx-artifact-qualification-v0.1.json"
+}

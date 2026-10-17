@@ -18,6 +18,7 @@ from scripts.run_public_tests import PUBLIC_TEST_MODULES, REPO_ROOT
 
 class PublicSnapshotPolicyTests(unittest.TestCase):
     def test_public_project_artifacts_are_included(self) -> None:
+        self.assertTrue(is_public(".gitattributes"))
         self.assertTrue(is_public("CHANGELOG.md"))
         self.assertTrue(is_public("README.md"))
         self.assertTrue(is_public("PUBLICATION.md"))
@@ -27,6 +28,9 @@ class PublicSnapshotPolicyTests(unittest.TestCase):
         self.assertTrue(is_public("reports/overview.md"))
         self.assertTrue(is_public("docs/benchmark-design.md"))
         self.assertTrue(is_public("docs/multi-format-document-analysis-v0.1.md"))
+        self.assertTrue(is_public("docs/multi-format-transfer-v0.2.md"))
+        self.assertTrue(is_public("docs/multi-format-transfer-smoke-runtime-v0.3.md"))
+        self.assertTrue(is_public("docs/multi-format-verification-v0.3.md"))
         self.assertTrue(is_public("docs/performance-reliability-v0.1.md"))
         self.assertTrue(is_public("docs/quality-evaluation-v0.2.md"))
         self.assertTrue(
@@ -34,9 +38,14 @@ class PublicSnapshotPolicyTests(unittest.TestCase):
         )
 
     def test_local_research_material_is_excluded(self) -> None:
+        self.assertFalse(is_public("INTERNAL_LEARNING_CASE_STUDY.md"))
+        self.assertFalse(is_public("SESSION_HANDOFF.md"))
         self.assertFalse(is_public("PROJECT_STATUS.md"))
         self.assertFalse(is_public("docs/case-study-log.md"))
         self.assertFalse(is_public("docs/case-study-writing-agent-brief.md"))
+        self.assertFalse(
+            is_public("docs/learning-workflow-blog-post-agent-brief.md")
+        )
         self.assertFalse(is_public("docs/case-study-assets/screenshot.png"))
         self.assertFalse(is_public("data/private/source.md"))
         self.assertFalse(is_public("results/raw/run.json"))
@@ -68,6 +77,53 @@ class PublicSnapshotPolicyTests(unittest.TestCase):
             self.assertIn("matched email address pattern", details)
             self.assertIn("broken local link: missing.md", details)
             self.assertIn("path is outside the public boundary", details)
+
+    def test_audit_accepts_only_frozen_binary_fixtures(self) -> None:
+        relatives = [
+            Path(
+                "tasks/agentic/multi-format-document-analysis/"
+                "rollout-readiness-reconciliation/fixture/rollout-policy.docx"
+            ),
+            Path(
+                "tasks/agentic/multi-format-document-analysis/"
+                "rollout-readiness-reconciliation/fixture/regional-readiness.xlsx"
+            ),
+            Path(
+                "tasks/agentic/multi-format-document-analysis/"
+                "rollout-readiness-reconciliation/fixture/reliability-review.pdf"
+            ),
+            Path(
+                "tasks/agentic/multi-format-document-analysis/"
+                "supplier-award-reconciliation/fixture/supplier-selection-policy.docx"
+            ),
+            Path(
+                "tasks/agentic/multi-format-document-analysis/"
+                "supplier-award-reconciliation/fixture/supplier-assurance-review.pdf"
+            ),
+            Path(
+                "tasks/agentic/multi-format-document-analysis/"
+                "supplier-award-reconciliation/fixture/bid-evaluation.xlsx"
+            ),
+        ]
+        for mutated_relative in relatives:
+            with self.subTest(mutated_relative=mutated_relative):
+                with TemporaryDirectory() as directory:
+                    root = Path(directory)
+                    for relative in relatives:
+                        source = REPO_ROOT / relative
+                        target = root / relative
+                        target.parent.mkdir(parents=True, exist_ok=True)
+                        target.write_bytes(source.read_bytes())
+                    self.assertEqual(audit(root), [])
+
+                    source = REPO_ROOT / mutated_relative
+                    target = root / mutated_relative
+                    target.write_bytes(source.read_bytes() + b"\x00")
+                    details = {finding.detail for finding in audit(root)}
+                    self.assertIn(
+                        "binary file does not match its frozen SHA-256",
+                        details,
+                    )
 
     def test_full_diff_check_includes_new_untracked_files(self) -> None:
         with TemporaryDirectory() as directory:
@@ -120,6 +176,31 @@ class PublicSnapshotPolicyTests(unittest.TestCase):
             with self.subTest(module=module):
                 relative = Path(*module.split(".")).with_suffix(".py")
                 self.assertTrue((REPO_ROOT / relative).is_file())
+
+    def test_frozen_ascii_pdf_uses_binary_attributes_without_disabling_text_checks(self) -> None:
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            subprocess.run(["git", "init", "-b", "main"], cwd=root, check=True, capture_output=True)
+            subprocess.run(["git", "config", "user.name", "Test"], cwd=root, check=True)
+            subprocess.run(["git", "config", "user.email", "test" + chr(64) + "example.invalid"], cwd=root, check=True)
+            (root / "README.md").write_text("# Test\n", encoding="utf-8")
+            subprocess.run(["git", "add", "README.md"], cwd=root, check=True)
+            subprocess.run(["git", "commit", "-m", "baseline"], cwd=root, check=True, capture_output=True)
+            source = REPO_ROOT / (
+                "tasks/agentic/multi-format-document-analysis/"
+                "supplier-award-reconciliation/fixture/supplier-assurance-review.pdf"
+            )
+            data = source.read_bytes()
+            self.assertNotIn(b"\x00", data)
+            (root / "frozen.pdf").write_bytes(data)
+            with self.assertRaises(subprocess.CalledProcessError):
+                run_full_candidate_diff_check(root)
+            (root / ".gitattributes").write_bytes((REPO_ROOT / ".gitattributes").read_bytes())
+            run_full_candidate_diff_check(root)
+            self.assertEqual((root / "frozen.pdf").read_bytes(), data)
+            (root / "bad.md").write_text("text with trailing spaces  \n", encoding="utf-8")
+            with self.assertRaises(subprocess.CalledProcessError):
+                run_full_candidate_diff_check(root)
 
     def test_remote_spellings_are_compared_by_repository(self) -> None:
         ssh = "git" + chr(64) + "github.com:Example/Benchmark.git"

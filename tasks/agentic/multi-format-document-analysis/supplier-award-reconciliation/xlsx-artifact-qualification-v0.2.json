@@ -1,0 +1,156 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "supplier-award-bid-evaluation-xlsx-v0.2",
+  "case_id": "agentic.documents.supplier-award-reconciliation",
+  "status": "qualified",
+  "qualified_on": "2026-09-11",
+  "live_inference_performed": false,
+  "artifact": {
+    "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/fixture/bid-evaluation.xlsx",
+    "format": "xlsx",
+    "size_bytes": 14872,
+    "sha256": "f5753b208f79ea8758fe3a35c3fbbb514468bc7372efe0c59623dc2670c5b42c"
+  },
+  "authoring_protocol": {
+    "amendment_path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/xlsx-authoring-amendment-v0.2.json",
+    "amendment_sha256": "3235fa53d3c293b6e0ff397c2bb9e8c177db5bb747244916ef412ed38e806782",
+    "dependency_loader_available": false,
+    "artifact_tool_used": false,
+    "template_picker_available": false,
+    "artifact_operation_marker_recorded": true,
+    "alternative_authoring_explicitly_authorized": true
+  },
+  "toolchain": {
+    "platform": "Darwin 25.1.0 arm64",
+    "environment_manager": "uv 0.11.3 (45da18ac3 2026-04-01 aarch64-apple-darwin)",
+    "python": "3.13.12",
+    "openpyxl": "3.1.5",
+    "libreoffice": "26.8.0.3 bce0998afefdbc355585ca324285661a2170ba77",
+    "poppler_pdftoppm": "25.11.0"
+  },
+  "reproducibility_inputs": [
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/build_bid_evaluation_xlsx.py",
+      "sha256": "0943b35d5130e76fc5b2410dd58e79624f5e71793367e387e44e8b8b7df5ac4b"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/inspect_bid_evaluation_xlsx.py",
+      "sha256": "334b087432ac87a57411a8b1b774e83548fb6c5a43df02aa620f475fb64a25f2"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/xlsx-authoring-requirements-v0.2.txt",
+      "sha256": "06d28d69e958deafb09f0a44fcae9b548f15e4debc14ebc39aad5f0934856fbf"
+    }
+  ],
+  "workbook_checks": {
+    "worksheet_order": ["Dashboard", "Bid Analysis"],
+    "visible_worksheet_count": 2,
+    "formula_count": 18,
+    "formula_error_count": 0,
+    "cached_value_error_count": 0,
+    "external_link_count": 0,
+    "vba_project_count": 0,
+    "zip_integrity_passed": true,
+    "print_areas": {
+      "Dashboard": "'Dashboard'!$A$1:$F$11",
+      "Bid Analysis": "'Bid Analysis'!$A$1:$M$11"
+    },
+    "formula_results": {
+      "Dashboard!B3": "Cedar",
+      "Dashboard!B4": 1080000,
+      "Bid Analysis!E5:E8": [1140000, 1165000, 1080000, 1130000],
+      "Bid Analysis!H5:H8": [0.16, 0.25, 0.2, 0.12],
+      "Bid Analysis!I5:I8": ["PASS", "PASS", "PASS", "PASS"],
+      "Bid Analysis!J5:J8": ["PASS", "PASS", "PASS", "HOLD"]
+    }
+  },
+  "source_anchor_reconciliation": [
+    {
+      "fact_code": "BID-ATLAS",
+      "source_ref": "bid-evaluation.xlsx#sheet=Bid Analysis&range=B5:J5",
+      "observed": {"adjusted_first_year_cost_eur": 1140000, "available_units": 116, "required_units": 100, "capacity_headroom": 0.16},
+      "passed": true
+    },
+    {
+      "fact_code": "BID-BOREAL",
+      "source_ref": "bid-evaluation.xlsx#sheet=Bid Analysis&range=B6:J6",
+      "observed": {"adjusted_first_year_cost_eur": 1165000, "available_units": 125, "required_units": 100, "capacity_headroom": 0.25},
+      "passed": true
+    },
+    {
+      "fact_code": "BID-CEDAR",
+      "source_ref": "bid-evaluation.xlsx#sheet=Bid Analysis&range=B7:J7",
+      "observed": {"adjusted_first_year_cost_eur": 1080000, "available_units": 120, "required_units": 100, "capacity_headroom": 0.2},
+      "passed": true
+    },
+    {
+      "fact_code": "BID-DELTA",
+      "source_ref": "bid-evaluation.xlsx#sheet=Bid Analysis&range=B8:J8",
+      "observed": {"adjusted_first_year_cost_eur": 1130000, "available_units": 112, "required_units": 100, "capacity_headroom": 0.12},
+      "passed": true
+    },
+    {
+      "fact_code": "DASH-RECOMMENDATION",
+      "source_ref": "bid-evaluation.xlsx#sheet=Dashboard&range=B3:B5",
+      "observed": {"recommended_supplier": "Cedar", "lowest_adjusted_first_year_cost_eur": 1080000, "basis": "Lowest adjusted first-year cost"},
+      "passed": true
+    },
+    {
+      "fact_code": "DASH-SCOPE",
+      "source_ref": "bid-evaluation.xlsx#sheet=Dashboard&range=B7:B8",
+      "observed": ["Commercial ranking only", "Assurance findings are not incorporated"],
+      "passed": true
+    }
+  ],
+  "intentional_business_rule": {
+    "cell": "Dashboard!B3",
+    "displayed_value": "Cedar",
+    "formula": "=INDEX('Bid Analysis'!A5:A8,MATCH(MIN('Bid Analysis'!E5:E8),'Bid Analysis'!E5:E8,0))",
+    "reason_it_is_incomplete": "It ranks adjusted cost only and does not incorporate the signed-final assurance gate.",
+    "classification": "intended benchmark evidence, not a formula error"
+  },
+  "visual_qa": {
+    "renderer": "LibreOffice Calc PDF export",
+    "rasterizer": "Poppler pdftoppm at 144 DPI",
+    "rendered_pdf_sha256": "b936fdedf46044ab40a6dc7671ad6f28e350e1086032890467cbf9f80f4d479a",
+    "rendered_pdf_size_bytes": 100660,
+    "rendered_page_count": 2,
+    "render_artifacts_retained_in_repository": false,
+    "pages": [
+      {
+        "page": 1,
+        "worksheet": "Dashboard",
+        "png_dimensions": [1584, 1224],
+        "png_sha256": "de6a0856dfaf329b49bd595e347d28c19ff60e9c6ca88dd05b3588627d5f81bb",
+        "inspected_at_original_resolution": true,
+        "clipping_or_overlap": false,
+        "missing_or_unreadable_content": false
+      },
+      {
+        "page": 2,
+        "worksheet": "Bid Analysis",
+        "png_dimensions": [1584, 1224],
+        "png_sha256": "e5950391f2076403cec046e92cd729b90ef84d5c06379810bb8b4dea05455d37",
+        "inspected_at_original_resolution": true,
+        "clipping_or_overlap": false,
+        "missing_or_unreadable_content": false
+      }
+    ],
+    "passed": true
+  },
+  "gates_passed": [
+    "workbook created with the explicitly authorized alternative authoring runtime",
+    "typed values and formulas inspected",
+    "LibreOffice recalculation produced expected cached values",
+    "formula and cached-value error scans passed",
+    "both visible worksheets rendered and visually inspected",
+    "source anchors reconcile with the frozen source blueprint",
+    "binary hash and runtime versions frozen"
+  ],
+  "not_qualified_by_this_record": [
+    "canonical extraction",
+    "Track B artifact-reading tools",
+    "Mini or Pi complete-system execution",
+    "model inference"
+  ]
+}

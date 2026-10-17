@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "pi-multi-format-v0.4-no-inference-qualification",
+  "qualified_on": "2026-09-12",
+  "status": "qualified_for_transfer_smoke_freeze",
+  "harness_id": "pi-multi-format-v0.4",
+  "supersedes": "pi-multi-format-v0.3",
+  "protocol_id": "agentic-multi-format-transfer-v0.2",
+  "case_count": 1,
+  "live_ollama_requests": 0,
+  "live_model_inference": false,
+  "package": {
+    "name": "@earendil-works/pi-coding-agent",
+    "version": "0.84.4",
+    "exact_lockfile": true
+  },
+  "runtime": {
+    "node": "22.22.1",
+    "python": "3.14.4",
+    "pdftotext": "25.11.0",
+    "admitted_python_app_worker_sha256": "5ce0f1ab504ae7c1caefa42350a75f6e4e89dc9941723e67bb450713ef27fc9c",
+    "pdftotext_executable_sha256": "53c908b92a25a20dbf0f8c2ea81f3c97ccacaa4cdc1cbdc13e20386c3e0a6461"
+  },
+  "predecessor": {
+    "harness_id": "pi-multi-format-v0.3",
+    "qualification_sha256": "d387b7e4af4f64372ab3ada65c2a44a4dfd3cb28107423dd60a37250868e7f18",
+    "preserved_unchanged": true,
+    "known_transport_result": "semantic 2/3 and strict transport 0/3 in the Phase 95 Qwen 3.8 confirmation"
+  },
+  "correction": {
+    "scope": "final_report_transport_only_plus_transfer_case_binding",
+    "structured_finish_report_tool": true,
+    "free_text_fallback_admitted": false,
+    "post_hoc_surrounding_text_normalization": false,
+    "single_private_report_capture": true,
+    "report_schema_validated_by_tool_surface": true,
+    "artifact_backend_shared_with_mini_v0_2": true,
+    "pinned_pi_package_changed": false,
+    "historical_systems_changed": false
+  },
+  "qualification_evidence": {
+    "artifact_only_preparation_passed": true,
+    "registered_custom_tool_count": 5,
+    "registered_tools": ["list_artifacts", "read_docx", "read_pdf", "read_xlsx", "finish_report"],
+    "native_builtin_tools_disabled": true,
+    "structured_report_capture_exact": true,
+    "duplicate_report_capture_rejected": true,
+    "surrounding_free_text_without_finish_report_rejected": true,
+    "focused_python_tests_passed": 6,
+    "focused_node_tests_passed": 6,
+    "fresh_real_seatbelt_checks_passed": 13,
+    "fresh_real_seatbelt_checks_total": 13,
+    "shared_backend_all_formats_under_real_seatbelt": true,
+    "structured_report_write_under_real_seatbelt": true,
+    "explicit_extension_load_under_real_seatbelt": true,
+    "hidden_ground_truth_read_denied": true,
+    "canonical_extraction_read_denied": true,
+    "candidate_workspace_write_denied": true,
+    "unlisted_process_denied": true,
+    "external_network_denied": true,
+    "private_ipv6_loopback_probe_allowed": true,
+    "real_acceptance_record_sha256": "099ba6a6fbd2c54dad2af8e16b82b6d69017be4944562d9ff5ceaf15f8e5fe11",
+    "prepared_run_record_sha256": "a130ddf38abfcc3a4cf87a04fdb6409331e1337061a7fbf4439a62357a7a4d04"
+  },
+  "execution_boundary": {
+    "policy_extension_allowlist": ["list_artifacts", "read_docx", "read_pdf", "read_xlsx", "finish_report"],
+    "artifact_operations": ["list_artifacts", "read_docx", "read_pdf", "read_xlsx"],
+    "allowed_processes": [
+      "exact resolved Node",
+      "exact direct Python.app worker",
+      "exact resolved pdftotext"
+    ],
+    "candidate_workspace_writable": false,
+    "single_private_report_path_writable": true,
+    "shell_processes_allowed": false,
+    "network_allowlist": ["localhost:11434"],
+    "external_network": false,
+    "canonical_extraction_outside_sandbox": true,
+    "ground_truth_outside_sandbox": true,
+    "fresh_real_seatbelt_acceptance_required_before_each_live_run": true,
+    "explicit_extension_acceptance_required_before_each_live_run": true
+  },
+  "comparison_boundary": {
+    "same_artifact_backend_as_mini_v0_2": true,
+    "same_functional_action_surface_as_mini_v0_2": true,
+    "same_model_across_harnesses": "complete_system_comparison",
+    "track_a_results_poolable": false,
+    "strict_transport_is_primary": false,
+    "pi_v0_3_and_v0_4_are_distinct_system_identities": true
+  },
+  "artifacts": [
+    {"path": "local_llm_benchmark/multi_format_pi_v04.py", "sha256": "b171a143063fc6cf27f8d8b9204862b787b6b24f395031ba1da8b543ff1d31dd"},
+    {"path": "local_llm_benchmark/multi_format_pi.py", "sha256": "a03feac060ea0d61d683b0dda214b8461e5e4dba86d403ea61e5b356dde3ed31"},
+    {"path": "local_llm_benchmark/multi_format_pi_v02.py", "sha256": "1994c1700d7375207997fb80061ee07c7eb953a4c02e45c922614c13b8c8a50d"},
+    {"path": "local_llm_benchmark/macos_sandbox_multi_format_v02.py", "sha256": "5ed6153d37679914597c4a9b81c4e523805309aaf013972977890a38be8dc957"},
+    {"path": "local_llm_benchmark/multi_format_transfer_artifacts.py", "sha256": "c753c5cde1b94957efe7e213543f51e0ea2b444b980b75a969282ed6ccf53d98"},
+    {"path": "integrations/pi/multi-format-readonly-v0.3.mjs", "sha256": "ee03340c59a1a1f555f857eb95c711195a9fc0f3a54c90068df66cbb143e3c25"},
+    {"path": "integrations/pi/multi-format-readonly-v0.3.test.mjs", "sha256": "039e72730caa13e6fa86741c7c16d7e2e6f54139ea19419b0d7b485bc49eb909"},
+    {"path": "tests/test_multi_format_pi_v04.py", "sha256": "285519bd7f8405f6a166a391ec701165450146dd556ece2e3c3e82a88efa453c"},
+    {"path": "tasks/agentic/track-b/multi-format-transfer-v0.2.json", "sha256": "f963dfa8ef9b6ffb77c483b2afb959a683be520ab24f8807bf0995b147fc9053"},
+    {"path": "tasks/agentic/track-b/pi-multi-format-v0.4.json", "sha256": "8a0a50a13d80747e327d017090fc0dc92f405024c2ad29b8f1cdf09a2f709ccf"},
+    {"path": "tasks/agentic/track-b/prompts/pi-multi-format-system-v0.2.txt", "sha256": "f7ea45bc022cba91c0933828a75181f11c12214e1eba8d58243c22e949e9175a"},
+    {"path": "capabilities/inventories/pi-multi-format-v0.4.json", "sha256": "2812fe665a24ab7deed1039658178848f1e15501f3d5fca3b76b99f2ba23afb7"},
+    {"path": "capabilities/isolation-profiles/pi-multi-format-v0.4.json", "sha256": "216873e724213cfe4066ff6c39e57e6c19abb9e014aa56cf8c52e288ecbcc747"},
+    {"path": "integrations/pi/package.json", "sha256": "6f1f0e500198a5663a63b63c3d360e5193b718ea450d9dd0862987799933a57c"},
+    {"path": "integrations/pi/package-lock.json", "sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730"},
+    {"path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/case-v0.2.json", "sha256": "e804433ad1bddfa1a93f4f484240d5dae6b2a761367647f56a2784e43cd0b467"},
+    {"path": "tasks/agentic/track-b/multi-format-transfer-artifact-api-v0.2-qualification.json", "sha256": "d10693b083d4aea6786512ca5a07a1d87279242c0aa8f880a180f3f53e6a2093"},
+    {"path": "tasks/agentic/track-b/pi-multi-format-v0.3-qualification.json", "sha256": "d387b7e4af4f64372ab3ada65c2a44a4dfd3cb28107423dd60a37250868e7f18"}
+  ],
+  "next_gate": "Freeze a separate excluded no-retry transfer smoke; every future Pi cell still requires a fresh real 13-check Seatbelt acceptance."
+}

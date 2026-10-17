@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "multi-format-transfer-complete-systems-v0.2",
+  "qualified_on": "2026-09-12",
+  "status": "qualified_pending_smoke_freeze",
+  "case_id": "agentic.documents.supplier-award-reconciliation",
+  "protocol_id": "agentic-multi-format-transfer-v0.2",
+  "live_ollama_requests": 0,
+  "live_model_inference": false,
+  "systems": [
+    {
+      "harness_id": "mini-multi-format-v0.2",
+      "qualification_path": "tasks/agentic/track-b/mini-multi-format-v0.2-qualification.json",
+      "qualification_sha256": "5f4c8677c4b823ad0555afbec8c4d763c782b74c079c4d7feabbbb88a50305ed"
+    },
+    {
+      "harness_id": "pi-multi-format-v0.4",
+      "qualification_path": "tasks/agentic/track-b/pi-multi-format-v0.4-qualification.json",
+      "qualification_sha256": "b0b3d99fcfd81704a54340b13cce4131d6224378054ce5413b4390e27992fe9b"
+    }
+  ],
+  "shared_boundary": {
+    "artifact_backend_path": "local_llm_benchmark/multi_format_transfer_artifacts.py",
+    "artifact_backend_sha256": "c753c5cde1b94957efe7e213543f51e0ea2b444b980b75a969282ed6ccf53d98",
+    "artifact_api_version": "0.2.0",
+    "artifact_operations": ["list_artifacts", "read_docx", "read_pdf", "read_xlsx"],
+    "completion_operation": "finish_report",
+    "functional_action_surface_equal": true,
+    "report_schema_path": "tasks/agentic/multi-format-document-analysis/report-schema-v2.json",
+    "report_schema_sha256": "d6d8d49013cc32afdc7564ff31233668de409540ecdc259e4e5c2f9fa7ccf146",
+    "candidate_workspace_inventory_equal": true,
+    "hidden_reference_access": false,
+    "candidate_writes": false,
+    "external_network_tools": false,
+    "track_a_poolable": false
+  },
+  "system_specific_boundary": {
+    "mini": "Application-enforced JSON action loop with one schema-constrained finish_report action.",
+    "pi": "Pinned Pi 0.84.4 with five custom tools, built-ins disabled, one schema-constrained finish_report capture and deny-by-default macOS Seatbelt.",
+    "same_system_claim": false,
+    "complete_system_comparison": true
+  },
+  "qualification_evidence": {
+    "mini_focused_python_tests_passed": 6,
+    "pi_focused_python_tests_passed": 6,
+    "pi_focused_node_tests_passed": 6,
+    "shared_backend_focused_python_tests_passed": 6,
+    "pi_real_seatbelt_checks_passed": 13,
+    "pi_real_seatbelt_checks_total": 13,
+    "reference_report_checks_passed_by_mini_path": 12,
+    "reference_report_checks_total": 12,
+    "pi_structured_transport_positive_path_tested": true,
+    "pi_free_text_fallback_negative_path_tested": true,
+    "historical_mini_v0_1_and_pi_v0_3_preserved": true
+  },
+  "bound_artifacts": [
+    {"path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/case-v0.2.json", "sha256": "e804433ad1bddfa1a93f4f484240d5dae6b2a761367647f56a2784e43cd0b467"},
+    {"path": "tasks/agentic/track-b/multi-format-transfer-v0.2.json", "sha256": "f963dfa8ef9b6ffb77c483b2afb959a683be520ab24f8807bf0995b147fc9053"},
+    {"path": "tasks/agentic/track-b/multi-format-transfer-artifact-api-v0.2-qualification.json", "sha256": "d10693b083d4aea6786512ca5a07a1d87279242c0aa8f880a180f3f53e6a2093"},
+    {"path": "tasks/agentic/track-b/mini-multi-format-v0.2-qualification.json", "sha256": "5f4c8677c4b823ad0555afbec8c4d763c782b74c079c4d7feabbbb88a50305ed"},
+    {"path": "tasks/agentic/track-b/pi-multi-format-v0.4-qualification.json", "sha256": "b0b3d99fcfd81704a54340b13cce4131d6224378054ce5413b4390e27992fe9b"}
+  ],
+  "next_gate": "Design and freeze a separate excluded transfer smoke with zero retries; no model request is authorized by this qualification."
+}

@@ -688,12 +688,51 @@ These families remain deliberately out of the immediate implementation scope.
 Their order is frozen as a planning preference, not as an experiment design.
 
 The first cross-format read-only decision case now has a tested semantic
-contract and source blueprint, but no binary artifacts or qualified harness.
-Its [v0.1 design](multi-format-document-analysis-v0.1.md) admits XLSX, DOCX and
-PDF extraction one family at a time before they may appear together in a
-measured run. Spreadsheet repair, Word assembly and PDF/OCR below remain
-distinct manipulation tasks; the design-stage analysis case does not complete
-or supersede them.
+contract, three qualified binary artifacts, a frozen canonical extraction and
+qualified Mini and pinned-Pi read-only surfaces. Its
+[v0.1 design](multi-format-document-analysis-v0.1.md) admitted XLSX, DOCX and
+PDF extraction one family at a time; one excluded smoke per complete system is
+now complete for accepted Mini v0.1 and corrected Pi v0.3 before any measured
+plan. A tool-free canonical runner and resumable controller are now
+offline-qualified. The separately authorized measured plan then completed all
+15 cells once across the five active-default deployments and the three
+conditions, without retry. It records 2/15 semantic successes and 12/15 strict
+transports; the separate prose audit accepts 7/13 parseable reports and both
+deterministic successes. Track A, Mini and Pi remain unpooled n=1 conditions.
+Because both exact successes used Qwen 3.8, a separate nine-cell targeted
+confirmation was frozen and then hash-authorized: three fresh attempts in each
+unchanged condition, in an exactly position-balanced cyclic order. It reused no
+historical cell and made no retry. All nine cells completed. Mini is 3/3
+semantic and strict; Pi is 2/3 semantic and 0/3 strict; canonical Track A is
+0/3 semantic and 3/3 strict. The separate prose audit accepts 6/9 reports, and
+combined deterministic, prose and strict acceptance is 3/9, all under Mini.
+This is bounded consistency evidence, not a population reliability probability
+or universal ranking. Another run requires a new versioned question and
+authorization.
+Spreadsheet repair, Word assembly and PDF/OCR below remain distinct
+manipulation tasks; this read-only analysis case does not complete or supersede
+them.
+
+The next read-only transfer case is now qualified through canonical extraction,
+the bounded artifact-API layer and both complete Track B systems. It moves from
+regional rollout gates to
+supplier award: first filter four suppliers using policy, signed-final
+assurance and formula-derived commercial evidence, then rank only eligible
+suppliers for primary and reserve. No source artifact, candidate observation,
+entity name, numeric value, cutoff or source anchor from v0.1 is reused. The
+reference passes a new 12-check verifier. The three binaries were authored
+under explicit Phase 96 amendments and passed LibreOffice/Poppler-backed
+structural and visual QA; their 16 canonical records exactly match the Track B
+backend. Mini v0.2 preserves the minimal action loop against the new contract.
+Pi v0.4 adds a schema-constrained `finish_report` operation instead of
+normalizing surrounding assistant prose; a real no-inference Seatbelt
+acceptance passes 13/13 checks. No inference is authorized. The next offline
+gate is now complete: a separately hash-frozen excluded smoke schedules Qwen
+3.8 once under Pi v0.4 and once under Mini v0.2, in that fixed repair-first
+order. The controller and public-safe report path pass ten no-inference tests.
+It may prepare both raw runs offline, but its execution still needs a new
+hash-bound authorization and fresh resource gate. Both raw units are now
+prepared with zero model requests; Phase 96 is at that authorization boundary.
 
 ### 2. Spreadsheet Repair and Reporting
 

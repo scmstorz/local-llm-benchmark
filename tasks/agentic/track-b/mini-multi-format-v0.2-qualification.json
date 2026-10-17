@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "mini-multi-format-v0.2-no-inference-qualification",
+  "qualified_on": "2026-09-12",
+  "status": "qualified_for_transfer_smoke_freeze",
+  "harness_id": "mini-multi-format-v0.2",
+  "supersedes": "mini-multi-format-v0.1",
+  "protocol_id": "agentic-multi-format-transfer-v0.2",
+  "case_count": 1,
+  "live_ollama_requests": 0,
+  "live_model_inference": false,
+  "qualification_evidence": {
+    "artifact_only_preparation_passed": true,
+    "structured_action_count": 5,
+    "shared_artifact_operations": ["list_artifacts", "read_docx", "read_pdf", "read_xlsx"],
+    "structured_completion_operation": "finish_report",
+    "supplier_artifact_inventory_exact": true,
+    "unknown_anchor_rejected": true,
+    "complete_action_audit_with_result_hash": true,
+    "mocked_model_boundary_passed": true,
+    "reference_report_essential_checks_passed": 12,
+    "reference_report_essential_checks_total": 12,
+    "semantic_and_transport_outcomes_separate": true,
+    "interrupted_model_call_state_persisted": true,
+    "focused_python_tests_passed": 6
+  },
+  "execution_boundary": {
+    "candidate_workspace_inventory": [
+      "supplier-selection-policy.docx",
+      "supplier-assurance-review.pdf",
+      "bid-evaluation.xlsx"
+    ],
+    "candidate_files_read_only_by_action_policy": true,
+    "candidate_code_or_commands_executed": false,
+    "artifact_tool_calls_emergency_maximum": 40,
+    "external_network_action_available": false,
+    "final_verification_separate": true,
+    "portable_standalone_os_sandbox": false
+  },
+  "comparison_boundary": {
+    "same_artifact_backend_as_pi_v0_4": true,
+    "same_functional_action_surface_as_pi_v0_4": true,
+    "same_model_across_harnesses": "complete_system_comparison",
+    "track_a_results_poolable": false,
+    "strict_transport_is_primary": false
+  },
+  "artifacts": [
+    {"path": "local_llm_benchmark/multi_format_mini_v02.py", "sha256": "ca1bba67de232a69fb82a05c48d12467bde04c47b83fadfa3e467557780c0eff"},
+    {"path": "local_llm_benchmark/multi_format_mini.py", "sha256": "231782331781c633f3d641e9f67fdac43aa63086c456a166d452a730017bb5fd"},
+    {"path": "local_llm_benchmark/multi_format_transfer_artifacts.py", "sha256": "c753c5cde1b94957efe7e213543f51e0ea2b444b980b75a969282ed6ccf53d98"},
+    {"path": "tests/test_multi_format_mini_v02.py", "sha256": "9ef9d81e421fd8439ddbbe52f33d8b77e5092eb8b1a3d998db083f93b404d41f"},
+    {"path": "tasks/agentic/track-b/multi-format-transfer-v0.2.json", "sha256": "f963dfa8ef9b6ffb77c483b2afb959a683be520ab24f8807bf0995b147fc9053"},
+    {"path": "tasks/agentic/track-b/mini-multi-format-v0.2.json", "sha256": "e71a4b8e61792f94c57d45fcf18c94044e5e843e6bd4c5d5e51d9011b1e584a0"},
+    {"path": "tasks/agentic/track-b/mini-multi-format-action-v0.2.json", "sha256": "dc2f2c114b37d01d91b8e46add879b90d3f5c19259e171765907a980b0197479"},
+    {"path": "tasks/agentic/track-b/prompts/mini-multi-format-system-v0.2.txt", "sha256": "c64cc5f50d6486416e440bee99e80bb0f9fd1acaa375b71039d22b924b4a9b32"},
+    {"path": "capabilities/inventories/mini-multi-format-v0.2.json", "sha256": "7c430dd7ebce771e52e23af35cce7970a4e482bd747f3f384dd388e28c06d223"},
+    {"path": "capabilities/isolation-profiles/mini-multi-format-v0.2.json", "sha256": "8c3c93bb13c507c751bee58b4c41aa8110d39a9a1aa89f2fa5a85ae6da1b4c16"},
+    {"path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/case-v0.2.json", "sha256": "e804433ad1bddfa1a93f4f484240d5dae6b2a761367647f56a2784e43cd0b467"},
+    {"path": "tasks/agentic/track-b/multi-format-transfer-artifact-api-v0.2-qualification.json", "sha256": "d10693b083d4aea6786512ca5a07a1d87279242c0aa8f880a180f3f53e6a2093"}
+  ],
+  "next_gate": "Freeze a separate excluded no-retry transfer smoke only after both complete systems are qualified."
+}

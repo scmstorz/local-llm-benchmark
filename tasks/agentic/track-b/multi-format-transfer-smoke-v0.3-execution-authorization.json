@@ -1,0 +1,28 @@
+{
+  "attempts_per_system": 1,
+  "authorization_id": "multi-format-transfer-smoke-v0.3-execution-authorization",
+  "authorization_source": "The owner explicitly instructed completion of steps 1 through 3, then required use of updated Ollama instead of holding 0.33.2 and authorized all targeted consumer cleanup. This records that existing bounded current-runtime instruction after the additive plan freeze; it grants no broader experiment.",
+  "authorized_at": "2026-10-17T10:03:28.744851+00:00",
+  "authorized_model": "qwen3.8:27b-mlx",
+  "authorized_runtime_version": "0.40.2",
+  "authorized_systems": [
+    "pi-multi-format-v0.4",
+    "mini-multi-format-v0.2"
+  ],
+  "automatic_retries": 0,
+  "broader_or_adaptive_study_authorized": false,
+  "fresh_clean_window_confirmation_received": true,
+  "historical_cells_reused": false,
+  "live_execution_authorized": true,
+  "plan_freeze_commit": "859e0ec",
+  "plan_id": "multi-format-transfer-smoke-v0.3",
+  "plan_path": "tasks/agentic/track-b/multi-format-transfer-smoke-v0.3.json",
+  "plan_sha256": "cc1b095394685acb2ecf85346bfd353c5f9eb8e52a7018a80e95e77f04406ff3",
+  "remote_push_authorized": false,
+  "resource_gate_still_required": true,
+  "schema_version": "1.0.0",
+  "status": "authorized_pending_resource_gate",
+  "step_4_workflow_integration_authorized": false,
+  "study_id": "multi-format-transfer-smoke-20261017T100311Z-551af02f",
+  "unit_count": 2
+}

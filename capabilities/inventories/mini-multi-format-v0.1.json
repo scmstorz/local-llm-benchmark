@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "inventory_id": "mini-multi-format-v0.1",
+  "status": "qualification_candidate",
+  "harness_family": "project_mini_harness",
+  "task_family": "document_decision_reconciliation",
+  "task_subset_size": 1,
+  "actions": [
+    {"name": "list_artifacts", "scope": "frozen_inventory_and_query_catalog", "side_effect": false},
+    {"name": "read_docx", "scope": "listed_semantic_anchors_only", "side_effect": false},
+    {"name": "read_pdf", "scope": "listed_page_elements_only", "side_effect": false},
+    {"name": "read_xlsx", "scope": "listed_sheet_ranges_only", "side_effect": false},
+    {"name": "finish_report", "scope": "one_schema_constrained_decision_report", "side_effect": false}
+  ],
+  "shared_backend": "local_llm_benchmark/multi_format_artifacts.py",
+  "unavailable_capabilities": [
+    "filesystem_write", "shell", "arbitrary_code_execution", "browser",
+    "external_network", "hidden_verifier", "persistent_memory", "subagents",
+    "approvals", "unrelated_path_access"
+  ],
+  "model_transport": {"runtime": "ollama", "endpoint_policy": "HTTP loopback origin only", "structured_output": true},
+  "context_policy": {"initial_artifact_contents": false, "query_catalog_visible_after_tool_call": true, "automatic_compaction": false}
+}

@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -42,6 +43,33 @@ SECRET_PATTERNS = {
 MARKDOWN_LINK = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 MAX_FILE_BYTES = 1_000_000
 
+ALLOWED_BINARY_SHA256 = {
+    (
+        "tasks/agentic/multi-format-document-analysis/"
+        "rollout-readiness-reconciliation/fixture/rollout-policy.docx"
+    ): "957e46216355153109673d60e3b8ad2facc98451dd0ec7738ee76171eee25c0d",
+    (
+        "tasks/agentic/multi-format-document-analysis/"
+        "rollout-readiness-reconciliation/fixture/regional-readiness.xlsx"
+    ): "c6144e5756654ab7b9d4911b5f02cba5f19242d361227e3574dedefc47096d1d",
+    (
+        "tasks/agentic/multi-format-document-analysis/"
+        "rollout-readiness-reconciliation/fixture/reliability-review.pdf"
+    ): "be9e322a643d2b587270e8c29ba6be937e6c233835593fdf9744b9ba2453edab",
+    (
+        "tasks/agentic/multi-format-document-analysis/"
+        "supplier-award-reconciliation/fixture/supplier-selection-policy.docx"
+    ): "46142aed4eaa15601252f7dc60756154c1eace4100109a8ab78162e3ea102708",
+    (
+        "tasks/agentic/multi-format-document-analysis/"
+        "supplier-award-reconciliation/fixture/supplier-assurance-review.pdf"
+    ): "c25a322efb3e2433787f3f95343f5855c8f05218d287ac310dc19abbdd0c38df",
+    (
+        "tasks/agentic/multi-format-document-analysis/"
+        "supplier-award-reconciliation/fixture/bid-evaluation.xlsx"
+    ): "f5753b208f79ea8758fe3a35c3fbbb514468bc7372efe0c59623dc2670c5b42c",
+}
+
 
 @dataclass(frozen=True)
 class Finding:
@@ -79,6 +107,15 @@ def audit(root: Path) -> list[Finding]:
             continue
 
         content = path.read_bytes()
+        expected_sha256 = ALLOWED_BINARY_SHA256.get(relative)
+        if expected_sha256 is not None:
+            observed_sha256 = hashlib.sha256(content).hexdigest()
+            if expected_sha256 == observed_sha256:
+                continue
+            findings.append(
+                Finding(relative, "binary file does not match its frozen SHA-256")
+            )
+            continue
         if b"\x00" in content:
             findings.append(Finding(relative, "binary file contains a NUL byte"))
             continue

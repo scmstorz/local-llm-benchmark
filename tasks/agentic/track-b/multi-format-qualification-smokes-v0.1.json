@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "multi-format-qualification-smokes-v0.1",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-10",
+  "track": "B",
+  "protocol_id": "agentic-multi-format-v0.1",
+  "evidence_class": "excluded_qualification_smoke_pair",
+  "purpose": "Qualify the complete Mini and pinned-Pi real-artifact paths once each before designing a measured Track A/Track B study.",
+  "runtime": {
+    "name": "ollama",
+    "version": "0.33.2",
+    "host": "http://127.0.0.1:11434"
+  },
+  "deployment": {
+    "name": "qwen3.8:27b-mlx",
+    "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "size_bytes": 18174721847,
+    "quantization": "nvfp4",
+    "template_sha256": "b507b9c2f6ca642bffcd06665ea7c91f235fd32daeefdf875a0f938db05fb315"
+  },
+  "case": {
+    "case_id": "agentic.documents.rollout-readiness-reconciliation",
+    "case_version": "1.0.0",
+    "case_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json"
+  },
+  "execution_order": [
+    {
+      "position": 1,
+      "harness_id": "mini-multi-format-v0.1",
+      "smoke_plan_path": "tasks/agentic/track-b/mini-multi-format-qwen38-development-smoke-v0.1.json",
+      "smoke_plan_sha256": "3b951e5270a2a81c755cf85b0a8b0d152089e9130047ad9dc0dbb462b7b7a176"
+    },
+    {
+      "position": 2,
+      "harness_id": "pi-multi-format-v0.1",
+      "smoke_plan_path": "tasks/agentic/track-b/pi-multi-format-qwen38-development-smoke-v0.1.json",
+      "smoke_plan_sha256": "7ef4f5d13fa7cc740ef7c28476ad274db11f76b1605c0c6b43d12e4011c15e51"
+    }
+  ],
+  "resource_gate": {
+    "empty_state_observation_seconds": 30,
+    "loaded_models_must_be_empty_before_each_system": true,
+    "manual_exclusive_window_confirmation_required": true,
+    "exact_ollama_version_required": true,
+    "exact_model_digest_required": true,
+    "process_snapshots_before_each_system": 2,
+    "blocking_process_rules": [
+      {"rule_id": "behat_test_runner", "pattern": "(?i)(?:^|[\\s/])(?:vendor/bin/)?behat(?:[\\s]|$)"},
+      {"rule_id": "behat_environment_worker", "pattern": "(?i)(?:--env=behat_test|var/behat-env)"},
+      {"rule_id": "other_test_runner", "pattern": "(?i)(?:^|[\\s/])(?:pytest|phpunit|jest|vitest|mocha|playwright|cypress)(?:[\\s]|$)"},
+      {"rule_id": "package_test_script", "pattern": "(?i)(?:^|[\\s/])(?:npm|pnpm|yarn)(?:[\\s]+run)?[\\s]+test(?:[\\s]|$)"},
+      {"rule_id": "mnemosyn_application", "pattern": "(?i)^(?!.*mnemosyn_mcp\\.py).*mnemosyn"},
+      {"rule_id": "news_or_blog_application", "pattern": "(?i)(?:news-app|blog-read-o-matic)"}
+    ],
+    "blocked_gate_creates_model_run": false,
+    "blocked_gate_makes_inference_request": false,
+    "model_unloaded_after_each_system": true,
+    "postflight_loaded_models_must_be_empty": true
+  },
+  "execution_protocol": {
+    "automatic_retries": 0,
+    "mini_commands": ["start", "call", "step", "finalize"],
+    "pi_commands": ["prepare", "sandbox-check", "run", "finalize"],
+    "fresh_real_seatbelt_acceptance_before_pi_run": true,
+    "hidden_verification_after_terminal_model_output": true,
+    "raw_runs_preserved": true,
+    "interrupted_live_boundary": "preserve_as_inconclusive_and_do_not_retry"
+  },
+  "comparison_rules": {
+    "one_attempt_per_complete_system": true,
+    "automatic_retries": 0,
+    "adaptive_repetitions": false,
+    "measured_capability_evidence": false,
+    "exclude_from_future_measured_aggregates": true,
+    "same_model_and_case": true,
+    "shared_artifact_backend": true,
+    "complete_system_comparison_only": true,
+    "one_factor_causal_harness_claim_allowed": false,
+    "performance_ranking_allowed": false
+  },
+  "success_gate_for_measured_planning": {
+    "both_units_must_have_terminal_outcomes": true,
+    "verified_success_required": false,
+    "adapter_or_orchestration_defect_allowed": false,
+    "unclassified_failure_allowed": false
+  },
+  "reporting": {
+    "report_id": "multi-format-qualification-smokes-v0.1",
+    "json_path": "reports/agentic/multi-format-qualification-smokes-v0.1.json",
+    "markdown_path": "reports/agentic/multi-format-qualification-smokes-v0.1.md",
+    "candidate_outputs_public": false,
+    "absolute_paths_public": false,
+    "raw_evidence_public": false
+  },
+  "authorization": {
+    "source": "The user authorized all preparation through the point immediately before Ollama smoke execution on 2026-09-10.",
+    "status": "resource_window_confirmation_pending",
+    "fresh_exclusive_window_confirmation_required": true,
+    "live_execution_allowed_only_after_resource_gate": true
+  },
+  "frozen_inputs": {
+    "repository_commit_at_freeze": "d8857b030adcebe8b59400b724fbebf5240cd461",
+    "worktree_inputs_frozen_by_sha256": true,
+    "artifacts": [
+      {"path": "tasks/agentic/track-b/mini-multi-format-qwen38-development-smoke-v0.1.json", "sha256": "3b951e5270a2a81c755cf85b0a8b0d152089e9130047ad9dc0dbb462b7b7a176"},
+      {"path": "tasks/agentic/track-b/pi-multi-format-qwen38-development-smoke-v0.1.json", "sha256": "7ef4f5d13fa7cc740ef7c28476ad274db11f76b1605c0c6b43d12e4011c15e51"},
+      {"path": "tasks/agentic/track-b/multi-format-artifact-api-v0.1-qualification.json", "sha256": "017a40a98adde3116a7f82dd74e3bc4da9aff49f393adaa5b883c473a6a1923f"},
+      {"path": "tasks/agentic/track-b/mini-multi-format-v0.1-qualification.json", "sha256": "3d0ea522f3e9b93451548f410515a542db18a90f6720934e52188d4ed2aec8f1"},
+      {"path": "tasks/agentic/track-b/pi-multi-format-v0.1-qualification.json", "sha256": "8fcaa15adcba6a478485b1ac2e9e908f89cacfd9a93b4d398e268678fba927ad"},
+      {"path": "local_llm_benchmark/multi_format_smokes.py", "sha256": "79a51a7c9f914a91f475938248af79a3eaee3195cec6311ad8d3e6180f2788e9"},
+      {"path": "tests/test_multi_format_harness_qualification.py", "sha256": "94839f93b40f6fd03444c47a085d81993a4e18651124d2323b6d8924fb0b5656"},
+      {"path": "tasks/agentic/track-b/multi-format-v0.1.json", "sha256": "d86a29a6828af39e351909e8957230419e760a9c055b47f592ba1e9f3839d30d"},
+      {"path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json", "sha256": "6a3eeb93f801f91068ba995ab35a955f85f188f4d9110a55d2708adb5b30875a"}
+    ]
+  }
+}

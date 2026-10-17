@@ -1,0 +1,176 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "supplier-award-selection-policy-docx-v0.2",
+  "case_id": "agentic.documents.supplier-award-reconciliation",
+  "status": "qualified",
+  "qualified_on": "2026-09-11",
+  "live_inference_performed": false,
+  "artifact": {
+    "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/fixture/supplier-selection-policy.docx",
+    "format": "docx",
+    "size_bytes": 40404,
+    "sha256": "46142aed4eaa15601252f7dc60756154c1eace4100109a8ab78162e3ea102708"
+  },
+  "authoring_protocol": {
+    "amendment_path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/docx-authoring-amendment-v0.2.json",
+    "amendment_sha256": "abe4ab3a219a8054d5b94cf17c8b6fe4220eee7665a75e4d93a61ff59a5420ae",
+    "dependency_loader_available": false,
+    "alternative_authoring_explicitly_authorized": true,
+    "artifact_operation_marker_recorded": true,
+    "office_zip_handcrafted": false,
+    "canonical_extraction_qualified": false
+  },
+  "toolchain": {
+    "platform": "Darwin 25.1.0 arm64",
+    "environment_manager": "uv 0.11.3 (45da18ac3 2026-04-01 aarch64-apple-darwin)",
+    "python": "3.13.12",
+    "python_docx": "1.2.0",
+    "lxml": "6.1.3",
+    "pdf2image": "1.17.0",
+    "pillow": "12.3.0",
+    "libreoffice": "26.8.0.3 bce0998afefdbc355585ca324285661a2170ba77",
+    "poppler_pdftoppm": "25.11.0",
+    "documents_skill_renderer_sha256": "d8fe979f76e11215e146e53484bb4cb4e5f3906b58debed6844171073b187286"
+  },
+  "reproducibility_inputs": [
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/build_supplier_selection_policy_docx.py",
+      "sha256": "884d640e9484f72ad56a429e5a41d558f6c1ae2f3fd02f7fc43ac9099f6eee09"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/inspect_supplier_selection_policy_docx.py",
+      "sha256": "c32d07f5072fc5aa99b27cf11fca7cbaed0d356bfd0599415a72a8fdc5e8acdf"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/docx-authoring-requirements-v0.2.txt",
+      "sha256": "1421cb446cf46b04b9fb6bff361baa80f868ee567c3080571657649d6830f0ba"
+    }
+  ],
+  "design_compliance": {
+    "preset": "standard_business_brief",
+    "header_pattern": "memo_masthead",
+    "page": {
+      "size": "US Letter",
+      "orientation": "portrait",
+      "width_dxa": 12240,
+      "height_dxa": 15840,
+      "margins_dxa": {"top": 1440, "right": 1440, "bottom": 1440, "left": 1440},
+      "header_distance_dxa": 708,
+      "footer_distance_dxa": 708,
+      "content_width_dxa": 9360
+    },
+    "styles": {
+      "body": {"font": "Calibri", "size_pt": 11, "before_pt": 0, "after_pt": 6, "line_spacing": 1.1},
+      "heading_1": {"font": "Calibri", "size_pt": 16, "color": "2E74B5", "before_pt": 16, "after_pt": 8},
+      "heading_2": {"font": "Calibri", "size_pt": 13, "color": "2E74B5", "before_pt": 12, "after_pt": 6},
+      "heading_3": {"font": "Calibri", "size_pt": 12, "color": "1F4D78", "before_pt": 8, "after_pt": 4},
+      "table_citation": {"before_pt": 4, "after_pt": 4},
+      "decimal_list": {"marker_alignment_dxa": 360, "text_indent_dxa": 720, "hanging_dxa": 360, "after_pt": 8, "line_spacing_dxa": 280}
+    },
+    "eligibility_gates_table": {
+      "caption": "Eligibility-gates",
+      "rows": 5,
+      "columns": 4,
+      "width_dxa": 9360,
+      "indent_dxa": 120,
+      "grid_dxa": [1800, 2720, 1760, 3080],
+      "cell_margins_dxa": {"top": 80, "bottom": 80, "start": 120, "end": 120},
+      "header_fill": "F2F4F7",
+      "border_style": "single_grid"
+    },
+    "named_overrides": [
+      "memo_masthead title uses 23 pt bold black and subtitle uses 14 pt dark gray",
+      "masthead metadata uses 10.5 pt with a strong body-paragraph bottom rule",
+      "gate-table text uses 9.5 pt for stable full-width geometry",
+      "Selection sequence begins on page 2 to keep the gate definition and decision procedure as coherent page units"
+    ]
+  },
+  "structural_checks": {
+    "zip_integrity_passed": true,
+    "section_count": 1,
+    "heading_sequence": ["Eligibility gates", "Selection sequence", "Decision procedure", "Evidence authority", "Decision cutoff"],
+    "stable_bookmarks": ["Eligibility_gates", "Selection_sequence", "Evidence_authority", "Decision_cutoff"],
+    "real_numbered_paragraph_count": 3,
+    "external_relationship_count": 0,
+    "comment_count": 0,
+    "vba_project_count": 0,
+    "page_fields": ["PAGE", "NUMPAGES"],
+    "accessibility_audit": {"high": 0, "medium": 0, "low": 0}
+  },
+  "source_anchor_reconciliation": [
+    {
+      "fact_code": "POL-ELIGIBILITY",
+      "source_ref": "supplier-selection-policy.docx#table=Eligibility-gates",
+      "observed": "A supplier is eligible only with signed-final assurance rating A or B, zero unresolved critical findings, capacity headroom >= 15%, and adjusted first-year cost <= EUR 1,200,000.",
+      "passed": true
+    },
+    {
+      "fact_code": "POL-SELECTION",
+      "source_ref": "supplier-selection-policy.docx#heading=Selection-sequence",
+      "observed": "First exclude every ineligible supplier; then rank eligible suppliers by adjusted first-year cost, assigning primary to the lowest and reserve to the next-lowest.",
+      "passed": true
+    },
+    {
+      "fact_code": "POL-AUTHORITY",
+      "source_ref": "supplier-selection-policy.docx#heading=Evidence-authority",
+      "observed": "The signed-final assurance appendix at the cutoff supersedes drafts, and a commercial dashboard cannot waive an assurance or capacity gate.",
+      "passed": true
+    },
+    {
+      "fact_code": "POL-CUTOFF",
+      "source_ref": "supplier-selection-policy.docx#heading=Decision-cutoff",
+      "observed": "The award decision uses evidence finalized by 2026-09-08 16:00 UTC.",
+      "passed": true
+    }
+  ],
+  "render_and_visual_qa": {
+    "renderer": "Documents skill render_docx.py with LibreOffice Writer PDF export",
+    "rasterizer": "pdf2image with Poppler",
+    "rendered_pdf_sha256": "83c41eea809fe6d79bd652d34dc6659c060ddb30fdbfd0daf1d5c1e59bf9d3bb",
+    "rendered_pdf_size_bytes": 109826,
+    "rendered_page_count": 2,
+    "page_size_points": [612, 792],
+    "render_artifacts_retained_in_repository": false,
+    "authored_font": "Calibri",
+    "rendered_font": "Carlito",
+    "font_note": "LibreOffice embedded Carlito as its metric-compatible Calibri substitute; layout and glyph inspection passed.",
+    "unexpected_font_substitution": false,
+    "pages": [
+      {
+        "page": 1,
+        "content": "memo masthead, directive and Eligibility-gates table",
+        "png_dimensions": [1547, 2002],
+        "png_sha256": "b7fccd50ebb9447fae9a79fcdae1fb5a29d836ee7c7ec971dc7b4ef7a1b0e4f6",
+        "inspected_at_original_resolution": true,
+        "clipping_or_overlap": false,
+        "broken_table_geometry": false,
+        "missing_or_unreadable_content": false
+      },
+      {
+        "page": 2,
+        "content": "Selection sequence, numbered procedure, Evidence authority and Decision cutoff",
+        "png_dimensions": [1547, 2002],
+        "png_sha256": "e415efdd2684845b89bcced52fb728f1bdc71804ba10071ba0590a86ef3b973a",
+        "inspected_at_original_resolution": true,
+        "clipping_or_overlap": false,
+        "broken_table_geometry": false,
+        "missing_or_unreadable_content": false
+      }
+    ],
+    "passed": true
+  },
+  "gates_passed": [
+    "DOCX created with the explicitly authorized alternative authoring runtime",
+    "preset, masthead, table geometry, real numbering and stable anchors inspected",
+    "accessibility audit has zero high, medium or low findings",
+    "both pages rendered and visually inspected",
+    "source anchors reconcile with the frozen source blueprint",
+    "binary hash and runtime versions frozen"
+  ],
+  "not_qualified_by_this_record": [
+    "canonical extraction",
+    "Track B artifact-reading tools",
+    "Mini or Pi complete-system execution",
+    "model inference"
+  ]
+}

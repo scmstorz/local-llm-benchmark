@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Multi-format canonical artifact extraction v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "case_id",
+    "extraction_version",
+    "representation",
+    "artifact_inputs",
+    "evidence_records"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "extraction_version": {
+      "const": "0.1.0"
+    },
+    "representation": {
+      "const": "canonical_artifact_evidence"
+    },
+    "artifact_inputs": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "$ref": "#/$defs/artifact_input"
+      }
+    },
+    "evidence_records": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 15,
+      "items": {
+        "$ref": "#/$defs/evidence_record"
+      }
+    }
+  },
+  "$defs": {
+    "artifact_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "filename",
+        "format",
+        "sha256",
+        "size_bytes"
+      ],
+      "properties": {
+        "filename": {
+          "type": "string",
+          "minLength": 1
+        },
+        "format": {
+          "enum": [
+            "docx",
+            "pdf",
+            "xlsx"
+          ]
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "field": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "value",
+        "formula"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "formula": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "evidence_record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fact_code",
+        "source_ref",
+        "artifact_format",
+        "record_type",
+        "authority",
+        "text",
+        "fields"
+      ],
+      "properties": {
+        "fact_code": {
+          "type": "string",
+          "pattern": "^[A-Z]+-[A-Z]+$"
+        },
+        "source_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_format": {
+          "enum": [
+            "docx",
+            "pdf",
+            "xlsx"
+          ]
+        },
+        "record_type": {
+          "enum": [
+            "paragraph",
+            "table",
+            "note",
+            "row",
+            "range"
+          ]
+        },
+        "authority": {
+          "enum": [
+            "governing_policy",
+            "preliminary_superseded",
+            "final_at_cutoff",
+            "regional_capacity",
+            "aggregate_dashboard"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/field"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": "2.0.0",
+  "executive_summary": "Der Zuschlag kann mit Atlas als Primärlieferant und Boreal als Reserve erteilt werden. Beide erfüllen nach der unterzeichneten finalen Assurance sowie den Kosten- und Kapazitätsformeln sämtliche Zulässigkeits-Gates; Atlas hat von beiden die niedrigeren bereinigten Erstjahreskosten. Cedar ist trotz der günstigsten kommerziellen Kennzahl wegen eines offenen kritischen Findings ausgeschlossen, Delta wegen zu geringer Kapazitätsreserve.",
+  "decision": {
+    "code": "award_with_reserve",
+    "primary_supplier": "atlas",
+    "reserve_supplier": "boreal",
+    "rejected_suppliers": [
+      {
+        "supplier": "cedar",
+        "blocker_code": "unresolved_critical_finding",
+        "explanation": "Die unterzeichnete finale Assurance weist für Cedar ein ungelöstes kritisches Finding aus; zulässig sind null."
+      },
+      {
+        "supplier": "delta",
+        "blocker_code": "capacity_headroom_below_threshold",
+        "explanation": "Deltas formelbasierte Kapazitätsreserve beträgt 12 Prozent und unterschreitet damit das Minimum von 15 Prozent."
+      }
+    ]
+  },
+  "evidence": [
+    {"fact_code": "POL-ELIGIBILITY", "source_ref": "supplier-selection-policy.docx#table=Eligibility-gates", "supports": "Definiert die vier zwingenden Zulässigkeits-Gates."},
+    {"fact_code": "POL-SELECTION", "source_ref": "supplier-selection-policy.docx#heading=Selection-sequence", "supports": "Verlangt zuerst den Ausschluss unzulässiger Anbieter und danach die Kostenrangfolge."},
+    {"fact_code": "POL-AUTHORITY", "source_ref": "supplier-selection-policy.docx#heading=Evidence-authority", "supports": "Legt finale Assurance und die Grenzen des kommerziellen Dashboards fest."},
+    {"fact_code": "POL-CUTOFF", "source_ref": "supplier-selection-policy.docx#heading=Decision-cutoff", "supports": "Fixiert den maßgeblichen Evidenzstichtag."},
+    {"fact_code": "ASSUR-DRAFT", "source_ref": "supplier-assurance-review.pdf#page=2&table=Unsigned-draft", "supports": "Identifiziert die abweichenden, aber vorläufigen Assurance-Werte."},
+    {"fact_code": "ASSUR-FINAL", "source_ref": "supplier-assurance-review.pdf#page=3&note=Signed-final", "supports": "Bestätigt die Ablösung des Entwurfs durch die unterzeichnete Fassung."},
+    {"fact_code": "ASSUR-ATLAS", "source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Atlas", "supports": "Atlas erfüllt Rating- und Critical-Finding-Gate."},
+    {"fact_code": "ASSUR-BOREAL", "source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Boreal", "supports": "Boreal erfüllt Rating- und Critical-Finding-Gate."},
+    {"fact_code": "ASSUR-CEDAR", "source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Cedar", "supports": "Cedar hat ein ungelöstes kritisches Finding."},
+    {"fact_code": "ASSUR-DELTA", "source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Delta", "supports": "Delta erfüllt die Assurance-Gates."},
+    {"fact_code": "BID-ATLAS", "source_ref": "bid-evaluation.xlsx#sheet=Bid Analysis&range=B5:J5", "supports": "Atlas liegt bei 1.140.000 EUR und 16 Prozent Kapazitätsreserve."},
+    {"fact_code": "BID-BOREAL", "source_ref": "bid-evaluation.xlsx#sheet=Bid Analysis&range=B6:J6", "supports": "Boreal liegt bei 1.165.000 EUR und 25 Prozent Kapazitätsreserve."},
+    {"fact_code": "BID-CEDAR", "source_ref": "bid-evaluation.xlsx#sheet=Bid Analysis&range=B7:J7", "supports": "Cedar ist kommerziell am günstigsten und besteht die Kapazitäts- und Kostengates."},
+    {"fact_code": "BID-DELTA", "source_ref": "bid-evaluation.xlsx#sheet=Bid Analysis&range=B8:J8", "supports": "Delta erreicht nur 12 Prozent Kapazitätsreserve."},
+    {"fact_code": "DASH-RECOMMENDATION", "source_ref": "bid-evaluation.xlsx#sheet=Dashboard&range=B3:B5", "supports": "Das Dashboard empfiehlt Cedar allein aufgrund der Kostenrangfolge."},
+    {"fact_code": "DASH-SCOPE", "source_ref": "bid-evaluation.xlsx#sheet=Dashboard&range=B7:B8", "supports": "Das Dashboard kennzeichnet selbst, dass Assurance nicht berücksichtigt ist."}
+  ],
+  "conflicts": [
+    {
+      "code": "draft_assurance_superseded",
+      "source_refs": [
+        "supplier-assurance-review.pdf#page=2&table=Unsigned-draft",
+        "supplier-assurance-review.pdf#page=3&note=Signed-final"
+      ],
+      "resolution": "Die unterzeichnete finale Tabelle auf Seite 3 ersetzt den nicht unterzeichneten Entwurf auf Seite 2."
+    },
+    {
+      "code": "commercial_dashboard_ignores_assurance",
+      "source_refs": [
+        "supplier-selection-policy.docx#heading=Evidence-authority",
+        "bid-evaluation.xlsx#sheet=Dashboard&range=B3:B5",
+        "bid-evaluation.xlsx#sheet=Dashboard&range=B7:B8"
+      ],
+      "resolution": "Die Cedar-Empfehlung ist nur kommerziell. Nach Richtlinie muss Cedar vor der Kostenrangfolge wegen des finalen kritischen Findings ausgeschlossen werden."
+    }
+  ],
+  "recommended_actions": [
+    {"code": "award_atlas", "rationale": "Atlas ist der günstigste Lieferant, der alle vier Zulässigkeits-Gates erfüllt."},
+    {"code": "designate_boreal_reserve", "rationale": "Boreal ist der einzige weitere zulässige Anbieter und folgt Atlas in der maßgeblichen Kostenrangfolge."},
+    {"code": "exclude_ineligible_suppliers", "rationale": "Cedar und Delta dürfen ihre jeweiligen zwingenden Gates nicht durch günstige Kosten kompensieren."},
+    {"code": "correct_dashboard_scope", "rationale": "Das Dashboard muss entweder Assurance integrieren oder deutlich als nicht entscheidungsfähige kommerzielle Sicht ausgewiesen werden."},
+    {"code": "reassess_after_new_evidence", "rationale": "Eine spätere Neubewertung ausgeschlossener Anbieter erfordert neue finale Evidenz nach einem neuen Stichtag."}
+  ],
+  "uncertainties": [
+    {"code": "post_cutoff_assurance_changes_unknown", "reason": "Das Dossier enthält keine Assurance-Änderungen nach dem festgelegten Stichtag."},
+    {"code": "capacity_forecast_variance_unknown", "reason": "Die tatsächliche Kapazitätsnachfrage nach Vertragsstart ist im Dossier nicht belegt."}
+  ]
+}

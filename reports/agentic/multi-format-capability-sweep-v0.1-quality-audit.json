@@ -1,0 +1,399 @@
+{
+  "schema_version": "1.0.0",
+  "audit_id": "multi-format-capability-sweep-v0.1-quality-audit",
+  "status": "completed",
+  "audited_on": "2026-09-11",
+  "source_report": {
+    "path": "reports/agentic/multi-format-capability-sweep-v0.1.json",
+    "sha256": "20ec8341a6abbfd89bb32ba8f8695016023b02c78fee8cd6ee4c0ce3ba7ddefa",
+    "study_id": "multi-format-capability-20260911T063427Z-0069dc6c",
+    "study_record_sha256": "6835bde43bec39d345a3728cf1bbc1e0447fd1e9f8b575b3e62250642a1d536c",
+    "planned_cell_count": 15
+  },
+  "judge": {
+    "kind": "interactive_frontier_llm_review",
+    "identity": "interactive Codex session",
+    "paid_judge_api_used": false,
+    "model_identity_blinded": false,
+    "limitation": "The judge had already seen the run order, model mapping and deterministic outcomes. The audit applies a claim-level source-grounding and usability rubric but is not evidence from a blinded or independent assessor."
+  },
+  "review_contract": {
+    "scope": [
+      "executive_summary",
+      "decision.blocked_regions[].explanation",
+      "evidence[].supports",
+      "conflicts[].resolution",
+      "recommended_actions[].rationale",
+      "uncertainties[].reason"
+    ],
+    "criteria": [
+      "executive-summary claim polarity and internal consistency",
+      "free-text source entailment",
+      "wording accuracy",
+      "epistemic calibration",
+      "German writing quality",
+      "executive decision usefulness"
+    ],
+    "pass_rule": "Every material factual assertion must be supported by the supplied dossier, use polarity and uncertainty consistent with that evidence, satisfy the requested German-language presentation and remain safe and useful for the stated steering decision.",
+    "minor_style_rule": "Minor grammar or spelling defects do not fail a report when meaning, polarity and decision usefulness remain unambiguous.",
+    "omission_rule": "An omission already captured by a deterministic completeness check does not by itself fail this prose audit; this audit neither repairs nor overrides that deterministic failure.",
+    "not_applicable_rule": "No supplemental prose decision is made when the run produced no parseable candidate report.",
+    "separation": "This audit does not change runtime, agent-termination, deterministic semantic-verifier or strict-transport outcomes and creates no composite score."
+  },
+  "summary": {
+    "planned_cells": 15,
+    "parseable_reports": 13,
+    "free_text_pass": 7,
+    "free_text_fail": 6,
+    "free_text_not_applicable": 2,
+    "free_text_pass_rate_among_reports": 0.5385,
+    "deterministic_semantic_success": 2,
+    "deterministic_and_free_text_accepted": 2,
+    "deterministic_free_text_and_strict_transport_accepted": 2,
+    "strict_transport_compliance": 12
+  },
+  "positions": {
+    "pass": [2, 3, 5, 8, 9, 12, 13],
+    "fail": [1, 4, 6, 7, 10, 15],
+    "not_applicable": [11, 14],
+    "combined_deterministic_and_free_text_accepted": [8, 12]
+  },
+  "reviews": [
+    {
+      "position": 1,
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "condition_id": "canonical-representation-v0.1",
+      "run_id": "canonical-multiformat-run-20260911T063427Z-68cd4c8b",
+      "classification": "fail",
+      "criteria": {
+        "claim_polarity_and_consistency": false,
+        "source_entailment": false,
+        "wording_accuracy": false,
+        "epistemic_calibration": true,
+        "german_writing_quality": true,
+        "executive_usefulness": false
+      },
+      "finding_ids": ["F-01"]
+    },
+    {
+      "position": 2,
+      "model": "gemma4:31b-mlx",
+      "condition_id": "mini-multi-format-v0.1",
+      "run_id": "mini-multiformat-run-20260911T063654Z-53adb2e7",
+      "classification": "pass",
+      "criteria": {
+        "claim_polarity_and_consistency": true,
+        "source_entailment": true,
+        "wording_accuracy": true,
+        "epistemic_calibration": true,
+        "german_writing_quality": true,
+        "executive_usefulness": true
+      },
+      "finding_ids": []
+    },
+    {
+      "position": 3,
+      "model": "ornith-1.5:35b",
+      "condition_id": "pi-multi-format-v0.3",
+      "run_id": "pi-multiformat-run-20260911T063911Z-c1e2f74a",
+      "classification": "pass",
+      "criteria": {
+        "claim_polarity_and_consistency": true,
+        "source_entailment": true,
+        "wording_accuracy": true,
+        "epistemic_calibration": true,
+        "german_writing_quality": true,
+        "executive_usefulness": true
+      },
+      "finding_ids": []
+    },
+    {
+      "position": 4,
+      "model": "qwen3.8:27b-mlx",
+      "condition_id": "canonical-representation-v0.1",
+      "run_id": "canonical-multiformat-run-20260911T064151Z-d4c3743d",
+      "classification": "fail",
+      "criteria": {
+        "claim_polarity_and_consistency": false,
+        "source_entailment": false,
+        "wording_accuracy": false,
+        "epistemic_calibration": true,
+        "german_writing_quality": true,
+        "executive_usefulness": false
+      },
+      "finding_ids": ["F-02"]
+    },
+    {
+      "position": 5,
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "condition_id": "mini-multi-format-v0.1",
+      "run_id": "mini-multiformat-run-20260911T064418Z-92bf3c87",
+      "classification": "pass",
+      "criteria": {
+        "claim_polarity_and_consistency": true,
+        "source_entailment": true,
+        "wording_accuracy": true,
+        "epistemic_calibration": true,
+        "german_writing_quality": true,
+        "executive_usefulness": true
+      },
+      "finding_ids": []
+    },
+    {
+      "position": 6,
+      "model": "gemma4:31b-mlx",
+      "condition_id": "pi-multi-format-v0.3",
+      "run_id": "pi-multiformat-run-20260911T064628Z-c5b62fb8",
+      "classification": "fail",
+      "criteria": {
+        "claim_polarity_and_consistency": true,
+        "source_entailment": false,
+        "wording_accuracy": false,
+        "epistemic_calibration": false,
+        "german_writing_quality": true,
+        "executive_usefulness": true
+      },
+      "finding_ids": ["F-03"]
+    },
+    {
+      "position": 7,
+      "model": "muse-glimmer:30b-mlx",
+      "condition_id": "canonical-representation-v0.1",
+      "run_id": "canonical-multiformat-run-20260911T065003Z-44a6e7dc",
+      "classification": "fail",
+      "criteria": {
+        "claim_polarity_and_consistency": true,
+        "source_entailment": true,
+        "wording_accuracy": true,
+        "epistemic_calibration": true,
+        "german_writing_quality": false,
+        "executive_usefulness": true
+      },
+      "finding_ids": ["F-04"]
+    },
+    {
+      "position": 8,
+      "model": "qwen3.8:27b-mlx",
+      "condition_id": "mini-multi-format-v0.1",
+      "run_id": "mini-multiformat-run-20260911T065204Z-0edfa1ad",
+      "classification": "pass",
+      "criteria": {
+        "claim_polarity_and_consistency": true,
+        "source_entailment": true,
+        "wording_accuracy": true,
+        "epistemic_calibration": true,
+        "german_writing_quality": true,
+        "executive_usefulness": true
+      },
+      "finding_ids": []
+    },
+    {
+      "position": 9,
+      "model": "muse-glimmer:30b-mlx",
+      "condition_id": "pi-multi-format-v0.3",
+      "run_id": "pi-multiformat-run-20260911T065443Z-62a27510",
+      "classification": "pass",
+      "criteria": {
+        "claim_polarity_and_consistency": true,
+        "source_entailment": true,
+        "wording_accuracy": true,
+        "epistemic_calibration": true,
+        "german_writing_quality": true,
+        "executive_usefulness": true
+      },
+      "finding_ids": []
+    },
+    {
+      "position": 10,
+      "model": "ornith-1.5:35b",
+      "condition_id": "canonical-representation-v0.1",
+      "run_id": "canonical-multiformat-run-20260911T065908Z-3af0371c",
+      "classification": "fail",
+      "criteria": {
+        "claim_polarity_and_consistency": false,
+        "source_entailment": false,
+        "wording_accuracy": false,
+        "epistemic_calibration": false,
+        "german_writing_quality": true,
+        "executive_usefulness": false
+      },
+      "finding_ids": ["F-05"]
+    },
+    {
+      "position": 11,
+      "model": "muse-glimmer:30b-mlx",
+      "condition_id": "mini-multi-format-v0.1",
+      "run_id": "mini-multiformat-run-20260911T070028Z-9f6defca",
+      "classification": "not_applicable",
+      "criteria": null,
+      "finding_ids": []
+    },
+    {
+      "position": 12,
+      "model": "qwen3.8:27b-mlx",
+      "condition_id": "pi-multi-format-v0.3",
+      "run_id": "pi-multiformat-run-20260911T070251Z-100bc214",
+      "classification": "pass",
+      "criteria": {
+        "claim_polarity_and_consistency": true,
+        "source_entailment": true,
+        "wording_accuracy": true,
+        "epistemic_calibration": true,
+        "german_writing_quality": true,
+        "executive_usefulness": true
+      },
+      "finding_ids": []
+    },
+    {
+      "position": 13,
+      "model": "gemma4:31b-mlx",
+      "condition_id": "canonical-representation-v0.1",
+      "run_id": "canonical-multiformat-run-20260911T070546Z-14c3a2bc",
+      "classification": "pass",
+      "criteria": {
+        "claim_polarity_and_consistency": true,
+        "source_entailment": true,
+        "wording_accuracy": true,
+        "epistemic_calibration": true,
+        "german_writing_quality": true,
+        "executive_usefulness": true
+      },
+      "finding_ids": []
+    },
+    {
+      "position": 14,
+      "model": "ornith-1.5:35b",
+      "condition_id": "mini-multi-format-v0.1",
+      "run_id": "mini-multiformat-run-20260911T070820Z-9e0aefe5",
+      "classification": "not_applicable",
+      "criteria": null,
+      "finding_ids": []
+    },
+    {
+      "position": 15,
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "condition_id": "pi-multi-format-v0.3",
+      "run_id": "pi-multiformat-run-20260911T070934Z-8ff90d17",
+      "classification": "fail",
+      "criteria": {
+        "claim_polarity_and_consistency": true,
+        "source_entailment": false,
+        "wording_accuracy": false,
+        "epistemic_calibration": true,
+        "german_writing_quality": true,
+        "executive_usefulness": false
+      },
+      "finding_ids": ["F-06"]
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "F-01",
+      "position": 1,
+      "classification": "contradictory_west_approval",
+      "observation": "The executive prose says that North and West pass all four gates and a launch rationale calls North one of two passing regions, while the same report also states that West is at 94% against a 95% threshold. West must be held, so the prose is internally contradictory and unsafe for the steering decision.",
+      "source_fact_codes": ["POL-GATES", "REL-WEST"]
+    },
+    {
+      "finding_id": "F-02",
+      "position": 4,
+      "classification": "contradictory_west_approval",
+      "observation": "The executive prose approves both North and West even though West's final completion is 94% and the policy requires at least 95%. A later rationale repeats that West may launch, so this is not merely a missing structured blocker.",
+      "source_fact_codes": ["POL-GATES", "REL-WEST"]
+    },
+    {
+      "finding_id": "F-03",
+      "position": 6,
+      "classification": "unsupported_regulatory_characterization",
+      "observation": "The launch rationale says North satisfies all regulatory requirements. The dossier establishes the four gates of a rollout policy, not a body of regulatory requirements; the stronger characterization is unsupported and unnecessarily overstates the evidence.",
+      "source_fact_codes": ["POL-GATES", "POL-REGION", "POL-PHASE"]
+    },
+    {
+      "finding_id": "F-04",
+      "position": 7,
+      "classification": "german_language_requirement_not_met",
+      "observation": "Although the executive summary is German, blocker explanations, evidence descriptions, action rationales and uncertainty reasons are predominantly English. The task explicitly requires all free-text values to be German.",
+      "source_fact_codes": []
+    },
+    {
+      "finding_id": "F-05",
+      "position": 10,
+      "classification": "contradictory_west_approval_and_unsupported_exception",
+      "observation": "The executive prose first says North and West pass all gates and immediately says West fails the 95% completion gate. It also proposes an exception path that is not established by the dossier. These statements reduce both consistency and decision safety.",
+      "source_fact_codes": ["POL-GATES", "POL-PHASE", "REL-WEST"]
+    },
+    {
+      "finding_id": "F-06",
+      "position": 15,
+      "classification": "dashboard_recommendation_conflicts_with_phased_policy",
+      "observation": "The dashboard-action rationale proposes that any failed regional gate should set the portfolio status to HOLD. The policy instead permits phased_go when at least one region passes and limits launch eligibility to passing regions. The proposed binary portfolio rule would therefore obscure the authorized North-only phase.",
+      "source_fact_codes": ["POL-REGION", "POL-PHASE", "DASH-STATUS"]
+    }
+  ],
+  "by_condition": [
+    {
+      "condition_id": "canonical-representation-v0.1",
+      "applicable": 5,
+      "pass": 1,
+      "fail": 4,
+      "not_applicable": 0
+    },
+    {
+      "condition_id": "mini-multi-format-v0.1",
+      "applicable": 3,
+      "pass": 3,
+      "fail": 0,
+      "not_applicable": 2
+    },
+    {
+      "condition_id": "pi-multi-format-v0.3",
+      "applicable": 5,
+      "pass": 3,
+      "fail": 2,
+      "not_applicable": 0
+    }
+  ],
+  "by_model": [
+    {
+      "model": "qwen3.6:35b-a3b-mxfp8",
+      "applicable": 3,
+      "pass": 1,
+      "fail": 2,
+      "not_applicable": 0
+    },
+    {
+      "model": "qwen3.8:27b-mlx",
+      "applicable": 3,
+      "pass": 2,
+      "fail": 1,
+      "not_applicable": 0
+    },
+    {
+      "model": "muse-glimmer:30b-mlx",
+      "applicable": 2,
+      "pass": 1,
+      "fail": 1,
+      "not_applicable": 1
+    },
+    {
+      "model": "ornith-1.5:35b",
+      "applicable": 2,
+      "pass": 1,
+      "fail": 1,
+      "not_applicable": 1
+    },
+    {
+      "model": "gemma4:31b-mlx",
+      "applicable": 3,
+      "pass": 2,
+      "fail": 1,
+      "not_applicable": 0
+    }
+  ],
+  "interpretation": [
+    "The supplemental layer accepts 7 of 13 parseable reports; it does not alter the official deterministic result of 2 semantic successes in 15 cells.",
+    "Both deterministic semantic successes, positions 8 and 12, also pass this review and strict transport, so the combined fully accepted count is 2 of 15.",
+    "The audit found four content-safety or calibration failures, one language-compliance failure and one mixed failure with both contradiction and an unsupported action path.",
+    "Track A and Track B remain separate, every exact configuration remains n=1, and no reliability rate, latency distribution, universal model ranking or one-factor harness claim follows."
+  ]
+}

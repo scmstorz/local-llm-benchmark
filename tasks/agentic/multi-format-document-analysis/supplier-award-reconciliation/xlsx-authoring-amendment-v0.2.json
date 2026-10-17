@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "amendment_id": "supplier-award-bid-evaluation-xlsx-v0.2",
+  "case_id": "agentic.documents.supplier-award-reconciliation",
+  "status": "executed_and_qualified",
+  "authorized_on": "2026-09-11",
+  "scope": "bid-evaluation.xlsx fixture authoring and qualification only",
+  "reason": "The active Codex runtime does not expose load_workspace_dependencies or @oai/artifact-tool; the user explicitly authorized the controlled LibreOffice, Poppler and visual-QA alternative for Phase 96.",
+  "original_required_toolchain": [
+    "load_workspace_dependencies",
+    "@oai/artifact-tool"
+  ],
+  "authorized_alternative_toolchain": [
+    "openpyxl 3.1.5 in the previously isolated Python environment",
+    "LibreOffice headless for formula recalculation and workbook-to-PDF rendering",
+    "Poppler for page rasterization and visual inspection"
+  ],
+  "identity_policy": [
+    "Record exact tool versions in the XLSX qualification record.",
+    "Freeze the final workbook SHA-256 after recalculation and visual QA.",
+    "Do not describe this fixture as authored or rendered by @oai/artifact-tool.",
+    "Qualify later artifact extraction independently from fixture authoring.",
+    "Do not change or pool the Track A canonical-representation and Track B real-artifact conditions."
+  ],
+  "unchanged_boundaries": [
+    "No model inference is authorized.",
+    "No Office ZIP may be handcrafted.",
+    "The intentionally assurance-blind Cedar dashboard recommendation remains benchmark evidence, not a formula error.",
+    "Every worksheet must pass formula, cached-value and visual inspection before the XLSX gate closes."
+  ],
+  "qualification_path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/xlsx-artifact-qualification-v0.2.json"
+}

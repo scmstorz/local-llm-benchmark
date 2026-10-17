@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "harness_id": "pi-multi-format-v0.2",
+  "harness_family": "pinned_pi",
+  "status": "qualification_candidate",
+  "protocol_path": "tasks/agentic/track-b/multi-format-v0.1.json",
+  "system_prompt_path": "tasks/agentic/track-b/prompts/pi-multi-format-system-v0.1.txt",
+  "capability_inventory_path": "capabilities/inventories/pi-multi-format-v0.2.json",
+  "isolation_profile_path": "capabilities/isolation-profiles/pi-multi-format-v0.2.json",
+  "implementation_status": "corrected_python_worker_pending_no_inference_qualification",
+  "supersedes": "pi-multi-format-v0.1",
+  "correction": "Execute the Homebrew Python.app worker directly instead of its spawning framework launcher.",
+  "package": {
+    "name": "@earendil-works/pi-coding-agent",
+    "version": "0.84.4",
+    "npm_integrity": "sha512-jmOlrqUmvhh/siNWFRXjYLJzhKFIHNsAQaysRwzQPQFnPAaV/vhqHsLH/MBsIISA1Rjj7WTUFR3nJrpXoLx39w==",
+    "npm_shasum": "3a2f04bfc5e463b4cfa36b174a586d11a0bdf9ad",
+    "repository": "https://github.com/earendil-works/pi",
+    "node_requirement": ">=22.19.0"
+  },
+  "integration": {
+    "mode": "json",
+    "non_interactive": true,
+    "session_persistence": false,
+    "startup_network": false,
+    "provider": "ollama",
+    "api": "openai-completions",
+    "base_url": "http://127.0.0.1:11434/v1",
+    "tools": ["list_artifacts", "read_docx", "read_pdf", "read_xlsx"],
+    "discovered_extensions": false,
+    "explicit_extension": "integrations/pi/multi-format-readonly-v0.1.mjs",
+    "skills": false,
+    "prompt_templates": false,
+    "themes": false,
+    "context_files": false,
+    "project_trust": false,
+    "python_worker_selection": "exact_homebrew_python_app_executable"
+  },
+  "final_output_protocol": "single_intact_json_object_with_strict_transport_scored_separately"
+}

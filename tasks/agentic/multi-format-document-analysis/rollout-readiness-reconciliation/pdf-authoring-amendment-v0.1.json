@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "amendment_id": "reliability-review-pdf-authoring-v0.1",
+  "case_id": "agentic.documents.rollout-readiness-reconciliation",
+  "status": "executed_and_qualified",
+  "authorized_on": "2026-09-10",
+  "scope": "reliability-review.pdf fixture authoring and qualification only",
+  "reason": "The user explicitly authorized the controlled ReportLab, pypdf and Poppler workflow for the remaining PDF fixture.",
+  "authorized_toolchain": [
+    "ReportLab in an isolated temporary Python environment for PDF generation",
+    "pypdf and pdfplumber for structural, text and table inspection",
+    "Poppler for independent metadata, text and page-raster checks"
+  ],
+  "output_override": "The benchmark blueprint requires the final PDF under the case fixture directory rather than output/pdf.",
+  "identity_policy": [
+    "Record exact dependency and renderer versions in the PDF qualification record.",
+    "Freeze the final PDF SHA-256 after extraction and visual QA.",
+    "Preserve page-specific Preliminary-validation, Final-table and Final-validation anchors.",
+    "Qualify later canonical and Track B extraction independently from fixture authoring.",
+    "Do not change or pool the Track A canonical-representation and Track B real-artifact conditions."
+  ],
+  "unchanged_boundaries": [
+    "No model inference is authorized.",
+    "The final table on page 3 must explicitly supersede the preliminary table on page 2.",
+    "The decision cutoff remains 2026-08-31 18:00 UTC.",
+    "Every rendered page must pass visual inspection before the PDF artifact gate closes."
+  ],
+  "qualification_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/pdf-artifact-qualification-v0.1.json"
+}

@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "supplier-award-assurance-review-pdf-v0.2",
+  "case_id": "agentic.documents.supplier-award-reconciliation",
+  "status": "qualified",
+  "qualified_on": "2026-09-11",
+  "live_inference_performed": false,
+  "artifact": {
+    "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/fixture/supplier-assurance-review.pdf",
+    "format": "pdf",
+    "size_bytes": 7678,
+    "sha256": "c25a322efb3e2433787f3f95343f5855c8f05218d287ac310dc19abbdd0c38df"
+  },
+  "authoring_protocol": {
+    "amendment_path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/pdf-authoring-amendment-v0.2.json",
+    "amendment_sha256": "25cbb60b9df5e912a3bfb1b6aaa80813291a35a0ee26f9b373461fea712b0f1e",
+    "dependency_loader_available": false,
+    "alternative_authoring_explicitly_authorized": true,
+    "artifact_operation_marker_recorded": true,
+    "pdf_handcrafted": false,
+    "canonical_extraction_qualified": false
+  },
+  "toolchain": {
+    "platform": "Darwin 25.1.0 arm64",
+    "environment_manager": "uv 0.11.3 (45da18ac3 2026-04-01 aarch64-apple-darwin)",
+    "python": "3.13.12",
+    "reportlab": "5.0.1",
+    "pypdf": "6.18.0",
+    "pdfplumber": "0.11.10",
+    "pdfminer_six": "20260107",
+    "pillow": "12.3.0",
+    "pypdfium2": "5.13.0",
+    "poppler_pdftoppm": "25.11.0",
+    "poppler_pdfinfo": "25.11.0"
+  },
+  "reproducibility_inputs": [
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/build_supplier_assurance_review_pdf.py",
+      "sha256": "c32eda9ba43f4239482631dbd09c1b873fa117e815a7f0c0910903339b6d73d0"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/inspect_supplier_assurance_review_pdf.py",
+      "sha256": "a0d638c3f78f41ca7cc8acad2b7d42b5f2e7eff832277da60aea2b358caa9a64"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/pdf-authoring-requirements-v0.2.txt",
+      "sha256": "ee6fe9ad2d84a9e4eec2b339ad85fa6a5da5d04cc086e64549fe463e768d3951"
+    }
+  ],
+  "structural_and_extraction_checks": {
+    "strict_pdf_parse_passed": true,
+    "pdf_version": "1.4",
+    "page_count": 3,
+    "page_size": "US Letter",
+    "page_geometry_points": [612, 792],
+    "page_rotations": [0, 0, 0],
+    "outline_titles": ["Purpose and authority", "Unsigned draft", "Signed-final assurance"],
+    "outline_pages": [1, 2, 3],
+    "page_mode": "UseNone",
+    "extracted_table_counts_by_page": [2, 1, 2],
+    "unsigned_draft_table_exact_match": true,
+    "signed_final_table_exact_match": true,
+    "material_change_table_exact_match": true,
+    "encrypted": false,
+    "annotation_count": 0,
+    "acroform_present": false,
+    "javascript_or_automatic_action_count": 0,
+    "standard_base_fonts": ["Helvetica", "Helvetica-Bold", "Helvetica-Oblique"],
+    "font_embedding_note": "The PDF uses the standard Type 1 Helvetica base-font family; Poppler rendered every glyph correctly."
+  },
+  "metadata": {
+    "title": "Supplier Assurance Review",
+    "subject": "Synthetic multi-format benchmark fixture",
+    "author": "Local LLM Benchmark Lab",
+    "creator": "ReportLab 5.0.1",
+    "producer": "ReportLab PDF Library - (opensource)",
+    "keywords": "synthetic benchmark, supplier assurance, signed final",
+    "creation_date": "D:20000101000000+00'00'",
+    "modification_date": "D:20000101000000+00'00'"
+  },
+  "source_anchor_reconciliation": [
+    {
+      "fact_code": "ASSUR-DRAFT",
+      "source_ref": "supplier-assurance-review.pdf#page=2&table=Unsigned-draft",
+      "observed": "The unsigned draft lists Cedar with zero unresolved critical findings and Atlas with rating C.",
+      "passed": true
+    },
+    {
+      "fact_code": "ASSUR-FINAL",
+      "source_ref": "supplier-assurance-review.pdf#page=3&note=Signed-final",
+      "observed": "The signed-final appendix on page 3 supersedes the unsigned draft on page 2 and was finalized at 2026-09-08 14:30 UTC, before the 16:00 UTC cutoff.",
+      "passed": true
+    },
+    {
+      "fact_code": "ASSUR-ATLAS",
+      "source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Atlas",
+      "observed": "Atlas: signed-final assurance rating B, zero unresolved critical findings.",
+      "passed": true
+    },
+    {
+      "fact_code": "ASSUR-BOREAL",
+      "source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Boreal",
+      "observed": "Boreal: signed-final assurance rating A, zero unresolved critical findings.",
+      "passed": true
+    },
+    {
+      "fact_code": "ASSUR-CEDAR",
+      "source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Cedar",
+      "observed": "Cedar: signed-final assurance rating A, one unresolved critical finding.",
+      "passed": true
+    },
+    {
+      "fact_code": "ASSUR-DELTA",
+      "source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Delta",
+      "observed": "Delta: signed-final assurance rating B, zero unresolved critical findings.",
+      "passed": true
+    }
+  ],
+  "render_and_visual_qa": {
+    "renderer": "Poppler pdftoppm at 144 DPI",
+    "rendered_page_count": 3,
+    "render_artifacts_retained_in_repository": false,
+    "pages": [
+      {
+        "page": 1,
+        "content": "report authority, signed-final timestamp, decision cutoff and reading guide",
+        "png_dimensions": [1224, 1584],
+        "png_sha256": "6397d2220341127d285a44787744399dd87683f186aaddf4465c4a8f692916ff",
+        "inspected_at_original_resolution": true,
+        "clipping_or_overlap": false,
+        "broken_table_geometry": false,
+        "missing_or_unreadable_content": false
+      },
+      {
+        "page": 2,
+        "content": "superseded unsigned draft assurance and authority warning",
+        "png_dimensions": [1224, 1584],
+        "png_sha256": "c428dbdc59141c5949cb955c48674218d480532704d1cd067887425facb4233a",
+        "inspected_at_original_resolution": true,
+        "clipping_or_overlap": false,
+        "broken_table_geometry": false,
+        "missing_or_unreadable_content": false
+      },
+      {
+        "page": 3,
+        "content": "signed-final assurance, material changes and sign-off",
+        "png_dimensions": [1224, 1584],
+        "png_sha256": "432ac11d0d47254401b5c652055a6e2f3d0e5d156196d8d3703c44ad78f9536e",
+        "inspected_at_original_resolution": true,
+        "clipping_or_overlap": false,
+        "broken_table_geometry": false,
+        "missing_or_unreadable_content": false
+      }
+    ],
+    "passed": true
+  },
+  "gates_passed": [
+    "PDF created with the explicitly authorized ReportLab runtime",
+    "strict structure, metadata, outline and safety checks passed",
+    "unsigned-draft, signed-final and material-change tables extracted exactly",
+    "all three pages rendered and visually inspected",
+    "source anchors reconcile with the frozen source blueprint",
+    "binary hash and runtime versions frozen"
+  ],
+  "not_qualified_by_this_record": [
+    "canonical extraction",
+    "Track B artifact-reading tools",
+    "Mini or Pi complete-system execution",
+    "model inference"
+  ]
+}

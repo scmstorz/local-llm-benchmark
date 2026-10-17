@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "multi-format-qwen38-confirmation-v0.1-controller-no-inference",
+  "status": "qualified_for_frozen_plan",
+  "qualified_on": "2026-09-11",
+  "scope": "Nine-cell targeted Qwen 3.8 confirmation controller and public-safe deterministic report path.",
+  "qualification_evidence": {
+    "focused_tests_passed": 8,
+    "live_ollama_requests": 0,
+    "live_model_inference": false,
+    "repository_live_authorization_present": false,
+    "temporary_authorizations_used_only_in_mocked_tests": true,
+    "frozen_capability_controller_modified": false
+  },
+  "controller_properties": {
+    "exact_nine_cell_order_enforced": true,
+    "exact_qwen38_deployment_enforced": true,
+    "three_scheduled_repetitions_per_condition_enforced": true,
+    "automatic_retries": 0,
+    "historical_cells_reused": false,
+    "post_freeze_hash_bound_authorization_required": true,
+    "exclusive_window_confirmation_required_at_live_boundary": true,
+    "fresh_resource_gate_before_each_first_request": true,
+    "fresh_twelve_check_seatbelt_acceptance_before_each_pi_cell": true,
+    "terminal_attempts_not_repeated": true,
+    "raw_candidate_content_excluded_from_public_report": true
+  },
+  "implementation_note": "The confirmation controller reuses frozen state-machine helpers from the completed capability controller by import. Both files are exact-hash dependencies; the prior controller remains byte-for-byte unchanged.",
+  "artifacts": [
+    {
+      "path": "local_llm_benchmark/multi_format_confirmation.py",
+      "sha256": "5b7a6b35de4e6582be2693563aaae89457d6157aae33d3403ab76e3cfd3a8206"
+    },
+    {
+      "path": "local_llm_benchmark/multi_format_confirmation_report.py",
+      "sha256": "c44afee6ba9c810872816bddc96e647d1fd0fb541ba0a88d36decf30ac0dd5b9"
+    },
+    {
+      "path": "local_llm_benchmark/multi_format_study.py",
+      "sha256": "953566438bf2ae44e0342690efd462ca811ef0452f28796a0e3318a28eae0ced"
+    }
+  ]
+}

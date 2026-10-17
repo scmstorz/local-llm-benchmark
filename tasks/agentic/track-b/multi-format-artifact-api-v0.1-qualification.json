@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "multi-format-artifact-api-v0.1-no-inference-qualification",
+  "qualified_on": "2026-09-10",
+  "status": "qualified_for_excluded_smoke_design",
+  "api_version": "0.1.0",
+  "case_id": "agentic.documents.rollout-readiness-reconciliation",
+  "live_ollama_requests": 0,
+  "live_model_inference": false,
+  "qualification_evidence": {
+    "frozen_binary_inputs": 3,
+    "bounded_queries": 15,
+    "binary_derived_records": 15,
+    "records_equal_frozen_canonical_extraction": 15,
+    "record_order_equal": true,
+    "fact_codes_and_source_refs_equal": true,
+    "maximum_response_bytes": 8192,
+    "workspace_requires_exact_inventory": true,
+    "binary_hash_verified_before_each_read": true,
+    "symlink_rejected": true,
+    "unknown_operation_rejected": true,
+    "unknown_anchor_rejected": true,
+    "standalone_bridge_matches_direct_import": true,
+    "artifact_bytes_unchanged_after_all_reads": true,
+    "focused_python_tests_passed": 6
+  },
+  "runtime": {
+    "python": "3.14.4",
+    "pdftotext": "25.11.0",
+    "docx_parser": "Python standard-library OOXML",
+    "xlsx_parser": "Python standard-library OOXML",
+    "pdf_parser": "Poppler pdftotext -layout"
+  },
+  "execution_boundary": {
+    "input_controlled_filesystem_paths": false,
+    "filesystem_writes": false,
+    "network_operations": false,
+    "subprocess_allowlist": ["exact resolved pdftotext binary for read_pdf only"],
+    "ground_truth_loaded": false,
+    "canonical_extraction_loaded": false,
+    "controlled_answer_values_embedded": false
+  },
+  "comparison_boundary": {
+    "mini_and_pi_share_exact_backend_bytes": true,
+    "track_a_uses_frozen_canonical_json": true,
+    "track_b_reads_real_binary_artifacts": true,
+    "track_a_and_track_b_poolable": false
+  },
+  "artifacts": [
+    {"path": "local_llm_benchmark/multi_format_artifacts.py", "sha256": "b9e780953bd39002f0b8778f096d898b93e2b4abe12879f0efb86756369745c4"},
+    {"path": "tests/test_multi_format_artifacts.py", "sha256": "72c438470ea398a74d0eaa03e28eca84335f1d1d7a27c2433b26a61c72cd6d7d"},
+    {"path": "tasks/agentic/track-b/multi-format-v0.1.json", "sha256": "d86a29a6828af39e351909e8957230419e760a9c055b47f592ba1e9f3839d30d"},
+    {"path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json", "sha256": "6a3eeb93f801f91068ba995ab35a955f85f188f4d9110a55d2708adb5b30875a"},
+    {"path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/canonical/canonical-extraction-v0.1.json", "sha256": "9fda47f138ca4019fc0e1c84ad6b5734db43d3c23184794f5bc4d4cabef5c0db"},
+    {"path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/canonical-extraction-qualification-v0.1.json", "sha256": "56e586e1cb098e20a1c7c2426b9b1c5e3a864905ce23bb1cd3d1b2c71c8cdb9c"}
+  ],
+  "next_gate": "Run exactly one excluded smoke under each admitted complete system after a fresh exclusive resource-window confirmation."
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "mini-multi-format-qwen38-development-smoke-v0.1",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-10",
+  "track": "B",
+  "harness_id": "mini-multi-format-v0.1",
+  "protocol_id": "agentic-multi-format-v0.1",
+  "evidence_class": "excluded_development_smoke",
+  "purpose": "Qualify one complete Mini trajectory through real DOCX, PDF and XLSX artifacts before any measured Track A/Track B plan is designed.",
+  "repository_commit_at_freeze": "d8857b030adcebe8b59400b724fbebf5240cd461",
+  "worktree_inputs_frozen_by_sha256": true,
+  "runtime": {
+    "name": "ollama",
+    "version": "0.33.2",
+    "host": "http://127.0.0.1:11434"
+  },
+  "deployment": {
+    "name": "qwen3.8:27b-mlx",
+    "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "size_bytes": 18174721847,
+    "quantization": "nvfp4",
+    "template_sha256": "b507b9c2f6ca642bffcd06665ea7c91f235fd32daeefdf875a0f938db05fb315",
+    "selection_reason": "The previously characterized active-default Qwen 3.8 deployment is used for both machinery smokes; this is not comparative model evidence."
+  },
+  "case": {
+    "case_id": "agentic.documents.rollout-readiness-reconciliation",
+    "case_version": "1.0.0",
+    "case_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json"
+  },
+  "configuration": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 5000,
+    "maximum_active_wall_time_seconds": 300,
+    "provider_request_timeout_seconds": 180,
+    "maximum_agent_turns": null,
+    "maximum_total_output_tokens": null,
+    "maximum_protocol_errors": null,
+    "maximum_artifact_tool_calls_emergency": 40,
+    "automatic_retries": 0
+  },
+  "execution_boundary": {
+    "model_call": "A separate command contacts only loopback Ollama and cannot execute candidate code.",
+    "action_step": "A separate command invokes one bounded shared-backend query or persists the final report.",
+    "candidate_workspace": "Exactly three frozen artifact files; no canonical or hidden reference files.",
+    "final_verification": "A separate command applies the hidden deterministic verifier after terminal report submission.",
+    "external_network_available_to_agent": false
+  },
+  "success_gate_for_measured_planning": {
+    "requires_verified_success": false,
+    "requires_complete_terminal_outcome": true,
+    "requires_no_adapter_or_orchestration_defect": true,
+    "requires_failure_if_any_to_be_machine_classified": true
+  },
+  "comparison_rules": {
+    "attempts": 1,
+    "automatic_retries": 0,
+    "result_excluded_from_measured_aggregates": true,
+    "no_model_or_harness_ranking_claim": true
+  },
+  "authorization": {
+    "source": "The user authorized preparation through the boundary immediately before Ollama smoke execution on 2026-09-10 and asked to be notified before shutting down competing consumers.",
+    "status": "resource_window_confirmation_pending",
+    "live_execution_allowed_only_after_fresh_confirmation": true
+  },
+  "frozen_inputs": {
+    "qualification_path": "tasks/agentic/track-b/mini-multi-format-v0.1-qualification.json",
+    "qualification_sha256": "3d0ea522f3e9b93451548f410515a542db18a90f6720934e52188d4ed2aec8f1",
+    "artifacts": [
+      {"path": "tasks/agentic/track-b/mini-multi-format-v0.1-qualification.json", "sha256": "3d0ea522f3e9b93451548f410515a542db18a90f6720934e52188d4ed2aec8f1"},
+      {"path": "tasks/agentic/track-b/multi-format-artifact-api-v0.1-qualification.json", "sha256": "017a40a98adde3116a7f82dd74e3bc4da9aff49f393adaa5b883c473a6a1923f"},
+      {"path": "local_llm_benchmark/multi_format_mini.py", "sha256": "231782331781c633f3d641e9f67fdac43aa63086c456a166d452a730017bb5fd"},
+      {"path": "local_llm_benchmark/multi_format_artifacts.py", "sha256": "b9e780953bd39002f0b8778f096d898b93e2b4abe12879f0efb86756369745c4"},
+      {"path": "tasks/agentic/track-b/mini-multi-format-v0.1.json", "sha256": "d9416b9c0cd8271e3a2058c5a53dab9e70fb502b441a7792418e728acd514b82"},
+      {"path": "tasks/agentic/track-b/multi-format-v0.1.json", "sha256": "d86a29a6828af39e351909e8957230419e760a9c055b47f592ba1e9f3839d30d"},
+      {"path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json", "sha256": "6a3eeb93f801f91068ba995ab35a955f85f188f4d9110a55d2708adb5b30875a"},
+      {"path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/TASK-v0.1.md", "sha256": "26e7a3e248b3f2fff5e328059598c6e4f17603d4b614db9aafeac7febf35b363"},
+      {"path": "tasks/agentic/multi-format-document-analysis/report-schema-v1.json", "sha256": "efee4a95075621c2cf0173ea10e247b538d24e4031051927414778018ef4ebe3"},
+      {"path": "models/catalog.json", "sha256": "79e56238c9405d27dfba266e319a837571b6239cb9a6d1682729e58ebcf3d834"},
+      {"path": "models/lifecycle.json", "sha256": "18d896067eddf62ddf3c7ded8d34f22e32fef9994877239cf8e6abf877c30621"}
+    ]
+  }
+}

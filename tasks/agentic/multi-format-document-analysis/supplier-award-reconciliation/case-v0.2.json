@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "agentic.documents.supplier-award-reconciliation",
+  "case_version": "2.0.0",
+  "track": "A+B",
+  "task_family": "document_decision_reconciliation",
+  "status": "complete_systems_qualified_pending_smoke_freeze",
+  "live_execution_authorized": false,
+  "artifact_generation_complete": true,
+  "canonical_extraction_complete": true,
+  "task_path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/TASK-v0.2.md",
+  "source_blueprint_path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/source-blueprint-v0.2.json",
+  "planned_artifact_root": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/fixture",
+  "artifact_qualifications": {
+    "docx": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/docx-artifact-qualification-v0.2.json",
+    "pdf": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/pdf-artifact-qualification-v0.2.json",
+    "xlsx": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/xlsx-artifact-qualification-v0.2.json"
+  },
+  "canonical_extraction": {
+    "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/canonical/canonical-extraction-v0.2.json",
+    "schema_path": "tasks/agentic/multi-format-document-analysis/canonical-extraction-schema-v2.json",
+    "qualification_path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/canonical-extraction-qualification-v0.2.json"
+  },
+  "track_b_harness": {
+    "shared_backend_path": "local_llm_benchmark/multi_format_transfer_artifacts.py",
+    "artifact_api_qualification_path": "tasks/agentic/track-b/multi-format-transfer-artifact-api-v0.2-qualification.json",
+    "complete_system_adaptation_status": "qualified",
+    "complete_system_qualification_path": "tasks/agentic/track-b/multi-format-transfer-complete-systems-v0.2-qualification.json",
+    "systems": [
+      {
+        "harness_id": "mini-multi-format-v0.2",
+        "harness_path": "tasks/agentic/track-b/mini-multi-format-v0.2.json",
+        "qualification_path": "tasks/agentic/track-b/mini-multi-format-v0.2-qualification.json"
+      },
+      {
+        "harness_id": "pi-multi-format-v0.4",
+        "harness_path": "tasks/agentic/track-b/pi-multi-format-v0.4.json",
+        "qualification_path": "tasks/agentic/track-b/pi-multi-format-v0.4-qualification.json"
+      }
+    ]
+  },
+  "candidate_context": {
+    "read_only": true,
+    "browsing_allowed": false,
+    "shared_state_allowed": false,
+    "planned_files": [
+      "supplier-selection-policy.docx",
+      "supplier-assurance-review.pdf",
+      "bid-evaluation.xlsx"
+    ]
+  },
+  "evaluation_conditions": [
+    {
+      "condition_id": "canonical-representation",
+      "track": "A",
+      "question": "Can the model transfer its reasoning to a constrained supplier selection over a common frozen extraction?",
+      "artifact_tooling_is_part_of_identity": false
+    },
+    {
+      "condition_id": "real-artifact-harness",
+      "track": "B",
+      "question": "Can the complete harness discover and reconcile the supplier evidence from real artifacts?",
+      "artifact_tooling_is_part_of_identity": true
+    }
+  ],
+  "output_contract": {
+    "format": "structured_supplier_selection_report",
+    "version": "2.0.0",
+    "schema_path": "tasks/agentic/multi-format-document-analysis/report-schema-v2.json",
+    "strict_json_transport_scored_separately": true,
+    "maximum_serialized_bytes": 32768
+  },
+  "verification": {
+    "version": "2.0.0",
+    "ground_truth_path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/reference/ground-truth-v0.2.json",
+    "reference_report_path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/reference/reference-report-v0.2.json",
+    "implementation_path": "local_llm_benchmark/multi_format_transfer.py"
+  },
+  "evaluation": {
+    "contract_path": "tasks/agentic/multi-format-document-analysis/evaluation-contract-v0.2.json",
+    "primary_outcome": "semantic_verified_success",
+    "supplemental_free_text_review_required": true,
+    "llm_judge_required_for_measured_capability": true,
+    "composite_score": false
+  }
+}

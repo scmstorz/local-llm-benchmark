@@ -1,0 +1,48 @@
+{
+  "artifacts": [
+    {
+      "path": "local_llm_benchmark/multi_format_transfer_smoke_v03.py",
+      "sha256": "10c1fd2bedcf28f2c77e807a2baae9bb904c60db4d32ee901a42305003c97c50"
+    },
+    {
+      "path": "tests/test_multi_format_transfer_smoke_v03.py",
+      "sha256": "ccd7092b8aa1f20b113b92d2e1dae2bd5c63c8bdda25f8aa9ae05eead08e6ec6"
+    },
+    {
+      "path": "models/catalog-transfer-smoke-ollama-0.40.2.json",
+      "sha256": "4fa3f3ae517d3d5913ef0a9a0dd40b1b941d7873dfb1d31a5e9a35696c30c637"
+    },
+    {
+      "path": "tasks/agentic/track-b/multi-format-transfer-smoke-v0.3.json",
+      "sha256": "cc1b095394685acb2ecf85346bfd353c5f9eb8e52a7018a80e95e77f04406ff3"
+    },
+    {
+      "path": "local_llm_benchmark/multi_format_transfer_smoke.py",
+      "sha256": "74d9b50e333fd57d101d139b6e6a7b65154edf3e005662ce613c5d7d1a80a823"
+    },
+    {
+      "path": "tasks/agentic/track-b/multi-format-transfer-smoke-v0.2-controller-qualification.json",
+      "sha256": "744ed83640b411ed39b76cbffa96502dfd4e987650c8f41664e50a4a709d7ee5"
+    },
+    {
+      "path": "docs/multi-format-transfer-smoke-runtime-v0.3.md",
+      "sha256": "206a4e371912f2014552047d275e2a035953129bbf3d82c79ab29d3953e4e493"
+    }
+  ],
+  "qualification_evidence": {
+    "focused_python_tests_passed": 9,
+    "fresh_live_pi_seatbelt_acceptance_still_required": true,
+    "fresh_preparation_mocked_without_ollama": true,
+    "historical_authorization_rejected": true,
+    "historical_private_study_preserved": true,
+    "live_model_inference": false,
+    "live_ollama_requests": 0,
+    "sampling_order_retry_drift_rejected": true,
+    "wrong_runtime_rejected_before_inference": true
+  },
+  "qualification_id": "multi-format-transfer-smoke-v0.3-controller-no-inference",
+  "qualified_on": "2026-10-17",
+  "runtime_version": "0.40.2",
+  "schema_version": "1.0.0",
+  "status": "qualified_for_frozen_smoke"
+}

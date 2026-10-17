@@ -1,0 +1,56 @@
+{
+  "artifacts": [
+    {
+      "path": "local_llm_benchmark/multi_format_transfer_v021.py",
+      "sha256": "4cb55ea79125d158c40287bc80e24ce9586e8bec3e0125104d152237527e9bf1"
+    },
+    {
+      "path": "local_llm_benchmark/multi_format_metrics_v02.py",
+      "sha256": "d98238c6c086908454d8388dbc7a34d6e380d111e3cd436da0cb7bdaef7e62d7"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/evaluation-contract-v0.3.json",
+      "sha256": "40bd563acf0502e8799f38a54e73bf0249ec426a943e70ac3e725c41d3a83823"
+    },
+    {
+      "path": "tasks/agentic/multi-format-transfer-metrics-v0.2.json",
+      "sha256": "029fbfd306b9495e600179e688b98226904e19117fa7bdc36b27715c99fe8778"
+    },
+    {
+      "path": "tests/test_multi_format_transfer_v021.py",
+      "sha256": "f062366f932af608ca16f6f38138e0def001e99ffd26315efd2da2cb6c34bde9"
+    },
+    {
+      "path": "tests/test_multi_format_metrics_v02.py",
+      "sha256": "1903baa6fdc819cf6d1da64a5a4efc29c85fa32b7472de6afeb22132b56c7f34"
+    },
+    {
+      "path": "docs/multi-format-verification-v0.3.md",
+      "sha256": "02cd3965b0c021215f495f8e429f112232949b595a03af650478ab9c9ab1a38e"
+    }
+  ],
+  "evaluation_contract_version": "0.3",
+  "evidence": {
+    "additional_known_citation_accepted": true,
+    "derived_metrics_report_uses_new_destination": true,
+    "full_research_tests_passed": 631,
+    "live_ollama_requests": 0,
+    "model_inference": false,
+    "new_metrics_tests_passed": 15,
+    "new_verifier_tests_passed": 11,
+    "old_scores_and_reviews_byte_identical": true,
+    "original_and_terminal_private_studies_preserved": true,
+    "original_plans_and_qualifications_valid": true,
+    "required_unknown_and_duplicate_citation_regressions_passed": true,
+    "unknown_requests_not_zero_or_turn_estimate": true
+  },
+  "future_measured_plan_must_select_versions_explicitly": true,
+  "historical_scores_changed": false,
+  "metrics_version": "0.2.0",
+  "new_execution_authorized": false,
+  "qualification_id": "supplier-offline-verification-metrics-corrections-v0.3",
+  "qualified_on": "2026-10-17",
+  "schema_version": "1.0.0",
+  "status": "qualified_offline_for_explicit_use",
+  "verifier_version": "2.1.0"
+}

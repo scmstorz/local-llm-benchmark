@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "rollout-readiness-regional-readiness-xlsx-v0.1",
+  "case_id": "agentic.documents.rollout-readiness-reconciliation",
+  "status": "qualified",
+  "qualified_on": "2026-09-10",
+  "live_inference_performed": false,
+  "artifact": {
+    "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/fixture/regional-readiness.xlsx",
+    "format": "xlsx",
+    "size_bytes": 14788,
+    "sha256": "c6144e5756654ab7b9d4911b5f02cba5f19242d361227e3574dedefc47096d1d"
+  },
+  "authoring_protocol": {
+    "amendment_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/xlsx-authoring-amendment-v0.1.json",
+    "amendment_sha256": "c0a86b6092e8833510b9588bd9a211e983223ebf8edebe2a5fcfd94b1293f75a",
+    "dependency_loader_available": false,
+    "artifact_tool_used": false,
+    "template_picker_available": false,
+    "artifact_operation_marker_available": false,
+    "alternative_authoring_explicitly_authorized": true
+  },
+  "toolchain": {
+    "platform": "Darwin 25.1.0 arm64",
+    "environment_manager": "uv 0.11.3 (45da18ac3 2026-04-01 aarch64-apple-darwin)",
+    "python": "3.13.12",
+    "openpyxl": "3.1.5",
+    "libreoffice": "26.8.0.3 bce0998afefdbc355585ca324285661a2170ba77",
+    "poppler_pdftoppm": "25.11.0"
+  },
+  "reproducibility_inputs": [
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/build_regional_readiness_xlsx.py",
+      "sha256": "5179231946639c6a63fda006d5a7fb3ad93152f95f1af6c1709daaf61d189a92"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/inspect_regional_readiness_xlsx.py",
+      "sha256": "ff2d0c5bf2bfdf10003e3e785e01ba4b001dd47bcf43b56953f2550053ff881a"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/xlsx-authoring-requirements-v0.1.txt",
+      "sha256": "06d28d69e958deafb09f0a44fcae9b548f15e4debc14ebc39aad5f0934856fbf"
+    }
+  ],
+  "workbook_checks": {
+    "worksheet_order": [
+      "Summary",
+      "Capacity"
+    ],
+    "visible_worksheet_count": 2,
+    "formula_count": 11,
+    "formula_error_count": 0,
+    "cached_value_error_count": 0,
+    "external_link_count": 0,
+    "vba_project_count": 0,
+    "zip_integrity_passed": true,
+    "print_areas": {
+      "Summary": "'Summary'!$A$1:$F$11",
+      "Capacity": "'Capacity'!$A$1:$H$10"
+    },
+    "formula_results": {
+      "Summary!B3": "GO",
+      "Summary!B6": 1.35604395604396,
+      "Capacity!D4": 1.26851851851852,
+      "Capacity!D5": 1.28205128205128,
+      "Capacity!D6": 1.5,
+      "Capacity!D7": 1.38461538461538,
+      "Capacity!E4:E7": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ]
+    }
+  },
+  "source_anchor_reconciliation": [
+    {
+      "fact_code": "DASH-STATUS",
+      "source_ref": "regional-readiness.xlsx#sheet=Summary&range=B3:B5",
+      "observed": {
+        "portfolio_status": "GO",
+        "average_completion": 0.9625,
+        "average_open_issues_per_region": 1.25
+      },
+      "passed": true
+    },
+    {
+      "fact_code": "CAP-NORTH",
+      "source_ref": "regional-readiness.xlsx#sheet=Capacity&range=B4:E4",
+      "observed": [
+        137,
+        108,
+        1.26851851851852,
+        "PASS"
+      ],
+      "passed": true
+    },
+    {
+      "fact_code": "CAP-CENTRAL",
+      "source_ref": "regional-readiness.xlsx#sheet=Capacity&range=B5:E5",
+      "observed": [
+        150,
+        117,
+        1.28205128205128,
+        "PASS"
+      ],
+      "passed": true
+    },
+    {
+      "fact_code": "CAP-WEST",
+      "source_ref": "regional-readiness.xlsx#sheet=Capacity&range=B6:E6",
+      "observed": [
+        150,
+        100,
+        1.5,
+        "PASS"
+      ],
+      "passed": true
+    },
+    {
+      "fact_code": "CAP-EAST",
+      "source_ref": "regional-readiness.xlsx#sheet=Capacity&range=B7:E7",
+      "observed": [
+        180,
+        130,
+        1.38461538461538,
+        "PASS"
+      ],
+      "passed": true
+    }
+  ],
+  "intentional_business_rule": {
+    "cell": "Summary!B3",
+    "displayed_value": "GO",
+    "formula": "=IF(AND(B4>=$F$4,B5<=$F$5,B6>=$F$6),\"GO\",\"HOLD\")",
+    "reason_it_is_misleading": "It applies thresholds to portfolio aggregates and does not evaluate every policy gate per region or preserve the distinct zero-Sev-1 rule.",
+    "classification": "intended benchmark evidence, not a formula error"
+  },
+  "visual_qa": {
+    "renderer": "LibreOffice Calc PDF export",
+    "rasterizer": "Poppler pdftoppm at 144 DPI",
+    "rendered_pdf_sha256": "13c578ef6c08949d3b44a46d668b374a3a50a5ca1d850e0c05cf07bf6d88007e",
+    "rendered_page_count": 2,
+    "render_artifacts_retained_in_repository": false,
+    "pages": [
+      {
+        "page": 1,
+        "worksheet": "Summary",
+        "png_sha256": "83db4934fc2297f9213f5f0c81fbfc1dc0d55d83fb743003a5d81f07ddf075be",
+        "inspected_at_original_resolution": true,
+        "clipping_or_overlap": false,
+        "missing_or_unreadable_content": false
+      },
+      {
+        "page": 2,
+        "worksheet": "Capacity",
+        "png_sha256": "adddb2fe2ebc5ba08634c206ea013fa1add4a316ac7b53d7598a547b82b036ef",
+        "inspected_at_original_resolution": true,
+        "clipping_or_overlap": false,
+        "missing_or_unreadable_content": false
+      }
+    ],
+    "passed": true
+  },
+  "gates_passed": [
+    "workbook created with the explicitly authorized alternative authoring runtime",
+    "typed values and formulas inspected",
+    "LibreOffice recalculation produced expected cached values",
+    "formula and cached-value error scans passed",
+    "both visible worksheets rendered and visually inspected",
+    "source anchors reconcile with the source blueprint",
+    "binary hash and runtime versions frozen"
+  ],
+  "not_qualified_by_this_record": [
+    "DOCX or PDF artifact creation",
+    "canonical extraction",
+    "Track B artifact-reading tools",
+    "Mini or Pi complete-system execution",
+    "model inference"
+  ]
+}

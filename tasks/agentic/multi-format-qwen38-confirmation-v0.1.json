@@ -1,0 +1,239 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "multi-format-qwen38-confirmation-v0.1",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-11",
+  "track": "A+B",
+  "study_mode": "targeted_confirmation",
+  "evidence_class": "measured_targeted_confirmation",
+  "purpose": "Test whether Qwen 3.8's measured Mini and Pi semantic successes reproduce and whether its canonical Track A failure remains stable across three fresh scheduled attempts per condition.",
+  "confirmation_questions": [
+    "How many of three new canonical Track A attempts are semantic successes?",
+    "How many of three new Mini v0.1 attempts reproduce semantic and strict-transport success?",
+    "How many of three new Pi v0.3 attempts reproduce semantic and strict-transport success after fresh Seatbelt acceptance?"
+  ],
+  "not_designed_to_estimate": [
+    "population reliability probabilities from three attempts",
+    "latency distributions or tails",
+    "universal model ranking",
+    "one-factor causal harness effects",
+    "effects of changing seed, temperature or prompt",
+    "OCR, document editing, report assembly or spreadsheet repair"
+  ],
+  "runtime": {
+    "name": "ollama",
+    "expected_version": "0.33.2",
+    "host": "http://127.0.0.1:11434",
+    "must_be_reverified_before_execution": true
+  },
+  "baseline_evidence": {
+    "capability_plan": {
+      "path": "tasks/agentic/multi-format-capability-sweep-v0.1.json",
+      "sha256": "822074b8abfe631bf7c1f63dcdcc03af24d81a7dd3a260722ceec4a485b26389"
+    },
+    "deterministic_report": {
+      "path": "reports/agentic/multi-format-capability-sweep-v0.1.json",
+      "sha256": "20ec8341a6abbfd89bb32ba8f8695016023b02c78fee8cd6ee4c0ce3ba7ddefa"
+    },
+    "quality_audit": {
+      "path": "reports/agentic/multi-format-capability-sweep-v0.1-quality-audit.json",
+      "sha256": "c472684b522d139e03891e2505b41da1b24da9253fd552ea01fe9843575acf63"
+    },
+    "observed_qwen38_semantic_success_positions": [8, 12],
+    "observed_qwen38_canonical_failure_position": 4,
+    "historical_cells_reused": false
+  },
+  "qualification_gate": {
+    "smoke_report_path": "reports/agentic/multi-format-qualification-smokes-v0.1.json",
+    "smoke_report_sha256": "f35435a91e44c40fbaf6cd7ab6fbda1a73a7ec28ced1d68629324c7424eb4aeb",
+    "accepted_complete_systems": [
+      "mini-multi-format-v0.1",
+      "pi-multi-format-v0.3"
+    ],
+    "smoke_runs_reused_as_confirmation": false,
+    "controller_qualification_path": "tasks/agentic/multi-format-qwen38-confirmation-v0.1-controller-qualification.json",
+    "controller_qualification_sha256": "fb37c3b119ed07cef94d570481239fd1e15f7eb4c1cfd209ec514184e66e9141"
+  },
+  "deployment_selection": {
+    "source": "tasks/agentic/track-b/log-incident-capability-sweep-v0.5.json",
+    "source_sha256": "3d87c5cbddc37578159da1b1e76e84d2f765f13f2c7af2fa77ccd7f55d0b4dcf",
+    "selection_rule": "exactly qwen3.8:27b-mlx after its two complete-system successes",
+    "selected_count": 1,
+    "selection_is_post_hoc_to_capability_sweep": true,
+    "interpretation": "This is a targeted follow-up motivated by the observed sweep, not an independently selected model comparison."
+  },
+  "deployment": {
+    "name": "qwen3.8:27b-mlx",
+    "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "size_bytes": 18174721847,
+    "quantization": "nvfp4"
+  },
+  "case": {
+    "case_id": "agentic.documents.rollout-readiness-reconciliation",
+    "case_version": "1.0.0",
+    "case_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json"
+  },
+  "conditions": [
+    {
+      "condition_id": "canonical-representation-v0.1",
+      "track": "A",
+      "condition_path": "tasks/agentic/track-a/multi-format-canonical-v0.1.json",
+      "qualification_id": "multi-format-canonical-v0.1-no-inference-qualification",
+      "qualification_path": "tasks/agentic/track-a/multi-format-canonical-v0.1-qualification.json",
+      "qualification_sha256": "7190474db2c79cda93258578f3e4cca81becd1a5c73ea18215e9815fc607e4e7",
+      "interpretation": "Model reasoning with the same frozen extraction; artifact extraction is held constant."
+    },
+    {
+      "condition_id": "mini-multi-format-v0.1",
+      "track": "B",
+      "harness_family": "project_mini_harness",
+      "harness_path": "tasks/agentic/track-b/mini-multi-format-v0.1.json",
+      "qualification_id": "mini-multi-format-v0.1-no-inference-qualification",
+      "qualification_path": "tasks/agentic/track-b/mini-multi-format-v0.1-qualification.json",
+      "qualification_sha256": "3d0ea522f3e9b93451548f410515a542db18a90f6720934e52188d4ed2aec8f1",
+      "interpretation": "Complete Mini system over the three real binary artifacts."
+    },
+    {
+      "condition_id": "pi-multi-format-v0.3",
+      "track": "B",
+      "harness_family": "pinned_pi",
+      "package_version": "0.84.4",
+      "harness_path": "tasks/agentic/track-b/pi-multi-format-v0.3.json",
+      "qualification_id": "pi-multi-format-v0.3-no-inference-qualification",
+      "qualification_path": "tasks/agentic/track-b/pi-multi-format-v0.3-qualification.json",
+      "qualification_sha256": "d387b7e4af4f64372ab3ada65c2a44a4dfd3cb28107423dd60a37250868e7f18",
+      "interpretation": "Complete pinned-Pi system over the real artifacts after fresh 12-check Seatbelt acceptance."
+    }
+  ],
+  "execution_order": [
+    {"position": 1, "condition_id": "canonical-representation-v0.1", "model": "qwen3.8:27b-mlx", "repeat": 1},
+    {"position": 2, "condition_id": "mini-multi-format-v0.1", "model": "qwen3.8:27b-mlx", "repeat": 1},
+    {"position": 3, "condition_id": "pi-multi-format-v0.3", "model": "qwen3.8:27b-mlx", "repeat": 1},
+    {"position": 4, "condition_id": "mini-multi-format-v0.1", "model": "qwen3.8:27b-mlx", "repeat": 2},
+    {"position": 5, "condition_id": "pi-multi-format-v0.3", "model": "qwen3.8:27b-mlx", "repeat": 2},
+    {"position": 6, "condition_id": "canonical-representation-v0.1", "model": "qwen3.8:27b-mlx", "repeat": 2},
+    {"position": 7, "condition_id": "pi-multi-format-v0.3", "model": "qwen3.8:27b-mlx", "repeat": 3},
+    {"position": 8, "condition_id": "canonical-representation-v0.1", "model": "qwen3.8:27b-mlx", "repeat": 3},
+    {"position": 9, "condition_id": "mini-multi-format-v0.1", "model": "qwen3.8:27b-mlx", "repeat": 3}
+  ],
+  "order_rationale": "The three cyclic blocks A-Mini-Pi, Mini-Pi-A and Pi-A-Mini give every condition one early, middle and late slot. Each condition has position sum 15, and no adjacent cells share a condition.",
+  "shared_inference": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 5000,
+    "maximum_active_wall_time_seconds": 300,
+    "provider_request_timeout_seconds": 180,
+    "maximum_total_output_tokens": null,
+    "maximum_agent_turns": null,
+    "maximum_protocol_errors": null,
+    "maximum_artifact_tool_calls_emergency": 40
+  },
+  "outcome_model": {
+    "primary": "semantic_verified_success",
+    "secondary": "strict_transport_compliance",
+    "runtime_success_separate": true,
+    "agent_termination_valid_separate": true,
+    "supplemental_free_text_claim_review_required": true,
+    "deterministic_success_is_not_final_quality_acceptance": true,
+    "check_counts_diagnostic_not_normalized_points": true,
+    "composite_score": false
+  },
+  "comparison_rules": {
+    "runs_per_configuration": 3,
+    "scheduled_repetitions": 9,
+    "automatic_retries": 0,
+    "adaptive_repetitions": false,
+    "historical_cells_reused": false,
+    "qualification_smokes_reused_as_measured": false,
+    "terminal_attempts_not_repeated": true,
+    "track_a_and_track_b_pooled": false,
+    "reliability_probability_claims": false,
+    "latency_distribution_claims": false,
+    "trajectory_metrics_are_descriptive": true,
+    "confirmation_consistency_counts_are_descriptive": true,
+    "turns_tokens_and_protocol_errors_are_measurement_only": true,
+    "one_factor_causal_harness_claim_allowed": false,
+    "track_a_comparison_unit": "qwen38_with_common_canonical_representation",
+    "track_b_comparison_unit": "qwen38_complete_system"
+  },
+  "confirmation_interpretation": {
+    "quantitative_success_threshold": null,
+    "predeclared_outputs": [
+      "semantic success count out of three for each condition",
+      "strict transport count out of three for each condition",
+      "essential-check coverage for each fresh cell and condition",
+      "separate supplemental prose-review decision for every parseable report"
+    ],
+    "allowed_claim": "bounded same-configuration consistency for Qwen 3.8 in each condition",
+    "prohibited_claim": "a population reliability rate or universal superiority claim"
+  },
+  "resource_gate": {
+    "loaded_models_must_be_empty_before_each_unit": true,
+    "empty_state_observation_seconds": 30,
+    "deployment_digest_rechecked_before_each_unit": true,
+    "exact_ollama_version_required": true,
+    "model_unloaded_after_each_unit": true,
+    "unexpected_model_activity_pauses_the_study": true,
+    "known_competing_applications_must_be_stopped": true,
+    "blocking_process_rules": [
+      {"rule_id": "behat_test_runner", "pattern": "(?i)(?:^|[\\s/])(?:vendor/bin/)?behat(?:[\\s]|$)"},
+      {"rule_id": "behat_environment_worker", "pattern": "(?i)(?:--env=behat_test|var/behat-env)"},
+      {"rule_id": "other_test_runner", "pattern": "(?i)(?:^|[\\s/])(?:pytest|phpunit|jest|vitest|mocha|playwright|cypress)(?:[\\s]|$)"},
+      {"rule_id": "package_test_script", "pattern": "(?i)(?:^|[\\s/])(?:npm|pnpm|yarn)(?:[\\s]+run)?[\\s]+test(?:[\\s]|$)"},
+      {"rule_id": "mnemosyn_application", "pattern": "(?i)^(?!.*mnemosyn_mcp\\.py).*mnemosyn"},
+      {"rule_id": "news_or_blog_application", "pattern": "(?i)(?:news-app|blog-read-o-matic)"}
+    ]
+  },
+  "interruption_policy": {
+    "raw_attempts_are_append_only": true,
+    "complete_outcomes_are_never_repeated": true,
+    "prepared_action_pending_and_verification_pending_runs_resume_in_place": true,
+    "live_process_loss": "preserve the cell as an infrastructure_or_control_failure and do not retry",
+    "runtime_model_or_definition_drift_blocks_resume": true
+  },
+  "reporting": {
+    "deterministic_json_path": "reports/agentic/multi-format-qwen38-confirmation-v0.1.json",
+    "deterministic_markdown_path": "reports/agentic/multi-format-qwen38-confirmation-v0.1.md",
+    "supplemental_review_json_path": "reports/agentic/multi-format-qwen38-confirmation-v0.1-quality-audit.json",
+    "supplemental_review_markdown_path": "reports/agentic/multi-format-qwen38-confirmation-v0.1-quality-audit.md",
+    "raw_candidate_reports_public": false,
+    "canonical_evidence_text_public": false,
+    "binary_contents_public": false,
+    "hidden_ground_truth_public": false,
+    "absolute_paths_public": false,
+    "no_composite_score": true
+  },
+  "authorization": {
+    "live_execution_authorized": false,
+    "post_freeze_authorization_required": true,
+    "fresh_clean_window_confirmation_required": true,
+    "reason": "The exact nine-cell plan must exist before an independent user authorization is bound to its SHA-256.",
+    "no_remote_push_authorized": true
+  },
+  "frozen_inputs": {
+    "phase_94_baseline_git_commit": "01baa7cce99e9445c80a4783e188ebb39db5807f",
+    "worktree_inputs_frozen_by_sha256": true,
+    "artifacts": [
+      {"path": "local_llm_benchmark/multi_format_confirmation.py", "sha256": "5b7a6b35de4e6582be2693563aaae89457d6157aae33d3403ab76e3cfd3a8206"},
+      {"path": "local_llm_benchmark/multi_format_confirmation_report.py", "sha256": "c44afee6ba9c810872816bddc96e647d1fd0fb541ba0a88d36decf30ac0dd5b9"},
+      {"path": "local_llm_benchmark/multi_format_study.py", "sha256": "953566438bf2ae44e0342690efd462ca811ef0452f28796a0e3318a28eae0ced"},
+      {"path": "tasks/agentic/multi-format-qwen38-confirmation-v0.1-controller-qualification.json", "sha256": "fb37c3b119ed07cef94d570481239fd1e15f7eb4c1cfd209ec514184e66e9141"},
+      {"path": "tasks/agentic/multi-format-capability-sweep-v0.1.json", "sha256": "822074b8abfe631bf7c1f63dcdcc03af24d81a7dd3a260722ceec4a485b26389"},
+      {"path": "reports/agentic/multi-format-capability-sweep-v0.1.json", "sha256": "20ec8341a6abbfd89bb32ba8f8695016023b02c78fee8cd6ee4c0ce3ba7ddefa"},
+      {"path": "reports/agentic/multi-format-capability-sweep-v0.1-quality-audit.json", "sha256": "c472684b522d139e03891e2505b41da1b24da9253fd552ea01fe9843575acf63"},
+      {"path": "reports/agentic/multi-format-qualification-smokes-v0.1.json", "sha256": "f35435a91e44c40fbaf6cd7ab6fbda1a73a7ec28ced1d68629324c7424eb4aeb"},
+      {"path": "tasks/agentic/track-b/log-incident-capability-sweep-v0.5.json", "sha256": "3d87c5cbddc37578159da1b1e76e84d2f765f13f2c7af2fa77ccd7f55d0b4dcf"},
+      {"path": "tasks/agentic/track-a/multi-format-canonical-v0.1.json", "sha256": "872f4aa47e7321324ac9c0f2c0fa59cfa765e700355754d08b037f001a8076fe"},
+      {"path": "tasks/agentic/track-a/multi-format-canonical-v0.1-qualification.json", "sha256": "7190474db2c79cda93258578f3e4cca81becd1a5c73ea18215e9815fc607e4e7"},
+      {"path": "tasks/agentic/track-b/mini-multi-format-v0.1.json", "sha256": "d9416b9c0cd8271e3a2058c5a53dab9e70fb502b441a7792418e728acd514b82"},
+      {"path": "tasks/agentic/track-b/mini-multi-format-v0.1-qualification.json", "sha256": "3d0ea522f3e9b93451548f410515a542db18a90f6720934e52188d4ed2aec8f1"},
+      {"path": "tasks/agentic/track-b/pi-multi-format-v0.3.json", "sha256": "0cb147851c95071ca293d8413e652b576435e216c99fd0bc3acfae96d33b133f"},
+      {"path": "tasks/agentic/track-b/pi-multi-format-v0.3-qualification.json", "sha256": "d387b7e4af4f64372ab3ada65c2a44a4dfd3cb28107423dd60a37250868e7f18"},
+      {"path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json", "sha256": "6a3eeb93f801f91068ba995ab35a955f85f188f4d9110a55d2708adb5b30875a"},
+      {"path": "tasks/agentic/multi-format-document-analysis/evaluation-contract-v0.1.json", "sha256": "ae2b38c43191d2457254ac7e411046562ad336fddb09cf8e58ecdaaab8cd65ba"}
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "pi-multi-format-v0.1-no-inference-qualification",
+  "qualified_on": "2026-09-10",
+  "status": "qualified_for_excluded_smoke_design",
+  "harness_id": "pi-multi-format-v0.1",
+  "protocol_id": "agentic-multi-format-v0.1",
+  "case_count": 1,
+  "live_ollama_requests": 0,
+  "live_model_inference": false,
+  "package": {
+    "name": "@earendil-works/pi-coding-agent",
+    "version": "0.84.4",
+    "exact_lockfile": true
+  },
+  "runtime": {
+    "node": "22.22.1",
+    "python": "3.14.4",
+    "pdftotext": "25.11.0",
+    "python_executable_sha256": "02a8df1726463faedb3adef289b3d1bdeabb7785c837fd8c174023aeeeb4d312",
+    "pdftotext_executable_sha256": "53c908b92a25a20dbf0f8c2ea81f3c97ccacaa4cdc1cbdc13e20386c3e0a6461"
+  },
+  "qualification_evidence": {
+    "artifact_only_preparation_passed": true,
+    "registered_custom_tool_count": 4,
+    "registered_tools": ["list_artifacts", "read_docx", "read_pdf", "read_xlsx"],
+    "native_builtin_tools_disabled": true,
+    "application_policy_unit_tests_passed": 5,
+    "actual_shared_backend_calls_under_extension_passed": 4,
+    "profile_checks_defined": 11,
+    "mocked_acceptance_orchestration_checks_passed": 11,
+    "profile_structural_denials_passed": true,
+    "reference_report_essential_checks_passed": 11,
+    "reference_report_essential_checks_total": 11,
+    "mocked_pi_execution_passed": true,
+    "strict_and_normalized_transport_accounted_separately": true,
+    "focused_python_tests_passed": 4
+  },
+  "execution_boundary": {
+    "policy_extension_allowlist": ["list_artifacts", "read_docx", "read_pdf", "read_xlsx"],
+    "allowed_processes": ["exact resolved Node", "exact resolved Python", "exact resolved pdftotext"],
+    "candidate_workspace_writable": false,
+    "shell_processes_allowed": false,
+    "network_allowlist": ["localhost:11434"],
+    "external_network": false,
+    "canonical_extraction_outside_sandbox": true,
+    "ground_truth_outside_sandbox": true,
+    "fresh_real_seatbelt_acceptance_required_before_each_live_run": true
+  },
+  "comparison_boundary": {
+    "same_artifact_backend_as_mini": true,
+    "same_model_across_harnesses": "complete_system_comparison",
+    "track_a_results_poolable": false,
+    "strict_transport_is_primary": false
+  },
+  "artifacts": [
+    {"path": "local_llm_benchmark/multi_format_pi.py", "sha256": "a03feac060ea0d61d683b0dda214b8461e5e4dba86d403ea61e5b356dde3ed31"},
+    {"path": "local_llm_benchmark/macos_sandbox_multi_format.py", "sha256": "167d9a05edd5a75b040d00d05fec5b4ef99f568c744cb5cbcbe4086f02c1aeef"},
+    {"path": "local_llm_benchmark/multi_format_artifacts.py", "sha256": "b9e780953bd39002f0b8778f096d898b93e2b4abe12879f0efb86756369745c4"},
+    {"path": "tests/test_multi_format_pi.py", "sha256": "284b63fdf4b1a8ad7bd9cee38e72049c522ba2cc161fc920f56ad1d10a17420b"},
+    {"path": "integrations/pi/multi-format-readonly-v0.1.mjs", "sha256": "bca2f2c7baedc211213d3311f437e6f2976a7a834c4f573b4e4e24947eb73ee7"},
+    {"path": "integrations/pi/multi-format-readonly-v0.1.test.mjs", "sha256": "7e314138ca1690d7cfff8a6582e82bc9201111f4cf2761333d1a5205b563b8c8"},
+    {"path": "tasks/agentic/track-b/pi-multi-format-v0.1.json", "sha256": "3ad6ad987562394669bc1454c239525c27afdbdcce00c1c35a8811a69648ffcd"},
+    {"path": "tasks/agentic/track-b/prompts/pi-multi-format-system-v0.1.txt", "sha256": "24c131e15465bdc0f7cc263795f38a9a10d1f9f36a42f97b5e8d5bff985ee0da"},
+    {"path": "capabilities/inventories/pi-multi-format-v0.1.json", "sha256": "524adb7e6ce543e14ea8bd9deb6e0c3303050448a383b2a63c5cbf31d22d60fd"},
+    {"path": "capabilities/isolation-profiles/pi-multi-format-v0.1.json", "sha256": "45ffee6949af62918d26db3b7ea76a0c1461ecef346eb650dbce6738c388c7c3"},
+    {"path": "integrations/pi/package.json", "sha256": "6f1f0e500198a5663a63b63c3d360e5193b718ea450d9dd0862987799933a57c"},
+    {"path": "integrations/pi/package-lock.json", "sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730"},
+    {"path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json", "sha256": "6a3eeb93f801f91068ba995ab35a955f85f188f4d9110a55d2708adb5b30875a"}
+  ],
+  "next_gate": "Run one excluded no-retry Pi smoke after a fresh exclusive resource window and fresh real Seatbelt acceptance."
+}

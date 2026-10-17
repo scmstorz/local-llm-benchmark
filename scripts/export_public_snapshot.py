@@ -10,6 +10,7 @@ from pathlib import Path
 
 
 ROOT_FILES = {
+    ".gitattributes",
     ".gitignore",
     "CHANGELOG.md",
     "LICENSE",
@@ -37,6 +38,9 @@ PUBLIC_DOCS = {
     "docs/coding-routing-roadmap.md",
     "docs/hard-knowledge-v0.2.md",
     "docs/multi-format-document-analysis-v0.1.md",
+    "docs/multi-format-transfer-v0.2.md",
+    "docs/multi-format-transfer-smoke-runtime-v0.3.md",
+    "docs/multi-format-verification-v0.3.md",
     "docs/non-coding-agentic-roadmap.md",
     "docs/performance-reliability-v0.1.md",
     "docs/quality-evaluation-v0.2.md",
@@ -44,6 +48,15 @@ PUBLIC_DOCS = {
     "docs/quality-stochasticity-v0.1.md",
     "docs/study-modes.md",
     "docs/summarization-v0.1.md",
+}
+
+PRIVATE_EXACT_PATHS = {
+    "INTERNAL_LEARNING_CASE_STUDY.md",
+    "PROJECT_STATUS.md",
+    "SESSION_HANDOFF.md",
+    "docs/case-study-log.md",
+    "docs/case-study-writing-agent-brief.md",
+    "docs/learning-workflow-blog-post-agent-brief.md",
 }
 
 
@@ -60,9 +73,12 @@ def git(repo: Path, *args: str) -> str:
 
 def is_public(path: str) -> bool:
     return (
-        path in ROOT_FILES
-        or path in PUBLIC_DOCS
-        or path.startswith(PUBLIC_PREFIXES)
+        path not in PRIVATE_EXACT_PATHS
+        and (
+            path in ROOT_FILES
+            or path in PUBLIC_DOCS
+            or path.startswith(PUBLIC_PREFIXES)
+        )
     )
 
 

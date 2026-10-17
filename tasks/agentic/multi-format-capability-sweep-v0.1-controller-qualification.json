@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "multi-format-capability-sweep-v0.1-controller-no-inference",
+  "qualified_on": "2026-09-11",
+  "status": "qualified_for_frozen_plan",
+  "experimental_scope": "No live inference. The three-condition/five-model plan loader, post-freeze authorization binding, first Track A preparation, mocked live boundary, checkpoint state and public-safe deterministic report were exercised offline.",
+  "qualification_evidence": {
+    "full_three_condition_active_default_product_validated": true,
+    "planned_cell_count": 15,
+    "runs_per_configuration": 1,
+    "automatic_retries": 0,
+    "track_a_and_track_b_pooling_rejected": true,
+    "adjacent_same_model_rejected": true,
+    "post_freeze_authorization_hash_binding_enforced": true,
+    "first_track_a_cell_prepared_without_inference": true,
+    "live_boundary_requires_explicit_confirmation": true,
+    "mocked_live_boundary_checkpointed": true,
+    "fresh_resource_gate_required_before_every_cell": true,
+    "fresh_pi_v0_3_seatbelt_acceptance_required": true,
+    "terminal_attempts_never_repeated": true,
+    "public_report_excludes_candidate_content_and_absolute_paths": true,
+    "supplemental_free_text_review_remains_separate": true,
+    "focused_track_a_python_tests_passed": 4,
+    "focused_controller_python_tests_passed": 7,
+    "live_ollama_requests": 0,
+    "live_model_inference": false
+  },
+  "interruption_policy": {
+    "raw_attempts_append_only": true,
+    "terminal_attempts_never_repeated": true,
+    "prepared_and_verification_pending_runs_resume_in_place": true,
+    "lost_live_process_classified_as_infrastructure_or_control_failure": true,
+    "automatic_retries": 0
+  },
+  "artifacts": [
+    {
+      "path": "local_llm_benchmark/multi_format_study.py",
+      "sha256": "953566438bf2ae44e0342690efd462ca811ef0452f28796a0e3318a28eae0ced"
+    },
+    {
+      "path": "local_llm_benchmark/multi_format_study_report.py",
+      "sha256": "9e53320232f27fd7adcc0aaad12f57a13a4c68eb3fe3bfaf2e1dfef174f896e1"
+    },
+    {
+      "path": "tests/test_multi_format_study.py",
+      "sha256": "66117fef7b13c7e82957251a39bbac9e35cc54f60a538305ce7315b955bb9685"
+    },
+    {
+      "path": "tasks/agentic/track-a/multi-format-canonical-v0.1-qualification.json",
+      "sha256": "7190474db2c79cda93258578f3e4cca81becd1a5c73ea18215e9815fc607e4e7"
+    }
+  ],
+  "next_gate": "Freeze the measured 15-cell plan. Create an independent execution authorization only after the exact plan hash exists, then require a fresh resource gate before every cell."
+}

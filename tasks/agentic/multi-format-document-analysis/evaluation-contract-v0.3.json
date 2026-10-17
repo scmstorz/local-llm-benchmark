@@ -1,0 +1,91 @@
+{
+  "base_contract": {
+    "path": "tasks/agentic/multi-format-document-analysis/evaluation-contract-v0.2.json",
+    "sha256": "9efb72f768d3b8a5e4e6926aa0cfb82aa701ed577011e30889f58c1a2206dc65"
+  },
+  "conflict_citation_policy": {
+    "additional_source_refs": "allowed_only_if_known_in_the_case_blueprint",
+    "conflict_codes": "exact_required_set_without_duplicates",
+    "duplicate_source_refs": "rejected",
+    "free_text_entailment": "separate_source_grounded_review",
+    "required_source_refs": "must_all_be_present_in_each_conflict"
+  },
+  "contract_version": "0.3",
+  "essential_checks": [
+    {
+      "check_id": "report_schema",
+      "purpose": "The report matches the strict structured-output schema.",
+      "visible_marker": "[REPORT_SCHEMA]"
+    },
+    {
+      "check_id": "decision",
+      "purpose": "The award mode follows the policy and final evidence.",
+      "visible_marker": "[DECISION]"
+    },
+    {
+      "check_id": "primary_supplier",
+      "purpose": "The primary is the lowest-cost eligible supplier.",
+      "visible_marker": "[PRIMARY_SUPPLIER]"
+    },
+    {
+      "check_id": "reserve_supplier",
+      "purpose": "The reserve is the next-lowest-cost eligible supplier.",
+      "visible_marker": "[RESERVE_SUPPLIER]"
+    },
+    {
+      "check_id": "supplier_blockers",
+      "purpose": "Every rejected supplier is paired with its decisive failed gate.",
+      "visible_marker": "[SUPPLIER_BLOCKERS]"
+    },
+    {
+      "check_id": "citation_integrity",
+      "purpose": "Fact codes point to exact known artifact anchors.",
+      "visible_marker": "[CITATION_INTEGRITY]"
+    },
+    {
+      "check_id": "required_evidence",
+      "purpose": "All facts required for eligibility, ranking and conflicts are cited.",
+      "visible_marker": "[REQUIRED_EVIDENCE]"
+    },
+    {
+      "check_id": "cross_format_coverage",
+      "purpose": "The decision uses necessary evidence from DOCX, PDF and XLSX.",
+      "visible_marker": "[CROSS_FORMAT_COVERAGE]"
+    },
+    {
+      "check_id": "conflict_resolution",
+      "purpose": "Draft and commercially incomplete recommendations are resolved.",
+      "visible_marker": "[CONFLICT_RESOLUTION]"
+    },
+    {
+      "check_id": "action_plan",
+      "purpose": "The minimum safe award and evidence-correction actions are present.",
+      "visible_marker": "[ACTION_PLAN]"
+    },
+    {
+      "check_id": "uncertainty",
+      "purpose": "Unknown post-cutoff and forecast state remain explicit.",
+      "visible_marker": "[UNCERTAINTY]"
+    },
+    {
+      "check_id": "controlled_value_integrity",
+      "purpose": "Controlled result values come only from the visible codebook.",
+      "visible_marker": "[CONTROLLED_VALUES]"
+    }
+  ],
+  "historical_scores_changed": false,
+  "live_execution_authorized": false,
+  "not_deterministically_interpreted": [
+    "executive-summary claim polarity",
+    "free-text explanation entailment",
+    "rationale quality",
+    "German writing quality",
+    "decision usefulness"
+  ],
+  "primary_outcome": "semantic_verified_success",
+  "schema_version": "1.0.0",
+  "strict_transport_scored_separately": true,
+  "supplemental_free_text_review_required": true,
+  "task_family": "document_decision_reconciliation",
+  "verifier_version": "2.1.0"
+}

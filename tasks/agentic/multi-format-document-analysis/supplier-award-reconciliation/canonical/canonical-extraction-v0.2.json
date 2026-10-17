@@ -1,0 +1,505 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "agentic.documents.supplier-award-reconciliation",
+  "extraction_version": "0.2.0",
+  "representation": "canonical_artifact_evidence",
+  "artifact_inputs": [
+    {
+      "filename": "supplier-selection-policy.docx",
+      "format": "docx",
+      "sha256": "46142aed4eaa15601252f7dc60756154c1eace4100109a8ab78162e3ea102708",
+      "size_bytes": 40404
+    },
+    {
+      "filename": "supplier-assurance-review.pdf",
+      "format": "pdf",
+      "sha256": "c25a322efb3e2433787f3f95343f5855c8f05218d287ac310dc19abbdd0c38df",
+      "size_bytes": 7678
+    },
+    {
+      "filename": "bid-evaluation.xlsx",
+      "format": "xlsx",
+      "sha256": "f5753b208f79ea8758fe3a35c3fbbb514468bc7372efe0c59623dc2670c5b42c",
+      "size_bytes": 14872
+    }
+  ],
+  "evidence_records": [
+    {
+      "fact_code": "POL-ELIGIBILITY",
+      "source_ref": "supplier-selection-policy.docx#table=Eligibility-gates",
+      "artifact_format": "docx",
+      "record_type": "table",
+      "authority": "governing_policy",
+      "text": "Gate | Passing criterion | Evaluation | Authoritative evidence\nAssurance rating | Signed-final rating is A or B. | Per supplier | Signed-final assurance appendix at the cutoff\nCritical findings | Unresolved critical finding count equals 0. | Per supplier | Signed-final assurance appendix at the cutoff\nCapacity headroom | Available / required capacity - 1 is at least 15%. | Per supplier | Bid Evaluation, Bid Analysis sheet\nAdjusted cost | Adjusted first-year cost is at most EUR 1,200,000. | Per supplier | Bid Evaluation, Bid Analysis sheet",
+      "fields": [
+        {
+          "name": "Assurance rating",
+          "value": "Signed-final rating is A or B. | Per supplier | Signed-final assurance appendix at the cutoff",
+          "formula": null
+        },
+        {
+          "name": "Critical findings",
+          "value": "Unresolved critical finding count equals 0. | Per supplier | Signed-final assurance appendix at the cutoff",
+          "formula": null
+        },
+        {
+          "name": "Capacity headroom",
+          "value": "Available / required capacity - 1 is at least 15%. | Per supplier | Bid Evaluation, Bid Analysis sheet",
+          "formula": null
+        },
+        {
+          "name": "Adjusted cost",
+          "value": "Adjusted first-year cost is at most EUR 1,200,000. | Per supplier | Bid Evaluation, Bid Analysis sheet",
+          "formula": null
+        }
+      ]
+    },
+    {
+      "fact_code": "POL-SELECTION",
+      "source_ref": "supplier-selection-policy.docx#heading=Selection-sequence",
+      "artifact_format": "docx",
+      "record_type": "paragraph",
+      "authority": "governing_policy",
+      "text": "First exclude every ineligible supplier. Then select the eligible supplier with the lowest adjusted first-year cost as primary and the next-lowest eligible supplier as reserve. If only one supplier is eligible, make a single award; if none is eligible, make no award.",
+      "fields": []
+    },
+    {
+      "fact_code": "POL-AUTHORITY",
+      "source_ref": "supplier-selection-policy.docx#heading=Evidence-authority",
+      "artifact_format": "docx",
+      "record_type": "paragraph",
+      "authority": "governing_policy",
+      "text": "The signed-final assurance appendix at the cutoff supersedes drafts. A commercial dashboard is contextual and cannot waive an assurance or capacity gate, even when it recommends the lowest-cost supplier.",
+      "fields": []
+    },
+    {
+      "fact_code": "POL-CUTOFF",
+      "source_ref": "supplier-selection-policy.docx#heading=Decision-cutoff",
+      "artifact_format": "docx",
+      "record_type": "paragraph",
+      "authority": "governing_policy",
+      "text": "The award decision uses evidence finalized by 2026-09-08 16:00 UTC. Later changes belong to a new decision cycle and cannot alter this frozen review retroactively.",
+      "fields": []
+    },
+    {
+      "fact_code": "ASSUR-DRAFT",
+      "source_ref": "supplier-assurance-review.pdf#page=2&table=Unsigned-draft",
+      "artifact_format": "pdf",
+      "record_type": "table",
+      "authority": "unsigned_draft_superseded",
+      "text": "Supplier | Assurance rating | Unresolved critical findings | Evidence status\nAtlas | C | 0 | Unsigned draft\nBoreal | A | 0 | Unsigned draft\nCedar | A | 0 | Unsigned draft\nDelta | B | 0 | Unsigned draft",
+      "fields": [
+        {
+          "name": "Atlas",
+          "value": "Atlas | C | 0 | Unsigned draft",
+          "formula": null
+        },
+        {
+          "name": "Boreal",
+          "value": "Boreal | A | 0 | Unsigned draft",
+          "formula": null
+        },
+        {
+          "name": "Cedar",
+          "value": "Cedar | A | 0 | Unsigned draft",
+          "formula": null
+        },
+        {
+          "name": "Delta",
+          "value": "Delta | B | 0 | Unsigned draft",
+          "formula": null
+        }
+      ]
+    },
+    {
+      "fact_code": "ASSUR-FINAL",
+      "source_ref": "supplier-assurance-review.pdf#page=3&note=Signed-final",
+      "artifact_format": "pdf",
+      "record_type": "note",
+      "authority": "signed_final_at_cutoff",
+      "text": "This signed-final appendix supersedes the Unsigned draft on page 2. It was finalized at 2026-09-08 14:30 UTC, before the 16:00 UTC decision cutoff.",
+      "fields": [
+        {
+          "name": "supersedes_page",
+          "value": 2,
+          "formula": null
+        },
+        {
+          "name": "finalized_at",
+          "value": "2026-09-08 14:30 UTC",
+          "formula": null
+        },
+        {
+          "name": "decision_cutoff",
+          "value": "2026-09-08 16:00 UTC",
+          "formula": null
+        }
+      ]
+    },
+    {
+      "fact_code": "ASSUR-ATLAS",
+      "source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Atlas",
+      "artifact_format": "pdf",
+      "record_type": "row",
+      "authority": "signed_final_at_cutoff",
+      "text": "Atlas | B | 0 | Signed final",
+      "fields": [
+        {
+          "name": "assurance_rating",
+          "value": "B",
+          "formula": null
+        },
+        {
+          "name": "unresolved_critical_findings",
+          "value": 0,
+          "formula": null
+        },
+        {
+          "name": "evidence_status",
+          "value": "Signed final",
+          "formula": null
+        }
+      ]
+    },
+    {
+      "fact_code": "ASSUR-BOREAL",
+      "source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Boreal",
+      "artifact_format": "pdf",
+      "record_type": "row",
+      "authority": "signed_final_at_cutoff",
+      "text": "Boreal | A | 0 | Signed final",
+      "fields": [
+        {
+          "name": "assurance_rating",
+          "value": "A",
+          "formula": null
+        },
+        {
+          "name": "unresolved_critical_findings",
+          "value": 0,
+          "formula": null
+        },
+        {
+          "name": "evidence_status",
+          "value": "Signed final",
+          "formula": null
+        }
+      ]
+    },
+    {
+      "fact_code": "ASSUR-CEDAR",
+      "source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Cedar",
+      "artifact_format": "pdf",
+      "record_type": "row",
+      "authority": "signed_final_at_cutoff",
+      "text": "Cedar | A | 1 | Signed final",
+      "fields": [
+        {
+          "name": "assurance_rating",
+          "value": "A",
+          "formula": null
+        },
+        {
+          "name": "unresolved_critical_findings",
+          "value": 1,
+          "formula": null
+        },
+        {
+          "name": "evidence_status",
+          "value": "Signed final",
+          "formula": null
+        }
+      ]
+    },
+    {
+      "fact_code": "ASSUR-DELTA",
+      "source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Delta",
+      "artifact_format": "pdf",
+      "record_type": "row",
+      "authority": "signed_final_at_cutoff",
+      "text": "Delta | B | 0 | Signed final",
+      "fields": [
+        {
+          "name": "assurance_rating",
+          "value": "B",
+          "formula": null
+        },
+        {
+          "name": "unresolved_critical_findings",
+          "value": 0,
+          "formula": null
+        },
+        {
+          "name": "evidence_status",
+          "value": "Signed final",
+          "formula": null
+        }
+      ]
+    },
+    {
+      "fact_code": "BID-ATLAS",
+      "source_ref": "bid-evaluation.xlsx#sheet=Bid Analysis&range=B5:J5",
+      "artifact_format": "xlsx",
+      "record_type": "range",
+      "authority": "commercial_analysis",
+      "text": "Atlas; base_annual_fee_eur=1080000; mobilization_eur=120000; transition_credit_eur=60000; adjusted_first_year_cost_eur=1140000; available_units=116; required_units=100; capacity_headroom=0.16; cost_gate=PASS; capacity_gate=PASS",
+      "fields": [
+        {
+          "name": "base_annual_fee_eur",
+          "value": 1080000,
+          "formula": null
+        },
+        {
+          "name": "mobilization_eur",
+          "value": 120000,
+          "formula": null
+        },
+        {
+          "name": "transition_credit_eur",
+          "value": 60000,
+          "formula": null
+        },
+        {
+          "name": "adjusted_first_year_cost_eur",
+          "value": 1140000,
+          "formula": "=B5+C5-D5"
+        },
+        {
+          "name": "available_units",
+          "value": 116,
+          "formula": null
+        },
+        {
+          "name": "required_units",
+          "value": 100,
+          "formula": null
+        },
+        {
+          "name": "capacity_headroom",
+          "value": 0.16,
+          "formula": "=IFERROR(F5/G5-1,0)"
+        },
+        {
+          "name": "cost_gate",
+          "value": "PASS",
+          "formula": "=IF(E5<=$M$3,\"PASS\",\"HOLD\")"
+        },
+        {
+          "name": "capacity_gate",
+          "value": "PASS",
+          "formula": "=IF(H5>=$M$4,\"PASS\",\"HOLD\")"
+        }
+      ]
+    },
+    {
+      "fact_code": "BID-BOREAL",
+      "source_ref": "bid-evaluation.xlsx#sheet=Bid Analysis&range=B6:J6",
+      "artifact_format": "xlsx",
+      "record_type": "range",
+      "authority": "commercial_analysis",
+      "text": "Boreal; base_annual_fee_eur=1120000; mobilization_eur=80000; transition_credit_eur=35000; adjusted_first_year_cost_eur=1165000; available_units=125; required_units=100; capacity_headroom=0.25; cost_gate=PASS; capacity_gate=PASS",
+      "fields": [
+        {
+          "name": "base_annual_fee_eur",
+          "value": 1120000,
+          "formula": null
+        },
+        {
+          "name": "mobilization_eur",
+          "value": 80000,
+          "formula": null
+        },
+        {
+          "name": "transition_credit_eur",
+          "value": 35000,
+          "formula": null
+        },
+        {
+          "name": "adjusted_first_year_cost_eur",
+          "value": 1165000,
+          "formula": "=B6+C6-D6"
+        },
+        {
+          "name": "available_units",
+          "value": 125,
+          "formula": null
+        },
+        {
+          "name": "required_units",
+          "value": 100,
+          "formula": null
+        },
+        {
+          "name": "capacity_headroom",
+          "value": 0.25,
+          "formula": "=IFERROR(F6/G6-1,0)"
+        },
+        {
+          "name": "cost_gate",
+          "value": "PASS",
+          "formula": "=IF(E6<=$M$3,\"PASS\",\"HOLD\")"
+        },
+        {
+          "name": "capacity_gate",
+          "value": "PASS",
+          "formula": "=IF(H6>=$M$4,\"PASS\",\"HOLD\")"
+        }
+      ]
+    },
+    {
+      "fact_code": "BID-CEDAR",
+      "source_ref": "bid-evaluation.xlsx#sheet=Bid Analysis&range=B7:J7",
+      "artifact_format": "xlsx",
+      "record_type": "range",
+      "authority": "commercial_analysis",
+      "text": "Cedar; base_annual_fee_eur=1030000; mobilization_eur=90000; transition_credit_eur=40000; adjusted_first_year_cost_eur=1080000; available_units=120; required_units=100; capacity_headroom=0.2; cost_gate=PASS; capacity_gate=PASS",
+      "fields": [
+        {
+          "name": "base_annual_fee_eur",
+          "value": 1030000,
+          "formula": null
+        },
+        {
+          "name": "mobilization_eur",
+          "value": 90000,
+          "formula": null
+        },
+        {
+          "name": "transition_credit_eur",
+          "value": 40000,
+          "formula": null
+        },
+        {
+          "name": "adjusted_first_year_cost_eur",
+          "value": 1080000,
+          "formula": "=B7+C7-D7"
+        },
+        {
+          "name": "available_units",
+          "value": 120,
+          "formula": null
+        },
+        {
+          "name": "required_units",
+          "value": 100,
+          "formula": null
+        },
+        {
+          "name": "capacity_headroom",
+          "value": 0.2,
+          "formula": "=IFERROR(F7/G7-1,0)"
+        },
+        {
+          "name": "cost_gate",
+          "value": "PASS",
+          "formula": "=IF(E7<=$M$3,\"PASS\",\"HOLD\")"
+        },
+        {
+          "name": "capacity_gate",
+          "value": "PASS",
+          "formula": "=IF(H7>=$M$4,\"PASS\",\"HOLD\")"
+        }
+      ]
+    },
+    {
+      "fact_code": "BID-DELTA",
+      "source_ref": "bid-evaluation.xlsx#sheet=Bid Analysis&range=B8:J8",
+      "artifact_format": "xlsx",
+      "record_type": "range",
+      "authority": "commercial_analysis",
+      "text": "Delta; base_annual_fee_eur=1020000; mobilization_eur=120000; transition_credit_eur=10000; adjusted_first_year_cost_eur=1130000; available_units=112; required_units=100; capacity_headroom=0.12; cost_gate=PASS; capacity_gate=HOLD",
+      "fields": [
+        {
+          "name": "base_annual_fee_eur",
+          "value": 1020000,
+          "formula": null
+        },
+        {
+          "name": "mobilization_eur",
+          "value": 120000,
+          "formula": null
+        },
+        {
+          "name": "transition_credit_eur",
+          "value": 10000,
+          "formula": null
+        },
+        {
+          "name": "adjusted_first_year_cost_eur",
+          "value": 1130000,
+          "formula": "=B8+C8-D8"
+        },
+        {
+          "name": "available_units",
+          "value": 112,
+          "formula": null
+        },
+        {
+          "name": "required_units",
+          "value": 100,
+          "formula": null
+        },
+        {
+          "name": "capacity_headroom",
+          "value": 0.12,
+          "formula": "=IFERROR(F8/G8-1,0)"
+        },
+        {
+          "name": "cost_gate",
+          "value": "PASS",
+          "formula": "=IF(E8<=$M$3,\"PASS\",\"HOLD\")"
+        },
+        {
+          "name": "capacity_gate",
+          "value": "HOLD",
+          "formula": "=IF(H8>=$M$4,\"PASS\",\"HOLD\")"
+        }
+      ]
+    },
+    {
+      "fact_code": "DASH-RECOMMENDATION",
+      "source_ref": "bid-evaluation.xlsx#sheet=Dashboard&range=B3:B5",
+      "artifact_format": "xlsx",
+      "record_type": "range",
+      "authority": "commercial_dashboard",
+      "text": "recommended_supplier=Cedar; lowest_adjusted_first_year_cost_eur=1080000; recommendation_basis=Lowest adjusted first-year cost",
+      "fields": [
+        {
+          "name": "recommended_supplier",
+          "value": "Cedar",
+          "formula": "=INDEX('Bid Analysis'!A5:A8,MATCH(MIN('Bid Analysis'!E5:E8),'Bid Analysis'!E5:E8,0))"
+        },
+        {
+          "name": "lowest_adjusted_first_year_cost_eur",
+          "value": 1080000,
+          "formula": "=MIN('Bid Analysis'!E5:E8)"
+        },
+        {
+          "name": "recommendation_basis",
+          "value": "Lowest adjusted first-year cost",
+          "formula": null
+        }
+      ]
+    },
+    {
+      "fact_code": "DASH-SCOPE",
+      "source_ref": "bid-evaluation.xlsx#sheet=Dashboard&range=B7:B8",
+      "artifact_format": "xlsx",
+      "record_type": "range",
+      "authority": "commercial_dashboard",
+      "text": "ranking_scope=Commercial ranking only; assurance_scope=Assurance findings are not incorporated",
+      "fields": [
+        {
+          "name": "ranking_scope",
+          "value": "Commercial ranking only",
+          "formula": null
+        },
+        {
+          "name": "assurance_scope",
+          "value": "Assurance findings are not incorporated",
+          "formula": null
+        }
+      ]
+    }
+  ]
+}

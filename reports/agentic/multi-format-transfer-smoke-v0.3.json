@@ -1,0 +1,75 @@
+{
+  "automatic_retries": 0,
+  "case_id": "agentic.documents.supplier-award-reconciliation",
+  "evidence_class": "excluded_development_smoke_pair",
+  "excluded_from_measured_aggregates": true,
+  "interpretation_boundaries": [
+    "This is excluded machinery evidence, not a measured model or system ranking.",
+    "One attempt per complete system does not estimate reliability or latency distributions.",
+    "Track A and historical Phase 95 outcomes are not pooled with this transfer smoke.",
+    "Raw candidate content and private run paths are excluded from this report."
+  ],
+  "model": "qwen3.8:27b-mlx",
+  "outcomes": [
+    {
+      "active_wall_time_seconds": 272.930270583136,
+      "agent_termination_valid": true,
+      "agent_turns": 6,
+      "artifact_tool_calls": null,
+      "essential_check_count": 12,
+      "essential_pass_count": 11,
+      "failed_check_ids": [
+        "conflict_resolution"
+      ],
+      "failure_category": "task_or_verification_failure",
+      "failure_type": null,
+      "model": "qwen3.8:27b-mlx",
+      "model_requests": null,
+      "pi_seatbelt_checks_passed": 13,
+      "pi_seatbelt_checks_total": 13,
+      "position": 1,
+      "postflight_empty": true,
+      "runtime_success": true,
+      "semantic_verified_success": false,
+      "strict_transport_compliance": true,
+      "system_id": "pi-multi-format-v0.4",
+      "terminal_status": "complete"
+    },
+    {
+      "active_wall_time_seconds": 87.99821546068415,
+      "agent_termination_valid": true,
+      "agent_turns": 18,
+      "artifact_tool_calls": null,
+      "essential_check_count": 12,
+      "essential_pass_count": 10,
+      "failed_check_ids": [
+        "conflict_resolution",
+        "action_plan"
+      ],
+      "failure_category": "task_or_verification_failure",
+      "failure_type": null,
+      "model": "qwen3.8:27b-mlx",
+      "model_requests": 18,
+      "pi_seatbelt_checks_passed": null,
+      "pi_seatbelt_checks_total": null,
+      "position": 2,
+      "postflight_empty": true,
+      "runtime_success": true,
+      "semantic_verified_success": false,
+      "strict_transport_compliance": true,
+      "system_id": "mini-multi-format-v0.2",
+      "terminal_status": "complete"
+    }
+  ],
+  "plan_id": "multi-format-transfer-smoke-v0.3",
+  "plan_sha256": "cc1b095394685acb2ecf85346bfd353c5f9eb8e52a7018a80e95e77f04406ff3",
+  "report_id": "multi-format-transfer-smoke-v0.3",
+  "schema_version": "1.0.0",
+  "status": "complete",
+  "totals": {
+    "postflight_empty_count": 2,
+    "semantic_verified_success_count": 0,
+    "strict_transport_compliance_count": 2
+  },
+  "unit_count": 2
+}

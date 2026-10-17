@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "authorization_id": "multi-format-qwen38-confirmation-v0.1-execution-authorization",
+  "status": "authorized_pending_resource_gate",
+  "authorized_on": "2026-09-11",
+  "authorization_source": "After the exact nine-cell plan was frozen and the assistant restated its scope and SHA-256, the user confirmed that all competing workloads were stopped and said 'Mach weiter!'.",
+  "plan_id": "multi-format-qwen38-confirmation-v0.1",
+  "plan_path": "tasks/agentic/multi-format-qwen38-confirmation-v0.1.json",
+  "plan_sha256": "31cb64238d854226fd1937310c3409a5a64fd6e46275b33e067352d9315a7858",
+  "live_execution_authorized": true,
+  "cell_count": 9,
+  "scheduled_repetitions_per_condition": 3,
+  "automatic_retries": 0,
+  "authorized_models": [
+    "qwen3.8:27b-mlx"
+  ],
+  "authorized_conditions": [
+    "canonical-representation-v0.1",
+    "mini-multi-format-v0.1",
+    "pi-multi-format-v0.3"
+  ],
+  "resource_gate_still_required": true,
+  "fresh_clean_window_confirmation_received": true,
+  "only_frozen_execution_order": true,
+  "historical_cells_reused": false,
+  "broader_or_adaptive_study_authorized": false,
+  "interruption_policy": "Preserve a lost live process as an infrastructure or control failure; never create an unplanned replacement attempt.",
+  "remote_push_authorized": false
+}

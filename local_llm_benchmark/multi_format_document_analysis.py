@@ -52,7 +52,7 @@ def _controlled_values_valid(value: Any) -> bool:
 
 
 def load_multi_format_case(repo_root: Path, case_path: Path) -> dict[str, Any]:
-    """Load and validate the design-stage case without requiring binary fixtures."""
+    """Load the extraction-qualified case while live execution remains locked."""
     resolved_case = resolve_repo_path(repo_root, case_path)
     case = load_json(resolved_case)
     if (
@@ -62,14 +62,14 @@ def load_multi_format_case(repo_root: Path, case_path: Path) -> dict[str, Any]:
         or case.get("task_family") != "document_decision_reconciliation"
     ):
         raise RunnerError("Unexpected multi-format case identity")
-    if case.get("status") != "design_complete_artifacts_pending":
-        raise RunnerError("Multi-format v0.1 must remain in its design-stage state")
+    if case.get("status") != "harness_qualified_smokes_frozen_pending_resource_window":
+        raise RunnerError("Multi-format v0.1 must remain smoke-pending")
     if (
         case.get("live_execution_authorized") is not False
-        or case.get("artifact_generation_complete") is not False
-        or case.get("canonical_extraction_complete") is not False
+        or case.get("artifact_generation_complete") is not True
+        or case.get("canonical_extraction_complete") is not True
     ):
-        raise RunnerError("Multi-format design stage cannot authorize execution")
+        raise RunnerError("Multi-format smoke-pending stage cannot authorize execution")
 
     task_path = resolve_repo_path(repo_root, case.get("task_path", ""))
     schema_path = resolve_repo_path(
@@ -89,6 +89,16 @@ def load_multi_format_case(repo_root: Path, case_path: Path) -> dict[str, Any]:
     reference_path = resolve_repo_path(
         repo_root, case.get("verification", {}).get("reference_report_path", "")
     )
+    canonical_config = case.get("canonical_extraction")
+    if not isinstance(canonical_config, dict):
+        raise RunnerError("Multi-format canonical extraction is not configured")
+    canonical_path = resolve_repo_path(repo_root, canonical_config.get("path", ""))
+    canonical_schema_path = resolve_repo_path(
+        repo_root, canonical_config.get("schema_path", "")
+    )
+    canonical_qualification_path = resolve_repo_path(
+        repo_root, canonical_config.get("qualification_path", "")
+    )
     for label, path in (
         ("task", task_path),
         ("schema", schema_path),
@@ -96,6 +106,9 @@ def load_multi_format_case(repo_root: Path, case_path: Path) -> dict[str, Any]:
         ("evaluation contract", contract_path),
         ("ground truth", truth_path),
         ("reference report", reference_path),
+        ("canonical extraction", canonical_path),
+        ("canonical extraction schema", canonical_schema_path),
+        ("canonical extraction qualification", canonical_qualification_path),
     ):
         if not path.is_file():
             raise RunnerError(f"Multi-format {label} does not exist")
@@ -140,6 +153,29 @@ def load_multi_format_case(repo_root: Path, case_path: Path) -> dict[str, Any]:
             raise RunnerError("Multi-format facts must have unique codes and references")
         fact_codes.add(fact_code)
         source_refs.add(source_ref)
+
+    canonical = load_json(canonical_path)
+    canonical_schema = load_json(canonical_schema_path)
+    try:
+        validate_json(canonical, canonical_schema)
+    except JsonSchemaError as error:
+        raise RunnerError(f"Invalid multi-format canonical extraction: {error}") from error
+    canonical_artifacts = canonical.get("artifact_inputs", [])
+    canonical_records = canonical.get("evidence_records", [])
+    if (
+        canonical.get("case_id") != case.get("case_id")
+        or [item.get("filename") for item in canonical_artifacts]
+        != [item.get("filename") for item in artifacts]
+        or [
+            (item.get("fact_code"), item.get("source_ref"), item.get("artifact_format"))
+            for item in canonical_records
+        ]
+        != [
+            (item.get("fact_code"), item.get("source_ref"), item.get("artifact"))
+            for item in facts
+        ]
+    ):
+        raise RunnerError("Multi-format canonical extraction identity is incomplete")
 
     truth = load_json(truth_path)
     if (
@@ -200,6 +236,11 @@ def load_multi_format_case(repo_root: Path, case_path: Path) -> dict[str, Any]:
         "truth_path": truth_path,
         "truth": truth,
         "reference_report_path": reference_path,
+        "canonical_path": canonical_path,
+        "canonical": canonical,
+        "canonical_schema_path": canonical_schema_path,
+        "canonical_schema": canonical_schema,
+        "canonical_qualification_path": canonical_qualification_path,
     }
 
 

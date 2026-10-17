@@ -1,0 +1,259 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "rollout-readiness-rollout-policy-docx-v0.1",
+  "case_id": "agentic.documents.rollout-readiness-reconciliation",
+  "status": "qualified",
+  "qualified_on": "2026-09-10",
+  "live_inference_performed": false,
+  "artifact": {
+    "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/fixture/rollout-policy.docx",
+    "format": "docx",
+    "size_bytes": 40353,
+    "sha256": "957e46216355153109673d60e3b8ad2facc98451dd0ec7738ee76171eee25c0d"
+  },
+  "authoring_protocol": {
+    "amendment_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/docx-authoring-amendment-v0.1.json",
+    "amendment_sha256": "f914d949afba61012e9e3e94359af05225d4b684c8beaa0110cd470b5045b58b",
+    "dependency_loader_available": false,
+    "alternative_authoring_explicitly_authorized": true,
+    "office_zip_handcrafted": false,
+    "canonical_extraction_qualified": false
+  },
+  "toolchain": {
+    "platform": "Darwin 25.1.0 arm64",
+    "environment_manager": "uv 0.11.3 (45da18ac3 2026-04-01 aarch64-apple-darwin)",
+    "python": "3.13.12",
+    "python_docx": "1.2.0",
+    "lxml": "6.1.3",
+    "pdf2image": "1.17.0",
+    "pillow": "12.3.0",
+    "libreoffice": "26.8.0.3 bce0998afefdbc355585ca324285661a2170ba77",
+    "poppler_pdftoppm": "25.11.0",
+    "documents_skill_renderer_sha256": "d8fe979f76e11215e146e53484bb4cb4e5f3906b58debed6844171073b187286"
+  },
+  "reproducibility_inputs": [
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/build_rollout_policy_docx.py",
+      "sha256": "2f56e0cec1d94f88cd8af8d45841c0d57cfb6aac25698983163659fe9fae27ca"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/inspect_rollout_policy_docx.py",
+      "sha256": "d80ef3d42ba246db94c873aebe8890422206aa43ea7d72349c4fecbc9f93396a"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/docx-authoring-requirements-v0.1.txt",
+      "sha256": "1421cb446cf46b04b9fb6bff361baa80f868ee567c3080571657649d6830f0ba"
+    }
+  ],
+  "design_compliance": {
+    "preset": "standard_business_brief",
+    "header_pattern": "memo_masthead",
+    "page": {
+      "size": "US Letter",
+      "orientation": "portrait",
+      "width_dxa": 12240,
+      "height_dxa": 15840,
+      "margins_dxa": {
+        "top": 1440,
+        "right": 1440,
+        "bottom": 1440,
+        "left": 1440
+      },
+      "header_distance_dxa": 708,
+      "footer_distance_dxa": 708,
+      "content_width_dxa": 9360
+    },
+    "styles": {
+      "body": {
+        "font": "Calibri",
+        "size_pt": 11,
+        "before_pt": 0,
+        "after_pt": 6,
+        "line_spacing": 1.1
+      },
+      "heading_1": {
+        "font": "Calibri",
+        "size_pt": 16,
+        "color": "2E74B5",
+        "before_pt": 16,
+        "after_pt": 8
+      },
+      "heading_2": {
+        "font": "Calibri",
+        "size_pt": 13,
+        "color": "2E74B5",
+        "before_pt": 12,
+        "after_pt": 6
+      },
+      "heading_3": {
+        "font": "Calibri",
+        "size_pt": 12,
+        "color": "1F4D78",
+        "before_pt": 8,
+        "after_pt": 4
+      },
+      "table_citation": {
+        "before_pt": 4,
+        "after_pt": 4
+      },
+      "decimal_list": {
+        "marker_alignment_dxa": 360,
+        "text_indent_dxa": 720,
+        "hanging_dxa": 360,
+        "after_pt": 8,
+        "line_spacing_dxa": 280
+      }
+    },
+    "regional_gates_table": {
+      "caption": "Regional-gates",
+      "rows": 5,
+      "columns": 4,
+      "width_dxa": 9360,
+      "indent_dxa": 120,
+      "grid_dxa": [
+        1760,
+        2720,
+        1760,
+        3120
+      ],
+      "cell_margins_dxa": {
+        "top": 80,
+        "bottom": 80,
+        "start": 120,
+        "end": 120
+      },
+      "header_fill": "F2F4F7",
+      "border_style": "single_grid"
+    },
+    "named_overrides": [
+      "memo_masthead title uses 23 pt bold black and subtitle uses 14 pt dark gray",
+      "masthead metadata uses 10.5 pt with a strong body-paragraph bottom rule",
+      "gate-table text uses 9.5 pt for stable full-width geometry",
+      "Decision rule begins on page 2 to keep policy definition and decision procedure as coherent page units"
+    ]
+  },
+  "structural_checks": {
+    "zip_integrity_passed": true,
+    "section_count": 1,
+    "heading_sequence": [
+      "Regional gates",
+      "Decision rule",
+      "Decision procedure",
+      "Phased release",
+      "Evidence cutoff"
+    ],
+    "stable_bookmarks": [
+      "Regional_gates",
+      "Decision_rule",
+      "Phased_release",
+      "Evidence_cutoff"
+    ],
+    "real_numbered_paragraph_count": 3,
+    "external_relationship_count": 0,
+    "comment_count": 0,
+    "vba_project_count": 0,
+    "page_fields": [
+      "PAGE",
+      "NUMPAGES"
+    ],
+    "style_lint": {
+      "direct_run_formatting_runs": 0,
+      "direct_paragraph_formatting_paragraphs": 2,
+      "direct_paragraph_formatting_explanation": "The first-page spacer and masthead rule are intentional memo_masthead overrides.",
+      "heading_like_paragraphs_not_heading_style": 0
+    },
+    "accessibility_audit": {
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    }
+  },
+  "source_anchor_reconciliation": [
+    {
+      "fact_code": "POL-GATES",
+      "source_ref": "rollout-policy.docx#table=Regional-gates",
+      "observed": "A region passes only with completion >= 95%, open Sev-1 = 0, open Sev-2 <= 2, and support capacity / projected peak load >= 1.25.",
+      "passed": true
+    },
+    {
+      "fact_code": "POL-REGION",
+      "source_ref": "rollout-policy.docx#heading=Decision-rule",
+      "observed": "Every gate is applied independently per region; portfolio averages, rollups and dashboard status cannot override a failed regional gate.",
+      "passed": true
+    },
+    {
+      "fact_code": "POL-PHASE",
+      "source_ref": "rollout-policy.docx#heading=Phased-release",
+      "observed": "A phased launch may proceed when at least one region passes all four gates, and only passing regions may launch.",
+      "passed": true
+    },
+    {
+      "fact_code": "POL-CUTOFF",
+      "source_ref": "rollout-policy.docx#heading=Evidence-cutoff",
+      "observed": "The decision uses evidence finalized no later than 2026-08-31 18:00 UTC.",
+      "passed": true
+    }
+  ],
+  "render_and_visual_qa": {
+    "renderer": "Documents skill render_docx.py with LibreOffice Writer PDF export",
+    "rasterizer": "pdf2image with Poppler",
+    "rendered_pdf_sha256": "049986bdeceae684ff37badaea734e5a916fba771e109c5c792ff64aae8385c4",
+    "rendered_pdf_size_bytes": 107588,
+    "rendered_page_count": 2,
+    "page_size_points": [
+      612,
+      792
+    ],
+    "render_artifacts_retained_in_repository": false,
+    "authored_font": "Calibri",
+    "rendered_font": "Carlito",
+    "font_note": "LibreOffice embedded Carlito as its metric-compatible Calibri substitute; layout and glyph inspection passed.",
+    "unexpected_font_substitution": false,
+    "pages": [
+      {
+        "page": 1,
+        "content": "memo masthead, directive and Regional-gates table",
+        "png_dimensions": [
+          1547,
+          2002
+        ],
+        "png_sha256": "a957759cf3c082e624e34975dbe452a6a7135967313a6df697127d3825974bb5",
+        "inspected_at_original_resolution": true,
+        "clipping_or_overlap": false,
+        "broken_table_geometry": false,
+        "missing_or_unreadable_content": false
+      },
+      {
+        "page": 2,
+        "content": "Decision rule, numbered procedure, Phased release and Evidence cutoff",
+        "png_dimensions": [
+          1547,
+          2002
+        ],
+        "png_sha256": "df9e53e987632affd07a009db36cfaba2f0be96aa169075759098f804521235c",
+        "inspected_at_original_resolution": true,
+        "clipping_or_overlap": false,
+        "broken_table_geometry": false,
+        "missing_or_unreadable_content": false
+      }
+    ],
+    "passed": true
+  },
+  "gates_passed": [
+    "document created with the explicitly authorized alternative authoring runtime",
+    "standard_business_brief tokens and memo_masthead structure audited",
+    "real heading, bookmark, table and numbering structures inspected",
+    "Regional-gates table geometry passed exact DXA audit",
+    "accessibility audit reported no findings",
+    "all rendered pages visually inspected",
+    "source anchors reconcile with the source blueprint",
+    "binary hash and runtime versions frozen"
+  ],
+  "not_qualified_by_this_record": [
+    "PDF artifact creation",
+    "canonical extraction",
+    "Track B artifact-reading tools",
+    "Mini or Pi complete-system execution",
+    "model inference"
+  ]
+}

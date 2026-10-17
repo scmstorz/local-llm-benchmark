@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "rollout-readiness-reliability-review-pdf-v0.1",
+  "case_id": "agentic.documents.rollout-readiness-reconciliation",
+  "status": "qualified",
+  "qualified_on": "2026-09-10",
+  "live_inference_performed": false,
+  "artifact": {
+    "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/fixture/reliability-review.pdf",
+    "format": "pdf",
+    "size_bytes": 7943,
+    "sha256": "be9e322a643d2b587270e8c29ba6be937e6c233835593fdf9744b9ba2453edab"
+  },
+  "authoring_protocol": {
+    "amendment_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/pdf-authoring-amendment-v0.1.json",
+    "amendment_sha256": "2e8be7f4bcb711d9fb7254415ed3e5ceda83ef306ad5a30f5e4f96f027163ef1",
+    "dependency_loader_available": false,
+    "alternative_authoring_explicitly_authorized": true,
+    "artifact_operation_marker_recorded": true,
+    "pdf_handcrafted": false,
+    "canonical_extraction_qualified": false
+  },
+  "toolchain": {
+    "platform": "Darwin 25.1.0 arm64",
+    "environment_manager": "uv 0.11.3 (45da18ac3 2026-04-01 aarch64-apple-darwin)",
+    "python": "3.13.12",
+    "reportlab": "5.0.1",
+    "pypdf": "6.18.0",
+    "pdfplumber": "0.11.10",
+    "pdfminer_six": "20260107",
+    "pillow": "12.3.0",
+    "pypdfium2": "5.13.0",
+    "poppler_pdftoppm": "25.11.0",
+    "poppler_pdfinfo": "25.11.0"
+  },
+  "reproducibility_inputs": [
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/build_reliability_review_pdf.py",
+      "sha256": "568e7a78628e97f61e95a3390725ef4abebc9cf6773d0ca4a917614713c5877d"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/inspect_reliability_review_pdf.py",
+      "sha256": "46ca845f0c9457d2270a9bb43425262c1b0bf86d72e89699d514922717258ce7"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/pdf-authoring-requirements-v0.1.txt",
+      "sha256": "ee6fe9ad2d84a9e4eec2b339ad85fa6a5da5d04cc086e64549fe463e768d3951"
+    }
+  ],
+  "structural_and_extraction_checks": {
+    "strict_pdf_parse_passed": true,
+    "pdf_version": "1.4",
+    "page_count": 3,
+    "page_size": "US Letter",
+    "page_geometry_points": [
+      612,
+      792
+    ],
+    "page_rotations": [
+      0,
+      0,
+      0
+    ],
+    "outline_titles": [
+      "Purpose and authority",
+      "Preliminary validation",
+      "Final validation"
+    ],
+    "outline_pages": [
+      1,
+      2,
+      3
+    ],
+    "page_mode": "UseNone",
+    "extracted_table_counts_by_page": [
+      2,
+      1,
+      2
+    ],
+    "preliminary_table_exact_match": true,
+    "final_table_exact_match": true,
+    "material_change_table_exact_match": true,
+    "encrypted": false,
+    "annotation_count": 0,
+    "acroform_present": false,
+    "javascript_or_automatic_action_count": 0,
+    "standard_base_fonts": [
+      "Helvetica",
+      "Helvetica-Bold",
+      "Helvetica-Oblique"
+    ],
+    "font_embedding_note": "The PDF uses the standard Type 1 Helvetica base-font family; Poppler rendered every glyph correctly."
+  },
+  "metadata": {
+    "title": "Regional Reliability Review",
+    "subject": "Synthetic multi-format benchmark fixture",
+    "author": "Local LLM Benchmark Lab",
+    "creator": "ReportLab 5.0.1",
+    "producer": "ReportLab PDF Library - (opensource)",
+    "keywords": "synthetic benchmark, reliability review, regional validation",
+    "creation_date": "D:20000101000000+00'00'",
+    "modification_date": "D:20000101000000+00'00'"
+  },
+  "source_anchor_reconciliation": [
+    {
+      "fact_code": "REL-PRELIMINARY",
+      "source_ref": "reliability-review.pdf#page=2&table=Preliminary-validation",
+      "observed": "The preliminary table lists Central with two open Sev-2 issues and East with zero open Sev-1 issues.",
+      "passed": true
+    },
+    {
+      "fact_code": "REL-FINAL",
+      "source_ref": "reliability-review.pdf#page=3&note=Final-table",
+      "observed": "The final table on page 3 explicitly supersedes the preliminary table on page 2 and is final at 2026-08-31 18:00 UTC.",
+      "passed": true
+    },
+    {
+      "fact_code": "REL-NORTH",
+      "source_ref": "reliability-review.pdf#page=3&table=Final-validation&row=North",
+      "observed": "North: 97% completion, zero open Sev-1, one open Sev-2.",
+      "passed": true
+    },
+    {
+      "fact_code": "REL-CENTRAL",
+      "source_ref": "reliability-review.pdf#page=3&table=Final-validation&row=Central",
+      "observed": "Central: 96% completion, zero open Sev-1, three open Sev-2.",
+      "passed": true
+    },
+    {
+      "fact_code": "REL-WEST",
+      "source_ref": "reliability-review.pdf#page=3&table=Final-validation&row=West",
+      "observed": "West: 94% completion, zero open Sev-1, zero open Sev-2.",
+      "passed": true
+    },
+    {
+      "fact_code": "REL-EAST",
+      "source_ref": "reliability-review.pdf#page=3&table=Final-validation&row=East",
+      "observed": "East: 98% completion, one open Sev-1, zero open Sev-2.",
+      "passed": true
+    }
+  ],
+  "render_and_visual_qa": {
+    "renderer": "Poppler pdftoppm at 144 DPI",
+    "rendered_page_count": 3,
+    "render_artifacts_retained_in_repository": false,
+    "pages": [
+      {
+        "page": 1,
+        "content": "report scope, metadata, authoritative-use rule and reading guide",
+        "png_dimensions": [
+          1224,
+          1584
+        ],
+        "png_sha256": "96a3a368bd3790ca2386eb1618914e36a4e8b7650c03ecfd3fd67aa5940cbda8",
+        "inspected_at_original_resolution": true,
+        "clipping_or_overlap": false,
+        "broken_table_geometry": false,
+        "missing_or_unreadable_content": false
+      },
+      {
+        "page": 2,
+        "content": "superseded preliminary validation and authority warning",
+        "png_dimensions": [
+          1224,
+          1584
+        ],
+        "png_sha256": "7d7b17e75d398c588d78d03a3fe84a7f4e8c5ecc735bbba6e0b7921e4417a218",
+        "inspected_at_original_resolution": true,
+        "clipping_or_overlap": false,
+        "broken_table_geometry": false,
+        "missing_or_unreadable_content": false
+      },
+      {
+        "page": 3,
+        "content": "authoritative final validation and material-change table",
+        "png_dimensions": [
+          1224,
+          1584
+        ],
+        "png_sha256": "ada64b7a44d9161608c6078e7c9d388a2e1b7d5ff114460a3e8225788c87ed52",
+        "inspected_at_original_resolution": true,
+        "clipping_or_overlap": false,
+        "broken_table_geometry": false,
+        "missing_or_unreadable_content": false
+      }
+    ],
+    "passed": true
+  },
+  "gates_passed": [
+    "PDF created with the explicitly authorized ReportLab runtime",
+    "strict structure, metadata, outline and safety checks passed",
+    "preliminary, final and material-change tables extracted exactly",
+    "all three pages rendered and visually inspected",
+    "source anchors reconcile with the source blueprint",
+    "binary hash and runtime versions frozen"
+  ],
+  "not_qualified_by_this_record": [
+    "canonical extraction",
+    "Track B artifact-reading tools",
+    "Mini or Pi complete-system execution",
+    "model inference"
+  ]
+}

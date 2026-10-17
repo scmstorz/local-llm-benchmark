@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "multi-format-qualification-smokes-v0.1",
+  "status": "complete_with_versioned_pi_recovery",
+  "completed_on": "2026-09-10",
+  "track": "B",
+  "evidence_class": "excluded_qualification_smokes",
+  "case_id": "agentic.documents.rollout-readiness-reconciliation",
+  "deployment": {
+    "name": "qwen3.8:27b-mlx",
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "ollama_version": "0.33.2"
+  },
+  "source_plans": [
+    {
+      "plan_id": "multi-format-qualification-smokes-v0.1",
+      "sha256": "d3d49949df711ef70b8a31d4e3afa1cb376139180fe90e117a4a1bb9b862e134"
+    },
+    {
+      "plan_id": "pi-multi-format-qwen38-development-smoke-v0.2",
+      "sha256": "081a8c5e85c0d0ff6cf21f25f5b88b6edd9a0bc52118c1e2f515cc4619ae2889"
+    },
+    {
+      "plan_id": "pi-multi-format-qwen38-development-smoke-v0.3",
+      "sha256": "c466a329a587980857ae336455160d24d114146620e7d7e2f144a0fa2d65f408"
+    }
+  ],
+  "outcomes": [
+    {
+      "system_id": "mini-multi-format-v0.1",
+      "stage": "excluded_smoke",
+      "status": "complete",
+      "runtime_success": true,
+      "agent_termination_valid": true,
+      "semantic_verified_success": true,
+      "strict_transport_compliance": true,
+      "essential_checks_passed": 11,
+      "essential_checks_total": 11,
+      "agent_turns": 17,
+      "model_requests": 17,
+      "tool_calls": 16,
+      "failed_tool_calls": 0,
+      "repeated_queries": 0,
+      "input_tokens": 60167,
+      "output_tokens": 2419,
+      "active_wall_time_seconds": 125.99242562800646,
+      "run_record_sha256": "7831112f9757d79735cec74bea75fb851cccb955b39e4e4a5eb69529e3c268b6"
+    },
+    {
+      "system_id": "pi-multi-format-v0.1",
+      "stage": "fresh_real_seatbelt_acceptance",
+      "status": "failed_before_execution",
+      "failure_category": "sandbox_process_identity_defect",
+      "failure_detail": "The Homebrew Python framework launcher attempted to spawn an unlisted Python.app worker.",
+      "pi_process_started": false,
+      "inference_requests_made": 0,
+      "preserved_and_not_retried": true,
+      "acceptance_record_sha256": "68123479c4d3b3af505ba10a4879edd3dad861b0a77d488c2d9d29a91150a12c"
+    },
+    {
+      "system_id": "pi-multi-format-v0.2",
+      "stage": "explicit_extension_load",
+      "status": "terminal_runtime_failure_before_agent",
+      "failure_category": "extension_process_identity_validation_defect",
+      "failure_detail": "The extension rejected the case-sensitive Python.app worker basename.",
+      "agent_turns": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "tool_calls": 0,
+      "preserved_and_not_retried": true,
+      "run_record_sha256": "0e19af201fb959016b5d77bc76833e760c79762acb714ac0086e00c889911b40",
+      "stderr_sha256": "dd6a6386d50b5b195faf3dfa813f52a61240a70ba17de7ab05aa5e2f7b744e2b"
+    },
+    {
+      "system_id": "pi-multi-format-v0.3",
+      "stage": "excluded_recovery_smoke",
+      "status": "complete",
+      "runtime_success": true,
+      "agent_termination_valid": true,
+      "semantic_verified_success": true,
+      "strict_transport_compliance": false,
+      "response_normalization_applied": true,
+      "response_normalization_kind": "surrounding_text",
+      "essential_checks_passed": 11,
+      "essential_checks_total": 11,
+      "agent_turns": 6,
+      "tool_calls": 17,
+      "failed_tool_calls": 0,
+      "repeated_queries": 1,
+      "input_tokens": 30879,
+      "output_tokens": 5002,
+      "active_wall_time_seconds": 125.8653581669787,
+      "run_record_sha256": "831d60c8b3b5ef8dbca5ad298ffc1b78b83ce00e9bfdf026b717e4dc49506e8c",
+      "seatbelt_acceptance_sha256": "ce71d93ec2c5ab009039802ed4b53cac341a3352c21f55afca68d5532ecbbfd8",
+      "candidate_response_sha256": "9348ee1ae660308510708859e8b1141323142cfd7f34c8553f71ef9e2a7d23c7",
+      "candidate_report_sha256": "7e3118458414e908d2430aab2b24e2fd00ffa635895e7c6179816763479dc1b3",
+      "verification_sha256": "b17ac45d2b21efa47679649876e03ac6754e4508e4df4a5c1d36606d7389e3ca",
+      "events_sha256": "834833ebf0b8fe081758697367f1d11c81ee47795279560f307f2c70a375fac1",
+      "policy_audit_sha256": "cea8e5b0ce6fae231337a13d0a6f2f59c5a0541b7a2b29258f5de39c58b0b653"
+    }
+  ],
+  "accepted_complete_systems": [
+    "mini-multi-format-v0.1",
+    "pi-multi-format-v0.3"
+  ],
+  "qualification_conclusion": {
+    "terminal_outcome_for_each_accepted_system": true,
+    "adapter_or_orchestration_defect_in_accepted_systems": false,
+    "machine_classified_predecessor_failures": true,
+    "smoke_gate_for_measured_plan_design_passed": true,
+    "measured_execution_authorized": false
+  },
+  "interpretation_boundaries": {
+    "excluded_from_measured_aggregates": true,
+    "automatic_retries": 0,
+    "adaptive_repetitions": false,
+    "performance_ranking_allowed": false,
+    "one_factor_harness_claim_allowed": false,
+    "strict_transport_and_semantic_success_separate": true
+  },
+  "resource_control": {
+    "empty_state_seconds_before_each_executed_system": 30,
+    "model_unloaded_after_each_executed_system": true,
+    "final_loaded_models": [],
+    "postflight_passed": true
+  },
+  "next_gate": "Design and freeze a separate measured Track A/Track B plan before any measured execution."
+}

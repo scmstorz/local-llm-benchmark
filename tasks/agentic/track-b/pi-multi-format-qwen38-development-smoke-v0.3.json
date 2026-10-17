@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "pi-multi-format-qwen38-development-smoke-v0.3",
+  "status": "frozen_before_execution",
+  "frozen_on": "2026-09-10",
+  "track": "B",
+  "harness_id": "pi-multi-format-v0.3",
+  "protocol_id": "agentic-multi-format-v0.1",
+  "evidence_class": "excluded_development_recovery_smoke",
+  "purpose": "Qualify Pi after two preserved zero-inference predecessor failures by requiring the real Python worker and explicit extension load before inference.",
+  "repository_commit_at_freeze": "d8857b030adcebe8b59400b724fbebf5240cd461",
+  "worktree_inputs_frozen_by_sha256": true,
+  "runtime": {
+    "name": "ollama",
+    "version": "0.33.2",
+    "host": "http://127.0.0.1:11434"
+  },
+  "deployment": {
+    "name": "qwen3.8:27b-mlx",
+    "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-33-2",
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "size_bytes": 18174721847,
+    "quantization": "nvfp4",
+    "template_sha256": "b507b9c2f6ca642bffcd06665ea7c91f235fd32daeefdf875a0f938db05fb315",
+    "selection_reason": "Use the same deployment as the completed Mini smoke; this machinery recovery is not model-comparison evidence."
+  },
+  "case": {
+    "case_id": "agentic.documents.rollout-readiness-reconciliation",
+    "case_version": "1.0.0",
+    "case_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json"
+  },
+  "configuration": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 5000,
+    "maximum_active_wall_time_seconds": 300,
+    "provider_request_timeout_seconds": 180,
+    "maximum_agent_turns": null,
+    "maximum_total_output_tokens": null,
+    "maximum_protocol_errors": null,
+    "maximum_artifact_tool_calls_emergency": 40,
+    "automatic_retries": 0
+  },
+  "resource_gate": {
+    "empty_state_observation_seconds": 30,
+    "loaded_models_must_be_empty": true,
+    "manual_exclusive_window_confirmation_received": true,
+    "exact_ollama_version_required": true,
+    "exact_model_digest_required": true,
+    "process_snapshots": 2,
+    "blocking_process_rules": [
+      {"rule_id": "behat_test_runner", "pattern": "(?i)(?:^|[\\s/])(?:vendor/bin/)?behat(?:[\\s]|$)"},
+      {"rule_id": "behat_environment_worker", "pattern": "(?i)(?:--env=behat_test|var/behat-env)"},
+      {"rule_id": "other_test_runner", "pattern": "(?i)(?:^|[\\s/])(?:pytest|phpunit|jest|vitest|mocha|playwright|cypress)(?:[\\s]|$)"},
+      {"rule_id": "package_test_script", "pattern": "(?i)(?:^|[\\s/])(?:npm|pnpm|yarn)(?:[\\s]+run)?[\\s]+test(?:[\\s]|$)"},
+      {"rule_id": "mnemosyn_application", "pattern": "(?i)^(?!.*mnemosyn_mcp\\.py).*mnemosyn"},
+      {"rule_id": "news_or_blog_application", "pattern": "(?i)(?:news-app|blog-read-o-matic)"}
+    ]
+  },
+  "execution_boundary": {
+    "model_process": "Pinned Pi runs beneath deny-by-default macOS Seatbelt and may contact only loopback Ollama.",
+    "tool_surface": "Only four custom read-only artifact operations backed by the exact shared Python parser are enabled.",
+    "allowed_backend_processes": "Exact resolved Node, direct Python.app worker and pdftotext executables; the framework launcher, shells and arbitrary commands are denied.",
+    "candidate_workspace_writable": false,
+    "fresh_real_seatbelt_acceptance_required": true,
+    "explicit_extension_load_acceptance_required": true,
+    "final_verification": "A separate command applies the hidden verifier after Pi exits.",
+    "external_network_available_to_agent": false
+  },
+  "predecessor_outcomes": [
+    {
+      "harness_id": "pi-multi-format-v0.1",
+      "stage": "fresh_real_seatbelt_acceptance_before_inference",
+      "failure": "unlisted Python.app worker",
+      "inference_requests_made": 0,
+      "automatic_retry": false,
+      "preserved": true
+    },
+    {
+      "harness_id": "pi-multi-format-v0.2",
+      "stage": "explicit_extension_load_before_first_agent_turn",
+      "failure": "case-sensitive Python.app worker basename rejected",
+      "inference_requests_made": 0,
+      "automatic_retry": false,
+      "preserved": true
+    }
+  ],
+  "success_gate_for_measured_planning": {
+    "requires_verified_success": false,
+    "requires_complete_terminal_outcome": true,
+    "requires_no_adapter_or_orchestration_defect": true,
+    "requires_failure_if_any_to_be_machine_classified": true
+  },
+  "comparison_rules": {
+    "attempts": 1,
+    "automatic_retries": 0,
+    "result_excluded_from_measured_aggregates": true,
+    "no_model_or_harness_ranking_claim": true,
+    "distinct_system_identity_from_predecessors": true,
+    "completed_mini_smoke_repeated": false
+  },
+  "authorization": {
+    "source": "The user confirmed the exclusive resource window on 2026-09-10. Both predecessor failures occurred before any Pi inference and were versioned rather than retried.",
+    "status": "authorized_after_new_resource_gate",
+    "live_execution_allowed_only_after_new_resource_gate": true
+  },
+  "frozen_inputs": {
+    "qualification_path": "tasks/agentic/track-b/pi-multi-format-v0.3-qualification.json",
+    "qualification_sha256": "d387b7e4af4f64372ab3ada65c2a44a4dfd3cb28107423dd60a37250868e7f18",
+    "artifacts": [
+      {"path": "tasks/agentic/track-b/pi-multi-format-v0.3-qualification.json", "sha256": "d387b7e4af4f64372ab3ada65c2a44a4dfd3cb28107423dd60a37250868e7f18"},
+      {"path": "local_llm_benchmark/multi_format_pi_v03.py", "sha256": "93a65fa68ebe8b0698589062453191a53aa639ee88b769f1d7b3d219f0a40b08"},
+      {"path": "local_llm_benchmark/multi_format_pi_v02.py", "sha256": "1994c1700d7375207997fb80061ee07c7eb953a4c02e45c922614c13b8c8a50d"},
+      {"path": "local_llm_benchmark/multi_format_pi.py", "sha256": "a03feac060ea0d61d683b0dda214b8461e5e4dba86d403ea61e5b356dde3ed31"},
+      {"path": "local_llm_benchmark/macos_sandbox_multi_format.py", "sha256": "167d9a05edd5a75b040d00d05fec5b4ef99f568c744cb5cbcbe4086f02c1aeef"},
+      {"path": "local_llm_benchmark/multi_format_artifacts.py", "sha256": "b9e780953bd39002f0b8778f096d898b93e2b4abe12879f0efb86756369745c4"},
+      {"path": "local_llm_benchmark/multi_format_smokes_v03.py", "sha256": "4384d3ec2d5d0f9df770966af75b5c284f7dc87d2dac7c9de444e1280e2715ea"},
+      {"path": "integrations/pi/multi-format-readonly-v0.2.mjs", "sha256": "47c04b5bb53c6ca9c98d4a41dea86708851939a603cb7fb9d66fbd984fab6f9e"},
+      {"path": "integrations/pi/multi-format-readonly-v0.2.test.mjs", "sha256": "cd43c082b32144c03913535144a7dfdcd712f8b2e3591cca5428cee4baaed6be"},
+      {"path": "tests/test_multi_format_pi_v03.py", "sha256": "7ad0b54782b217ed95504bac32e7e6f5b702f547f06e165eded6b07fcc396d4d"},
+      {"path": "tests/test_multi_format_pi_v03_smoke.py", "sha256": "d6ada12681f690accf394e40f17ff8da80b801442bb6046ab91483ff6d54b30e"},
+      {"path": "tasks/agentic/track-b/pi-multi-format-v0.3.json", "sha256": "0cb147851c95071ca293d8413e652b576435e216c99fd0bc3acfae96d33b133f"},
+      {"path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json", "sha256": "6a3eeb93f801f91068ba995ab35a955f85f188f4d9110a55d2708adb5b30875a"},
+      {"path": "models/catalog.json", "sha256": "79e56238c9405d27dfba266e319a837571b6239cb9a6d1682729e58ebcf3d834"},
+      {"path": "models/lifecycle.json", "sha256": "18d896067eddf62ddf3c7ded8d34f22e32fef9994877239cf8e6abf877c30621"}
+    ]
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "multi-format-canonical-v0.1-no-inference-qualification",
+  "qualified_on": "2026-09-11",
+  "status": "qualified_for_measured_plan",
+  "condition_id": "canonical-representation-v0.1",
+  "protocol_id": "agentic-multi-format-canonical-v0.1",
+  "track": "A",
+  "live_ollama_requests": 0,
+  "live_model_inference": false,
+  "qualification_evidence": {
+    "canonical_record_count": 15,
+    "canonical_schema_validation_passed": true,
+    "candidate_receives_only_task_canonical_evidence_and_report_schema": true,
+    "artifact_files_available": false,
+    "tools_available": false,
+    "hidden_ground_truth_available_during_inference": false,
+    "single_schema_constrained_request": true,
+    "strict_and_normalized_transport_separate": true,
+    "unchanged_hidden_verifier_applied_after_response": true,
+    "mocked_reference_report_passed": 11,
+    "mocked_reference_report_checks_total": 11,
+    "focused_python_tests_passed": 4
+  },
+  "comparison_boundary": {
+    "same_canonical_bytes_for_every_model": true,
+    "extraction_held_constant": true,
+    "track_b_results_poolable": false,
+    "one_factor_causal_harness_claim_allowed": false,
+    "supplemental_free_text_claim_review_required": true
+  },
+  "artifacts": [
+    {
+      "path": "local_llm_benchmark/multi_format_canonical.py",
+      "sha256": "acff39e864952d1d3a5af93d551e8e38c43a3320a449216458645027c1a02772"
+    },
+    {
+      "path": "local_llm_benchmark/multi_format_document_analysis.py",
+      "sha256": "8957d3940e4925d83d58286fb947bd4dd80876bf85acfd9d89c0594d118330bc"
+    },
+    {
+      "path": "tests/test_multi_format_canonical.py",
+      "sha256": "049cfd1eabfd30d6908e452c51a9787d4bf954f5d337936f9610c5db0521bd4e"
+    },
+    {
+      "path": "tasks/agentic/track-a/multi-format-canonical-v0.1.json",
+      "sha256": "872f4aa47e7321324ac9c0f2c0fa59cfa765e700355754d08b037f001a8076fe"
+    },
+    {
+      "path": "tasks/agentic/track-a/prompts/multi-format-canonical-system-v0.1.txt",
+      "sha256": "739b33e0a8813bd444b8113ac8a1b1270323e47ec24a039a653b91b44257c790"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/canonical/canonical-extraction-v0.1.json",
+      "sha256": "9fda47f138ca4019fc0e1c84ad6b5734db43d3c23184794f5bc4d4cabef5c0db"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/canonical-extraction-qualification-v0.1.json",
+      "sha256": "56e586e1cb098e20a1c7c2426b9b1c5e3a864905ce23bb1cd3d1b2c71c8cdb9c"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json",
+      "sha256": "6a3eeb93f801f91068ba995ab35a955f85f188f4d9110a55d2708adb5b30875a"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/TASK-v0.1.md",
+      "sha256": "26e7a3e248b3f2fff5e328059598c6e4f17603d4b614db9aafeac7febf35b363"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/report-schema-v1.json",
+      "sha256": "efee4a95075621c2cf0173ea10e247b538d24e4031051927414778018ef4ebe3"
+    }
+  ],
+  "next_gate": "Freeze the measured Track A/Track B plan only after its controller and public-safe reporting path pass offline tests."
+}

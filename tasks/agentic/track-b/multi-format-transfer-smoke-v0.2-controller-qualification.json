@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "multi-format-transfer-smoke-v0.2-controller-no-inference",
+  "qualified_on": "2026-09-12",
+  "status": "qualified_for_frozen_smoke",
+  "scope": "Two-system excluded Phase 96 transfer-smoke controller, resource boundary and public-safe deterministic report path.",
+  "qualification_evidence": {
+    "focused_python_tests_passed": 10,
+    "live_ollama_requests": 0,
+    "live_model_inference": false,
+    "repository_execution_authorization_present": false,
+    "temporary_authorizations_used_only_in_mocked_tests": true,
+    "offline_preparation_of_both_systems_supported": true,
+    "offline_pi_readiness_acceptance_not_treated_as_live_freshness": true,
+    "live_boundary_constructs_no_client_before_authorization_and_window_confirmation": true,
+    "fresh_resource_gate_before_each_system_first_request": true,
+    "fresh_thirteen_check_seatbelt_acceptance_before_pi_inference": true,
+    "mini_continuation_checks_competing_processes_and_models": true,
+    "terminal_attempts_not_repeated": true,
+    "model_unloaded_after_each_system": true,
+    "raw_candidate_content_excluded_from_public_report": true
+  },
+  "controller_properties": {
+    "system_order": ["pi-multi-format-v0.4", "mini-multi-format-v0.2"],
+    "order_reason": "Run the newly repaired Pi transport first; order is fixed before inference and is not ranking evidence.",
+    "model": "qwen3.8:27b-mlx",
+    "one_attempt_per_system": true,
+    "automatic_retries": 0,
+    "excluded_from_measured_aggregates": true,
+    "post_freeze_hash_bound_authorization_required": true,
+    "exclusive_window_confirmation_required": true,
+    "authorization_separate_from_plan": true,
+    "no_authorization_artifact_in_repository": true
+  },
+  "artifacts": [
+    {
+      "path": "local_llm_benchmark/multi_format_transfer_smoke.py",
+      "sha256": "74d9b50e333fd57d101d139b6e6a7b65154edf3e005662ce613c5d7d1a80a823"
+    },
+    {
+      "path": "local_llm_benchmark/multi_format_transfer_smoke_report.py",
+      "sha256": "e0ab63a6001dcb6c75b777d2721b4267b98d2683149e4d30f56062a19ac21d4d"
+    },
+    {
+      "path": "tests/test_multi_format_transfer_smoke.py",
+      "sha256": "85cba4da9756f14cf062cf18ec454a6fe739da31d6450ef9cf7f682e2a58225d"
+    },
+    {
+      "path": "tasks/agentic/track-b/mini-multi-format-v0.2-qualification.json",
+      "sha256": "5f4c8677c4b823ad0555afbec8c4d763c782b74c079c4d7feabbbb88a50305ed"
+    },
+    {
+      "path": "tasks/agentic/track-b/pi-multi-format-v0.4-qualification.json",
+      "sha256": "b0b3d99fcfd81704a54340b13cce4131d6224378054ce5413b4390e27992fe9b"
+    },
+    {
+      "path": "tasks/agentic/track-b/multi-format-transfer-complete-systems-v0.2-qualification.json",
+      "sha256": "c2282d580cc471af70c76e1d4c4edb4471df9d5afc5c29f956cacfaf1ca9eea2"
+    }
+  ],
+  "next_gate": "Freeze the exact two-system plan. This qualification does not authorize an Ollama request."
+}

@@ -45,8 +45,8 @@ The script performs the following gates in order:
 1. verifies both worktrees and the public remote;
 2. creates a temporary allowlisted snapshot from tracked research files;
 3. audits that snapshot for excluded paths, credential patterns, private
-   absolute paths, email addresses, binary or oversized files, unsafe symlinks,
-   and broken local Markdown links;
+   absolute paths, email addresses, unknown or hash-mismatched binary files,
+   oversized files, unsafe symlinks, and broken local Markdown links;
 4. synchronizes the exact snapshot into the public clone, including intentional
    deletions of formerly public tracked files;
 5. audits the synchronized clone again;
@@ -54,6 +54,17 @@ The script performs the following gates in order:
    newly added files are both covered without staging the real candidate; and
 7. runs the dependency-free public test suite with bytecode generation disabled
    and verifies that the tests did not modify the candidate tree.
+
+The snapshot includes `.gitattributes` so DOCX, PDF and XLSX fixtures retain
+their binary Git classification. Some frozen PDFs contain only ASCII bytes;
+without explicit attributes Git would apply text whitespace checks to their
+binary structure. Preserve their exact bytes; text files still undergo the
+ordinary whitespace check.
+
+Public tests verify the frozen Phase 95 plan and hashes without requiring the
+private research Git ancestry. Its dedicated commit-existence test runs only
+in the private research tree; it is an explicit environment skip in a public
+snapshot, including when that snapshot is itself a Git clone.
 
 It finishes by printing the changed paths and diff summary. It performs no
 remote write.

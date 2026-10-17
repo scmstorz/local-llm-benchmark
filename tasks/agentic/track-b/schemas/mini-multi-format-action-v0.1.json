@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mini multi-format action v0.1",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action"],
+      "properties": {"action": {"const": "list_artifacts"}}
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "anchor"],
+      "properties": {
+        "action": {"const": "read_docx"},
+        "anchor": {"enum": ["table=Regional-gates", "heading=Decision-rule", "heading=Phased-release", "heading=Evidence-cutoff"]}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "page", "element"],
+      "properties": {
+        "action": {"const": "read_pdf"},
+        "page": {"enum": [2, 3]},
+        "element": {"enum": ["table=Preliminary-validation", "note=Final-table", "table=Final-validation&row=North", "table=Final-validation&row=Central", "table=Final-validation&row=West", "table=Final-validation&row=East"]}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "sheet", "range"],
+      "properties": {
+        "action": {"const": "read_xlsx"},
+        "sheet": {"enum": ["Capacity", "Summary"]},
+        "range": {"enum": ["B4:E4", "B5:E5", "B6:E6", "B7:E7", "B3:B5"]}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "report"],
+      "properties": {
+        "action": {"const": "finish_report"},
+        "report": {"$ref": "#/$defs/decision_report"}
+      }
+    }
+  ],
+  "$defs": {
+    "decision_report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "executive_summary", "decision", "evidence", "conflicts", "recommended_actions", "uncertainties"],
+      "properties": {
+        "schema_version": {"const": "1.0.0"},
+        "executive_summary": {"type": "string", "minLength": 1},
+        "decision": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "approved_regions", "blocked_regions"],
+          "properties": {
+            "code": {"type": "string"},
+            "approved_regions": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+            "blocked_regions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["region", "blocker_code", "explanation"],
+                "properties": {
+                  "region": {"type": "string"},
+                  "blocker_code": {"type": "string"},
+                  "explanation": {"type": "string", "minLength": 1}
+                }
+              }
+            }
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["fact_code", "source_ref", "supports"],
+            "properties": {
+              "fact_code": {"type": "string"},
+              "source_ref": {"type": "string"},
+              "supports": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["code", "source_refs", "resolution"],
+            "properties": {
+              "code": {"type": "string"},
+              "source_refs": {"type": "array", "minItems": 2, "items": {"type": "string"}, "uniqueItems": true},
+              "resolution": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "recommended_actions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["code", "rationale"],
+            "properties": {
+              "code": {"type": "string"},
+              "rationale": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "uncertainties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["code", "reason"],
+            "properties": {
+              "code": {"type": "string"},
+              "reason": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      }
+    }
+  }
+}

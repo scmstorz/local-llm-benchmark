@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "rollout-readiness-canonical-extraction-v0.1",
+  "case_id": "agentic.documents.rollout-readiness-reconciliation",
+  "status": "qualified",
+  "qualified_on": "2026-09-10",
+  "live_inference_performed": false,
+  "extraction": {
+    "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/canonical/canonical-extraction-v0.1.json",
+    "format": "json",
+    "size_bytes": 12515,
+    "sha256": "9fda47f138ca4019fc0e1c84ad6b5734db43d3c23184794f5bc4d4cabef5c0db"
+  },
+  "schema": {
+    "path": "tasks/agentic/multi-format-document-analysis/canonical-extraction-schema-v1.json",
+    "sha256": "d6cb4c02aed9d2db918bdfa246daaf8599930bd1f18ef6704dd051c110ad9c3a"
+  },
+  "toolchain": {
+    "platform": "Darwin 25.1.0 arm64",
+    "python": "3.14.4",
+    "docx_extractor": "Python standard library zipfile plus deterministic OOXML token extraction",
+    "pdf_extractor": "Poppler pdftotext 25.11.0 with layout preservation",
+    "xlsx_extractor": "Python standard library zipfile plus deterministic OOXML cell and shared-string extraction"
+  },
+  "artifact_inputs": [
+    {
+      "filename": "rollout-policy.docx",
+      "format": "docx",
+      "size_bytes": 40353,
+      "sha256": "957e46216355153109673d60e3b8ad2facc98451dd0ec7738ee76171eee25c0d"
+    },
+    {
+      "filename": "reliability-review.pdf",
+      "format": "pdf",
+      "size_bytes": 7943,
+      "sha256": "be9e322a643d2b587270e8c29ba6be937e6c233835593fdf9744b9ba2453edab"
+    },
+    {
+      "filename": "regional-readiness.xlsx",
+      "format": "xlsx",
+      "size_bytes": 14788,
+      "sha256": "c6144e5756654ab7b9d4911b5f02cba5f19242d361227e3574dedefc47096d1d"
+    }
+  ],
+  "reproducibility_inputs": [
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/build_canonical_extraction.py",
+      "sha256": "9beea68da3043152014585533332b8da4a3a5e8e367871a53d2f6f9aac920200"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/inspect_canonical_extraction.py",
+      "sha256": "a15a585d5e423e5988f5ae81cdcf8dbf27167ff5bceeafb8a736bf6bac5c9952"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/source-blueprint-v0.1.json",
+      "sha256": "920acc7687144e6071409a86dafafddc9785c137dc0810ff1fa1ba8f00938edc"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/docx-artifact-qualification-v0.1.json",
+      "sha256": "2ac4262f4bd276816abb6ac8b3f4523f8500b0663f8b0bde010d5d5719196c4d"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/pdf-artifact-qualification-v0.1.json",
+      "sha256": "3eddcb1b61c213810364ceb47eafa3aea3401592280d21c0824fe982456a30c6"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/xlsx-artifact-qualification-v0.1.json",
+      "sha256": "041533e505b69d71e78edb4dd4f089c54d8dbc590bf56d571de136dbe54dd0f4"
+    }
+  ],
+  "parity_checks": {
+    "schema_valid": true,
+    "artifact_hashes_exact_match": true,
+    "fresh_binary_rebuild_exact_match": true,
+    "second_serialization_byte_for_byte_match": true,
+    "blueprint_fact_order_exact_match": true,
+    "source_refs_unique": true,
+    "record_count": 15,
+    "record_counts_by_format": {
+      "docx": 4,
+      "pdf": 6,
+      "xlsx": 5
+    },
+    "policy_thresholds_exact_match": true,
+    "preliminary_and_final_pdf_values_exact_match": true,
+    "final_pdf_authority_and_cutoff_exact_match": true,
+    "capacity_values_formulas_and_cached_results_exact_match": true,
+    "aggregate_dashboard_values_and_formula_exact_match": true
+  },
+  "source_anchor_reconciliation": {
+    "expected_fact_codes": [
+      "POL-GATES",
+      "POL-REGION",
+      "POL-PHASE",
+      "POL-CUTOFF",
+      "REL-PRELIMINARY",
+      "REL-FINAL",
+      "REL-NORTH",
+      "REL-CENTRAL",
+      "REL-WEST",
+      "REL-EAST",
+      "CAP-NORTH",
+      "CAP-CENTRAL",
+      "CAP-WEST",
+      "CAP-EAST",
+      "DASH-STATUS"
+    ],
+    "matched_fact_codes": 15,
+    "missing_fact_codes": [],
+    "unexpected_fact_codes": [],
+    "passed": true
+  },
+  "answer_leakage_check": {
+    "prohibited_fragments": [
+      "phased_go",
+      "launch_north_only",
+      "sev2_above_limit",
+      "completion_below_threshold",
+      "approved_regions",
+      "blocked_regions",
+      "recommended_actions"
+    ],
+    "matches": [],
+    "passed": true,
+    "interpretation": "The representation exposes source-derived evidence and stable citation identities but no controlled decision, blocker or action answer."
+  },
+  "gates_passed": [
+    "all three frozen binary hashes verified before extraction",
+    "canonical JSON validates against the frozen extraction schema",
+    "all 15 blueprint fact identities and source anchors match in order",
+    "fresh extraction from the binaries exactly matches the frozen representation",
+    "a second serialization is byte-for-byte identical",
+    "policy, reliability, capacity, dashboard and formula values reconcile",
+    "controlled answer leakage scan passes",
+    "canonical extraction hash and tool/runtime versions frozen"
+  ],
+  "not_qualified_by_this_record": [
+    "Track B artifact-reading tools",
+    "Mini or Pi complete-system execution",
+    "model inference",
+    "measured Track A or Track B results"
+  ]
+}

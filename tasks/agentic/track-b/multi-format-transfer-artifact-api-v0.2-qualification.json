@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "multi-format-transfer-artifact-api-v0.2-no-inference-qualification",
+  "qualified_on": "2026-09-11",
+  "status": "qualified_for_complete_system_adaptation",
+  "api_version": "0.2.0",
+  "case_id": "agentic.documents.supplier-award-reconciliation",
+  "live_ollama_requests": 0,
+  "live_model_inference": false,
+  "qualification_evidence": {
+    "frozen_binary_inputs": 3,
+    "bounded_queries": 16,
+    "binary_derived_records": 16,
+    "records_equal_frozen_canonical_extraction": 16,
+    "record_order_equal": true,
+    "fact_codes_and_source_refs_equal": true,
+    "maximum_response_bytes": 8192,
+    "workspace_requires_exact_inventory": true,
+    "binary_hash_verified_before_each_read": true,
+    "symlink_rejected": true,
+    "unknown_operation_rejected": true,
+    "unknown_anchor_rejected": true,
+    "standalone_bridge_matches_direct_import": true,
+    "artifact_bytes_unchanged_after_all_reads": true,
+    "focused_python_tests_passed": 6
+  },
+  "runtime": {
+    "python": "3.14.4",
+    "pdftotext": "25.11.0",
+    "docx_parser": "Python standard-library OOXML",
+    "xlsx_parser": "Python standard-library OOXML",
+    "pdf_parser": "Poppler pdftotext -layout"
+  },
+  "execution_boundary": {
+    "input_controlled_filesystem_paths": false,
+    "filesystem_writes": false,
+    "network_operations": false,
+    "subprocess_allowlist": ["exact resolved pdftotext binary for read_pdf only"],
+    "ground_truth_loaded": false,
+    "canonical_extraction_loaded": false,
+    "controlled_answer_values_embedded": false
+  },
+  "comparison_boundary": {
+    "future_mini_and_pi_must_share_exact_backend_bytes": true,
+    "track_a_uses_frozen_canonical_json": true,
+    "track_b_reads_real_binary_artifacts": true,
+    "track_a_and_track_b_poolable": false
+  },
+  "artifacts": [
+    {
+      "path": "local_llm_benchmark/multi_format_transfer_artifacts.py",
+      "sha256": "c753c5cde1b94957efe7e213543f51e0ea2b444b980b75a969282ed6ccf53d98"
+    },
+    {
+      "path": "tests/test_multi_format_transfer_artifacts.py",
+      "sha256": "3fa897d8fffeb067777b7a92a566df22b2b817840b98a3a085f6d97e0c9786f5"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/case-v0.2.json",
+      "sha256": "e804433ad1bddfa1a93f4f484240d5dae6b2a761367647f56a2784e43cd0b467"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/canonical/canonical-extraction-v0.2.json",
+      "sha256": "5029f93fb99bd6e3da7fdd8e48109efa27e7d8af2ff025ff770d714325806d85"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/canonical-extraction-qualification-v0.2.json",
+      "sha256": "46f2f3dc33584ee5c4dfd5f0495c221a1a4d863e302c8ea5852658c39d0a1197"
+    }
+  ],
+  "next_gate": "Adapt and separately qualify the Mini and Pi complete-system harnesses before any excluded transfer smoke is frozen or run."
+}

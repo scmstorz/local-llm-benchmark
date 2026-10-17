@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "mini-multi-format-v0.1-no-inference-qualification",
+  "qualified_on": "2026-09-10",
+  "status": "qualified_for_excluded_smoke_design",
+  "harness_id": "mini-multi-format-v0.1",
+  "protocol_id": "agentic-multi-format-v0.1",
+  "case_count": 1,
+  "live_ollama_requests": 0,
+  "live_model_inference": false,
+  "qualification_evidence": {
+    "artifact_only_preparation_passed": true,
+    "structured_action_count": 5,
+    "shared_artifact_operations": ["list_artifacts", "read_docx", "read_pdf", "read_xlsx"],
+    "unknown_anchor_rejected": true,
+    "complete_action_audit_with_result_hash": true,
+    "mocked_model_boundary_passed": true,
+    "reference_report_essential_checks_passed": 11,
+    "reference_report_essential_checks_total": 11,
+    "semantic_and_transport_outcomes_separate": true,
+    "interrupted_model_call_state_persisted": true,
+    "focused_python_tests_passed": 6
+  },
+  "execution_boundary": {
+    "candidate_workspace_inventory": ["rollout-policy.docx", "reliability-review.pdf", "regional-readiness.xlsx"],
+    "candidate_files_read_only_by_action_policy": true,
+    "candidate_code_or_commands_executed": false,
+    "artifact_tool_calls_emergency_maximum": 40,
+    "external_network_action_available": false,
+    "final_verification_separate": true,
+    "portable_standalone_os_sandbox": false
+  },
+  "comparison_boundary": {
+    "same_artifact_backend_as_pi": true,
+    "same_model_across_harnesses": "complete_system_comparison",
+    "track_a_results_poolable": false,
+    "strict_transport_is_primary": false
+  },
+  "artifacts": [
+    {"path": "local_llm_benchmark/multi_format_mini.py", "sha256": "231782331781c633f3d641e9f67fdac43aa63086c456a166d452a730017bb5fd"},
+    {"path": "local_llm_benchmark/multi_format_artifacts.py", "sha256": "b9e780953bd39002f0b8778f096d898b93e2b4abe12879f0efb86756369745c4"},
+    {"path": "tests/test_multi_format_mini.py", "sha256": "c15c675555f168db69b133f4929d928db91f25864a7e68ecc90427b254219f75"},
+    {"path": "tasks/agentic/track-b/multi-format-v0.1.json", "sha256": "d86a29a6828af39e351909e8957230419e760a9c055b47f592ba1e9f3839d30d"},
+    {"path": "tasks/agentic/track-b/mini-multi-format-v0.1.json", "sha256": "d9416b9c0cd8271e3a2058c5a53dab9e70fb502b441a7792418e728acd514b82"},
+    {"path": "tasks/agentic/track-b/prompts/mini-multi-format-system-v0.1.txt", "sha256": "bb05fc32f47fd7c90e691f634b09daf9d296b9f87b8a1e018e67f2370da7c5ac"},
+    {"path": "tasks/agentic/track-b/schemas/mini-multi-format-action-v0.1.json", "sha256": "37ae9b009234fc34e079da15229421667b6e0fd36600cd715a5c6fa3bded43a4"},
+    {"path": "capabilities/inventories/mini-multi-format-v0.1.json", "sha256": "ce9b9bbccec00f8f49c0767f13c6de38d95ebe14e3f0087f54149a41c7bc769e"},
+    {"path": "capabilities/isolation-profiles/mini-multi-format-v0.1.json", "sha256": "2497c97d6f5d5671d253fd018886272d87519831722e0bb0152df54156ba7f4a"},
+    {"path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json", "sha256": "6a3eeb93f801f91068ba995ab35a955f85f188f4d9110a55d2708adb5b30875a"}
+  ],
+  "next_gate": "Run one excluded no-retry Mini smoke after a fresh exclusive resource-window confirmation."
+}

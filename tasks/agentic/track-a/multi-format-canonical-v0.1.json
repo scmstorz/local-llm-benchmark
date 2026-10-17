@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "condition_id": "canonical-representation-v0.1",
+  "protocol_id": "agentic-multi-format-canonical-v0.1",
+  "track": "A",
+  "study_mode": "measured_capability",
+  "status": "qualification_candidate",
+  "case_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json",
+  "task_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/TASK-v0.1.md",
+  "canonical_extraction_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/canonical/canonical-extraction-v0.1.json",
+  "canonical_extraction_schema_path": "tasks/agentic/multi-format-document-analysis/canonical-extraction-schema-v1.json",
+  "system_prompt_path": "tasks/agentic/track-a/prompts/multi-format-canonical-system-v0.1.txt",
+  "report_schema_path": "tasks/agentic/multi-format-document-analysis/report-schema-v1.json",
+  "candidate_boundary": {
+    "canonical_representation_only": true,
+    "artifact_files_available": false,
+    "tools_available": false,
+    "hidden_ground_truth_available": false,
+    "external_network_available": false
+  },
+  "normal_capability_limits": {
+    "maximum_active_wall_time_seconds": 300,
+    "provider_request_timeout_seconds": 180
+  },
+  "inference_defaults": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict": 5000,
+    "keep_alive": "5m"
+  },
+  "outcome_model": {
+    "primary": "semantic_verified_success",
+    "strict_transport_compliance_scored_separately": true,
+    "supplemental_free_text_claim_review_required": true,
+    "composite_score": false
+  },
+  "comparison_boundary": {
+    "extraction_held_constant_across_models": true,
+    "track_b_results_poolable": false,
+    "direct_causal_harness_claim_allowed": false
+  }
+}

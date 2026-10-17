@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "inventory_id": "pi-multi-format-v0.2",
+  "status": "qualification_candidate",
+  "harness_family": "pinned_pi",
+  "task_family": "document_decision_reconciliation",
+  "task_subset_size": 1,
+  "model_visible_tools": [
+    {"name": "list_artifacts", "implementation": "shared_python_backend", "side_effect": false},
+    {"name": "read_docx", "implementation": "shared_python_backend", "side_effect": false},
+    {"name": "read_pdf", "implementation": "shared_python_backend", "side_effect": false},
+    {"name": "read_xlsx", "implementation": "shared_python_backend", "side_effect": false}
+  ],
+  "final_output": {"mechanism": "final_assistant_text", "semantic_acceptance": "exactly_one_intact_json_object", "strict_transport_compliance_scored_separately": true},
+  "defense_in_depth": {"policy_extension_allowlist": ["list_artifacts", "read_docx", "read_pdf", "read_xlsx"], "os_sandbox": "deny_by_default_macos_seatbelt", "model_transport": "Ollama loopback only", "python_process": "direct exact Python.app worker"},
+  "unavailable_capabilities": [
+    "filesystem_write", "shell", "arbitrary_code_execution", "browser",
+    "external_network", "hidden_verifier", "persistent_memory", "subagents",
+    "approvals", "unrelated_path_access"
+  ],
+  "context_policy": {"initial_artifact_contents": false, "query_catalog_visible_after_tool_call": true, "automatic_compaction": false}
+}

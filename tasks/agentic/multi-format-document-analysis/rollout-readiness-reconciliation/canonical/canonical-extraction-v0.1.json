@@ -1,0 +1,400 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "agentic.documents.rollout-readiness-reconciliation",
+  "extraction_version": "0.1.0",
+  "representation": "canonical_artifact_evidence",
+  "artifact_inputs": [
+    {
+      "filename": "rollout-policy.docx",
+      "format": "docx",
+      "sha256": "957e46216355153109673d60e3b8ad2facc98451dd0ec7738ee76171eee25c0d",
+      "size_bytes": 40353
+    },
+    {
+      "filename": "reliability-review.pdf",
+      "format": "pdf",
+      "sha256": "be9e322a643d2b587270e8c29ba6be937e6c233835593fdf9744b9ba2453edab",
+      "size_bytes": 7943
+    },
+    {
+      "filename": "regional-readiness.xlsx",
+      "format": "xlsx",
+      "sha256": "c6144e5756654ab7b9d4911b5f02cba5f19242d361227e3574dedefc47096d1d",
+      "size_bytes": 14788
+    }
+  ],
+  "evidence_records": [
+    {
+      "fact_code": "POL-GATES",
+      "source_ref": "rollout-policy.docx#table=Regional-gates",
+      "artifact_format": "docx",
+      "record_type": "table",
+      "authority": "governing_policy",
+      "text": "Gate | Passing criterion | Evaluation | Evidence basis\nValidation completion | Completion is at least 95%. | Per region | Final validation evidence at the cutoff\nOpen Sev-1 issues | Open Sev-1 issue count equals 0. | Per region | Final reliability review at the cutoff\nOpen Sev-2 issues | Open Sev-2 issue count is at most 2. | Per region | Final reliability review at the cutoff\nSupport capacity | Support capacity / projected peak load is at least 1.25. | Per region | Regional readiness workbook, Capacity sheet",
+      "fields": [
+        {
+          "name": "Validation completion",
+          "value": "Completion is at least 95%. | Per region | Final validation evidence at the cutoff",
+          "formula": null
+        },
+        {
+          "name": "Open Sev-1 issues",
+          "value": "Open Sev-1 issue count equals 0. | Per region | Final reliability review at the cutoff",
+          "formula": null
+        },
+        {
+          "name": "Open Sev-2 issues",
+          "value": "Open Sev-2 issue count is at most 2. | Per region | Final reliability review at the cutoff",
+          "formula": null
+        },
+        {
+          "name": "Support capacity",
+          "value": "Support capacity / projected peak load is at least 1.25. | Per region | Regional readiness workbook, Capacity sheet",
+          "formula": null
+        }
+      ]
+    },
+    {
+      "fact_code": "POL-REGION",
+      "source_ref": "rollout-policy.docx#heading=Decision-rule",
+      "artifact_format": "docx",
+      "record_type": "paragraph",
+      "authority": "governing_policy",
+      "text": "Apply every gate independently to each region. A region is eligible only when all four gates pass for that region. Portfolio averages, rollups or dashboard status cannot replace or override a failed regional gate.",
+      "fields": []
+    },
+    {
+      "fact_code": "POL-PHASE",
+      "source_ref": "rollout-policy.docx#heading=Phased-release",
+      "artifact_format": "docx",
+      "record_type": "paragraph",
+      "authority": "governing_policy",
+      "text": "A phased production launch may proceed when at least one region passes all four gates. Only regions that pass every gate may launch; all other regions remain on hold until their failed gates are cleared and the evidence is revalidated.",
+      "fields": []
+    },
+    {
+      "fact_code": "POL-CUTOFF",
+      "source_ref": "rollout-policy.docx#heading=Evidence-cutoff",
+      "artifact_format": "docx",
+      "record_type": "paragraph",
+      "authority": "governing_policy",
+      "text": "Use evidence finalized no later than 2026-08-31 18:00 UTC. Later changes belong to a new decision cycle and may not be used retroactively for this review.",
+      "fields": []
+    },
+    {
+      "fact_code": "REL-PRELIMINARY",
+      "source_ref": "reliability-review.pdf#page=2&table=Preliminary-validation",
+      "artifact_format": "pdf",
+      "record_type": "table",
+      "authority": "preliminary_superseded",
+      "text": "Region | Completion | Open Sev-1 | Open Sev-2 | Evidence status\nNorth | 97% | 0 | 1 | Preliminary\nCentral | 96% | 0 | 2 | Preliminary\nWest | 94% | 0 | 0 | Preliminary\nEast | 98% | 0 | 0 | Preliminary",
+      "fields": [
+        {
+          "name": "North",
+          "value": "North | 97% | 0 | 1 | Preliminary",
+          "formula": null
+        },
+        {
+          "name": "Central",
+          "value": "Central | 96% | 0 | 2 | Preliminary",
+          "formula": null
+        },
+        {
+          "name": "West",
+          "value": "West | 94% | 0 | 0 | Preliminary",
+          "formula": null
+        },
+        {
+          "name": "East",
+          "value": "East | 98% | 0 | 0 | Preliminary",
+          "formula": null
+        }
+      ]
+    },
+    {
+      "fact_code": "REL-FINAL",
+      "source_ref": "reliability-review.pdf#page=3&note=Final-table",
+      "artifact_format": "pdf",
+      "record_type": "note",
+      "authority": "final_at_cutoff",
+      "text": "This final table supersedes the Preliminary validation table on page 2. It is the only reliability evidence finalized at the decision cutoff, 2026-08-31 18:00 UTC.",
+      "fields": [
+        {
+          "name": "supersedes_page",
+          "value": 2,
+          "formula": null
+        },
+        {
+          "name": "evidence_cutoff",
+          "value": "2026-08-31 18:00 UTC",
+          "formula": null
+        }
+      ]
+    },
+    {
+      "fact_code": "REL-NORTH",
+      "source_ref": "reliability-review.pdf#page=3&table=Final-validation&row=North",
+      "artifact_format": "pdf",
+      "record_type": "row",
+      "authority": "final_at_cutoff",
+      "text": "North | 97% | 0 | 1 | Final at cutoff",
+      "fields": [
+        {
+          "name": "completion",
+          "value": "97%",
+          "formula": null
+        },
+        {
+          "name": "open_sev1",
+          "value": 0,
+          "formula": null
+        },
+        {
+          "name": "open_sev2",
+          "value": 1,
+          "formula": null
+        },
+        {
+          "name": "evidence_status",
+          "value": "Final at cutoff",
+          "formula": null
+        }
+      ]
+    },
+    {
+      "fact_code": "REL-CENTRAL",
+      "source_ref": "reliability-review.pdf#page=3&table=Final-validation&row=Central",
+      "artifact_format": "pdf",
+      "record_type": "row",
+      "authority": "final_at_cutoff",
+      "text": "Central | 96% | 0 | 3 | Final at cutoff",
+      "fields": [
+        {
+          "name": "completion",
+          "value": "96%",
+          "formula": null
+        },
+        {
+          "name": "open_sev1",
+          "value": 0,
+          "formula": null
+        },
+        {
+          "name": "open_sev2",
+          "value": 3,
+          "formula": null
+        },
+        {
+          "name": "evidence_status",
+          "value": "Final at cutoff",
+          "formula": null
+        }
+      ]
+    },
+    {
+      "fact_code": "REL-WEST",
+      "source_ref": "reliability-review.pdf#page=3&table=Final-validation&row=West",
+      "artifact_format": "pdf",
+      "record_type": "row",
+      "authority": "final_at_cutoff",
+      "text": "West | 94% | 0 | 0 | Final at cutoff",
+      "fields": [
+        {
+          "name": "completion",
+          "value": "94%",
+          "formula": null
+        },
+        {
+          "name": "open_sev1",
+          "value": 0,
+          "formula": null
+        },
+        {
+          "name": "open_sev2",
+          "value": 0,
+          "formula": null
+        },
+        {
+          "name": "evidence_status",
+          "value": "Final at cutoff",
+          "formula": null
+        }
+      ]
+    },
+    {
+      "fact_code": "REL-EAST",
+      "source_ref": "reliability-review.pdf#page=3&table=Final-validation&row=East",
+      "artifact_format": "pdf",
+      "record_type": "row",
+      "authority": "final_at_cutoff",
+      "text": "East | 98% | 1 | 0 | Final at cutoff",
+      "fields": [
+        {
+          "name": "completion",
+          "value": "98%",
+          "formula": null
+        },
+        {
+          "name": "open_sev1",
+          "value": 1,
+          "formula": null
+        },
+        {
+          "name": "open_sev2",
+          "value": 0,
+          "formula": null
+        },
+        {
+          "name": "evidence_status",
+          "value": "Final at cutoff",
+          "formula": null
+        }
+      ]
+    },
+    {
+      "fact_code": "CAP-NORTH",
+      "source_ref": "regional-readiness.xlsx#sheet=Capacity&range=B4:E4",
+      "artifact_format": "xlsx",
+      "record_type": "range",
+      "authority": "regional_capacity",
+      "text": "North; support_capacity=137; projected_peak_load=108; capacity_ratio=1.26851851851852; gate_check=PASS",
+      "fields": [
+        {
+          "name": "support_capacity",
+          "value": 137,
+          "formula": null
+        },
+        {
+          "name": "projected_peak_load",
+          "value": 108,
+          "formula": null
+        },
+        {
+          "name": "capacity_ratio",
+          "value": 1.26851851851852,
+          "formula": "=IFERROR(B4/C4,0)"
+        },
+        {
+          "name": "gate_check",
+          "value": "PASS",
+          "formula": "=IF(D4>=$H$3,\"PASS\",\"HOLD\")"
+        }
+      ]
+    },
+    {
+      "fact_code": "CAP-CENTRAL",
+      "source_ref": "regional-readiness.xlsx#sheet=Capacity&range=B5:E5",
+      "artifact_format": "xlsx",
+      "record_type": "range",
+      "authority": "regional_capacity",
+      "text": "Central; support_capacity=150; projected_peak_load=117; capacity_ratio=1.28205128205128; gate_check=PASS",
+      "fields": [
+        {
+          "name": "support_capacity",
+          "value": 150,
+          "formula": null
+        },
+        {
+          "name": "projected_peak_load",
+          "value": 117,
+          "formula": null
+        },
+        {
+          "name": "capacity_ratio",
+          "value": 1.28205128205128,
+          "formula": "=IFERROR(B5/C5,0)"
+        },
+        {
+          "name": "gate_check",
+          "value": "PASS",
+          "formula": "=IF(D5>=$H$3,\"PASS\",\"HOLD\")"
+        }
+      ]
+    },
+    {
+      "fact_code": "CAP-WEST",
+      "source_ref": "regional-readiness.xlsx#sheet=Capacity&range=B6:E6",
+      "artifact_format": "xlsx",
+      "record_type": "range",
+      "authority": "regional_capacity",
+      "text": "West; support_capacity=150; projected_peak_load=100; capacity_ratio=1.5; gate_check=PASS",
+      "fields": [
+        {
+          "name": "support_capacity",
+          "value": 150,
+          "formula": null
+        },
+        {
+          "name": "projected_peak_load",
+          "value": 100,
+          "formula": null
+        },
+        {
+          "name": "capacity_ratio",
+          "value": 1.5,
+          "formula": "=IFERROR(B6/C6,0)"
+        },
+        {
+          "name": "gate_check",
+          "value": "PASS",
+          "formula": "=IF(D6>=$H$3,\"PASS\",\"HOLD\")"
+        }
+      ]
+    },
+    {
+      "fact_code": "CAP-EAST",
+      "source_ref": "regional-readiness.xlsx#sheet=Capacity&range=B7:E7",
+      "artifact_format": "xlsx",
+      "record_type": "range",
+      "authority": "regional_capacity",
+      "text": "East; support_capacity=180; projected_peak_load=130; capacity_ratio=1.38461538461538; gate_check=PASS",
+      "fields": [
+        {
+          "name": "support_capacity",
+          "value": 180,
+          "formula": null
+        },
+        {
+          "name": "projected_peak_load",
+          "value": 130,
+          "formula": null
+        },
+        {
+          "name": "capacity_ratio",
+          "value": 1.38461538461538,
+          "formula": "=IFERROR(B7/C7,0)"
+        },
+        {
+          "name": "gate_check",
+          "value": "PASS",
+          "formula": "=IF(D7>=$H$3,\"PASS\",\"HOLD\")"
+        }
+      ]
+    },
+    {
+      "fact_code": "DASH-STATUS",
+      "source_ref": "regional-readiness.xlsx#sheet=Summary&range=B3:B5",
+      "artifact_format": "xlsx",
+      "record_type": "range",
+      "authority": "aggregate_dashboard",
+      "text": "portfolio_status=GO; average_completion=0.9625; average_open_issues_per_region=1.25",
+      "fields": [
+        {
+          "name": "portfolio_status",
+          "value": "GO",
+          "formula": "=IF(AND(B4>=$F$4,B5<=$F$5,B6>=$F$6),\"GO\",\"HOLD\")"
+        },
+        {
+          "name": "average_completion",
+          "value": 0.9625,
+          "formula": null
+        },
+        {
+          "name": "average_open_issues_per_region",
+          "value": 1.25,
+          "formula": null
+        }
+      ]
+    }
+  ]
+}

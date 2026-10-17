@@ -1,0 +1,26 @@
+{
+  "attempts_per_system": 1,
+  "authorization_id": "multi-format-transfer-smoke-v0.2-execution-authorization",
+  "authorization_source": "Explicit user instruction in the current session to perform steps 1 through 3: prerequisites, the frozen two-attempt smoke, and separated outcome review. Step 4 is deferred.",
+  "authorized_at": "2026-10-17T09:50:12.429218+00:00",
+  "authorized_model": "qwen3.8:27b-mlx",
+  "authorized_systems": [
+    "pi-multi-format-v0.4",
+    "mini-multi-format-v0.2"
+  ],
+  "automatic_retries": 0,
+  "evidence_class": "excluded_development_smoke_pair",
+  "exclusive_window_confirmation_recorded": false,
+  "fresh_exclusive_window_confirmation_required": true,
+  "live_execution_authorized": true,
+  "plan_freeze_commit": "456dcfda4b5b0733dd5ea0ca1aad4b4686efc537",
+  "plan_id": "multi-format-transfer-smoke-v0.2",
+  "plan_path": "tasks/agentic/track-b/multi-format-transfer-smoke-v0.2.json",
+  "plan_sha256": "c2dd3235a8378a9f9dcced40dbb53e5d1f3a46f3a693d3dff24d5067b96d6302",
+  "repository_commit_at_authorization": "bcbf22d561aa79ea6defd41a7e3143f33d743e78",
+  "resource_gate_still_required": true,
+  "schema_version": "1.0.0",
+  "scope": "Resume only the existing prepared study multi-format-transfer-smoke-20260912T091336Z-2b4cdc1e. Preserve terminal outcomes, unload after each system, produce separated deterministic and prose reviews, and record closeout. No replacement study, retry, measured sweep, remote write, publication, or step-4 workflow integration is authorized.",
+  "status": "authorized_pending_resource_gate",
+  "unit_count": 2
+}

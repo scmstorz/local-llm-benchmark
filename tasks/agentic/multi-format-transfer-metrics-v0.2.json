@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "metrics_version": "0.2.0",
+  "supported_harnesses": ["pi-multi-format-v0.4", "mini-multi-format-v0.2"],
+  "metrics": {
+    "model_requests": "Recorded HTTP model requests only; null when not recorded. Never inferred from turns, messages or tokens.",
+    "artifact_tool_calls": "Executed inventory/read operations: list_artifacts, read_docx, read_pdf and read_xlsx. Excludes report completion.",
+    "completion_calls": "Recorded finish_report tool calls for Pi or parsed finish_report actions in Mini's turns.",
+    "agent_turns": "Adapter-native agent rounds; not an HTTP request or efficiency proxy.",
+    "adapter_tool_calls": "Original trajectory.tool_calls. Pi includes completion; Mini excludes it."
+  },
+  "normalization": {
+    "pi_artifact_count": "Sum recorded list_calls, docx_reads, pdf_reads and xlsx_reads only when all four exist.",
+    "pi_completion_count": "trajectory.finish_report_calls",
+    "mini_artifact_count": "trajectory.tool_calls, checked against parsed artifact actions when turns are available.",
+    "mini_completion_count": "Number of turns with action=finish_report; unknown when turns are unavailable.",
+    "invalid_or_contradictory_counts": "reject",
+    "missing_counts": "null"
+  },
+  "aggregation": {
+    "value": "Sum only when every unit records the metric; otherwise null.",
+    "known_subtotal": "Sum over recorded units only, or null if no unit records it.",
+    "coverage": "Always report known_unit_count, unit_count and complete."
+  },
+  "historical_records_mutated": false,
+  "semantic_outcomes_rescored": false,
+  "live_execution_authorized": false
+}

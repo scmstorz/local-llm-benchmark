@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0.0",
+  "qualification_id": "pi-multi-format-v0.3-no-inference-qualification",
+  "qualified_on": "2026-09-10",
+  "status": "qualified_for_one_excluded_recovery_smoke",
+  "harness_id": "pi-multi-format-v0.3",
+  "supersedes": "pi-multi-format-v0.2",
+  "protocol_id": "agentic-multi-format-v0.1",
+  "case_count": 1,
+  "live_ollama_requests": 0,
+  "live_model_inference": false,
+  "package": {
+    "name": "@earendil-works/pi-coding-agent",
+    "version": "0.84.4",
+    "exact_lockfile": true
+  },
+  "runtime": {
+    "node": "22.22.1",
+    "python": "3.14.4",
+    "pdftotext": "25.11.0",
+    "admitted_python_app_worker_sha256": "5ce0f1ab504ae7c1caefa42350a75f6e4e89dc9941723e67bb450713ef27fc9c",
+    "pdftotext_executable_sha256": "53c908b92a25a20dbf0f8c2ea81f3c97ccacaa4cdc1cbdc13e20386c3e0a6461"
+  },
+  "predecessor_failures": [
+    {
+      "harness_id": "pi-multi-format-v0.1",
+      "stage": "fresh_real_seatbelt_acceptance_before_inference",
+      "failure": "Homebrew framework launcher attempted to spawn the unlisted Python.app worker.",
+      "inference_requests_made": 0,
+      "preserved_and_not_retried": true
+    },
+    {
+      "harness_id": "pi-multi-format-v0.2",
+      "stage": "explicit_extension_load_before_first_agent_turn",
+      "failure": "The extension rejected the case-sensitive Python.app worker basename.",
+      "terminal_run_record_sha256": "0e19af201fb959016b5d77bc76833e760c79762acb714ac0086e00c889911b40",
+      "stderr_sha256": "dd6a6386d50b5b195faf3dfa813f52a61240a70ba17de7ab05aa5e2f7b744e2b",
+      "agent_turns": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "tool_calls": 0,
+      "preserved_and_not_retried": true
+    }
+  ],
+  "correction": {
+    "scope": "extension_python_identity_validation_and_acceptance_coverage",
+    "direct_python_app_worker": true,
+    "framework_launcher_allowed": false,
+    "case_sensitive_python_app_basename_admitted": true,
+    "explicit_extension_load_checked_under_real_seatbelt": true,
+    "artifact_backend_changed": false,
+    "prompt_changed": false,
+    "protocol_changed": false,
+    "case_changed": false
+  },
+  "qualification_evidence": {
+    "artifact_only_preparation_passed": true,
+    "registered_custom_tool_count": 4,
+    "registered_tools": ["list_artifacts", "read_docx", "read_pdf", "read_xlsx"],
+    "native_builtin_tools_disabled": true,
+    "focused_python_tests_passed": 2,
+    "focused_node_tests_passed": 2,
+    "fresh_real_seatbelt_checks_passed": 12,
+    "fresh_real_seatbelt_checks_total": 12,
+    "shared_backend_all_formats_under_real_seatbelt": true,
+    "explicit_extension_load_under_real_seatbelt": true,
+    "hidden_ground_truth_read_denied": true,
+    "canonical_extraction_read_denied": true,
+    "candidate_workspace_write_denied": true,
+    "unlisted_process_denied": true,
+    "external_network_denied": true,
+    "ollama_loopback_allowed": true,
+    "real_acceptance_record_sha256": "8be1fb76e8d7a77283ea5fab4c84bfc3fed06569f4c1d88412c6a4cd7972b6cb"
+  },
+  "execution_boundary": {
+    "policy_extension_allowlist": ["list_artifacts", "read_docx", "read_pdf", "read_xlsx"],
+    "allowed_processes": ["exact resolved Node", "exact direct Python.app worker", "exact resolved pdftotext"],
+    "candidate_workspace_writable": false,
+    "shell_processes_allowed": false,
+    "network_allowlist": ["localhost:11434"],
+    "external_network": false,
+    "canonical_extraction_outside_sandbox": true,
+    "ground_truth_outside_sandbox": true,
+    "fresh_real_seatbelt_acceptance_required_before_each_live_run": true,
+    "explicit_extension_acceptance_required_before_each_live_run": true
+  },
+  "comparison_boundary": {
+    "same_artifact_backend_as_mini": true,
+    "same_model_across_harnesses": "complete_system_comparison",
+    "track_a_results_poolable": false,
+    "strict_transport_is_primary": false,
+    "v0_1_v0_2_and_v0_3_are_distinct_system_identities": true
+  },
+  "artifacts": [
+    {"path": "local_llm_benchmark/multi_format_pi_v03.py", "sha256": "93a65fa68ebe8b0698589062453191a53aa639ee88b769f1d7b3d219f0a40b08"},
+    {"path": "local_llm_benchmark/multi_format_pi_v02.py", "sha256": "1994c1700d7375207997fb80061ee07c7eb953a4c02e45c922614c13b8c8a50d"},
+    {"path": "local_llm_benchmark/multi_format_pi.py", "sha256": "a03feac060ea0d61d683b0dda214b8461e5e4dba86d403ea61e5b356dde3ed31"},
+    {"path": "local_llm_benchmark/macos_sandbox_multi_format.py", "sha256": "167d9a05edd5a75b040d00d05fec5b4ef99f568c744cb5cbcbe4086f02c1aeef"},
+    {"path": "local_llm_benchmark/multi_format_artifacts.py", "sha256": "b9e780953bd39002f0b8778f096d898b93e2b4abe12879f0efb86756369745c4"},
+    {"path": "integrations/pi/multi-format-readonly-v0.2.mjs", "sha256": "47c04b5bb53c6ca9c98d4a41dea86708851939a603cb7fb9d66fbd984fab6f9e"},
+    {"path": "integrations/pi/multi-format-readonly-v0.2.test.mjs", "sha256": "cd43c082b32144c03913535144a7dfdcd712f8b2e3591cca5428cee4baaed6be"},
+    {"path": "tests/test_multi_format_pi_v03.py", "sha256": "7ad0b54782b217ed95504bac32e7e6f5b702f547f06e165eded6b07fcc396d4d"},
+    {"path": "tasks/agentic/track-b/pi-multi-format-v0.3.json", "sha256": "0cb147851c95071ca293d8413e652b576435e216c99fd0bc3acfae96d33b133f"},
+    {"path": "tasks/agentic/track-b/prompts/pi-multi-format-system-v0.1.txt", "sha256": "24c131e15465bdc0f7cc263795f38a9a10d1f9f36a42f97b5e8d5bff985ee0da"},
+    {"path": "capabilities/inventories/pi-multi-format-v0.3.json", "sha256": "5608b7db9f474113661ec9063b5bd36cee33b2aa57354b5e7df7b8d781f896a1"},
+    {"path": "capabilities/isolation-profiles/pi-multi-format-v0.3.json", "sha256": "64279ddb73ed500c71546c710f507df690d0e2427651b9c26df545a2894420d8"},
+    {"path": "integrations/pi/package.json", "sha256": "6f1f0e500198a5663a63b63c3d360e5193b718ea450d9dd0862987799933a57c"},
+    {"path": "integrations/pi/package-lock.json", "sha256": "bfe2366be0a5279912b9388cdecc4d370b9ee6d11a0f9fc15b1cd185abfed730"},
+    {"path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json", "sha256": "6a3eeb93f801f91068ba995ab35a955f85f188f4d9110a55d2708adb5b30875a"}
+  ],
+  "next_gate": "Run exactly one excluded no-retry Pi v0.3 smoke after a new resource gate and a fresh 12-check real Seatbelt acceptance for that exact run."
+}

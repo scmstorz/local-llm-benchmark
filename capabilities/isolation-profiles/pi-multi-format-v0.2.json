@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "isolation_profile_id": "pi-multi-format-v0.2",
+  "status": "qualification_candidate",
+  "backend": "pi-multi-format-macos-seatbelt-v0.1",
+  "supersedes": "pi-multi-format-v0.1",
+  "workspace": {
+    "fresh_artifact_only_copy_per_run": true,
+    "exact_binary_hashes_verified_before_each_read": true,
+    "fixture_files_os_read_only": true,
+    "symlink_targets_rejected": true,
+    "host_repository_denied": true,
+    "shared_writable_state": false
+  },
+  "process": {"allowed_executables": ["resolved_node_binary", "resolved_python_app_worker", "resolved_pdftotext_binary"], "python_framework_launcher_allowed": false, "shells_allowed": false, "candidate_code_executed": false},
+  "network": {"ollama_loopback_allowed": true, "external_egress": false},
+  "runtime_writes": {"agent_configuration_directory": true, "private_temporary_directory": true, "policy_audit_log": true, "candidate_workspace": false},
+  "evaluation": {"ground_truth_outside_workspace": true, "canonical_extraction_outside_workspace": true, "final_verification_after_pi_exit": true, "hidden_feedback_to_model": false},
+  "audit": {"every_tool_call_logged": true, "inputs_and_backend_result_hashes_logged": true},
+  "acceptance_required_before_live_run": true
+}

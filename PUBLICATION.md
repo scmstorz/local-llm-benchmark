@@ -36,6 +36,8 @@ The following remain local even if they are tracked in the research history:
 
 Project-authored reference dossiers are public where they summarize and cite
 sources without reproducing them. All log-incident fixtures are synthetic.
+Binary benchmark fixtures are admitted only by exact path and frozen SHA-256;
+unknown or changed binary files fail the public-snapshot audit.
 
 ## Reproducible release preparation
 

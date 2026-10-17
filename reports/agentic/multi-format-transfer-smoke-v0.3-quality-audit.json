@@ -1,0 +1,178 @@
+{
+  "audit_id": "multi-format-transfer-smoke-v0.3-quality-audit",
+  "audited_at": "2026-10-17T10:12:54.042533+00:00",
+  "interpretation": {
+    "before_measured_reuse": [
+      "Resolve treatment of extra valid conflict citations in a new version; preserve this exact frozen scoring.",
+      "Correct or explicitly mark unavailable aggregate Pi request and artifact-operation telemetry in a new reporting version."
+    ],
+    "complete_supplier_contract_satisfied_by_either_system": false,
+    "excluded_from_measured_aggregates": true,
+    "historical_results_pooled": false,
+    "latency_distribution_claim_allowed": false,
+    "new_runtime_is_separate_condition": true,
+    "pi_structured_transport_observed_working": true,
+    "ranking_claim_allowed": false,
+    "reliability_probability_claim_allowed": false
+  },
+  "judge": {
+    "identity": "interactive Codex session",
+    "kind": "interactive_source_grounded_review",
+    "limitation": "The reviewer observed system order, trajectories and deterministic outcomes. This is not an independent or blinded assessment.",
+    "model_identity_blinded": false,
+    "paid_judge_api_used": false
+  },
+  "judgments": [
+    {
+      "correct_core_decision": true,
+      "decision_usefulness": "core_award_correct_but_evidence_authority_misstated",
+      "deterministic_findings": [
+        {
+          "check_id": "conflict_resolution",
+          "classification": "missing_required_conflict_citation",
+          "finding": "The dashboard conflict omits the Evidence-authority policy anchor in its own source_refs. That policy anchor appears elsewhere in the evidence array; the frozen verifier requires it in this conflict."
+        }
+      ],
+      "deterministic_semantic_success": false,
+      "free_text_decision": "fail",
+      "german_writing": "understandable_with_minor_grammar_issues",
+      "material_findings": [
+        {
+          "classification": "source_factual_error",
+          "fields": [
+            "evidence[ASSUR-DRAFT].supports",
+            "conflicts[draft_assurance_superseded].resolution"
+          ],
+          "finding": "The report repeatedly describes the draft as signed, although the source explicitly identifies it as unsigned. The final-over-draft precedence and supplier selection are nevertheless correct.",
+          "source_refs": [
+            "supplier-assurance-review.pdf#page=2&table=Unsigned-draft",
+            "supplier-assurance-review.pdf#page=3&note=Signed-final"
+          ]
+        }
+      ],
+      "position": 1,
+      "source_grounding": "material_error",
+      "strict_transport_compliance": true,
+      "system_id": "pi-multi-format-v0.4"
+    },
+    {
+      "correct_core_decision": true,
+      "decision_usefulness": "core_award_correct_but_authority_misstated_and_followup_incomplete",
+      "deterministic_findings": [
+        {
+          "check_id": "conflict_resolution",
+          "classification": "frozen_verifier_overrestriction",
+          "extra_valid_source_ref": "supplier-assurance-review.pdf#page=3&table=Final-assurance&row=Atlas",
+          "finding": "Both required draft/final anchors are present. The additional valid Atlas final-assurance row causes failure because the frozen verifier compares exact citation sets. This is a specification limitation, not missing conflict evidence or a wrong award decision."
+        },
+        {
+          "check_id": "action_plan",
+          "classification": "missing_required_followup_action",
+          "finding": "The required reassess_after_new_evidence action is absent. A discussion of future cutoff changes appears under uncertainties, but does not satisfy the frozen action-code requirement."
+        }
+      ],
+      "deterministic_semantic_success": false,
+      "free_text_decision": "fail",
+      "german_writing": "understandable_with_minor_grammar_issues",
+      "material_findings": [
+        {
+          "classification": "source_factual_error_and_internal_contradiction",
+          "fields": [
+            "executive_summary",
+            "conflicts[draft_assurance_superseded].resolution"
+          ],
+          "finding": "The summary and conflict resolution describe the draft as signed. The source and the same report's ASSUR-DRAFT evidence entry identify it as unsigned. This contradicts a material evidence-authority distinction.",
+          "source_refs": [
+            "supplier-assurance-review.pdf#page=2&table=Unsigned-draft",
+            "supplier-assurance-review.pdf#page=3&note=Signed-final"
+          ]
+        }
+      ],
+      "position": 2,
+      "source_grounding": "material_error_and_internal_contradiction",
+      "strict_transport_compliance": true,
+      "system_id": "mini-multi-format-v0.2"
+    }
+  ],
+  "measurement_findings": [
+    {
+      "classification": "telemetry_reporting_defect",
+      "finding": "The inherited report builder reads artifact_tool_calls, but both raw adapters expose tool_calls. It therefore emits null for artifact tool count. Tool semantics also differ: Pi includes finish_report in its 18 tool calls; Mini records 17 artifact operations and its finish action separately.",
+      "scope": "Preserved as a reporting finding; no frozen source or outcome is changed."
+    },
+    {
+      "classification": "pi_request_count_unavailable",
+      "finding": "Pi does not emit trajectory.model_requests. The inherited study counter treats this missing value as zero; its aggregate 18 records Mini requests only and must not be interpreted as the pair total. Pi has six recorded agent turns and actual inference occurred. Exact HTTP request count is not reconstructed from turns.",
+      "pi_model_request_count": null,
+      "study_model_requests_observed_is_pair_total": false
+    }
+  ],
+  "review_contract": {
+    "criteria": [
+      "source entailment and claim polarity",
+      "internal consistency",
+      "German clarity",
+      "uncertainty calibration",
+      "decision usefulness"
+    ],
+    "deterministic_separation": "Review does not repair or override frozen semantic, citation, action-code, transport or runtime outcomes.",
+    "pass_rule": "Every material source assertion must be supported and consistent. Minor stylistic errors do not fail an otherwise correct report.",
+    "scope": [
+      "executive_summary",
+      "decision.rejected_suppliers[].explanation",
+      "evidence[].supports",
+      "conflicts[].resolution",
+      "recommended_actions[].rationale",
+      "uncertainties[].reason"
+    ]
+  },
+  "runtime": {
+    "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-40-2",
+    "model_digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "name": "ollama",
+    "version": "0.40.2"
+  },
+  "schema_version": "1.0.0",
+  "source_contracts": [
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/evaluation-contract-v0.2.json",
+      "sha256": "9efb72f768d3b8a5e4e6926aa0cfb82aa701ed577011e30889f58c1a2206dc65"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/source-blueprint-v0.2.json",
+      "sha256": "b58fe432a2016360e82742a167e2789d645538a3d78aeb0f59024c26fb22c058"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/canonical/canonical-extraction-v0.2.json",
+      "sha256": "5029f93fb99bd6e3da7fdd8e48109efa27e7d8af2ff025ff770d714325806d85"
+    },
+    {
+      "path": "tasks/agentic/multi-format-document-analysis/supplier-award-reconciliation/reference/ground-truth-v0.2.json",
+      "sha256": "98f4c6b333d49f6fa11453f05f119bd5a4a918f354788b3307b7adc00ecda3aa"
+    },
+    {
+      "path": "local_llm_benchmark/multi_format_transfer.py",
+      "sha256": "5de76b1e8c2c37b9b61197b69537744ae3d5e64db0e0d49856bbce6453fa953f"
+    }
+  ],
+  "source_report": {
+    "path": "reports/agentic/multi-format-transfer-smoke-v0.3.json",
+    "planned_unit_count": 2,
+    "sha256": "910ab1396bad5fb4f39b62549708887c29d0cfe54dbe067f64add49c27850d7f",
+    "study_id": "multi-format-transfer-smoke-20261017T100311Z-551af02f",
+    "study_record_sha256": "d2e8f8e535a9479a37a65d48fed1d66426c3b5bfed0d8cacdce1a69b60801c35"
+  },
+  "status": "completed",
+  "summary": {
+    "automatic_retries": 0,
+    "correct_core_supplier_decision": 2,
+    "deterministic_semantic_success": 0,
+    "free_text_fail": 2,
+    "free_text_pass": 0,
+    "postflight_empty": 2,
+    "runtime_success": 2,
+    "strict_transport_compliance": 2,
+    "terminal_units": 2,
+    "valid_termination": 2
+  }
+}

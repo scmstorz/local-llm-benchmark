@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_id": "agentic-multi-format-v0.1",
+  "track": "B",
+  "study_mode": "development_qualification",
+  "status": "qualification_candidate",
+  "task_representation_version": "0.1",
+  "report_contract_version": "1.0.0",
+  "task_subset": [
+    {
+      "case_id": "agentic.documents.rollout-readiness-reconciliation",
+      "case_version": "1.0.0",
+      "case_path": "tasks/agentic/multi-format-document-analysis/rollout-readiness-reconciliation/case-v0.1.json"
+    }
+  ],
+  "artifact_api": {
+    "version": "0.1.0",
+    "implementation_path": "local_llm_benchmark/multi_format_artifacts.py",
+    "operations": ["list_artifacts", "read_docx", "read_pdf", "read_xlsx"],
+    "maximum_response_bytes": 8192,
+    "exact_source_refs_returned": true,
+    "binary_identity_verified_before_each_read": true
+  },
+  "normal_capability_limits": {
+    "maximum_active_wall_time_seconds": 300,
+    "provider_request_timeout_seconds": 180,
+    "maximum_agent_turns": null,
+    "maximum_total_output_tokens": null,
+    "maximum_protocol_errors": null
+  },
+  "runaway_operation_safeguards": {
+    "maximum_artifact_tool_calls": 40
+  },
+  "inference_defaults": {
+    "temperature": 0.0,
+    "seed": 42,
+    "think": false,
+    "num_ctx": 16384,
+    "num_predict_per_turn": 5000,
+    "keep_alive": "5m",
+    "request_timeout_seconds": 180
+  },
+  "outcome_model": {
+    "primary": "semantic_verified_success",
+    "strict_transport_compliance_scored_separately": true,
+    "supplemental_free_text_claim_review_required": true
+  },
+  "comparison_boundary": {
+    "mini_and_pi_are_complete_systems": true,
+    "shared_artifact_backend": true,
+    "track_a_results_poolable": false,
+    "one_factor_harness_claim_allowed": false
+  }
+}

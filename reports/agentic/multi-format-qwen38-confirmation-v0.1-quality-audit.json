@@ -1,0 +1,193 @@
+{
+  "schema_version": "1.0.0",
+  "audit_id": "multi-format-qwen38-confirmation-v0.1-quality-audit",
+  "status": "completed",
+  "audited_on": "2026-09-11",
+  "source_report": {
+    "path": "reports/agentic/multi-format-qwen38-confirmation-v0.1.json",
+    "sha256": "6ef85bcfc40356e6db181246e59ece66c29f9ff059c5d3aee61080d30d715be1",
+    "study_id": "multi-format-qwen38-confirmation-20260911T185719Z-086e9a45",
+    "study_record_sha256": "628ba27db480aec0d8a9fd9004ac4ec507c36c7e085239f4fff06c1b596f3ece",
+    "planned_cell_count": 9
+  },
+  "judge": {
+    "kind": "interactive_frontier_llm_review",
+    "identity": "interactive Codex session",
+    "paid_judge_api_used": false,
+    "model_identity_blinded": false,
+    "limitation": "The judge observed the condition order and deterministic outcomes while monitoring the study. The audit applies the frozen claim-level grounding and usability rubric but is not evidence from a blinded or independent assessor."
+  },
+  "review_contract": {
+    "scope": [
+      "executive_summary",
+      "decision.blocked_regions[].explanation",
+      "evidence[].supports",
+      "conflicts[].resolution",
+      "recommended_actions[].rationale",
+      "uncertainties[].reason"
+    ],
+    "criteria": [
+      "executive-summary claim polarity and internal consistency",
+      "free-text source entailment",
+      "wording accuracy",
+      "epistemic calibration",
+      "German writing quality",
+      "executive decision usefulness"
+    ],
+    "pass_rule": "Every material factual assertion must be supported by the supplied dossier, use polarity and uncertainty consistent with that evidence, satisfy the requested German-language presentation and remain safe and useful for the stated steering decision.",
+    "minor_style_rule": "Minor grammar, spelling or ASCII-transliteration defects do not fail a report when meaning, polarity and decision usefulness remain unambiguous.",
+    "deterministic_separation": "This audit neither repairs nor overrides schema, deterministic semantic-verifier, runtime, agent-termination or strict-transport outcomes and creates no composite score."
+  },
+  "summary": {
+    "planned_cells": 9,
+    "parseable_reports": 9,
+    "free_text_pass": 6,
+    "free_text_fail": 3,
+    "free_text_not_applicable": 0,
+    "free_text_pass_rate_among_reports": 0.6667,
+    "deterministic_semantic_success": 5,
+    "deterministic_and_free_text_accepted": 5,
+    "deterministic_free_text_and_strict_transport_accepted": 3,
+    "strict_transport_compliance": 6
+  },
+  "positions": {
+    "pass": [2, 3, 4, 5, 7, 9],
+    "fail": [1, 6, 8],
+    "not_applicable": [],
+    "combined_deterministic_and_free_text_accepted": [2, 3, 4, 5, 9],
+    "combined_deterministic_free_text_and_strict_transport_accepted": [2, 4, 9]
+  },
+  "judgments": [
+    {
+      "position": 1,
+      "condition_id": "canonical-representation-v0.1",
+      "repeat": 1,
+      "run_id": "canonical-multiformat-run-20260911T185719Z-8a6e9474",
+      "free_text_decision": "fail",
+      "material_findings": [
+        "The report approves West and says it passes all four gates even though the cited final evidence states 94% completion against a 95% minimum.",
+        "The launch and hold rationales consequently contradict the dossier by treating West as launchable and omitting it from the held regions."
+      ],
+      "deterministic_semantic_success": false,
+      "strict_transport_compliance": true
+    },
+    {
+      "position": 2,
+      "condition_id": "mini-multi-format-v0.1",
+      "repeat": 1,
+      "run_id": "mini-multiformat-run-20260911T190116Z-19a0b253",
+      "free_text_decision": "pass",
+      "material_findings": [],
+      "review_note": "The decision, blockers, evidence authority, conflicts, actions and uncertainties are grounded and internally consistent. Minor article/grammar defects do not change meaning.",
+      "deterministic_semantic_success": true,
+      "strict_transport_compliance": true
+    },
+    {
+      "position": 3,
+      "condition_id": "pi-multi-format-v0.3",
+      "repeat": 1,
+      "run_id": "pi-multiformat-run-20260911T190405Z-7a5a87a8",
+      "free_text_decision": "pass",
+      "material_findings": [],
+      "review_note": "The report correctly limits launch to North, resolves both conflicts and distinguishes the failed gate for every blocked region. Minor grammar defects are non-material.",
+      "deterministic_semantic_success": true,
+      "strict_transport_compliance": false
+    },
+    {
+      "position": 4,
+      "condition_id": "mini-multi-format-v0.1",
+      "repeat": 2,
+      "run_id": "mini-multiformat-run-20260911T190723Z-964bebba",
+      "free_text_decision": "pass",
+      "material_findings": [],
+      "review_note": "All material claims are supported and the steering recommendation follows the regional gate rule. Minor wording defects are non-material.",
+      "deterministic_semantic_success": true,
+      "strict_transport_compliance": true
+    },
+    {
+      "position": 5,
+      "condition_id": "pi-multi-format-v0.3",
+      "repeat": 2,
+      "run_id": "pi-multiformat-run-20260911T191016Z-25879fa8",
+      "free_text_decision": "pass",
+      "material_findings": [],
+      "review_note": "The report is source-grounded, calibrated and decision-useful across all reviewed fields.",
+      "deterministic_semantic_success": true,
+      "strict_transport_compliance": false
+    },
+    {
+      "position": 6,
+      "condition_id": "canonical-representation-v0.1",
+      "repeat": 2,
+      "run_id": "canonical-multiformat-run-20260911T191313Z-3ae4869d",
+      "free_text_decision": "fail",
+      "material_findings": [
+        "The report approves West and says it passes all four gates despite its cited 94% completion and the policy's 95% minimum.",
+        "Its action rationales repeat the unsafe West launch conclusion and omit West from the hold set."
+      ],
+      "deterministic_semantic_success": false,
+      "strict_transport_compliance": true
+    },
+    {
+      "position": 7,
+      "condition_id": "pi-multi-format-v0.3",
+      "repeat": 3,
+      "run_id": "pi-multiformat-run-20260911T191552Z-8ec26e22",
+      "free_text_decision": "pass",
+      "material_findings": [],
+      "review_note": "The free text correctly supports North-only rollout and every blocker. The invalid schema_version value remains a separate deterministic 0/11 failure and is not repaired by this prose decision.",
+      "deterministic_semantic_success": false,
+      "strict_transport_compliance": false
+    },
+    {
+      "position": 8,
+      "condition_id": "canonical-representation-v0.1",
+      "repeat": 3,
+      "run_id": "canonical-multiformat-run-20260911T191915Z-f112c746",
+      "free_text_decision": "fail",
+      "material_findings": [
+        "The report again approves West and claims that West passes all four gates even though its own cited evidence gives only 94% completion.",
+        "The launch and hold recommendations therefore remain materially unsafe and internally contradictory."
+      ],
+      "deterministic_semantic_success": false,
+      "strict_transport_compliance": true
+    },
+    {
+      "position": 9,
+      "condition_id": "mini-multi-format-v0.1",
+      "repeat": 3,
+      "run_id": "mini-multiformat-run-20260911T192156Z-4c7eccf5",
+      "free_text_decision": "pass",
+      "material_findings": [],
+      "review_note": "The material conclusions and supporting claims are accurate. Repeated ASCII transliterations and one malformed rendering of 'maßgeblich' are presentation defects but do not make the German meaning, polarity or decision unsafe.",
+      "deterministic_semantic_success": true,
+      "strict_transport_compliance": true
+    }
+  ],
+  "aggregate_findings": [
+    {
+      "finding_id": "canonical-west-approval-contradiction",
+      "positions": [1, 6, 8],
+      "severity": "material",
+      "description": "All three canonical-condition reports are byte-identical and approve West despite citing its 94% completion against the 95% policy threshold."
+    },
+    {
+      "finding_id": "pi-schema-only-third-repeat-failure",
+      "positions": [7],
+      "severity": "deterministic_only",
+      "description": "The third Pi report's prose is grounded and useful, but schema_version is '1.0' rather than '1.0.0'; the deterministic failure remains authoritative."
+    },
+    {
+      "finding_id": "all-deterministic-successes-pass-prose-review",
+      "positions": [2, 3, 4, 5, 9],
+      "severity": "positive",
+      "description": "Every deterministic semantic success also passes the separate prose audit."
+    }
+  ],
+  "interpretation": [
+    "The audit supports five deterministic-and-prose accepted cells; only the three Mini cells also have strict transport.",
+    "The three canonical attempts consistently reproduce the same unsafe West approval, while Mini succeeds in all three attempts and Pi succeeds deterministically in two of three.",
+    "These are bounded same-configuration consistency counts, not population reliability estimates or a universal Qwen 3.8 ranking.",
+    "The non-blinded interactive judge limitation remains material."
+  ]
+}

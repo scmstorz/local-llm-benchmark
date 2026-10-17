@@ -57,9 +57,60 @@ The task and verifier remain fixed while the complete harness changes.
 - 3 synthetic, multi-file log incident investigations with read-only tools
 
 A first read-only multi-format decision case now has a tested semantic contract
-for Word, PDF and Excel evidence. Its binary artifacts and harness remain
-deliberately unqualified, so it is not yet part of the executable suite. See
-the [v0.1 design and gate status](docs/multi-format-document-analysis-v0.1.md).
+for Word, PDF and Excel evidence. All three binary sources are qualified, while
+the common canonical extraction is now schema-validated, reproducible and
+qualified. Its bounded real-artifact backend and the complete Mini and pinned
+Pi surfaces are also qualified. Excluded smokes for accepted Mini v0.1 and
+corrected Pi v0.3 both passed all 11 semantic checks. The Pi result required
+deterministic removal of surrounding text and therefore did not pass strict
+transport. These are qualification outcomes, not measured evidence. See the
+[v0.1 design and gate status](docs/multi-format-document-analysis-v0.1.md).
+A separate 15-cell measured sweep is now complete: the five active-default
+deployments each ran once over the common canonical representation, Mini v0.1
+and Pi v0.3, with no retries. All resource gates passed. The result is 2/15
+semantic successes and 12/15 strict transports; a separate prose audit accepts
+7/13 parseable reports and both deterministic successes. Track A and the two
+complete Track B systems remain separately reported.
+A separately hash-authorized Qwen 3.8 follow-up is complete: three fresh
+attempts per unchanged condition, nine cells total, no retries and no reuse of
+the original observations. Mini passed semantics, prose review and strict
+transport in 3/3 attempts. Pi passed semantics and prose review in 2/3 but
+strict transport in 0/3. Canonical Track A failed semantics in 3/3 despite
+strict transport. These are bounded consistency counts, not a population
+reliability rate or universal ranking. See the
+[deterministic report](reports/agentic/multi-format-qwen38-confirmation-v0.1.md)
+and [separate prose audit](reports/agentic/multi-format-qwen38-confirmation-v0.1-quality-audit.md).
+
+A second transfer case is now qualified offline through both complete Track B
+systems without model contact. The
+supplier-award case changes the task from independent regional gates to a
+filter-then-rank decision: Atlas and Boreal are eligible, Cedar is cheapest but
+fails signed-final assurance, and Delta fails formula-derived capacity
+headroom. Its real DOCX, PDF and XLSX sources passed structural and full visual
+QA; the 16-record canonical extraction rebuilds exactly from their frozen
+bytes, and a bounded read-only artifact API returns the same records. Mini v0.2
+and Pi v0.4 use those exact backend bytes. Pi v0.4 adds a schema-constrained
+`finish_report` tool so only one validated structured report is admitted; a
+real no-inference 13-check Seatbelt acceptance passed. The excluded smoke has
+now completed under a separately frozen Ollama 0.40.2 execution identity,
+retaining the original never-executed 0.33.2 preparation. Pi v0.4 ran once,
+then Mini v0.2 once, without retry. Both runtime executions and strict transports
+passed, and both selected the correct primary/reserve and supplier blockers.
+Pi passed 11/12 frozen checks; Mini passed 10/12, including an exact-citation-set
+failure caused by an extra valid source. A separate prose review rejects both
+for calling the unsigned draft signed. Both Ollama postflights were empty.
+These are excluded functionality observations, not model-ranking evidence.
+See the [runtime amendment](docs/multi-format-transfer-smoke-runtime-v0.3.md),
+[deterministic report](reports/agentic/multi-format-transfer-smoke-v0.3.md) and
+[separate review and measurement limits](reports/agentic/multi-format-transfer-smoke-v0.3-quality-audit.md).
+
+An offline follow-up adds explicitly versioned corrections: supplier verifier
+2.1.0 accepts additional known conflict citations while retaining every required
+anchor, and metrics 0.2.0 separates artifact operations from completion and
+keeps unavailable request totals unknown. The historical checks and prose
+judgments remain unchanged. See the
+[correction contracts and usage](docs/multi-format-verification-v0.3.md) and
+[corrected metrics](reports/agentic/multi-format-transfer-smoke-v0.3-metrics-v0.2.md).
 
 OpenCode has a qualification card but is not yet admitted to measured runs.
 
