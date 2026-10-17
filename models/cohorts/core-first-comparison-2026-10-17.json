@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "cohort_id": "core-first-comparison-2026-10-17",
+  "status": "selected_pre_execution",
+  "selected_on": "2026-10-17",
+  "suite_path": "tasks/core-suite-v0.1.json",
+  "systems_path": "capabilities/core-systems-v0.1.json",
+  "profile": "first-comparison",
+  "catalog_path": "models/catalog-core-first-comparison-20261017.json",
+  "catalog_sha256": "53c803e7788740fbc83afe3e7de0945efe4bb310b17c124130d4174b0b6957d6",
+  "ollama_version": "0.40.5",
+  "selection_reason": "Three installed deployments exercise the shared first-comparison workflow across the six existing task families.",
+  "deployments": [
+    {
+      "role": "reference",
+      "requested_name": "qwen3.8:27b-mlx",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-40-5",
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e"
+    },
+    {
+      "role": "candidate",
+      "requested_name": "gemma4:31b-mlx",
+      "deployment_id": "gemma4-31b-mlx-a22a363052da-ollama-0-40-5",
+      "digest": "a22a363052da770302019d5afab29bd967f9318e4377bddd297421189ea09d7d"
+    },
+    {
+      "role": "candidate",
+      "requested_name": "nemotron-3.5-lightning:30b-mlx",
+      "deployment_id": "nemotron-3-5-lightning-30b-mlx-8b1474be6e54-ollama-0-40-5",
+      "digest": "8b1474be6e54dc19eb7aa08bebfb9bda147c4b9ef9796a726131ad29ad15645a"
+    }
+  ],
+  "case_ids": [
+    "summarization.dev.metr-long-software-tasks",
+    "general_knowledge.dev.medical-screening-bayes",
+    "source_grounded_writing.dev.agentic-software-development-reality-gap",
+    "coding.dev.php-payment-result-migration",
+    "agentic.ops.clock-skew-partial-recovery",
+    "agentic.documents.supplier-award-reconciliation"
+  ],
+  "distinct_tasks": 6,
+  "deployments_planned": 3,
+  "task_system_cells_per_deployment": 10,
+  "task_system_deployment_cells": 30,
+  "execution_authorized": false,
+  "automatic_retries": 0,
+  "historical_reference_reuse": false,
+  "repetitions": "One cold/warm pair per text task; warm is the quality candidate. One attempt per remaining task/system/deployment cell.",
+  "interpretation": "Selection and metadata registration do not establish current agent qualification or measured performance. Create a bound plan and satisfy fresh execution gates before inference."
+}

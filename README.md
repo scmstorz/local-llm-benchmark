@@ -15,10 +15,15 @@ The [core-suite workflow](docs/core-suite-v0.1.md) joins the existing runners
 through one offline task/system catalog, arbitrary-deployment command planning
 and a coverage view. There are 35 applicable task/system combinations per
 deployment; model names are registered separately. The
-[first comparison draft](tasks/core-first-comparison-v0.1.json) selects six
+[first comparison template](tasks/core-first-comparison-v0.1.json) selects six
 representative tasks and ten cells per deployment, with its candidate and
 runtime deliberately unbound. Structured extraction and normalization is
 reserved for the next suite version.
+
+The [selected first cohort](models/cohorts/core-first-comparison-2026-10-17.json)
+binds installed Qwen 3.8, Gemma 4 MLX and Nemotron 3.5 Lightning MLX under
+Ollama 0.40.5: six tasks and thirty planned task/system/deployment cells.
+Selection and metadata registration are complete; live execution has not begun.
 
 The additive [coverage reader 0.2](docs/core-records-v0.2.md) also handles Pi's
 separately recorded deployment admission: missing native identity stays unknown

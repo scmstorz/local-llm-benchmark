@@ -1,0 +1,127 @@
+{
+  "catalog_id": "local-ollama-deployments-v0.1",
+  "deployments": [
+    {
+      "capabilities": [
+        "completion",
+        "thinking",
+        "tools",
+        "vision"
+      ],
+      "catalog_status": "registered",
+      "deployment_id": "qwen3-8-27b-mlx-5642e97495e1-ollama-0-40-5",
+      "details": {
+        "families": null,
+        "family": "",
+        "format": "safetensors",
+        "parameter_size": "",
+        "quantization_level": "nvfp4"
+      },
+      "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "metadata_sources": {
+        "capabilities": "/api/show",
+        "identity": "/api/tags"
+      },
+      "qualification": {
+        "native_tools_advertised": true,
+        "track_a_coding": "eligible",
+        "track_a_text": "eligible",
+        "track_b_mini": "unqualified",
+        "track_b_opencode": "unqualified",
+        "track_b_pi": "unqualified"
+      },
+      "registered_on": "2026-10-17",
+      "requested_name": "qwen3.8:27b-mlx",
+      "resolved_name": "qwen3.8:27b-mlx",
+      "runtime": {
+        "name": "ollama",
+        "version": "0.40.5"
+      },
+      "size_bytes": 18174721847
+    },
+    {
+      "capabilities": [
+        "completion",
+        "thinking",
+        "tools",
+        "vision"
+      ],
+      "catalog_status": "registered",
+      "deployment_id": "gemma4-31b-mlx-a22a363052da-ollama-0-40-5",
+      "details": {
+        "families": null,
+        "family": "",
+        "format": "safetensors",
+        "parameter_size": "",
+        "quantization_level": ""
+      },
+      "digest": "a22a363052da770302019d5afab29bd967f9318e4377bddd297421189ea09d7d",
+      "metadata_sources": {
+        "capabilities": "/api/show",
+        "identity": "/api/tags"
+      },
+      "qualification": {
+        "native_tools_advertised": true,
+        "track_a_coding": "eligible",
+        "track_a_text": "eligible",
+        "track_b_mini": "unqualified",
+        "track_b_opencode": "unqualified",
+        "track_b_pi": "unqualified"
+      },
+      "registered_on": "2026-10-17",
+      "requested_name": "gemma4:31b-mlx",
+      "resolved_name": "gemma4:31b-mlx",
+      "runtime": {
+        "name": "ollama",
+        "version": "0.40.5"
+      },
+      "size_bytes": 19424434885
+    },
+    {
+      "capabilities": [
+        "completion",
+        "thinking",
+        "tools"
+      ],
+      "catalog_status": "registered",
+      "deployment_id": "nemotron-3-5-lightning-30b-mlx-8b1474be6e54-ollama-0-40-5",
+      "details": {
+        "families": null,
+        "family": "",
+        "format": "safetensors",
+        "parameter_size": "",
+        "quantization_level": ""
+      },
+      "digest": "8b1474be6e54dc19eb7aa08bebfb9bda147c4b9ef9796a726131ad29ad15645a",
+      "metadata_sources": {
+        "capabilities": "/api/show",
+        "identity": "/api/tags"
+      },
+      "qualification": {
+        "native_tools_advertised": true,
+        "track_a_coding": "eligible",
+        "track_a_text": "eligible",
+        "track_b_mini": "unqualified",
+        "track_b_opencode": "unqualified",
+        "track_b_pi": "unqualified"
+      },
+      "registered_on": "2026-10-17",
+      "requested_name": "nemotron-3.5-lightning:30b-mlx",
+      "resolved_name": "nemotron-3.5-lightning:30b-mlx",
+      "runtime": {
+        "name": "ollama",
+        "version": "0.40.5"
+      },
+      "size_bytes": 22666641559
+    }
+  ],
+  "identity_rule": "A deployment is identified by exact Ollama tag, full artifact digest and runtime version. A changed digest or runtime version is appended as a new deployment and never overwrites historical evidence.",
+  "registration_semantics": {
+    "contacts_ollama_metadata_endpoints_only": true,
+    "loads_model": false,
+    "registration_implies_track_b_qualification": false,
+    "runs_inference": false
+  },
+  "schema_version": "1.0.0",
+  "separation_rule": "Task-suite manifests contain tasks and settings only. The catalog contains deployments; cohorts bind deployments to a suite."
+}
