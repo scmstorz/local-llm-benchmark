@@ -20,6 +20,11 @@ representative tasks and ten cells per deployment, with its candidate and
 runtime deliberately unbound. Structured extraction and normalization is
 reserved for the next suite version.
 
+The additive [coverage reader 0.2](docs/core-records-v0.2.md) also handles Pi's
+separately recorded deployment admission: missing native identity stays unknown
+unless the exact plan-bound pre-inference gate and final run hash validate it.
+Existing task definitions, raw records and historical scores are unchanged.
+
 This is a personal benchmark lab, not a universal leaderboard. Its unit of
 comparison is a deployed system, not a model name in isolation:
 
@@ -128,6 +133,15 @@ Future supplier runs can select those corrections at preparation through
 Both finalization kernels use verifier 2.1.0 through that new entry point;
 historical runs cannot be adopted or rescored. The core-suite registry routes
 future supplier cells through this path.
+
+A separate excluded readiness pair has now exercised this path under Ollama
+0.40.5 while a background model download was declared. Both systems completed
+with strict transport and verifier 2.1.0 / metrics 0.2.0. Each passed 11/12
+deterministic checks: Mini missed reassessment after new evidence; Pi missed
+the policy anchor in its dashboard-conflict citation list. Separate prose
+review accepts Pi and rejects Mini's signed-draft claim. These are functionality
+observations, with no timing comparison or promotion into the future measured
+matrix. See the [readiness report](reports/agentic/core-runtime-readiness-v0.1.md).
 
 OpenCode has a qualification card but is not yet admitted to measured runs.
 

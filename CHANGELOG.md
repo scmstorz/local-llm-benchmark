@@ -107,6 +107,16 @@ task named `v0.5` therefore does not imply project release `v0.5.0`.
 - regression tests for phase ordering, pre-reveal access boundaries, mutation
   detection, pair orientation, schema/check integrity, and privacy-safe output.
 
+### Fixed
+
+- additive coverage reader 0.2 distinguishes absent native deployment metadata
+  from contradictory identity and validates Pi's separately recorded,
+  plan-bound pre-inference gate without rewriting frozen raw evidence;
+- model registration now reads capability metadata from `/api/show`, joined
+  with artifact identity from `/api/tags`; real tags responses without a
+  capabilities field no longer produce false eligibility gaps. Registration
+  remains metadata-only and excludes private show fields from the catalog.
+
 ### Interpretation boundaries
 
 - The pipeline enforces procedural blinding but cannot prevent identity

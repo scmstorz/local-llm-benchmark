@@ -92,6 +92,10 @@ def _catalog_entry(
         "runtime": {"name": "ollama", "version": ollama_version},
         "registered_on": registered_on,
         "catalog_status": "registered",
+        "metadata_sources": {
+            "identity": "/api/tags",
+            "capabilities": "/api/show",
+        },
         "qualification": {
             "track_a_text": (
                 "eligible" if completion_advertised else "capability_not_advertised"
@@ -175,9 +179,14 @@ def register_models(
         if not requested_name.strip():
             raise RunnerError("Model registration contains an empty name")
         tag = find_model(installed, requested_name)
+        # /api/tags identifies the installed artifact, but does not normally
+        # include capabilities. /api/show is metadata-only: reading it neither
+        # loads a runner nor performs inference. Do not copy its Modelfile,
+        # template, parameters or private filesystem references into a catalog.
+        shown = ollama.show_model(requested_name)
         entry = _catalog_entry(
             requested_name=requested_name,
-            model=tag,
+            model={**tag, "capabilities": shown.get("capabilities")},
             ollama_version=version,
             registered_on=registered_on,
         )

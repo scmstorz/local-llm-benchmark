@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "core-runtime-readiness-v0.1",
+  "evidence_class": "excluded_development_runtime_readiness",
+  "excluded_from_measured_aggregates": true,
+  "case_id": "agentic.documents.supplier-award-reconciliation",
+  "model": "qwen3.8:27b-mlx",
+  "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+  "ollama_version": "0.40.5",
+  "plan_sha256": "309e1bcd7dfaf4affc73939a649128cb523d8dc001ed1dd0feb33bdd36cffdc0",
+  "automatic_retries": 0,
+  "attempts_per_system": 1,
+  "background_model_download_declared": true,
+  "timing_comparison_allowed": false,
+  "original_frozen_adapters_and_scores_changed": false,
+  "review_blinded": false,
+  "paid_judge_api_used": false,
+  "coverage_version": "0.2.0",
+  "pre_inference_findings": [
+    "Resource gate paused at zero requests for an orphaned Mnemosyn Python backend after desktop termination; verified backend cleanup preceded the fresh passing gate.",
+    "Private driver initially assumed a prepared Pi trajectory existed; additive Pi-only zero-inference guard correction preceded its sole attempt. Original driver and Mini observation retained.",
+    "Pi native records omit observed deployment identity; coverage 0.2 validates the plan-bound pre-inference gate and exact final run hash without rewriting native evidence.",
+    "Real tags metadata lacked capabilities; registration now joins show capabilities with exact tags identity, without loading a runner or copying private show fields."
+  ],
+  "outcomes": [
+    {
+      "system": "mini",
+      "harness_id": "mini-multi-format-v0.2",
+      "system_configuration_id": "mini-multi-format-v0.2+supplier-execution-v0.3",
+      "deployment_identity_basis": "native_run_record",
+      "runtime_success": true,
+      "agent_termination_valid": true,
+      "strict_transport_compliance": true,
+      "semantic_verified_success": false,
+      "essential_pass_count": 11,
+      "essential_check_count": 12,
+      "failed_check_ids": [
+        "action_plan"
+      ],
+      "verifier_version": "2.1.0",
+      "metrics_version": "0.2.0",
+      "candidate_sha256": "c155f313b1333bd05652e4658568d401cfe90b162fc3dd25444f744aee6ff903",
+      "normalized_metrics": {
+        "system_id": "mini-multi-format-v0.2",
+        "model_requests": 18,
+        "model_requests_status": "recorded",
+        "model_requests_unknown_reason": null,
+        "artifact_tool_calls": 17,
+        "completion_calls": 1,
+        "total_tool_or_action_calls": 18,
+        "agent_turns": 18,
+        "adapter_tool_calls": 17,
+        "adapter_tool_calls_include_completion": false,
+        "counter_sources": {
+          "model_requests": "trajectory.model_requests",
+          "artifact_tool_calls": "trajectory.tool_calls",
+          "completion_calls": "turns[].action=finish_report"
+        }
+      },
+      "resource_gate_passed": true,
+      "pi_sandbox_passed_checks": null,
+      "postflight_empty": true,
+      "source_grounded_prose_review": {
+        "all_report_fields_read": true,
+        "candidate_sha256": "c155f313b1333bd05652e4658568d401cfe90b162fc3dd25444f744aee6ff903",
+        "correct_decisive_supplier_blockers": true,
+        "correct_primary_and_reserve": true,
+        "deterministic_missing_action": "reassess_after_new_evidence",
+        "grounding_findings": [
+          {
+            "claim_excerpt": "ersetzt den unterzeichneten Entwurf",
+            "classification": "unsupported_signed_status",
+            "field": "executive_summary",
+            "source_authority": "unsigned_draft_superseded",
+            "source_ref": "supplier-assurance-review.pdf#page=2&table=Unsigned-draft"
+          },
+          {
+            "claim_excerpt": "Der unterzeichnete Entwurf auf Seite 2",
+            "classification": "unsupported_signed_status",
+            "field": "conflicts[draft_assurance_superseded].resolution",
+            "source_authority": "unsigned_draft_superseded",
+            "source_ref": "supplier-assurance-review.pdf#page=2&table=Unsigned-draft"
+          }
+        ],
+        "internal_consistency_finding": "The ASSUR-DRAFT evidence entry correctly calls it unsigned, contradicting the executive summary and conflict resolution.",
+        "model_ranking_claim_allowed": false,
+        "review_summary": "The correct supplier decision and blockers are grounded, but the executive summary and draft-conflict resolution call the explicitly unsigned draft signed, contradicting the evidence entry. The required reassessment action is missing.",
+        "source_grounded_prose_accepted": false,
+        "system": "mini"
+      }
+    },
+    {
+      "system": "pi",
+      "harness_id": "pi-multi-format-v0.4",
+      "system_configuration_id": "pi-multi-format-v0.4+supplier-execution-v0.3",
+      "deployment_identity_basis": "verified_pre_inference_resource_gate",
+      "runtime_success": true,
+      "agent_termination_valid": true,
+      "strict_transport_compliance": true,
+      "semantic_verified_success": false,
+      "essential_pass_count": 11,
+      "essential_check_count": 12,
+      "failed_check_ids": [
+        "conflict_resolution"
+      ],
+      "verifier_version": "2.1.0",
+      "metrics_version": "0.2.0",
+      "candidate_sha256": "24ddcb20150b64615f8f0a9720c103fadde9e68b36696703b69f0cce04aeafc9",
+      "normalized_metrics": {
+        "system_id": "pi-multi-format-v0.4",
+        "model_requests": null,
+        "model_requests_status": "unknown",
+        "model_requests_unknown_reason": "Adapter did not record trajectory.model_requests; agent turns are not HTTP request counts.",
+        "artifact_tool_calls": 17,
+        "completion_calls": 1,
+        "total_tool_or_action_calls": 18,
+        "agent_turns": 6,
+        "adapter_tool_calls": 18,
+        "adapter_tool_calls_include_completion": true,
+        "counter_sources": {
+          "model_requests": null,
+          "artifact_tool_calls": [
+            "trajectory.list_calls",
+            "trajectory.docx_reads",
+            "trajectory.pdf_reads",
+            "trajectory.xlsx_reads"
+          ],
+          "completion_calls": "trajectory.finish_report_calls"
+        }
+      },
+      "resource_gate_passed": true,
+      "pi_sandbox_passed_checks": 13,
+      "postflight_empty": true,
+      "source_grounded_prose_review": {
+        "all_report_fields_read": true,
+        "candidate_sha256": "24ddcb20150b64615f8f0a9720c103fadde9e68b36696703b69f0cce04aeafc9",
+        "correct_decisive_supplier_blockers": true,
+        "correct_primary_and_reserve": true,
+        "deterministic_missing_conflict_anchor": {
+          "anchor_cited_elsewhere_in_evidence": true,
+          "conflict_code": "commercial_dashboard_ignores_assurance",
+          "required_source_ref": "supplier-selection-policy.docx#heading=Evidence-authority"
+        },
+        "draft_final_authority_correct": true,
+        "grounding_findings": [],
+        "model_ranking_claim_allowed": false,
+        "review_summary": "The decision, numerical gates and unsigned-draft/signed-final distinction are grounded. The dashboard conflict omits its mandatory policy anchor from its own source_refs, despite citing that policy elsewhere; deterministic success remains false.",
+        "source_grounded_prose_accepted": true,
+        "system": "pi"
+      }
+    }
+  ],
+  "aggregate_metrics": {
+    "model_requests": {
+      "value": null,
+      "known_subtotal": 18,
+      "known_unit_count": 1,
+      "unit_count": 2,
+      "complete": false
+    },
+    "artifact_tool_calls": {
+      "value": 34,
+      "known_subtotal": 34,
+      "known_unit_count": 2,
+      "unit_count": 2,
+      "complete": true
+    },
+    "completion_calls": {
+      "value": 2,
+      "known_subtotal": 2,
+      "known_unit_count": 2,
+      "unit_count": 2,
+      "complete": true
+    }
+  },
+  "interpretation_boundaries": [
+    "This is excluded instrument-readiness evidence, not a measured comparison or model/harness ranking.",
+    "Background download is declared; elapsed times are not used for performance comparison.",
+    "One observation per complete system does not estimate reliability.",
+    "Deterministic checks, runtime, strict transport and source-grounded prose remain separate.",
+    "A later selected-candidate comparison requires fresh current-runtime reference observations; these attempts are not reused."
+  ],
+  "execution_source_commit": "bab8798115d1c83886f153a8f374aea45bb975a1",
+  "validation": {
+    "model_catalog_tests_passed": 5,
+    "core_record_tests_passed": 8,
+    "research_tests_passed": 667,
+    "coverage_implementation_path": "local_llm_benchmark/core_records.py",
+    "coverage_implementation_sha256": "d83b04690056ae55aabf4bc45a516137f6d395d55879d0309e4258f9f334f0d9"
+  }
+}

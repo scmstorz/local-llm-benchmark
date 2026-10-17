@@ -10,15 +10,23 @@ from local_llm_benchmark.model_catalog import (
 
 
 class FakeOllamaClient:
-    def __init__(self, models: list[dict], version: str = "0.12.3") -> None:
+    def __init__(self, models: list[dict], version: str = "0.12.3", shows: dict | None = None) -> None:
         self.models = models
         self.ollama_version = version
+        self.shows = shows
+        self.show_calls: list[str] = []
 
     def version(self) -> dict:
         return {"version": self.ollama_version}
 
     def list_models(self) -> dict:
         return {"models": self.models}
+
+    def show_model(self, model: str) -> dict:
+        self.show_calls.append(model)
+        if self.shows is not None:
+            return self.shows[model]
+        return {"capabilities": next(item for item in self.models if item["name"] == model).get("capabilities", [])}
 
 
 class ModelCatalogTest(unittest.TestCase):
@@ -98,6 +106,39 @@ class ModelCatalogTest(unittest.TestCase):
         self.assertEqual(
             len({item["deployment_id"] for item in catalog["deployments"]}), 3
         )
+
+    def test_real_tags_shape_reads_capabilities_from_show_without_copying_private_metadata(self) -> None:
+        client = FakeOllamaClient(
+            [{"name": "model-a:latest", "digest": "a" * 64,
+              "details": {"quantization_level": "Q4_K_M", "parent_model": "/private/model/path"}}],
+            shows={"model-a:latest": {"capabilities": ["tools", "completion"],
+                                      "modelfile": "FROM /private/model/path", "template": "private-template"}},
+        )
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            register_models(root, ModelRegistrationConfig(models=("model-a:latest",)), client=client)
+            serialized = (root / "models/catalog.json").read_text()
+            entry = json.loads(serialized)["deployments"][0]
+        self.assertEqual(client.show_calls, ["model-a:latest"])
+        self.assertEqual(entry["capabilities"], ["completion", "tools"])
+        self.assertEqual(entry["qualification"]["track_a_text"], "eligible")
+        self.assertTrue(entry["qualification"]["native_tools_advertised"])
+        self.assertEqual(entry["metadata_sources"]["capabilities"], "/api/show")
+        self.assertNotIn("/private/model/path", serialized)
+        self.assertNotIn("private-template", serialized)
+        self.assertNotIn("modelfile", serialized)
+
+    def test_malformed_show_capabilities_cannot_create_catalog(self) -> None:
+        client = FakeOllamaClient(
+            [{"name": "model-a:latest", "digest": "a" * 64}],
+            shows={"model-a:latest": {"capabilities": "tools"}},
+        )
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            from local_llm_benchmark.runner import RunnerError
+            with self.assertRaisesRegex(RunnerError, "invalid model capabilities"):
+                register_models(root, ModelRegistrationConfig(models=("model-a:latest",)), client=client)
+            self.assertFalse((root / "models/catalog.json").exists())
 
     def test_tracked_catalog_and_newcomer_cohort_are_consistent(self) -> None:
         catalog_path = self.repo_root / "models/catalog.json"
