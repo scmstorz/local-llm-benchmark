@@ -8,9 +8,16 @@ task named `v0.5` therefore does not imply project release `v0.5.0`.
 
 ### Added
 
+- a completed thirty-cell first core comparison of Qwen 3.8, Gemma 4 MLX and
+  Nemotron 3.5 Lightning MLX under Ollama 0.40.5, with frozen joint text
+  judgments, separate source/language review, exact provenance and native
+  timing/request counters; unknown Pi HTTP counts remain unknown;
+- an additive coverage reader 0.3 recognizing native direct-coding completion
+  without requiring a missing generic state/status field, with seven
+  regressions preserving failures, deferred verification and source/identity gates;
 - a separately selected first-comparison cohort with installed Qwen 3.8,
   Gemma 4 MLX and Nemotron 3.5 Lightning MLX under Ollama 0.40.5: six tasks
-  and thirty planned task/system/deployment cells, with no execution yet;
+  and thirty task/system/deployment cells;
 - a provisionally closed, model-independent 23-case core catalog, eleven runner
   mappings and 35 task/system variants, with offline arbitrary-deployment
   command planning, isolated result coverage and a six-task first-comparison

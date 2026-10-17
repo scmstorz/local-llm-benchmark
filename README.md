@@ -22,13 +22,19 @@ reserved for the next suite version.
 
 The [selected first cohort](models/cohorts/core-first-comparison-2026-10-17.json)
 binds installed Qwen 3.8, Gemma 4 MLX and Nemotron 3.5 Lightning MLX under
-Ollama 0.40.5: six tasks and thirty planned task/system/deployment cells.
-Selection and metadata registration are complete; live execution has not begun.
+Ollama 0.40.5. Its [first comparison results](reports/core-first-comparison-20261017.md)
+cover six tasks and all thirty task/system/deployment cells, with no restarted
+attempts. Task quality, deterministic checks, runtime, strict output and source
+grounding are reported separately. Each cell is one observation.
 
 The additive [coverage reader 0.2](docs/core-records-v0.2.md) also handles Pi's
 separately recorded deployment admission: missing native identity stays unknown
 unless the exact plan-bound pre-inference gate and final run hash validate it.
 Existing task definitions, raw records and historical scores are unchanged.
+
+The additive [coverage reader 0.3](docs/core-records-v0.3.md) recognizes the
+native direct-coding execution/verification completion fields while preserving
+failed outcomes, identity checks and the original records.
 
 This is a personal benchmark lab, not a universal leaderboard. Its unit of
 comparison is a deployed system, not a model name in isolation:
