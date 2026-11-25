@@ -1,0 +1,196 @@
+{
+  "created_at": "2026-10-18T11:44:07.810878Z",
+  "evidence": {
+    "final_closeout_sha256": "e773290283b2ab8fefbe4f6ec4eefb9f951267f9e6a18d5bff9169dbe62abf71",
+    "hashes": {
+      "final-backend-state.json": "4aafffe97563ccda6874d605573ebb80bc53c704611be550712c4ff62eb5ef76",
+      "focused-replay-encoding-permitted.log": "4c8c80d532aff644798079fa673461e59f02f3c83b94f4f740573cda2f697fd5",
+      "initial-series-frozen.json": "671e86165e380780297f504c149b4748a4e931bf92db7117abdbcb16fc28b85a",
+      "legacy-native-qualification.log": "e34cfc228347165be2da34a36696b10eeecfcae690b1066cc9cc7192c0a5d00c",
+      "preservation-final.json": "893fe9a66c4477ebde1e7a8b160a653ac1e0f3ded8720f4259d45c3daf556c48",
+      "regression-final-replay-encoding.log": "9f17a68bae7b9701452f5adc63bf95145bf64af4b8f6bcc0799767879615cdfb",
+      "same-turn-closeout.json": "4f6d8b1d34923cb4f9dd97b48f67606d54268e4f6e19694e35268baea6e27819",
+      "same-turn-plan.json": "0930ea92db0f63ffc092dd43af0f90281399e248b953a1f91b65f211a8ce9931",
+      "staged-replay-closeout.json": "f9aaa41948e0d77f7432f1aba6f576d811e35c70281d0a031d403e9c539a6444",
+      "staged-replay-plan.json": "18130e8accfc285e3cf02fcf74bcca0a410cbe8c2452f1bbc2ec72526f7813dd",
+      "technical-closeout.json": "7bddcb4ea4733759a2a9f3985d3a0d4dc03b8fe6df4d03529787ed5bb30196d9",
+      "technical-plan.json": "9042b75f650dba23439d457b6d010b68630731b56f83a997241cb5824d025f3c"
+    },
+    "private_study_path": "results/agentic-dry-runs/profile-qualification-v0.1/technical-20261018T102628Z"
+  },
+  "execution": {
+    "all_completed_generation_controls_conformant": true,
+    "backend_aborted_requests": 1,
+    "calibration_runs": 0,
+    "completed_generation_requests": 25,
+    "consumed_plans_restarted": 0,
+    "empty_postflights": 10,
+    "initial_series": {
+      "generation_requests": 20,
+      "overall_passed": false,
+      "plan_sha256": "9042b75f650dba23439d457b6d010b68630731b56f83a997241cb5824d025f3c",
+      "source_commit": "39544421953d29d5e3326a7e541b6bc5ec3919c2"
+    },
+    "same_turn_revision": {
+      "generation_requests": 4,
+      "overall_passed": false,
+      "plan_sha256": "0930ea92db0f63ffc092dd43af0f90281399e248b953a1f91b65f211a8ce9931",
+      "render_only_requests": 6,
+      "source_commit": "041cf2619b674a0e614ed88119c006244b80e36a"
+    },
+    "scored_evaluation_runs": 0,
+    "staged_history_fixture": {
+      "generation_requests": 2,
+      "overall_passed": true,
+      "plan_sha256": "18130e8accfc285e3cf02fcf74bcca0a410cbe8c2452f1bbc2ec72526f7813dd",
+      "render_only_requests": 6,
+      "source_commit": "3d73d3b5e1c27454594d8effbf63dd9f1839e051"
+    },
+    "total_generation_requests": 26,
+    "total_render_only_requests": 12
+  },
+  "implementation_commit": "3d73d3b5e1c27454594d8effbf63dd9f1839e051",
+  "limitations": [
+    "Initial universal replay fixture added a new user turn. Gemma/Nemotron reached4096 output tokens; Ornith did not recall the marker. Preserve these results; they do not establish poor task quality.",
+    "Gemma and Nemotron omit native thinking across a new user boundary in rendered prompt probes. Ornith requires the exact-template content-think-tag encoding and retains the marker across the tested boundary.",
+    "One Nemotron same-turn tool generation ended with native error EOF before completion. The independent staged-history success does not erase this reliability failure.",
+    "Requested settings and backend acceptance do not prove sampling distributions, reproducibility, or a quality advantage of a reasoning level.",
+    "No complete Pi/Mirror/Vibe/mini practical-profile alignment is qualified. No final capacities, performance budgets or empirically optimal profile are selected."
+  ],
+  "method_path": "docs/model-profile-controls-v0.1.md",
+  "next_action": "Owner feedback, then jointly agree step2 quality calibration and step3 final selection/harness alignment before executing them.",
+  "offline": {
+    "expected_opt_in_skips": 6,
+    "focused_profile_native_provider_tests": 49,
+    "legacy_native_tool_and_deadline_cells": 4,
+    "regression_tests": 729
+  },
+  "preservation": {
+    "earlier_frozen_source_fingerprints": 411,
+    "fixed_v03_contract_unchanged": true,
+    "historical_runs_unchanged": 4,
+    "original_twenty_probes_unchanged": true
+  },
+  "profiles": [
+    {
+      "artifact_digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "final_replay_encoding": "native_thinking",
+      "history_evidence_source_commit": "39544421953d29d5e3326a7e541b6bc5ec3919c2",
+      "intentional_one_token_cap_passed": true,
+      "model": "qwen3.8:27b-mlx",
+      "observed_backend_EOF_attempts": 0,
+      "positive_history_fixture": "cross-user canary in initial series",
+      "positive_reasoning_tool_history_probe_passed": true,
+      "profile_id": "qwen38-27b-xhigh-v1",
+      "returned_thinking_observed": true,
+      "runtime_context_32768_observed": true,
+      "sampling": {
+        "min_p": 0.0,
+        "presence_penalty": 0.0,
+        "repeat_penalty": 1.0,
+        "temperature": 1.0,
+        "top_k": 20,
+        "top_p": 0.95
+      },
+      "short_text_and_tool_call_passed": true,
+      "think": "xhigh"
+    },
+    {
+      "artifact_digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "final_replay_encoding": "native_thinking",
+      "history_evidence_source_commit": "39544421953d29d5e3326a7e541b6bc5ec3919c2",
+      "intentional_one_token_cap_passed": true,
+      "model": "qwen3.8:27b-mlx",
+      "observed_backend_EOF_attempts": 0,
+      "positive_history_fixture": "cross-user canary in initial series",
+      "positive_reasoning_tool_history_probe_passed": true,
+      "profile_id": "qwen38-27b-medium-v1",
+      "returned_thinking_observed": true,
+      "runtime_context_32768_observed": true,
+      "sampling": {
+        "min_p": 0.0,
+        "presence_penalty": 0.0,
+        "repeat_penalty": 1.0,
+        "temperature": 1.0,
+        "top_k": 20,
+        "top_p": 0.95
+      },
+      "short_text_and_tool_call_passed": true,
+      "think": "medium"
+    },
+    {
+      "artifact_digest": "a22a363052da770302019d5afab29bd967f9318e4377bddd297421189ea09d7d",
+      "final_replay_encoding": "native_thinking",
+      "history_evidence_source_commit": "041cf2619b674a0e614ed88119c006244b80e36a",
+      "intentional_one_token_cap_passed": true,
+      "model": "gemma4:31b-mlx",
+      "observed_backend_EOF_attempts": 0,
+      "positive_history_fixture": "same-user generated tool call with injected canary",
+      "positive_reasoning_tool_history_probe_passed": true,
+      "profile_id": "gemma4-31b-thinking-v1",
+      "returned_thinking_observed": true,
+      "runtime_context_32768_observed": true,
+      "sampling": {
+        "temperature": 1.0,
+        "top_k": 64,
+        "top_p": 0.95
+      },
+      "short_text_and_tool_call_passed": true,
+      "think": true
+    },
+    {
+      "artifact_digest": "8b1474be6e54dc19eb7aa08bebfb9bda147c4b9ef9796a726131ad29ad15645a",
+      "final_replay_encoding": "native_thinking",
+      "history_evidence_source_commit": "3d73d3b5e1c27454594d8effbf63dd9f1839e051",
+      "intentional_one_token_cap_passed": true,
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "observed_backend_EOF_attempts": 1,
+      "positive_history_fixture": "same-user staged synthetic reasoning and tool call",
+      "positive_reasoning_tool_history_probe_passed": true,
+      "profile_id": "nemotron35-lightning-thinking-v1",
+      "returned_thinking_observed": true,
+      "runtime_context_32768_observed": true,
+      "sampling": {
+        "temperature": 1.0,
+        "top_p": 0.95
+      },
+      "short_text_and_tool_call_passed": true,
+      "think": true
+    },
+    {
+      "artifact_digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc",
+      "final_replay_encoding": "content_think_tags",
+      "history_evidence_source_commit": "3d73d3b5e1c27454594d8effbf63dd9f1839e051",
+      "intentional_one_token_cap_passed": true,
+      "model": "ornith-1.5:35b",
+      "observed_backend_EOF_attempts": 0,
+      "positive_history_fixture": "same-user staged synthetic reasoning and tool call",
+      "positive_reasoning_tool_history_probe_passed": true,
+      "profile_id": "ornith15-35b-native-thinking-v1",
+      "returned_thinking_observed": true,
+      "runtime_context_32768_observed": true,
+      "sampling": {
+        "temperature": 0.6,
+        "top_k": 20,
+        "top_p": 0.95
+      },
+      "short_text_and_tool_call_passed": true,
+      "think": true
+    }
+  ],
+  "registry_path": "models/practical-profiles-v0.1.json",
+  "runtime": "Ollama0.40.5",
+  "schema_version": "model-profile-controls-qualification-v0.1",
+  "scope": "Technical model-boundary profile controls only; no quality selection or complete harness qualification.",
+  "status": "model_boundary_qualification_complete_with_observed_failures",
+  "technical_probe_limits": {
+    "context_tokens": 32768,
+    "intentional_truncation_ceiling": 1,
+    "monotonic_unit_budget_seconds": 600,
+    "normal_output_ceiling": 4096,
+    "performance_defaults": false,
+    "provider_socket_seconds": 300,
+    "render_socket_seconds": 60,
+    "seed": 42
+  }
+}

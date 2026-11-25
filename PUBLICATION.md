@@ -28,6 +28,7 @@ The following remain local even if they are tracked in the research history:
 - rendered prompts containing private inputs, raw responses, Ollama event
   streams, and agent trajectories;
 - candidate-to-model mappings and interactive judge bundles;
+- owner-bound practical calibration plans and experimental workflow-draft bundles;
 - raw run directories and machine-specific paths (sanitized aggregate
   experiment IDs may remain in curated reports);
 - screenshots and other case-study working assets;

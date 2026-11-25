@@ -1,0 +1,39 @@
+{
+  "schema_version": "practical-calibration-case-v1",
+  "case_id": "calibration.practical.document-decision",
+  "version": "1.0.0",
+  "split": "calibration_only",
+  "synthetic_sources": true,
+  "title": "Dokumentenassistent: belastbare Entscheidungsvorlage",
+  "source_ids": [
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "D6"
+  ],
+  "candidate_artifacts": {
+    "system": "tasks/calibration/practical-profiles-v0.1/system.txt",
+    "brief": "tasks/calibration/practical-profiles-v0.1/document-decision/brief.md",
+    "sources": "tasks/calibration/practical-profiles-v0.1/document-decision/sources.md"
+  },
+  "judge_only_artifacts": {
+    "reference": "tasks/calibration/practical-profiles-v0.1/document-decision/reference.json",
+    "rubric": "tasks/calibration/practical-profiles-v0.1/rubric.json",
+    "instructions": "tasks/calibration/practical-profiles-v0.1/judge-instructions.md"
+  },
+  "response": {
+    "language": "de",
+    "target_word_range": [
+      650,
+      850
+    ],
+    "source_citations_requested": true
+  },
+  "tools": false,
+  "browsing": false,
+  "standalone_conversation": true,
+  "previous_candidate_output_supplied": false,
+  "scored_benchmark_case": false
+}

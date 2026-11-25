@@ -1,0 +1,29 @@
+{
+  "schema_version": "model-starting-profiles-v1",
+  "registry_id": "offline-writing-profiles-v0.1",
+  "status": "owner_selected_starting_candidate_not_final_performance_profile",
+  "selection": "Owner selected131072 context to examine, thinking true and distributed sampling. No aggregate token cap; effective output is limited by remaining actual context, not a fixed32768. No claim of optimized performance.",
+  "capacities": "Caller must supply context/output/seed explicitly; current requested context131072 needs live qualification.",
+  "profiles": [
+    {
+      "profile_id": "gemma4-31b-thinking-ollama04017-workflow-v1",
+      "model": "gemma4:31b-mlx",
+      "model_digest": "a22a363052da770302019d5afab29bd967f9318e4377bddd297421189ea09d7d",
+      "ollama_version": "0.40.17",
+      "status": "owner_selected_starting_candidate",
+      "role": "workflow_reference_candidate",
+      "think": true,
+      "sampling": {
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "top_k": 64
+      },
+      "history_policy": "current_turn_tool_calls_only",
+      "maximum_context_tokens": 262144,
+      "unadvertised_boolean_probe": false,
+      "primary_source": "https://ai.google.dev/gemma/docs/core/model_card_4",
+      "renderer": "gemma4-large",
+      "parser": "gemma4"
+    }
+  ]
+}

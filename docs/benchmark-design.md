@@ -11,6 +11,33 @@ Guiding question:
 > Which local Ollama configuration delivers the best verified outcome for my
 > actual tasks at acceptable latency and resource usage?
 
+Owner clarification, 2026-10-18: the primary comparison selects the best
+practical combination of model artifact, runtime, generation/reasoning profile
+and harness for the owner's everyday work. Quality takes priority; longer
+waits are acceptable. A universal thinking-off setting, maximum reasoning
+setting or identical sampling configuration is not the optimization target.
+The proposed generic two-/fifteen-minute categories were not adopted.
+
+Choose justified profiles per model and, where useful, task family, in
+consultation with the owner. Start from verified model-specific recommendations
+and local runtime support. Any empirical calibration uses separately designated
+development tasks, with its candidates and selection rule agreed in advance.
+Freeze the selected profiles and task-specific time/resource limits before the
+performance run. Treat them as the best justified/tested candidates within the
+agreed scope, not a proven global optimum. Rank verified quality and usable
+completion within the agreed budget first; use time/resources to distinguish
+otherwise comparable outcomes. Report timeouts, truncation and variability.
+Do not choose a different profile after seeing each scored test answer, extend
+a consumed attempt's deadline or retry only failed scored cells to improve it.
+
+The owner reviews concrete proposed profiles and budgets before model probes
+or a performance sweep under this new policy. Approval of the guiding policy
+does not itself approve numeric settings, calibration tasks, run counts or a
+live run. The frozen earlier thinking-off conditions remain diagnostic and
+historical references; modifying them is not part of selecting a new profile.
+Different-profile system comparisons answer the practical deployment question;
+a causal harness comparison needs a separate controlled design.
+
 Non-goals for the first version:
 
 - laboratory-grade temperature or energy measurements

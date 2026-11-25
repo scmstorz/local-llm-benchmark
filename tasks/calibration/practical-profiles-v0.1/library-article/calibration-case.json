@@ -1,0 +1,39 @@
+{
+  "schema_version": "practical-calibration-case-v1",
+  "case_id": "calibration.practical.library-article",
+  "version": "1.0.0",
+  "split": "calibration_only",
+  "synthetic_sources": true,
+  "title": "Abendöffnung: ein belastbarer deutscher Artikel",
+  "source_ids": [
+    "Q1",
+    "Q2",
+    "Q3",
+    "Q4",
+    "Q5",
+    "Q6"
+  ],
+  "candidate_artifacts": {
+    "system": "tasks/calibration/practical-profiles-v0.1/system.txt",
+    "brief": "tasks/calibration/practical-profiles-v0.1/library-article/brief.md",
+    "sources": "tasks/calibration/practical-profiles-v0.1/library-article/sources.md"
+  },
+  "judge_only_artifacts": {
+    "reference": "tasks/calibration/practical-profiles-v0.1/library-article/reference.json",
+    "rubric": "tasks/calibration/practical-profiles-v0.1/rubric.json",
+    "instructions": "tasks/calibration/practical-profiles-v0.1/judge-instructions.md"
+  },
+  "response": {
+    "language": "de",
+    "target_word_range": [
+      600,
+      800
+    ],
+    "source_citations_requested": true
+  },
+  "tools": false,
+  "browsing": false,
+  "standalone_conversation": true,
+  "previous_candidate_output_supplied": false,
+  "scored_benchmark_case": false
+}

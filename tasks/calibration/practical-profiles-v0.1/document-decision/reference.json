@@ -1,0 +1,180 @@
+{
+  "schema_version": "practical-calibration-reference-v1",
+  "case_id": "calibration.practical.document-decision",
+  "candidate_delivery": false,
+  "inputs": {
+    "manual_minutes": 4000,
+    "assisted_minutes": 2600,
+    "tasks": 180,
+    "errors_before": 27,
+    "errors_after": 6,
+    "mixed_tasks": 60,
+    "mixed_errors": 6,
+    "eligible": 18,
+    "participants": 12,
+    "regular": 9,
+    "monthly_tasks": 240,
+    "hour_value_eur": 35,
+    "monthly_operation_eur": 220,
+    "investment_eur": 4800
+  },
+  "facts": [
+    {
+      "id": "A-version",
+      "source_ids": [
+        "D2",
+        "D3"
+      ],
+      "reference_claim": "D3 supersedes the preliminary time and error figures. The final assisted time already includes all review time.",
+      "supporting_spans": [
+        "Diese Fassung ersetzt die Zeit- und Fehlerangaben aus D2.",
+        "es sind keine zusätzlichen 400 Minuten Kontrolle außerhalb dieser Werte anzusetzen."
+      ],
+      "important_for_strong_answer": true,
+      "material_distortion": "Use45 percent as the final comparable saving or add the400 review minutes again."
+    },
+    {
+      "id": "A-time",
+      "source_ids": [
+        "D3"
+      ],
+      "reference_claim": "For180 paired tasks, total time falls from4000 to2600 minutes:1400 minutes or35 percent. This is a task-time reduction, not a measured increase in total company productivity.",
+      "supporting_spans": [
+        "| Gesamt | 180 | 4.000 | 2.600 | 27 / 6 |"
+      ],
+      "important_for_strong_answer": true,
+      "material_distortion": "Reverse the time effect or claim a measured organization-wide productivity gain."
+    },
+    {
+      "id": "A-quality",
+      "source_ids": [
+        "D1",
+        "D3"
+      ],
+      "reference_claim": "After review,6/180 tasks have material errors; all6 are among60 mixed files, hence10 percent there. A5-percent gate applies to EACH document type; unconditional general release fails this gate.",
+      "supporting_spans": [
+        "höchstens 5 Prozent nach Endkontrolle verbliebene wesentliche Sachfehler in JEDER Dokumentart.",
+        "| Gemischte Akten | 60 | 2.000 | 1.400 | 12 / 6 |"
+      ],
+      "important_for_strong_answer": true,
+      "material_distortion": "Use the overall3.33 percent to claim all document types pass, or recommend unconditional expansion while ignoring the binding failed per-type gate."
+    },
+    {
+      "id": "A-review",
+      "source_ids": [
+        "D1",
+        "D3"
+      ],
+      "reference_claim": "Mandatory review is part of the tested workflow. Material-error tasks fall from27 to6 during review. Manual comparison has3 residual errors; the pilot establishes no general equivalence or significance.",
+      "supporting_spans": [
+        "Ein Austausch der menschlichen Endkontrolle ist nicht Bestandteil des Auftrags.",
+        "Beim manuellen Vergleichsablauf verbleiben nach dessen regulärer Endkontrolle drei wesentliche Sachfehler in 180 Aufgaben."
+      ],
+      "important_for_strong_answer": true,
+      "material_distortion": "Describe the measured assistant result as autonomous or abolish review while attributing reviewed quality/time to that untested workflow."
+    },
+    {
+      "id": "A-use",
+      "source_ids": [
+        "D4"
+      ],
+      "reference_claim": "12 of18 eligible volunteers participate;9 of12 participants are regular users. Neither75 percent of all eligible staff nor a representative organization-wide uptake is established.",
+      "supporting_spans": [
+        "Von 18 berechtigten Mitarbeitenden haben zwölf freiwillig teilgenommen.",
+        "Neun dieser zwölf nutzten den Assistenten in mindestens drei der vier Wochen."
+      ],
+      "important_for_strong_answer": false,
+      "material_distortion": null
+    },
+    {
+      "id": "A-operation",
+      "source_ids": [
+        "D5"
+      ],
+      "reference_claim": "Observed absence of external inference during8 hours on a specific computer is narrower than an airgap, a universal privacy guarantee or general deployment approval.",
+      "supporting_spans": [
+        "Der Rechner bezieht Betriebssystemupdates aus dem Internet.",
+        "Bei einer achtstündigen Netzwerkbeobachtung während der Dokumentenverarbeitung wurden keine externen Inferenzanfragen festgestellt."
+      ],
+      "important_for_strong_answer": true,
+      "material_distortion": "Assert general network isolation, guaranteed privacy or an existing general security approval."
+    },
+    {
+      "id": "A-economics",
+      "source_ids": [
+        "D6"
+      ],
+      "reference_claim": "At the assumed240 comparable monthly tasks, the scenario values about31.11 freed hours/month at1088.89 EUR before220 EUR operations, leaving868.89 EUR of imputed monthly capacity value. Conditional payback is about5.52 months, not realized cash savings; actual mix after restriction must be recalculated.",
+      "supporting_spans": [
+        "Für die geprüften Dokumentarten zusammen werden als Szenario 240 vergleichbare Aufgaben pro Monat angenommen.",
+        "Weder Personalabbau noch eine Senkung von Gehaltszahlungen sind geplant."
+      ],
+      "important_for_strong_answer": true,
+      "material_distortion": "Turn the imputed capacity scenario into guaranteed cash profit, actual staff savings or unconditional payback."
+    }
+  ],
+  "calculations": [
+    {
+      "id": "time_saved",
+      "expression": "manual_minutes-assisted_minutes",
+      "expected_fraction": "1400",
+      "meaning": "minutes"
+    },
+    {
+      "id": "time_reduction_percent",
+      "expression": "(manual_minutes-assisted_minutes)/manual_minutes*100",
+      "expected_fraction": "35",
+      "meaning": "percent"
+    },
+    {
+      "id": "residual_percent",
+      "expression": "errors_after/tasks*100",
+      "expected_fraction": "10/3",
+      "meaning": "percent"
+    },
+    {
+      "id": "mixed_residual_percent",
+      "expression": "mixed_errors/mixed_tasks*100",
+      "expected_fraction": "10",
+      "meaning": "percent"
+    },
+    {
+      "id": "regular_participant_percent",
+      "expression": "regular/participants*100",
+      "expected_fraction": "75",
+      "meaning": "percent"
+    },
+    {
+      "id": "regular_eligible_percent",
+      "expression": "regular/eligible*100",
+      "expected_fraction": "50",
+      "meaning": "percent"
+    },
+    {
+      "id": "monthly_freed_hours",
+      "expression": "(manual_minutes-assisted_minutes)/tasks*monthly_tasks/60",
+      "expected_fraction": "280/9",
+      "meaning": "hours under scenario"
+    },
+    {
+      "id": "monthly_capacity_value",
+      "expression": "(manual_minutes-assisted_minutes)/tasks*monthly_tasks/60*hour_value_eur",
+      "expected_fraction": "9800/9",
+      "meaning": "EUR imputed capacity"
+    },
+    {
+      "id": "monthly_net_capacity_value",
+      "expression": "(manual_minutes-assisted_minutes)/tasks*monthly_tasks/60*hour_value_eur-monthly_operation_eur",
+      "expected_fraction": "7820/9",
+      "meaning": "EUR imputed net capacity"
+    },
+    {
+      "id": "conditional_payback_months",
+      "expression": "investment_eur/((manual_minutes-assisted_minutes)/tasks*monthly_tasks/60*hour_value_eur-monthly_operation_eur)",
+      "expected_fraction": "2160/391",
+      "meaning": "conditional months"
+    }
+  ],
+  "acceptable_outcomes": "Recommend a restricted continuation or a justified stricter pause. Unconditional general release is incompatible with the unchanged per-type gate. The exact prose and next-test design are open.",
+  "optional_calculations": "Exact payback, uptake percentages and manual-error percentage are optional. Evaluate them if asserted; correct caveated qualitative economic treatment is admissible."
+}

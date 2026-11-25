@@ -37,6 +37,7 @@ PUBLIC_DOCS = {
     "docs/core-records-v0.3.md",
     "docs/core-records-v0.2.md",
     "docs/core-suite-v0.1.md",
+    "docs/model-profile-controls-v0.1.md",
     "docs/benchmark-design.md",
     "docs/coding-routing-roadmap.md",
     "docs/hard-knowledge-v0.2.md",
@@ -64,7 +65,18 @@ PRIVATE_EXACT_PATHS = {
     # These immutable plans bind a private driver and literal owner authorization.
     "tasks/studies/quality-confirmation-bayes-v0.3.json",
     "tasks/studies/quality-confirmation-writing-v0.3.json",
+    "tasks/studies/practical-model-profiles-v0.1.draft.json",
+    "tasks/studies/practical-profile-calibration-v0.1.draft.json",
 }
+
+# Research drafts contain literal owner decisions and private run bindings.
+PRIVATE_RESEARCH_PREFIXES = ("tasks/workflow-drafts/",)
+
+PRIVATE_RUNTIME_PREFIXES = (
+    "integrations/.python/",
+    "integrations/mirror/.venv/",
+    "integrations/vibe/.venv/",
+)
 
 
 def git(repo: Path, *args: str) -> str:
@@ -81,6 +93,8 @@ def git(repo: Path, *args: str) -> str:
 def is_public(path: str) -> bool:
     return (
         path not in PRIVATE_EXACT_PATHS
+        and not path.startswith(PRIVATE_RESEARCH_PREFIXES)
+        and not path.startswith(PRIVATE_RUNTIME_PREFIXES)
         and (
             path in ROOT_FILES
             or path in PUBLIC_DOCS

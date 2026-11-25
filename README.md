@@ -424,6 +424,22 @@ neutral wrapper. The Mini harness and pinned Pi adapter use the same task
 fixtures and final deterministic verifier, but differ in prompt, protocol,
 tools, context handling, and recovery behavior.
 
+The additive [Mirror and Mistral Vibe integration](integrations/external-cli-v0.1.md)
+provides pinned, isolated CLI adapters for the same three coding cases. Real-CLI
+qualification uses synthetic local responses to exercise tools and containment;
+it is separate from a model smoke or measured capability result. The existing
+core registry and historical results remain unchanged.
+The [qualification report](reports/coding/external-cli-qualification-v0.1.md)
+records the exact native-tool matrix, containment checks and interpretation limits.
+The separate [v0.2 condition](integrations/external-cli-v0.2.md) adds an explicit
+workspace hint and increases Mirror's response ceiling for normal-budget
+development checks. Select it with `prepare --condition v0.2`; the original
+condition remains the default.
+Its [normal-budget results](reports/coding/external-cli-normal-budget-v0.2.md)
+show passing code from both systems: Vibe finishes in about 12 minutes, while
+Mirror reaches the 15-minute deadline after producing passing code. These
+single-task development checks remain excluded from measured core coverage.
+
 Mini separates the Ollama call from action execution:
 
 ```bash

@@ -1,0 +1,105 @@
+{
+  "schema_version": "model-starting-profiles-v1",
+  "registry_id": "practical-model-profiles-v0.1",
+  "status": "technical_candidates_not_final_performance_profiles",
+  "selection": "Owner agreed starting candidates; quality calibration and final selection remain separate joint steps.",
+  "capacities": "No implicit run capacities: context, output ceiling and seed are mandatory caller inputs.",
+  "profiles": [
+    {
+      "profile_id": "qwen38-27b-xhigh-v1",
+      "model": "qwen3.8:27b-mlx",
+      "model_digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "ollama_version": "0.40.5",
+      "status": "owner_agreed_starting_candidate_not_calibrated",
+      "role": "starting_candidate",
+      "think": "xhigh",
+      "sampling": {
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "top_k": 20,
+        "min_p": 0.0,
+        "presence_penalty": 0.0,
+        "repeat_penalty": 1.0
+      },
+      "history_policy": "preserve_supplied",
+      "maximum_context_tokens": 262144,
+      "unadvertised_boolean_probe": false,
+      "primary_source": "https://huggingface.co/Qwen/Qwen3.8-27B"
+    },
+    {
+      "profile_id": "qwen38-27b-medium-v1",
+      "model": "qwen3.8:27b-mlx",
+      "model_digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+      "ollama_version": "0.40.5",
+      "status": "owner_agreed_starting_candidate_not_calibrated",
+      "role": "comparison_candidate",
+      "think": "medium",
+      "sampling": {
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "top_k": 20,
+        "min_p": 0.0,
+        "presence_penalty": 0.0,
+        "repeat_penalty": 1.0
+      },
+      "history_policy": "preserve_supplied",
+      "maximum_context_tokens": 262144,
+      "unadvertised_boolean_probe": false,
+      "primary_source": "https://huggingface.co/Qwen/Qwen3.8-27B"
+    },
+    {
+      "profile_id": "gemma4-31b-thinking-v1",
+      "model": "gemma4:31b-mlx",
+      "model_digest": "a22a363052da770302019d5afab29bd967f9318e4377bddd297421189ea09d7d",
+      "ollama_version": "0.40.5",
+      "status": "owner_agreed_starting_candidate_not_calibrated",
+      "role": "starting_candidate",
+      "think": true,
+      "sampling": {
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "top_k": 64
+      },
+      "history_policy": "current_turn_tool_calls_only",
+      "maximum_context_tokens": 262144,
+      "unadvertised_boolean_probe": false,
+      "primary_source": "https://ai.google.dev/gemma/docs/core/model_card_4"
+    },
+    {
+      "profile_id": "nemotron35-lightning-thinking-v1",
+      "model": "nemotron-3.5-lightning:30b-mlx",
+      "model_digest": "8b1474be6e54dc19eb7aa08bebfb9bda147c4b9ef9796a726131ad29ad15645a",
+      "ollama_version": "0.40.5",
+      "status": "owner_agreed_starting_candidate_not_calibrated",
+      "role": "starting_candidate",
+      "think": true,
+      "sampling": {
+        "temperature": 1.0,
+        "top_p": 0.95
+      },
+      "history_policy": "preserve_supplied",
+      "maximum_context_tokens": 262144,
+      "unadvertised_boolean_probe": false,
+      "primary_source": "https://build.nvidia.com/nvidia/nemotron-3.5-lightning-30b-a3b/modelcard"
+    },
+    {
+      "profile_id": "ornith15-35b-native-thinking-v1",
+      "model": "ornith-1.5:35b",
+      "model_digest": "9f3b89b2521908dd2e6f7a11fa368e62c8f89e1075f22604e4d1a76dd1240fcc",
+      "ollama_version": "0.40.5",
+      "status": "owner_agreed_starting_candidate_not_calibrated",
+      "role": "starting_candidate",
+      "think": true,
+      "sampling": {
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20
+      },
+      "history_policy": "preserve_supplied",
+      "maximum_context_tokens": 262144,
+      "unadvertised_boolean_probe": true,
+      "primary_source": "https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B",
+      "reasoning_replay_encoding": "content_think_tags"
+    }
+  ]
+}

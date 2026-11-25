@@ -13,6 +13,9 @@ from urllib.parse import unquote
 
 FORBIDDEN_PATHS = {
     "PROJECT_STATUS.md",
+    "SESSION_HANDOFF.md",
+    "tasks/studies/practical-model-profiles-v0.1.draft.json",
+    "tasks/studies/practical-profile-calibration-v0.1.draft.json",
     "docs/case-study-log.md",
     "docs/case-study-writing-agent-brief.md",
 }
@@ -21,6 +24,7 @@ FORBIDDEN_PREFIXES = (
     "data/private/",
     "docs/case-study-assets/",
     "results/",
+    "tasks/workflow-drafts/",
 )
 
 SECRET_PATTERNS = {

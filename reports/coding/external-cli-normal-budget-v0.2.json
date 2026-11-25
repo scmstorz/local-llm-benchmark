@@ -1,0 +1,796 @@
+{
+  "artifact_successes": 2,
+  "attempt_count": 2,
+  "automatic_retries": 0,
+  "case_id": "coding.dev.async-cache-coalescing",
+  "completed_provider_responses": 21,
+  "deployment": {
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "name": "qwen3.8:27b-mlx"
+  },
+  "earlier_frozen_source_fingerprints_unchanged": 411,
+  "evidence_class": "excluded_normal_budget_development_checks",
+  "fresh_empty_gate_seconds_per_attempt": 30,
+  "generated_at": "2026-10-18T08:27:45.231994Z",
+  "limits": [
+    "One attempt per complete system, one task, no randomization or repetitions; no general ranking or reliability probability.",
+    "Wall budget, prompt and Mirror output ceiling differ from v0.1; no isolated causal time-limit claim.",
+    "Token usage for the interrupted final Mirror response is unknown and excluded from subtotals; character counts are not token counts.",
+    "Prompt-token sums include repeated and cached context; context-window declarations do not prove backend context allocation.",
+    "Raw request, response, native state, code and authorization artifacts remain local."
+  ],
+  "measured_admission": false,
+  "next_step": "Qualify explicit backend thinking control and bounded scratch testing/termination behavior before expanding tasks or running a measured harness comparison.",
+  "observations": [
+    "Both frozen implementations pass public, hidden and integrity verification; only Vibe completes the overall run within 900 seconds.",
+    "First confirmed native source edits occur at about 605 and 608 seconds; exact first-byte times were not observed.",
+    "Both wire streams contain reasoning text, while no request transmits an explicit think or reasoning_effort constraint. Native none/off declarations do not establish backend thinking-off behavior.",
+    "Mirror dynamically reduces its configured 8192-token main-loop ceiling with context growth; one response ends at length with max_tokens=5508. Its compaction request has no explicit output-token field.",
+    "Vibe has no explicit output-token ceiling; its third response uses 17824 completion tokens and 559.68 seconds, with substantial reasoning text.",
+    "Each harness performs one native context compaction. Mirror makes four denied scratch-test attempts after producing the passing implementation; Vibe has no denied tool outputs."
+  ],
+  "offline_qualification": {
+    "native_deadline_cells": 2,
+    "native_javascript_tool_cells": 2,
+    "real_model_requests": 0,
+    "sandbox_probes": 62,
+    "synthetic_provider_requests": 18,
+    "targeted_tests": 21
+  },
+  "ollama_version": "0.40.5",
+  "overall_successes": 1,
+  "packages": {
+    "mirror": "reflection-mirror==0.1.0",
+    "vibe": "mistral-vibe==2.26.1; Python --legacy-harness"
+  },
+  "plan_sha256": "0ce9e17a4237d4442d29bcece79df40f151fa3e40d7b35f33341aed7b11ef5c5",
+  "post_correction_private_evidence_proof_sha256": "31cea0a0ee5ec854afd50f2b6f7009f9c6b94a16d0db9b4d3b35e3dd8e4f6ca1",
+  "post_run_regression": {
+    "expected_skips": 4,
+    "tests": 698
+  },
+  "post_run_transport_correction": {
+    "cause_observed": "http.client.IncompleteRead during parent-timeout stream shutdown",
+    "model_facing_prompt_tools_settings_changed": false,
+    "model_runs_repeated": 0,
+    "original_last_request_finished_at_present": true,
+    "original_mirror_last_journal_status": "started",
+    "original_status_preserved": true,
+    "scope": "Record an interrupted chunked upstream response as transport_error, preserve partial wire bytes, close the started stream without injecting a second HTTP response, and release its tracked connection."
+  },
+  "post_run_transport_regression_tests": 20,
+  "pre_inference_regression": {
+    "expected_skips": 4,
+    "tests": 697
+  },
+  "protocol_path": "tasks/coding/track-b/external-cli-v0.2.json",
+  "protocol_sha256": "81c114143cbb4855fea09b95f520f461f19a91d5ce2bebd6802b6f65fa338e1a",
+  "schema_version": "external-cli-normal-budget-report-v0.2",
+  "source_commit": "eddadd560737b3c761a56ff61056d1ab73bf6156",
+  "systems": [
+    {
+      "artifact_verified_success": true,
+      "attempts": 1,
+      "automatic_retries": 0,
+      "changed_paths": [
+        "src/async-cache.mjs"
+      ],
+      "committed_native_tool_calls": {
+        "bash": 5,
+        "ls": 1,
+        "read": 8,
+        "write": 3
+      },
+      "completed_responses": 14,
+      "context_compaction_request_sequences": [
+        6
+      ],
+      "denied_native_tool_outputs": 4,
+      "first_confirmed_native_source_edit_seconds": 604.714017,
+      "first_edit_timing_basis": "Native successful tool-result timestamp, not an exact first-byte timestamp; final changed source bytes verified independently.",
+      "harness": "mirror",
+      "harness_id": "mirror-cli-v0.2",
+      "hidden_tests_passed": true,
+      "integrity_passed": true,
+      "known_completion_tokens": 20747,
+      "known_prompt_tokens": 90997,
+      "known_usage_responses": 14,
+      "measured_admission": false,
+      "model_requests": 15,
+      "overall_verified_success": false,
+      "postflight_empty": true,
+      "process_cleanup_passed": true,
+      "provider_content_text_characters": 7107,
+      "provider_reasoning_text_characters": 47807,
+      "public_tests_passed": true,
+      "responses": [
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 0,
+            "reasoning": 60
+          },
+          "sequence": 1,
+          "settings": {
+            "max_tokens": 8192,
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            }
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 101,
+            "prompt_tokens": 2611,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "total_tokens": 2712
+          },
+          "wall_time_seconds": 19.93076579202898
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 0,
+            "reasoning": 81
+          },
+          "sequence": 2,
+          "settings": {
+            "max_tokens": 8192,
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            }
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 63,
+            "prompt_tokens": 3705,
+            "prompt_tokens_details": {
+              "cached_tokens": 2606
+            },
+            "total_tokens": 3768
+          },
+          "wall_time_seconds": 6.199767458019778
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 0,
+            "reasoning": 44
+          },
+          "sequence": 3,
+          "settings": {
+            "max_tokens": 8192,
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            }
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 52,
+            "prompt_tokens": 3889,
+            "prompt_tokens_details": {
+              "cached_tokens": 3700
+            },
+            "total_tokens": 3941
+          },
+          "wall_time_seconds": 2.122399542015046
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 98,
+            "reasoning": 22605
+          },
+          "sequence": 4,
+          "settings": {
+            "max_tokens": 8192,
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            }
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 5597,
+            "prompt_tokens": 4120,
+            "prompt_tokens_details": {
+              "cached_tokens": 3884
+            },
+            "total_tokens": 9717
+          },
+          "wall_time_seconds": 155.43840808304958
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "length"
+          ],
+          "response_text_characters": {
+            "content": 131,
+            "reasoning": 19828
+          },
+          "sequence": 5,
+          "settings": {
+            "max_tokens": 5508,
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            }
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 5508,
+            "prompt_tokens": 4610,
+            "prompt_tokens_details": {
+              "cached_tokens": 4115
+            },
+            "total_tokens": 10118
+          },
+          "wall_time_seconds": 216.65706091700122
+        },
+        {
+          "context_compaction": true,
+          "finish_reasons": [
+            "stop"
+          ],
+          "response_text_characters": {
+            "content": 5532,
+            "reasoning": 480
+          },
+          "sequence": 6,
+          "settings": {
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            }
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 1608,
+            "prompt_tokens": 13511,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "total_tokens": 15119
+          },
+          "wall_time_seconds": 141.74724204209633
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 93,
+            "reasoning": 226
+          },
+          "sequence": 7,
+          "settings": {
+            "max_tokens": 8192,
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            }
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 1227,
+            "prompt_tokens": 3573,
+            "prompt_tokens_details": {
+              "cached_tokens": 2
+            },
+            "total_tokens": 4800
+          },
+          "wall_time_seconds": 61.782605207990855
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 82,
+            "reasoning": 52
+          },
+          "sequence": 8,
+          "settings": {
+            "max_tokens": 8192,
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            }
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 86,
+            "prompt_tokens": 4780,
+            "prompt_tokens_details": {
+              "cached_tokens": 3568
+            },
+            "total_tokens": 4866
+          },
+          "wall_time_seconds": 10.509136999957263
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 92,
+            "reasoning": 267
+          },
+          "sequence": 9,
+          "settings": {
+            "max_tokens": 8192,
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            }
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 164,
+            "prompt_tokens": 5044,
+            "prompt_tokens_details": {
+              "cached_tokens": 4775
+            },
+            "total_tokens": 5208
+          },
+          "wall_time_seconds": 7.317786749918014
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 83,
+            "reasoning": 64
+          },
+          "sequence": 10,
+          "settings": {
+            "max_tokens": 8192,
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            }
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 89,
+            "prompt_tokens": 7001,
+            "prompt_tokens_details": {
+              "cached_tokens": 5039
+            },
+            "total_tokens": 7090
+          },
+          "wall_time_seconds": 15.790016541955993
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 205,
+            "reasoning": 580
+          },
+          "sequence": 11,
+          "settings": {
+            "max_tokens": 8192,
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            }
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 1574,
+            "prompt_tokens": 7373,
+            "prompt_tokens_details": {
+              "cached_tokens": 6996
+            },
+            "total_tokens": 8947
+          },
+          "wall_time_seconds": 55.07296845805831
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 100,
+            "reasoning": 140
+          },
+          "sequence": 12,
+          "settings": {
+            "max_tokens": 6605,
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            }
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 1377,
+            "prompt_tokens": 8858,
+            "prompt_tokens_details": {
+              "cached_tokens": 7368
+            },
+            "total_tokens": 10235
+          },
+          "wall_time_seconds": 44.87949070800096
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 381,
+            "reasoning": 306
+          },
+          "sequence": 13,
+          "settings": {
+            "max_tokens": 5317,
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            }
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 1448,
+            "prompt_tokens": 10232,
+            "prompt_tokens_details": {
+              "cached_tokens": 8853
+            },
+            "total_tokens": 11680
+          },
+          "wall_time_seconds": 45.9600010830909
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 174,
+            "reasoning": 936
+          },
+          "sequence": 14,
+          "settings": {
+            "max_tokens": 3841,
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            }
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 1853,
+            "prompt_tokens": 11690,
+            "prompt_tokens_details": {
+              "cached_tokens": 10227
+            },
+            "total_tokens": 13543
+          },
+          "wall_time_seconds": 66.52555704209954
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [],
+          "response_text_characters": {
+            "content": 136,
+            "reasoning": 2138
+          },
+          "sequence": 15,
+          "settings": {
+            "max_tokens": 1994,
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            }
+          },
+          "status": "started",
+          "usage": null,
+          "wall_time_seconds": null
+        }
+      ],
+      "runtime_success": false,
+      "termination_reason": "parent_timeout",
+      "timed_out": true,
+      "unknown_usage_responses": 1,
+      "usage_scope": "Available provider usage only; unknown interrupted-response usage excluded. Prompt totals include repeated/cached context.",
+      "wall_budget_seconds": 900,
+      "wall_seconds_including_cleanup": 900.4655546250287
+    },
+    {
+      "artifact_verified_success": true,
+      "attempts": 1,
+      "automatic_retries": 0,
+      "changed_paths": [
+        "src/async-cache.mjs"
+      ],
+      "committed_native_tool_calls": {
+        "bash": 2,
+        "edit": 1,
+        "read_file": 5
+      },
+      "completed_responses": 7,
+      "context_compaction_request_sequences": [
+        4
+      ],
+      "denied_native_tool_outputs": 0,
+      "first_confirmed_native_source_edit_seconds": 608.440119,
+      "first_edit_timing_basis": "Native successful tool-result timestamp, not an exact first-byte timestamp; final changed source bytes verified independently.",
+      "harness": "vibe",
+      "harness_id": "vibe-cli-v0.2",
+      "hidden_tests_passed": true,
+      "integrity_passed": true,
+      "known_completion_tokens": 20260,
+      "known_prompt_tokens": 46037,
+      "known_usage_responses": 7,
+      "measured_admission": false,
+      "model_requests": 7,
+      "overall_verified_success": true,
+      "postflight_empty": true,
+      "process_cleanup_passed": true,
+      "provider_content_text_characters": 6016,
+      "provider_reasoning_text_characters": 65171,
+      "public_tests_passed": true,
+      "responses": [
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 80,
+            "reasoning": 78
+          },
+          "sequence": 1,
+          "settings": {
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            },
+            "temperature": 0.0,
+            "tool_choice": "auto"
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 166,
+            "prompt_tokens": 4437,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "total_tokens": 4603
+          },
+          "wall_time_seconds": 34.14617891609669
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 47,
+            "reasoning": 71
+          },
+          "sequence": 2,
+          "settings": {
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            },
+            "temperature": 0.0,
+            "tool_choice": "auto"
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 463,
+            "prompt_tokens": 5126,
+            "prompt_tokens_details": {
+              "cached_tokens": 4432
+            },
+            "total_tokens": 5589
+          },
+          "wall_time_seconds": 12.894833292113617
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 500,
+            "reasoning": 64406
+          },
+          "sequence": 3,
+          "settings": {
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            },
+            "temperature": 0.0,
+            "tool_choice": "auto"
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 17824,
+            "prompt_tokens": 7908,
+            "prompt_tokens_details": {
+              "cached_tokens": 5121
+            },
+            "total_tokens": 25732
+          },
+          "wall_time_seconds": 559.6839228339959
+        },
+        {
+          "context_compaction": true,
+          "finish_reasons": [
+            "stop"
+          ],
+          "response_text_characters": {
+            "content": 3068,
+            "reasoning": 326
+          },
+          "sequence": 4,
+          "settings": {
+            "model": "qwen3.8:27b-mlx",
+            "temperature": 0.0,
+            "tool_choice": "auto"
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 911,
+            "prompt_tokens": 10113,
+            "prompt_tokens_details": {
+              "cached_tokens": 7903
+            },
+            "total_tokens": 11024
+          },
+          "wall_time_seconds": 47.39863475016318
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 62,
+            "reasoning": 99
+          },
+          "sequence": 5,
+          "settings": {
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            },
+            "temperature": 0.0,
+            "tool_choice": "auto"
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 185,
+            "prompt_tokens": 5350,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "total_tokens": 5535
+          },
+          "wall_time_seconds": 39.19851833418943
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "response_text_characters": {
+            "content": 56,
+            "reasoning": 102
+          },
+          "sequence": 6,
+          "settings": {
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            },
+            "temperature": 0.0,
+            "tool_choice": "auto"
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 152,
+            "prompt_tokens": 5936,
+            "prompt_tokens_details": {
+              "cached_tokens": 5345
+            },
+            "total_tokens": 6088
+          },
+          "wall_time_seconds": 7.39610741706565
+        },
+        {
+          "context_compaction": false,
+          "finish_reasons": [
+            "stop"
+          ],
+          "response_text_characters": {
+            "content": 2203,
+            "reasoning": 89
+          },
+          "sequence": 7,
+          "settings": {
+            "model": "qwen3.8:27b-mlx",
+            "stream": true,
+            "stream_options": {
+              "include_usage": true
+            },
+            "temperature": 0.0,
+            "tool_choice": "auto"
+          },
+          "status": "complete",
+          "usage": {
+            "completion_tokens": 559,
+            "prompt_tokens": 7167,
+            "prompt_tokens_details": {
+              "cached_tokens": 5931
+            },
+            "total_tokens": 7726
+          },
+          "wall_time_seconds": 24.26448983279988
+        }
+      ],
+      "runtime_success": true,
+      "termination_reason": "completed",
+      "timed_out": false,
+      "unknown_usage_responses": 0,
+      "usage_scope": "Available provider usage only; unknown interrupted-response usage excluded. Prompt totals include repeated/cached context.",
+      "wall_budget_seconds": 900,
+      "wall_seconds_including_cleanup": 727.1480931250844
+    }
+  ],
+  "task_inventory_count": 23,
+  "total_model_requests": 22,
+  "verified_private_closeout_sha256": "f714a5c73b59ee715986cfd5f134df72e6b4ca213d2c7231f47f82417f418783",
+  "wall_budget_seconds_per_attempt": 900
+}

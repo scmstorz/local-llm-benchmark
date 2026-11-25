@@ -1,0 +1,129 @@
+{
+  "schema_version": "external-cli-effective-backend-qualification-v0.3",
+  "created_at": "2026-10-18T10:03:15.708834Z",
+  "status": "qualification_complete_not_measured_admission",
+  "source_commit": "df87ba25739cbe5017af5da357739025d4bcd90f",
+  "condition_path": "tasks/coding/track-b/external-cli-v0.3.json",
+  "method_path": "integrations/external-cli-v0.3.md",
+  "model": {
+    "name": "qwen3.8:27b-mlx",
+    "ollama": "0.40.5",
+    "digest": "5642e97495e1a088883805981563dcdc4a040c2f53388b7a41d1f24d3622cf7e",
+    "declared_thinking_default": "medium"
+  },
+  "new_condition": {
+    "provider": "Explicit, journaled native Ollama text/tool bridge; distinct opt-in complete-system condition",
+    "think": false,
+    "temperature": 0,
+    "seed": 42,
+    "backend_context": 16384,
+    "maximum_output_tokens_per_request": 1600,
+    "smaller_cli_ceiling_honored": true,
+    "compaction_covered": true,
+    "scratch": "Isolated declared directory, native write and absolute script execution qualified; Bash here-docs explicitly unsupported",
+    "normal_parent_seconds": 900,
+    "turn_limit": null,
+    "total_token_limit": null
+  },
+  "offline": {
+    "regression_tests": 710,
+    "expected_skips": 6,
+    "focused_lifecycle_and_provider_tests": 30,
+    "native_conditions": [
+      "v0.2",
+      "v0.3"
+    ],
+    "native_cells": 8,
+    "sandbox_checks": 124,
+    "synthetic_completion_requests": 40,
+    "model_requests": 0,
+    "new_condition_native_case": "coding.dev.async-cache-coalescing",
+    "new_condition_native_successes": [
+      "Mirror read/write/search/public-test/denials/scratch/final output",
+      "Vibe read/edit/search/public-test/denials/scratch/final output",
+      "Mirror sleeping-child deadline and refusal to restart",
+      "Vibe sleeping-child deadline and refusal to restart"
+    ]
+  },
+  "live_backend_probes": {
+    "completion_requests": 3,
+    "passed": true,
+    "checks": {
+      "all_effective_controls_conformant": true,
+      "exactly_three_completed_requests": true,
+      "runtime_context_16384_observed": true,
+      "short_text_correct": true,
+      "tool_call_correct": true,
+      "tool_result_replay_correct": true
+    },
+    "observed_contexts": [
+      16384,
+      16384,
+      16384
+    ],
+    "steps": [
+      {
+        "label": "short_text",
+        "client_stream": true,
+        "effective_num_predict": 32,
+        "completion_tokens": 3,
+        "thinking_characters": 0,
+        "finish_reason": "stop"
+      },
+      {
+        "label": "tool_call",
+        "client_stream": false,
+        "effective_num_predict": 128,
+        "completion_tokens": 27,
+        "thinking_characters": 0,
+        "finish_reason": "tool_calls"
+      },
+      {
+        "label": "tool_result_replay",
+        "client_stream": true,
+        "effective_num_predict": 32,
+        "completion_tokens": 2,
+        "thinking_characters": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "fresh_empty_state_seconds": 30,
+    "automatic_retries": 0,
+    "coding_task_reruns": 0,
+    "postflight_empty": true
+  },
+  "reference_audit": [
+    {
+      "harness": "Mini v0.3",
+      "method": "Actual native request construction, offline",
+      "result": "Explicit think=false, num_ctx=16384, temperature=0, seed=42, num_predict=1600."
+    },
+    {
+      "harness": "Pi v0.3",
+      "method": "Actual pinned CLI request to a local stub using copied prepared model/settings; fresh probe prompt/read-only tool set/no extensions",
+      "result": "Explicit temperature=0, seed=42, max_completion_tokens=1600; no think/reasoning_effort or backend num_ctx. Registry context is a client declaration."
+    }
+  ],
+  "preservation": {
+    "earlier_frozen_source_fingerprints": 411,
+    "old_frozen_runs_unchanged": 4,
+    "historical_v02_request_shapes_translated_offline": 22,
+    "old_contracts_unchanged": true,
+    "existing_case_inventory_unchanged": true
+  },
+  "interpretation": [
+    "The new bridge successfully requests no thinking and an explicit backend context in the three bounded control probes. Native CLIs and backend translation are qualified separately; no live coding benchmark was repeated.",
+    "The native clients still choose their own prompts, tools and context management. This does not create identical complete harnesses or isolate an earlier timeout effect.",
+    "Old Pi remains a mismatched-backend reference until a separately versioned Pi bridge/sandbox is qualified. A matched four-system comparison is not ready.",
+    "The probes do not show that Mirror now finishes the coding task within900 seconds, establish a speed ranking or establish that simple tasks need a large harness.",
+    "Stop for owner feedback before any new task family, knowledge-score analysis or additional harness integration."
+  ],
+  "evidence_hashes": {
+    "backend-probe-plan.json": "837c018749053f33d30cb08563d3d0f1cfdb1562127497763ce952b14aac87d6",
+    "backend-probe-closeout.json": "8cce9f0875f1ef61570c02913bc158364311047a08e611d9210b144a6f523b0b",
+    "offline-closeout.json": "5a65f3f8de15bbe9f11b2ae5dbe648368a32321fe1a04a2e4a86e737f43d5f0c",
+    "preservation-and-shape-proof.json": "a7eb3cfa59545639aa63b2be811e280154ce455199de6d821951b0d4ea36b1c6",
+    "mini-request-audit.json": "a4e35d0b901f30f06a1765d628e203eaf7249ebc491bb14a35926b097f356234",
+    "pi-request-audit.json": "362aee95a9c4a1dff4ae901ee57897416b6d866f79380ac91f0ef330e652c296"
+  }
+}

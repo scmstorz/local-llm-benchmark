@@ -1,0 +1,49 @@
+{
+  "schema_version": "practical-calibration-rubric-v1",
+  "version": "1.0.0",
+  "maximum_points": 100,
+  "dimensions": [
+    {
+      "id": "source_fidelity",
+      "weight": 35,
+      "title": "Sachtreue und korrekte Zahlen",
+      "criterion": "Wesentliche Aussagen stimmen mit den maßgeblichen Quellen überein; Bezugsgruppen und Prozent/Prozentpunkte werden korrekt behandelt."
+    },
+    {
+      "id": "epistemic_scope",
+      "weight": 15,
+      "title": "Geltungsbereich und Unsicherheit",
+      "criterion": "Beobachtung, Berechnung, Annahme und Ursache sind sauber getrennt; Einschränkungen stehen bei der betroffenen Aussage."
+    },
+    {
+      "id": "synthesis",
+      "weight": 20,
+      "title": "Synthese und Gewichtung",
+      "criterion": "Der Text verbindet die Dokumente sinnvoll, löst Widersprüche und priorisiert die entscheidenden Befunde."
+    },
+    {
+      "id": "practical_usefulness",
+      "weight": 20,
+      "title": "Nutzen und Auftragserfüllung",
+      "criterion": "Die Zielgruppe erhält ein verwendbares Ergebnis mit nachvollziehbarer Einordnung und passenden nächsten Fragen oder Schritten."
+    },
+    {
+      "id": "language",
+      "weight": 10,
+      "title": "Deutsche Sprache und Lesbarkeit",
+      "criterion": "Präzise, verständliche, zusammenhängende Prosa; angemessener Ton, klare Struktur und wenig Floskeln."
+    }
+  ],
+  "rating_scale": {
+    "0": "fehlt oder grundlegend falsch",
+    "1": "starke Mängel",
+    "2": "teilweise brauchbar, erhebliche Nacharbeit",
+    "3": "gut, begrenzte Nacharbeit",
+    "4": "sehr gut, nur geringe oder keine Nacharbeit"
+  },
+  "weighted_score": "sum(weight * rating / 4), retain dimension ratings separately",
+  "critical_error_rule": "A supported material distortion that changes the decision, evidence or central message makes the answer unusable as delivered, regardless of prose or total points. Quote the answer and cite a reference fact; omissions alone are not automatically critical.",
+  "judgment_rule": "A reference specifies factual constraints, not a mandatory wording, outline or uniquely correct recommendation. Equivalent correct formulations and justified alternative recommendations are admissible.",
+  "length_rule": "Report word count consistently; target length is a guideline. Judge a material usefulness/brief problem, not a one-word boundary. Do not double-penalize one fault across dimensions without a distinct consequence.",
+  "revision_rule": "Freeze v1 before outputs; preserve v1 results. Learn owner preferences through a separately versioned v2 or sensitivity analysis applied consistently. Do not silently rewrite scores to match a preference."
+}

@@ -1,0 +1,196 @@
+{
+  "schema_version": "practical-calibration-reference-v1",
+  "case_id": "calibration.practical.library-article",
+  "candidate_delivery": false,
+  "inputs": {
+    "visits_old": 9400,
+    "visits_new": 11280,
+    "people_old": 1000,
+    "people_new": 1080,
+    "hours_old": 1000,
+    "hours_new": 1250,
+    "evening_visits": 1880,
+    "approached": 480,
+    "responded": 240,
+    "helped": 156,
+    "control_old": 6200,
+    "control_new": 6820,
+    "annual_cost": 18000,
+    "grant": 12000
+  },
+  "facts": [
+    {
+      "id": "B-denominators",
+      "source_ids": [
+        "Q1",
+        "Q6"
+      ],
+      "reference_claim": "Visits rise20 percent, registered active people8 percent and hours25 percent. Visits, active borrowers and all unique visitors are different quantities. The draft20-percent-more-users wording is unsupported.",
+      "supporting_spans": [
+        "| Gezählte Besuche | 9.400 | 11.280 |",
+        "| Registrierte aktive Personen, mindestens eine Ausleihe im Jahr | 1.000 | 1.080 |",
+        "| Öffnungsstunden | 1.000 | 1.250 |"
+      ],
+      "important_for_strong_answer": true,
+      "material_distortion": "Present20 percent as growth in people or conflate active borrowers with all unique visitors."
+    },
+    {
+      "id": "B-time_denominator",
+      "source_ids": [
+        "Q1"
+      ],
+      "reference_claim": "Visits per opening hour fall from9.4 to9.024, or4 percent. Absolute visits rise more slowly than hours. This alone establishes neither failure nor overall social value.",
+      "supporting_spans": [
+        "| Gezählte Besuche | 9.400 | 11.280 |",
+        "| Öffnungsstunden | 1.000 | 1.250 |"
+      ],
+      "important_for_strong_answer": true,
+      "material_distortion": null
+    },
+    {
+      "id": "B-causality",
+      "source_ids": [
+        "Q1",
+        "Q3"
+      ],
+      "reference_claim": "The control branch grows10 percent; the growth difference is10 percentage points. Concurrent changes and nonrandom groups prevent identifying a causal opening-hours effect. The1880 evening visits are not established additional visits.",
+      "supporting_spans": [
+        "Die Zweigstelle West hatte unveränderte Öffnungsstunden.",
+        "Dort wurden 2024 6.200 und 2025 6.820 Besuche gezählt.",
+        "Ein kausaler Effekt der Abendöffnung wurde in dieser Notiz nicht identifiziert."
+      ],
+      "important_for_strong_answer": true,
+      "material_distortion": "Claim proven causal20-percent growth, treat10 percentage points as an identified causal effect, or call all1880 evening visits additional."
+    },
+    {
+      "id": "B-survey",
+      "source_ids": [
+        "Q2"
+      ],
+      "reference_claim": "156/240 respondents,65 percent, report help.240/480 approached adults responded. This is not65 percent of residents, all users or a representative approval rate.",
+      "supporting_spans": [
+        "240 beantworteten den Fragebogen.",
+        "156 der Antwortenden kreuzten an, dass ihnen die längeren Öffnungszeiten helfen.",
+        "es handelt sich nicht um eine Zufallsstichprobe der Stadtbevölkerung."
+      ],
+      "important_for_strong_answer": true,
+      "material_distortion": "Generalize the65-percent respondent figure to the population or all library users."
+    },
+    {
+      "id": "B-funding",
+      "source_ids": [
+        "Q4",
+        "Q6"
+      ],
+      "reference_claim": "2025 additional cost18000 EUR comprises12000 grant and6000 municipal funding. The grant ends2026; no2027 extension is promised. The program has no measured extra revenues and cannot be called self-financing.",
+      "supporting_spans": [
+        "sie endet am 31.12.2026.",
+        "Für 2027 ist keine Anschlussförderung zugesagt.",
+        "das Programm erzielt keine gemessenen Mehrerlöse."
+      ],
+      "important_for_strong_answer": true,
+      "material_distortion": "Assert permanently secured funding, cash self-financing or a promised follow-on grant."
+    },
+    {
+      "id": "B-voices",
+      "source_ids": [
+        "Q5"
+      ],
+      "reference_claim": "Volunteer conversations give plausible concrete needs, without representativeness. Their notes are paraphrases, not verbatim quotes; staff strain is not systematically quantified.",
+      "supporting_spans": [
+        "Das sind sinngemäße Zusammenfassungen, keine wörtlichen Zitate.",
+        "Belastung und Ausfälle wurden nicht systematisch gemessen."
+      ],
+      "important_for_strong_answer": false,
+      "material_distortion": "Invent an attributed verbatim quote or describe a measured broad population/staff result that is absent."
+    },
+    {
+      "id": "B-editorial",
+      "source_ids": [
+        "Q6"
+      ],
+      "reference_claim": "The unapproved press draft contributes no new observations or funding commitment. A coherent informative article should connect evidence, needs and open decisions without merely laundering that draft.",
+      "supporting_spans": [
+        "Der Entwurf enthält keine zusätzlichen Erhebungen oder Förderzusagen."
+      ],
+      "important_for_strong_answer": true,
+      "material_distortion": null
+    }
+  ],
+  "calculations": [
+    {
+      "id": "visits_growth_percent",
+      "expression": "(visits_new-visits_old)/visits_old*100",
+      "expected_fraction": "20",
+      "meaning": "percent"
+    },
+    {
+      "id": "active_people_growth_percent",
+      "expression": "(people_new-people_old)/people_old*100",
+      "expected_fraction": "8",
+      "meaning": "percent"
+    },
+    {
+      "id": "hours_growth_percent",
+      "expression": "(hours_new-hours_old)/hours_old*100",
+      "expected_fraction": "25",
+      "meaning": "percent"
+    },
+    {
+      "id": "visits_per_hour_old",
+      "expression": "visits_old/hours_old",
+      "expected_fraction": "47/5",
+      "meaning": "visits/hour"
+    },
+    {
+      "id": "visits_per_hour_new",
+      "expression": "visits_new/hours_new",
+      "expected_fraction": "1128/125",
+      "meaning": "visits/hour"
+    },
+    {
+      "id": "intensity_change_percent",
+      "expression": "((visits_new/hours_new)/(visits_old/hours_old)-1)*100",
+      "expected_fraction": "-4",
+      "meaning": "percent"
+    },
+    {
+      "id": "survey_help_percent",
+      "expression": "helped/responded*100",
+      "expected_fraction": "65",
+      "meaning": "percent of respondents"
+    },
+    {
+      "id": "survey_response_percent",
+      "expression": "responded/approached*100",
+      "expected_fraction": "50",
+      "meaning": "percent of approached adults"
+    },
+    {
+      "id": "control_growth_percent",
+      "expression": "(control_new-control_old)/control_old*100",
+      "expected_fraction": "10",
+      "meaning": "percent"
+    },
+    {
+      "id": "growth_gap_percentage_points",
+      "expression": "(visits_new-visits_old)/visits_old*100-(control_new-control_old)/control_old*100",
+      "expected_fraction": "10",
+      "meaning": "percentage points, not identified causal effect"
+    },
+    {
+      "id": "evening_visit_share_percent",
+      "expression": "evening_visits/visits_new*100",
+      "expected_fraction": "50/3",
+      "meaning": "percent, not additional visits"
+    },
+    {
+      "id": "municipal_contribution",
+      "expression": "annual_cost-grant",
+      "expected_fraction": "6000",
+      "meaning": "EUR2025"
+    }
+  ],
+  "acceptable_outcomes": "A balanced readable article may support a conditionally funded continuation or urge more evaluation. It must distinguish evidence from recommendation and avoid unsupported causal, population or funding claims.",
+  "optional_calculations": "Exact visit intensity and control-growth gap may be replaced by correct qualitative interpretation. Not every statistic is mandatory; coherent useful selection outranks exhaustive number copying."
+}

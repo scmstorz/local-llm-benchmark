@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Separate delivered-text and editing-base assessments v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "case_id", "candidate_id", "answer_sha256", "as_delivered_origin", "v1_judgment_sha256", "as_delivered", "reading_profile", "editing_base"],
+  "properties": {
+    "schema_version": {"const": "practical-text-review-v0.2"},
+    "case_id": {"$ref": "#/$defs/text"},
+    "candidate_id": {"$ref": "#/$defs/text"},
+    "answer_sha256": {"$ref": "#/$defs/digest"},
+    "as_delivered_origin": {"enum": ["frozen_v1", "new_review"]},
+    "v1_judgment_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "as_delivered": {
+      "type": "object",
+      "description": "Complete v1-shaped judgment, validated separately against the original answer and case. Frozen judgments must equal the supplied original bytes' parsed JSON."
+    },
+    "reading_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["organization", "comprehensibility", "fluency", "grammar"],
+      "properties": {
+        "organization": {"$ref": "#/$defs/reading_rating"},
+        "comprehensibility": {"$ref": "#/$defs/reading_rating"},
+        "fluency": {"$ref": "#/$defs/reading_rating"},
+        "grammar": {"$ref": "#/$defs/reading_rating"}
+      }
+    },
+    "editing_base": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "verdict", "rationale", "required_repairs", "remaining_uncertainties", "post_edit_quality"],
+      "properties": {
+        "status": {"enum": ["not_assessed", "assessed"]},
+        "verdict": {"enum": [null, "good", "conditional", "poor"]},
+        "rationale": {"type": ["string", "null"], "pattern": "\\S"},
+        "required_repairs": {"type": "array", "items": {"$ref": "#/$defs/repair"}},
+        "remaining_uncertainties": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+        "post_edit_quality": {"const": "not_evaluated", "description": "A repair plan is not evidence about an edited artifact or measured editing effort."}
+      }
+    }
+  },
+  "$defs": {
+    "text": {"type": "string", "pattern": "\\S"},
+    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "reading_rating": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["rating", "rationale", "evidence_quotes"],
+      "properties": {
+        "rating": {"type": "integer", "minimum": 0, "maximum": 4},
+        "rationale": {"$ref": "#/$defs/text"},
+        "evidence_quotes": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/text"}}
+      }
+    },
+    "repair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "answer_quote", "fact_ids", "change"],
+      "properties": {
+        "kind": {"enum": ["factual_correction", "source_verification", "coverage", "structure", "comprehensibility", "fluency", "grammar"]},
+        "answer_quote": {"type": ["string", "null"], "pattern": "\\S"},
+        "fact_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+        "change": {"$ref": "#/$defs/text"}
+      }
+    }
+  }
+}

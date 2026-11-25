@@ -22,6 +22,8 @@ PUBLIC_TEST_MODULES = (
     "tests.test_core_suite",
     "tests.test_core_records",
     "tests.test_core_records_v03",
+    "tests.test_external_cli",
+    "tests.test_external_cli_qualification",
     "tests.test_log_incident",
     "tests.test_log_incident_checkout_v02",
     "tests.test_log_incident_mini",

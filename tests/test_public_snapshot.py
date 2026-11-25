@@ -27,6 +27,7 @@ class PublicSnapshotPolicyTests(unittest.TestCase):
         self.assertTrue(is_public("tasks/general-knowledge/README.md"))
         self.assertTrue(is_public("reports/overview.md"))
         self.assertTrue(is_public("docs/benchmark-design.md"))
+        self.assertTrue(is_public("docs/model-profile-controls-v0.1.md"))
         self.assertTrue(is_public("docs/multi-format-document-analysis-v0.1.md"))
         self.assertTrue(is_public("docs/multi-format-transfer-v0.2.md"))
         self.assertTrue(is_public("docs/multi-format-transfer-smoke-runtime-v0.3.md"))
@@ -52,6 +53,32 @@ class PublicSnapshotPolicyTests(unittest.TestCase):
         self.assertFalse(is_public("results/raw/run.json"))
         self.assertFalse(is_public("tasks/studies/quality-confirmation-bayes-v0.3.json"))
         self.assertFalse(is_public("tasks/studies/quality-confirmation-writing-v0.3.json"))
+        self.assertFalse(is_public("tasks/studies/practical-model-profiles-v0.1.draft.json"))
+        self.assertFalse(is_public("tasks/studies/practical-profile-calibration-v0.1.draft.json"))
+        self.assertFalse(is_public("tasks/workflow-drafts/offline-writing-v0.1/conditions.draft.json"))
+        self.assertFalse(is_public("tasks/workflow-drafts/offline-writing-v0.1/candidate/brief.md"))
+        self.assertFalse(is_public("integrations/.python/bin/python3.12"))
+        self.assertFalse(is_public("integrations/mirror/.venv/pyvenv.cfg"))
+        self.assertFalse(is_public("integrations/vibe/.venv/bin/vibe"))
+        self.assertTrue(is_public("integrations/mirror/uv.lock"))
+        self.assertTrue(is_public("integrations/vibe/uv.lock"))
+
+    def test_audit_rejects_owner_plans_even_if_the_export_filter_is_bypassed(self) -> None:
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            names = [
+                "SESSION_HANDOFF.md",
+                "tasks/studies/practical-model-profiles-v0.1.draft.json",
+                "tasks/studies/practical-profile-calibration-v0.1.draft.json",
+                "tasks/workflow-drafts/offline-writing-v0.1/conditions.draft.json",
+            ]
+            for name in names:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("{}\n", encoding="utf-8")
+            rejected = {finding.path for finding in audit(root)
+                        if finding.detail == "path is outside the public boundary"}
+            self.assertEqual(rejected, set(names))
 
     def test_audit_accepts_small_linked_public_tree(self) -> None:
         with TemporaryDirectory() as directory:
